@@ -28,6 +28,28 @@ import (
 //   	// the properties below are optional
 //   	DeletionProtection: jsii.Boolean(false),
 //   	GraphName: jsii.String("graphName"),
+//   	ImportTask: &ImportTaskProperty{
+//   		RoleArn: jsii.String("roleArn"),
+//   		Source: jsii.String("source"),
+//
+//   		// the properties below are optional
+//   		BlankNodeHandling: jsii.String("blankNodeHandling"),
+//   		FailOnError: jsii.Boolean(false),
+//   		Format: jsii.String("format"),
+//   		ImportOptions: &ImportOptionsProperty{
+//   			Neptune: &NeptuneImportOptionsProperty{
+//   				S3ExportKmsKeyId: jsii.String("s3ExportKmsKeyId"),
+//   				S3ExportPath: jsii.String("s3ExportPath"),
+//
+//   				// the properties below are optional
+//   				PreserveDefaultVertexLabels: jsii.Boolean(false),
+//   				PreserveEdgeIds: jsii.Boolean(false),
+//   			},
+//   		},
+//   		MaxProvisionedMemory: jsii.Number(123),
+//   		MinProvisionedMemory: jsii.Number(123),
+//   		ParquetType: jsii.String("parquetType"),
+//   	},
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	PublicConnectivity: jsii.Boolean(false),
 //   	ReplicaCount: jsii.Number(123),
@@ -84,6 +106,9 @@ type CfnGraph interface {
 	SetGraphName(val *string)
 	// A reference to a Graph resource.
 	GraphRef() *interfacesawsneptunegraph.GraphReference
+	// The import task details to import data into the graph at creation time.
+	ImportTask() interface{}
+	SetImportTask(val interface{})
 	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph.
 	KmsKeyIdentifier() *string
 	SetKmsKeyIdentifier(val *string)
@@ -439,6 +464,16 @@ func (j *jsiiProxy_CfnGraph) GraphRef() *interfacesawsneptunegraph.GraphReferenc
 	return returns
 }
 
+func (j *jsiiProxy_CfnGraph) ImportTask() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"importTask",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraph) KmsKeyIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -604,6 +639,17 @@ func (j *jsiiProxy_CfnGraph)SetGraphName(val *string) {
 	_jsii_.Set(
 		j,
 		"graphName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGraph)SetImportTask(val interface{}) {
+	if err := j.validateSetImportTaskParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"importTask",
 		val,
 	)
 }

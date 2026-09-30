@@ -48,9 +48,10 @@ type CfnCodeRepository interface {
 	awscdk.IInspectable
 	interfacesawssagemaker.ICodeRepositoryRef
 	awscdk.ITaggable
+	// The Amazon Resource Name (ARN) of the code repository.
+	AttrCodeRepositoryArn() *string
 	// The name of the code repository, such as `myCodeRepo` .
 	AttrCodeRepositoryName() *string
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -280,21 +281,21 @@ type jsiiProxy_CfnCodeRepository struct {
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnCodeRepository) AttrCodeRepositoryName() *string {
+func (j *jsiiProxy_CfnCodeRepository) AttrCodeRepositoryArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrCodeRepositoryName",
+		"attrCodeRepositoryArn",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_CfnCodeRepository) AttrId() *string {
+func (j *jsiiProxy_CfnCodeRepository) AttrCodeRepositoryName() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrCodeRepositoryName",
 		&returns,
 	)
 	return returns

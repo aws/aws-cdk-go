@@ -13,9 +13,11 @@ package awsquicksight
 //   		Color: jsii.String("color"),
 //   		Visibility: jsii.String("visibility"),
 //   	},
+//   	BorderRadius: jsii.String("borderRadius"),
 //   	BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   		Color: jsii.String("color"),
 //   		Visibility: jsii.String("visibility"),
+//   		Width: jsii.String("width"),
 //   	},
 //   	ElementId: jsii.String("elementId"),
 //   	ElementType: jsii.String("elementType"),
@@ -23,6 +25,7 @@ package awsquicksight
 //   	LoadingAnimation: &LoadingAnimationProperty{
 //   		Visibility: jsii.String("visibility"),
 //   	},
+//   	Padding: jsii.String("padding"),
 //   	RenderingRules: []interface{}{
 //   		&SheetElementRenderingRuleProperty{
 //   			ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -34,6 +37,7 @@ package awsquicksight
 //   	SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   		Color: jsii.String("color"),
 //   		Visibility: jsii.String("visibility"),
+//   		Width: jsii.String("width"),
 //   	},
 //   	Visibility: jsii.String("visibility"),
 //   	Width: jsii.String("width"),
@@ -48,6 +52,9 @@ type CfnAnalysisPropsMixin_FreeFormLayoutElementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelement.html#cfn-quicksight-analysis-freeformlayoutelement-backgroundstyle
 	//
 	BackgroundStyle interface{} `field:"optional" json:"backgroundStyle" yaml:"backgroundStyle"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelement.html#cfn-quicksight-analysis-freeformlayoutelement-borderradius
+	//
+	BorderRadius *string `field:"optional" json:"borderRadius" yaml:"borderRadius"`
 	// The border style configuration of a free-form layout element.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelement.html#cfn-quicksight-analysis-freeformlayoutelement-borderstyle
 	//
@@ -68,6 +75,9 @@ type CfnAnalysisPropsMixin_FreeFormLayoutElementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelement.html#cfn-quicksight-analysis-freeformlayoutelement-loadinganimation
 	//
 	LoadingAnimation interface{} `field:"optional" json:"loadingAnimation" yaml:"loadingAnimation"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelement.html#cfn-quicksight-analysis-freeformlayoutelement-padding
+	//
+	Padding *string `field:"optional" json:"padding" yaml:"padding"`
 	// The rendering rules that determine when an element should be displayed within a free-form layout.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelement.html#cfn-quicksight-analysis-freeformlayoutelement-renderingrules
 	//

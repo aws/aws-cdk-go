@@ -13,6 +13,12 @@ package awsbatch
 //   eksConfigurationProperty := &EksConfigurationProperty{
 //   	EksClusterArn: jsii.String("eksClusterArn"),
 //   	KubernetesNamespace: jsii.String("kubernetesNamespace"),
+//
+//   	// the properties below are optional
+//   	AccessEntry: &EksAccessEntryProperty{
+//   		DesiredState: jsii.String("desiredState"),
+//   		Status: jsii.String("status"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html
@@ -30,5 +36,11 @@ type CfnComputeEnvironment_EksConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html#cfn-batch-computeenvironment-eksconfiguration-kubernetesnamespace
 	//
 	KubernetesNamespace *string `field:"required" json:"kubernetesNamespace" yaml:"kubernetesNamespace"`
+	// The EKS access entry configuration for the compute environment.
+	//
+	// Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html#cfn-batch-computeenvironment-eksconfiguration-accessentry
+	//
+	AccessEntry interface{} `field:"optional" json:"accessEntry" yaml:"accessEntry"`
 }
 

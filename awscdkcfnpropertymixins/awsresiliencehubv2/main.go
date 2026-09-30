@@ -104,6 +104,14 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_EffectivePolicyValuesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_resiliencehubv2.CfnServicePropsMixin.EksLabelSelectorProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_EksLabelSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_resiliencehubv2.CfnServicePropsMixin.EksLabelSelectorRequirementProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_EksLabelSelectorRequirementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_resiliencehubv2.CfnServicePropsMixin.EksSourceProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_EksSourceProperty)(nil)).Elem(),
 	)

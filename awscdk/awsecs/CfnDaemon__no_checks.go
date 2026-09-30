@@ -104,6 +104,10 @@ func validateCfnDaemon_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDaemon) validateSetCriticalParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDaemon) validateSetDeploymentConfigurationParameters(val interface{}) error {
 	return nil
 }

@@ -169,6 +169,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	PlatformVersion: jsii.String("platformVersion"),
 //   	ProtocolConfiguration: jsii.String("protocolConfiguration"),
 //   	RequestHeaderConfiguration: &RequestHeaderConfigurationProperty{
 //   		RequestHeaderAllowlist: []*string{

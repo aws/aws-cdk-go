@@ -128,6 +128,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_vpclattice.CfnResourceConfigurationPropsMixin.CidrResourceProperty",
+		reflect.TypeOf((*CfnResourceConfigurationPropsMixin_CidrResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_vpclattice.CfnResourceConfigurationPropsMixin.DnsResourceProperty",
 		reflect.TypeOf((*CfnResourceConfigurationPropsMixin_DnsResourceProperty)(nil)).Elem(),
 	)

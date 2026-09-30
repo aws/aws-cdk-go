@@ -8,6 +8,30 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fms.CfnApplicationsListMixinProps",
+		reflect.TypeOf((*CfnApplicationsListMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_fms.CfnApplicationsListPropsMixin",
+		reflect.TypeOf((*CfnApplicationsListPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnApplicationsListPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fms.CfnApplicationsListPropsMixin.AppProperty",
+		reflect.TypeOf((*CfnApplicationsListPropsMixin_AppProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_fms.CfnNotificationChannelMixinProps",
 		reflect.TypeOf((*CfnNotificationChannelMixinProps)(nil)).Elem(),
 	)
@@ -94,6 +118,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_fms.CfnPolicyPropsMixin.ThirdPartyFirewallPolicyProperty",
 		reflect.TypeOf((*CfnPolicyPropsMixin_ThirdPartyFirewallPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fms.CfnProtocolsListMixinProps",
+		reflect.TypeOf((*CfnProtocolsListMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_fms.CfnProtocolsListPropsMixin",
+		reflect.TypeOf((*CfnProtocolsListPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnProtocolsListPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_fms.CfnResourceSetMixinProps",

@@ -8,6 +8,8 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var type interface{}
+//
 //   freeFormLayoutConfigurationProperty := &FreeFormLayoutConfigurationProperty{
 //   	Elements: []interface{}{
 //   		&FreeFormLayoutElementProperty{
@@ -23,13 +25,16 @@ package awsquicksight
 //   				Color: jsii.String("color"),
 //   				Visibility: jsii.String("visibility"),
 //   			},
+//   			BorderRadius: jsii.String("borderRadius"),
 //   			BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   				Color: jsii.String("color"),
 //   				Visibility: jsii.String("visibility"),
+//   				Width: jsii.String("width"),
 //   			},
 //   			LoadingAnimation: &LoadingAnimationProperty{
 //   				Visibility: jsii.String("visibility"),
 //   			},
+//   			Padding: jsii.String("padding"),
 //   			RenderingRules: []interface{}{
 //   				&SheetElementRenderingRuleProperty{
 //   					ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -41,6 +46,7 @@ package awsquicksight
 //   			SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   				Color: jsii.String("color"),
 //   				Visibility: jsii.String("visibility"),
+//   				Width: jsii.String("width"),
 //   			},
 //   			Visibility: jsii.String("visibility"),
 //   		},
@@ -50,6 +56,17 @@ package awsquicksight
 //   	CanvasSizeOptions: &FreeFormLayoutCanvasSizeOptionsProperty{
 //   		ScreenCanvasSizeOptions: &FreeFormLayoutScreenCanvasSizeOptionsProperty{
 //   			OptimizedViewPortWidth: jsii.String("optimizedViewPortWidth"),
+//   		},
+//   	},
+//   	Groups: []interface{}{
+//   		&SheetLayoutGroupProperty{
+//   			Id: jsii.String("id"),
+//   			Members: []interface{}{
+//   				&SheetLayoutGroupMemberProperty{
+//   					Id: jsii.String("id"),
+//   					Type: type,
+//   				},
+//   			},
 //   		},
 //   	},
 //   }
@@ -64,5 +81,8 @@ type CfnAnalysis_FreeFormLayoutConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutconfiguration.html#cfn-quicksight-analysis-freeformlayoutconfiguration-canvassizeoptions
 	//
 	CanvasSizeOptions interface{} `field:"optional" json:"canvasSizeOptions" yaml:"canvasSizeOptions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutconfiguration.html#cfn-quicksight-analysis-freeformlayoutconfiguration-groups
+	//
+	Groups interface{} `field:"optional" json:"groups" yaml:"groups"`
 }
 

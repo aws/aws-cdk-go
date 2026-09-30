@@ -164,6 +164,10 @@ func init() {
 		reflect.TypeOf((*CfnServerPropsMixin_ProtocolDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_transfer.CfnServerPropsMixin.ProxyConfigProperty",
+		reflect.TypeOf((*CfnServerPropsMixin_ProxyConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_transfer.CfnServerPropsMixin.S3StorageOptionsProperty",
 		reflect.TypeOf((*CfnServerPropsMixin_S3StorageOptionsProperty)(nil)).Elem(),
 	)

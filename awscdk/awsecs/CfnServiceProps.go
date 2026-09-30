@@ -47,6 +47,11 @@ import (
 //   				Value: jsii.Number(123),
 //   			},
 //   		},
+//   		EarlySuccessCriteria: &DeploymentEarlySuccessCriteriaProperty{
+//   			Enable: jsii.Boolean(false),
+//   			HealthyPercent: jsii.Number(123),
+//   			SourceServiceRevisionCleanup: jsii.String("sourceServiceRevisionCleanup"),
+//   		},
 //   		LifecycleHooks: []interface{}{
 //   			&DeploymentLifecycleHookProperty{
 //   				LifecycleStages: []*string{

@@ -15,8 +15,27 @@ package awsquicksight
 //   	RowSpan: jsii.Number(123),
 //
 //   	// the properties below are optional
+//   	BackgroundStyle: &GridLayoutElementBackgroundStyleProperty{
+//   		Color: jsii.String("color"),
+//   		Visibility: jsii.String("visibility"),
+//   	},
+//   	BorderRadius: jsii.String("borderRadius"),
+//   	BorderStyle: &GridLayoutElementBorderStyleProperty{
+//   		Color: jsii.String("color"),
+//   		Visibility: jsii.String("visibility"),
+//   		Width: jsii.String("width"),
+//   	},
 //   	ColumnIndex: jsii.Number(123),
+//   	LoadingAnimation: &LoadingAnimationProperty{
+//   		Visibility: jsii.String("visibility"),
+//   	},
+//   	Padding: jsii.String("padding"),
 //   	RowIndex: jsii.Number(123),
+//   	SelectedBorderStyle: &GridLayoutElementBorderStyleProperty{
+//   		Color: jsii.String("color"),
+//   		Visibility: jsii.String("visibility"),
+//   		Width: jsii.String("width"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html
@@ -38,13 +57,31 @@ type CfnAnalysis_GridLayoutElementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html#cfn-quicksight-analysis-gridlayoutelement-rowspan
 	//
 	RowSpan *float64 `field:"required" json:"rowSpan" yaml:"rowSpan"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html#cfn-quicksight-analysis-gridlayoutelement-backgroundstyle
+	//
+	BackgroundStyle interface{} `field:"optional" json:"backgroundStyle" yaml:"backgroundStyle"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html#cfn-quicksight-analysis-gridlayoutelement-borderradius
+	//
+	BorderRadius *string `field:"optional" json:"borderRadius" yaml:"borderRadius"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html#cfn-quicksight-analysis-gridlayoutelement-borderstyle
+	//
+	BorderStyle interface{} `field:"optional" json:"borderStyle" yaml:"borderStyle"`
 	// The column index for the upper left corner of an element.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html#cfn-quicksight-analysis-gridlayoutelement-columnindex
 	//
 	ColumnIndex *float64 `field:"optional" json:"columnIndex" yaml:"columnIndex"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html#cfn-quicksight-analysis-gridlayoutelement-loadinganimation
+	//
+	LoadingAnimation interface{} `field:"optional" json:"loadingAnimation" yaml:"loadingAnimation"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html#cfn-quicksight-analysis-gridlayoutelement-padding
+	//
+	Padding *string `field:"optional" json:"padding" yaml:"padding"`
 	// The row index for the upper left corner of an element.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html#cfn-quicksight-analysis-gridlayoutelement-rowindex
 	//
 	RowIndex *float64 `field:"optional" json:"rowIndex" yaml:"rowIndex"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelement.html#cfn-quicksight-analysis-gridlayoutelement-selectedborderstyle
+	//
+	SelectedBorderStyle interface{} `field:"optional" json:"selectedBorderStyle" yaml:"selectedBorderStyle"`
 }
 

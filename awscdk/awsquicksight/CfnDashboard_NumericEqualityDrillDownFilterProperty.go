@@ -11,7 +11,10 @@ package awsquicksight
 //   numericEqualityDrillDownFilterProperty := &NumericEqualityDrillDownFilterProperty{
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
+//
+//   		// the properties below are optional
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
 //   	},
 //   	Value: jsii.Number(123),
 //   }

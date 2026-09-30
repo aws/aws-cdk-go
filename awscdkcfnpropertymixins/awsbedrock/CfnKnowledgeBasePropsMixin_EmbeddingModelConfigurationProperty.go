@@ -8,6 +8,8 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var modelConfiguration interface{}
+//
 //   embeddingModelConfigurationProperty := &EmbeddingModelConfigurationProperty{
 //   	BedrockEmbeddingModelConfiguration: &BedrockEmbeddingModelConfigurationProperty{
 //   		Audio: []interface{}{
@@ -19,6 +21,7 @@ package awsbedrock
 //   		},
 //   		Dimensions: jsii.Number(123),
 //   		EmbeddingDataType: jsii.String("embeddingDataType"),
+//   		ModelConfiguration: modelConfiguration,
 //   		Video: []interface{}{
 //   			&VideoConfigurationProperty{
 //   				SegmentationConfiguration: &VideoSegmentationConfigurationProperty{

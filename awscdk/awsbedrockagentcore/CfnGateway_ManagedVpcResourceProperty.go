@@ -18,6 +18,9 @@ package awsbedrockagentcore
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
 //   	},
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-managedvpcresource.html
@@ -38,5 +41,8 @@ type CfnGateway_ManagedVpcResourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-managedvpcresource.html#cfn-bedrockagentcore-gateway-managedvpcresource-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-managedvpcresource.html#cfn-bedrockagentcore-gateway-managedvpcresource-tags
+	//
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

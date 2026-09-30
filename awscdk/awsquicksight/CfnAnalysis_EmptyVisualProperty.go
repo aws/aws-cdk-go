@@ -11,7 +11,6 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   emptyVisualProperty := &EmptyVisualProperty{
-//   	DataSetIdentifier: jsii.String("dataSetIdentifier"),
 //   	VisualId: jsii.String("visualId"),
 //
 //   	// the properties below are optional
@@ -24,7 +23,10 @@ package awsquicksight
 //   							SelectedColumns: []interface{}{
 //   								&ColumnIdentifierProperty{
 //   									ColumnName: jsii.String("columnName"),
+//
+//   									// the properties below are optional
 //   									DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   									TopicIdentifier: jsii.String("topicIdentifier"),
 //   								},
 //   							},
 //   							SelectedFieldOptions: jsii.String("selectedFieldOptions"),
@@ -73,7 +75,10 @@ package awsquicksight
 //   									SelectAllValueOptions: jsii.String("selectAllValueOptions"),
 //   									SourceColumn: &ColumnIdentifierProperty{
 //   										ColumnName: jsii.String("columnName"),
+//
+//   										// the properties below are optional
 //   										DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   										TopicIdentifier: jsii.String("topicIdentifier"),
 //   									},
 //   									SourceField: jsii.String("sourceField"),
 //   									SourceParameterName: jsii.String("sourceParameterName"),
@@ -95,17 +100,13 @@ package awsquicksight
 //   			Status: jsii.String("status"),
 //   		},
 //   	},
+//   	DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   	TopicIdentifier: jsii.String("topicIdentifier"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-emptyvisual.html
 //
 type CfnAnalysis_EmptyVisualProperty struct {
-	// The data set that is used in the empty visual.
-	//
-	// Every visual requires a dataset to render.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-emptyvisual.html#cfn-quicksight-analysis-emptyvisual-datasetidentifier
-	//
-	DataSetIdentifier *string `field:"required" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
 	// The unique identifier of a visual.
 	//
 	// This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -116,5 +117,16 @@ type CfnAnalysis_EmptyVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-emptyvisual.html#cfn-quicksight-analysis-emptyvisual-actions
 	//
 	Actions interface{} `field:"optional" json:"actions" yaml:"actions"`
+	// The data set that is used in the empty visual.
+	//
+	// Every visual requires a dataset to render.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-emptyvisual.html#cfn-quicksight-analysis-emptyvisual-datasetidentifier
+	//
+	// Default: - "".
+	//
+	DataSetIdentifier *string `field:"optional" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-emptyvisual.html#cfn-quicksight-analysis-emptyvisual-topicidentifier
+	//
+	TopicIdentifier *string `field:"optional" json:"topicIdentifier" yaml:"topicIdentifier"`
 }
 

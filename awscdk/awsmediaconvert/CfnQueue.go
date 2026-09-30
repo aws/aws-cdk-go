@@ -41,7 +41,6 @@ type CfnQueue interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the queue, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
 	AttrArn() *string
-	AttrId() *string
 	// The name of the queue, such as `Queue 2` .
 	AttrName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -71,6 +70,7 @@ type CfnQueue interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
 	MaximumConcurrentFeeds() *float64
 	SetMaximumConcurrentFeeds(val *float64)
 	// The name of the queue that you are creating.
@@ -289,16 +289,6 @@ func (j *jsiiProxy_CfnQueue) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnQueue) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

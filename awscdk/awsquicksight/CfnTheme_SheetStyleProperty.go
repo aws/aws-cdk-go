@@ -9,10 +9,19 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   sheetStyleProperty := &SheetStyleProperty{
+//   	Background: &SheetBackgroundStyleProperty{
+//   		Color: jsii.String("color"),
+//   		Gradient: jsii.String("gradient"),
+//   	},
 //   	Tile: &TileStyleProperty{
+//   		BackgroundColor: jsii.String("backgroundColor"),
 //   		Border: &BorderStyleProperty{
+//   			Color: jsii.String("color"),
 //   			Show: jsii.Boolean(false),
+//   			Width: jsii.String("width"),
 //   		},
+//   		BorderRadius: jsii.String("borderRadius"),
+//   		Padding: jsii.String("padding"),
 //   	},
 //   	TileLayout: &TileLayoutStyleProperty{
 //   		Gutter: &GutterStyleProperty{
@@ -27,6 +36,9 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html
 //
 type CfnTheme_SheetStyleProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-background
+	//
+	Background interface{} `field:"optional" json:"background" yaml:"background"`
 	// The display options for tiles.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile
 	//

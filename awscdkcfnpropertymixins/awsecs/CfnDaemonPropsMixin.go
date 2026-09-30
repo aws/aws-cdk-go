@@ -25,6 +25,7 @@ import (
 //   		jsii.String("capacityProviderArns"),
 //   	},
 //   	ClusterArn: jsii.String("clusterArn"),
+//   	Critical: jsii.Boolean(false),
 //   	DaemonName: jsii.String("daemonName"),
 //   	DaemonTaskDefinitionArn: jsii.String("daemonTaskDefinitionArn"),
 //   	DeploymentConfiguration: &DaemonDeploymentConfigurationProperty{

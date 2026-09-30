@@ -6,11 +6,12 @@ import (
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsiotsitewiseIAccessPolicyRef = interfacesawsiotsitewise.IAccessPolicyRef
+type Type__interfacesawsiotsitewiseIApplicationRef = interfacesawsiotsitewise.IApplicationRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsiotsitewiseIAssetRef = interfacesawsiotsitewise.IAssetRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsiotsitewiseIAssetModelRef = interfacesawsiotsitewise.IAssetModelRef
 type Type__interfacesawsiotsitewiseIComputationModelRef = interfacesawsiotsitewise.IComputationModelRef
-type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsiotsitewiseIDashboardRef = interfacesawsiotsitewise.IDashboardRef
 type Type__interfacesawsiotsitewiseIDatasetRef = interfacesawsiotsitewise.IDatasetRef
 type Type__interfacesawsiotsitewiseIGatewayRef = interfacesawsiotsitewise.IGatewayRef

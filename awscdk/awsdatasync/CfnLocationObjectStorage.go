@@ -34,6 +34,17 @@ import (
 //   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
+//   	FederatedIdentity: &ObjectStorageFederatedIdentityConfigProperty{
+//   		AwsIamRole: jsii.String("awsIamRole"),
+//   		ExternalIdentity: &ObjectStorageExternalIdentityConfigProperty{
+//   			GoogleOidc: &GoogleOidcConfigProperty{
+//   				IdentityPoolName: jsii.String("identityPoolName"),
+//   				IdentityProviderName: jsii.String("identityProviderName"),
+//   				ProjectName: jsii.String("projectName"),
+//   				ProjectNumber: jsii.String("projectNumber"),
+//   			},
+//   		},
+//   	},
 //   	SecretKey: jsii.String("secretKey"),
 //   	ServerCertificate: jsii.String("serverCertificate"),
 //   	ServerHostname: jsii.String("serverHostname"),
@@ -93,6 +104,9 @@ type CfnLocationObjectStorage interface {
 	CustomSecretConfig() interface{}
 	SetCustomSecretConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	// Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+	FederatedIdentity() interface{}
+	SetFederatedIdentity(val interface{})
 	// A reference to a LocationObjectStorage resource.
 	LocationObjectStorageRef() *interfacesawsdatasync.LocationObjectStorageReference
 	// The logical ID for this CloudFormation stack element.
@@ -473,6 +487,16 @@ func (j *jsiiProxy_CfnLocationObjectStorage) Env() *interfaces.ResourceEnvironme
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationObjectStorage) FederatedIdentity() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"federatedIdentity",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationObjectStorage) LocationObjectStorageRef() *interfacesawsdatasync.LocationObjectStorageReference {
 	var returns *interfacesawsdatasync.LocationObjectStorageReference
 	_jsii_.Get(
@@ -695,6 +719,17 @@ func (j *jsiiProxy_CfnLocationObjectStorage)SetCustomSecretConfig(val interface{
 	_jsii_.Set(
 		j,
 		"customSecretConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationObjectStorage)SetFederatedIdentity(val interface{}) {
+	if err := j.validateSetFederatedIdentityParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"federatedIdentity",
 		val,
 	)
 }

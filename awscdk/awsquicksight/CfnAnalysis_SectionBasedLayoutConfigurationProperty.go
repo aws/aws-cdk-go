@@ -28,13 +28,16 @@ package awsquicksight
 //   									Color: jsii.String("color"),
 //   									Visibility: jsii.String("visibility"),
 //   								},
+//   								BorderRadius: jsii.String("borderRadius"),
 //   								BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   									Color: jsii.String("color"),
 //   									Visibility: jsii.String("visibility"),
+//   									Width: jsii.String("width"),
 //   								},
 //   								LoadingAnimation: &LoadingAnimationProperty{
 //   									Visibility: jsii.String("visibility"),
 //   								},
+//   								Padding: jsii.String("padding"),
 //   								RenderingRules: []interface{}{
 //   									&SheetElementRenderingRuleProperty{
 //   										ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -46,6 +49,7 @@ package awsquicksight
 //   								SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   									Color: jsii.String("color"),
 //   									Visibility: jsii.String("visibility"),
+//   									Width: jsii.String("width"),
 //   								},
 //   								Visibility: jsii.String("visibility"),
 //   							},
@@ -67,7 +71,10 @@ package awsquicksight
 //   						DynamicCategoryDimensionConfiguration: &BodySectionDynamicCategoryDimensionConfigurationProperty{
 //   							Column: &ColumnIdentifierProperty{
 //   								ColumnName: jsii.String("columnName"),
+//
+//   								// the properties below are optional
 //   								DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   								TopicIdentifier: jsii.String("topicIdentifier"),
 //   							},
 //
 //   							// the properties below are optional
@@ -77,7 +84,10 @@ package awsquicksight
 //   									Direction: jsii.String("direction"),
 //   									SortBy: &ColumnIdentifierProperty{
 //   										ColumnName: jsii.String("columnName"),
+//
+//   										// the properties below are optional
 //   										DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   										TopicIdentifier: jsii.String("topicIdentifier"),
 //   									},
 //
 //   									// the properties below are optional
@@ -101,7 +111,10 @@ package awsquicksight
 //   						DynamicNumericDimensionConfiguration: &BodySectionDynamicNumericDimensionConfigurationProperty{
 //   							Column: &ColumnIdentifierProperty{
 //   								ColumnName: jsii.String("columnName"),
+//
+//   								// the properties below are optional
 //   								DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   								TopicIdentifier: jsii.String("topicIdentifier"),
 //   							},
 //
 //   							// the properties below are optional
@@ -111,7 +124,10 @@ package awsquicksight
 //   									Direction: jsii.String("direction"),
 //   									SortBy: &ColumnIdentifierProperty{
 //   										ColumnName: jsii.String("columnName"),
+//
+//   										// the properties below are optional
 //   										DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   										TopicIdentifier: jsii.String("topicIdentifier"),
 //   									},
 //
 //   									// the properties below are optional
@@ -184,13 +200,16 @@ package awsquicksight
 //   								Color: jsii.String("color"),
 //   								Visibility: jsii.String("visibility"),
 //   							},
+//   							BorderRadius: jsii.String("borderRadius"),
 //   							BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   								Color: jsii.String("color"),
 //   								Visibility: jsii.String("visibility"),
+//   								Width: jsii.String("width"),
 //   							},
 //   							LoadingAnimation: &LoadingAnimationProperty{
 //   								Visibility: jsii.String("visibility"),
 //   							},
+//   							Padding: jsii.String("padding"),
 //   							RenderingRules: []interface{}{
 //   								&SheetElementRenderingRuleProperty{
 //   									ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -202,6 +221,7 @@ package awsquicksight
 //   							SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   								Color: jsii.String("color"),
 //   								Visibility: jsii.String("visibility"),
+//   								Width: jsii.String("width"),
 //   							},
 //   							Visibility: jsii.String("visibility"),
 //   						},
@@ -240,13 +260,16 @@ package awsquicksight
 //   								Color: jsii.String("color"),
 //   								Visibility: jsii.String("visibility"),
 //   							},
+//   							BorderRadius: jsii.String("borderRadius"),
 //   							BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   								Color: jsii.String("color"),
 //   								Visibility: jsii.String("visibility"),
+//   								Width: jsii.String("width"),
 //   							},
 //   							LoadingAnimation: &LoadingAnimationProperty{
 //   								Visibility: jsii.String("visibility"),
 //   							},
+//   							Padding: jsii.String("padding"),
 //   							RenderingRules: []interface{}{
 //   								&SheetElementRenderingRuleProperty{
 //   									ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -258,6 +281,7 @@ package awsquicksight
 //   							SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   								Color: jsii.String("color"),
 //   								Visibility: jsii.String("visibility"),
+//   								Width: jsii.String("width"),
 //   							},
 //   							Visibility: jsii.String("visibility"),
 //   						},

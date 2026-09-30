@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnPolicy) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnPolicy) validateSetSharingEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPolicy) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

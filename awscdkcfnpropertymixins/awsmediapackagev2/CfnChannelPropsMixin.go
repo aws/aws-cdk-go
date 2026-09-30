@@ -31,6 +31,14 @@ import (
 //   		PreferredInput: jsii.Number(123),
 //   	},
 //   	InputType: jsii.String("inputType"),
+//   	MultiviewConfiguration: &MultiviewConfigurationProperty{
+//   		AvailableLayouts: []*string{
+//   			jsii.String("availableLayouts"),
+//   		},
+//   		AvailableSources: []*string{
+//   			jsii.String("availableSources"),
+//   		},
+//   	},
 //   	OutputHeaderConfiguration: &OutputHeaderConfigurationProperty{
 //   		PublishMqcs: jsii.Boolean(false),
 //   	},

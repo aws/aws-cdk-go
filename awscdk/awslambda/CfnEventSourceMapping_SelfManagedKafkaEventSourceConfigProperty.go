@@ -10,6 +10,7 @@ package awslambda
 //
 //   selfManagedKafkaEventSourceConfigProperty := &SelfManagedKafkaEventSourceConfigProperty{
 //   	ConsumerGroupId: jsii.String("consumerGroupId"),
+//   	ConsumptionMode: jsii.String("consumptionMode"),
 //   	SchemaRegistryConfig: &SchemaRegistryConfigProperty{
 //   		AccessConfigs: []interface{}{
 //   			&SchemaRegistryAccessConfigProperty{
@@ -36,6 +37,12 @@ type CfnEventSourceMapping_SelfManagedKafkaEventSourceConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig-consumergroupid
 	//
 	ConsumerGroupId *string `field:"optional" json:"consumerGroupId" yaml:"consumerGroupId"`
+	// The mode that determines how Lambda reads from a Kafka topic.
+	//
+	// Use Stream for ordered processing or Queue for higher throughput when ordering is not required.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig-consumptionmode
+	//
+	ConsumptionMode *string `field:"optional" json:"consumptionMode" yaml:"consumptionMode"`
 	// Specific configuration settings for a Kafka schema registry.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig-schemaregistryconfig
 	//

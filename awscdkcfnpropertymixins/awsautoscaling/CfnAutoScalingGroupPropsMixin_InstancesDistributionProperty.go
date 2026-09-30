@@ -31,6 +31,10 @@ package awsautoscaling
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html
 //
 type CfnAutoScalingGroupPropsMixin_InstancesDistributionProperty struct {
+	// The Distribution Segments configuration.
+	//
+	// Each segment contains an ordered list of capacity types to prioritize.
+	//  For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-distributionsegments
 	//
 	DistributionSegments interface{} `field:"optional" json:"distributionSegments" yaml:"distributionSegments"`

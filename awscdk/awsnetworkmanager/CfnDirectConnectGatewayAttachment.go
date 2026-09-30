@@ -26,26 +26,6 @@ import (
 //   	},
 //
 //   	// the properties below are optional
-//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
-//   		AttachmentPolicyRuleNumber: jsii.Number(123),
-//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   		Tags: []CfnTag{
-//   			&CfnTag{
-//   				Key: jsii.String("key"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
-//   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
-//   		AttachmentPolicyRuleNumber: jsii.Number(123),
-//   		SegmentName: jsii.String("segmentName"),
-//   		Tags: []CfnTag{
-//   			&CfnTag{
-//   				Key: jsii.String("key"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
 //   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -126,12 +106,6 @@ type CfnDirectConnectGatewayAttachment interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
-	// Describes proposed changes to a network function group.
-	ProposedNetworkFunctionGroupChange() interface{}
-	SetProposedNetworkFunctionGroupChange(val interface{})
-	// Describes a proposed segment change.
-	ProposedSegmentChange() interface{}
-	SetProposedSegmentChange(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -601,26 +575,6 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) ProposedNetworkFunctionGroupChange() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"proposedNetworkFunctionGroupChange",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) ProposedSegmentChange() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"proposedSegmentChange",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -740,28 +694,6 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment)SetEdgeLocations(val *[]*st
 	_jsii_.Set(
 		j,
 		"edgeLocations",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDirectConnectGatewayAttachment)SetProposedNetworkFunctionGroupChange(val interface{}) {
-	if err := j.validateSetProposedNetworkFunctionGroupChangeParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"proposedNetworkFunctionGroupChange",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnDirectConnectGatewayAttachment)SetProposedSegmentChange(val interface{}) {
-	if err := j.validateSetProposedSegmentChangeParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"proposedSegmentChange",
 		val,
 	)
 }

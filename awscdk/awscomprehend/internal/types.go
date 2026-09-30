@@ -7,5 +7,7 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawscomprehendIDocumentClassifierRef = interfacesawscomprehend.IDocumentClassifierRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawscomprehendIDocumentClassifierEndpointRef = interfacesawscomprehend.IDocumentClassifierEndpointRef
+type Type__interfacesawscomprehendIEntityRecognizerRef = interfacesawscomprehend.IEntityRecognizerRef
 type Type__interfacesawscomprehendIFlywheelRef = interfacesawscomprehend.IFlywheelRef
 type Type__awscdkITaggable = awscdk.ITaggable

@@ -9,11 +9,14 @@ package interfacesawsemr
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   instanceGroupConfigReference := &InstanceGroupConfigReference{
-//   	InstanceGroupConfigId: jsii.String("instanceGroupConfigId"),
+//   	InstanceGroupId: jsii.String("instanceGroupId"),
+//   	JobFlowId: jsii.String("jobFlowId"),
 //   }
 //
 type InstanceGroupConfigReference struct {
-	// The Id of the InstanceGroupConfig resource.
-	InstanceGroupConfigId *string `field:"required" json:"instanceGroupConfigId" yaml:"instanceGroupConfigId"`
+	// The InstanceGroupId of the InstanceGroupConfig resource.
+	InstanceGroupId *string `field:"required" json:"instanceGroupId" yaml:"instanceGroupId"`
+	// The JobFlowId of the InstanceGroupConfig resource.
+	JobFlowId *string `field:"required" json:"jobFlowId" yaml:"jobFlowId"`
 }
 

@@ -9,14 +9,11 @@ package interfacesawssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   codeRepositoryReference := &CodeRepositoryReference{
-//   	CodeRepositoryId: jsii.String("codeRepositoryId"),
-//   	CodeRepositoryName: jsii.String("codeRepositoryName"),
+//   	CodeRepositoryArn: jsii.String("codeRepositoryArn"),
 //   }
 //
 type CodeRepositoryReference struct {
-	// The Id of the CodeRepository resource.
-	CodeRepositoryId *string `field:"required" json:"codeRepositoryId" yaml:"codeRepositoryId"`
-	// The CodeRepositoryName of the CodeRepository resource.
-	CodeRepositoryName *string `field:"required" json:"codeRepositoryName" yaml:"codeRepositoryName"`
+	// The CodeRepositoryArn of the CodeRepository resource.
+	CodeRepositoryArn *string `field:"required" json:"codeRepositoryArn" yaml:"codeRepositoryArn"`
 }
 

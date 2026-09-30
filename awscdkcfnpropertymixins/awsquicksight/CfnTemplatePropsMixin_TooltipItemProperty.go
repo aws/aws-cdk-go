@@ -29,6 +29,7 @@ package awsquicksight
 //   		Column: &ColumnIdentifierProperty{
 //   			ColumnName: jsii.String("columnName"),
 //   			DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   			TopicIdentifier: jsii.String("topicIdentifier"),
 //   		},
 //   		Label: jsii.String("label"),
 //   		TooltipTarget: jsii.String("tooltipTarget"),

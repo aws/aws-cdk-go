@@ -18,12 +18,14 @@ package awsquicksight
 //   				Column: &ColumnIdentifierProperty{
 //   					ColumnName: jsii.String("columnName"),
 //   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   					TopicIdentifier: jsii.String("topicIdentifier"),
 //   				},
 //   			},
 //   			NumericEqualityFilter: &NumericEqualityDrillDownFilterProperty{
 //   				Column: &ColumnIdentifierProperty{
 //   					ColumnName: jsii.String("columnName"),
 //   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   					TopicIdentifier: jsii.String("topicIdentifier"),
 //   				},
 //   				Value: jsii.Number(123),
 //   			},
@@ -31,6 +33,7 @@ package awsquicksight
 //   				Column: &ColumnIdentifierProperty{
 //   					ColumnName: jsii.String("columnName"),
 //   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   					TopicIdentifier: jsii.String("topicIdentifier"),
 //   				},
 //   				RangeMaximum: jsii.String("rangeMaximum"),
 //   				RangeMinimum: jsii.String("rangeMinimum"),

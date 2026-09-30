@@ -15,6 +15,10 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_kendra.FaqReference",
 		reflect.TypeOf((*FaqReference)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_kendra.FeaturedResultsSetReference",
+		reflect.TypeOf((*FeaturedResultsSetReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_kendra.IDataSourceRef",
 		reflect.TypeOf((*IDataSourceRef)(nil)).Elem(),
@@ -42,6 +46,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IFaqRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_kendra.IFeaturedResultsSetRef",
+		reflect.TypeOf((*IFeaturedResultsSetRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "featuredResultsSetRef", GoGetter: "FeaturedResultsSetRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IFeaturedResultsSetRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

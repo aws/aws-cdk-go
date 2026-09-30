@@ -8,26 +8,6 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnBackupMixinProps",
-		reflect.TypeOf((*CfnBackupMixinProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnBackupPropsMixin",
-		reflect.TypeOf((*CfnBackupPropsMixin)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
-			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnBackupPropsMixin{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
-			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTableMixinProps",
 		reflect.TypeOf((*CfnGlobalTableMixinProps)(nil)).Elem(),
 	)
@@ -124,6 +104,10 @@ func init() {
 		reflect.TypeOf((*CfnGlobalTablePropsMixin_SSESpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.SearchSchemaElementProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_SearchSchemaElementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.StreamSpecificationProperty",
 		reflect.TypeOf((*CfnGlobalTablePropsMixin_StreamSpecificationProperty)(nil)).Elem(),
 	)
@@ -134,6 +118,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.TimeToLiveSpecificationProperty",
 		reflect.TypeOf((*CfnGlobalTablePropsMixin_TimeToLiveSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.VectorAttributeProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_VectorAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.VectorIndexProperty",
+		reflect.TypeOf((*CfnGlobalTablePropsMixin_VectorIndexProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnGlobalTablePropsMixin.WarmThroughputProperty",
@@ -232,12 +224,24 @@ func init() {
 		reflect.TypeOf((*CfnTablePropsMixin_SSESpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.SearchSchemaElementProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_SearchSchemaElementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.StreamSpecificationProperty",
 		reflect.TypeOf((*CfnTablePropsMixin_StreamSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.TimeToLiveSpecificationProperty",
 		reflect.TypeOf((*CfnTablePropsMixin_TimeToLiveSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.VectorAttributeProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_VectorAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.VectorIndexProperty",
+		reflect.TypeOf((*CfnTablePropsMixin_VectorIndexProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_dynamodb.CfnTablePropsMixin.WarmThroughputProperty",

@@ -24,3 +24,7 @@ func validateNatProvider_InstanceV2Parameters(props *NatInstanceProps) error {
 	return nil
 }
 
+func validateNatProvider_RegionalGatewayParameters(props *RegionalNatGatewayProviderProps) error {
+	return nil
+}
+

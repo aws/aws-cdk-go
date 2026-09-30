@@ -122,6 +122,12 @@ package awsbatch
 //   	EksConfiguration: &EksConfigurationProperty{
 //   		EksClusterArn: jsii.String("eksClusterArn"),
 //   		KubernetesNamespace: jsii.String("kubernetesNamespace"),
+//
+//   		// the properties below are optional
+//   		AccessEntry: &EksAccessEntryProperty{
+//   			DesiredState: jsii.String("desiredState"),
+//   			Status: jsii.String("status"),
+//   		},
 //   	},
 //   	ReplaceComputeEnvironment: jsii.Boolean(false),
 //   	ServiceRole: jsii.String("serviceRole"),

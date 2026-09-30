@@ -23,6 +23,9 @@ import (
 //   cfnManagedNotificationAdditionalChannelAssociation := awscdk.Aws_notifications.NewCfnManagedNotificationAdditionalChannelAssociation(this, jsii.String("MyCfnManagedNotificationAdditionalChannelAssociation"), &CfnManagedNotificationAdditionalChannelAssociationProps{
 //   	ChannelArn: jsii.String("channelArn"),
 //   	ManagedNotificationConfigurationArn: jsii.String("managedNotificationConfigurationArn"),
+//
+//   	// the properties below are optional
+//   	IsSensitiveEventsSubscribed: jsii.Boolean(false),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationadditionalchannelassociation.html
@@ -45,6 +48,9 @@ type CfnManagedNotificationAdditionalChannelAssociation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
+	// Whether the channel association is subscribed to sensitive events.
+	IsSensitiveEventsSubscribed() interface{}
+	SetIsSensitiveEventsSubscribed(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -324,6 +330,16 @@ func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) Env() *in
 	return returns
 }
 
+func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) IsSensitiveEventsSubscribed() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"isSensitiveEventsSubscribed",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -441,6 +457,17 @@ func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation)SetChannel
 	_jsii_.Set(
 		j,
 		"channelArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation)SetIsSensitiveEventsSubscribed(val interface{}) {
+	if err := j.validateSetIsSensitiveEventsSubscribedParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"isSensitiveEventsSubscribed",
 		val,
 	)
 }

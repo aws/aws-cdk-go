@@ -11,7 +11,10 @@ package awsquicksight
 //   numericalDimensionFieldProperty := &NumericalDimensionFieldProperty{
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
+//
+//   		// the properties below are optional
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
 //   	},
 //   	FieldId: jsii.String("fieldId"),
 //

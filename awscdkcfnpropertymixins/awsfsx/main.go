@@ -8,6 +8,26 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnBackupMixinProps",
+		reflect.TypeOf((*CfnBackupMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnBackupPropsMixin",
+		reflect.TypeOf((*CfnBackupPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnBackupPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnDataRepositoryAssociationMixinProps",
 		reflect.TypeOf((*CfnDataRepositoryAssociationMixinProps)(nil)).Elem(),
 	)
@@ -38,6 +58,42 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnDataRepositoryAssociationPropsMixin.S3Property",
 		reflect.TypeOf((*CfnDataRepositoryAssociationPropsMixin_S3Property)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnFileCacheMixinProps",
+		reflect.TypeOf((*CfnFileCacheMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnFileCachePropsMixin",
+		reflect.TypeOf((*CfnFileCachePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFileCachePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnFileCachePropsMixin.DataRepositoryAssociationProperty",
+		reflect.TypeOf((*CfnFileCachePropsMixin_DataRepositoryAssociationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnFileCachePropsMixin.LogConfigurationProperty",
+		reflect.TypeOf((*CfnFileCachePropsMixin_LogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnFileCachePropsMixin.LustreConfigurationProperty",
+		reflect.TypeOf((*CfnFileCachePropsMixin_LustreConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnFileCachePropsMixin.MetadataConfigurationProperty",
+		reflect.TypeOf((*CfnFileCachePropsMixin_MetadataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_fsx.CfnFileSystemMixinProps",

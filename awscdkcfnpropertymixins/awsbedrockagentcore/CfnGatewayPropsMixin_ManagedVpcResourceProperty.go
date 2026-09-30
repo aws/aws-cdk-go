@@ -15,6 +15,9 @@ package awsbedrockagentcore
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
+//   	Tags: map[string]*string{
+//   		"tagsKey": jsii.String("tags"),
+//   	},
 //   	VpcIdentifier: jsii.String("vpcIdentifier"),
 //   }
 //
@@ -33,6 +36,9 @@ type CfnGatewayPropsMixin_ManagedVpcResourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-managedvpcresource.html#cfn-bedrockagentcore-gateway-managedvpcresource-subnetids
 	//
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-managedvpcresource.html#cfn-bedrockagentcore-gateway-managedvpcresource-tags
+	//
+	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-managedvpcresource.html#cfn-bedrockagentcore-gateway-managedvpcresource-vpcidentifier
 	//
 	VpcIdentifier *string `field:"optional" json:"vpcIdentifier" yaml:"vpcIdentifier"`

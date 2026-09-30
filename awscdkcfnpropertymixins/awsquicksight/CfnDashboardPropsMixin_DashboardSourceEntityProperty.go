@@ -17,6 +17,12 @@ package awsquicksight
 //   				DataSetPlaceholder: jsii.String("dataSetPlaceholder"),
 //   			},
 //   		},
+//   		TopicReferences: []interface{}{
+//   			&TopicReferenceProperty{
+//   				TopicArn: jsii.String("topicArn"),
+//   				TopicPlaceholder: jsii.String("topicPlaceholder"),
+//   			},
+//   		},
 //   	},
 //   }
 //

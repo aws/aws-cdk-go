@@ -15,7 +15,10 @@ package awsquicksight
 //   	},
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
+//
+//   		// the properties below are optional
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
 //   	},
 //   	FilterId: jsii.String("filterId"),
 //   	NullOption: jsii.String("nullOption"),

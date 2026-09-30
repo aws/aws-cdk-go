@@ -23,6 +23,7 @@ import (
 //   		jsii.String("capacityProviderArns"),
 //   	},
 //   	ClusterArn: jsii.String("clusterArn"),
+//   	Critical: jsii.Boolean(false),
 //   	DaemonName: jsii.String("daemonName"),
 //   	DaemonTaskDefinitionArn: jsii.String("daemonTaskDefinitionArn"),
 //   	DeploymentConfiguration: &DaemonDeploymentConfigurationProperty{
@@ -76,6 +77,8 @@ type CfnDaemon interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	Critical() interface{}
+	SetCritical(val interface{})
 	DaemonName() *string
 	SetDaemonName(val *string)
 	// A reference to a Daemon resource.
@@ -433,6 +436,16 @@ func (j *jsiiProxy_CfnDaemon) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDaemon) Critical() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"critical",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDaemon) DaemonName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -625,6 +638,17 @@ func (j *jsiiProxy_CfnDaemon)SetClusterArn(val *string) {
 	_jsii_.Set(
 		j,
 		"clusterArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDaemon)SetCritical(val interface{}) {
+	if err := j.validateSetCriticalParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"critical",
 		val,
 	)
 }

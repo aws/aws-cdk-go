@@ -16,6 +16,14 @@ package awsquicksight
 //   			DataSetPlaceholder: jsii.String("dataSetPlaceholder"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	TopicReferences: []interface{}{
+//   		&TopicReferenceProperty{
+//   			TopicArn: jsii.String("topicArn"),
+//   			TopicPlaceholder: jsii.String("topicPlaceholder"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html
@@ -29,5 +37,8 @@ type CfnDashboard_DashboardSourceTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
 	//
 	DataSetReferences interface{} `field:"required" json:"dataSetReferences" yaml:"dataSetReferences"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-topicreferences
+	//
+	TopicReferences interface{} `field:"optional" json:"topicReferences" yaml:"topicReferences"`
 }
 

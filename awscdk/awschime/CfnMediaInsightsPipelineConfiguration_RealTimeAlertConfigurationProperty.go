@@ -1,0 +1,49 @@
+package awschime
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   realTimeAlertConfigurationProperty := &RealTimeAlertConfigurationProperty{
+//   	Disabled: jsii.Boolean(false),
+//   	Rules: []interface{}{
+//   		&RealTimeAlertRuleProperty{
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			IssueDetectionConfiguration: &IssueDetectionConfigurationProperty{
+//   				RuleName: jsii.String("ruleName"),
+//   			},
+//   			KeywordMatchConfiguration: &KeywordMatchConfigurationProperty{
+//   				Keywords: []*string{
+//   					jsii.String("keywords"),
+//   				},
+//   				RuleName: jsii.String("ruleName"),
+//
+//   				// the properties below are optional
+//   				Negate: jsii.Boolean(false),
+//   			},
+//   			SentimentConfiguration: &SentimentConfigurationProperty{
+//   				RuleName: jsii.String("ruleName"),
+//   				SentimentType: jsii.String("sentimentType"),
+//   				TimePeriod: jsii.Number(123),
+//   			},
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chime-mediainsightspipelineconfiguration-realtimealertconfiguration.html
+//
+type CfnMediaInsightsPipelineConfiguration_RealTimeAlertConfigurationProperty struct {
+	// Turns off real-time alerts.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chime-mediainsightspipelineconfiguration-realtimealertconfiguration.html#cfn-chime-mediainsightspipelineconfiguration-realtimealertconfiguration-disabled
+	//
+	Disabled interface{} `field:"optional" json:"disabled" yaml:"disabled"`
+	// The rules in the alert.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chime-mediainsightspipelineconfiguration-realtimealertconfiguration.html#cfn-chime-mediainsightspipelineconfiguration-realtimealertconfiguration-rules
+	//
+	Rules interface{} `field:"optional" json:"rules" yaml:"rules"`
+}
+

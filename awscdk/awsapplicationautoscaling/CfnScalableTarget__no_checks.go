@@ -132,6 +132,10 @@ func (j *jsiiProxy_CfnScalableTarget) validateSetSuspendedStateParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnScalableTarget) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnScalableTargetParameters(scope constructs.Construct, id *string, props *CfnScalableTargetProps) error {
 	return nil
 }

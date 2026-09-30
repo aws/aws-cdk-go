@@ -16,6 +16,21 @@ import (
 //   	FunctionType: jsii.String("functionType"),
 //
 //   	// the properties below are optional
+//   	ConcurrentExecutorConfiguration: &ConcurrentExecutorConfigurationProperty{
+//   		FunctionList: []interface{}{
+//   			&FunctionRefProperty{
+//   				Alias: jsii.String("alias"),
+//   				FunctionId: jsii.String("functionId"),
+//   				RunCondition: jsii.String("runCondition"),
+//   			},
+//   		},
+//   		MaxConcurrency: jsii.Number(123),
+//   		Output: map[string]*string{
+//   			"outputKey": jsii.String("output"),
+//   		},
+//   		Runtime: jsii.String("runtime"),
+//   		TimeoutMilliseconds: jsii.Number(123),
+//   	},
 //   	CustomOutputConfiguration: &CustomOutputConfigurationProperty{
 //   		Runtime: jsii.String("runtime"),
 //
@@ -43,6 +58,7 @@ import (
 //   	SequentialExecutorConfiguration: &SequentialExecutorConfigurationProperty{
 //   		FunctionList: []interface{}{
 //   			&FunctionRefProperty{
+//   				Alias: jsii.String("alias"),
 //   				FunctionId: jsii.String("functionId"),
 //   				RunCondition: jsii.String("runCondition"),
 //   			},
@@ -73,6 +89,12 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-function.html#cfn-mediatailor-function-functiontype
 	//
 	FunctionType *string `field:"required" json:"functionType" yaml:"functionType"`
+	// The configuration for a CONCURRENT_EXECUTOR function.
+	//
+	// A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-function.html#cfn-mediatailor-function-concurrentexecutorconfiguration
+	//
+	ConcurrentExecutorConfiguration interface{} `field:"optional" json:"concurrentExecutorConfiguration" yaml:"concurrentExecutorConfiguration"`
 	// Configuration for custom output functions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-function.html#cfn-mediatailor-function-customoutputconfiguration
 	//
@@ -85,7 +107,9 @@ type CfnFunctionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-function.html#cfn-mediatailor-function-httprequestconfiguration
 	//
 	HttpRequestConfiguration interface{} `field:"optional" json:"httpRequestConfiguration" yaml:"httpRequestConfiguration"`
-	// Configuration for sequential executor functions.
+	// The configuration for a SEQUENTIAL_EXECUTOR function.
+	//
+	// A SEQUENTIAL_EXECUTOR runs an ordered list of child functions one at a time, passing data between them. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-function.html#cfn-mediatailor-function-sequentialexecutorconfiguration
 	//
 	SequentialExecutorConfiguration interface{} `field:"optional" json:"sequentialExecutorConfiguration" yaml:"sequentialExecutorConfiguration"`

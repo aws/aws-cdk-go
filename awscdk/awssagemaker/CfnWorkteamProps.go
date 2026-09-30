@@ -27,6 +27,8 @@ import (
 //   			},
 //   		},
 //   	},
+//
+//   	// the properties below are optional
 //   	NotificationConfiguration: &NotificationConfigurationProperty{
 //   		NotificationTopicArn: jsii.String("notificationTopicArn"),
 //   	},
@@ -46,13 +48,13 @@ type CfnWorkteamProps struct {
 	// A description of the work team.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-description
 	//
-	Description *string `field:"optional" json:"description" yaml:"description"`
+	Description *string `field:"required" json:"description" yaml:"description"`
 	// A list of `MemberDefinition` objects that contains objects that identify the workers that make up the work team.
 	//
 	// Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `CognitoMemberDefinition` . For workforces created using your own OIDC identity provider (IdP) use `OidcMemberDefinition` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-memberdefinitions
 	//
-	MemberDefinitions interface{} `field:"optional" json:"memberDefinitions" yaml:"memberDefinitions"`
+	MemberDefinitions interface{} `field:"required" json:"memberDefinitions" yaml:"memberDefinitions"`
 	// Configures SNS notifications of available or expiring work items for work teams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html#cfn-sagemaker-workteam-notificationconfiguration
 	//

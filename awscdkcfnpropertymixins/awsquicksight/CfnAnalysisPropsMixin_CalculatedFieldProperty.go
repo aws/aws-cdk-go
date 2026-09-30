@@ -12,6 +12,7 @@ package awsquicksight
 //   	DataSetIdentifier: jsii.String("dataSetIdentifier"),
 //   	Expression: jsii.String("expression"),
 //   	Name: jsii.String("name"),
+//   	TopicIdentifier: jsii.String("topicIdentifier"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-calculatedfield.html
@@ -19,6 +20,8 @@ package awsquicksight
 type CfnAnalysisPropsMixin_CalculatedFieldProperty struct {
 	// The data set that is used in this calculated field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-calculatedfield.html#cfn-quicksight-analysis-calculatedfield-datasetidentifier
+	//
+	// Default: - "".
 	//
 	DataSetIdentifier *string `field:"optional" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
 	// The expression of the calculated field.
@@ -29,5 +32,8 @@ type CfnAnalysisPropsMixin_CalculatedFieldProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-calculatedfield.html#cfn-quicksight-analysis-calculatedfield-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-calculatedfield.html#cfn-quicksight-analysis-calculatedfield-topicidentifier
+	//
+	TopicIdentifier *string `field:"optional" json:"topicIdentifier" yaml:"topicIdentifier"`
 }
 

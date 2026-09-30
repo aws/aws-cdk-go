@@ -99,7 +99,7 @@ type PublicSubnet interface {
 	// Also adds the EIP for the managed NAT.
 	//
 	// Returns: A ref to the NAT Gateway ID.
-	AddNatGateway(eipAllocationId *string) CfnNatGateway
+	AddNatGateway(eipAllocationId *string, options *AddNatGatewayOptions) CfnNatGateway
 	// Adds an entry to this subnets route table.
 	AddRoute(id *string, options *AddRouteOptions)
 	// Override the cross-stack reference strength for this resource.
@@ -563,13 +563,16 @@ func (p *jsiiProxy_PublicSubnet) AddIpv6Nat64Route(natGatewayId *string) {
 	)
 }
 
-func (p *jsiiProxy_PublicSubnet) AddNatGateway(eipAllocationId *string) CfnNatGateway {
+func (p *jsiiProxy_PublicSubnet) AddNatGateway(eipAllocationId *string, options *AddNatGatewayOptions) CfnNatGateway {
+	if err := p.validateAddNatGatewayParameters(options); err != nil {
+		panic(err)
+	}
 	var returns CfnNatGateway
 
 	_jsii_.Invoke(
 		p,
 		"addNatGateway",
-		[]interface{}{eipAllocationId},
+		[]interface{}{eipAllocationId, options},
 		&returns,
 	)
 

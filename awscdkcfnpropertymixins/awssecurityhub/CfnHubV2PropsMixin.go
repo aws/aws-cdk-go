@@ -21,6 +21,9 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnHubV2PropsMixin := awscdkcfnpropertymixins.Aws_securityhub.NewCfnHubV2PropsMixin(&CfnHubV2MixinProps{
+//   	NetworkScanning: &NetworkScanningProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},

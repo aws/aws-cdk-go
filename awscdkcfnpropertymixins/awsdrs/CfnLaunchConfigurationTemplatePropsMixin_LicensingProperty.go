@@ -1,0 +1,23 @@
+package awsdrs
+
+
+// Configuration of a machine's license.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//
+//   licensingProperty := &LicensingProperty{
+//   	OsByol: jsii.Boolean(false),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-launchconfigurationtemplate-licensing.html
+//
+type CfnLaunchConfigurationTemplatePropsMixin_LicensingProperty struct {
+	// Whether to enable Bring your own license or not.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-drs-launchconfigurationtemplate-licensing.html#cfn-drs-launchconfigurationtemplate-licensing-osbyol
+	//
+	OsByol interface{} `field:"optional" json:"osByol" yaml:"osByol"`
+}
+

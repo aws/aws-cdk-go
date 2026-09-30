@@ -35,6 +35,9 @@ type CfnTemplatePropsMixin_BarChartConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartconfiguration.html#cfn-quicksight-template-barchartconfiguration-datalabels
 	//
 	DataLabels interface{} `field:"optional" json:"dataLabels" yaml:"dataLabels"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartconfiguration.html#cfn-quicksight-template-barchartconfiguration-defaultseriessettings
+	//
+	DefaultSeriesSettings interface{} `field:"optional" json:"defaultSeriesSettings" yaml:"defaultSeriesSettings"`
 	// The field wells of the visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartconfiguration.html#cfn-quicksight-template-barchartconfiguration-fieldwells
 	//
@@ -58,6 +61,9 @@ type CfnTemplatePropsMixin_BarChartConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartconfiguration.html#cfn-quicksight-template-barchartconfiguration-referencelines
 	//
 	ReferenceLines interface{} `field:"optional" json:"referenceLines" yaml:"referenceLines"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartconfiguration.html#cfn-quicksight-template-barchartconfiguration-series
+	//
+	Series interface{} `field:"optional" json:"series" yaml:"series"`
 	// The small multiples setup for the visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartconfiguration.html#cfn-quicksight-template-barchartconfiguration-smallmultiplesoptions
 	//

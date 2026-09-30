@@ -21,6 +21,7 @@ package awsquicksight
 //   								&ColumnIdentifierProperty{
 //   									ColumnName: jsii.String("columnName"),
 //   									DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   									TopicIdentifier: jsii.String("topicIdentifier"),
 //   								},
 //   							},
 //   							SelectedFieldOptions: jsii.String("selectedFieldOptions"),
@@ -68,6 +69,7 @@ package awsquicksight
 //   									SourceColumn: &ColumnIdentifierProperty{
 //   										ColumnName: jsii.String("columnName"),
 //   										DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   										TopicIdentifier: jsii.String("topicIdentifier"),
 //   									},
 //   									SourceField: jsii.String("sourceField"),
 //   									SourceParameterName: jsii.String("sourceParameterName"),
@@ -115,6 +117,7 @@ package awsquicksight
 //   		},
 //   		Visibility: jsii.String("visibility"),
 //   	},
+//   	TopicIdentifier: jsii.String("topicIdentifier"),
 //   	VisualContentAltText: jsii.String("visualContentAltText"),
 //   	VisualId: jsii.String("visualId"),
 //   }
@@ -135,6 +138,8 @@ type CfnDashboardPropsMixin_CustomContentVisualProperty struct {
 	// You can't create a visual without a dataset.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customcontentvisual.html#cfn-quicksight-dashboard-customcontentvisual-datasetidentifier
 	//
+	// Default: - "".
+	//
 	DataSetIdentifier *string `field:"optional" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
 	// The subtitle that is displayed on the visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customcontentvisual.html#cfn-quicksight-dashboard-customcontentvisual-subtitle
@@ -144,6 +149,9 @@ type CfnDashboardPropsMixin_CustomContentVisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customcontentvisual.html#cfn-quicksight-dashboard-customcontentvisual-title
 	//
 	Title interface{} `field:"optional" json:"title" yaml:"title"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customcontentvisual.html#cfn-quicksight-dashboard-customcontentvisual-topicidentifier
+	//
+	TopicIdentifier *string `field:"optional" json:"topicIdentifier" yaml:"topicIdentifier"`
 	// The alt text for the visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-customcontentvisual.html#cfn-quicksight-dashboard-customcontentvisual-visualcontentalttext
 	//

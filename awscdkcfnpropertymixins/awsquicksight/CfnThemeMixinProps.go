@@ -25,10 +25,19 @@ import (
 //   			},
 //   		},
 //   		Sheet: &SheetStyleProperty{
+//   			Background: &SheetBackgroundStyleProperty{
+//   				Color: jsii.String("color"),
+//   				Gradient: jsii.String("gradient"),
+//   			},
 //   			Tile: &TileStyleProperty{
+//   				BackgroundColor: jsii.String("backgroundColor"),
 //   				Border: &BorderStyleProperty{
+//   					Color: jsii.String("color"),
 //   					Show: jsii.Boolean(false),
+//   					Width: jsii.String("width"),
 //   				},
+//   				BorderRadius: jsii.String("borderRadius"),
+//   				Padding: jsii.String("padding"),
 //   			},
 //   			TileLayout: &TileLayoutStyleProperty{
 //   				Gutter: &GutterStyleProperty{
@@ -40,10 +49,102 @@ import (
 //   			},
 //   		},
 //   		Typography: &TypographyProperty{
+//   			AxisLabelFontConfiguration: &FontConfigurationProperty{
+//   				FontColor: jsii.String("fontColor"),
+//   				FontDecoration: jsii.String("fontDecoration"),
+//   				FontFamily: jsii.String("fontFamily"),
+//   				FontSize: &FontSizeProperty{
+//   					Absolute: jsii.String("absolute"),
+//   				},
+//   				FontStyle: jsii.String("fontStyle"),
+//   				FontWeight: &FontWeightProperty{
+//   					Name: jsii.String("name"),
+//   				},
+//   			},
+//   			AxisTitleFontConfiguration: &FontConfigurationProperty{
+//   				FontColor: jsii.String("fontColor"),
+//   				FontDecoration: jsii.String("fontDecoration"),
+//   				FontFamily: jsii.String("fontFamily"),
+//   				FontSize: &FontSizeProperty{
+//   					Absolute: jsii.String("absolute"),
+//   				},
+//   				FontStyle: jsii.String("fontStyle"),
+//   				FontWeight: &FontWeightProperty{
+//   					Name: jsii.String("name"),
+//   				},
+//   			},
+//   			DataLabelFontConfiguration: &FontConfigurationProperty{
+//   				FontColor: jsii.String("fontColor"),
+//   				FontDecoration: jsii.String("fontDecoration"),
+//   				FontFamily: jsii.String("fontFamily"),
+//   				FontSize: &FontSizeProperty{
+//   					Absolute: jsii.String("absolute"),
+//   				},
+//   				FontStyle: jsii.String("fontStyle"),
+//   				FontWeight: &FontWeightProperty{
+//   					Name: jsii.String("name"),
+//   				},
+//   			},
 //   			FontFamilies: []interface{}{
 //   				&FontProperty{
 //   					FontFamily: jsii.String("fontFamily"),
 //   				},
+//   			},
+//   			LegendTitleFontConfiguration: &FontConfigurationProperty{
+//   				FontColor: jsii.String("fontColor"),
+//   				FontDecoration: jsii.String("fontDecoration"),
+//   				FontFamily: jsii.String("fontFamily"),
+//   				FontSize: &FontSizeProperty{
+//   					Absolute: jsii.String("absolute"),
+//   				},
+//   				FontStyle: jsii.String("fontStyle"),
+//   				FontWeight: &FontWeightProperty{
+//   					Name: jsii.String("name"),
+//   				},
+//   			},
+//   			LegendValueFontConfiguration: &FontConfigurationProperty{
+//   				FontColor: jsii.String("fontColor"),
+//   				FontDecoration: jsii.String("fontDecoration"),
+//   				FontFamily: jsii.String("fontFamily"),
+//   				FontSize: &FontSizeProperty{
+//   					Absolute: jsii.String("absolute"),
+//   				},
+//   				FontStyle: jsii.String("fontStyle"),
+//   				FontWeight: &FontWeightProperty{
+//   					Name: jsii.String("name"),
+//   				},
+//   			},
+//   			VisualSubtitleFontConfiguration: &VisualSubtitleFontConfigurationProperty{
+//   				FontConfiguration: &FontConfigurationProperty{
+//   					FontColor: jsii.String("fontColor"),
+//   					FontDecoration: jsii.String("fontDecoration"),
+//   					FontFamily: jsii.String("fontFamily"),
+//   					FontSize: &FontSizeProperty{
+//   						Absolute: jsii.String("absolute"),
+//   					},
+//   					FontStyle: jsii.String("fontStyle"),
+//   					FontWeight: &FontWeightProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   				TextAlignment: jsii.String("textAlignment"),
+//   				TextTransform: jsii.String("textTransform"),
+//   			},
+//   			VisualTitleFontConfiguration: &VisualTitleFontConfigurationProperty{
+//   				FontConfiguration: &FontConfigurationProperty{
+//   					FontColor: jsii.String("fontColor"),
+//   					FontDecoration: jsii.String("fontDecoration"),
+//   					FontFamily: jsii.String("fontFamily"),
+//   					FontSize: &FontSizeProperty{
+//   						Absolute: jsii.String("absolute"),
+//   					},
+//   					FontStyle: jsii.String("fontStyle"),
+//   					FontWeight: &FontWeightProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
+//   				TextAlignment: jsii.String("textAlignment"),
+//   				TextTransform: jsii.String("textTransform"),
 //   			},
 //   		},
 //   		UiColorPalette: &UIColorPaletteProperty{

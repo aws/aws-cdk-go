@@ -31,6 +31,7 @@ import (
 //   	},
 //   	AppstreamAgentVersion: jsii.String("appstreamAgentVersion"),
 //   	Description: jsii.String("description"),
+//   	DisableImdsv1: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
 //   	DomainJoinInfo: &DomainJoinInfoProperty{
 //   		DirectoryName: jsii.String("directoryName"),

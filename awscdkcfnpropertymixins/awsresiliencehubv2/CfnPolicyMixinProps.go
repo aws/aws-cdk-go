@@ -31,6 +31,7 @@ import (
 //   		RtoInMinutes: jsii.Number(123),
 //   	},
 //   	Name: jsii.String("name"),
+//   	SharingEnabled: jsii.Boolean(false),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -66,6 +67,14 @@ type CfnPolicyMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehubv2-policy.html#cfn-resiliencehubv2-policy-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Whether the policy is enabled to be shared with other members of the Organization.
+	//
+	// Only applicable if the policy owner is a management account or delegated admin.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehubv2-policy.html#cfn-resiliencehubv2-policy-sharingenabled
+	//
+	// Default: - false.
+	//
+	SharingEnabled interface{} `field:"optional" json:"sharingEnabled" yaml:"sharingEnabled"`
 	// Tags assigned to the policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehubv2-policy.html#cfn-resiliencehubv2-policy-tags
 	//

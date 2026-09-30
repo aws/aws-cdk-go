@@ -6,8 +6,11 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsfsxIBackupRef = interfacesawsfsx.IBackupRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsfsxIDataRepositoryAssociationRef = interfacesawsfsx.IDataRepositoryAssociationRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsfsxIFileCacheRef = interfacesawsfsx.IFileCacheRef
 type Type__interfacesawsfsxIFileSystemRef = interfacesawsfsx.IFileSystemRef
 type Type__interfacesawsfsxIS3AccessPointAttachmentRef = interfacesawsfsx.IS3AccessPointAttachmentRef
 type Type__interfacesawsfsxISnapshotRef = interfacesawsfsx.ISnapshotRef

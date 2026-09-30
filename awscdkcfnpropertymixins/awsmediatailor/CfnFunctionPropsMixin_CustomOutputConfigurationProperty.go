@@ -21,6 +21,9 @@ type CfnFunctionPropsMixin_CustomOutputConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-customoutputconfiguration.html#cfn-mediatailor-function-customoutputconfiguration-output
 	//
 	Output interface{} `field:"optional" json:"output" yaml:"output"`
+	// The expression language used to evaluate expressions in the function configuration.
+	//
+	// Set this to JSONATA.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-customoutputconfiguration.html#cfn-mediatailor-function-customoutputconfiguration-runtime
 	//
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`

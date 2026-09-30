@@ -401,6 +401,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_BarChartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.BarChartDefaultSeriesSettingsProperty",
+		reflect.TypeOf((*CfnAnalysis_BarChartDefaultSeriesSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.BarChartFieldWellsProperty",
 		reflect.TypeOf((*CfnAnalysis_BarChartFieldWellsProperty)(nil)).Elem(),
 	)
@@ -411,6 +415,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.BarChartVisualProperty",
 		reflect.TypeOf((*CfnAnalysis_BarChartVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.BarSeriesItemProperty",
+		reflect.TypeOf((*CfnAnalysis_BarSeriesItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.BinCountOptionsProperty",
@@ -447,6 +455,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.BodySectionRepeatPageBreakConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_BodySectionRepeatPageBreakConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.BorderSettingsProperty",
+		reflect.TypeOf((*CfnAnalysis_BorderSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.BoxPlotAggregatedFieldWellsProperty",
@@ -565,6 +577,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_ComboChartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ComboChartDefaultSeriesSettingsProperty",
+		reflect.TypeOf((*CfnAnalysis_ComboChartDefaultSeriesSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ComboChartFieldWellsProperty",
 		reflect.TypeOf((*CfnAnalysis_ComboChartFieldWellsProperty)(nil)).Elem(),
 	)
@@ -575,6 +591,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ComboChartVisualProperty",
 		reflect.TypeOf((*CfnAnalysis_ComboChartVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ComboSeriesItemProperty",
+		reflect.TypeOf((*CfnAnalysis_ComboSeriesItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ComparisonConfigurationProperty",
@@ -767,6 +787,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DateTimeValueWhenUnsetConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_DateTimeValueWhenUnsetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DecalSettingsConfigurationProperty",
+		reflect.TypeOf((*CfnAnalysis_DecalSettingsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DecalSettingsProperty",
+		reflect.TypeOf((*CfnAnalysis_DecalSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DecimalDefaultValuesProperty",
@@ -1303,6 +1331,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.GridLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnAnalysis_GridLayoutConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.GridLayoutElementBackgroundStyleProperty",
+		reflect.TypeOf((*CfnAnalysis_GridLayoutElementBackgroundStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.GridLayoutElementBorderStyleProperty",
+		reflect.TypeOf((*CfnAnalysis_GridLayoutElementBorderStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.GridLayoutElementProperty",
@@ -2105,6 +2141,14 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_SheetImageTooltipTextProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SheetLayoutGroupMemberProperty",
+		reflect.TypeOf((*CfnAnalysis_SheetLayoutGroupMemberProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SheetLayoutGroupProperty",
+		reflect.TypeOf((*CfnAnalysis_SheetLayoutGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SheetProperty",
 		reflect.TypeOf((*CfnAnalysis_SheetProperty)(nil)).Elem(),
 	)
@@ -2143,6 +2187,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SpacingProperty",
 		reflect.TypeOf((*CfnAnalysis_SpacingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SparklinesOptionsProperty",
+		reflect.TypeOf((*CfnAnalysis_SparklinesOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SpatialStaticFileProperty",
@@ -2355,6 +2403,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TopBottomRankedComputationProperty",
 		reflect.TypeOf((*CfnAnalysis_TopBottomRankedComputationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TopicIdentifierDeclarationProperty",
+		reflect.TypeOf((*CfnAnalysis_TopicIdentifierDeclarationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TopicReferenceProperty",
+		reflect.TypeOf((*CfnAnalysis_TopicReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.TotalAggregationComputationProperty",
@@ -2654,6 +2710,67 @@ func init() {
 		reflect.TypeOf((*CfnCustomPermissionsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_quicksight.CfnCustomization",
+		reflect.TypeOf((*CfnCustomization)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAwsAccountId", GoGetter: "AttrAwsAccountId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customizationRef", GoGetter: "CustomizationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultTheme", GoGetter: "DefaultTheme"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "namespace", GoGetter: "Namespace"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnCustomization{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsquicksightICustomizationRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnCustomizationProps",
+		reflect.TypeOf((*CfnCustomizationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_quicksight.CfnDLPSetting",
 		reflect.TypeOf((*CfnDLPSetting)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2912,6 +3029,10 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_BarChartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.BarChartDefaultSeriesSettingsProperty",
+		reflect.TypeOf((*CfnDashboard_BarChartDefaultSeriesSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.BarChartFieldWellsProperty",
 		reflect.TypeOf((*CfnDashboard_BarChartFieldWellsProperty)(nil)).Elem(),
 	)
@@ -2922,6 +3043,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.BarChartVisualProperty",
 		reflect.TypeOf((*CfnDashboard_BarChartVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.BarSeriesItemProperty",
+		reflect.TypeOf((*CfnDashboard_BarSeriesItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.BinCountOptionsProperty",
@@ -2958,6 +3083,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.BodySectionRepeatPageBreakConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_BodySectionRepeatPageBreakConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.BorderSettingsProperty",
+		reflect.TypeOf((*CfnDashboard_BorderSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.BoxPlotAggregatedFieldWellsProperty",
@@ -3076,6 +3205,10 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_ComboChartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.ComboChartDefaultSeriesSettingsProperty",
+		reflect.TypeOf((*CfnDashboard_ComboChartDefaultSeriesSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ComboChartFieldWellsProperty",
 		reflect.TypeOf((*CfnDashboard_ComboChartFieldWellsProperty)(nil)).Elem(),
 	)
@@ -3086,6 +3219,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ComboChartVisualProperty",
 		reflect.TypeOf((*CfnDashboard_ComboChartVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.ComboSeriesItemProperty",
+		reflect.TypeOf((*CfnDashboard_ComboSeriesItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.ComparisonConfigurationProperty",
@@ -3326,6 +3463,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DateTimeValueWhenUnsetConfigurationProperty",
 		reflect.TypeOf((*CfnDashboard_DateTimeValueWhenUnsetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DecalSettingsConfigurationProperty",
+		reflect.TypeOf((*CfnDashboard_DecalSettingsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.DecalSettingsProperty",
+		reflect.TypeOf((*CfnDashboard_DecalSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.DecimalDefaultValuesProperty",
@@ -4700,6 +4845,14 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_SheetLayoutElementMaximizationOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.SheetLayoutGroupMemberProperty",
+		reflect.TypeOf((*CfnDashboard_SheetLayoutGroupMemberProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.SheetLayoutGroupProperty",
+		reflect.TypeOf((*CfnDashboard_SheetLayoutGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.SheetProperty",
 		reflect.TypeOf((*CfnDashboard_SheetProperty)(nil)).Elem(),
 	)
@@ -4738,6 +4891,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.SpacingProperty",
 		reflect.TypeOf((*CfnDashboard_SpacingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.SparklinesOptionsProperty",
+		reflect.TypeOf((*CfnDashboard_SparklinesOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.SpatialStaticFileProperty",
@@ -4950,6 +5107,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.TopBottomRankedComputationProperty",
 		reflect.TypeOf((*CfnDashboard_TopBottomRankedComputationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.TopicIdentifierDeclarationProperty",
+		reflect.TypeOf((*CfnDashboard_TopicIdentifierDeclarationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.TopicReferenceProperty",
+		reflect.TypeOf((*CfnDashboard_TopicReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.TotalAggregationComputationProperty",
@@ -6543,6 +6708,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_BarChartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.BarChartDefaultSeriesSettingsProperty",
+		reflect.TypeOf((*CfnTemplate_BarChartDefaultSeriesSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.BarChartFieldWellsProperty",
 		reflect.TypeOf((*CfnTemplate_BarChartFieldWellsProperty)(nil)).Elem(),
 	)
@@ -6553,6 +6722,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.BarChartVisualProperty",
 		reflect.TypeOf((*CfnTemplate_BarChartVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.BarSeriesItemProperty",
+		reflect.TypeOf((*CfnTemplate_BarSeriesItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.BinCountOptionsProperty",
@@ -6589,6 +6762,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.BodySectionRepeatPageBreakConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_BodySectionRepeatPageBreakConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.BorderSettingsProperty",
+		reflect.TypeOf((*CfnTemplate_BorderSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.BoxPlotAggregatedFieldWellsProperty",
@@ -6719,6 +6896,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_ComboChartConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.ComboChartDefaultSeriesSettingsProperty",
+		reflect.TypeOf((*CfnTemplate_ComboChartDefaultSeriesSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.ComboChartFieldWellsProperty",
 		reflect.TypeOf((*CfnTemplate_ComboChartFieldWellsProperty)(nil)).Elem(),
 	)
@@ -6729,6 +6910,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.ComboChartVisualProperty",
 		reflect.TypeOf((*CfnTemplate_ComboChartVisualProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.ComboSeriesItemProperty",
+		reflect.TypeOf((*CfnTemplate_ComboSeriesItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.ComparisonConfigurationProperty",
@@ -6921,6 +7106,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.DateTimeValueWhenUnsetConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_DateTimeValueWhenUnsetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DecalSettingsConfigurationProperty",
+		reflect.TypeOf((*CfnTemplate_DecalSettingsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.DecalSettingsProperty",
+		reflect.TypeOf((*CfnTemplate_DecalSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.DecimalDefaultValuesProperty",
@@ -7279,8 +7472,40 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_GaugeChartVisualProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialCategoricalColorProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialCategoricalColorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialCategoricalDataColorProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialCategoricalDataColorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialCircleRadiusProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialCircleRadiusProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialCircleSymbolStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialCircleSymbolStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialColorProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialColorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialCoordinateBoundsProperty",
 		reflect.TypeOf((*CfnTemplate_GeospatialCoordinateBoundsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialDataSourceItemProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialDataSourceItemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialGradientColorProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialGradientColorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialGradientStepColorProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialGradientStepColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialHeatmapColorScaleProperty",
@@ -7295,6 +7520,42 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_GeospatialHeatmapDataColorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialLayerColorFieldProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialLayerColorFieldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialLayerDefinitionProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialLayerDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialLayerItemProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialLayerItemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialLayerJoinDefinitionProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialLayerJoinDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialLayerMapConfigurationProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialLayerMapConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialLineLayerProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialLineLayerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialLineStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialLineStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialLineSymbolStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialLineSymbolStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialLineWidthProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialLineWidthProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialMapAggregatedFieldWellsProperty",
 		reflect.TypeOf((*CfnTemplate_GeospatialMapAggregatedFieldWellsProperty)(nil)).Elem(),
 	)
@@ -7307,16 +7568,60 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_GeospatialMapFieldWellsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialMapStateProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialMapStateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialMapStyleOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_GeospatialMapStyleOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialMapStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialMapStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialMapVisualProperty",
 		reflect.TypeOf((*CfnTemplate_GeospatialMapVisualProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialNullDataSettingsProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialNullDataSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialNullSymbolStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialNullSymbolStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialPointLayerProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialPointLayerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialPointStyleOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_GeospatialPointStyleOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialPointStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialPointStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialPolygonLayerProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialPolygonLayerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialPolygonStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialPolygonStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialPolygonSymbolStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialPolygonSymbolStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialSolidColorProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialSolidColorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialStaticFileSourceProperty",
+		reflect.TypeOf((*CfnTemplate_GeospatialStaticFileSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GeospatialWindowOptionsProperty",
@@ -7341,6 +7646,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GridLayoutConfigurationProperty",
 		reflect.TypeOf((*CfnTemplate_GridLayoutConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GridLayoutElementBackgroundStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GridLayoutElementBackgroundStyleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.GridLayoutElementBorderStyleProperty",
+		reflect.TypeOf((*CfnTemplate_GridLayoutElementBorderStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.GridLayoutElementProperty",
@@ -7413,6 +7726,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.ImageMenuOptionProperty",
 		reflect.TypeOf((*CfnTemplate_ImageMenuOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.ImageStaticFileProperty",
+		reflect.TypeOf((*CfnTemplate_ImageStaticFileProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.InnerFilterProperty",
@@ -7501,6 +7818,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.LabelOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_LabelOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.LayerCustomActionOperationProperty",
+		reflect.TypeOf((*CfnTemplate_LayerCustomActionOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.LayerCustomActionProperty",
+		reflect.TypeOf((*CfnTemplate_LayerCustomActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.LayerMapVisualProperty",
+		reflect.TypeOf((*CfnTemplate_LayerMapVisualProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.LayoutConfigurationProperty",
@@ -8119,6 +8448,14 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_SheetImageTooltipTextProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.SheetLayoutGroupMemberProperty",
+		reflect.TypeOf((*CfnTemplate_SheetLayoutGroupMemberProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.SheetLayoutGroupProperty",
+		reflect.TypeOf((*CfnTemplate_SheetLayoutGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.SheetProperty",
 		reflect.TypeOf((*CfnTemplate_SheetProperty)(nil)).Elem(),
 	)
@@ -8157,6 +8494,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.SpacingProperty",
 		reflect.TypeOf((*CfnTemplate_SpacingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.SparklinesOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_SparklinesOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.SpatialStaticFileProperty",
+		reflect.TypeOf((*CfnTemplate_SpatialStaticFileProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.StaticFileProperty",
+		reflect.TypeOf((*CfnTemplate_StaticFileProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.StaticFileS3SourceOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_StaticFileS3SourceOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.StaticFileSourceProperty",
+		reflect.TypeOf((*CfnTemplate_StaticFileSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.StaticFileUrlSourceOptionsProperty",
+		reflect.TypeOf((*CfnTemplate_StaticFileUrlSourceOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.StringDefaultValuesProperty",
@@ -8369,6 +8730,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.TopBottomRankedComputationProperty",
 		reflect.TypeOf((*CfnTemplate_TopBottomRankedComputationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.TopicConfigurationProperty",
+		reflect.TypeOf((*CfnTemplate_TopicConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.TopicReferenceProperty",
+		reflect.TypeOf((*CfnTemplate_TopicReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.TotalAggregationComputationProperty",
@@ -8620,8 +8989,20 @@ func init() {
 		reflect.TypeOf((*CfnTheme_DataColorPaletteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTheme.FontConfigurationProperty",
+		reflect.TypeOf((*CfnTheme_FontConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTheme.FontProperty",
 		reflect.TypeOf((*CfnTheme_FontProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTheme.FontSizeProperty",
+		reflect.TypeOf((*CfnTheme_FontSizeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTheme.FontWeightProperty",
+		reflect.TypeOf((*CfnTheme_FontWeightProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTheme.GutterStyleProperty",
@@ -8634,6 +9015,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTheme.ResourcePermissionProperty",
 		reflect.TypeOf((*CfnTheme_ResourcePermissionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTheme.SheetBackgroundStyleProperty",
+		reflect.TypeOf((*CfnTheme_SheetBackgroundStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTheme.SheetStyleProperty",
@@ -8666,6 +9051,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTheme.UIColorPaletteProperty",
 		reflect.TypeOf((*CfnTheme_UIColorPaletteProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTheme.VisualSubtitleFontConfigurationProperty",
+		reflect.TypeOf((*CfnTheme_VisualSubtitleFontConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTheme.VisualTitleFontConfigurationProperty",
+		reflect.TypeOf((*CfnTheme_VisualTitleFontConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnThemeProps",

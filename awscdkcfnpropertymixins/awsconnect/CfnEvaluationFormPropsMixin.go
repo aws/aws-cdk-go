@@ -22,6 +22,7 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnEvaluationFormPropsMixin := awscdkcfnpropertymixins.Aws_connect.NewCfnEvaluationFormPropsMixin(&CfnEvaluationFormMixinProps{
+//   	AiVersion: jsii.String("aiVersion"),
 //   	AutoEvaluationConfiguration: &AutoEvaluationConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
@@ -60,6 +61,10 @@ import (
 //   								DefaultAction: jsii.String("defaultAction"),
 //   							},
 //   							Instructions: jsii.String("instructions"),
+//   							MetricConfiguration: &EvaluationFormMetricConfigurationProperty{
+//   								MetricName: jsii.String("metricName"),
+//   								MetricType: jsii.String("metricType"),
+//   							},
 //   							NotApplicableEnabled: jsii.Boolean(false),
 //   							QuestionType: jsii.String("questionType"),
 //   							QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{

@@ -29,6 +29,15 @@ package awsec2
 //   						Encrypted: jsii.Boolean(false),
 //   						Iops: jsii.Number(123),
 //   						KmsKeyId: jsii.String("kmsKeyId"),
+//   						MultiAvailabilityZoneConfiguration: &MultiAvailabilityZoneConfigurationProperty{
+//   							ConfigurationType: jsii.String("configurationType"),
+//   							StandbyAvailabilityZones: []interface{}{
+//   								&StandbyAvailabilityZoneProperty{
+//   									AvailabilityZone: jsii.String("availabilityZone"),
+//   									AvailabilityZoneId: jsii.String("availabilityZoneId"),
+//   								},
+//   							},
+//   						},
 //   						SnapshotId: jsii.String("snapshotId"),
 //   						VolumeSize: jsii.Number(123),
 //   						VolumeType: jsii.String("volumeType"),

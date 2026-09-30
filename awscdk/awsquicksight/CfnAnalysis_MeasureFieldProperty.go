@@ -16,7 +16,10 @@ package awsquicksight
 //   	CategoricalMeasureField: &CategoricalMeasureFieldProperty{
 //   		Column: &ColumnIdentifierProperty{
 //   			ColumnName: jsii.String("columnName"),
+//
+//   			// the properties below are optional
 //   			DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   			TopicIdentifier: jsii.String("topicIdentifier"),
 //   		},
 //   		FieldId: jsii.String("fieldId"),
 //
@@ -99,7 +102,10 @@ package awsquicksight
 //   	DateMeasureField: &DateMeasureFieldProperty{
 //   		Column: &ColumnIdentifierProperty{
 //   			ColumnName: jsii.String("columnName"),
+//
+//   			// the properties below are optional
 //   			DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   			TopicIdentifier: jsii.String("topicIdentifier"),
 //   		},
 //   		FieldId: jsii.String("fieldId"),
 //
@@ -183,7 +189,10 @@ package awsquicksight
 //   	NumericalMeasureField: &NumericalMeasureFieldProperty{
 //   		Column: &ColumnIdentifierProperty{
 //   			ColumnName: jsii.String("columnName"),
+//
+//   			// the properties below are optional
 //   			DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   			TopicIdentifier: jsii.String("topicIdentifier"),
 //   		},
 //   		FieldId: jsii.String("fieldId"),
 //

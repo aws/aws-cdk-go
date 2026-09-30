@@ -39,6 +39,23 @@ import (
 //   			EnvironmentVariables: map[string]*string{
 //   				"environmentVariablesKey": jsii.String("environmentVariables"),
 //   			},
+//   			EphemeralStorageConfiguration: &EphemeralStorageConfigurationProperty{
+//   				StorageClass: jsii.String("storageClass"),
+//   				StorageSizeInGiB: jsii.Number(123),
+//   			},
+//   			Mounts: []interface{}{
+//   				&MountProperty{
+//   					Name: jsii.String("name"),
+//   					RelativePath: jsii.String("relativePath"),
+//   					Source: &MountSourceProperty{
+//   						S3AccessPoint: &S3AccessPointSourceProperty{
+//   							AccessPointArn: jsii.String("accessPointArn"),
+//   							Prefix: jsii.String("prefix"),
+//   						},
+//   					},
+//   					StorageType: jsii.String("storageType"),
+//   				},
+//   			},
 //   			ProcessingType: jsii.String("processingType"),
 //   			ProcessingUnit: jsii.String("processingUnit"),
 //   			TaskExecutionRole: jsii.String("taskExecutionRole"),

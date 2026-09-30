@@ -32,6 +32,9 @@ import (
 //   	SecurityPolicyName: jsii.String("securityPolicyName"),
 //   	SftpConfig: &SftpConfigProperty{
 //   		MaxConcurrentConnections: jsii.Number(123),
+//   		OrderedUserSecretVersionStages: []*string{
+//   			jsii.String("orderedUserSecretVersionStages"),
+//   		},
 //   		TrustedHostKeys: []*string{
 //   			jsii.String("trustedHostKeys"),
 //   		},

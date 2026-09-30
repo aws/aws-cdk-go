@@ -16,7 +16,7 @@ package awsmedialive
 //   	},
 //   	MediapackageV2GroupSettings: &MediaPackageV2GroupSettingsProperty{
 //   		AdditionalDestinations: []interface{}{
-//   			&MediaPackageAdditionalDestinationsProperty{
+//   			&AdditionalDestinationsProperty{
 //   				Destination: &OutputLocationRefProperty{
 //   					DestinationRefId: jsii.String("destinationRefId"),
 //   				},
@@ -38,6 +38,28 @@ package awsmedialive
 //   		TimedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
 //   		TimedMetadataId3Period: jsii.Number(123),
 //   		TimedMetadataPassthrough: jsii.String("timedMetadataPassthrough"),
+//   		WatermarkingSettings: &MediaPackageV2WatermarkingSettingsProperty{
+//   			MediaPackageV2AbWatermarkerIrdetoSettings: &CmafIngestMediaPackageV2AbWatermarkerIrdetoSettingsProperty{
+//   				AdditionalDestinationsAlternateDestinations: []interface{}{
+//   					&OutputLocationRefProperty{
+//   						DestinationRefId: jsii.String("destinationRefId"),
+//   					},
+//   				},
+//   				AlternateDestination: &OutputLocationRefProperty{
+//   					DestinationRefId: jsii.String("destinationRefId"),
+//   				},
+//   				CustomProfile: &AbWatermarkingCustomProfileProperty{
+//   					EmbeddingFrequency: jsii.Number(123),
+//   					SceneCut: jsii.Number(123),
+//   					TargetPsnr: jsii.Number(123),
+//   				},
+//   				License: jsii.String("license"),
+//   				OperatorId: jsii.Number(123),
+//   				PolyPeriod: jsii.Number(123),
+//   				Profile: jsii.String("profile"),
+//   				WatermarkIdLength: jsii.String("watermarkIdLength"),
+//   			},
+//   		},
 //   	},
 //   }
 //

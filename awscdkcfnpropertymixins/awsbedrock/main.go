@@ -512,6 +512,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSourcePropsMixin_DataSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.DayOfMonthProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_DayOfMonthProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.DeletionProtectionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_DeletionProtectionConfigurationProperty)(nil)).Elem(),
 	)
@@ -546,6 +550,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.MediaExtractionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_MediaExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.MonthlyScheduleProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_MonthlyScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.ParsingConfigurationProperty",
@@ -608,6 +616,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSourcePropsMixin_SharePointSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.SyncScheduleProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_SyncScheduleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.TransformationFunctionProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_TransformationFunctionProperty)(nil)).Elem(),
 	)
@@ -646,6 +658,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.WebSourceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_WebSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnDataSourcePropsMixin.WeeklyScheduleProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_WeeklyScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrock.CfnEnforcedGuardrailConfigurationMixinProps",

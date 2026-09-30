@@ -30,16 +30,6 @@ import (
 //
 //   	// the properties below are optional
 //   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
-//   		AttachmentPolicyRuleNumber: jsii.Number(123),
-//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   		Tags: []CfnTag{
-//   			&CfnTag{
-//   				Key: jsii.String("key"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
@@ -133,9 +123,6 @@ type CfnConnectAttachment interface {
 	// Options for connecting an attachment.
 	Options() interface{}
 	SetOptions(val interface{})
-	// Describes proposed changes to a network function group.
-	ProposedNetworkFunctionGroupChange() interface{}
-	SetProposedNetworkFunctionGroupChange(val interface{})
 	// Describes a proposed segment change.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
@@ -603,16 +590,6 @@ func (j *jsiiProxy_CfnConnectAttachment) Options() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConnectAttachment) ProposedNetworkFunctionGroupChange() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"proposedNetworkFunctionGroupChange",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnConnectAttachment) ProposedSegmentChange() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -770,17 +747,6 @@ func (j *jsiiProxy_CfnConnectAttachment)SetOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"options",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnConnectAttachment)SetProposedNetworkFunctionGroupChange(val interface{}) {
-	if err := j.validateSetProposedNetworkFunctionGroupChangeParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"proposedNetworkFunctionGroupChange",
 		val,
 	)
 }

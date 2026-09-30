@@ -344,6 +344,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_vpclattice.CfnResourceConfiguration.CidrResourceProperty",
+		reflect.TypeOf((*CfnResourceConfiguration_CidrResourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_vpclattice.CfnResourceConfiguration.DnsResourceProperty",
 		reflect.TypeOf((*CfnResourceConfiguration_DnsResourceProperty)(nil)).Elem(),
 	)

@@ -9,11 +9,20 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   partitionReference := &PartitionReference{
-//   	PartitionId: jsii.String("partitionId"),
+//   	CatalogId: jsii.String("catalogId"),
+//   	DatabaseName: jsii.String("databaseName"),
+//   	IdentifierPartitionInputValues: jsii.String("identifierPartitionInputValues"),
+//   	TableName: jsii.String("tableName"),
 //   }
 //
 type PartitionReference struct {
-	// The Id of the Partition resource.
-	PartitionId *string `field:"required" json:"partitionId" yaml:"partitionId"`
+	// The CatalogId of the Partition resource.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// The DatabaseName of the Partition resource.
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// The IdentifierPartitionInputValues of the Partition resource.
+	IdentifierPartitionInputValues *string `field:"required" json:"identifierPartitionInputValues" yaml:"identifierPartitionInputValues"`
+	// The TableName of the Partition resource.
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 

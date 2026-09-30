@@ -38,6 +38,8 @@ import (
 //   			},
 //   		},
 //   	},
+//
+//   	// the properties below are optional
 //   	NotificationConfiguration: &NotificationConfigurationProperty{
 //   		NotificationTopicArn: jsii.String("notificationTopicArn"),
 //   	},
@@ -58,7 +60,8 @@ type CfnWorkteam interface {
 	awscdk.IInspectable
 	interfacesawssagemaker.IWorkteamRef
 	awscdk.ITaggable
-	AttrId() *string
+	// The Amazon Resource Name (ARN) that identifies the work team.
+	AttrWorkteamArn() *string
 	// The name of the work team.
 	AttrWorkteamName() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -299,11 +302,11 @@ type jsiiProxy_CfnWorkteam struct {
 	internal.Type__awscdkITaggable
 }
 
-func (j *jsiiProxy_CfnWorkteam) AttrId() *string {
+func (j *jsiiProxy_CfnWorkteam) AttrWorkteamArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrWorkteamArn",
 		&returns,
 	)
 	return returns
@@ -550,6 +553,9 @@ func NewCfnWorkteam_Override(c CfnWorkteam, scope constructs.Construct, id *stri
 }
 
 func (j *jsiiProxy_CfnWorkteam)SetDescription(val *string) {
+	if err := j.validateSetDescriptionParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"description",

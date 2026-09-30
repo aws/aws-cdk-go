@@ -5,5 +5,7 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsmgnINetworkMigrationDefinitionRef = interfacesawsmgn.INetworkMigrationDefinitionRef
+type Type__interfacesawsmgnIConnectorRef = interfacesawsmgn.IConnectorRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsmgnILaunchConfigurationTemplateRef = interfacesawsmgn.ILaunchConfigurationTemplateRef
+type Type__interfacesawsmgnINetworkMigrationDefinitionRef = interfacesawsmgn.INetworkMigrationDefinitionRef

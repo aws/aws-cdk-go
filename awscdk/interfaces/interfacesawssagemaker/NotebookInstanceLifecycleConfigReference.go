@@ -9,14 +9,11 @@ package interfacesawssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   notebookInstanceLifecycleConfigReference := &NotebookInstanceLifecycleConfigReference{
-//   	NotebookInstanceLifecycleConfigId: jsii.String("notebookInstanceLifecycleConfigId"),
-//   	NotebookInstanceLifecycleConfigName: jsii.String("notebookInstanceLifecycleConfigName"),
+//   	NotebookInstanceLifecycleConfigArn: jsii.String("notebookInstanceLifecycleConfigArn"),
 //   }
 //
 type NotebookInstanceLifecycleConfigReference struct {
-	// The Id of the NotebookInstanceLifecycleConfig resource.
-	NotebookInstanceLifecycleConfigId *string `field:"required" json:"notebookInstanceLifecycleConfigId" yaml:"notebookInstanceLifecycleConfigId"`
-	// The NotebookInstanceLifecycleConfigName of the NotebookInstanceLifecycleConfig resource.
-	NotebookInstanceLifecycleConfigName *string `field:"required" json:"notebookInstanceLifecycleConfigName" yaml:"notebookInstanceLifecycleConfigName"`
+	// The NotebookInstanceLifecycleConfigArn of the NotebookInstanceLifecycleConfig resource.
+	NotebookInstanceLifecycleConfigArn *string `field:"required" json:"notebookInstanceLifecycleConfigArn" yaml:"notebookInstanceLifecycleConfigArn"`
 }
 

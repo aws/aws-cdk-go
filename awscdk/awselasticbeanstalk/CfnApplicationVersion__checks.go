@@ -227,10 +227,72 @@ func (j *jsiiProxy_CfnApplicationVersion) validateSetApplicationNameParameters(v
 	return nil
 }
 
-func (j *jsiiProxy_CfnApplicationVersion) validateSetSourceBundleParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
+func (j *jsiiProxy_CfnApplicationVersion) validateSetBuildConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnApplicationVersion_BuildConfigurationProperty:
+		val := val.(*CfnApplicationVersion_BuildConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnApplicationVersion_BuildConfigurationProperty:
+		val_ := val.(CfnApplicationVersion_BuildConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationVersion_BuildConfigurationProperty; received %#v (a %T)", val, val)
+		}
 	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplicationVersion) validateSetImageConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnApplicationVersion_ImageConfigurationProperty:
+		val := val.(*CfnApplicationVersion_ImageConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnApplicationVersion_ImageConfigurationProperty:
+		val_ := val.(CfnApplicationVersion_ImageConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplicationVersion_ImageConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplicationVersion) validateSetProcessParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplicationVersion) validateSetSourceBundleParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

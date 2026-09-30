@@ -9,11 +9,11 @@ package interfacesawsconfig
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   deliveryChannelReference := &DeliveryChannelReference{
-//   	DeliveryChannelId: jsii.String("deliveryChannelId"),
+//   	DeliveryChannelName: jsii.String("deliveryChannelName"),
 //   }
 //
 type DeliveryChannelReference struct {
-	// The Id of the DeliveryChannel resource.
-	DeliveryChannelId *string `field:"required" json:"deliveryChannelId" yaml:"deliveryChannelId"`
+	// The Name of the DeliveryChannel resource.
+	DeliveryChannelName *string `field:"required" json:"deliveryChannelName" yaml:"deliveryChannelName"`
 }
 

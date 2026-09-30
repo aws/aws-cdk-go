@@ -95,7 +95,8 @@ type CfnPartition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsglue.IPartitionRef
-	AttrId() *string
+	// A hashed string equivalent to the partition values list for use as a component of the resource's identifier in CFN.
+	AttrIdentifierPartitionInputValues() *string
 	// The AWS account ID of the catalog in which the partion is to be created.
 	CatalogId() *string
 	SetCatalogId(val *string)
@@ -325,11 +326,11 @@ type jsiiProxy_CfnPartition struct {
 	internal.Type__interfacesawsglueIPartitionRef
 }
 
-func (j *jsiiProxy_CfnPartition) AttrId() *string {
+func (j *jsiiProxy_CfnPartition) AttrIdentifierPartitionInputValues() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrIdentifierPartitionInputValues",
 		&returns,
 	)
 	return returns

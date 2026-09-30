@@ -28,6 +28,10 @@ func init() {
 		reflect.TypeOf((*CustomPermissionsReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_quicksight.CustomizationReference",
+		reflect.TypeOf((*CustomizationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_quicksight.DLPSettingReference",
 		reflect.TypeOf((*DLPSettingReference)(nil)).Elem(),
 	)
@@ -126,6 +130,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICustomPermissionsRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_quicksight.ICustomizationRef",
+		reflect.TypeOf((*ICustomizationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "customizationRef", GoGetter: "CustomizationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ICustomizationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

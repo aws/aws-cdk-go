@@ -53,5 +53,12 @@ type CfnTemplate_TemplateVersionDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-sheets
 	//
 	Sheets interface{} `field:"optional" json:"sheets" yaml:"sheets"`
+	// <p>The static files for the definition.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-staticfiles
+	//
+	StaticFiles interface{} `field:"optional" json:"staticFiles" yaml:"staticFiles"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversiondefinition.html#cfn-quicksight-template-templateversiondefinition-topicconfigurations
+	//
+	TopicConfigurations interface{} `field:"optional" json:"topicConfigurations" yaml:"topicConfigurations"`
 }
 

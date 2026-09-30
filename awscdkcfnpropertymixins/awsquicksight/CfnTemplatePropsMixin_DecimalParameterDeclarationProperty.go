@@ -14,14 +14,17 @@ package awsquicksight
 //   			DefaultValueColumn: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			GroupNameColumn: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			UserNameColumn: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   		},
 //   		StaticValues: []interface{}{

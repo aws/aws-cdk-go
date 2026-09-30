@@ -19,6 +19,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnHubV2 := awscdk.Aws_securityhub.NewCfnHubV2(this, jsii.String("MyCfnHubV2"), &CfnHubV2Props{
+//   	NetworkScanning: &NetworkScanningProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -60,6 +63,9 @@ type CfnHubV2 interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// Configuration for the Network Scanning opt-in feature of Security Hub V2.
+	NetworkScanning() interface{}
+	SetNetworkScanning(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -368,6 +374,16 @@ func (j *jsiiProxy_CfnHubV2) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHubV2) NetworkScanning() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"networkScanning",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHubV2) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -455,6 +471,17 @@ func NewCfnHubV2_Override(c CfnHubV2, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_securityhub.CfnHubV2",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnHubV2)SetNetworkScanning(val interface{}) {
+	if err := j.validateSetNetworkScanningParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"networkScanning",
+		val,
 	)
 }
 

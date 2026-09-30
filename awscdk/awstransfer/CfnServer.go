@@ -54,6 +54,9 @@ import (
 //   			jsii.String("as2Transports"),
 //   		},
 //   		PassiveIp: jsii.String("passiveIp"),
+//   		ProxyConfig: &ProxyConfigProperty{
+//   			SftpMode: jsii.String("sftpMode"),
+//   		},
 //   		SetStatOption: jsii.String("setStatOption"),
 //   		TlsSessionResumptionMode: jsii.String("tlsSessionResumptionMode"),
 //   	},

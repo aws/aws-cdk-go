@@ -80,6 +80,8 @@ const (
 	// Experimental.
 	CfnPlaybackConfigurationManifestServiceLogsRecordFields_HTTP CfnPlaybackConfigurationManifestServiceLogsRecordFields = "HTTP"
 	// Experimental.
+	CfnPlaybackConfigurationManifestServiceLogsRecordFields_STREAMID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "STREAMID"
+	// Experimental.
 	CfnPlaybackConfigurationManifestServiceLogsRecordFields_EVENTTIMESTAMP CfnPlaybackConfigurationManifestServiceLogsRecordFields = "EVENTTIMESTAMP"
 	// Experimental.
 	CfnPlaybackConfigurationManifestServiceLogsRecordFields_AWSACCOUNTID CfnPlaybackConfigurationManifestServiceLogsRecordFields = "AWSACCOUNTID"

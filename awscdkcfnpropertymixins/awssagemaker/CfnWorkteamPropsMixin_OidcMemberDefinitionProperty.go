@@ -19,6 +19,7 @@ package awssagemaker
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-oidcmemberdefinition.html
 //
 type CfnWorkteamPropsMixin_OidcMemberDefinitionProperty struct {
+	// A list of OIDC group names whose members will be part of this workteam.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-oidcmemberdefinition.html#cfn-sagemaker-workteam-oidcmemberdefinition-oidcgroups
 	//
 	OidcGroups *[]*string `field:"optional" json:"oidcGroups" yaml:"oidcGroups"`

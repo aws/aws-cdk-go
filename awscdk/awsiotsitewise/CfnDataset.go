@@ -20,6 +20,15 @@ import (
 //
 //   cfnDataset := awscdk.Aws_iotsitewise.NewCfnDataset(this, jsii.String("MyCfnDataset"), &CfnDatasetProps{
 //   	DatasetName: jsii.String("datasetName"),
+//
+//   	// the properties below are optional
+//   	DatasetConfig: &DatasetConfigProperty{
+//   		Session: &SessionConfigProperty{
+//   			SessionEndTime: jsii.String("sessionEndTime"),
+//   			SessionStartTime: jsii.String("sessionStartTime"),
+//   		},
+//   	},
+//   	DatasetDescription: jsii.String("datasetDescription"),
 //   	DatasetSource: &DatasetSourceProperty{
 //   		SourceFormat: jsii.String("sourceFormat"),
 //   		SourceType: jsii.String("sourceType"),
@@ -32,15 +41,14 @@ import (
 //   			},
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	DatasetDescription: jsii.String("datasetDescription"),
+//   	DatasetType: jsii.String("datasetType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	WorkspaceName: jsii.String("workspaceName"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dataset.html
@@ -68,6 +76,8 @@ type CfnDataset interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	DatasetConfig() interface{}
+	SetDatasetConfig(val interface{})
 	// A description about the dataset, and its functionality.
 	DatasetDescription() *string
 	SetDatasetDescription(val *string)
@@ -79,6 +89,9 @@ type CfnDataset interface {
 	// The data source for the dataset.
 	DatasetSource() interface{}
 	SetDatasetSource(val interface{})
+	// The type of the dataset.
+	DatasetType() *string
+	SetDatasetType(val *string)
 	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -117,6 +130,9 @@ type CfnDataset interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The name of the workspace associated with the dataset.
+	WorkspaceName() *string
+	SetWorkspaceName(val *string)
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -368,6 +384,16 @@ func (j *jsiiProxy_CfnDataset) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataset) DatasetConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"datasetConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataset) DatasetDescription() *string {
 	var returns *string
 	_jsii_.Get(
@@ -403,6 +429,16 @@ func (j *jsiiProxy_CfnDataset) DatasetSource() interface{} {
 	_jsii_.Get(
 		j,
 		"datasetSource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataset) DatasetType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"datasetType",
 		&returns,
 	)
 	return returns
@@ -488,6 +524,16 @@ func (j *jsiiProxy_CfnDataset) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataset) WorkspaceName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"workspaceName",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::IoTSiteWise::Dataset`.
 func NewCfnDataset(scope constructs.Construct, id *string, props *CfnDatasetProps) CfnDataset {
@@ -515,6 +561,17 @@ func NewCfnDataset_Override(c CfnDataset, scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_iotsitewise.CfnDataset",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDataset)SetDatasetConfig(val interface{}) {
+	if err := j.validateSetDatasetConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"datasetConfig",
+		val,
 	)
 }
 
@@ -548,6 +605,14 @@ func (j *jsiiProxy_CfnDataset)SetDatasetSource(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnDataset)SetDatasetType(val *string) {
+	_jsii_.Set(
+		j,
+		"datasetType",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDataset)SetTags(val *[]*awscdk.CfnTag) {
 	if err := j.validateSetTagsParameters(val); err != nil {
 		panic(err)
@@ -555,6 +620,14 @@ func (j *jsiiProxy_CfnDataset)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataset)SetWorkspaceName(val *string) {
+	_jsii_.Set(
+		j,
+		"workspaceName",
 		val,
 	)
 }

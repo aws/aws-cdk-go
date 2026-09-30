@@ -92,6 +92,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_smsvoice.IRegistrationAttachmentRef",
+		reflect.TypeOf((*IRegistrationAttachmentRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "registrationAttachmentRef", GoGetter: "RegistrationAttachmentRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRegistrationAttachmentRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_smsvoice.IRegistrationRef",
 		reflect.TypeOf((*IRegistrationRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -139,6 +155,22 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_smsvoice.IVerifiedDestinationNumberRef",
+		reflect.TypeOf((*IVerifiedDestinationNumberRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "verifiedDestinationNumberRef", GoGetter: "VerifiedDestinationNumberRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IVerifiedDestinationNumberRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_smsvoice.OptOutListReference",
 		reflect.TypeOf((*OptOutListReference)(nil)).Elem(),
@@ -156,6 +188,10 @@ func init() {
 		reflect.TypeOf((*ProtectConfigurationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_smsvoice.RegistrationAttachmentReference",
+		reflect.TypeOf((*RegistrationAttachmentReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_smsvoice.RegistrationReference",
 		reflect.TypeOf((*RegistrationReference)(nil)).Elem(),
 	)
@@ -166,5 +202,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_smsvoice.SenderIdReference",
 		reflect.TypeOf((*SenderIdReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_smsvoice.VerifiedDestinationNumberReference",
+		reflect.TypeOf((*VerifiedDestinationNumberReference)(nil)).Elem(),
 	)
 }

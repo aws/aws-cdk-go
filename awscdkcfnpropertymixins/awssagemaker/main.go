@@ -8,6 +8,50 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnAIWorkloadConfigMixinProps",
+		reflect.TypeOf((*CfnAIWorkloadConfigMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnAIWorkloadConfigPropsMixin",
+		reflect.TypeOf((*CfnAIWorkloadConfigPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnAIWorkloadConfigPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnAIWorkloadConfigPropsMixin.AIDatasetConfigProperty",
+		reflect.TypeOf((*CfnAIWorkloadConfigPropsMixin_AIDatasetConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnAIWorkloadConfigPropsMixin.AIWorkloadConfigsProperty",
+		reflect.TypeOf((*CfnAIWorkloadConfigPropsMixin_AIWorkloadConfigsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnAIWorkloadConfigPropsMixin.AIWorkloadDataSourceProperty",
+		reflect.TypeOf((*CfnAIWorkloadConfigPropsMixin_AIWorkloadDataSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnAIWorkloadConfigPropsMixin.AIWorkloadInputDataConfigProperty",
+		reflect.TypeOf((*CfnAIWorkloadConfigPropsMixin_AIWorkloadInputDataConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnAIWorkloadConfigPropsMixin.AIWorkloadS3DataSourceProperty",
+		reflect.TypeOf((*CfnAIWorkloadConfigPropsMixin_AIWorkloadS3DataSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnAIWorkloadConfigPropsMixin.WorkloadSpecProperty",
+		reflect.TypeOf((*CfnAIWorkloadConfigPropsMixin_WorkloadSpecProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnActionMixinProps",
 		reflect.TypeOf((*CfnActionMixinProps)(nil)).Elem(),
 	)
@@ -350,6 +394,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterPropsMixin.VpcConfigProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_VpcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterSchedulerConfigMixinProps",
+		reflect.TypeOf((*CfnClusterSchedulerConfigMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterSchedulerConfigPropsMixin",
+		reflect.TypeOf((*CfnClusterSchedulerConfigPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnClusterSchedulerConfigPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterSchedulerConfigPropsMixin.PriorityClassProperty",
+		reflect.TypeOf((*CfnClusterSchedulerConfigPropsMixin_PriorityClassProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnClusterSchedulerConfigPropsMixin.SchedulerConfigProperty",
+		reflect.TypeOf((*CfnClusterSchedulerConfigPropsMixin_SchedulerConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnCodeRepositoryMixinProps",

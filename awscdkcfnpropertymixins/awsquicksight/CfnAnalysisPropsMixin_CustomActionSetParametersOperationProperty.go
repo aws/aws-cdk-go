@@ -34,6 +34,7 @@ package awsquicksight
 //   				SourceColumn: &ColumnIdentifierProperty{
 //   					ColumnName: jsii.String("columnName"),
 //   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   					TopicIdentifier: jsii.String("topicIdentifier"),
 //   				},
 //   				SourceField: jsii.String("sourceField"),
 //   				SourceParameterName: jsii.String("sourceParameterName"),

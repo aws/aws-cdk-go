@@ -11,4 +11,5 @@ type Type__interfacesawscasesICaseRuleRef = interfacesawscases.ICaseRuleRef
 type Type__interfacesawscasesIDomainRef = interfacesawscases.IDomainRef
 type Type__interfacesawscasesIFieldRef = interfacesawscases.IFieldRef
 type Type__interfacesawscasesILayoutRef = interfacesawscases.ILayoutRef
+type Type__interfacesawscasesIRelatedItemRef = interfacesawscases.IRelatedItemRef
 type Type__interfacesawscasesITemplateRef = interfacesawscases.ITemplateRef

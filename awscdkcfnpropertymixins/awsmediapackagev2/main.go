@@ -76,6 +76,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_InputSwitchConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnChannelPropsMixin.MultiviewConfigurationProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_MultiviewConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnChannelPropsMixin.OutputHeaderConfigurationProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_OutputHeaderConfigurationProperty)(nil)).Elem(),
 	)

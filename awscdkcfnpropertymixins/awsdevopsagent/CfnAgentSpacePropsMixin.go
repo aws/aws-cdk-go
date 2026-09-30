@@ -39,6 +39,9 @@ import (
 //   			UpdatedAt: jsii.String("updatedAt"),
 //   		},
 //   	},
+//   	Preferences: &PreferencesProperty{
+//   		ElevatedActionsEnabled: jsii.Boolean(false),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

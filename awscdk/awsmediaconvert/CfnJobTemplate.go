@@ -60,7 +60,6 @@ type CfnJobTemplate interface {
 	SetAccelerationSettings(val interface{})
 	// The Amazon Resource Name (ARN) of the job template, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
 	AttrArn() *string
-	AttrId() *string
 	// The name of the job template, such as `Streaming stack DASH` .
 	AttrName() *string
 	// Optional.
@@ -325,16 +324,6 @@ func (j *jsiiProxy_CfnJobTemplate) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnJobTemplate) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

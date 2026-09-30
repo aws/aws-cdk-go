@@ -34,6 +34,7 @@ import (
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var mergeStrategy IMergeStrategy
+//   var modelConfiguration interface{}
 //
 //   cfnKnowledgeBasePropsMixin := awscdkcfnpropertymixins.Aws_bedrock.NewCfnKnowledgeBasePropsMixin(&CfnKnowledgeBaseMixinProps{
 //   	Description: jsii.String("description"),
@@ -54,6 +55,7 @@ import (
 //   					},
 //   					Dimensions: jsii.Number(123),
 //   					EmbeddingDataType: jsii.String("embeddingDataType"),
+//   					ModelConfiguration: modelConfiguration,
 //   					Video: []interface{}{
 //   						&VideoConfigurationProperty{
 //   							SegmentationConfiguration: &VideoSegmentationConfigurationProperty{
@@ -66,6 +68,16 @@ import (
 //   			EmbeddingModelType: jsii.String("embeddingModelType"),
 //   			ServerSideEncryptionConfiguration: &ManagedKnowledgeBaseServerSideEncryptionConfigurationProperty{
 //   				KmsKeyArn: jsii.String("kmsKeyArn"),
+//   			},
+//   			SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{
+//   				SupplementalDataStorageLocations: []interface{}{
+//   					&SupplementalDataStorageLocationProperty{
+//   						S3Location: &S3LocationProperty{
+//   							Uri: jsii.String("uri"),
+//   						},
+//   						SupplementalDataStorageLocationType: jsii.String("supplementalDataStorageLocationType"),
+//   					},
+//   				},
 //   			},
 //   		},
 //   		SqlKnowledgeBaseConfiguration: &SqlKnowledgeBaseConfigurationProperty{
@@ -143,6 +155,7 @@ import (
 //   					},
 //   					Dimensions: jsii.Number(123),
 //   					EmbeddingDataType: jsii.String("embeddingDataType"),
+//   					ModelConfiguration: modelConfiguration,
 //   					Video: []interface{}{
 //   						&VideoConfigurationProperty{
 //   							SegmentationConfiguration: &VideoSegmentationConfigurationProperty{

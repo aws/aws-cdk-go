@@ -25,6 +25,17 @@ import (
 //   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
+//   	FederatedIdentity: &ObjectStorageFederatedIdentityConfigProperty{
+//   		AwsIamRole: jsii.String("awsIamRole"),
+//   		ExternalIdentity: &ObjectStorageExternalIdentityConfigProperty{
+//   			GoogleOidc: &GoogleOidcConfigProperty{
+//   				IdentityPoolName: jsii.String("identityPoolName"),
+//   				IdentityProviderName: jsii.String("identityProviderName"),
+//   				ProjectName: jsii.String("projectName"),
+//   				ProjectNumber: jsii.String("projectNumber"),
+//   			},
+//   		},
+//   	},
 //   	SecretKey: jsii.String("secretKey"),
 //   	ServerCertificate: jsii.String("serverCertificate"),
 //   	ServerHostname: jsii.String("serverHostname"),
@@ -76,6 +87,10 @@ type CfnLocationObjectStorageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-customsecretconfig
 	//
 	CustomSecretConfig interface{} `field:"optional" json:"customSecretConfig" yaml:"customSecretConfig"`
+	// Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-federatedidentity
+	//
+	FederatedIdentity interface{} `field:"optional" json:"federatedIdentity" yaml:"federatedIdentity"`
 	// Specifies the secret key (for example, a password) if credentials are required to authenticate with the object storage server.
 	//
 	// > If you provide a secret using `SecretKey` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's Secrets Manager secret.

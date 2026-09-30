@@ -31,6 +31,14 @@ import (
 //   		PreferredInput: jsii.Number(123),
 //   	},
 //   	InputType: jsii.String("inputType"),
+//   	MultiviewConfiguration: &MultiviewConfigurationProperty{
+//   		AvailableLayouts: []*string{
+//   			jsii.String("availableLayouts"),
+//   		},
+//   		AvailableSources: []*string{
+//   			jsii.String("availableSources"),
+//   		},
+//   	},
 //   	OutputHeaderConfiguration: &OutputHeaderConfigurationProperty{
 //   		PublishMqcs: jsii.Boolean(false),
 //   	},
@@ -52,6 +60,10 @@ type CfnChannel interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the channel.
 	AttrArn() *string
+	// <p>The multiview channels, in the same channel group, that list this channel as an available source.
+	//
+	// This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+	AttrAttachedMultiviewChannels() *[]*string
 	// The timestamp of the creation of the channel.
 	AttrCreatedAt() *string
 	// The ingest endpoints associated with the channel.
@@ -100,6 +112,9 @@ type CfnChannel interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// <p>The multiview configuration for a channel.
+	MultiviewConfiguration() interface{}
+	SetMultiviewConfiguration(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
@@ -312,6 +327,16 @@ func (j *jsiiProxy_CfnChannel) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) AttrAttachedMultiviewChannels() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrAttachedMultiviewChannels",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) AttrCreatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -492,6 +517,16 @@ func (j *jsiiProxy_CfnChannel) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnChannel) MultiviewConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"multiviewConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnChannel) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -647,6 +682,17 @@ func (j *jsiiProxy_CfnChannel)SetInputType(val *string) {
 	_jsii_.Set(
 		j,
 		"inputType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnChannel)SetMultiviewConfiguration(val interface{}) {
+	if err := j.validateSetMultiviewConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"multiviewConfiguration",
 		val,
 	)
 }

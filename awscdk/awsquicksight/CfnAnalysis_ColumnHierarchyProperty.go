@@ -21,20 +21,29 @@ package awsquicksight
 //   					},
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   				},
 //   				NumericEqualityFilter: &NumericEqualityDrillDownFilterProperty{
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					Value: jsii.Number(123),
 //   				},
 //   				TimeRangeFilter: &TimeRangeDrillDownFilterProperty{
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					RangeMaximum: jsii.String("rangeMaximum"),
 //   					RangeMinimum: jsii.String("rangeMinimum"),
@@ -47,7 +56,10 @@ package awsquicksight
 //   		Columns: []interface{}{
 //   			&ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
+//
+//   				// the properties below are optional
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   		},
 //   		HierarchyId: jsii.String("hierarchyId"),
@@ -61,20 +73,29 @@ package awsquicksight
 //   					},
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   				},
 //   				NumericEqualityFilter: &NumericEqualityDrillDownFilterProperty{
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					Value: jsii.Number(123),
 //   				},
 //   				TimeRangeFilter: &TimeRangeDrillDownFilterProperty{
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					RangeMaximum: jsii.String("rangeMaximum"),
 //   					RangeMinimum: jsii.String("rangeMinimum"),
@@ -87,7 +108,10 @@ package awsquicksight
 //   		Columns: []interface{}{
 //   			&ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
+//
+//   				// the properties below are optional
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   		},
 //   		HierarchyId: jsii.String("hierarchyId"),
@@ -101,20 +125,29 @@ package awsquicksight
 //   					},
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   				},
 //   				NumericEqualityFilter: &NumericEqualityDrillDownFilterProperty{
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					Value: jsii.Number(123),
 //   				},
 //   				TimeRangeFilter: &TimeRangeDrillDownFilterProperty{
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					RangeMaximum: jsii.String("rangeMaximum"),
 //   					RangeMinimum: jsii.String("rangeMinimum"),

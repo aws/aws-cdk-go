@@ -69,7 +69,6 @@ type CfnNotebookInstance interface {
 	// An array of up to three Git repositories associated with the notebook instance.
 	AdditionalCodeRepositories() *[]*string
 	SetAdditionalCodeRepositories(val *[]*string)
-	AttrId() *string
 	// The Amazon Resource Name (ARN) of the notebook instance.
 	AttrNotebookInstanceArn() *string
 	// The name of the notebook instance, such as `MyNotebookInstance` .
@@ -353,16 +352,6 @@ func (j *jsiiProxy_CfnNotebookInstance) AdditionalCodeRepositories() *[]*string 
 	_jsii_.Get(
 		j,
 		"additionalCodeRepositories",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnNotebookInstance) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnLocationObjectStorage) validateSetCustomSecretConfigParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationObjectStorage) validateSetFederatedIdentityParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationObjectStorage) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

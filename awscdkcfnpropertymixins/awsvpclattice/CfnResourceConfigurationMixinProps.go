@@ -24,6 +24,11 @@ import (
 //   	ResourceConfigurationAuthType: jsii.String("resourceConfigurationAuthType"),
 //   	ResourceConfigurationDefinition: &ResourceConfigurationDefinitionProperty{
 //   		ArnResource: jsii.String("arnResource"),
+//   		CidrResource: &CidrResourceProperty{
+//   			CidrRanges: []*string{
+//   				jsii.String("cidrRanges"),
+//   			},
+//   		},
 //   		DnsResource: &DnsResourceProperty{
 //   			DomainName: jsii.String("domainName"),
 //   			IpAddressType: jsii.String("ipAddressType"),

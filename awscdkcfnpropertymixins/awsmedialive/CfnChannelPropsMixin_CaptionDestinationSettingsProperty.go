@@ -70,6 +70,10 @@ package awsmedialive
 //   		StyleControl: jsii.String("styleControl"),
 //   	},
 //   	EmbeddedDestinationSettings: &EmbeddedDestinationSettingsProperty{
+//   		Position: &EmbeddedCaptionPositionSettingsProperty{
+//   			YPositionLine: jsii.Number(123),
+//   		},
+//   		StyleControl: jsii.String("styleControl"),
 //   	},
 //   	EmbeddedPlusScte20DestinationSettings: &EmbeddedPlusScte20DestinationSettingsProperty{
 //   	},
@@ -84,9 +88,15 @@ package awsmedialive
 //   	TeletextDestinationSettings: &TeletextDestinationSettingsProperty{
 //   	},
 //   	TtmlDestinationSettings: &TtmlDestinationSettingsProperty{
+//   		Position: &TextCaptionPositionSettingsProperty{
+//   			YPositionPercentage: jsii.Number(123),
+//   		},
 //   		StyleControl: jsii.String("styleControl"),
 //   	},
 //   	WebvttDestinationSettings: &WebvttDestinationSettingsProperty{
+//   		Position: &TextCaptionPositionSettingsProperty{
+//   			YPositionPercentage: jsii.Number(123),
+//   		},
 //   		StyleControl: jsii.String("styleControl"),
 //   	},
 //   }

@@ -180,6 +180,30 @@ import (
 //   		// the properties below are optional
 //   		AttributeName: jsii.String("attributeName"),
 //   	},
+//   	VectorIndexes: []interface{}{
+//   		&VectorIndexProperty{
+//   			Dimensions: jsii.Number(123),
+//   			DistanceFunction: jsii.String("distanceFunction"),
+//   			IndexName: jsii.String("indexName"),
+//   			Projection: &ProjectionProperty{
+//   				NonKeyAttributes: []*string{
+//   					jsii.String("nonKeyAttributes"),
+//   				},
+//   				ProjectionType: jsii.String("projectionType"),
+//   			},
+//   			VectorAttribute: &VectorAttributeProperty{
+//   				AttributeName: jsii.String("attributeName"),
+//   			},
+//
+//   			// the properties below are optional
+//   			SearchSchema: []interface{}{
+//   				&SearchSchemaElementProperty{
+//   					AttributeName: jsii.String("attributeName"),
+//   					SearchSchemaElementType: jsii.String("searchSchemaElementType"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	WarmThroughput: &WarmThroughputProperty{
 //   		ReadUnitsPerSecond: jsii.Number(123),
 //   		WriteUnitsPerSecond: jsii.Number(123),
@@ -307,6 +331,8 @@ type CfnTable interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	VectorIndexes() interface{}
+	SetVectorIndexes(val interface{})
 	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
 	WarmThroughput() interface{}
 	SetWarmThroughput(val interface{})
@@ -831,6 +857,16 @@ func (j *jsiiProxy_CfnTable) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTable) VectorIndexes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vectorIndexes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTable) WarmThroughput() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1067,6 +1103,17 @@ func (j *jsiiProxy_CfnTable)SetTimeToLiveSpecification(val interface{}) {
 	_jsii_.Set(
 		j,
 		"timeToLiveSpecification",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable)SetVectorIndexes(val interface{}) {
+	if err := j.validateSetVectorIndexesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vectorIndexes",
 		val,
 	)
 }

@@ -13,6 +13,15 @@ package awsec2
 //   	Encrypted: jsii.Boolean(false),
 //   	Iops: jsii.Number(123),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	MultiAvailabilityZoneConfiguration: &MultiAvailabilityZoneConfigurationProperty{
+//   		ConfigurationType: jsii.String("configurationType"),
+//   		StandbyAvailabilityZones: []interface{}{
+//   			&StandbyAvailabilityZoneProperty{
+//   				AvailabilityZone: jsii.String("availabilityZone"),
+//   				AvailabilityZoneId: jsii.String("availabilityZoneId"),
+//   			},
+//   		},
+//   	},
 //   	SnapshotId: jsii.String("snapshotId"),
 //   	VolumeSize: jsii.Number(123),
 //   	VolumeType: jsii.String("volumeType"),
@@ -64,6 +73,9 @@ type CfnEC2FleetPropsMixin_EbsBlockDeviceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ebsblockdevice.html#cfn-ec2-ec2fleet-ebsblockdevice-kmskeyid
 	//
 	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ebsblockdevice.html#cfn-ec2-ec2fleet-ebsblockdevice-multiavailabilityzoneconfiguration
+	//
+	MultiAvailabilityZoneConfiguration interface{} `field:"optional" json:"multiAvailabilityZoneConfiguration" yaml:"multiAvailabilityZoneConfiguration"`
 	// The ID of the snapshot.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ebsblockdevice.html#cfn-ec2-ec2fleet-ebsblockdevice-snapshotid
 	//

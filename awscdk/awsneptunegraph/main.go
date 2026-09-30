@@ -37,6 +37,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "graphName", GoGetter: "GraphName"},
 			_jsii_.MemberProperty{JsiiProperty: "graphRef", GoGetter: "GraphRef"},
+			_jsii_.MemberProperty{JsiiProperty: "importTask", GoGetter: "ImportTask"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyIdentifier", GoGetter: "KmsKeyIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -69,6 +70,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_neptunegraph.CfnGraph.ImportOptionsProperty",
+		reflect.TypeOf((*CfnGraph_ImportOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_neptunegraph.CfnGraph.ImportTaskProperty",
+		reflect.TypeOf((*CfnGraph_ImportTaskProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_neptunegraph.CfnGraph.NeptuneImportOptionsProperty",
+		reflect.TypeOf((*CfnGraph_NeptuneImportOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_neptunegraph.CfnGraph.VectorSearchConfigurationProperty",

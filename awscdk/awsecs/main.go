@@ -672,6 +672,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "critical", GoGetter: "Critical"},
 			_jsii_.MemberProperty{JsiiProperty: "daemonName", GoGetter: "DaemonName"},
 			_jsii_.MemberProperty{JsiiProperty: "daemonRef", GoGetter: "DaemonRef"},
 			_jsii_.MemberProperty{JsiiProperty: "daemonTaskDefinitionArn", GoGetter: "DaemonTaskDefinitionArn"},
@@ -1175,6 +1176,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.DeploymentControllerProperty",
 		reflect.TypeOf((*CfnService_DeploymentControllerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.DeploymentEarlySuccessCriteriaProperty",
+		reflect.TypeOf((*CfnService_DeploymentEarlySuccessCriteriaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.DeploymentLifecycleHookProperty",

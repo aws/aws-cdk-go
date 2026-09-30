@@ -9,18 +9,17 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   calculatedFieldProperty := &CalculatedFieldProperty{
-//   	DataSetIdentifier: jsii.String("dataSetIdentifier"),
 //   	Expression: jsii.String("expression"),
 //   	Name: jsii.String("name"),
+//
+//   	// the properties below are optional
+//   	DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   	TopicIdentifier: jsii.String("topicIdentifier"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-calculatedfield.html
 //
 type CfnTemplate_CalculatedFieldProperty struct {
-	// The data set that is used in this calculated field.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-calculatedfield.html#cfn-quicksight-template-calculatedfield-datasetidentifier
-	//
-	DataSetIdentifier *string `field:"required" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
 	// The expression of the calculated field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-calculatedfield.html#cfn-quicksight-template-calculatedfield-expression
 	//
@@ -29,5 +28,14 @@ type CfnTemplate_CalculatedFieldProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-calculatedfield.html#cfn-quicksight-template-calculatedfield-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
+	// The data set that is used in this calculated field.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-calculatedfield.html#cfn-quicksight-template-calculatedfield-datasetidentifier
+	//
+	// Default: - "".
+	//
+	DataSetIdentifier *string `field:"optional" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-calculatedfield.html#cfn-quicksight-template-calculatedfield-topicidentifier
+	//
+	TopicIdentifier *string `field:"optional" json:"topicIdentifier" yaml:"topicIdentifier"`
 }
 

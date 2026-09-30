@@ -10,6 +10,13 @@ package awsquicksight
 //
 //   lineChartDefaultSeriesSettingsProperty := &LineChartDefaultSeriesSettingsProperty{
 //   	AxisBinding: jsii.String("axisBinding"),
+//   	DecalSettings: &DecalSettingsProperty{
+//   		DecalColor: jsii.String("decalColor"),
+//   		DecalPatternType: jsii.String("decalPatternType"),
+//   		DecalStyleType: jsii.String("decalStyleType"),
+//   		DecalVisibility: jsii.String("decalVisibility"),
+//   		ElementValue: jsii.String("elementValue"),
+//   	},
 //   	LineStyleSettings: &LineChartLineStyleSettingsProperty{
 //   		LineInterpolation: jsii.String("lineInterpolation"),
 //   		LineStyle: jsii.String("lineStyle"),
@@ -31,6 +38,9 @@ type CfnDashboardPropsMixin_LineChartDefaultSeriesSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartdefaultseriessettings.html#cfn-quicksight-dashboard-linechartdefaultseriessettings-axisbinding
 	//
 	AxisBinding *string `field:"optional" json:"axisBinding" yaml:"axisBinding"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartdefaultseriessettings.html#cfn-quicksight-dashboard-linechartdefaultseriessettings-decalsettings
+	//
+	DecalSettings interface{} `field:"optional" json:"decalSettings" yaml:"decalSettings"`
 	// Line styles options for all line series in the visual.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartdefaultseriessettings.html#cfn-quicksight-dashboard-linechartdefaultseriessettings-linestylesettings
 	//

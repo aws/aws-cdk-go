@@ -65,6 +65,9 @@ import (
 //   					SubnetIds: []*string{
 //   						jsii.String("subnetIds"),
 //   					},
+//   					Tags: map[string]*string{
+//   						"tagsKey": jsii.String("tags"),
+//   					},
 //   					VpcIdentifier: jsii.String("vpcIdentifier"),
 //   				},
 //   				SelfManagedLatticeResource: &SelfManagedLatticeResourceProperty{

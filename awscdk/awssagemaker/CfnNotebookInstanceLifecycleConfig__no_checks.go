@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateSetOnStartParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func validateNewCfnNotebookInstanceLifecycleConfigParameters(scope constructs.Construct, id *string, props *CfnNotebookInstanceLifecycleConfigProps) error {
 	return nil
 }

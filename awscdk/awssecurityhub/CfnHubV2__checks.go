@@ -228,6 +228,30 @@ func validateCfnHubV2_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnHubV2) validateSetNetworkScanningParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnHubV2_NetworkScanningProperty:
+		val := val.(*CfnHubV2_NetworkScanningProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnHubV2_NetworkScanningProperty:
+		val_ := val.(CfnHubV2_NetworkScanningProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnHubV2_NetworkScanningProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnHubV2Parameters(scope constructs.Construct, id *string, props *CfnHubV2Props) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

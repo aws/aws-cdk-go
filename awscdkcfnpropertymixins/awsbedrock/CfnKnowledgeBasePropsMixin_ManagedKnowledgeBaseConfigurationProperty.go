@@ -8,6 +8,8 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var modelConfiguration interface{}
+//
 //   managedKnowledgeBaseConfigurationProperty := &ManagedKnowledgeBaseConfigurationProperty{
 //   	EmbeddingModelArn: jsii.String("embeddingModelArn"),
 //   	EmbeddingModelConfiguration: &EmbeddingModelConfigurationProperty{
@@ -21,6 +23,7 @@ package awsbedrock
 //   			},
 //   			Dimensions: jsii.Number(123),
 //   			EmbeddingDataType: jsii.String("embeddingDataType"),
+//   			ModelConfiguration: modelConfiguration,
 //   			Video: []interface{}{
 //   				&VideoConfigurationProperty{
 //   					SegmentationConfiguration: &VideoSegmentationConfigurationProperty{
@@ -33,6 +36,16 @@ package awsbedrock
 //   	EmbeddingModelType: jsii.String("embeddingModelType"),
 //   	ServerSideEncryptionConfiguration: &ManagedKnowledgeBaseServerSideEncryptionConfigurationProperty{
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
+//   	SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{
+//   		SupplementalDataStorageLocations: []interface{}{
+//   			&SupplementalDataStorageLocationProperty{
+//   				S3Location: &S3LocationProperty{
+//   					Uri: jsii.String("uri"),
+//   				},
+//   				SupplementalDataStorageLocationType: jsii.String("supplementalDataStorageLocationType"),
+//   			},
+//   		},
 //   	},
 //   }
 //
@@ -55,5 +68,9 @@ type CfnKnowledgeBasePropsMixin_ManagedKnowledgeBaseConfigurationProperty struct
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-managedknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-managedknowledgebaseconfiguration-serversideencryptionconfiguration
 	//
 	ServerSideEncryptionConfiguration interface{} `field:"optional" json:"serverSideEncryptionConfiguration" yaml:"serverSideEncryptionConfiguration"`
+	// Configurations for supplemental data storage.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-managedknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-managedknowledgebaseconfiguration-supplementaldatastorageconfiguration
+	//
+	SupplementalDataStorageConfiguration interface{} `field:"optional" json:"supplementalDataStorageConfiguration" yaml:"supplementalDataStorageConfiguration"`
 }
 

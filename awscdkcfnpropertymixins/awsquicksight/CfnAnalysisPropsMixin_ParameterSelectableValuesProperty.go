@@ -12,6 +12,7 @@ package awsquicksight
 //   	LinkToDataSetColumn: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
 //   	},
 //   	Values: []*string{
 //   		jsii.String("values"),

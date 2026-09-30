@@ -9,6 +9,8 @@ package awsbedrock
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   var connectorParameters interface{}
+//   var daily interface{}
+//   var lastDayOfMonth interface{}
 //
 //   managedKnowledgeBaseConnectorConfigurationProperty := &ManagedKnowledgeBaseConnectorConfigurationProperty{
 //   	ConnectorParameters: connectorParameters,
@@ -25,6 +27,18 @@ package awsbedrock
 //   		},
 //   		VideoExtractionConfiguration: &VideoExtractionConfigurationProperty{
 //   			VideoExtractionStatus: jsii.String("videoExtractionStatus"),
+//   		},
+//   	},
+//   	SyncSchedule: &SyncScheduleProperty{
+//   		Daily: daily,
+//   		Monthly: &MonthlyScheduleProperty{
+//   			DayOfMonth: &DayOfMonthProperty{
+//   				DayNumber: jsii.Number(123),
+//   				LastDayOfMonth: lastDayOfMonth,
+//   			},
+//   		},
+//   		Weekly: &WeeklyScheduleProperty{
+//   			DayOfWeek: jsii.String("dayOfWeek"),
 //   		},
 //   	},
 //   }
@@ -44,5 +58,11 @@ type CfnDataSourcePropsMixin_ManagedKnowledgeBaseConnectorConfigurationProperty 
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-managedknowledgebaseconnectorconfiguration.html#cfn-bedrock-datasource-managedknowledgebaseconnectorconfiguration-mediaextractionconfiguration
 	//
 	MediaExtractionConfiguration interface{} `field:"optional" json:"mediaExtractionConfiguration" yaml:"mediaExtractionConfiguration"`
+	// Recurring schedule on which the connector automatically refreshes ingested content.
+	//
+	// Exactly one frequency variant is set.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-managedknowledgebaseconnectorconfiguration.html#cfn-bedrock-datasource-managedknowledgebaseconnectorconfiguration-syncschedule
+	//
+	SyncSchedule interface{} `field:"optional" json:"syncSchedule" yaml:"syncSchedule"`
 }
 

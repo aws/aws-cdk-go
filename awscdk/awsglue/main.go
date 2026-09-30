@@ -433,6 +433,170 @@ func init() {
 		reflect.TypeOf((*CfnConnectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_glue.CfnConnectionType",
+		reflect.TypeOf((*CfnConnectionType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrConnectionTypeArn", GoGetter: "AttrConnectionTypeArn"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionProperties", GoGetter: "ConnectionProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionType", GoGetter: "ConnectionType"},
+			_jsii_.MemberProperty{JsiiProperty: "connectionTypeRef", GoGetter: "ConnectionTypeRef"},
+			_jsii_.MemberProperty{JsiiProperty: "connectorAuthenticationConfiguration", GoGetter: "ConnectorAuthenticationConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "integrationType", GoGetter: "IntegrationType"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "restConfiguration", GoGetter: "RestConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnConnectionType{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsglueIConnectionTypeRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.BasicAuthenticationPropertiesProperty",
+		reflect.TypeOf((*CfnConnectionType_BasicAuthenticationPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.BetweenConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_BetweenConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ClientCredentialsPropertiesProperty",
+		reflect.TypeOf((*CfnConnectionType_ClientCredentialsPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ConnectionPropertiesConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_ConnectionPropertiesConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ConnectorAuthenticationConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_ConnectorAuthenticationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ConnectorAuthorizationCodePropertiesProperty",
+		reflect.TypeOf((*CfnConnectionType_ConnectorAuthorizationCodePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ConnectorOAuth2PropertiesProperty",
+		reflect.TypeOf((*CfnConnectionType_ConnectorOAuth2PropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ConnectorPropertyProperty",
+		reflect.TypeOf((*CfnConnectionType_ConnectorPropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.CursorConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_CursorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.CustomAuthenticationPropertiesProperty",
+		reflect.TypeOf((*CfnConnectionType_CustomAuthenticationPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.EntityConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_EntityConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ExtractedParameterProperty",
+		reflect.TypeOf((*CfnConnectionType_ExtractedParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.FieldDefinitionProperty",
+		reflect.TypeOf((*CfnConnectionType_FieldDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.FilterConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_FilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.FilterOverridesProperty",
+		reflect.TypeOf((*CfnConnectionType_FilterOverridesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.FilterStringConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_FilterStringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.JWTBearerPropertiesProperty",
+		reflect.TypeOf((*CfnConnectionType_JWTBearerPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.OffsetConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_OffsetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.PaginationConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_PaginationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ResponseConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_ResponseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ResponseExtractionMappingProperty",
+		reflect.TypeOf((*CfnConnectionType_ResponseExtractionMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.RestConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_RestConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.SecretConnectorPropertyProperty",
+		reflect.TypeOf((*CfnConnectionType_SecretConnectorPropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.SourceConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_SourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionType.ValidationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionType_ValidationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnConnectionTypeProps",
+		reflect.TypeOf((*CfnConnectionTypeProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_glue.CfnCrawler",
 		reflect.TypeOf((*CfnCrawler)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1298,7 +1462,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIdentifierPartitionInputValues", GoGetter: "AttrIdentifierPartitionInputValues"},
 			_jsii_.MemberProperty{JsiiProperty: "catalogId", GoGetter: "CatalogId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -2658,6 +2822,7 @@ func init() {
 			"V4_0": GlueVersion_V4_0,
 			"V5_0": GlueVersion_V5_0,
 			"V5_1": GlueVersion_V5_1,
+			"V6_0": GlueVersion_V6_0,
 		},
 	)
 	_jsii_.RegisterInterface(

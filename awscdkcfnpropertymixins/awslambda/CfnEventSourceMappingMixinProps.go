@@ -88,6 +88,7 @@ import (
 //   	},
 //   	SelfManagedKafkaEventSourceConfig: &SelfManagedKafkaEventSourceConfigProperty{
 //   		ConsumerGroupId: jsii.String("consumerGroupId"),
+//   		ConsumptionMode: jsii.String("consumptionMode"),
 //   		SchemaRegistryConfig: &SchemaRegistryConfigProperty{
 //   			AccessConfigs: []interface{}{
 //   				&SchemaRegistryAccessConfigProperty{

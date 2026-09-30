@@ -19,6 +19,10 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_personalize.EventTrackerReference",
 		reflect.TypeOf((*EventTrackerReference)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_personalize.FilterReference",
+		reflect.TypeOf((*FilterReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_personalize.IDatasetGroupRef",
 		reflect.TypeOf((*IDatasetGroupRef)(nil)).Elem(),
@@ -62,6 +66,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IEventTrackerRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_personalize.IFilterRef",
+		reflect.TypeOf((*IFilterRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "filterRef", GoGetter: "FilterRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IFilterRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

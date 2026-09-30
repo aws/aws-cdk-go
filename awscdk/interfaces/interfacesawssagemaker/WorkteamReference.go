@@ -9,14 +9,11 @@ package interfacesawssagemaker
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   workteamReference := &WorkteamReference{
-//   	WorkteamId: jsii.String("workteamId"),
-//   	WorkteamName: jsii.String("workteamName"),
+//   	WorkteamArn: jsii.String("workteamArn"),
 //   }
 //
 type WorkteamReference struct {
-	// The Id of the Workteam resource.
-	WorkteamId *string `field:"required" json:"workteamId" yaml:"workteamId"`
-	// The WorkteamName of the Workteam resource.
-	WorkteamName *string `field:"required" json:"workteamName" yaml:"workteamName"`
+	// The WorkteamArn of the Workteam resource.
+	WorkteamArn *string `field:"required" json:"workteamArn" yaml:"workteamArn"`
 }
 

@@ -1,5 +1,8 @@
 package awsapplicationautoscaling
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for defining a `CfnScalableTarget`.
 //
@@ -36,6 +39,12 @@ package awsapplicationautoscaling
 //   		DynamicScalingInSuspended: jsii.Boolean(false),
 //   		DynamicScalingOutSuspended: jsii.Boolean(false),
 //   		ScheduledScalingSuspended: jsii.Boolean(false),
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
 //   	},
 //   }
 //
@@ -142,5 +151,8 @@ type CfnScalableTargetProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-suspendedstate
 	//
 	SuspendedState interface{} `field:"optional" json:"suspendedState" yaml:"suspendedState"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -33,6 +33,7 @@ import (
 //   	},
 //   	AppstreamAgentVersion: jsii.String("appstreamAgentVersion"),
 //   	Description: jsii.String("description"),
+//   	DisableImdsv1: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
 //   	DomainJoinInfo: &DomainJoinInfoProperty{
 //   		DirectoryName: jsii.String("directoryName"),
@@ -95,6 +96,8 @@ type CfnImageBuilder interface {
 	// The description to display.
 	Description() *string
 	SetDescription(val *string)
+	DisableImdsv1() interface{}
+	SetDisableImdsv1(val interface{})
 	// The image builder name to display.
 	DisplayName() *string
 	SetDisplayName(val *string)
@@ -433,6 +436,16 @@ func (j *jsiiProxy_CfnImageBuilder) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnImageBuilder) DisableImdsv1() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"disableImdsv1",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnImageBuilder) DisplayName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -706,6 +719,17 @@ func (j *jsiiProxy_CfnImageBuilder)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnImageBuilder)SetDisableImdsv1(val interface{}) {
+	if err := j.validateSetDisableImdsv1Parameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"disableImdsv1",
 		val,
 	)
 }

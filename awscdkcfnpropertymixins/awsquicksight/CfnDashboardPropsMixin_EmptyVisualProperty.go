@@ -21,6 +21,7 @@ package awsquicksight
 //   								&ColumnIdentifierProperty{
 //   									ColumnName: jsii.String("columnName"),
 //   									DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   									TopicIdentifier: jsii.String("topicIdentifier"),
 //   								},
 //   							},
 //   							SelectedFieldOptions: jsii.String("selectedFieldOptions"),
@@ -68,6 +69,7 @@ package awsquicksight
 //   									SourceColumn: &ColumnIdentifierProperty{
 //   										ColumnName: jsii.String("columnName"),
 //   										DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   										TopicIdentifier: jsii.String("topicIdentifier"),
 //   									},
 //   									SourceField: jsii.String("sourceField"),
 //   									SourceParameterName: jsii.String("sourceParameterName"),
@@ -88,6 +90,7 @@ package awsquicksight
 //   		},
 //   	},
 //   	DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   	TopicIdentifier: jsii.String("topicIdentifier"),
 //   	VisualId: jsii.String("visualId"),
 //   }
 //
@@ -103,7 +106,12 @@ type CfnDashboardPropsMixin_EmptyVisualProperty struct {
 	// Every visual requires a dataset to render.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-emptyvisual.html#cfn-quicksight-dashboard-emptyvisual-datasetidentifier
 	//
+	// Default: - "".
+	//
 	DataSetIdentifier *string `field:"optional" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-emptyvisual.html#cfn-quicksight-dashboard-emptyvisual-topicidentifier
+	//
+	TopicIdentifier *string `field:"optional" json:"topicIdentifier" yaml:"topicIdentifier"`
 	// The unique identifier of a visual.
 	//
 	// This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.

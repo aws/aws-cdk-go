@@ -268,6 +268,30 @@ func (j *jsiiProxy_CfnChannel) validateSetInputSwitchConfigurationParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetMultiviewConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnChannel_MultiviewConfigurationProperty:
+		val := val.(*CfnChannel_MultiviewConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnChannel_MultiviewConfigurationProperty:
+		val_ := val.(CfnChannel_MultiviewConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnChannel_MultiviewConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannel) validateSetOutputHeaderConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

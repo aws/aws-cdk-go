@@ -950,6 +950,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_DataSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.DayOfMonthProperty",
+		reflect.TypeOf((*CfnDataSource_DayOfMonthProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.DeletionProtectionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_DeletionProtectionConfigurationProperty)(nil)).Elem(),
 	)
@@ -984,6 +988,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.MediaExtractionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_MediaExtractionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.MonthlyScheduleProperty",
+		reflect.TypeOf((*CfnDataSource_MonthlyScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.ParsingConfigurationProperty",
@@ -1046,6 +1054,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_SharePointSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.SyncScheduleProperty",
+		reflect.TypeOf((*CfnDataSource_SyncScheduleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.TransformationFunctionProperty",
 		reflect.TypeOf((*CfnDataSource_TransformationFunctionProperty)(nil)).Elem(),
 	)
@@ -1084,6 +1096,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSource.WebSourceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_WebSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrock.CfnDataSource.WeeklyScheduleProperty",
+		reflect.TypeOf((*CfnDataSource_WeeklyScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrock.CfnDataSourceProps",

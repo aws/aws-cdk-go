@@ -57,6 +57,14 @@ func validateNatInstanceProvider_InstanceV2Parameters(props *NatInstanceProps) e
 	return nil
 }
 
+func validateNatInstanceProvider_RegionalGatewayParameters(props *RegionalNatGatewayProviderProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateNewNatInstanceProviderParameters(props *NatInstanceProps) error {
 	if props == nil {
 		return fmt.Errorf("parameter props is required, but nil was provided")

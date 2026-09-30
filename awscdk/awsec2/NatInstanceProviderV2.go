@@ -201,6 +201,31 @@ func NatInstanceProviderV2_InstanceV2(props *NatInstanceProps) NatInstanceProvid
 	return returns
 }
 
+// Use a Regional NAT Gateway to provide NAT services for your VPC.
+//
+// Regional NAT Gateways provide automatic multi-AZ redundancy with a single
+// gateway that scales across availability zones. AWS automatically manages
+// AZ coverage and EIP allocation.
+// See: https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html
+//
+func NatInstanceProviderV2_RegionalGateway(props *RegionalNatGatewayProviderProps) RegionalNatGatewayProvider {
+	_init_.Initialize()
+
+	if err := validateNatInstanceProviderV2_RegionalGatewayParameters(props); err != nil {
+		panic(err)
+	}
+	var returns RegionalNatGatewayProvider
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.NatInstanceProviderV2",
+		"regionalGateway",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 func NatInstanceProviderV2_DEFAULT_USER_DATA_COMMANDS() *[]*string {
 	_init_.Initialize()
 	var returns *[]*string

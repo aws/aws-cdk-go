@@ -8,6 +8,8 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var type interface{}
+//
 //   freeFormLayoutConfigurationProperty := &FreeFormLayoutConfigurationProperty{
 //   	CanvasSizeOptions: &FreeFormLayoutCanvasSizeOptionsProperty{
 //   		ScreenCanvasSizeOptions: &FreeFormLayoutScreenCanvasSizeOptionsProperty{
@@ -20,9 +22,11 @@ package awsquicksight
 //   				Color: jsii.String("color"),
 //   				Visibility: jsii.String("visibility"),
 //   			},
+//   			BorderRadius: jsii.String("borderRadius"),
 //   			BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   				Color: jsii.String("color"),
 //   				Visibility: jsii.String("visibility"),
+//   				Width: jsii.String("width"),
 //   			},
 //   			ElementId: jsii.String("elementId"),
 //   			ElementType: jsii.String("elementType"),
@@ -30,6 +34,7 @@ package awsquicksight
 //   			LoadingAnimation: &LoadingAnimationProperty{
 //   				Visibility: jsii.String("visibility"),
 //   			},
+//   			Padding: jsii.String("padding"),
 //   			RenderingRules: []interface{}{
 //   				&SheetElementRenderingRuleProperty{
 //   					ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -41,11 +46,23 @@ package awsquicksight
 //   			SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   				Color: jsii.String("color"),
 //   				Visibility: jsii.String("visibility"),
+//   				Width: jsii.String("width"),
 //   			},
 //   			Visibility: jsii.String("visibility"),
 //   			Width: jsii.String("width"),
 //   			XAxisLocation: jsii.String("xAxisLocation"),
 //   			YAxisLocation: jsii.String("yAxisLocation"),
+//   		},
+//   	},
+//   	Groups: []interface{}{
+//   		&SheetLayoutGroupProperty{
+//   			Id: jsii.String("id"),
+//   			Members: []interface{}{
+//   				&SheetLayoutGroupMemberProperty{
+//   					Id: jsii.String("id"),
+//   					Type: type,
+//   				},
+//   			},
 //   		},
 //   	},
 //   }
@@ -60,5 +77,8 @@ type CfnAnalysisPropsMixin_FreeFormLayoutConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutconfiguration.html#cfn-quicksight-analysis-freeformlayoutconfiguration-elements
 	//
 	Elements interface{} `field:"optional" json:"elements" yaml:"elements"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutconfiguration.html#cfn-quicksight-analysis-freeformlayoutconfiguration-groups
+	//
+	Groups interface{} `field:"optional" json:"groups" yaml:"groups"`
 }
 

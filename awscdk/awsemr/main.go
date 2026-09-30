@@ -357,7 +357,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrInstanceGroupId", GoGetter: "AttrInstanceGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingPolicy", GoGetter: "AutoScalingPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "bidPrice", GoGetter: "BidPrice"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -404,6 +404,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawsemrIInstanceGroupConfigRef)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnInstanceGroupConfig.AppConfigurationProperty",
+		reflect.TypeOf((*CfnInstanceGroupConfig_AppConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnInstanceGroupConfig.AutoScalingPolicyProperty",

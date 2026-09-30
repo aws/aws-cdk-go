@@ -11,6 +11,9 @@ package awsnotifications
 //   cfnManagedNotificationAdditionalChannelAssociationProps := &CfnManagedNotificationAdditionalChannelAssociationProps{
 //   	ChannelArn: jsii.String("channelArn"),
 //   	ManagedNotificationConfigurationArn: jsii.String("managedNotificationConfigurationArn"),
+//
+//   	// the properties below are optional
+//   	IsSensitiveEventsSubscribed: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationadditionalchannelassociation.html
@@ -24,5 +27,11 @@ type CfnManagedNotificationAdditionalChannelAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationadditionalchannelassociation.html#cfn-notifications-managednotificationadditionalchannelassociation-managednotificationconfigurationarn
 	//
 	ManagedNotificationConfigurationArn *string `field:"required" json:"managedNotificationConfigurationArn" yaml:"managedNotificationConfigurationArn"`
+	// Whether the channel association is subscribed to sensitive events.
+	//
+	// Access to sensitive events is gated by the SubscribeSensitiveEvents virtual IAM action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationadditionalchannelassociation.html#cfn-notifications-managednotificationadditionalchannelassociation-issensitiveeventssubscribed
+	//
+	IsSensitiveEventsSubscribed interface{} `field:"optional" json:"isSensitiveEventsSubscribed" yaml:"isSensitiveEventsSubscribed"`
 }
 

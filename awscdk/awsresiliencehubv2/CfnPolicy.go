@@ -40,6 +40,7 @@ import (
 //   		RpoInMinutes: jsii.Number(123),
 //   		RtoInMinutes: jsii.Number(123),
 //   	},
+//   	SharingEnabled: jsii.Boolean(false),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -112,6 +113,9 @@ type CfnPolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// Whether the policy is enabled to be shared with other members of the Organization.
+	SharingEnabled() interface{}
+	SetSharingEnabled(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -523,6 +527,16 @@ func (j *jsiiProxy_CfnPolicy) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPolicy) SharingEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sharingEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPolicy) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -660,6 +674,17 @@ func (j *jsiiProxy_CfnPolicy)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPolicy)SetSharingEnabled(val interface{}) {
+	if err := j.validateSetSharingEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sharingEnabled",
 		val,
 	)
 }

@@ -345,29 +345,36 @@ for the `AWS::KMS::Key` CloudFormation type:
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
 import "github.com/aws/constructs-go/constructs"
 
 var scope Construct
+
+type myResourceWithPolicy struct {
+	env ResourceEnvironment
+	resource CfnResource
+}
+
+func newMyResourceWithPolicy(resource CfnResource) *myResourceWithPolicy {
+	this := &myResourceWithPolicy{}
+	this.resource = resource
+	this.env = resource.env
+	return this
+}
+
+func (this *myResourceWithPolicy) addToResourcePolicy(statement PolicyStatement) AddToResourcePolicyResult {
+	// custom implementation to add the statement to the resource policy
+	return &AddToResourcePolicyResult{
+		StatementAdded: jsii.Boolean(true),
+		PolicyDependable: this.resource,
+	}
+}
+
 type myFactory struct {
 }
 
 func (this *myFactory) forResource(resource CfnResource) IResourceWithPolicyV2 {
-	return map[string]ResourceEnvironment{
-		"env": *resource.env,
-		(MethodDeclaration addToResourcePolicy(statement: PolicyStatement) {
-		        // custom implementation to add the statement to the resource policy
-		        return { statementAdded: true, policyDependable: resource };
-		      }
-				addToResourcePolicy
-				statement PolicyStatement
-				{
-					// custom implementation to add the statement to the resource policy
-					return &AddToResourcePolicyResult{
-						"statementAdded": jsii.Boolean(true),
-						"policyDependable": resource,
-					}
-				}),
-	}
+	return NewMyResourceWithPolicy(*resource)
 }
 
 awscdk.ResourceWithPolicies_Register(scope, jsii.String("AWS::KMS::Key"), NewMyFactory())

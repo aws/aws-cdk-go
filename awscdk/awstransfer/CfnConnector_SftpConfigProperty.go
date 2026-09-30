@@ -10,6 +10,9 @@ package awstransfer
 //
 //   sftpConfigProperty := &SftpConfigProperty{
 //   	MaxConcurrentConnections: jsii.Number(123),
+//   	OrderedUserSecretVersionStages: []*string{
+//   		jsii.String("orderedUserSecretVersionStages"),
+//   	},
 //   	TrustedHostKeys: []*string{
 //   		jsii.String("trustedHostKeys"),
 //   	},
@@ -31,6 +34,12 @@ type CfnConnector_SftpConfigProperty struct {
 	// Default: - 1.
 	//
 	MaxConcurrentConnections *float64 `field:"optional" json:"maxConcurrentConnections" yaml:"maxConcurrentConnections"`
+	// Specifies the order in which the connector attempts to use secret versions during authentication.
+	//
+	// This enables fallback to alternative credentials if the primary version fails.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-orderedusersecretversionstages
+	//
+	OrderedUserSecretVersionStages *[]*string `field:"optional" json:"orderedUserSecretVersionStages" yaml:"orderedUserSecretVersionStages"`
 	// The public portion of the host key, or keys, that are used to identify the external server to which you are connecting.
 	//
 	// You can use the `ssh-keyscan` command against the SFTP server to retrieve the necessary key.

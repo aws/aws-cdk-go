@@ -9,6 +9,7 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   athenaParametersProperty := &AthenaParametersProperty{
+//   	ConsumerAccountRoleArn: jsii.String("consumerAccountRoleArn"),
 //   	IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
 //   		EnableIdentityPropagation: jsii.Boolean(false),
 //   	},
@@ -19,6 +20,9 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html
 //
 type CfnDataSourcePropsMixin_AthenaParametersProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-consumeraccountrolearn
+	//
+	ConsumerAccountRoleArn *string `field:"optional" json:"consumerAccountRoleArn" yaml:"consumerAccountRoleArn"`
 	// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
 	//
 	// This parameter can only be specified if your Quick Sight account is configured with IAM Identity Center.

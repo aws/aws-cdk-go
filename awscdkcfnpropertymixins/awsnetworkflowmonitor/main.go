@@ -35,4 +35,36 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_networkflowmonitor.CfnMonitorPropsMixin.MonitorRemoteResourceProperty",
 		reflect.TypeOf((*CfnMonitorPropsMixin_MonitorRemoteResourceProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkflowmonitor.CfnScopeMixinProps",
+		reflect.TypeOf((*CfnScopeMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_networkflowmonitor.CfnScopePropsMixin",
+		reflect.TypeOf((*CfnScopePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnScopePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkflowmonitor.CfnScopePropsMixin.TargetIdProperty",
+		reflect.TypeOf((*CfnScopePropsMixin_TargetIdProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkflowmonitor.CfnScopePropsMixin.TargetIdentifierProperty",
+		reflect.TypeOf((*CfnScopePropsMixin_TargetIdentifierProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkflowmonitor.CfnScopePropsMixin.TargetResourceProperty",
+		reflect.TypeOf((*CfnScopePropsMixin_TargetResourceProperty)(nil)).Elem(),
+	)
 }

@@ -16,6 +16,23 @@ package awsiotsitewise
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
+//   	EphemeralStorageConfiguration: &EphemeralStorageConfigurationProperty{
+//   		StorageClass: jsii.String("storageClass"),
+//   		StorageSizeInGiB: jsii.Number(123),
+//   	},
+//   	Mounts: []interface{}{
+//   		&MountProperty{
+//   			Name: jsii.String("name"),
+//   			RelativePath: jsii.String("relativePath"),
+//   			Source: &MountSourceProperty{
+//   				S3AccessPoint: &S3AccessPointSourceProperty{
+//   					AccessPointArn: jsii.String("accessPointArn"),
+//   					Prefix: jsii.String("prefix"),
+//   				},
+//   			},
+//   			StorageType: jsii.String("storageType"),
+//   		},
+//   	},
 //   	ProcessingType: jsii.String("processingType"),
 //   	ProcessingUnit: jsii.String("processingUnit"),
 //   	TaskExecutionRole: jsii.String("taskExecutionRole"),
@@ -37,6 +54,16 @@ type CfnTaskPropsMixin_ContainerTaskConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-containertaskconfiguration.html#cfn-iotsitewise-task-containertaskconfiguration-environmentvariables
 	//
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
+	// Configuration for ephemeral storage attached to the container task.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-containertaskconfiguration.html#cfn-iotsitewise-task-containertaskconfiguration-ephemeralstorageconfiguration
+	//
+	EphemeralStorageConfiguration interface{} `field:"optional" json:"ephemeralStorageConfiguration" yaml:"ephemeralStorageConfiguration"`
+	// Mounts attached to the container filesystem.
+	//
+	// Each mount exposes an external data source as a local directory inside the container.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-containertaskconfiguration.html#cfn-iotsitewise-task-containertaskconfiguration-mounts
+	//
+	Mounts interface{} `field:"optional" json:"mounts" yaml:"mounts"`
 	// The processing type for compute resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-task-containertaskconfiguration.html#cfn-iotsitewise-task-containertaskconfiguration-processingtype
 	//

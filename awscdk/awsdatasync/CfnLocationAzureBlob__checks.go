@@ -299,6 +299,30 @@ func (j *jsiiProxy_CfnLocationAzureBlob) validateSetCustomSecretConfigParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationAzureBlob) validateSetFederatedIdentityParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLocationAzureBlob_AzureFederatedIdentityConfigProperty:
+		val := val.(*CfnLocationAzureBlob_AzureFederatedIdentityConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLocationAzureBlob_AzureFederatedIdentityConfigProperty:
+		val_ := val.(CfnLocationAzureBlob_AzureFederatedIdentityConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLocationAzureBlob_AzureFederatedIdentityConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationAzureBlob) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

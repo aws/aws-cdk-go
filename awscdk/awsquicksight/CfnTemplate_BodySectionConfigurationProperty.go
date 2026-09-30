@@ -65,7 +65,10 @@ package awsquicksight
 //   				DynamicCategoryDimensionConfiguration: &BodySectionDynamicCategoryDimensionConfigurationProperty{
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //
 //   					// the properties below are optional
@@ -75,7 +78,10 @@ package awsquicksight
 //   							Direction: jsii.String("direction"),
 //   							SortBy: &ColumnIdentifierProperty{
 //   								ColumnName: jsii.String("columnName"),
+//
+//   								// the properties below are optional
 //   								DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   								TopicIdentifier: jsii.String("topicIdentifier"),
 //   							},
 //
 //   							// the properties below are optional
@@ -99,7 +105,10 @@ package awsquicksight
 //   				DynamicNumericDimensionConfiguration: &BodySectionDynamicNumericDimensionConfigurationProperty{
 //   					Column: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //
 //   					// the properties below are optional
@@ -109,7 +118,10 @@ package awsquicksight
 //   							Direction: jsii.String("direction"),
 //   							SortBy: &ColumnIdentifierProperty{
 //   								ColumnName: jsii.String("columnName"),
+//
+//   								// the properties below are optional
 //   								DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   								TopicIdentifier: jsii.String("topicIdentifier"),
 //   							},
 //
 //   							// the properties below are optional

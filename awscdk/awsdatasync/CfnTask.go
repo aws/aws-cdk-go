@@ -59,6 +59,7 @@ import (
 //   		Gid: jsii.String("gid"),
 //   		LogLevel: jsii.String("logLevel"),
 //   		Mtime: jsii.String("mtime"),
+//   		ObjectMetadata: jsii.String("objectMetadata"),
 //   		ObjectTags: jsii.String("objectTags"),
 //   		OverwriteMode: jsii.String("overwriteMode"),
 //   		PosixPermissions: jsii.String("posixPermissions"),

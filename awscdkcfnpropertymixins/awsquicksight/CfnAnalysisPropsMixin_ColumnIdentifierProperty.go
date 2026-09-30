@@ -11,6 +11,7 @@ package awsquicksight
 //   columnIdentifierProperty := &ColumnIdentifierProperty{
 //   	ColumnName: jsii.String("columnName"),
 //   	DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   	TopicIdentifier: jsii.String("topicIdentifier"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnidentifier.html
@@ -23,6 +24,11 @@ type CfnAnalysisPropsMixin_ColumnIdentifierProperty struct {
 	// The data set that the column belongs to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnidentifier.html#cfn-quicksight-analysis-columnidentifier-datasetidentifier
 	//
+	// Default: - "".
+	//
 	DataSetIdentifier *string `field:"optional" json:"dataSetIdentifier" yaml:"dataSetIdentifier"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-columnidentifier.html#cfn-quicksight-analysis-columnidentifier-topicidentifier
+	//
+	TopicIdentifier *string `field:"optional" json:"topicIdentifier" yaml:"topicIdentifier"`
 }
 

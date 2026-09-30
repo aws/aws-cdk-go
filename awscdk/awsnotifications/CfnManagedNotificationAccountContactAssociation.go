@@ -23,6 +23,9 @@ import (
 //   cfnManagedNotificationAccountContactAssociation := awscdk.Aws_notifications.NewCfnManagedNotificationAccountContactAssociation(this, jsii.String("MyCfnManagedNotificationAccountContactAssociation"), &CfnManagedNotificationAccountContactAssociationProps{
 //   	ContactIdentifier: jsii.String("contactIdentifier"),
 //   	ManagedNotificationConfigurationArn: jsii.String("managedNotificationConfigurationArn"),
+//
+//   	// the properties below are optional
+//   	IsSensitiveEventsSubscribed: jsii.Boolean(false),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationaccountcontactassociation.html
@@ -45,6 +48,9 @@ type CfnManagedNotificationAccountContactAssociation interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
+	// Whether the account contact association is subscribed to sensitive events.
+	IsSensitiveEventsSubscribed() interface{}
+	SetIsSensitiveEventsSubscribed(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -324,6 +330,16 @@ func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) Env() *inter
 	return returns
 }
 
+func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) IsSensitiveEventsSubscribed() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"isSensitiveEventsSubscribed",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -441,6 +457,17 @@ func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation)SetContactIde
 	_jsii_.Set(
 		j,
 		"contactIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnManagedNotificationAccountContactAssociation)SetIsSensitiveEventsSubscribed(val interface{}) {
+	if err := j.validateSetIsSensitiveEventsSubscribedParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"isSensitiveEventsSubscribed",
 		val,
 	)
 }

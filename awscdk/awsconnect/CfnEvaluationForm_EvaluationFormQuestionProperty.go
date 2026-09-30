@@ -45,6 +45,10 @@ package awsconnect
 //   		DefaultAction: jsii.String("defaultAction"),
 //   	},
 //   	Instructions: jsii.String("instructions"),
+//   	MetricConfiguration: &EvaluationFormMetricConfigurationProperty{
+//   		MetricName: jsii.String("metricName"),
+//   		MetricType: jsii.String("metricType"),
+//   	},
 //   	NotApplicableEnabled: jsii.Boolean(false),
 //   	QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
 //   		MultiSelect: &EvaluationFormMultiSelectQuestionPropertiesProperty{
@@ -221,6 +225,9 @@ type CfnEvaluationForm_EvaluationFormQuestionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-instructions
 	//
 	Instructions *string `field:"optional" json:"instructions" yaml:"instructions"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-metricconfiguration
+	//
+	MetricConfiguration interface{} `field:"optional" json:"metricConfiguration" yaml:"metricConfiguration"`
 	// The flag to enable not applicable answers to the question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-notapplicableenabled
 	//

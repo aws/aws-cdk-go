@@ -18,6 +18,7 @@ package awsquicksight
 //   					ColumnToMatch: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					SourceSheetControlId: jsii.String("sourceSheetControlId"),
 //   				},
@@ -66,6 +67,7 @@ package awsquicksight
 //   					ColumnToMatch: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					SourceSheetControlId: jsii.String("sourceSheetControlId"),
 //   				},
@@ -115,6 +117,7 @@ package awsquicksight
 //   					ColumnToMatch: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					SourceSheetControlId: jsii.String("sourceSheetControlId"),
 //   				},

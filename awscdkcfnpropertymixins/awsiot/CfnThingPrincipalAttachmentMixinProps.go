@@ -25,6 +25,7 @@ type CfnThingPrincipalAttachmentMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingname
 	//
 	ThingName *string `field:"optional" json:"thingName" yaml:"thingName"`
+	// The type of the relation you want to specify when you attach a principal to a thing.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html#cfn-iot-thingprincipalattachment-thingprincipaltype
 	//
 	ThingPrincipalType *string `field:"optional" json:"thingPrincipalType" yaml:"thingPrincipalType"`

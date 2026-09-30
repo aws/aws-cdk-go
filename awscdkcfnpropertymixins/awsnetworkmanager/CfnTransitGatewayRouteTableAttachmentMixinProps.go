@@ -14,16 +14,6 @@ import (
 //   cfnTransitGatewayRouteTableAttachmentMixinProps := &CfnTransitGatewayRouteTableAttachmentMixinProps{
 //   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
 //   	PeeringId: jsii.String("peeringId"),
-//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
-//   		AttachmentPolicyRuleNumber: jsii.Number(123),
-//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   		Tags: []CfnTag{
-//   			&CfnTag{
-//   				Key: jsii.String("key"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
@@ -55,10 +45,6 @@ type CfnTransitGatewayRouteTableAttachmentMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html#cfn-networkmanager-transitgatewayroutetableattachment-peeringid
 	//
 	PeeringId *string `field:"optional" json:"peeringId" yaml:"peeringId"`
-	// Describes proposed changes to a network function group.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html#cfn-networkmanager-transitgatewayroutetableattachment-proposednetworkfunctiongroupchange
-	//
-	ProposedNetworkFunctionGroupChange interface{} `field:"optional" json:"proposedNetworkFunctionGroupChange" yaml:"proposedNetworkFunctionGroupChange"`
 	// This property is read-only.
 	//
 	// Values can't be assigned to it.

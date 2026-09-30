@@ -40,6 +40,7 @@ import (
 //   		RtoInMinutes: jsii.Number(123),
 //   	},
 //   	Name: jsii.String("name"),
+//   	SharingEnabled: jsii.Boolean(false),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

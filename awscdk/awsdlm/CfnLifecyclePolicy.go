@@ -244,7 +244,6 @@ type CfnLifecyclePolicy interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the lifecycle policy.
 	AttrArn() *string
-	AttrId() *string
 	// The identifier of the lifecycle policy.
 	AttrPolicyId() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -508,16 +507,6 @@ func (j *jsiiProxy_CfnLifecyclePolicy) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnLifecyclePolicy) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

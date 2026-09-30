@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnConfigurationRecorder) validateSetRoleArnParameters(val *s
 	return nil
 }
 
+func (j *jsiiProxy_CfnConfigurationRecorder) validateSetStartedOnCreateParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnConfigurationRecorderParameters(scope constructs.Construct, id *string, props *CfnConfigurationRecorderProps) error {
 	return nil
 }

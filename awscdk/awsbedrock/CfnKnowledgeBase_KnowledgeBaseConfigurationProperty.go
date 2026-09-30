@@ -10,6 +10,8 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var modelConfiguration interface{}
+//
 //   knowledgeBaseConfigurationProperty := &KnowledgeBaseConfigurationProperty{
 //   	Type: jsii.String("type"),
 //
@@ -30,6 +32,7 @@ package awsbedrock
 //   				},
 //   				Dimensions: jsii.Number(123),
 //   				EmbeddingDataType: jsii.String("embeddingDataType"),
+//   				ModelConfiguration: modelConfiguration,
 //   				Video: []interface{}{
 //   					&VideoConfigurationProperty{
 //   						SegmentationConfiguration: &VideoSegmentationConfigurationProperty{
@@ -42,6 +45,18 @@ package awsbedrock
 //   		EmbeddingModelType: jsii.String("embeddingModelType"),
 //   		ServerSideEncryptionConfiguration: &ManagedKnowledgeBaseServerSideEncryptionConfigurationProperty{
 //   			KmsKeyArn: jsii.String("kmsKeyArn"),
+//   		},
+//   		SupplementalDataStorageConfiguration: &SupplementalDataStorageConfigurationProperty{
+//   			SupplementalDataStorageLocations: []interface{}{
+//   				&SupplementalDataStorageLocationProperty{
+//   					SupplementalDataStorageLocationType: jsii.String("supplementalDataStorageLocationType"),
+//
+//   					// the properties below are optional
+//   					S3Location: &S3LocationProperty{
+//   						Uri: jsii.String("uri"),
+//   					},
+//   				},
+//   			},
 //   		},
 //   	},
 //   	SqlKnowledgeBaseConfiguration: &SqlKnowledgeBaseConfigurationProperty{
@@ -134,6 +149,7 @@ package awsbedrock
 //   				},
 //   				Dimensions: jsii.Number(123),
 //   				EmbeddingDataType: jsii.String("embeddingDataType"),
+//   				ModelConfiguration: modelConfiguration,
 //   				Video: []interface{}{
 //   					&VideoConfigurationProperty{
 //   						SegmentationConfiguration: &VideoSegmentationConfigurationProperty{

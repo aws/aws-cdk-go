@@ -32,6 +32,13 @@ import (
 //   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
+//   	FederatedIdentity: &AzureFederatedIdentityConfigProperty{
+//   		AwsIamRole: jsii.String("awsIamRole"),
+//   		AzureOidc: &AzureOidcConfigProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			TenantId: jsii.String("tenantId"),
+//   		},
+//   	},
 //   	Subdirectory: jsii.String("subdirectory"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -102,6 +109,10 @@ type CfnLocationAzureBlobProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-customsecretconfig
 	//
 	CustomSecretConfig interface{} `field:"optional" json:"customSecretConfig" yaml:"customSecretConfig"`
+	// Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-federatedidentity
+	//
+	FederatedIdentity interface{} `field:"optional" json:"federatedIdentity" yaml:"federatedIdentity"`
 	// Specifies path segments if you want to limit your transfer to a virtual directory in your container (for example, `/my/images` ).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html#cfn-datasync-locationazureblob-subdirectory
 	//

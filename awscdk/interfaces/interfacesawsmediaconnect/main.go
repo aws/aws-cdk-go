@@ -24,6 +24,10 @@ func init() {
 		reflect.TypeOf((*FlowEntitlementReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.FlowMediaStreamReference",
+		reflect.TypeOf((*FlowMediaStreamReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_mediaconnect.FlowOutputReference",
 		reflect.TypeOf((*FlowOutputReference)(nil)).Elem(),
 	)
@@ -102,6 +106,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IFlowEntitlementRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.IFlowMediaStreamRef",
+		reflect.TypeOf((*IFlowMediaStreamRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "flowMediaStreamRef", GoGetter: "FlowMediaStreamRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IFlowMediaStreamRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

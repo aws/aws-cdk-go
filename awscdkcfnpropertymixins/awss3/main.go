@@ -184,6 +184,10 @@ func init() {
 		reflect.TypeOf((*CfnBucketPropsMixin_DataExportProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3.CfnBucketPropsMixin.DefaultEventHoldProperty",
+		reflect.TypeOf((*CfnBucketPropsMixin_DefaultEventHoldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3.CfnBucketPropsMixin.DefaultRetentionProperty",
 		reflect.TypeOf((*CfnBucketPropsMixin_DefaultRetentionProperty)(nil)).Elem(),
 	)

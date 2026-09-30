@@ -39,7 +39,7 @@ type CfnServicePropsMixin_MCPServerSigV4AuthorizationConfigProperty struct {
 	Region *string `field:"optional" json:"region" yaml:"region"`
 	// Deprecated - use McpRoleArn instead.
 	//
-	// IAM role ARN to assume for SigV4 signing.
+	// IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html#cfn-devopsagent-service-mcpserversigv4authorizationconfig-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`

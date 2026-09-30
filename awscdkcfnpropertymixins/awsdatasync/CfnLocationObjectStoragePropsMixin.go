@@ -36,6 +36,17 @@ import (
 //   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
+//   	FederatedIdentity: &ObjectStorageFederatedIdentityConfigProperty{
+//   		AwsIamRole: jsii.String("awsIamRole"),
+//   		ExternalIdentity: &ObjectStorageExternalIdentityConfigProperty{
+//   			GoogleOidc: &GoogleOidcConfigProperty{
+//   				IdentityPoolName: jsii.String("identityPoolName"),
+//   				IdentityProviderName: jsii.String("identityProviderName"),
+//   				ProjectName: jsii.String("projectName"),
+//   				ProjectNumber: jsii.String("projectNumber"),
+//   			},
+//   		},
+//   	},
 //   	SecretKey: jsii.String("secretKey"),
 //   	ServerCertificate: jsii.String("serverCertificate"),
 //   	ServerHostname: jsii.String("serverHostname"),

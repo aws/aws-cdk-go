@@ -8,7 +8,7 @@ package awsmedialive
 //
 //   mediaPackageV2GroupSettingsProperty := &MediaPackageV2GroupSettingsProperty{
 //   	AdditionalDestinations: []interface{}{
-//   		&MediaPackageAdditionalDestinationsProperty{
+//   		&AdditionalDestinationsProperty{
 //   			Destination: &OutputLocationRefProperty{
 //   				DestinationRefId: jsii.String("destinationRefId"),
 //   			},
@@ -30,6 +30,28 @@ package awsmedialive
 //   	TimedMetadataId3Frame: jsii.String("timedMetadataId3Frame"),
 //   	TimedMetadataId3Period: jsii.Number(123),
 //   	TimedMetadataPassthrough: jsii.String("timedMetadataPassthrough"),
+//   	WatermarkingSettings: &MediaPackageV2WatermarkingSettingsProperty{
+//   		MediaPackageV2AbWatermarkerIrdetoSettings: &CmafIngestMediaPackageV2AbWatermarkerIrdetoSettingsProperty{
+//   			AdditionalDestinationsAlternateDestinations: []interface{}{
+//   				&OutputLocationRefProperty{
+//   					DestinationRefId: jsii.String("destinationRefId"),
+//   				},
+//   			},
+//   			AlternateDestination: &OutputLocationRefProperty{
+//   				DestinationRefId: jsii.String("destinationRefId"),
+//   			},
+//   			CustomProfile: &AbWatermarkingCustomProfileProperty{
+//   				EmbeddingFrequency: jsii.Number(123),
+//   				SceneCut: jsii.Number(123),
+//   				TargetPsnr: jsii.Number(123),
+//   			},
+//   			License: jsii.String("license"),
+//   			OperatorId: jsii.Number(123),
+//   			PolyPeriod: jsii.Number(123),
+//   			Profile: jsii.String("profile"),
+//   			WatermarkIdLength: jsii.String("watermarkIdLength"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2groupsettings.html
@@ -68,5 +90,8 @@ type CfnChannelPropsMixin_MediaPackageV2GroupSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2groupsettings.html#cfn-medialive-channel-mediapackagev2groupsettings-timedmetadatapassthrough
 	//
 	TimedMetadataPassthrough *string `field:"optional" json:"timedMetadataPassthrough" yaml:"timedMetadataPassthrough"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2groupsettings.html#cfn-medialive-channel-mediapackagev2groupsettings-watermarkingsettings
+	//
+	WatermarkingSettings interface{} `field:"optional" json:"watermarkingSettings" yaml:"watermarkingSettings"`
 }
 

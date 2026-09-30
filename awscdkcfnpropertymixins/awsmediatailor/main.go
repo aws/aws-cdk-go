@@ -92,6 +92,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionPropsMixin.ConcurrentExecutorConfigurationProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_ConcurrentExecutorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionPropsMixin.CustomOutputConfigurationProperty",
 		reflect.TypeOf((*CfnFunctionPropsMixin_CustomOutputConfigurationProperty)(nil)).Elem(),
 	)

@@ -196,6 +196,22 @@ func validateCfnGlobalReplicationGroup_ArnForGlobalReplicationGroupParameters(re
 	return nil
 }
 
+func validateCfnGlobalReplicationGroup_FromGlobalReplicationGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	if scope == nil {
+		return fmt.Errorf("parameter scope is required, but nil was provided")
+	}
+
+	if id == nil {
+		return fmt.Errorf("parameter id is required, but nil was provided")
+	}
+
+	if arn == nil {
+		return fmt.Errorf("parameter arn is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateCfnGlobalReplicationGroup_FromGlobalReplicationGroupIdParameters(scope constructs.Construct, id *string, globalReplicationGroupId *string) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
@@ -378,6 +394,16 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetRegionalConfigurationsP
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
 		}
 	}
 

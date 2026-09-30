@@ -283,6 +283,97 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogs",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnKnowledgeBaseRuntimeLogs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogsDestProps",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogsFirehoseProps",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogsLogGroupProps",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogsOutputFormat",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnKnowledgeBaseRuntimeLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnKnowledgeBaseRuntimeLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnKnowledgeBaseRuntimeLogsOutputFormat_Firehose_JSON,
+			"RAW": CfnKnowledgeBaseRuntimeLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnKnowledgeBaseRuntimeLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnKnowledgeBaseRuntimeLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnKnowledgeBaseRuntimeLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnKnowledgeBaseRuntimeLogsOutputFormat_S3_JSON,
+			"W3C": CfnKnowledgeBaseRuntimeLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnKnowledgeBaseRuntimeLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogsRecordFields",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TIMESTAMP": CfnKnowledgeBaseRuntimeLogsRecordFields_TIMESTAMP,
+			"RESOURCE_TYPE": CfnKnowledgeBaseRuntimeLogsRecordFields_RESOURCE_TYPE,
+			"RESOURCE_ID": CfnKnowledgeBaseRuntimeLogsRecordFields_RESOURCE_ID,
+			"ACCOUNTID": CfnKnowledgeBaseRuntimeLogsRecordFields_ACCOUNTID,
+			"REQUESTID": CfnKnowledgeBaseRuntimeLogsRecordFields_REQUESTID,
+			"OPERATION": CfnKnowledgeBaseRuntimeLogsRecordFields_OPERATION,
+			"EVENTTYPE": CfnKnowledgeBaseRuntimeLogsRecordFields_EVENTTYPE,
+			"TRACEID": CfnKnowledgeBaseRuntimeLogsRecordFields_TRACEID,
+			"SPANID": CfnKnowledgeBaseRuntimeLogsRecordFields_SPANID,
+			"PARENTSPANID": CfnKnowledgeBaseRuntimeLogsRecordFields_PARENTSPANID,
+			"SESSIONID": CfnKnowledgeBaseRuntimeLogsRecordFields_SESSIONID,
+			"TIMEUNIXNANO": CfnKnowledgeBaseRuntimeLogsRecordFields_TIMEUNIXNANO,
+			"ENDTIMEUNIXNANO": CfnKnowledgeBaseRuntimeLogsRecordFields_ENDTIMEUNIXNANO,
+			"BODY": CfnKnowledgeBaseRuntimeLogsRecordFields_BODY,
+			"ATTRIBUTES": CfnKnowledgeBaseRuntimeLogsRecordFields_ATTRIBUTES,
+			"RESOURCE": CfnKnowledgeBaseRuntimeLogsRecordFields_RESOURCE,
+			"SCOPE": CfnKnowledgeBaseRuntimeLogsRecordFields_SCOPE,
+			"STATUS": CfnKnowledgeBaseRuntimeLogsRecordFields_STATUS,
+			"LEVEL": CfnKnowledgeBaseRuntimeLogsRecordFields_LEVEL,
+			"RESOURCEARN": CfnKnowledgeBaseRuntimeLogsRecordFields_RESOURCEARN,
+			"EVENTTIMESTAMP": CfnKnowledgeBaseRuntimeLogsRecordFields_EVENTTIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseRuntimeLogsS3Props",
+		reflect.TypeOf((*CfnKnowledgeBaseRuntimeLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_bedrock.mixins.CfnKnowledgeBaseTraces",
 		reflect.TypeOf((*CfnKnowledgeBaseTraces)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -87,6 +87,9 @@ type CfnTemplatePropsMixin_VisualProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-kpivisual
 	//
 	KpiVisual interface{} `field:"optional" json:"kpiVisual" yaml:"kpiVisual"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html#cfn-quicksight-template-visual-layermapvisual
+	//
+	LayerMapVisual interface{} `field:"optional" json:"layerMapVisual" yaml:"layerMapVisual"`
 	// A line chart.
 	//
 	// For more information, see [Using line charts](https://docs.aws.amazon.com/quicksight/latest/user/line-charts.html) in the *Amazon Quick Suite User Guide* .

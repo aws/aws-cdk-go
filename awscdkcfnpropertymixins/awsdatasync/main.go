@@ -52,6 +52,14 @@ func init() {
 		reflect.TypeOf((*CfnLocationAzureBlobPropsMixin_AzureBlobSasConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datasync.CfnLocationAzureBlobPropsMixin.AzureFederatedIdentityConfigProperty",
+		reflect.TypeOf((*CfnLocationAzureBlobPropsMixin_AzureFederatedIdentityConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datasync.CfnLocationAzureBlobPropsMixin.AzureOidcConfigProperty",
+		reflect.TypeOf((*CfnLocationAzureBlobPropsMixin_AzureOidcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datasync.CfnLocationAzureBlobPropsMixin.CmkSecretConfigProperty",
 		reflect.TypeOf((*CfnLocationAzureBlobPropsMixin_CmkSecretConfigProperty)(nil)).Elem(),
 	)
@@ -320,8 +328,20 @@ func init() {
 		reflect.TypeOf((*CfnLocationObjectStoragePropsMixin_CustomSecretConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datasync.CfnLocationObjectStoragePropsMixin.GoogleOidcConfigProperty",
+		reflect.TypeOf((*CfnLocationObjectStoragePropsMixin_GoogleOidcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datasync.CfnLocationObjectStoragePropsMixin.ManagedSecretConfigProperty",
 		reflect.TypeOf((*CfnLocationObjectStoragePropsMixin_ManagedSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datasync.CfnLocationObjectStoragePropsMixin.ObjectStorageExternalIdentityConfigProperty",
+		reflect.TypeOf((*CfnLocationObjectStoragePropsMixin_ObjectStorageExternalIdentityConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_datasync.CfnLocationObjectStoragePropsMixin.ObjectStorageFederatedIdentityConfigProperty",
+		reflect.TypeOf((*CfnLocationObjectStoragePropsMixin_ObjectStorageFederatedIdentityConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_datasync.CfnLocationS3MixinProps",

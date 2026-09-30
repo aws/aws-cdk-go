@@ -112,6 +112,10 @@ func validateCfnDataset_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataset) validateSetDatasetConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDataset) validateSetDatasetNameParameters(val *string) error {
 	return nil
 }

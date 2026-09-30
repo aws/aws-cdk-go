@@ -16,6 +16,14 @@ package awsquicksight
 //   			DataSetPlaceholder: jsii.String("dataSetPlaceholder"),
 //   		},
 //   	},
+//
+//   	// the properties below are optional
+//   	TopicReferences: []interface{}{
+//   		&TopicReferenceProperty{
+//   			TopicArn: jsii.String("topicArn"),
+//   			TopicPlaceholder: jsii.String("topicPlaceholder"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html
@@ -29,5 +37,8 @@ type CfnAnalysis_AnalysisSourceTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
 	//
 	DataSetReferences interface{} `field:"required" json:"dataSetReferences" yaml:"dataSetReferences"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-topicreferences
+	//
+	TopicReferences interface{} `field:"optional" json:"topicReferences" yaml:"topicReferences"`
 }
 

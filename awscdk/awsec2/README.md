@@ -190,6 +190,92 @@ Which subnets are selected is evaluated as follows:
   * `byCidrMask`: chooses subnets that have the provided CIDR netmask
   * `byCidrRanges`: chooses subnets which are inside any of the specified CIDR ranges
 
+### Using Regional NAT Gateways
+
+[Regional NAT Gateways](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) provide automatic multi-AZ redundancy with a single gateway that scales across availability zones.
+Unlike zonal NAT gateways, a regional NAT gateway does not require public subnets and is created at the VPC level.
+
+```go
+// Basic usage
+// Creates a single Regional NAT Gateway for the VPC and automatically allocate Elastic IPs
+// Basic usage
+// Creates a single Regional NAT Gateway for the VPC and automatically allocate Elastic IPs
+ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+	NatGatewayProvider: ec2.NatProvider_RegionalGateway(),
+})
+```
+
+You can specify an existing EIP from a `CfnEIP` resource or an allocation ID:
+
+```go
+eip := ec2.NewCfnEIP(this, jsii.String("NatEip"))
+
+ec2.NewVpc(this, jsii.String("Vpc1"), &VpcProps{
+	NatGatewayProvider: ec2.NatProvider_RegionalGateway(&RegionalNatGatewayProviderProps{
+		Eip: *Eip,
+	}),
+})
+
+ec2.NewVpc(this, jsii.String("Vpc2"), &VpcProps{
+	NatGatewayProvider: ec2.NatProvider_*RegionalGateway(&RegionalNatGatewayProviderProps{
+		AllocationId: eip.attrAllocationId,
+	}),
+})
+```
+
+For manual control over AZ coverage and EIP allocation, use `availabilityZoneAddresses`:
+
+```go
+eip1 := ec2.NewCfnEIP(this, jsii.String("NatEip1"))
+eip2 := ec2.NewCfnEIP(this, jsii.String("NatEip2"))
+
+ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+	AvailabilityZones: []*string{
+		jsii.String("us-east-1a"),
+		jsii.String("us-east-1b"),
+	},
+	NatGatewayProvider: ec2.NatProvider_RegionalGateway(&RegionalNatGatewayProviderProps{
+		AvailabilityZoneAddresses: []AvailabilityZoneAddress{
+			&AvailabilityZoneAddress{
+				AllocationIds: []*string{
+					eip1.attrAllocationId,
+				},
+				AvailabilityZone: jsii.String("us-east-1a"),
+			},
+			&AvailabilityZoneAddress{
+				AllocationIds: []*string{
+					eip2.attrAllocationId,
+				},
+				AvailabilityZone: jsii.String("us-east-1b"),
+			},
+		},
+	}),
+})
+```
+
+Each Availability Zone may only appear once in `availabilityZoneAddresses`.
+
+In this manual mode the gateway only serves the listed Availability Zones and does not
+expand to other zones automatically, so every Availability Zone that contains a private
+subnet must be listed. When the zone names are known at synthesis time, a private subnet
+in an unlisted zone is rejected with an error. Entries that use `availabilityZoneId` or
+unresolved tokens cannot be checked at synthesis time.
+
+The `natGateways` property is ignored when using a Regional NAT Gateway, since a single
+gateway already covers every Availability Zone. Values below 1, as well as unresolved
+tokens, are rejected because they would silently disable the gateway you explicitly
+configured; omit `natGatewayProvider` instead if you do not want a NAT gateway.
+
+You can also configure the maximum drain duration:
+
+```go
+ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+	NatGatewayProvider: ec2.NatProvider_RegionalGateway(&RegionalNatGatewayProviderProps{
+		MaxDrainDuration: awscdk.Duration_Minutes(jsii.Number(10)),
+	}),
+})
+```
+
 ### Using NAT instances
 
 By default, the `Vpc` construct will create NAT *gateways* for you, which

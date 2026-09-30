@@ -57,6 +57,14 @@ func validateNatGatewayProvider_InstanceV2Parameters(props *NatInstanceProps) er
 	return nil
 }
 
+func validateNatGatewayProvider_RegionalGatewayParameters(props *RegionalNatGatewayProviderProps) error {
+	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateNewNatGatewayProviderParameters(props *NatGatewayProps) error {
 	if err := _jsii_.ValidateStruct(props, func() string { return "parameter props" }); err != nil {
 		return err

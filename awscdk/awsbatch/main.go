@@ -40,6 +40,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrComputeEnvironmentArn", GoGetter: "AttrComputeEnvironmentArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEksConfigurationAccessEntryStatus", GoGetter: "AttrEksConfigurationAccessEntryStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -109,6 +110,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.EcsSettingsProperty",
 		reflect.TypeOf((*CfnComputeEnvironment_EcsSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.EksAccessEntryProperty",
+		reflect.TypeOf((*CfnComputeEnvironment_EksAccessEntryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.EksConfigurationProperty",

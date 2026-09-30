@@ -20,9 +20,6 @@ import (
 //
 //   cfnMetric := awscdk.Aws_connect.NewCfnMetric(this, jsii.String("MyCfnMetric"), &CfnMetricProps{
 //   	InstanceArn: jsii.String("instanceArn"),
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
 //   	MetricCalculation: &MetricCalculationProperty{
 //   		Calculation: jsii.String("calculation"),
 //   		CalculationComponents: []interface{}{
@@ -59,15 +56,18 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
-//   	PositiveTrendIndicator: jsii.String("positiveTrendIndicator"),
 //   	Status: jsii.String("status"),
+//   	Unit: jsii.String("unit"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
+//   	PositiveTrendIndicator: jsii.String("positiveTrendIndicator"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	Unit: jsii.String("unit"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html
@@ -820,6 +820,9 @@ func (j *jsiiProxy_CfnMetric)SetMetricCalculation(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnMetric)SetName(val *string) {
+	if err := j.validateSetNameParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"name",
@@ -836,6 +839,9 @@ func (j *jsiiProxy_CfnMetric)SetPositiveTrendIndicator(val *string) {
 }
 
 func (j *jsiiProxy_CfnMetric)SetStatus(val *string) {
+	if err := j.validateSetStatusParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"status",
@@ -855,6 +861,9 @@ func (j *jsiiProxy_CfnMetric)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnMetric)SetUnit(val *string) {
+	if err := j.validateSetUnitParameters(val); err != nil {
+		panic(err)
+	}
 	_jsii_.Set(
 		j,
 		"unit",

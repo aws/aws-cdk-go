@@ -88,6 +88,10 @@ func validateCfnGlobalReplicationGroup_ArnForGlobalReplicationGroupParameters(re
 	return nil
 }
 
+func validateCfnGlobalReplicationGroup_FromGlobalReplicationGroupArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnGlobalReplicationGroup_FromGlobalReplicationGroupIdParameters(scope constructs.Construct, id *string, globalReplicationGroupId *string) error {
 	return nil
 }
@@ -117,6 +121,10 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetMembersParameters(val i
 }
 
 func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetRegionalConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnGlobalReplicationGroup) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }
 

@@ -32,6 +32,11 @@ package awsecs
 //   			Value: jsii.Number(123),
 //   		},
 //   	},
+//   	EarlySuccessCriteria: &DeploymentEarlySuccessCriteriaProperty{
+//   		Enable: jsii.Boolean(false),
+//   		HealthyPercent: jsii.Number(123),
+//   		SourceServiceRevisionCleanup: jsii.String("sourceServiceRevisionCleanup"),
+//   	},
 //   	LifecycleHooks: []interface{}{
 //   		&DeploymentLifecycleHookProperty{
 //   			HookDetails: hookDetails,
@@ -85,6 +90,9 @@ type CfnServicePropsMixin_DeploymentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
 	//
 	DeploymentCircuitBreaker interface{} `field:"optional" json:"deploymentCircuitBreaker" yaml:"deploymentCircuitBreaker"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-earlysuccesscriteria
+	//
+	EarlySuccessCriteria interface{} `field:"optional" json:"earlySuccessCriteria" yaml:"earlySuccessCriteria"`
 	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-lifecyclehooks
 	//

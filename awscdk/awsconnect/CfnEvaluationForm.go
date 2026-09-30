@@ -70,6 +70,10 @@ import (
 //   								DefaultAction: jsii.String("defaultAction"),
 //   							},
 //   							Instructions: jsii.String("instructions"),
+//   							MetricConfiguration: &EvaluationFormMetricConfigurationProperty{
+//   								MetricName: jsii.String("metricName"),
+//   								MetricType: jsii.String("metricType"),
+//   							},
 //   							NotApplicableEnabled: jsii.Boolean(false),
 //   							QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
 //   								MultiSelect: &EvaluationFormMultiSelectQuestionPropertiesProperty{
@@ -234,6 +238,7 @@ import (
 //   	Title: jsii.String("title"),
 //
 //   	// the properties below are optional
+//   	AiVersion: jsii.String("aiVersion"),
 //   	AutoEvaluationConfiguration: &AutoEvaluationConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
@@ -287,6 +292,8 @@ type CfnEvaluationForm interface {
 	awscdk.IInspectable
 	interfacesawsconnect.IEvaluationFormRef
 	awscdk.ITaggable
+	AiVersion() *string
+	SetAiVersion(val *string)
 	// The Amazon Resource Name (ARN) of the evaluation form.
 	AttrEvaluationFormArn() *string
 	// The automatic evaluation configuration of an evaluation form.
@@ -540,6 +547,16 @@ type jsiiProxy_CfnEvaluationForm struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsconnectIEvaluationFormRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnEvaluationForm) AiVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"aiVersion",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnEvaluationForm) AttrEvaluationFormArn() *string {
@@ -829,6 +846,14 @@ func NewCfnEvaluationForm_Override(c CfnEvaluationForm, scope constructs.Constru
 		"aws-cdk-lib.aws_connect.CfnEvaluationForm",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnEvaluationForm)SetAiVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"aiVersion",
+		val,
 	)
 }
 

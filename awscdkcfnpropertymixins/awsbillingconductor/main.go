@@ -120,6 +120,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_billingconductor.CfnPricingRulePropsMixin.CustomTierProperty",
+		reflect.TypeOf((*CfnPricingRulePropsMixin_CustomTierProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_billingconductor.CfnPricingRulePropsMixin.FreeTierProperty",
 		reflect.TypeOf((*CfnPricingRulePropsMixin_FreeTierProperty)(nil)).Elem(),
 	)

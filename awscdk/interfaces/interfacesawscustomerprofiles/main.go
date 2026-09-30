@@ -156,6 +156,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_customerprofiles.IRecommenderSchemaRef",
+		reflect.TypeOf((*IRecommenderSchemaRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "recommenderSchemaRef", GoGetter: "RecommenderSchemaRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRecommenderSchemaRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_customerprofiles.ISegmentDefinitionRef",
 		reflect.TypeOf((*ISegmentDefinitionRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -182,6 +198,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_customerprofiles.RecommenderReference",
 		reflect.TypeOf((*RecommenderReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_customerprofiles.RecommenderSchemaReference",
+		reflect.TypeOf((*RecommenderSchemaReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_customerprofiles.SegmentDefinitionReference",

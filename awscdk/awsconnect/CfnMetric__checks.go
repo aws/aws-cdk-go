@@ -237,6 +237,9 @@ func (j *jsiiProxy_CfnMetric) validateSetInstanceArnParameters(val *string) erro
 }
 
 func (j *jsiiProxy_CfnMetric) validateSetMetricCalculationParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -260,11 +263,35 @@ func (j *jsiiProxy_CfnMetric) validateSetMetricCalculationParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnMetric) validateSetNameParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnMetric) validateSetStatusParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnMetric) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnMetric) validateSetUnitParameters(val *string) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
 	}
 
 	return nil

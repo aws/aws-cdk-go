@@ -6,21 +6,23 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawskms"
 )
 
 // Properties for a canary.
 //
 // Example:
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//
 //   canary := synthetics.NewCanary(this, jsii.String("MyCanary"), &CanaryProps{
 //   	Schedule: synthetics.Schedule_Rate(awscdk.Duration_Minutes(jsii.Number(5))),
 //   	Test: synthetics.Test_Custom(&CustomTestOptions{
 //   		Code: synthetics.Code_FromAsset(path.join(__dirname, jsii.String("canary"))),
 //   		Handler: jsii.String("index.handler"),
 //   	}),
-//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_7_0(),
-//   	ResourcesToReplicateTags: []lAMBDA_FUNCTION{
-//   		synthetics.ResourceToReplicateTags_*lAMBDA_FUNCTION,
-//   	},
+//   	Runtime: synthetics.Runtime_SYNTHETICS_NODEJS_PUPPETEER_6_2(),
+//   	Memory: cdk.Size_Mebibytes(jsii.Number(1024)),
 //   })
 //
 type CanaryProps struct {
@@ -112,6 +114,13 @@ type CanaryProps struct {
 	// Default: undefined - AWS CloudWatch default is false.
 	//
 	DryRunAndUpdate *bool `field:"optional" json:"dryRunAndUpdate" yaml:"dryRunAndUpdate"`
+	// The customer-managed KMS key used to encrypt the canary's Lambda function environment variables at rest.
+	//
+	// This mirrors `lambda.Function.environmentEncryption`, since a canary runs as
+	// a managed Lambda function.
+	// Default: - Lambda uses an AWS managed key to encrypt the environment variables at rest.
+	//
+	EnvironmentEncryption interfacesawskms.IKeyRef `field:"optional" json:"environmentEncryption" yaml:"environmentEncryption"`
 	// Key-value pairs that the Synthetics caches and makes available for your canary scripts.
 	//
 	// Use environment variables

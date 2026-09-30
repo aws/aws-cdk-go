@@ -739,6 +739,17 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_3_SONNET_20240229_V1_0_28K() Fou
 	return returns
 }
 
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_FABLE_5_1() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_FABLE_5_1",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_ANTHROPIC_CLAUDE_HAIKU_4_5_20251001_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -838,6 +849,17 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_OPUS_4_8() FoundationModelIdenti
 	return returns
 }
 
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_OPUS_5_5() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_OPUS_5_5",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_ANTHROPIC_CLAUDE_SONNET_4_20250514_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -877,6 +899,17 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_SONNET_5() FoundationModelIdenti
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"ANTHROPIC_CLAUDE_SONNET_5",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_SONNET_5_5() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_SONNET_5_5",
 		&returns,
 	)
 	return returns

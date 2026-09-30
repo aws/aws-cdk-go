@@ -455,6 +455,19 @@ import (
 //   			},
 //   		},
 //   	},
+//   	NamespaceKeys: []interface{}{
+//   		&NamespaceKeyEntryProperty{
+//   			Key: jsii.String("key"),
+//
+//   			// the properties below are optional
+//   			Validation: &NamespaceKeyValidationProperty{
+//   				AllowedValues: []*string{
+//   					jsii.String("allowedValues"),
+//   				},
+//   				RegexPattern: jsii.String("regexPattern"),
+//   			},
+//   		},
+//   	},
 //   	StreamDeliveryResources: &StreamDeliveryResourcesProperty{
 //   		Resources: []interface{}{
 //   			&StreamDeliveryResourceProperty{
@@ -540,6 +553,9 @@ type CfnMemory interface {
 	// The memory name.
 	Name() *string
 	SetName(val *string)
+	// List of namespace variable key definitions for a memory resource.
+	NamespaceKeys() interface{}
+	SetNamespaceKeys(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -960,6 +976,16 @@ func (j *jsiiProxy_CfnMemory) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMemory) NamespaceKeys() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"namespaceKeys",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMemory) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -1124,6 +1150,17 @@ func (j *jsiiProxy_CfnMemory)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMemory)SetNamespaceKeys(val interface{}) {
+	if err := j.validateSetNamespaceKeysParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"namespaceKeys",
 		val,
 	)
 }

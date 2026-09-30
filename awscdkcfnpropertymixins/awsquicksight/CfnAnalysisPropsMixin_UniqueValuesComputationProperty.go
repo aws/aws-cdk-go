@@ -14,6 +14,7 @@ package awsquicksight
 //   			Column: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			FieldId: jsii.String("fieldId"),
 //   			FormatConfiguration: &StringFormatConfigurationProperty{
@@ -95,6 +96,7 @@ package awsquicksight
 //   			Column: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			DateGranularity: jsii.String("dateGranularity"),
 //   			FieldId: jsii.String("fieldId"),
@@ -178,6 +180,7 @@ package awsquicksight
 //   			Column: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			FieldId: jsii.String("fieldId"),
 //   			FormatConfiguration: &NumberFormatConfigurationProperty{

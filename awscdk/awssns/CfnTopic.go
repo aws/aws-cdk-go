@@ -41,6 +41,7 @@ import (
 //   	FifoThroughputScope: jsii.String("fifoThroughputScope"),
 //   	FifoTopic: jsii.Boolean(false),
 //   	KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
+//   	MaximumMessageSize: jsii.Number(123),
 //   	SignatureVersion: jsii.String("signatureVersion"),
 //   	Subscription: []interface{}{
 //   		&SubscriptionProperty{
@@ -114,6 +115,8 @@ type CfnTopic interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	MaximumMessageSize() *float64
+	SetMaximumMessageSize(val *float64)
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -498,6 +501,16 @@ func (j *jsiiProxy_CfnTopic) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTopic) MaximumMessageSize() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"maximumMessageSize",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTopic) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -723,6 +736,14 @@ func (j *jsiiProxy_CfnTopic)SetKmsMasterKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsMasterKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTopic)SetMaximumMessageSize(val *float64) {
+	_jsii_.Set(
+		j,
+		"maximumMessageSize",
 		val,
 	)
 }

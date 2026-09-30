@@ -16,6 +16,7 @@ package awsmedialive
 //   var rec709Settings interface{}
 //
 //   videoDescriptionProperty := &VideoDescriptionProperty{
+//   	Border: jsii.Number(123),
 //   	CodecSettings: &VideoCodecSettingsProperty{
 //   		Av1Settings: &Av1SettingsProperty{
 //   			AfdSignaling: jsii.String("afdSignaling"),
@@ -231,8 +232,20 @@ package awsmedialive
 //   			TimecodeInsertion: jsii.String("timecodeInsertion"),
 //   		},
 //   	},
+//   	CropRectangle: &VideoPositionRectangleProperty{
+//   		Height: jsii.Number(123),
+//   		Width: jsii.Number(123),
+//   		X: jsii.Number(123),
+//   		Y: jsii.Number(123),
+//   	},
 //   	Height: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	OutputPositionRectangle: &VideoPositionRectangleProperty{
+//   		Height: jsii.Number(123),
+//   		Width: jsii.Number(123),
+//   		X: jsii.Number(123),
+//   		Y: jsii.Number(123),
+//   	},
 //   	RespondToAfd: jsii.String("respondToAfd"),
 //   	ScalingBehavior: jsii.String("scalingBehavior"),
 //   	Sharpness: jsii.Number(123),
@@ -242,10 +255,16 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html
 //
 type CfnChannel_VideoDescriptionProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-border
+	//
+	Border *float64 `field:"optional" json:"border" yaml:"border"`
 	// The video codec settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-codecsettings
 	//
 	CodecSettings interface{} `field:"optional" json:"codecSettings" yaml:"codecSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-croprectangle
+	//
+	CropRectangle interface{} `field:"optional" json:"cropRectangle" yaml:"cropRectangle"`
 	// The output video height, in pixels.
 	//
 	// This must be an even number. For most codecs, you can keep this field and width blank in order to use the height and width (resolution) from the source. Note that we don't recommend keeping the field blank. For the Frame Capture codec, height and width are required.
@@ -258,6 +277,9 @@ type CfnChannel_VideoDescriptionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videodescription.html#cfn-medialive-channel-videodescription-outputpositionrectangle
+	//
+	OutputPositionRectangle interface{} `field:"optional" json:"outputPositionRectangle" yaml:"outputPositionRectangle"`
 	// Indicates how to respond to the AFD values in the input stream.
 	//
 	// RESPOND causes input video to be clipped, depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for the FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec) ignores the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values and does not include the values through to the output, so input video is not clipped.

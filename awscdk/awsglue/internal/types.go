@@ -12,6 +12,7 @@ type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsglueICatalogRef = interfacesawsglue.ICatalogRef
 type Type__interfacesawsglueIClassifierRef = interfacesawsglue.IClassifierRef
 type Type__interfacesawsglueIConnectionRef = interfacesawsglue.IConnectionRef
+type Type__interfacesawsglueIConnectionTypeRef = interfacesawsglue.IConnectionTypeRef
 type Type__interfacesawsglueICrawlerRef = interfacesawsglue.ICrawlerRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsglueICustomEntityTypeRef = interfacesawsglue.ICustomEntityTypeRef

@@ -13,6 +13,10 @@ package awss3
 //
 //   defaultRetentionProperty := &DefaultRetentionProperty{
 //   	Days: jsii.Number(123),
+//   	DefaultEventHold: &DefaultEventHoldProperty{
+//   		Days: jsii.Number(123),
+//   		Years: jsii.Number(123),
+//   	},
 //   	Mode: jsii.String("mode"),
 //   	Years: jsii.Number(123),
 //   }
@@ -26,6 +30,9 @@ type CfnBucketPropsMixin_DefaultRetentionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-days
 	//
 	Days *float64 `field:"optional" json:"days" yaml:"days"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-defaulteventhold
+	//
+	DefaultEventHold interface{} `field:"optional" json:"defaultEventHold" yaml:"defaultEventHold"`
 	// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
 	//
 	// If Object Lock is turned on, you must specify `Mode` and specify either `Days` or `Years` .

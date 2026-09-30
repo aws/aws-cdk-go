@@ -1,0 +1,48 @@
+package awsmemorydb
+
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
+
+// Properties for defining a `CfnSnapshot`.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   cfnSnapshotProps := &CfnSnapshotProps{
+//   	ClusterName: jsii.String("clusterName"),
+//   	SnapshotName: jsii.String("snapshotName"),
+//
+//   	// the properties below are optional
+//   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-snapshot.html
+//
+type CfnSnapshotProps struct {
+	// The name of the cluster from which the snapshot was taken.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-snapshot.html#cfn-memorydb-snapshot-clustername
+	//
+	ClusterName *string `field:"required" json:"clusterName" yaml:"clusterName"`
+	// The name of the snapshot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-snapshot.html#cfn-memorydb-snapshot-snapshotname
+	//
+	SnapshotName *string `field:"required" json:"snapshotName" yaml:"snapshotName"`
+	// The ID of the KMS key used to encrypt the snapshot.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-snapshot.html#cfn-memorydb-snapshot-kmskeyid
+	//
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// A list of tags to be added to this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-snapshot.html#cfn-memorydb-snapshot-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+}
+

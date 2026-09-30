@@ -11,7 +11,7 @@ package awsmedialive
 //   		Pipeline0: jsii.String("pipeline0"),
 //   		Pipeline1: jsii.String("pipeline1"),
 //   	},
-//   	ContainerSettings: &MediaConnectRouterContainerSettingsProperty{
+//   	ContainerSettings: &UdpMediaConnectRouterContainerSettingsProperty{
 //   		M2TsSettings: &M2tsSettingsProperty{
 //   			AbsentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
 //   			Arib: jsii.String("arib"),

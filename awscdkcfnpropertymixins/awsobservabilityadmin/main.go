@@ -140,6 +140,10 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_LoggingFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationTelemetryRulePropsMixin.MskMonitoringParametersProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_MskMonitoringParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnOrganizationTelemetryRulePropsMixin.RegionStatusProperty",
 		reflect.TypeOf((*CfnOrganizationTelemetryRulePropsMixin_RegionStatusProperty)(nil)).Elem(),
 	)
@@ -306,6 +310,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnTelemetryRulePropsMixin.LoggingFilterProperty",
 		reflect.TypeOf((*CfnTelemetryRulePropsMixin_LoggingFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnTelemetryRulePropsMixin.MskMonitoringParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRulePropsMixin_MskMonitoringParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_observabilityadmin.CfnTelemetryRulePropsMixin.RegionStatusProperty",

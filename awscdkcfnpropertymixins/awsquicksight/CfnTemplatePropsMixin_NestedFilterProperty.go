@@ -12,6 +12,7 @@ package awsquicksight
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
 //   	},
 //   	FilterId: jsii.String("filterId"),
 //   	IncludeInnerSet: jsii.Boolean(false),
@@ -20,6 +21,7 @@ package awsquicksight
 //   			Column: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			Configuration: &CategoryFilterConfigurationProperty{
 //   				CustomFilterConfiguration: &CustomFilterConfigurationProperty{

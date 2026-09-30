@@ -104,6 +104,10 @@ func validateCfnFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetConcurrentExecutorConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetCustomOutputConfigurationParameters(val interface{}) error {
 	return nil
 }

@@ -24,6 +24,7 @@ import (
 //
 //   cfnManagedNotificationAdditionalChannelAssociationPropsMixin := awscdkcfnpropertymixins.Aws_notifications.NewCfnManagedNotificationAdditionalChannelAssociationPropsMixin(&CfnManagedNotificationAdditionalChannelAssociationMixinProps{
 //   	ChannelArn: jsii.String("channelArn"),
+//   	IsSensitiveEventsSubscribed: jsii.Boolean(false),
 //   	ManagedNotificationConfigurationArn: jsii.String("managedNotificationConfigurationArn"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

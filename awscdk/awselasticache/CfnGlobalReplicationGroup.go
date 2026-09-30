@@ -54,6 +54,12 @@ import (
 //   			},
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html
@@ -62,6 +68,9 @@ type CfnGlobalReplicationGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawselasticache.IGlobalReplicationGroupRef
+	awscdk.ITaggableV2
+	// The ARN (Amazon Resource Name) of the Global Datastore.
+	AttrArn() *string
 	// The ID used to associate a secondary cluster to the Global Replication Group.
 	AttrGlobalReplicationGroupId() *string
 	// The status of the Global Datastore.
@@ -77,6 +86,8 @@ type CfnGlobalReplicationGroup interface {
 	// The name of the cache parameter group to use with the Global datastore.
 	CacheParameterGroupName() *string
 	SetCacheParameterGroupName(val *string)
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -132,6 +143,9 @@ type CfnGlobalReplicationGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this Global Datastore.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -313,6 +327,17 @@ type jsiiProxy_CfnGlobalReplicationGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawselasticacheIGlobalReplicationGroupRef
+	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnGlobalReplicationGroup) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnGlobalReplicationGroup) AttrGlobalReplicationGroupId() *string {
@@ -360,6 +385,16 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) CacheParameterGroupName() *string 
 	_jsii_.Get(
 		j,
 		"cacheParameterGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGlobalReplicationGroup) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -545,6 +580,16 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalReplicationGroup) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalReplicationGroup) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -684,6 +729,17 @@ func (j *jsiiProxy_CfnGlobalReplicationGroup)SetRegionalConfigurations(val inter
 	)
 }
 
+func (j *jsiiProxy_CfnGlobalReplicationGroup)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
+		val,
+	)
+}
+
 func CfnGlobalReplicationGroup_ArnForGlobalReplicationGroup(resource interfacesawselasticache.IGlobalReplicationGroupRef) *string {
 	_init_.Initialize()
 
@@ -696,6 +752,25 @@ func CfnGlobalReplicationGroup_ArnForGlobalReplicationGroup(resource interfacesa
 		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
 		"arnForGlobalReplicationGroup",
 		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IGlobalReplicationGroupRef from an ARN.
+func CfnGlobalReplicationGroup_FromGlobalReplicationGroupArn(scope constructs.Construct, id *string, arn *string) interfacesawselasticache.IGlobalReplicationGroupRef {
+	_init_.Initialize()
+
+	if err := validateCfnGlobalReplicationGroup_FromGlobalReplicationGroupArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawselasticache.IGlobalReplicationGroupRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticache.CfnGlobalReplicationGroup",
+		"fromGlobalReplicationGroupArn",
+		[]interface{}{scope, id, arn},
 		&returns,
 	)
 

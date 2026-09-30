@@ -27,6 +27,7 @@ type CfnFunctionPropsMixin_FileSystemConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
 	//
 	LocalMountPath *string `field:"optional" json:"localMountPath" yaml:"localMountPath"`
+	// Setting controls how your function accesses data from an Amazon S3 file system.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-s3filesconfig
 	//
 	S3FilesConfig interface{} `field:"optional" json:"s3FilesConfig" yaml:"s3FilesConfig"`

@@ -32,6 +32,7 @@ import (
 //   	FifoThroughputScope: jsii.String("fifoThroughputScope"),
 //   	FifoTopic: jsii.Boolean(false),
 //   	KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
+//   	MaximumMessageSize: jsii.Number(123),
 //   	SignatureVersion: jsii.String("signatureVersion"),
 //   	Subscription: []interface{}{
 //   		&SubscriptionProperty{
@@ -110,6 +111,9 @@ type CfnTopicProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-kmsmasterkeyid
 	//
 	KmsMasterKeyId interface{} `field:"optional" json:"kmsMasterKeyId" yaml:"kmsMasterKeyId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html#cfn-sns-topic-maximummessagesize
+	//
+	MaximumMessageSize *float64 `field:"optional" json:"maximumMessageSize" yaml:"maximumMessageSize"`
 	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
 	//
 	// By default, `SignatureVersion` is set to `1` .

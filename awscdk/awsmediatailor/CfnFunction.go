@@ -23,6 +23,21 @@ import (
 //   	FunctionType: jsii.String("functionType"),
 //
 //   	// the properties below are optional
+//   	ConcurrentExecutorConfiguration: &ConcurrentExecutorConfigurationProperty{
+//   		FunctionList: []interface{}{
+//   			&FunctionRefProperty{
+//   				Alias: jsii.String("alias"),
+//   				FunctionId: jsii.String("functionId"),
+//   				RunCondition: jsii.String("runCondition"),
+//   			},
+//   		},
+//   		MaxConcurrency: jsii.Number(123),
+//   		Output: map[string]*string{
+//   			"outputKey": jsii.String("output"),
+//   		},
+//   		Runtime: jsii.String("runtime"),
+//   		TimeoutMilliseconds: jsii.Number(123),
+//   	},
 //   	CustomOutputConfiguration: &CustomOutputConfigurationProperty{
 //   		Runtime: jsii.String("runtime"),
 //
@@ -50,6 +65,7 @@ import (
 //   	SequentialExecutorConfiguration: &SequentialExecutorConfigurationProperty{
 //   		FunctionList: []interface{}{
 //   			&FunctionRefProperty{
+//   				Alias: jsii.String("alias"),
 //   				FunctionId: jsii.String("functionId"),
 //   				RunCondition: jsii.String("runCondition"),
 //   			},
@@ -87,6 +103,9 @@ type CfnFunction interface {
 	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
+	// The configuration for a CONCURRENT_EXECUTOR function.
+	ConcurrentExecutorConfiguration() interface{}
+	SetConcurrentExecutorConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -125,7 +144,7 @@ type CfnFunction interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// Configuration for sequential executor functions.
+	// The configuration for a SEQUENTIAL_EXECUTOR function.
 	SequentialExecutorConfiguration() interface{}
 	SetSequentialExecutorConfiguration(val interface{})
 	// The stack in which this element is defined.
@@ -379,6 +398,16 @@ func (j *jsiiProxy_CfnFunction) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) ConcurrentExecutorConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"concurrentExecutorConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -566,6 +595,17 @@ func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_mediatailor.CfnFunction",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetConcurrentExecutorConfiguration(val interface{}) {
+	if err := j.validateSetConcurrentExecutorConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"concurrentExecutorConfiguration",
+		val,
 	)
 }
 

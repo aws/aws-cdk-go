@@ -43,6 +43,9 @@ import (
 //   			UpdatedAt: jsii.String("updatedAt"),
 //   		},
 //   	},
+//   	Preferences: &PreferencesProperty{
+//   		ElevatedActionsEnabled: jsii.Boolean(false),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -112,6 +115,9 @@ type CfnAgentSpace interface {
 	Node() constructs.Node
 	OperatorApp() interface{}
 	SetOperatorApp(val interface{})
+	// Preferences that configure behavior of this AgentSpace.
+	Preferences() interface{}
+	SetPreferences(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -548,6 +554,16 @@ func (j *jsiiProxy_CfnAgentSpace) OperatorApp() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAgentSpace) Preferences() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"preferences",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAgentSpace) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -670,6 +686,17 @@ func (j *jsiiProxy_CfnAgentSpace)SetOperatorApp(val interface{}) {
 	_jsii_.Set(
 		j,
 		"operatorApp",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAgentSpace)SetPreferences(val interface{}) {
+	if err := j.validateSetPreferencesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"preferences",
 		val,
 	)
 }

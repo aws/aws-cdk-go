@@ -109,6 +109,10 @@ package awsbatch
 //   		ContainerInsights: jsii.String("containerInsights"),
 //   	},
 //   	EksConfiguration: &EksConfigurationProperty{
+//   		AccessEntry: &EksAccessEntryProperty{
+//   			DesiredState: jsii.String("desiredState"),
+//   			Status: jsii.String("status"),
+//   		},
 //   		EksClusterArn: jsii.String("eksClusterArn"),
 //   		KubernetesNamespace: jsii.String("kubernetesNamespace"),
 //   	},

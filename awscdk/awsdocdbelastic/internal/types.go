@@ -7,3 +7,5 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsdocdbelasticIClusterRef = interfacesawsdocdbelastic.IClusterRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsdocdbelasticIClusterSnapshotRef = interfacesawsdocdbelastic.IClusterSnapshotRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2

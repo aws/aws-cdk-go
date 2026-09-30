@@ -49,6 +49,12 @@ import (
 //   		DynamicScalingOutSuspended: jsii.Boolean(false),
 //   		ScheduledScalingSuspended: jsii.Boolean(false),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

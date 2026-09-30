@@ -28,16 +28,6 @@ import (
 //   		Ipv6Support: jsii.Boolean(false),
 //   		SecurityGroupReferencingSupport: jsii.Boolean(false),
 //   	},
-//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
-//   		AttachmentPolicyRuleNumber: jsii.Number(123),
-//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   		Tags: []CfnTag{
-//   			&CfnTag{
-//   				Key: jsii.String("key"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),

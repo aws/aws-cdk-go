@@ -9,6 +9,13 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   lineChartSeriesSettingsProperty := &LineChartSeriesSettingsProperty{
+//   	DecalSettings: &DecalSettingsProperty{
+//   		DecalColor: jsii.String("decalColor"),
+//   		DecalPatternType: jsii.String("decalPatternType"),
+//   		DecalStyleType: jsii.String("decalStyleType"),
+//   		DecalVisibility: jsii.String("decalVisibility"),
+//   		ElementValue: jsii.String("elementValue"),
+//   	},
 //   	LineStyleSettings: &LineChartLineStyleSettingsProperty{
 //   		LineInterpolation: jsii.String("lineInterpolation"),
 //   		LineStyle: jsii.String("lineStyle"),
@@ -26,6 +33,9 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartseriessettings.html
 //
 type CfnDashboard_LineChartSeriesSettingsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartseriessettings.html#cfn-quicksight-dashboard-linechartseriessettings-decalsettings
+	//
+	DecalSettings interface{} `field:"optional" json:"decalSettings" yaml:"decalSettings"`
 	// Line styles options for a line series in `LineChartVisual` .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartseriessettings.html#cfn-quicksight-dashboard-linechartseriessettings-linestylesettings
 	//

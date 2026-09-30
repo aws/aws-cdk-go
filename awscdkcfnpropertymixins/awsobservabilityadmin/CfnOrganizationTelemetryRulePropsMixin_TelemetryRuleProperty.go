@@ -54,6 +54,9 @@ package awsobservabilityadmin
 //   				jsii.String("logTypes"),
 //   			},
 //   		},
+//   		MskMonitoringParameters: &MskMonitoringParametersProperty{
+//   			EnhancedMonitoring: jsii.String("enhancedMonitoring"),
+//   		},
 //   		RetentionInDays: jsii.Number(123),
 //   		VpcFlowLogParameters: &VPCFlowLogParametersProperty{
 //   			LogFormat: jsii.String("logFormat"),

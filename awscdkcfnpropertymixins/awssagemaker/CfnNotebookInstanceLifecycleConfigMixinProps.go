@@ -1,5 +1,8 @@
 package awssagemaker
 
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+)
 
 // Properties for CfnNotebookInstanceLifecycleConfigPropsMixin.
 //
@@ -18,6 +21,12 @@ package awssagemaker
 //   	OnStart: []interface{}{
 //   		&NotebookInstanceLifecycleHookProperty{
 //   			Content: jsii.String("content"),
+//   		},
+//   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
 //   		},
 //   	},
 //   }
@@ -41,5 +50,9 @@ type CfnNotebookInstanceLifecycleConfigMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-onstart
 	//
 	OnStart interface{} `field:"optional" json:"onStart" yaml:"onStart"`
+	// An array of key-value pairs to apply to this resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-tags
+	//
+	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
 }
 

@@ -39,6 +39,10 @@ package awsconnect
 //   			DefaultAction: jsii.String("defaultAction"),
 //   		},
 //   		Instructions: jsii.String("instructions"),
+//   		MetricConfiguration: &EvaluationFormMetricConfigurationProperty{
+//   			MetricName: jsii.String("metricName"),
+//   			MetricType: jsii.String("metricType"),
+//   		},
 //   		NotApplicableEnabled: jsii.Boolean(false),
 //   		QuestionType: jsii.String("questionType"),
 //   		QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{

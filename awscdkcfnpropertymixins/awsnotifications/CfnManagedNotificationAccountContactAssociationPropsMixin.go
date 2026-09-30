@@ -24,6 +24,7 @@ import (
 //
 //   cfnManagedNotificationAccountContactAssociationPropsMixin := awscdkcfnpropertymixins.Aws_notifications.NewCfnManagedNotificationAccountContactAssociationPropsMixin(&CfnManagedNotificationAccountContactAssociationMixinProps{
 //   	ContactIdentifier: jsii.String("contactIdentifier"),
+//   	IsSensitiveEventsSubscribed: jsii.Boolean(false),
 //   	ManagedNotificationConfigurationArn: jsii.String("managedNotificationConfigurationArn"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

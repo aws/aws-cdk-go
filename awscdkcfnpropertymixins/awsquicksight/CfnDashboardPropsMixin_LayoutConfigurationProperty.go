@@ -10,6 +10,8 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var type interface{}
+//
 //   layoutConfigurationProperty := &LayoutConfigurationProperty{
 //   	FreeFormLayout: &FreeFormLayoutConfigurationProperty{
 //   		CanvasSizeOptions: &FreeFormLayoutCanvasSizeOptionsProperty{
@@ -53,6 +55,17 @@ package awsquicksight
 //   				Width: jsii.String("width"),
 //   				XAxisLocation: jsii.String("xAxisLocation"),
 //   				YAxisLocation: jsii.String("yAxisLocation"),
+//   			},
+//   		},
+//   		Groups: []interface{}{
+//   			&SheetLayoutGroupProperty{
+//   				Id: jsii.String("id"),
+//   				Members: []interface{}{
+//   					&SheetLayoutGroupMemberProperty{
+//   						Id: jsii.String("id"),
+//   						Type: type,
+//   					},
+//   				},
 //   			},
 //   		},
 //   	},
@@ -152,6 +165,7 @@ package awsquicksight
 //   								Column: &ColumnIdentifierProperty{
 //   									ColumnName: jsii.String("columnName"),
 //   									DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   									TopicIdentifier: jsii.String("topicIdentifier"),
 //   								},
 //   								Limit: jsii.Number(123),
 //   								SortByMetrics: []interface{}{
@@ -174,6 +188,7 @@ package awsquicksight
 //   										SortBy: &ColumnIdentifierProperty{
 //   											ColumnName: jsii.String("columnName"),
 //   											DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   											TopicIdentifier: jsii.String("topicIdentifier"),
 //   										},
 //   									},
 //   								},
@@ -182,6 +197,7 @@ package awsquicksight
 //   								Column: &ColumnIdentifierProperty{
 //   									ColumnName: jsii.String("columnName"),
 //   									DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   									TopicIdentifier: jsii.String("topicIdentifier"),
 //   								},
 //   								Limit: jsii.Number(123),
 //   								SortByMetrics: []interface{}{
@@ -204,6 +220,7 @@ package awsquicksight
 //   										SortBy: &ColumnIdentifierProperty{
 //   											ColumnName: jsii.String("columnName"),
 //   											DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   											TopicIdentifier: jsii.String("topicIdentifier"),
 //   										},
 //   									},
 //   								},

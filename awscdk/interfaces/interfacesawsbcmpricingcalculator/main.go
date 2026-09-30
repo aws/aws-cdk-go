@@ -27,4 +27,24 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bcmpricingcalculator.IWorkloadEstimateRef",
+		reflect.TypeOf((*IWorkloadEstimateRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "workloadEstimateRef", GoGetter: "WorkloadEstimateRef"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWorkloadEstimateRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bcmpricingcalculator.WorkloadEstimateReference",
+		reflect.TypeOf((*WorkloadEstimateReference)(nil)).Elem(),
+	)
 }

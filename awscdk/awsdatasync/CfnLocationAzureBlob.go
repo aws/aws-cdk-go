@@ -43,6 +43,13 @@ import (
 //   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
+//   	FederatedIdentity: &AzureFederatedIdentityConfigProperty{
+//   		AwsIamRole: jsii.String("awsIamRole"),
+//   		AzureOidc: &AzureOidcConfigProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			TenantId: jsii.String("tenantId"),
+//   		},
+//   	},
 //   	Subdirectory: jsii.String("subdirectory"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -108,6 +115,9 @@ type CfnLocationAzureBlob interface {
 	CustomSecretConfig() interface{}
 	SetCustomSecretConfig(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	// Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+	FederatedIdentity() interface{}
+	SetFederatedIdentity(val interface{})
 	// A reference to a LocationAzureBlob resource.
 	LocationAzureBlobRef() *interfacesawsdatasync.LocationAzureBlobReference
 	// The logical ID for this CloudFormation stack element.
@@ -511,6 +521,16 @@ func (j *jsiiProxy_CfnLocationAzureBlob) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnLocationAzureBlob) FederatedIdentity() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"federatedIdentity",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnLocationAzureBlob) LocationAzureBlobRef() *interfacesawsdatasync.LocationAzureBlobReference {
 	var returns *interfacesawsdatasync.LocationAzureBlobReference
 	_jsii_.Get(
@@ -703,6 +723,17 @@ func (j *jsiiProxy_CfnLocationAzureBlob)SetCustomSecretConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"customSecretConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationAzureBlob)SetFederatedIdentity(val interface{}) {
+	if err := j.validateSetFederatedIdentityParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"federatedIdentity",
 		val,
 	)
 }

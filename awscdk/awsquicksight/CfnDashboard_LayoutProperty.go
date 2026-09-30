@@ -12,6 +12,8 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var type interface{}
+//
 //   layoutProperty := &LayoutProperty{
 //   	Configuration: &LayoutConfigurationProperty{
 //   		FreeFormLayout: &FreeFormLayoutConfigurationProperty{
@@ -60,6 +62,17 @@ package awsquicksight
 //   			CanvasSizeOptions: &FreeFormLayoutCanvasSizeOptionsProperty{
 //   				ScreenCanvasSizeOptions: &FreeFormLayoutScreenCanvasSizeOptionsProperty{
 //   					OptimizedViewPortWidth: jsii.String("optimizedViewPortWidth"),
+//   				},
+//   			},
+//   			Groups: []interface{}{
+//   				&SheetLayoutGroupProperty{
+//   					Id: jsii.String("id"),
+//   					Members: []interface{}{
+//   						&SheetLayoutGroupMemberProperty{
+//   							Id: jsii.String("id"),
+//   							Type: type,
+//   						},
+//   					},
 //   				},
 //   			},
 //   		},
@@ -169,7 +182,10 @@ package awsquicksight
 //   								DynamicCategoryDimensionConfiguration: &BodySectionDynamicCategoryDimensionConfigurationProperty{
 //   									Column: &ColumnIdentifierProperty{
 //   										ColumnName: jsii.String("columnName"),
+//
+//   										// the properties below are optional
 //   										DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   										TopicIdentifier: jsii.String("topicIdentifier"),
 //   									},
 //
 //   									// the properties below are optional
@@ -179,7 +195,10 @@ package awsquicksight
 //   											Direction: jsii.String("direction"),
 //   											SortBy: &ColumnIdentifierProperty{
 //   												ColumnName: jsii.String("columnName"),
+//
+//   												// the properties below are optional
 //   												DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   												TopicIdentifier: jsii.String("topicIdentifier"),
 //   											},
 //
 //   											// the properties below are optional
@@ -203,7 +222,10 @@ package awsquicksight
 //   								DynamicNumericDimensionConfiguration: &BodySectionDynamicNumericDimensionConfigurationProperty{
 //   									Column: &ColumnIdentifierProperty{
 //   										ColumnName: jsii.String("columnName"),
+//
+//   										// the properties below are optional
 //   										DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   										TopicIdentifier: jsii.String("topicIdentifier"),
 //   									},
 //
 //   									// the properties below are optional
@@ -213,7 +235,10 @@ package awsquicksight
 //   											Direction: jsii.String("direction"),
 //   											SortBy: &ColumnIdentifierProperty{
 //   												ColumnName: jsii.String("columnName"),
+//
+//   												// the properties below are optional
 //   												DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   												TopicIdentifier: jsii.String("topicIdentifier"),
 //   											},
 //
 //   											// the properties below are optional

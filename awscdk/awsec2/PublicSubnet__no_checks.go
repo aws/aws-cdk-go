@@ -24,6 +24,10 @@ func (p *jsiiProxy_PublicSubnet) validateAddIpv6Nat64RouteParameters(natGatewayI
 	return nil
 }
 
+func (p *jsiiProxy_PublicSubnet) validateAddNatGatewayParameters(options *AddNatGatewayOptions) error {
+	return nil
+}
+
 func (p *jsiiProxy_PublicSubnet) validateAddRouteParameters(id *string, options *AddRouteOptions) error {
 	return nil
 }

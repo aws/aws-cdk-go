@@ -26,7 +26,29 @@ import (
 //
 //   cfnApplicationVersionPropsMixin := awscdkcfnpropertymixins.Aws_elasticbeanstalk.NewCfnApplicationVersionPropsMixin(&CfnApplicationVersionMixinProps{
 //   	ApplicationName: jsii.String("applicationName"),
+//   	BuildConfiguration: &BuildConfigurationProperty{
+//   		ArtifactName: jsii.String("artifactName"),
+//   		CodeBuildServiceRole: jsii.String("codeBuildServiceRole"),
+//   		ComputeType: jsii.String("computeType"),
+//   		Image: jsii.String("image"),
+//   		TimeoutInMinutes: jsii.Number(123),
+//   	},
 //   	Description: jsii.String("description"),
+//   	ImageConfiguration: &ImageConfigurationProperty{
+//   		BuildProperty: &ImageBuildConfigurationProperty{
+//   			Architecture: jsii.String("architecture"),
+//   			Buildpack: jsii.String("buildpack"),
+//   			CodeBuildServiceRole: jsii.String("codeBuildServiceRole"),
+//   			ComputeType: jsii.String("computeType"),
+//   			DockerfileLocation: jsii.String("dockerfileLocation"),
+//   			TimeoutInMinutes: jsii.Number(123),
+//   			Type: jsii.String("type"),
+//   		},
+//   		Source: &ImageSourceProperty{
+//   			Uri: jsii.String("uri"),
+//   		},
+//   	},
+//   	Process: jsii.Boolean(false),
 //   	SourceBundle: &SourceBundleProperty{
 //   		S3Bucket: jsii.String("s3Bucket"),
 //   		S3Key: jsii.String("s3Key"),

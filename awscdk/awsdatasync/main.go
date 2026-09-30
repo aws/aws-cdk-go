@@ -105,6 +105,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customSecretConfig", GoGetter: "CustomSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "federatedIdentity", GoGetter: "FederatedIdentity"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -140,6 +141,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnLocationAzureBlob.AzureBlobSasConfigurationProperty",
 		reflect.TypeOf((*CfnLocationAzureBlob_AzureBlobSasConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationAzureBlob.AzureFederatedIdentityConfigProperty",
+		reflect.TypeOf((*CfnLocationAzureBlob_AzureFederatedIdentityConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationAzureBlob.AzureOidcConfigProperty",
+		reflect.TypeOf((*CfnLocationAzureBlob_AzureOidcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnLocationAzureBlob.CmkSecretConfigProperty",
@@ -738,6 +747,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "customSecretConfig", GoGetter: "CustomSecretConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "federatedIdentity", GoGetter: "FederatedIdentity"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -785,8 +795,20 @@ func init() {
 		reflect.TypeOf((*CfnLocationObjectStorage_CustomSecretConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage.GoogleOidcConfigProperty",
+		reflect.TypeOf((*CfnLocationObjectStorage_GoogleOidcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage.ManagedSecretConfigProperty",
 		reflect.TypeOf((*CfnLocationObjectStorage_ManagedSecretConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage.ObjectStorageExternalIdentityConfigProperty",
+		reflect.TypeOf((*CfnLocationObjectStorage_ObjectStorageExternalIdentityConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorage.ObjectStorageFederatedIdentityConfigProperty",
+		reflect.TypeOf((*CfnLocationObjectStorage_ObjectStorageFederatedIdentityConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_datasync.CfnLocationObjectStorageProps",

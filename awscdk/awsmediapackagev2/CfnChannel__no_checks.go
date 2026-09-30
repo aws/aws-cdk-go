@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnChannel) validateSetInputSwitchConfigurationParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnChannel) validateSetMultiviewConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnChannel) validateSetOutputHeaderConfigurationParameters(val interface{}) error {
 	return nil
 }

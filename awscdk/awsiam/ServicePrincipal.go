@@ -23,7 +23,7 @@ import (
 //   // Grant read permissions (Get and List actions)
 //   browser.GrantRead(userRole)
 //
-//   // Grant use permissions (Start, Update, Stop actions)
+//   // Grant use permissions (Start, Update, Connect to the automation stream, and Stop actions)
 //   browser.GrantUse(userRole)
 //
 //   // Grant specific custom permissions

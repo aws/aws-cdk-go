@@ -56,6 +56,66 @@ func init() {
 		reflect.TypeOf((*CfnEndpointPropsMixin_S3MonitoringConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplateMixinProps",
+		reflect.TypeOf((*CfnJobTemplateMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnJobTemplatePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.ConfigurationProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.JobDriverProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_JobDriverProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.JobTemplateDataProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_JobTemplateDataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.ParametricCloudWatchMonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_ParametricCloudWatchMonitoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.ParametricConfigurationOverridesProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_ParametricConfigurationOverridesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.ParametricMonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_ParametricMonitoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.ParametricS3MonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_ParametricS3MonitoringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.SparkSqlJobDriverProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_SparkSqlJobDriverProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.SparkSubmitJobDriverProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_SparkSubmitJobDriverProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnJobTemplatePropsMixin.TemplateParameterConfigurationProperty",
+		reflect.TypeOf((*CfnJobTemplatePropsMixin_TemplateParameterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_emrcontainers.CfnSecurityConfigurationMixinProps",
 		reflect.TypeOf((*CfnSecurityConfigurationMixinProps)(nil)).Elem(),
 	)

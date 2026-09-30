@@ -164,6 +164,7 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	PlatformVersion: jsii.String("platformVersion"),
 //   	ProtocolConfiguration: jsii.String("protocolConfiguration"),
 //   	RequestHeaderConfiguration: &RequestHeaderConfigurationProperty{
 //   		RequestHeaderAllowlist: []*string{
@@ -218,6 +219,9 @@ type CfnRuntimeProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-platformversion
+	//
+	PlatformVersion *string `field:"optional" json:"platformVersion" yaml:"platformVersion"`
 	// The protocol configuration for an agent runtime.
 	//
 	// This structure defines how the agent runtime communicates with clients.

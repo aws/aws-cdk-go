@@ -10,12 +10,14 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   natGatewayProvider := awscdk.Aws_ec2.NewNatGatewayProvider(&NatGatewayProps{
 //   	EipAllocationIds: []*string{
 //   		jsii.String("eipAllocationIds"),
 //   	},
+//   	MaxDrainDuration: cdk.Duration_Minutes(jsii.Number(30)),
 //   })
 //
 type NatGatewayProvider interface {
@@ -147,6 +149,31 @@ func NatGatewayProvider_InstanceV2(props *NatInstanceProps) NatInstanceProviderV
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.NatGatewayProvider",
 		"instanceV2",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use a Regional NAT Gateway to provide NAT services for your VPC.
+//
+// Regional NAT Gateways provide automatic multi-AZ redundancy with a single
+// gateway that scales across availability zones. AWS automatically manages
+// AZ coverage and EIP allocation.
+// See: https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html
+//
+func NatGatewayProvider_RegionalGateway(props *RegionalNatGatewayProviderProps) RegionalNatGatewayProvider {
+	_init_.Initialize()
+
+	if err := validateNatGatewayProvider_RegionalGatewayParameters(props); err != nil {
+		panic(err)
+	}
+	var returns RegionalNatGatewayProvider
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.NatGatewayProvider",
+		"regionalGateway",
 		[]interface{}{props},
 		&returns,
 	)

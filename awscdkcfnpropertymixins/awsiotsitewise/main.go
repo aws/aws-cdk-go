@@ -56,6 +56,26 @@ func init() {
 		reflect.TypeOf((*CfnAccessPolicyPropsMixin_UserProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnApplicationMixinProps",
+		reflect.TypeOf((*CfnApplicationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnApplicationPropsMixin",
+		reflect.TypeOf((*CfnApplicationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnApplicationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnAssetMixinProps",
 		reflect.TypeOf((*CfnAssetMixinProps)(nil)).Elem(),
 	)
@@ -240,12 +260,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnDatasetPropsMixin.DatasetConfigProperty",
+		reflect.TypeOf((*CfnDatasetPropsMixin_DatasetConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnDatasetPropsMixin.DatasetSourceProperty",
 		reflect.TypeOf((*CfnDatasetPropsMixin_DatasetSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnDatasetPropsMixin.KendraSourceDetailProperty",
 		reflect.TypeOf((*CfnDatasetPropsMixin_KendraSourceDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnDatasetPropsMixin.SessionConfigProperty",
+		reflect.TypeOf((*CfnDatasetPropsMixin_SessionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnDatasetPropsMixin.SourceDetailProperty",
@@ -386,6 +414,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskPropsMixin.ContainerTaskConfigurationProperty",
 		reflect.TypeOf((*CfnTaskPropsMixin_ContainerTaskConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskPropsMixin.EphemeralStorageConfigurationProperty",
+		reflect.TypeOf((*CfnTaskPropsMixin_EphemeralStorageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskPropsMixin.MountProperty",
+		reflect.TypeOf((*CfnTaskPropsMixin_MountProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskPropsMixin.MountSourceProperty",
+		reflect.TypeOf((*CfnTaskPropsMixin_MountSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskPropsMixin.S3AccessPointSourceProperty",
+		reflect.TypeOf((*CfnTaskPropsMixin_S3AccessPointSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iotsitewise.CfnTaskPropsMixin.TaskConfigurationProperty",

@@ -552,6 +552,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.IIPv4PoolRef",
+		reflect.TypeOf((*IIPv4PoolRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "iPv4PoolRef", GoGetter: "IPv4PoolRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IIPv4PoolRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.IInstanceConnectEndpointRef",
 		reflect.TypeOf((*IInstanceConnectEndpointRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -562,6 +578,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IInstanceConnectEndpointRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.IInstanceEventWindowRef",
+		reflect.TypeOf((*IInstanceEventWindowRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceEventWindowRef", GoGetter: "InstanceEventWindowRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IInstanceEventWindowRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -1003,6 +1035,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.IPv4PoolReference",
+		reflect.TypeOf((*IPv4PoolReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.IRouteRef",
 		reflect.TypeOf((*IRouteRef)(nil)).Elem(),
@@ -1238,6 +1274,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ISubnetCidrBlockRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ISubnetCidrReservationRef",
+		reflect.TypeOf((*ISubnetCidrReservationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetCidrReservationRef", GoGetter: "SubnetCidrReservationRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ISubnetCidrReservationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -2032,6 +2084,10 @@ func init() {
 		reflect.TypeOf((*InstanceConnectEndpointReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.InstanceEventWindowReference",
+		reflect.TypeOf((*InstanceEventWindowReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.InstanceReference",
 		reflect.TypeOf((*InstanceReference)(nil)).Elem(),
 	)
@@ -2190,6 +2246,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.SubnetCidrBlockReference",
 		reflect.TypeOf((*SubnetCidrBlockReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.SubnetCidrReservationReference",
+		reflect.TypeOf((*SubnetCidrReservationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.SubnetNetworkAclAssociationReference",

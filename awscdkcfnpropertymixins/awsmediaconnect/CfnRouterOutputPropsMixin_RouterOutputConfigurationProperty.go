@@ -7,6 +7,7 @@ package awsmediaconnect
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   var automatic interface{}
+//   var public_ interface{}
 //
 //   routerOutputConfigurationProperty := &RouterOutputConfigurationProperty{
 //   	MediaConnectFlow: &MediaConnectFlowRouterOutputConfigurationProperty{
@@ -44,6 +45,18 @@ package awsmediaconnect
 //   			Rist: &RistRouterOutputConfigurationProperty{
 //   				DestinationAddress: jsii.String("destinationAddress"),
 //   				DestinationPort: jsii.Number(123),
+//   			},
+//   			RtmpPush: &RtmpPushRouterOutputConfigurationProperty{
+//   				ApplicationName: jsii.String("applicationName"),
+//   				DestinationAddress: jsii.String("destinationAddress"),
+//   				DestinationPort: jsii.Number(123),
+//   				StreamName: jsii.String("streamName"),
+//   				TlsEncryption: &TlsEncryptionProperty{
+//   					EncryptionConfiguration: &TlsEncryptionConfigurationProperty{
+//   						Public: public_,
+//   					},
+//   					EncryptionType: jsii.String("encryptionType"),
+//   				},
 //   			},
 //   			Rtp: &RtpRouterOutputConfigurationProperty{
 //   				DestinationAddress: jsii.String("destinationAddress"),

@@ -416,6 +416,34 @@ func init() {
 		reflect.TypeOf((*CfnDistributionTenantPropsMixin_WebAclCustomizationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudfront.CfnFieldLevelEncryptionProfileMixinProps",
+		reflect.TypeOf((*CfnFieldLevelEncryptionProfileMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudfront.CfnFieldLevelEncryptionProfilePropsMixin",
+		reflect.TypeOf((*CfnFieldLevelEncryptionProfilePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFieldLevelEncryptionProfilePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudfront.CfnFieldLevelEncryptionProfilePropsMixin.EncryptionEntityProperty",
+		reflect.TypeOf((*CfnFieldLevelEncryptionProfilePropsMixin_EncryptionEntityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudfront.CfnFieldLevelEncryptionProfilePropsMixin.FieldLevelEncryptionProfileConfigProperty",
+		reflect.TypeOf((*CfnFieldLevelEncryptionProfilePropsMixin_FieldLevelEncryptionProfileConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudfront.CfnFunctionMixinProps",
 		reflect.TypeOf((*CfnFunctionMixinProps)(nil)).Elem(),
 	)

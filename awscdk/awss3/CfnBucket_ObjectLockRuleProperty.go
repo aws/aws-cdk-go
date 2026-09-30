@@ -13,6 +13,10 @@ package awss3
 //   objectLockRuleProperty := &ObjectLockRuleProperty{
 //   	DefaultRetention: &DefaultRetentionProperty{
 //   		Days: jsii.Number(123),
+//   		DefaultEventHold: &DefaultEventHoldProperty{
+//   			Days: jsii.Number(123),
+//   			Years: jsii.Number(123),
+//   		},
 //   		Mode: jsii.String("mode"),
 //   		Years: jsii.Number(123),
 //   	},

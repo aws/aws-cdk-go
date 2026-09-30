@@ -147,6 +147,28 @@ import (
 //   		AttributeName: jsii.String("attributeName"),
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	VectorIndexes: []interface{}{
+//   		&VectorIndexProperty{
+//   			Dimensions: jsii.Number(123),
+//   			DistanceFunction: jsii.String("distanceFunction"),
+//   			IndexName: jsii.String("indexName"),
+//   			Projection: &ProjectionProperty{
+//   				NonKeyAttributes: []*string{
+//   					jsii.String("nonKeyAttributes"),
+//   				},
+//   				ProjectionType: jsii.String("projectionType"),
+//   			},
+//   			SearchSchema: []interface{}{
+//   				&SearchSchemaElementProperty{
+//   					AttributeName: jsii.String("attributeName"),
+//   					SearchSchemaElementType: jsii.String("searchSchemaElementType"),
+//   				},
+//   			},
+//   			VectorAttribute: &VectorAttributeProperty{
+//   				AttributeName: jsii.String("attributeName"),
+//   			},
+//   		},
+//   	},
 //   	WarmThroughput: &WarmThroughputProperty{
 //   		ReadUnitsPerSecond: jsii.Number(123),
 //   		WriteUnitsPerSecond: jsii.Number(123),
@@ -284,6 +306,9 @@ type CfnTableMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-timetolivespecification
 	//
 	TimeToLiveSpecification interface{} `field:"optional" json:"timeToLiveSpecification" yaml:"timeToLiveSpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-vectorindexes
+	//
+	VectorIndexes interface{} `field:"optional" json:"vectorIndexes" yaml:"vectorIndexes"`
 	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-warmthroughput
 	//

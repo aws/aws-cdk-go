@@ -104,6 +104,18 @@ func (j *jsiiProxy_CfnApplicationVersion) validateSetApplicationNameParameters(v
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplicationVersion) validateSetBuildConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplicationVersion) validateSetImageConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnApplicationVersion) validateSetProcessParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplicationVersion) validateSetSourceBundleParameters(val interface{}) error {
 	return nil
 }

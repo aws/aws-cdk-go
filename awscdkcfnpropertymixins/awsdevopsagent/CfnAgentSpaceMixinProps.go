@@ -30,6 +30,9 @@ import (
 //   			UpdatedAt: jsii.String("updatedAt"),
 //   		},
 //   	},
+//   	Preferences: &PreferencesProperty{
+//   		ElevatedActionsEnabled: jsii.Boolean(false),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -60,6 +63,12 @@ type CfnAgentSpaceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-operatorapp
 	//
 	OperatorApp interface{} `field:"optional" json:"operatorApp" yaml:"operatorApp"`
+	// Preferences that configure behavior of this AgentSpace.
+	//
+	// This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-preferences
+	//
+	Preferences interface{} `field:"optional" json:"preferences" yaml:"preferences"`
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-agentspace.html#cfn-devopsagent-agentspace-tags
 	//

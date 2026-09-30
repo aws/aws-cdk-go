@@ -10,6 +10,7 @@ package awsdatazone
 //
 //   iamPropertiesInputProperty := &IamPropertiesInputProperty{
 //   	GlueLineageSyncEnabled: jsii.Boolean(false),
+//   	RoleArn: jsii.String("roleArn"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-iampropertiesinput.html
@@ -19,5 +20,9 @@ type CfnConnectionPropsMixin_IamPropertiesInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-iampropertiesinput.html#cfn-datazone-connection-iampropertiesinput-gluelineagesyncenabled
 	//
 	GlueLineageSyncEnabled interface{} `field:"optional" json:"glueLineageSyncEnabled" yaml:"glueLineageSyncEnabled"`
+	// The ARN of the IAM role to associate with the connection as the project user role.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-iampropertiesinput.html#cfn-datazone-connection-iampropertiesinput-rolearn
+	//
+	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
 }
 

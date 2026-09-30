@@ -1100,6 +1100,14 @@ func init() {
 		reflect.TypeOf((*CfnMemoryPropsMixin_MetadataSchemaEntryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.NamespaceKeyEntryProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_NamespaceKeyEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.NamespaceKeyValidationProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_NamespaceKeyValidationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.NumberValidationProperty",
 		reflect.TypeOf((*CfnMemoryPropsMixin_NumberValidationProperty)(nil)).Elem(),
 	)

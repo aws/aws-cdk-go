@@ -10,10 +10,13 @@ package interfacesawsservicediscovery
 //
 //   instanceReference := &InstanceReference{
 //   	InstanceId: jsii.String("instanceId"),
+//   	ServiceId: jsii.String("serviceId"),
 //   }
 //
 type InstanceReference struct {
 	// The InstanceId of the Instance resource.
 	InstanceId *string `field:"required" json:"instanceId" yaml:"instanceId"`
+	// The ServiceId of the Instance resource.
+	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
 }
 

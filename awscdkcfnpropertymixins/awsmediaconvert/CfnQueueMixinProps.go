@@ -35,6 +35,7 @@ type CfnQueueMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-maximumconcurrentfeeds
 	//
 	MaximumConcurrentFeeds *float64 `field:"optional" json:"maximumConcurrentFeeds" yaml:"maximumConcurrentFeeds"`

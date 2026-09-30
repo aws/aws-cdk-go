@@ -180,6 +180,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	PlatformVersion: jsii.String("platformVersion"),
 //   	ProtocolConfiguration: jsii.String("protocolConfiguration"),
 //   	RequestHeaderConfiguration: &RequestHeaderConfigurationProperty{
 //   		RequestHeaderAllowlist: []*string{
@@ -266,6 +267,8 @@ type CfnRuntime interface {
 	SetNetworkConfiguration(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	PlatformVersion() *string
+	SetPlatformVersion(val *string)
 	// The protocol configuration for an agent runtime.
 	ProtocolConfiguration() *string
 	SetProtocolConfiguration(val *string)
@@ -733,6 +736,16 @@ func (j *jsiiProxy_CfnRuntime) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuntime) PlatformVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"platformVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuntime) ProtocolConfiguration() *string {
 	var returns *string
 	_jsii_.Get(
@@ -945,6 +958,14 @@ func (j *jsiiProxy_CfnRuntime)SetNetworkConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"networkConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuntime)SetPlatformVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"platformVersion",
 		val,
 	)
 }

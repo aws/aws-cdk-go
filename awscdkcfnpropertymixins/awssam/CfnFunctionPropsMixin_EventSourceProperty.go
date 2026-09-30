@@ -7,7 +7,7 @@ package awssam
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   eventSourceProperty := &EventSourceProperty{
-//   	Properties: &CloudWatchEventEventProperty{
+//   	Properties: &AlexaSkillEventProperty{
 //   		SkillId: jsii.String("skillId"),
 //   	},
 //   	Type: jsii.String("type"),

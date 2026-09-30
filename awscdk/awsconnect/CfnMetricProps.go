@@ -13,9 +13,6 @@ import (
 //
 //   cfnMetricProps := &CfnMetricProps{
 //   	InstanceArn: jsii.String("instanceArn"),
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
 //   	MetricCalculation: &MetricCalculationProperty{
 //   		Calculation: jsii.String("calculation"),
 //   		CalculationComponents: []interface{}{
@@ -52,15 +49,18 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
-//   	PositiveTrendIndicator: jsii.String("positiveTrendIndicator"),
 //   	Status: jsii.String("status"),
+//   	Unit: jsii.String("unit"),
+//
+//   	// the properties below are optional
+//   	Description: jsii.String("description"),
+//   	PositiveTrendIndicator: jsii.String("positiveTrendIndicator"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
-//   	Unit: jsii.String("unit"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html
@@ -70,33 +70,33 @@ type CfnMetricProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-instancearn
 	//
 	InstanceArn *string `field:"required" json:"instanceArn" yaml:"instanceArn"`
+	// The calculation configuration for the metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-metriccalculation
+	//
+	MetricCalculation interface{} `field:"required" json:"metricCalculation" yaml:"metricCalculation"`
+	// The name of the custom metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-name
+	//
+	Name *string `field:"required" json:"name" yaml:"name"`
+	// The status of the custom metric.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-status
+	//
+	Status *string `field:"required" json:"status" yaml:"status"`
+	// Display unit for the metric data.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-unit
+	//
+	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// The description of the custom metric.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The calculation configuration for the metric.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-metriccalculation
-	//
-	MetricCalculation interface{} `field:"optional" json:"metricCalculation" yaml:"metricCalculation"`
-	// The name of the custom metric.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-name
-	//
-	Name *string `field:"optional" json:"name" yaml:"name"`
 	// Indicates how to classify a positive trend in metric data on the UI.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-positivetrendindicator
 	//
 	PositiveTrendIndicator *string `field:"optional" json:"positiveTrendIndicator" yaml:"positiveTrendIndicator"`
-	// The status of the custom metric.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-status
-	//
-	Status *string `field:"optional" json:"status" yaml:"status"`
 	// One or more tags.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
-	// Display unit for the metric data.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-metric.html#cfn-connect-metric-unit
-	//
-	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 }
 

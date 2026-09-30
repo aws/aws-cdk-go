@@ -76,7 +76,6 @@ type CfnResourcePolicy interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
-	// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to.
 	ResourceArn() *string
 	SetResourceArn(val *string)
 	// A reference to a ResourcePolicy resource.

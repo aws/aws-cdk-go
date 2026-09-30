@@ -51,6 +51,9 @@ package awsobservabilityadmin
 //   			jsii.String("logTypes"),
 //   		},
 //   	},
+//   	MskMonitoringParameters: &MskMonitoringParametersProperty{
+//   		EnhancedMonitoring: jsii.String("enhancedMonitoring"),
+//   	},
 //   	RetentionInDays: jsii.Number(123),
 //   	VpcFlowLogParameters: &VPCFlowLogParametersProperty{
 //   		LogFormat: jsii.String("logFormat"),
@@ -118,6 +121,10 @@ type CfnOrganizationTelemetryRulePropsMixin_TelemetryDestinationConfigurationPro
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration-logdeliveryparameters
 	//
 	LogDeliveryParameters interface{} `field:"optional" json:"logDeliveryParameters" yaml:"logDeliveryParameters"`
+	// Configuration parameters for Amazon MSK cluster monitoring.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration-mskmonitoringparameters
+	//
+	MskMonitoringParameters interface{} `field:"optional" json:"mskMonitoringParameters" yaml:"mskMonitoringParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration.html#cfn-observabilityadmin-organizationtelemetryrule-telemetrydestinationconfiguration-retentionindays
 	//

@@ -20,6 +20,9 @@ package awsmediatailor
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-customoutputconfiguration.html
 //
 type CfnFunction_CustomOutputConfigurationProperty struct {
+	// The expression language used to evaluate expressions in the function configuration.
+	//
+	// Set this to JSONATA.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-customoutputconfiguration.html#cfn-mediatailor-function-customoutputconfiguration-runtime
 	//
 	Runtime *string `field:"required" json:"runtime" yaml:"runtime"`

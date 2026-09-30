@@ -11,7 +11,10 @@ package awsquicksight
 //   columnConfigurationProperty := &ColumnConfigurationProperty{
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
+//
+//   		// the properties below are optional
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
 //   	},
 //
 //   	// the properties below are optional
@@ -23,6 +26,17 @@ package awsquicksight
 //   				// the properties below are optional
 //   				FieldValue: jsii.String("fieldValue"),
 //   				SpecialValue: jsii.String("specialValue"),
+//   			},
+//   		},
+//   	},
+//   	DecalSettingsConfiguration: &DecalSettingsConfigurationProperty{
+//   		CustomDecalSettings: []interface{}{
+//   			&DecalSettingsProperty{
+//   				DecalColor: jsii.String("decalColor"),
+//   				DecalPatternType: jsii.String("decalPatternType"),
+//   				DecalStyleType: jsii.String("decalStyleType"),
+//   				DecalVisibility: jsii.String("decalVisibility"),
+//   				ElementValue: jsii.String("elementValue"),
 //   			},
 //   		},
 //   	},
@@ -259,6 +273,9 @@ type CfnDashboard_ColumnConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columnconfiguration.html#cfn-quicksight-dashboard-columnconfiguration-colorsconfiguration
 	//
 	ColorsConfiguration interface{} `field:"optional" json:"colorsConfiguration" yaml:"colorsConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columnconfiguration.html#cfn-quicksight-dashboard-columnconfiguration-decalsettingsconfiguration
+	//
+	DecalSettingsConfiguration interface{} `field:"optional" json:"decalSettingsConfiguration" yaml:"decalSettingsConfiguration"`
 	// The format configuration of a column.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-columnconfiguration.html#cfn-quicksight-dashboard-columnconfiguration-formatconfiguration
 	//

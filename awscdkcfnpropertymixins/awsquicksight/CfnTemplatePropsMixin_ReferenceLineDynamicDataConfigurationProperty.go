@@ -18,6 +18,7 @@ package awsquicksight
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
 //   	},
 //   	MeasureAggregationFunction: &AggregationFunctionProperty{
 //   		AttributeAggregationFunction: &AttributeAggregationFunctionProperty{

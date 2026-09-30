@@ -9,6 +9,8 @@ package awsbedrock
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   var connectorParameters interface{}
+//   var daily interface{}
+//   var lastDayOfMonth interface{}
 //
 //   cfnDataSourceMixinProps := &CfnDataSourceMixinProps{
 //   	DataDeletionPolicy: jsii.String("dataDeletionPolicy"),
@@ -54,6 +56,18 @@ package awsbedrock
 //   				},
 //   				VideoExtractionConfiguration: &VideoExtractionConfigurationProperty{
 //   					VideoExtractionStatus: jsii.String("videoExtractionStatus"),
+//   				},
+//   			},
+//   			SyncSchedule: &SyncScheduleProperty{
+//   				Daily: daily,
+//   				Monthly: &MonthlyScheduleProperty{
+//   					DayOfMonth: &DayOfMonthProperty{
+//   						DayNumber: jsii.Number(123),
+//   						LastDayOfMonth: lastDayOfMonth,
+//   					},
+//   				},
+//   				Weekly: &WeeklyScheduleProperty{
+//   					DayOfWeek: jsii.String("dayOfWeek"),
 //   				},
 //   			},
 //   		},

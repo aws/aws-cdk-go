@@ -43,6 +43,13 @@ import (
 //   		SecretAccessRoleArn: jsii.String("secretAccessRoleArn"),
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
+//   	FederatedIdentity: &AzureFederatedIdentityConfigProperty{
+//   		AwsIamRole: jsii.String("awsIamRole"),
+//   		AzureOidc: &AzureOidcConfigProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			TenantId: jsii.String("tenantId"),
+//   		},
+//   	},
 //   	Subdirectory: jsii.String("subdirectory"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

@@ -11,12 +11,18 @@ package awsmedialive
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   ttmlDestinationSettingsProperty := &TtmlDestinationSettingsProperty{
+//   	Position: &TextCaptionPositionSettingsProperty{
+//   		YPositionPercentage: jsii.Number(123),
+//   	},
 //   	StyleControl: jsii.String("styleControl"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ttmldestinationsettings.html
 //
 type CfnChannelPropsMixin_TtmlDestinationSettingsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ttmldestinationsettings.html#cfn-medialive-channel-ttmldestinationsettings-position
+	//
+	Position interface{} `field:"optional" json:"position" yaml:"position"`
 	// When set to passthrough, passes through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ttmldestinationsettings.html#cfn-medialive-channel-ttmldestinationsettings-stylecontrol
 	//

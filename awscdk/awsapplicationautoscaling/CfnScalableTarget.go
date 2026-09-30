@@ -51,6 +51,12 @@ import (
 //   		DynamicScalingOutSuspended: jsii.Boolean(false),
 //   		ScheduledScalingSuspended: jsii.Boolean(false),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html
@@ -59,7 +65,10 @@ type CfnScalableTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsapplicationautoscaling.IScalableTargetRef
+	awscdk.ITaggableV2
 	AttrId() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -118,6 +127,8 @@ type CfnScalableTarget interface {
 	// An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling.
 	SuspendedState() interface{}
 	SetSuspendedState(val interface{})
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -299,6 +310,7 @@ type jsiiProxy_CfnScalableTarget struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsapplicationautoscalingIScalableTargetRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnScalableTarget) AttrId() *string {
@@ -306,6 +318,16 @@ func (j *jsiiProxy_CfnScalableTarget) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScalableTarget) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -501,6 +523,16 @@ func (j *jsiiProxy_CfnScalableTarget) SuspendedState() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScalableTarget) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScalableTarget) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -632,6 +664,17 @@ func (j *jsiiProxy_CfnScalableTarget)SetSuspendedState(val interface{}) {
 	_jsii_.Set(
 		j,
 		"suspendedState",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScalableTarget)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

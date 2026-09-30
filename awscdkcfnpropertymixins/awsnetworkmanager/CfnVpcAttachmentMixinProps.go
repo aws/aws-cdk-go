@@ -19,16 +19,6 @@ import (
 //   		Ipv6Support: jsii.Boolean(false),
 //   		SecurityGroupReferencingSupport: jsii.Boolean(false),
 //   	},
-//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
-//   		AttachmentPolicyRuleNumber: jsii.Number(123),
-//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   		Tags: []CfnTag{
-//   			&CfnTag{
-//   				Key: jsii.String("key"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
@@ -63,10 +53,6 @@ type CfnVpcAttachmentMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-options
 	//
 	Options interface{} `field:"optional" json:"options" yaml:"options"`
-	// Describes proposed changes to a network function group.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html#cfn-networkmanager-vpcattachment-proposednetworkfunctiongroupchange
-	//
-	ProposedNetworkFunctionGroupChange interface{} `field:"optional" json:"proposedNetworkFunctionGroupChange" yaml:"proposedNetworkFunctionGroupChange"`
 	// Describes a proposed segment change.
 	//
 	// In some cases, the segment change must first be evaluated and accepted.

@@ -14,6 +14,20 @@ package awsresiliencehubv2
 //   		DesignFileS3Url: jsii.String("designFileS3Url"),
 //   		Eks: &EksSourceProperty{
 //   			ClusterArn: jsii.String("clusterArn"),
+//   			LabelSelector: &EksLabelSelectorProperty{
+//   				MatchExpressions: []interface{}{
+//   					&EksLabelSelectorRequirementProperty{
+//   						Key: jsii.String("key"),
+//   						Operator: jsii.String("operator"),
+//   						Values: []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   				MatchLabels: map[string]*string{
+//   					"matchLabelsKey": jsii.String("matchLabels"),
+//   				},
+//   			},
 //   			Namespaces: []*string{
 //   				jsii.String("namespaces"),
 //   			},

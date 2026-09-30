@@ -51,6 +51,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "operatorApp", GoGetter: "OperatorApp"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "preferences", GoGetter: "Preferences"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
@@ -85,6 +86,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAgentSpace.OperatorAppProperty",
 		reflect.TypeOf((*CfnAgentSpace_OperatorAppProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAgentSpace.PreferencesProperty",
+		reflect.TypeOf((*CfnAgentSpace_PreferencesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAgentSpaceProps",

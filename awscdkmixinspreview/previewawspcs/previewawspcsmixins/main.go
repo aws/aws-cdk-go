@@ -101,6 +101,87 @@ func init() {
 		reflect.TypeOf((*CfnClusterPcsJobcompLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogs",
+		reflect.TypeOf((*CfnClusterPcsScalingLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnClusterPcsScalingLogs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogsDestProps",
+		reflect.TypeOf((*CfnClusterPcsScalingLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogsFirehoseProps",
+		reflect.TypeOf((*CfnClusterPcsScalingLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogsLogGroupProps",
+		reflect.TypeOf((*CfnClusterPcsScalingLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogsOutputFormat",
+		reflect.TypeOf((*CfnClusterPcsScalingLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnClusterPcsScalingLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnClusterPcsScalingLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterPcsScalingLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnClusterPcsScalingLogsOutputFormat_Firehose_JSON,
+			"RAW": CfnClusterPcsScalingLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnClusterPcsScalingLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterPcsScalingLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnClusterPcsScalingLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnClusterPcsScalingLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnClusterPcsScalingLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnClusterPcsScalingLogsOutputFormat_S3_JSON,
+			"W3C": CfnClusterPcsScalingLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnClusterPcsScalingLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogsRecordFields",
+		reflect.TypeOf((*CfnClusterPcsScalingLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TIMESTAMP": CfnClusterPcsScalingLogsRecordFields_TIMESTAMP,
+			"RESOURCE_ID": CfnClusterPcsScalingLogsRecordFields_RESOURCE_ID,
+			"EVENT_TIMESTAMP": CfnClusterPcsScalingLogsRecordFields_EVENT_TIMESTAMP,
+			"ID": CfnClusterPcsScalingLogsRecordFields_ID,
+			"RESOURCE_TYPE": CfnClusterPcsScalingLogsRecordFields_RESOURCE_TYPE,
+			"COMPUTE_NODE_GROUP_ID": CfnClusterPcsScalingLogsRecordFields_COMPUTE_NODE_GROUP_ID,
+			"SCHEDULER_NODE_ID": CfnClusterPcsScalingLogsRecordFields_SCHEDULER_NODE_ID,
+			"STATUS_CODE": CfnClusterPcsScalingLogsRecordFields_STATUS_CODE,
+			"REASON_CODE": CfnClusterPcsScalingLogsRecordFields_REASON_CODE,
+			"DESCRIPTION": CfnClusterPcsScalingLogsRecordFields_DESCRIPTION,
+			"DETAILS": CfnClusterPcsScalingLogsRecordFields_DETAILS,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsScalingLogsS3Props",
+		reflect.TypeOf((*CfnClusterPcsScalingLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_pcs.mixins.CfnClusterPcsSchedulerAuditLogs",
 		reflect.TypeOf((*CfnClusterPcsSchedulerAuditLogs)(nil)).Elem(),
 		[]_jsii_.Member{

@@ -14,6 +14,7 @@ import (
 //   var evaluationFormSectionProperty_ EvaluationFormSectionProperty
 //
 //   cfnEvaluationFormMixinProps := &CfnEvaluationFormMixinProps{
+//   	AiVersion: jsii.String("aiVersion"),
 //   	AutoEvaluationConfiguration: &AutoEvaluationConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
@@ -52,6 +53,10 @@ import (
 //   								DefaultAction: jsii.String("defaultAction"),
 //   							},
 //   							Instructions: jsii.String("instructions"),
+//   							MetricConfiguration: &EvaluationFormMetricConfigurationProperty{
+//   								MetricName: jsii.String("metricName"),
+//   								MetricType: jsii.String("metricType"),
+//   							},
 //   							NotApplicableEnabled: jsii.Boolean(false),
 //   							QuestionType: jsii.String("questionType"),
 //   							QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
@@ -236,6 +241,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html
 //
 type CfnEvaluationFormMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-aiversion
+	//
+	AiVersion *string `field:"optional" json:"aiVersion" yaml:"aiVersion"`
 	// The automatic evaluation configuration of an evaluation form.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-autoevaluationconfiguration
 	//

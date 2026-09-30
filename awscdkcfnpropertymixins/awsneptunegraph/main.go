@@ -28,6 +28,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_neptunegraph.CfnGraphPropsMixin.ImportOptionsProperty",
+		reflect.TypeOf((*CfnGraphPropsMixin_ImportOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_neptunegraph.CfnGraphPropsMixin.ImportTaskProperty",
+		reflect.TypeOf((*CfnGraphPropsMixin_ImportTaskProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_neptunegraph.CfnGraphPropsMixin.NeptuneImportOptionsProperty",
+		reflect.TypeOf((*CfnGraphPropsMixin_NeptuneImportOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_neptunegraph.CfnGraphPropsMixin.VectorSearchConfigurationProperty",
 		reflect.TypeOf((*CfnGraphPropsMixin_VectorSearchConfigurationProperty)(nil)).Elem(),
 	)

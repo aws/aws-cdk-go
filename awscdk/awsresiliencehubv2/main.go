@@ -53,6 +53,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "sharingEnabled", GoGetter: "SharingEnabled"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
@@ -178,6 +179,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_resiliencehubv2.CfnService.EffectivePolicyValuesProperty",
 		reflect.TypeOf((*CfnService_EffectivePolicyValuesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_resiliencehubv2.CfnService.EksLabelSelectorProperty",
+		reflect.TypeOf((*CfnService_EksLabelSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_resiliencehubv2.CfnService.EksLabelSelectorRequirementProperty",
+		reflect.TypeOf((*CfnService_EksLabelSelectorRequirementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_resiliencehubv2.CfnService.EksSourceProperty",

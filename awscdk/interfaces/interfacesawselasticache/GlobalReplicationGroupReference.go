@@ -9,10 +9,13 @@ package interfacesawselasticache
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   globalReplicationGroupReference := &GlobalReplicationGroupReference{
+//   	GlobalReplicationGroupArn: jsii.String("globalReplicationGroupArn"),
 //   	GlobalReplicationGroupId: jsii.String("globalReplicationGroupId"),
 //   }
 //
 type GlobalReplicationGroupReference struct {
+	// The ARN of the GlobalReplicationGroup resource.
+	GlobalReplicationGroupArn *string `field:"required" json:"globalReplicationGroupArn" yaml:"globalReplicationGroupArn"`
 	// The GlobalReplicationGroupId of the GlobalReplicationGroup resource.
 	GlobalReplicationGroupId *string `field:"required" json:"globalReplicationGroupId" yaml:"globalReplicationGroupId"`
 }

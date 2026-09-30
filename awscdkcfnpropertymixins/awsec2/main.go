@@ -400,6 +400,10 @@ func init() {
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_MemoryMiBRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.MultiAvailabilityZoneConfigurationProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_MultiAvailabilityZoneConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.NetworkBandwidthGbpsRequestProperty",
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_NetworkBandwidthGbpsRequestProperty)(nil)).Elem(),
 	)
@@ -438,6 +442,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.SpotOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2FleetPropsMixin_SpotOptionsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.StandbyAvailabilityZoneProperty",
+		reflect.TypeOf((*CfnEC2FleetPropsMixin_StandbyAvailabilityZoneProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnEC2FleetPropsMixin.TagSpecificationProperty",
@@ -844,6 +852,26 @@ func init() {
 		reflect.TypeOf((*CfnIPAMScopePropsMixin_IpamScopeExternalAuthorityConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIPv4PoolMixinProps",
+		reflect.TypeOf((*CfnIPv4PoolMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIPv4PoolPropsMixin",
+		reflect.TypeOf((*CfnIPv4PoolPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnIPv4PoolPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnInstanceConnectEndpointMixinProps",
 		reflect.TypeOf((*CfnInstanceConnectEndpointMixinProps)(nil)).Elem(),
 	)
@@ -870,6 +898,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnInstanceConnectEndpointPropsMixin.InstanceConnectEndpointPublicDnsNamesProperty",
 		reflect.TypeOf((*CfnInstanceConnectEndpointPropsMixin_InstanceConnectEndpointPublicDnsNamesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnInstanceEventWindowMixinProps",
+		reflect.TypeOf((*CfnInstanceEventWindowMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnInstanceEventWindowPropsMixin",
+		reflect.TypeOf((*CfnInstanceEventWindowPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnInstanceEventWindowPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnInstanceEventWindowPropsMixin.TimeRangeProperty",
+		reflect.TypeOf((*CfnInstanceEventWindowPropsMixin_TimeRangeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnInstanceMixinProps",
@@ -2210,6 +2262,26 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnSubnetCidrBlockPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSubnetCidrReservationMixinProps",
+		reflect.TypeOf((*CfnSubnetCidrReservationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSubnetCidrReservationPropsMixin",
+		reflect.TypeOf((*CfnSubnetCidrReservationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSubnetCidrReservationPropsMixin{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j

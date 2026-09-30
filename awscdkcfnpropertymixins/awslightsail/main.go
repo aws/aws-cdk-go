@@ -408,6 +408,30 @@ func init() {
 		reflect.TypeOf((*CfnInstanceSnapshotPropsMixin_LocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lightsail.CfnKeyPairMixinProps",
+		reflect.TypeOf((*CfnKeyPairMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lightsail.CfnKeyPairPropsMixin",
+		reflect.TypeOf((*CfnKeyPairPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnKeyPairPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lightsail.CfnKeyPairPropsMixin.ResourceLocationProperty",
+		reflect.TypeOf((*CfnKeyPairPropsMixin_ResourceLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lightsail.CfnLoadBalancerMixinProps",
 		reflect.TypeOf((*CfnLoadBalancerMixinProps)(nil)).Elem(),
 	)

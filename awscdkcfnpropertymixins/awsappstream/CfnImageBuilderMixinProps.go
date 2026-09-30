@@ -20,6 +20,7 @@ import (
 //   	},
 //   	AppstreamAgentVersion: jsii.String("appstreamAgentVersion"),
 //   	Description: jsii.String("description"),
+//   	DisableImdsv1: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
 //   	DomainJoinInfo: &DomainJoinInfoProperty{
 //   		DirectoryName: jsii.String("directoryName"),
@@ -75,6 +76,9 @@ type CfnImageBuilderMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-disableimdsv1
+	//
+	DisableImdsv1 interface{} `field:"optional" json:"disableImdsv1" yaml:"disableImdsv1"`
 	// The image builder name to display.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-displayname
 	//

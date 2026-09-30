@@ -168,6 +168,34 @@ func init() {
 		reflect.TypeOf((*CfnLayoutPropsMixin_SectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cases.CfnRelatedItemMixinProps",
+		reflect.TypeOf((*CfnRelatedItemMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cases.CfnRelatedItemPropsMixin",
+		reflect.TypeOf((*CfnRelatedItemPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnRelatedItemPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cases.CfnRelatedItemPropsMixin.CommentContentProperty",
+		reflect.TypeOf((*CfnRelatedItemPropsMixin_CommentContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cases.CfnRelatedItemPropsMixin.RelatedItemContentProperty",
+		reflect.TypeOf((*CfnRelatedItemPropsMixin_RelatedItemContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cases.CfnTemplateMixinProps",
 		reflect.TypeOf((*CfnTemplateMixinProps)(nil)).Elem(),
 	)

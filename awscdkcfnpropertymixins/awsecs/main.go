@@ -448,6 +448,10 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_DeploymentControllerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.DeploymentEarlySuccessCriteriaProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_DeploymentEarlySuccessCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.DeploymentLifecycleHookProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_DeploymentLifecycleHookProperty)(nil)).Elem(),
 	)

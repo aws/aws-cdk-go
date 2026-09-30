@@ -14,6 +14,11 @@ package awsvpclattice
 //
 //   resourceConfigurationDefinitionProperty := &ResourceConfigurationDefinitionProperty{
 //   	ArnResource: jsii.String("arnResource"),
+//   	CidrResource: &CidrResourceProperty{
+//   		CidrRanges: []*string{
+//   			jsii.String("cidrRanges"),
+//   		},
+//   	},
 //   	DnsResource: &DnsResourceProperty{
 //   		DomainName: jsii.String("domainName"),
 //   		IpAddressType: jsii.String("ipAddressType"),
@@ -30,6 +35,9 @@ type CfnResourceConfigurationPropsMixin_ResourceConfigurationDefinitionProperty 
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-resourceconfigurationdefinition.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationdefinition-arnresource
 	//
 	ArnResource *string `field:"optional" json:"arnResource" yaml:"arnResource"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-resourceconfigurationdefinition.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationdefinition-cidrresource
+	//
+	CidrResource interface{} `field:"optional" json:"cidrResource" yaml:"cidrResource"`
 	// The DNS name of the resource configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-resourceconfigurationdefinition.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationdefinition-dnsresource
 	//

@@ -8,6 +8,8 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var modelConfiguration interface{}
+//
 //   vectorKnowledgeBaseConfigurationProperty := &VectorKnowledgeBaseConfigurationProperty{
 //   	EmbeddingModelArn: jsii.String("embeddingModelArn"),
 //
@@ -23,6 +25,7 @@ package awsbedrock
 //   			},
 //   			Dimensions: jsii.Number(123),
 //   			EmbeddingDataType: jsii.String("embeddingDataType"),
+//   			ModelConfiguration: modelConfiguration,
 //   			Video: []interface{}{
 //   				&VideoConfigurationProperty{
 //   					SegmentationConfiguration: &VideoSegmentationConfigurationProperty{

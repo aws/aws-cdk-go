@@ -8,6 +8,7 @@ type Type__constructsConstruct = constructs.Construct
 type Type__interfacesawsapplicationautoscalingIScalableTargetRef = interfacesawsapplicationautoscaling.IScalableTargetRef
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsapplicationautoscalingIScalingPolicyRef = interfacesawsapplicationautoscaling.IScalingPolicyRef
 type Type__awscdkIResource = awscdk.IResource
 type Type__awscdkResource = awscdk.Resource

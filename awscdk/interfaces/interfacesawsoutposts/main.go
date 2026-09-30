@@ -8,6 +8,22 @@ import (
 
 func init() {
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_outposts.IOutpostRef",
+		reflect.TypeOf((*IOutpostRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outpostRef", GoGetter: "OutpostRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IOutpostRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_outposts.ISiteRef",
 		reflect.TypeOf((*ISiteRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -22,6 +38,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_outposts.OutpostReference",
+		reflect.TypeOf((*OutpostReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_outposts.SiteReference",

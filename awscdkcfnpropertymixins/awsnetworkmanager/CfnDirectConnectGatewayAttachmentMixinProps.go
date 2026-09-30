@@ -17,26 +17,6 @@ import (
 //   	EdgeLocations: []*string{
 //   		jsii.String("edgeLocations"),
 //   	},
-//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
-//   		AttachmentPolicyRuleNumber: jsii.Number(123),
-//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   		Tags: []CfnTag{
-//   			&CfnTag{
-//   				Key: jsii.String("key"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
-//   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
-//   		AttachmentPolicyRuleNumber: jsii.Number(123),
-//   		SegmentName: jsii.String("segmentName"),
-//   		Tags: []CfnTag{
-//   			&CfnTag{
-//   				Key: jsii.String("key"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
 //   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -61,16 +41,6 @@ type CfnDirectConnectGatewayAttachmentMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-directconnectgatewayattachment.html#cfn-networkmanager-directconnectgatewayattachment-edgelocations
 	//
 	EdgeLocations *[]*string `field:"optional" json:"edgeLocations" yaml:"edgeLocations"`
-	// Describes proposed changes to a network function group.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-directconnectgatewayattachment.html#cfn-networkmanager-directconnectgatewayattachment-proposednetworkfunctiongroupchange
-	//
-	ProposedNetworkFunctionGroupChange interface{} `field:"optional" json:"proposedNetworkFunctionGroupChange" yaml:"proposedNetworkFunctionGroupChange"`
-	// Describes a proposed segment change.
-	//
-	// In some cases, the segment change must first be evaluated and accepted.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-directconnectgatewayattachment.html#cfn-networkmanager-directconnectgatewayattachment-proposedsegmentchange
-	//
-	ProposedSegmentChange interface{} `field:"optional" json:"proposedSegmentChange" yaml:"proposedSegmentChange"`
 	// Routing policy label.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-directconnectgatewayattachment.html#cfn-networkmanager-directconnectgatewayattachment-routingpolicylabel
 	//

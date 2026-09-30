@@ -16,6 +16,7 @@ import (
 //   		jsii.String("capacityProviderArns"),
 //   	},
 //   	ClusterArn: jsii.String("clusterArn"),
+//   	Critical: jsii.Boolean(false),
 //   	DaemonName: jsii.String("daemonName"),
 //   	DaemonTaskDefinitionArn: jsii.String("daemonTaskDefinitionArn"),
 //   	DeploymentConfiguration: &DaemonDeploymentConfigurationProperty{
@@ -50,6 +51,9 @@ type CfnDaemonProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemon.html#cfn-ecs-daemon-clusterarn
 	//
 	ClusterArn *string `field:"optional" json:"clusterArn" yaml:"clusterArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemon.html#cfn-ecs-daemon-critical
+	//
+	Critical interface{} `field:"optional" json:"critical" yaml:"critical"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemon.html#cfn-ecs-daemon-daemonname
 	//
 	DaemonName *string `field:"optional" json:"daemonName" yaml:"daemonName"`

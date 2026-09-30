@@ -5,5 +5,8 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawstranscribeIVocabularyFilterRef = interfacesawstranscribe.IVocabularyFilterRef
+type Type__interfacesawstranscribeICallAnalyticsCategoryRef = interfacesawstranscribe.ICallAnalyticsCategoryRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawstranscribeIMedicalVocabularyRef = interfacesawstranscribe.IMedicalVocabularyRef
+type Type__interfacesawstranscribeIVocabularyRef = interfacesawstranscribe.IVocabularyRef
+type Type__interfacesawstranscribeIVocabularyFilterRef = interfacesawstranscribe.IVocabularyFilterRef

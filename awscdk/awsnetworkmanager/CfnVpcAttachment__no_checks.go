@@ -116,10 +116,6 @@ func (j *jsiiProxy_CfnVpcAttachment) validateSetOptionsParameters(val interface{
 	return nil
 }
 
-func (j *jsiiProxy_CfnVpcAttachment) validateSetProposedNetworkFunctionGroupChangeParameters(val interface{}) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnVpcAttachment) validateSetProposedSegmentChangeParameters(val interface{}) error {
 	return nil
 }

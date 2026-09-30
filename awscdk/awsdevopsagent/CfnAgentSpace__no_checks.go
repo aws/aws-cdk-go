@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnAgentSpace) validateSetOperatorAppParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnAgentSpace) validateSetPreferencesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAgentSpace) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

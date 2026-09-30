@@ -678,6 +678,10 @@ func init() {
 		reflect.TypeOf((*CfnBucket_DataExportProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3.CfnBucket.DefaultEventHoldProperty",
+		reflect.TypeOf((*CfnBucket_DefaultEventHoldProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3.CfnBucket.DefaultRetentionProperty",
 		reflect.TypeOf((*CfnBucket_DefaultRetentionProperty)(nil)).Elem(),
 	)

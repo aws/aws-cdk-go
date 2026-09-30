@@ -11,5 +11,6 @@ type Type__interfacesawsmemorydbIClusterRef = interfacesawsmemorydb.IClusterRef
 type Type__interfacesawsmemorydbIMultiRegionClusterRef = interfacesawsmemorydb.IMultiRegionClusterRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsmemorydbIParameterGroupRef = interfacesawsmemorydb.IParameterGroupRef
+type Type__interfacesawsmemorydbISnapshotRef = interfacesawsmemorydb.ISnapshotRef
 type Type__interfacesawsmemorydbISubnetGroupRef = interfacesawsmemorydb.ISubnetGroupRef
 type Type__interfacesawsmemorydbIUserRef = interfacesawsmemorydb.IUserRef

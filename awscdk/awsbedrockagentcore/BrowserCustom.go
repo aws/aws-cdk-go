@@ -137,13 +137,18 @@ type BrowserCustom interface {
 	// - actions: ['bedrock-agentcore:ListBrowsers', 'bedrock-agentcore:ListBrowserSessions'] on all resources (*).
 	//
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Grant invoke permissions on this browser to an IAM principal.
+	// Grant permissions to use this browser to an IAM principal.
+	//
+	// This includes `ConnectBrowserAutomationStream`, which is required to connect
+	// to the automation stream of a session over the Chrome DevTools Protocol.
+	// Without it, `StartBrowserSession` succeeds but the subsequent connection to
+	// the returned stream endpoint is rejected.
 	//
 	// [disable-awslint:no-grants].
 	//
 	// Returns: An IAM Grant object representing the granted permissions.
 	// Default: - Default grant configuration:
-	// - actions: ['bedrock-agentcore:StartBrowserSession', 'bedrock-agentcore:UpdateBrowserStream', 'bedrock-agentcore:StopBrowserSession']
+	// - actions: ['bedrock-agentcore:StartBrowserSession', 'bedrock-agentcore:UpdateBrowserStream', 'bedrock-agentcore:ConnectBrowserAutomationStream', 'bedrock-agentcore:StopBrowserSession']
 	// - resourceArns: [this.browserArn]
 	//
 	GrantUse(grantee awsiam.IGrantable) awsiam.Grant

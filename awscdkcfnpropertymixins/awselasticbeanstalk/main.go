@@ -64,6 +64,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticbeanstalk.CfnApplicationVersionPropsMixin.BuildConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationVersionPropsMixin_BuildConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticbeanstalk.CfnApplicationVersionPropsMixin.ImageBuildConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationVersionPropsMixin_ImageBuildConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticbeanstalk.CfnApplicationVersionPropsMixin.ImageConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationVersionPropsMixin_ImageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticbeanstalk.CfnApplicationVersionPropsMixin.ImageSourceProperty",
+		reflect.TypeOf((*CfnApplicationVersionPropsMixin_ImageSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elasticbeanstalk.CfnApplicationVersionPropsMixin.SourceBundleProperty",
 		reflect.TypeOf((*CfnApplicationVersionPropsMixin_SourceBundleProperty)(nil)).Elem(),
 	)

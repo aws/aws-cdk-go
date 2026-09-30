@@ -399,6 +399,17 @@ package awsbedrockagentcore
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	NamespaceKeys: []interface{}{
+//   		&NamespaceKeyEntryProperty{
+//   			Key: jsii.String("key"),
+//   			Validation: &NamespaceKeyValidationProperty{
+//   				AllowedValues: []*string{
+//   					jsii.String("allowedValues"),
+//   				},
+//   				RegexPattern: jsii.String("regexPattern"),
+//   			},
+//   		},
+//   	},
 //   	StreamDeliveryResources: &StreamDeliveryResourcesProperty{
 //   		Resources: []interface{}{
 //   			&StreamDeliveryResourceProperty{
@@ -450,6 +461,10 @@ type CfnMemoryMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// List of namespace variable key definitions for a memory resource.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-namespacekeys
+	//
+	NamespaceKeys interface{} `field:"optional" json:"namespaceKeys" yaml:"namespaceKeys"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-memory.html#cfn-bedrockagentcore-memory-streamdeliveryresources
 	//
 	StreamDeliveryResources interface{} `field:"optional" json:"streamDeliveryResources" yaml:"streamDeliveryResources"`

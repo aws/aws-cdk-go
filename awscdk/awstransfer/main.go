@@ -455,6 +455,10 @@ func init() {
 		reflect.TypeOf((*CfnServer_ProtocolDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnServer.ProxyConfigProperty",
+		reflect.TypeOf((*CfnServer_ProxyConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnServer.S3StorageOptionsProperty",
 		reflect.TypeOf((*CfnServer_S3StorageOptionsProperty)(nil)).Elem(),
 	)

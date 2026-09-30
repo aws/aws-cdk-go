@@ -310,6 +310,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_billingconductor.CfnPricingRule.CustomTierProperty",
+		reflect.TypeOf((*CfnPricingRule_CustomTierProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_billingconductor.CfnPricingRule.FreeTierProperty",
 		reflect.TypeOf((*CfnPricingRule_FreeTierProperty)(nil)).Elem(),
 	)

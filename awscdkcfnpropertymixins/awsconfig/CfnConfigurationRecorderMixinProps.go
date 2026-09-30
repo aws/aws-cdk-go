@@ -38,6 +38,7 @@ package awsconfig
 //   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
+//   	StartedOnCreate: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
@@ -84,5 +85,13 @@ type CfnConfigurationRecorderMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// Defaults to 'true'.
+	//
+	// Controls whether the recorder starts recording after the create operation. Set this to 'false' for development and testing purposes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-startedoncreate
+	//
+	// Default: - true.
+	//
+	StartedOnCreate interface{} `field:"optional" json:"startedOnCreate" yaml:"startedOnCreate"`
 }
 

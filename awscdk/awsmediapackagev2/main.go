@@ -22,6 +22,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAttachedMultiviewChannels", GoGetter: "AttrAttachedMultiviewChannels"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIngestEndpoints", GoGetter: "AttrIngestEndpoints"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIngestEndpointUrls", GoGetter: "AttrIngestEndpointUrls"},
@@ -44,6 +45,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "inputType", GoGetter: "InputType"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "multiviewConfiguration", GoGetter: "MultiviewConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "outputHeaderConfiguration", GoGetter: "OutputHeaderConfiguration"},
@@ -79,6 +81,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnChannel.InputSwitchConfigurationProperty",
 		reflect.TypeOf((*CfnChannel_InputSwitchConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnChannel.MultiviewConfigurationProperty",
+		reflect.TypeOf((*CfnChannel_MultiviewConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnChannel.OutputHeaderConfigurationProperty",

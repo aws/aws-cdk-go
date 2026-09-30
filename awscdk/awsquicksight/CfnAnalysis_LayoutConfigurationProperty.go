@@ -10,6 +10,8 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var type interface{}
+//
 //   layoutConfigurationProperty := &LayoutConfigurationProperty{
 //   	FreeFormLayout: &FreeFormLayoutConfigurationProperty{
 //   		Elements: []interface{}{
@@ -26,13 +28,16 @@ package awsquicksight
 //   					Color: jsii.String("color"),
 //   					Visibility: jsii.String("visibility"),
 //   				},
+//   				BorderRadius: jsii.String("borderRadius"),
 //   				BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   					Color: jsii.String("color"),
 //   					Visibility: jsii.String("visibility"),
+//   					Width: jsii.String("width"),
 //   				},
 //   				LoadingAnimation: &LoadingAnimationProperty{
 //   					Visibility: jsii.String("visibility"),
 //   				},
+//   				Padding: jsii.String("padding"),
 //   				RenderingRules: []interface{}{
 //   					&SheetElementRenderingRuleProperty{
 //   						ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -44,6 +49,7 @@ package awsquicksight
 //   				SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   					Color: jsii.String("color"),
 //   					Visibility: jsii.String("visibility"),
+//   					Width: jsii.String("width"),
 //   				},
 //   				Visibility: jsii.String("visibility"),
 //   			},
@@ -53,6 +59,17 @@ package awsquicksight
 //   		CanvasSizeOptions: &FreeFormLayoutCanvasSizeOptionsProperty{
 //   			ScreenCanvasSizeOptions: &FreeFormLayoutScreenCanvasSizeOptionsProperty{
 //   				OptimizedViewPortWidth: jsii.String("optimizedViewPortWidth"),
+//   			},
+//   		},
+//   		Groups: []interface{}{
+//   			&SheetLayoutGroupProperty{
+//   				Id: jsii.String("id"),
+//   				Members: []interface{}{
+//   					&SheetLayoutGroupMemberProperty{
+//   						Id: jsii.String("id"),
+//   						Type: type,
+//   					},
+//   				},
 //   			},
 //   		},
 //   	},
@@ -65,8 +82,27 @@ package awsquicksight
 //   				RowSpan: jsii.Number(123),
 //
 //   				// the properties below are optional
+//   				BackgroundStyle: &GridLayoutElementBackgroundStyleProperty{
+//   					Color: jsii.String("color"),
+//   					Visibility: jsii.String("visibility"),
+//   				},
+//   				BorderRadius: jsii.String("borderRadius"),
+//   				BorderStyle: &GridLayoutElementBorderStyleProperty{
+//   					Color: jsii.String("color"),
+//   					Visibility: jsii.String("visibility"),
+//   					Width: jsii.String("width"),
+//   				},
 //   				ColumnIndex: jsii.Number(123),
+//   				LoadingAnimation: &LoadingAnimationProperty{
+//   					Visibility: jsii.String("visibility"),
+//   				},
+//   				Padding: jsii.String("padding"),
 //   				RowIndex: jsii.Number(123),
+//   				SelectedBorderStyle: &GridLayoutElementBorderStyleProperty{
+//   					Color: jsii.String("color"),
+//   					Visibility: jsii.String("visibility"),
+//   					Width: jsii.String("width"),
+//   				},
 //   			},
 //   		},
 //
@@ -100,13 +136,16 @@ package awsquicksight
 //   										Color: jsii.String("color"),
 //   										Visibility: jsii.String("visibility"),
 //   									},
+//   									BorderRadius: jsii.String("borderRadius"),
 //   									BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   										Color: jsii.String("color"),
 //   										Visibility: jsii.String("visibility"),
+//   										Width: jsii.String("width"),
 //   									},
 //   									LoadingAnimation: &LoadingAnimationProperty{
 //   										Visibility: jsii.String("visibility"),
 //   									},
+//   									Padding: jsii.String("padding"),
 //   									RenderingRules: []interface{}{
 //   										&SheetElementRenderingRuleProperty{
 //   											ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -118,6 +157,7 @@ package awsquicksight
 //   									SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   										Color: jsii.String("color"),
 //   										Visibility: jsii.String("visibility"),
+//   										Width: jsii.String("width"),
 //   									},
 //   									Visibility: jsii.String("visibility"),
 //   								},
@@ -139,7 +179,10 @@ package awsquicksight
 //   							DynamicCategoryDimensionConfiguration: &BodySectionDynamicCategoryDimensionConfigurationProperty{
 //   								Column: &ColumnIdentifierProperty{
 //   									ColumnName: jsii.String("columnName"),
+//
+//   									// the properties below are optional
 //   									DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   									TopicIdentifier: jsii.String("topicIdentifier"),
 //   								},
 //
 //   								// the properties below are optional
@@ -149,7 +192,10 @@ package awsquicksight
 //   										Direction: jsii.String("direction"),
 //   										SortBy: &ColumnIdentifierProperty{
 //   											ColumnName: jsii.String("columnName"),
+//
+//   											// the properties below are optional
 //   											DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   											TopicIdentifier: jsii.String("topicIdentifier"),
 //   										},
 //
 //   										// the properties below are optional
@@ -173,7 +219,10 @@ package awsquicksight
 //   							DynamicNumericDimensionConfiguration: &BodySectionDynamicNumericDimensionConfigurationProperty{
 //   								Column: &ColumnIdentifierProperty{
 //   									ColumnName: jsii.String("columnName"),
+//
+//   									// the properties below are optional
 //   									DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   									TopicIdentifier: jsii.String("topicIdentifier"),
 //   								},
 //
 //   								// the properties below are optional
@@ -183,7 +232,10 @@ package awsquicksight
 //   										Direction: jsii.String("direction"),
 //   										SortBy: &ColumnIdentifierProperty{
 //   											ColumnName: jsii.String("columnName"),
+//
+//   											// the properties below are optional
 //   											DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   											TopicIdentifier: jsii.String("topicIdentifier"),
 //   										},
 //
 //   										// the properties below are optional
@@ -256,13 +308,16 @@ package awsquicksight
 //   									Color: jsii.String("color"),
 //   									Visibility: jsii.String("visibility"),
 //   								},
+//   								BorderRadius: jsii.String("borderRadius"),
 //   								BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   									Color: jsii.String("color"),
 //   									Visibility: jsii.String("visibility"),
+//   									Width: jsii.String("width"),
 //   								},
 //   								LoadingAnimation: &LoadingAnimationProperty{
 //   									Visibility: jsii.String("visibility"),
 //   								},
+//   								Padding: jsii.String("padding"),
 //   								RenderingRules: []interface{}{
 //   									&SheetElementRenderingRuleProperty{
 //   										ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -274,6 +329,7 @@ package awsquicksight
 //   								SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   									Color: jsii.String("color"),
 //   									Visibility: jsii.String("visibility"),
+//   									Width: jsii.String("width"),
 //   								},
 //   								Visibility: jsii.String("visibility"),
 //   							},
@@ -312,13 +368,16 @@ package awsquicksight
 //   									Color: jsii.String("color"),
 //   									Visibility: jsii.String("visibility"),
 //   								},
+//   								BorderRadius: jsii.String("borderRadius"),
 //   								BorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   									Color: jsii.String("color"),
 //   									Visibility: jsii.String("visibility"),
+//   									Width: jsii.String("width"),
 //   								},
 //   								LoadingAnimation: &LoadingAnimationProperty{
 //   									Visibility: jsii.String("visibility"),
 //   								},
+//   								Padding: jsii.String("padding"),
 //   								RenderingRules: []interface{}{
 //   									&SheetElementRenderingRuleProperty{
 //   										ConfigurationOverrides: &SheetElementConfigurationOverridesProperty{
@@ -330,6 +389,7 @@ package awsquicksight
 //   								SelectedBorderStyle: &FreeFormLayoutElementBorderStyleProperty{
 //   									Color: jsii.String("color"),
 //   									Visibility: jsii.String("visibility"),
+//   									Width: jsii.String("width"),
 //   								},
 //   								Visibility: jsii.String("visibility"),
 //   							},

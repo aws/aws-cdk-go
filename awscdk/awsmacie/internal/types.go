@@ -10,4 +10,5 @@ type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsmacieICustomDataIdentifierRef = interfacesawsmacie.ICustomDataIdentifierRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsmacieIFindingsFilterRef = interfacesawsmacie.IFindingsFilterRef
+type Type__interfacesawsmacieIMemberRef = interfacesawsmacie.IMemberRef
 type Type__interfacesawsmacieISessionRef = interfacesawsmacie.ISessionRef

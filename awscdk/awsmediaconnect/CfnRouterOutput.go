@@ -20,6 +20,7 @@ import (
 //
 //   var automatic interface{}
 //   var default_ interface{}
+//   var public_ interface{}
 //
 //   cfnRouterOutput := awscdk.Aws_mediaconnect.NewCfnRouterOutput(this, jsii.String("MyCfnRouterOutput"), &CfnRouterOutputProps{
 //   	Configuration: &RouterOutputConfigurationProperty{
@@ -65,6 +66,22 @@ import (
 //   				Rist: &RistRouterOutputConfigurationProperty{
 //   					DestinationAddress: jsii.String("destinationAddress"),
 //   					DestinationPort: jsii.Number(123),
+//   				},
+//   				RtmpPush: &RtmpPushRouterOutputConfigurationProperty{
+//   					ApplicationName: jsii.String("applicationName"),
+//   					DestinationAddress: jsii.String("destinationAddress"),
+//   					DestinationPort: jsii.Number(123),
+//   					StreamName: jsii.String("streamName"),
+//
+//   					// the properties below are optional
+//   					TlsEncryption: &TlsEncryptionProperty{
+//   						EncryptionConfiguration: &TlsEncryptionConfigurationProperty{
+//   							Public: public_,
+//   						},
+//
+//   						// the properties below are optional
+//   						EncryptionType: jsii.String("encryptionType"),
+//   					},
 //   				},
 //   				Rtp: &RtpRouterOutputConfigurationProperty{
 //   					DestinationAddress: jsii.String("destinationAddress"),

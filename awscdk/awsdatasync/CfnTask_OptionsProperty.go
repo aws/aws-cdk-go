@@ -16,6 +16,7 @@ package awsdatasync
 //   	Gid: jsii.String("gid"),
 //   	LogLevel: jsii.String("logLevel"),
 //   	Mtime: jsii.String("mtime"),
+//   	ObjectMetadata: jsii.String("objectMetadata"),
 //   	ObjectTags: jsii.String("objectTags"),
 //   	OverwriteMode: jsii.String("overwriteMode"),
 //   	PosixPermissions: jsii.String("posixPermissions"),
@@ -91,6 +92,12 @@ type CfnTask_OptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
 	//
 	Mtime *string `field:"optional" json:"mtime" yaml:"mtime"`
+	// A value that determines whether source object metadata should be copied to the destination.
+	//
+	// PRESERVE copies metadata; NONE copies only file-mtime.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-objectmetadata
+	//
+	ObjectMetadata *string `field:"optional" json:"objectMetadata" yaml:"objectMetadata"`
 	// Specifies whether you want DataSync to `PRESERVE` object tags (default behavior) when transferring between object storage systems.
 	//
 	// If you want your DataSync task to ignore object tags, specify the `NONE` value.

@@ -1,0 +1,24 @@
+package awsquicksight
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   gridLayoutElementBackgroundStyleProperty := &GridLayoutElementBackgroundStyleProperty{
+//   	Color: jsii.String("color"),
+//   	Visibility: jsii.String("visibility"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelementbackgroundstyle.html
+//
+type CfnAnalysis_GridLayoutElementBackgroundStyleProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelementbackgroundstyle.html#cfn-quicksight-analysis-gridlayoutelementbackgroundstyle-color
+	//
+	Color *string `field:"optional" json:"color" yaml:"color"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-gridlayoutelementbackgroundstyle.html#cfn-quicksight-analysis-gridlayoutelementbackgroundstyle-visibility
+	//
+	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
+}
+

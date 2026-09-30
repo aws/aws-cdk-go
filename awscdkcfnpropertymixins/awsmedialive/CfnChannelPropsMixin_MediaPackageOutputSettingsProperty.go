@@ -16,6 +16,9 @@ package awsmedialive
 //   		AudioRenditionSets: jsii.String("audioRenditionSets"),
 //   		HlsAutoSelect: jsii.String("hlsAutoSelect"),
 //   		HlsDefault: jsii.String("hlsDefault"),
+//   		OutputUsage: []*string{
+//   			jsii.String("outputUsage"),
+//   		},
 //   	},
 //   }
 //

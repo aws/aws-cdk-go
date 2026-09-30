@@ -9,11 +9,11 @@ package interfacesawsconfig
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   configurationRecorderReference := &ConfigurationRecorderReference{
-//   	ConfigurationRecorderId: jsii.String("configurationRecorderId"),
+//   	ConfigurationRecorderName: jsii.String("configurationRecorderName"),
 //   }
 //
 type ConfigurationRecorderReference struct {
-	// The Id of the ConfigurationRecorder resource.
-	ConfigurationRecorderId *string `field:"required" json:"configurationRecorderId" yaml:"configurationRecorderId"`
+	// The Name of the ConfigurationRecorder resource.
+	ConfigurationRecorderName *string `field:"required" json:"configurationRecorderName" yaml:"configurationRecorderName"`
 }
 

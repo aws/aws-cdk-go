@@ -11,6 +11,7 @@ package awsquicksight
 //   freeFormLayoutElementBorderStyleProperty := &FreeFormLayoutElementBorderStyleProperty{
 //   	Color: jsii.String("color"),
 //   	Visibility: jsii.String("visibility"),
+//   	Width: jsii.String("width"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelementborderstyle.html
@@ -24,5 +25,9 @@ type CfnAnalysisPropsMixin_FreeFormLayoutElementBorderStyleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelementborderstyle.html#cfn-quicksight-analysis-freeformlayoutelementborderstyle-visibility
 	//
 	Visibility *string `field:"optional" json:"visibility" yaml:"visibility"`
+	// String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-freeformlayoutelementborderstyle.html#cfn-quicksight-analysis-freeformlayoutelementborderstyle-width
+	//
+	Width *string `field:"optional" json:"width" yaml:"width"`
 }
 

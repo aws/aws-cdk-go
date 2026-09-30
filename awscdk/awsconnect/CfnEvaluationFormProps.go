@@ -63,6 +63,10 @@ import (
 //   								DefaultAction: jsii.String("defaultAction"),
 //   							},
 //   							Instructions: jsii.String("instructions"),
+//   							MetricConfiguration: &EvaluationFormMetricConfigurationProperty{
+//   								MetricName: jsii.String("metricName"),
+//   								MetricType: jsii.String("metricType"),
+//   							},
 //   							NotApplicableEnabled: jsii.Boolean(false),
 //   							QuestionTypeProperties: &EvaluationFormQuestionTypePropertiesProperty{
 //   								MultiSelect: &EvaluationFormMultiSelectQuestionPropertiesProperty{
@@ -227,6 +231,7 @@ import (
 //   	Title: jsii.String("title"),
 //
 //   	// the properties below are optional
+//   	AiVersion: jsii.String("aiVersion"),
 //   	AutoEvaluationConfiguration: &AutoEvaluationConfigurationProperty{
 //   		Enabled: jsii.Boolean(false),
 //   	},
@@ -302,6 +307,9 @@ type CfnEvaluationFormProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-title
 	//
 	Title *string `field:"required" json:"title" yaml:"title"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-aiversion
+	//
+	AiVersion *string `field:"optional" json:"aiVersion" yaml:"aiVersion"`
 	// The automatic evaluation configuration of an evaluation form.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-autoevaluationconfiguration
 	//

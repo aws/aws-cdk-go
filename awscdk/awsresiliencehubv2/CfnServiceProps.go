@@ -45,6 +45,24 @@ import (
 //   					Namespaces: []*string{
 //   						jsii.String("namespaces"),
 //   					},
+//
+//   					// the properties below are optional
+//   					LabelSelector: &EksLabelSelectorProperty{
+//   						MatchExpressions: []interface{}{
+//   							&EksLabelSelectorRequirementProperty{
+//   								Key: jsii.String("key"),
+//   								Operator: jsii.String("operator"),
+//
+//   								// the properties below are optional
+//   								Values: []*string{
+//   									jsii.String("values"),
+//   								},
+//   							},
+//   						},
+//   						MatchLabels: map[string]*string{
+//   							"matchLabelsKey": jsii.String("matchLabels"),
+//   						},
+//   					},
 //   				},
 //   				ResourceTags: []interface{}{
 //   					&ResourceTagProperty{

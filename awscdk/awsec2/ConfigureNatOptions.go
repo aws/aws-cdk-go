@@ -3,6 +3,8 @@ package awsec2
 
 // Options passed by the VPC when NAT needs to be configured.
 //
+// Don't use this directly, the VPC will pass it automatically.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -24,6 +26,9 @@ package awsec2
 //
 type ConfigureNatOptions struct {
 	// The public subnets where the NAT providers need to be placed.
+	//
+	// For Regional NAT Gateways, this should be an empty array as they
+	// don't require public subnets.
 	NatSubnets *[]PublicSubnet `field:"required" json:"natSubnets" yaml:"natSubnets"`
 	// The private subnets that need to route through the NAT providers.
 	//

@@ -19,7 +19,10 @@ package awsquicksight
 //   			&CascadingControlSourceProperty{
 //   				ColumnToMatch: &ColumnIdentifierProperty{
 //   					ColumnName: jsii.String("columnName"),
+//
+//   					// the properties below are optional
 //   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   					TopicIdentifier: jsii.String("topicIdentifier"),
 //   				},
 //   				SourceSheetControlId: jsii.String("sourceSheetControlId"),
 //   			},
@@ -55,7 +58,10 @@ package awsquicksight
 //   	SelectableValues: &ParameterSelectableValuesProperty{
 //   		LinkToDataSetColumn: &ColumnIdentifierProperty{
 //   			ColumnName: jsii.String("columnName"),
+//
+//   			// the properties below are optional
 //   			DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   			TopicIdentifier: jsii.String("topicIdentifier"),
 //   		},
 //   		Values: []*string{
 //   			jsii.String("values"),

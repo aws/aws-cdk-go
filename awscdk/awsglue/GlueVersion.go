@@ -15,7 +15,7 @@ package awsglue
 //   	Description: jsii.String("This is a description"),
 //   	Role: Role,
 //   	Script: Script,
-//   	GlueVersion: glue.GlueVersion_V5_1,
+//   	GlueVersion: glue.GlueVersion_V6_0,
 //   	ContinuousLogging: &ContinuousLoggingProps{
 //   		Enabled: jsii.Boolean(false),
 //   	},
@@ -37,7 +37,7 @@ package awsglue
 //   	MaxRetries: jsii.Number(2),
 //   })
 //
-// See: https://docs.aws.amazon.com/glue/latest/dg/add-job.html.
+// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
 //
 type GlueVersion string
 
@@ -56,5 +56,7 @@ const (
 	GlueVersion_V5_0 GlueVersion = "V5_0"
 	// Glue version using Spark 3.5.6, Python 3.11, and Scala 2.12.18.
 	GlueVersion_V5_1 GlueVersion = "V5_1"
+	// Glue version using Spark 4.1.1, Python 3.13, and Scala 2.13.
+	GlueVersion_V6_0 GlueVersion = "V6_0"
 )
 

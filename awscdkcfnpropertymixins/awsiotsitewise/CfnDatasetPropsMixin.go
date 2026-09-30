@@ -21,6 +21,12 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnDatasetPropsMixin := awscdkcfnpropertymixins.Aws_iotsitewise.NewCfnDatasetPropsMixin(&CfnDatasetMixinProps{
+//   	DatasetConfig: &DatasetConfigProperty{
+//   		Session: &SessionConfigProperty{
+//   			SessionEndTime: jsii.String("sessionEndTime"),
+//   			SessionStartTime: jsii.String("sessionStartTime"),
+//   		},
+//   	},
 //   	DatasetDescription: jsii.String("datasetDescription"),
 //   	DatasetName: jsii.String("datasetName"),
 //   	DatasetSource: &DatasetSourceProperty{
@@ -33,12 +39,14 @@ import (
 //   		SourceFormat: jsii.String("sourceFormat"),
 //   		SourceType: jsii.String("sourceType"),
 //   	},
+//   	DatasetType: jsii.String("datasetType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	WorkspaceName: jsii.String("workspaceName"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

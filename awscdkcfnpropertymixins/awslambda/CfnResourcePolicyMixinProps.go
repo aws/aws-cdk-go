@@ -25,9 +25,6 @@ type CfnResourcePolicyMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-resourcepolicy.html#cfn-lambda-resourcepolicy-policydocument
 	//
 	PolicyDocument interface{} `field:"optional" json:"policyDocument" yaml:"policyDocument"`
-	// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to.
-	//
-	// For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-resourcepolicy.html#cfn-lambda-resourcepolicy-resourcearn
 	//
 	ResourceArn *string `field:"optional" json:"resourceArn" yaml:"resourceArn"`

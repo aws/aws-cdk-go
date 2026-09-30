@@ -415,6 +415,17 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	NamespaceKeys: []interface{}{
+//   		&NamespaceKeyEntryProperty{
+//   			Key: jsii.String("key"),
+//   			Validation: &NamespaceKeyValidationProperty{
+//   				AllowedValues: []*string{
+//   					jsii.String("allowedValues"),
+//   				},
+//   				RegexPattern: jsii.String("regexPattern"),
+//   			},
+//   		},
+//   	},
 //   	StreamDeliveryResources: &StreamDeliveryResourcesProperty{
 //   		Resources: []interface{}{
 //   			&StreamDeliveryResourceProperty{

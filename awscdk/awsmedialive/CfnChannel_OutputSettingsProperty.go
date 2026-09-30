@@ -80,7 +80,7 @@ package awsmedialive
 //   		Extension: jsii.String("extension"),
 //   		NameModifier: jsii.String("nameModifier"),
 //   	},
-//   	CmafIngestOutputSettings: &CmafIngestOutputSettingsProperty{
+//   	CmafIngestOutputSettings: &CmafIngestFrameCaptureOutputSettingsProperty{
 //   		NameModifier: jsii.String("nameModifier"),
 //   	},
 //   	FrameCaptureOutputSettings: &FrameCaptureOutputSettingsProperty{
@@ -139,7 +139,7 @@ package awsmedialive
 //   			Pipeline0: jsii.String("pipeline0"),
 //   			Pipeline1: jsii.String("pipeline1"),
 //   		},
-//   		ContainerSettings: &MediaConnectRouterContainerSettingsProperty{
+//   		ContainerSettings: &UdpMediaConnectRouterContainerSettingsProperty{
 //   			M2TsSettings: &M2tsSettingsProperty{
 //   				AbsentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
 //   				Arib: jsii.String("arib"),
@@ -212,6 +212,9 @@ package awsmedialive
 //   			AudioRenditionSets: jsii.String("audioRenditionSets"),
 //   			HlsAutoSelect: jsii.String("hlsAutoSelect"),
 //   			HlsDefault: jsii.String("hlsDefault"),
+//   			OutputUsage: []*string{
+//   				jsii.String("outputUsage"),
+//   			},
 //   		},
 //   	},
 //   	MsSmoothOutputSettings: &MsSmoothOutputSettingsProperty{
@@ -251,7 +254,7 @@ package awsmedialive
 //   	},
 //   	SrtOutputSettings: &SrtOutputSettingsProperty{
 //   		BufferMsec: jsii.Number(123),
-//   		ContainerSettings: &UdpContainerSettingsProperty{
+//   		ContainerSettings: &UdpMediaConnectRouterContainerSettingsProperty{
 //   			M2TsSettings: &M2tsSettingsProperty{
 //   				AbsentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
 //   				Arib: jsii.String("arib"),

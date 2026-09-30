@@ -8,7 +8,7 @@ package awsmedialive
 //
 //   srtOutputSettingsProperty := &SrtOutputSettingsProperty{
 //   	BufferMsec: jsii.Number(123),
-//   	ContainerSettings: &UdpContainerSettingsProperty{
+//   	ContainerSettings: &UdpMediaConnectRouterContainerSettingsProperty{
 //   		M2TsSettings: &M2tsSettingsProperty{
 //   			AbsentInputAudioBehavior: jsii.String("absentInputAudioBehavior"),
 //   			Arib: jsii.String("arib"),

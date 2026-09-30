@@ -104,6 +104,10 @@ func validateCfnHubV2_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnHubV2) validateSetNetworkScanningParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnHubV2Parameters(scope constructs.Construct, id *string, props *CfnHubV2Props) error {
 	return nil
 }

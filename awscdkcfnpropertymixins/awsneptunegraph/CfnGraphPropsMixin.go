@@ -27,6 +27,24 @@ import (
 //   cfnGraphPropsMixin := awscdkcfnpropertymixins.Aws_neptunegraph.NewCfnGraphPropsMixin(&CfnGraphMixinProps{
 //   	DeletionProtection: jsii.Boolean(false),
 //   	GraphName: jsii.String("graphName"),
+//   	ImportTask: &ImportTaskProperty{
+//   		BlankNodeHandling: jsii.String("blankNodeHandling"),
+//   		FailOnError: jsii.Boolean(false),
+//   		Format: jsii.String("format"),
+//   		ImportOptions: &ImportOptionsProperty{
+//   			Neptune: &NeptuneImportOptionsProperty{
+//   				PreserveDefaultVertexLabels: jsii.Boolean(false),
+//   				PreserveEdgeIds: jsii.Boolean(false),
+//   				S3ExportKmsKeyId: jsii.String("s3ExportKmsKeyId"),
+//   				S3ExportPath: jsii.String("s3ExportPath"),
+//   			},
+//   		},
+//   		MaxProvisionedMemory: jsii.Number(123),
+//   		MinProvisionedMemory: jsii.Number(123),
+//   		ParquetType: jsii.String("parquetType"),
+//   		RoleArn: jsii.String("roleArn"),
+//   		Source: jsii.String("source"),
+//   	},
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	ProvisionedMemory: jsii.Number(123),
 //   	PublicConnectivity: jsii.Boolean(false),

@@ -118,7 +118,7 @@ type CfnInstanceGroupConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsemr.IInstanceGroupConfigRef
-	AttrId() *string
+	AttrInstanceGroupId() *string
 	// `AutoScalingPolicy` is a subproperty of `InstanceGroupConfig` .
 	AutoScalingPolicy() interface{}
 	SetAutoScalingPolicy(val interface{})
@@ -369,11 +369,11 @@ type jsiiProxy_CfnInstanceGroupConfig struct {
 	internal.Type__interfacesawsemrIInstanceGroupConfigRef
 }
 
-func (j *jsiiProxy_CfnInstanceGroupConfig) AttrId() *string {
+func (j *jsiiProxy_CfnInstanceGroupConfig) AttrInstanceGroupId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrInstanceGroupId",
 		&returns,
 	)
 	return returns

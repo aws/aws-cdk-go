@@ -23,7 +23,7 @@ type IBrowserCustom interface {
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants `Get` and `List` actions on the Browser.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Grants `Invoke`, `Start`, and `Update` actions on the Browser.
+	// Grants the actions needed to start a browser session, connect to its automation stream and stop it again.
 	GrantUse(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this browser.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

@@ -48,6 +48,10 @@ func init() {
 		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_EcsSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.EksAccessEntryProperty",
+		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_EksAccessEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnComputeEnvironmentPropsMixin.EksConfigurationProperty",
 		reflect.TypeOf((*CfnComputeEnvironmentPropsMixin_EksConfigurationProperty)(nil)).Elem(),
 	)

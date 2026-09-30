@@ -18,16 +18,18 @@ import (
 // For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide* .
 //
 // Example:
-//   var listener Listener
-//   var eip CfnEIP
+//   var instance Instance
+//
+//   var myZone HostedZone
 //
 //
-//   listener.AddEndpointGroup(jsii.String("Group"), &EndpointGroupOptions{
-//   	Endpoints: []IEndpoint{
-//   		ga_endpoints.NewCfnEipEndpoint(eip, &CfnEipEndpointProps{
-//   			Weight: jsii.Number(128),
-//   		}),
-//   	},
+//   elasticIp := ec2.NewCfnEIP(this, jsii.String("EIP"), &CfnEIPProps{
+//   	Domain: jsii.String("vpc"),
+//   	InstanceId: instance.InstanceId,
+//   })
+//   route53.NewARecord(this, jsii.String("ARecord"), &ARecordProps{
+//   	Zone: myZone,
+//   	Target: route53.RecordTarget_FromIpAddresses(elasticIp.ref),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html

@@ -138,6 +138,9 @@ type CfnGlobalTableMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
 	//
 	TimeToLiveSpecification interface{} `field:"optional" json:"timeToLiveSpecification" yaml:"timeToLiveSpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-vectorindexes
+	//
+	VectorIndexes interface{} `field:"optional" json:"vectorIndexes" yaml:"vectorIndexes"`
 	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support.
 	//
 	// The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.

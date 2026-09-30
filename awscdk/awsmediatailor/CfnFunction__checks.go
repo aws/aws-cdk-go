@@ -228,6 +228,30 @@ func validateCfnFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetConcurrentExecutorConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFunction_ConcurrentExecutorConfigurationProperty:
+		val := val.(*CfnFunction_ConcurrentExecutorConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFunction_ConcurrentExecutorConfigurationProperty:
+		val_ := val.(CfnFunction_ConcurrentExecutorConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_ConcurrentExecutorConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetCustomOutputConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

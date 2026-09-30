@@ -32,6 +32,12 @@ import (
 //   			Content: jsii.String("content"),
 //   		},
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html
@@ -40,9 +46,13 @@ type CfnNotebookInstanceLifecycleConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawssagemaker.INotebookInstanceLifecycleConfigRef
-	AttrId() *string
+	awscdk.ITaggableV2
+	// The Amazon Resource Name (ARN) of the lifecycle configuration.
+	AttrNotebookInstanceLifecycleConfigArn() *string
 	// The name of the lifecycle configuration, such as `MyLifecycleConfig` .
 	AttrNotebookInstanceLifecycleConfigName() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -86,6 +96,9 @@ type CfnNotebookInstanceLifecycleConfig interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -267,13 +280,14 @@ type jsiiProxy_CfnNotebookInstanceLifecycleConfig struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawssagemakerINotebookInstanceLifecycleConfigRef
+	internal.Type__awscdkITaggableV2
 }
 
-func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) AttrId() *string {
+func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) AttrNotebookInstanceLifecycleConfigArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrNotebookInstanceLifecycleConfigArn",
 		&returns,
 	)
 	return returns
@@ -284,6 +298,16 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) AttrNotebookInstanceLifec
 	_jsii_.Get(
 		j,
 		"attrNotebookInstanceLifecycleConfigName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -429,6 +453,16 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -505,6 +539,17 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig)SetOnStart(val interface{}
 	_jsii_.Set(
 		j,
 		"onStart",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

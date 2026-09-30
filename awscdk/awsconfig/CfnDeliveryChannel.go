@@ -51,7 +51,6 @@ type CfnDeliveryChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsconfig.IDeliveryChannelRef
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -285,16 +284,6 @@ type jsiiProxy_CfnDeliveryChannel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsconfigIDeliveryChannelRef
-}
-
-func (j *jsiiProxy_CfnDeliveryChannel) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnDeliveryChannel) CfnOptions() awscdk.ICfnResourceOptions {

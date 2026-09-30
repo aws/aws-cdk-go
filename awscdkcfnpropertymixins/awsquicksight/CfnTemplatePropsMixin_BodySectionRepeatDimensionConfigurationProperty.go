@@ -15,6 +15,7 @@ package awsquicksight
 //   		Column: &ColumnIdentifierProperty{
 //   			ColumnName: jsii.String("columnName"),
 //   			DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   			TopicIdentifier: jsii.String("topicIdentifier"),
 //   		},
 //   		Limit: jsii.Number(123),
 //   		SortByMetrics: []interface{}{
@@ -37,6 +38,7 @@ package awsquicksight
 //   				SortBy: &ColumnIdentifierProperty{
 //   					ColumnName: jsii.String("columnName"),
 //   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   					TopicIdentifier: jsii.String("topicIdentifier"),
 //   				},
 //   			},
 //   		},
@@ -45,6 +47,7 @@ package awsquicksight
 //   		Column: &ColumnIdentifierProperty{
 //   			ColumnName: jsii.String("columnName"),
 //   			DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   			TopicIdentifier: jsii.String("topicIdentifier"),
 //   		},
 //   		Limit: jsii.Number(123),
 //   		SortByMetrics: []interface{}{
@@ -67,6 +70,7 @@ package awsquicksight
 //   				SortBy: &ColumnIdentifierProperty{
 //   					ColumnName: jsii.String("columnName"),
 //   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   					TopicIdentifier: jsii.String("topicIdentifier"),
 //   				},
 //   			},
 //   		},

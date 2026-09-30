@@ -176,6 +176,10 @@ func (j *jsiiProxy_CfnTable) validateSetTimeToLiveSpecificationParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnTable) validateSetVectorIndexesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTable) validateSetWarmThroughputParameters(val interface{}) error {
 	return nil
 }

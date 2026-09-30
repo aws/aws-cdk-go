@@ -99,4 +99,44 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_bcm.CfnDashboardPropsMixin.WidgetProperty",
 		reflect.TypeOf((*CfnDashboardPropsMixin_WidgetProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bcm.CfnScheduledReportMixinProps",
+		reflect.TypeOf((*CfnScheduledReportMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bcm.CfnScheduledReportPropsMixin",
+		reflect.TypeOf((*CfnScheduledReportPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnScheduledReportPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bcm.CfnScheduledReportPropsMixin.DateTimeRangeProperty",
+		reflect.TypeOf((*CfnScheduledReportPropsMixin_DateTimeRangeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bcm.CfnScheduledReportPropsMixin.DateTimeValueProperty",
+		reflect.TypeOf((*CfnScheduledReportPropsMixin_DateTimeValueProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bcm.CfnScheduledReportPropsMixin.HealthStatusProperty",
+		reflect.TypeOf((*CfnScheduledReportPropsMixin_HealthStatusProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bcm.CfnScheduledReportPropsMixin.ScheduleConfigProperty",
+		reflect.TypeOf((*CfnScheduledReportPropsMixin_ScheduleConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bcm.CfnScheduledReportPropsMixin.SchedulePeriodProperty",
+		reflect.TypeOf((*CfnScheduledReportPropsMixin_SchedulePeriodProperty)(nil)).Elem(),
+	)
 }

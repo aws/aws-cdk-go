@@ -16,7 +16,10 @@ package awsquicksight
 //   			SelectedColumns: []interface{}{
 //   				&ColumnIdentifierProperty{
 //   					ColumnName: jsii.String("columnName"),
+//
+//   					// the properties below are optional
 //   					DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   					TopicIdentifier: jsii.String("topicIdentifier"),
 //   				},
 //   			},
 //   			SelectedFieldOptions: jsii.String("selectedFieldOptions"),
@@ -65,7 +68,10 @@ package awsquicksight
 //   					SelectAllValueOptions: jsii.String("selectAllValueOptions"),
 //   					SourceColumn: &ColumnIdentifierProperty{
 //   						ColumnName: jsii.String("columnName"),
+//
+//   						// the properties below are optional
 //   						DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   						TopicIdentifier: jsii.String("topicIdentifier"),
 //   					},
 //   					SourceField: jsii.String("sourceField"),
 //   					SourceParameterName: jsii.String("sourceParameterName"),

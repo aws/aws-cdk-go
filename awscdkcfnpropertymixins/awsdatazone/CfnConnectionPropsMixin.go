@@ -123,6 +123,7 @@ import (
 //   		},
 //   		IamProperties: &IamPropertiesInputProperty{
 //   			GlueLineageSyncEnabled: jsii.Boolean(false),
+//   			RoleArn: jsii.String("roleArn"),
 //   		},
 //   		LakehouseProperties: &LakehousePropertiesInputProperty{
 //   			GlueLineageSyncEnabled: jsii.Boolean(false),

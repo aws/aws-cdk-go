@@ -26,6 +26,13 @@ import (
 //   		},
 //   	},
 //   	Tiering: &TieringProperty{
+//   		CustomTiers: []interface{}{
+//   			&CustomTierProperty{
+//   				BeginRangeInclusive: jsii.Number(123),
+//   				EndRangeExclusive: jsii.Number(123),
+//   				RateValue: jsii.Number(123),
+//   			},
+//   		},
 //   		FreeTier: &FreeTierProperty{
 //   			Activated: jsii.Boolean(false),
 //   		},

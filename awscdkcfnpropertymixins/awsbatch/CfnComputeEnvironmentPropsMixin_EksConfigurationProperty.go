@@ -11,6 +11,10 @@ package awsbatch
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   eksConfigurationProperty := &EksConfigurationProperty{
+//   	AccessEntry: &EksAccessEntryProperty{
+//   		DesiredState: jsii.String("desiredState"),
+//   		Status: jsii.String("status"),
+//   	},
 //   	EksClusterArn: jsii.String("eksClusterArn"),
 //   	KubernetesNamespace: jsii.String("kubernetesNamespace"),
 //   }
@@ -18,6 +22,12 @@ package awsbatch
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html
 //
 type CfnComputeEnvironmentPropsMixin_EksConfigurationProperty struct {
+	// The EKS access entry configuration for the compute environment.
+	//
+	// Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html#cfn-batch-computeenvironment-eksconfiguration-accessentry
+	//
+	AccessEntry interface{} `field:"optional" json:"accessEntry" yaml:"accessEntry"`
 	// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
 	//
 	// An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .

@@ -348,6 +348,16 @@ func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateSetOnStartParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnNotebookInstanceLifecycleConfig) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	for idx_97dfc6, v := range *val {
+		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnNotebookInstanceLifecycleConfigParameters(scope constructs.Construct, id *string, props *CfnNotebookInstanceLifecycleConfigProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

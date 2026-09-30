@@ -1,0 +1,43 @@
+package awsquicksight
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//
+//   geospatialCategoricalColorProperty := &GeospatialCategoricalColorProperty{
+//   	CategoryDataColors: []interface{}{
+//   		&GeospatialCategoricalDataColorProperty{
+//   			Color: jsii.String("color"),
+//   			DataValue: jsii.String("dataValue"),
+//   		},
+//   	},
+//   	DefaultOpacity: jsii.Number(123),
+//   	NullDataSettings: &GeospatialNullDataSettingsProperty{
+//   		SymbolStyle: &GeospatialNullSymbolStyleProperty{
+//   			FillColor: jsii.String("fillColor"),
+//   			StrokeColor: jsii.String("strokeColor"),
+//   			StrokeWidth: jsii.Number(123),
+//   		},
+//   	},
+//   	NullDataVisibility: jsii.String("nullDataVisibility"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcategoricalcolor.html
+//
+type CfnTemplatePropsMixin_GeospatialCategoricalColorProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcategoricalcolor.html#cfn-quicksight-template-geospatialcategoricalcolor-categorydatacolors
+	//
+	CategoryDataColors interface{} `field:"optional" json:"categoryDataColors" yaml:"categoryDataColors"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcategoricalcolor.html#cfn-quicksight-template-geospatialcategoricalcolor-defaultopacity
+	//
+	DefaultOpacity *float64 `field:"optional" json:"defaultOpacity" yaml:"defaultOpacity"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcategoricalcolor.html#cfn-quicksight-template-geospatialcategoricalcolor-nulldatasettings
+	//
+	NullDataSettings interface{} `field:"optional" json:"nullDataSettings" yaml:"nullDataSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialcategoricalcolor.html#cfn-quicksight-template-geospatialcategoricalcolor-nulldatavisibility
+	//
+	NullDataVisibility *string `field:"optional" json:"nullDataVisibility" yaml:"nullDataVisibility"`
+}
+

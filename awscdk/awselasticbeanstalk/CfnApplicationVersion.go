@@ -24,13 +24,39 @@ import (
 //
 //   cfnApplicationVersion := awscdk.Aws_elasticbeanstalk.NewCfnApplicationVersion(this, jsii.String("MyCfnApplicationVersion"), &CfnApplicationVersionProps{
 //   	ApplicationName: jsii.String("applicationName"),
+//
+//   	// the properties below are optional
+//   	BuildConfiguration: &BuildConfigurationProperty{
+//   		CodeBuildServiceRole: jsii.String("codeBuildServiceRole"),
+//   		Image: jsii.String("image"),
+//
+//   		// the properties below are optional
+//   		ArtifactName: jsii.String("artifactName"),
+//   		ComputeType: jsii.String("computeType"),
+//   		TimeoutInMinutes: jsii.Number(123),
+//   	},
+//   	Description: jsii.String("description"),
+//   	ImageConfiguration: &ImageConfigurationProperty{
+//   		BuildProperty: &ImageBuildConfigurationProperty{
+//   			CodeBuildServiceRole: jsii.String("codeBuildServiceRole"),
+//   			Type: jsii.String("type"),
+//
+//   			// the properties below are optional
+//   			Architecture: jsii.String("architecture"),
+//   			Buildpack: jsii.String("buildpack"),
+//   			ComputeType: jsii.String("computeType"),
+//   			DockerfileLocation: jsii.String("dockerfileLocation"),
+//   			TimeoutInMinutes: jsii.Number(123),
+//   		},
+//   		Source: &ImageSourceProperty{
+//   			Uri: jsii.String("uri"),
+//   		},
+//   	},
+//   	Process: jsii.Boolean(false),
 //   	SourceBundle: &SourceBundleProperty{
 //   		S3Bucket: jsii.String("s3Bucket"),
 //   		S3Key: jsii.String("s3Key"),
 //   	},
-//
-//   	// the properties below are optional
-//   	Description: jsii.String("description"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html
@@ -45,6 +71,8 @@ type CfnApplicationVersion interface {
 	// A reference to a ApplicationVersion resource.
 	ApplicationVersionRef() *interfacesawselasticbeanstalk.ApplicationVersionReference
 	AttrId() *string
+	BuildConfiguration() interface{}
+	SetBuildConfiguration(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -59,6 +87,8 @@ type CfnApplicationVersion interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	ImageConfiguration() interface{}
+	SetImageConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -71,6 +101,9 @@ type CfnApplicationVersion interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+	Process() interface{}
+	SetProcess(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -296,6 +329,16 @@ func (j *jsiiProxy_CfnApplicationVersion) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplicationVersion) BuildConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"buildConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplicationVersion) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -366,6 +409,16 @@ func (j *jsiiProxy_CfnApplicationVersion) Env() *interfaces.ResourceEnvironment 
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplicationVersion) ImageConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"imageConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplicationVersion) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -381,6 +434,16 @@ func (j *jsiiProxy_CfnApplicationVersion) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplicationVersion) Process() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"process",
 		&returns,
 	)
 	return returns
@@ -477,10 +540,43 @@ func (j *jsiiProxy_CfnApplicationVersion)SetApplicationName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnApplicationVersion)SetBuildConfiguration(val interface{}) {
+	if err := j.validateSetBuildConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"buildConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnApplicationVersion)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplicationVersion)SetImageConfiguration(val interface{}) {
+	if err := j.validateSetImageConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"imageConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplicationVersion)SetProcess(val interface{}) {
+	if err := j.validateSetProcessParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"process",
 		val,
 	)
 }

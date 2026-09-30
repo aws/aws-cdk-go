@@ -217,6 +217,10 @@ func init() {
 		reflect.TypeOf((*CfnOrganizationTelemetryRule_LoggingFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.MskMonitoringParametersProperty",
+		reflect.TypeOf((*CfnOrganizationTelemetryRule_MskMonitoringParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnOrganizationTelemetryRule.RegionStatusProperty",
 		reflect.TypeOf((*CfnOrganizationTelemetryRule_RegionStatusProperty)(nil)).Elem(),
 	)
@@ -545,6 +549,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.LoggingFilterProperty",
 		reflect.TypeOf((*CfnTelemetryRule_LoggingFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.MskMonitoringParametersProperty",
+		reflect.TypeOf((*CfnTelemetryRule_MskMonitoringParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_observabilityadmin.CfnTelemetryRule.RegionStatusProperty",

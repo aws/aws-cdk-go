@@ -16,7 +16,10 @@ package awsquicksight
 //   		CategoricalDimensionField: &CategoricalDimensionFieldProperty{
 //   			Column: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
+//
+//   				// the properties below are optional
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			FieldId: jsii.String("fieldId"),
 //
@@ -99,7 +102,10 @@ package awsquicksight
 //   		DateDimensionField: &DateDimensionFieldProperty{
 //   			Column: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
+//
+//   				// the properties below are optional
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			FieldId: jsii.String("fieldId"),
 //
@@ -184,7 +190,10 @@ package awsquicksight
 //   		NumericalDimensionField: &NumericalDimensionFieldProperty{
 //   			Column: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
+//
+//   				// the properties below are optional
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			FieldId: jsii.String("fieldId"),
 //

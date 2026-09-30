@@ -34,7 +34,6 @@ type CfnThingPrincipalAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsiot.IThingPrincipalAttachmentRef
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -75,6 +74,7 @@ type CfnThingPrincipalAttachment interface {
 	SetThingName(val *string)
 	// A reference to a ThingPrincipalAttachment resource.
 	ThingPrincipalAttachmentRef() *interfacesawsiot.ThingPrincipalAttachmentReference
+	// The type of the relation you want to specify when you attach a principal to a thing.
 	ThingPrincipalType() *string
 	SetThingPrincipalType(val *string)
 	// Deprecated.
@@ -258,16 +258,6 @@ type jsiiProxy_CfnThingPrincipalAttachment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsiotIThingPrincipalAttachmentRef
-}
-
-func (j *jsiiProxy_CfnThingPrincipalAttachment) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnThingPrincipalAttachment) CfnOptions() awscdk.ICfnResourceOptions {

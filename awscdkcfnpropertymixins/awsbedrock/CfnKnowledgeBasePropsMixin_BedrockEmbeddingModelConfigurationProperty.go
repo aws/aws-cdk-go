@@ -8,6 +8,8 @@ package awsbedrock
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var modelConfiguration interface{}
+//
 //   bedrockEmbeddingModelConfigurationProperty := &BedrockEmbeddingModelConfigurationProperty{
 //   	Audio: []interface{}{
 //   		&AudioConfigurationProperty{
@@ -18,6 +20,7 @@ package awsbedrock
 //   	},
 //   	Dimensions: jsii.Number(123),
 //   	EmbeddingDataType: jsii.String("embeddingDataType"),
+//   	ModelConfiguration: modelConfiguration,
 //   	Video: []interface{}{
 //   		&VideoConfigurationProperty{
 //   			SegmentationConfiguration: &VideoSegmentationConfigurationProperty{
@@ -44,6 +47,10 @@ type CfnKnowledgeBasePropsMixin_BedrockEmbeddingModelConfigurationProperty struc
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html#cfn-bedrock-knowledgebase-bedrockembeddingmodelconfiguration-embeddingdatatype
 	//
 	EmbeddingDataType *string `field:"optional" json:"embeddingDataType" yaml:"embeddingDataType"`
+	// Model-specific configuration for the embedding model.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html#cfn-bedrock-knowledgebase-bedrockembeddingmodelconfiguration-modelconfiguration
+	//
+	ModelConfiguration interface{} `field:"optional" json:"modelConfiguration" yaml:"modelConfiguration"`
 	// Configuration settings for processing video content in multimodal knowledge bases.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html#cfn-bedrock-knowledgebase-bedrockembeddingmodelconfiguration-video
 	//

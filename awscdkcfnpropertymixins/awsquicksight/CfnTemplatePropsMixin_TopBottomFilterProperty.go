@@ -28,6 +28,7 @@ package awsquicksight
 //   			Column: &ColumnIdentifierProperty{
 //   				ColumnName: jsii.String("columnName"),
 //   				DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   				TopicIdentifier: jsii.String("topicIdentifier"),
 //   			},
 //   			SortDirection: jsii.String("sortDirection"),
 //   		},
@@ -35,6 +36,7 @@ package awsquicksight
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
 //   	},
 //   	DefaultFilterControlConfiguration: &DefaultFilterControlConfigurationProperty{
 //   		ControlOptions: &DefaultFilterControlOptionsProperty{

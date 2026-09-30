@@ -4,30 +4,29 @@ package awsec2
 // Configuration for Vpc.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
-//   	Cidr: jsii.String("10.0.0.0/16"),
-//   	NatGateways: jsii.Number(0),
-//   	MaxAzs: jsii.Number(3),
-//   	SubnetConfiguration: []SubnetConfiguration{
-//   		&SubnetConfiguration{
-//   			Name: jsii.String("public-subnet-1"),
-//   			SubnetType: ec2.SubnetType_PUBLIC,
-//   			CidrMask: jsii.Number(24),
-//   		},
-//   	},
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//
+//   vpc := ec2.NewVpc(this, jsii.String("Vpc"), &VpcProps{
+//   	IpAddresses: ec2.IpAddresses_Cidr(jsii.String("10.0.0.0/16")),
 //   })
 //
-//   instance := ec2.NewInstance(this, jsii.String("Instance"), &InstanceProps{
+//   vpcConnector := apprunner.NewVpcConnector(this, jsii.String("VpcConnector"), &VpcConnectorProps{
 //   	Vpc: Vpc,
-//   	VpcSubnets: &SubnetSelection{
-//   		SubnetGroupName: jsii.String("public-subnet-1"),
-//   	},
-//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T3, ec2.InstanceSize_NANO),
-//   	MachineImage: ec2.NewAmazonLinuxImage(&AmazonLinuxImageProps{
-//   		Generation: ec2.AmazonLinuxGeneration_AMAZON_LINUX_2,
+//   	VpcSubnets: vpc.selectSubnets(&SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PUBLIC,
 //   	}),
-//   	DetailedMonitoring: jsii.Boolean(true),
-//   	AssociatePublicIpAddress: jsii.Boolean(true),
+//   	VpcConnectorName: jsii.String("MyVpcConnector"),
+//   })
+//
+//   apprunner.NewService(this, jsii.String("Service"), &ServiceProps{
+//   	Source: apprunner.Source_FromEcrPublic(&EcrPublicProps{
+//   		ImageConfiguration: &ImageConfiguration{
+//   			Port: jsii.Number(8000),
+//   		},
+//   		ImageIdentifier: jsii.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+//   	}),
+//   	VpcConnector: VpcConnector,
 //   })
 //
 type VpcProps struct {

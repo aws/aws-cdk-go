@@ -225,6 +225,30 @@ package awsdynamodb
 //   		// the properties below are optional
 //   		AttributeName: jsii.String("attributeName"),
 //   	},
+//   	VectorIndexes: []interface{}{
+//   		&VectorIndexProperty{
+//   			Dimensions: jsii.Number(123),
+//   			DistanceFunction: jsii.String("distanceFunction"),
+//   			IndexName: jsii.String("indexName"),
+//   			Projection: &ProjectionProperty{
+//   				NonKeyAttributes: []*string{
+//   					jsii.String("nonKeyAttributes"),
+//   				},
+//   				ProjectionType: jsii.String("projectionType"),
+//   			},
+//   			VectorAttribute: &VectorAttributeProperty{
+//   				AttributeName: jsii.String("attributeName"),
+//   			},
+//
+//   			// the properties below are optional
+//   			SearchSchema: []interface{}{
+//   				&SearchSchemaElementProperty{
+//   					AttributeName: jsii.String("attributeName"),
+//   					SearchSchemaElementType: jsii.String("searchSchemaElementType"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	WarmThroughput: &WarmThroughputProperty{
 //   		ReadUnitsPerSecond: jsii.Number(123),
 //   		WriteUnitsPerSecond: jsii.Number(123),
@@ -351,6 +375,9 @@ type CfnGlobalTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
 	//
 	TimeToLiveSpecification interface{} `field:"optional" json:"timeToLiveSpecification" yaml:"timeToLiveSpecification"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-vectorindexes
+	//
+	VectorIndexes interface{} `field:"optional" json:"vectorIndexes" yaml:"vectorIndexes"`
 	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support.
 	//
 	// The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.

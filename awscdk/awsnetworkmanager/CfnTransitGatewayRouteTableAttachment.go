@@ -24,16 +24,6 @@ import (
 //
 //   	// the properties below are optional
 //   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   	ProposedNetworkFunctionGroupChange: &ProposedNetworkFunctionGroupChangeProperty{
-//   		AttachmentPolicyRuleNumber: jsii.Number(123),
-//   		NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
-//   		Tags: []CfnTag{
-//   			&CfnTag{
-//   				Key: jsii.String("key"),
-//   				Value: jsii.String("value"),
-//   			},
-//   		},
-//   	},
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
 //   		SegmentName: jsii.String("segmentName"),
@@ -123,9 +113,6 @@ type CfnTransitGatewayRouteTableAttachment interface {
 	// The ID of the transit gateway peering.
 	PeeringId() *string
 	SetPeeringId(val *string)
-	// Describes proposed changes to a network function group.
-	ProposedNetworkFunctionGroupChange() interface{}
-	SetProposedNetworkFunctionGroupChange(val interface{})
 	// This property is read-only.
 	ProposedSegmentChange() interface{}
 	SetProposedSegmentChange(val interface{})
@@ -585,16 +572,6 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) PeeringId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) ProposedNetworkFunctionGroupChange() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"proposedNetworkFunctionGroupChange",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment) ProposedSegmentChange() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -740,17 +717,6 @@ func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment)SetPeeringId(val *strin
 	_jsii_.Set(
 		j,
 		"peeringId",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnTransitGatewayRouteTableAttachment)SetProposedNetworkFunctionGroupChange(val interface{}) {
-	if err := j.validateSetProposedNetworkFunctionGroupChangeParameters(val); err != nil {
-		panic(err)
-	}
-	_jsii_.Set(
-		j,
-		"proposedNetworkFunctionGroupChange",
 		val,
 	)
 }

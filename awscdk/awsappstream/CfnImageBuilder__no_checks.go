@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnImageBuilder) validateSetAccessEndpointsParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnImageBuilder) validateSetDisableImdsv1Parameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnImageBuilder) validateSetDomainJoinInfoParameters(val interface{}) error {
 	return nil
 }

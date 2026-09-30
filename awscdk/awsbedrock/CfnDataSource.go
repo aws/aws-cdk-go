@@ -33,6 +33,8 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var connectorParameters interface{}
+//   var daily interface{}
+//   var lastDayOfMonth interface{}
 //
 //   cfnDataSource := awscdk.Aws_bedrock.NewCfnDataSource(this, jsii.String("MyCfnDataSource"), &CfnDataSourceProps{
 //   	DataSourceConfiguration: &DataSourceConfigurationProperty{
@@ -88,6 +90,18 @@ import (
 //   				},
 //   				VideoExtractionConfiguration: &VideoExtractionConfigurationProperty{
 //   					VideoExtractionStatus: jsii.String("videoExtractionStatus"),
+//   				},
+//   			},
+//   			SyncSchedule: &SyncScheduleProperty{
+//   				Daily: daily,
+//   				Monthly: &MonthlyScheduleProperty{
+//   					DayOfMonth: &DayOfMonthProperty{
+//   						DayNumber: jsii.Number(123),
+//   						LastDayOfMonth: lastDayOfMonth,
+//   					},
+//   				},
+//   				Weekly: &WeeklyScheduleProperty{
+//   					DayOfWeek: jsii.String("dayOfWeek"),
 //   				},
 //   			},
 //   		},

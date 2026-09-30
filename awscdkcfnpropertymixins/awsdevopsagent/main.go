@@ -40,6 +40,10 @@ func init() {
 		reflect.TypeOf((*CfnAgentSpacePropsMixin_OperatorAppProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAgentSpacePropsMixin.PreferencesProperty",
+		reflect.TypeOf((*CfnAgentSpacePropsMixin_PreferencesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssetMixinProps",
 		reflect.TypeOf((*CfnAssetMixinProps)(nil)).Elem(),
 	)

@@ -55,6 +55,14 @@ func (p *jsiiProxy_PublicSubnet) validateAddIpv6Nat64RouteParameters(natGatewayI
 	return nil
 }
 
+func (p *jsiiProxy_PublicSubnet) validateAddNatGatewayParameters(options *AddNatGatewayOptions) error {
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (p *jsiiProxy_PublicSubnet) validateAddRouteParameters(id *string, options *AddRouteOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")

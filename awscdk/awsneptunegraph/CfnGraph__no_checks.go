@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnGraph) validateSetDeletionProtectionParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnGraph) validateSetImportTaskParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGraph) validateSetProvisionedMemoryParameters(val *float64) error {
 	return nil
 }

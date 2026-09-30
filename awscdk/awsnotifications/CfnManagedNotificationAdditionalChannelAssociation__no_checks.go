@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateS
 	return nil
 }
 
+func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateSetIsSensitiveEventsSubscribedParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnManagedNotificationAdditionalChannelAssociation) validateSetManagedNotificationConfigurationArnParameters(val *string) error {
 	return nil
 }

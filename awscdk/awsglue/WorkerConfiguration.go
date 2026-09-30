@@ -19,7 +19,7 @@ package awsglue
 //   	Description: jsii.String("This is a description"),
 //   	Role: Role,
 //   	Script: Script,
-//   	GlueVersion: glue.GlueVersion_V5_1,
+//   	GlueVersion: glue.GlueVersion_V6_0,
 //   	ContinuousLogging: &ContinuousLoggingProps{
 //   		Enabled: jsii.Boolean(false),
 //   	},

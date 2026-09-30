@@ -62,6 +62,7 @@ import (
 //   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
+//   	StartedOnCreate: jsii.Boolean(false),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

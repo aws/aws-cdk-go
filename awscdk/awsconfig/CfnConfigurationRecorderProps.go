@@ -44,6 +44,7 @@ package awsconfig
 //   			},
 //   		},
 //   	},
+//   	StartedOnCreate: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
@@ -90,5 +91,13 @@ type CfnConfigurationRecorderProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-recordingmode
 	//
 	RecordingMode interface{} `field:"optional" json:"recordingMode" yaml:"recordingMode"`
+	// Defaults to 'true'.
+	//
+	// Controls whether the recorder starts recording after the create operation. Set this to 'false' for development and testing purposes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-startedoncreate
+	//
+	// Default: - true.
+	//
+	StartedOnCreate interface{} `field:"optional" json:"startedOnCreate" yaml:"startedOnCreate"`
 }
 

@@ -388,6 +388,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnHubV2PropsMixin.NetworkScanningProperty",
+		reflect.TypeOf((*CfnHubV2PropsMixin_NetworkScanningProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityhub.CfnInsightMixinProps",
 		reflect.TypeOf((*CfnInsightMixinProps)(nil)).Elem(),
 	)

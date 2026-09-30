@@ -14,6 +14,24 @@ import (
 //   cfnGraphMixinProps := &CfnGraphMixinProps{
 //   	DeletionProtection: jsii.Boolean(false),
 //   	GraphName: jsii.String("graphName"),
+//   	ImportTask: &ImportTaskProperty{
+//   		BlankNodeHandling: jsii.String("blankNodeHandling"),
+//   		FailOnError: jsii.Boolean(false),
+//   		Format: jsii.String("format"),
+//   		ImportOptions: &ImportOptionsProperty{
+//   			Neptune: &NeptuneImportOptionsProperty{
+//   				PreserveDefaultVertexLabels: jsii.Boolean(false),
+//   				PreserveEdgeIds: jsii.Boolean(false),
+//   				S3ExportKmsKeyId: jsii.String("s3ExportKmsKeyId"),
+//   				S3ExportPath: jsii.String("s3ExportPath"),
+//   			},
+//   		},
+//   		MaxProvisionedMemory: jsii.Number(123),
+//   		MinProvisionedMemory: jsii.Number(123),
+//   		ParquetType: jsii.String("parquetType"),
+//   		RoleArn: jsii.String("roleArn"),
+//   		Source: jsii.String("source"),
+//   	},
 //   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	ProvisionedMemory: jsii.Number(123),
 //   	PublicConnectivity: jsii.Boolean(false),
@@ -46,6 +64,10 @@ type CfnGraphMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-graphname
 	//
 	GraphName *string `field:"optional" json:"graphName" yaml:"graphName"`
+	// The import task details to import data into the graph at creation time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graph.html#cfn-neptunegraph-graph-importtask
+	//
+	ImportTask interface{} `field:"optional" json:"importTask" yaml:"importTask"`
 	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph.
 	//
 	// If not specified, the graph is encrypted with an AWS managed key.

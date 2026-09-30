@@ -8,6 +8,8 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var type interface{}
+//
 //   freeFormLayoutConfigurationProperty := &FreeFormLayoutConfigurationProperty{
 //   	CanvasSizeOptions: &FreeFormLayoutCanvasSizeOptionsProperty{
 //   		ScreenCanvasSizeOptions: &FreeFormLayoutScreenCanvasSizeOptionsProperty{
@@ -48,6 +50,17 @@ package awsquicksight
 //   			YAxisLocation: jsii.String("yAxisLocation"),
 //   		},
 //   	},
+//   	Groups: []interface{}{
+//   		&SheetLayoutGroupProperty{
+//   			Id: jsii.String("id"),
+//   			Members: []interface{}{
+//   				&SheetLayoutGroupMemberProperty{
+//   					Id: jsii.String("id"),
+//   					Type: type,
+//   				},
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutconfiguration.html
@@ -60,5 +73,8 @@ type CfnTemplatePropsMixin_FreeFormLayoutConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutconfiguration.html#cfn-quicksight-template-freeformlayoutconfiguration-elements
 	//
 	Elements interface{} `field:"optional" json:"elements" yaml:"elements"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-freeformlayoutconfiguration.html#cfn-quicksight-template-freeformlayoutconfiguration-groups
+	//
+	Groups interface{} `field:"optional" json:"groups" yaml:"groups"`
 }
 

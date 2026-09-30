@@ -112,7 +112,19 @@ func (j *jsiiProxy_CfnMetric) validateSetMetricCalculationParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnMetric) validateSetNameParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnMetric) validateSetStatusParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMetric) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnMetric) validateSetUnitParameters(val *string) error {
 	return nil
 }
 

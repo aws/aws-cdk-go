@@ -22,6 +22,14 @@ import (
 //   		PreferredInput: jsii.Number(123),
 //   	},
 //   	InputType: jsii.String("inputType"),
+//   	MultiviewConfiguration: &MultiviewConfigurationProperty{
+//   		AvailableLayouts: []*string{
+//   			jsii.String("availableLayouts"),
+//   		},
+//   		AvailableSources: []*string{
+//   			jsii.String("availableSources"),
+//   		},
+//   	},
 //   	OutputHeaderConfiguration: &OutputHeaderConfigurationProperty{
 //   		PublishMqcs: jsii.Boolean(false),
 //   	},
@@ -64,6 +72,12 @@ type CfnChannelProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-inputtype
 	//
 	InputType *string `field:"optional" json:"inputType" yaml:"inputType"`
+	// <p>The multiview configuration for a channel.
+	//
+	// A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-multiviewconfiguration
+	//
+	MultiviewConfiguration interface{} `field:"optional" json:"multiviewConfiguration" yaml:"multiviewConfiguration"`
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html#cfn-mediapackagev2-channel-outputheaderconfiguration
 	//

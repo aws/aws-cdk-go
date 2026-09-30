@@ -11,7 +11,10 @@ package awsquicksight
 //   timeRangeDrillDownFilterProperty := &TimeRangeDrillDownFilterProperty{
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
+//
+//   		// the properties below are optional
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
 //   	},
 //   	RangeMaximum: jsii.String("rangeMaximum"),
 //   	RangeMinimum: jsii.String("rangeMinimum"),

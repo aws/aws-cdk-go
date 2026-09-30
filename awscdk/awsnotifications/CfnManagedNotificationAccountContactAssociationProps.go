@@ -11,6 +11,9 @@ package awsnotifications
 //   cfnManagedNotificationAccountContactAssociationProps := &CfnManagedNotificationAccountContactAssociationProps{
 //   	ContactIdentifier: jsii.String("contactIdentifier"),
 //   	ManagedNotificationConfigurationArn: jsii.String("managedNotificationConfigurationArn"),
+//
+//   	// the properties below are optional
+//   	IsSensitiveEventsSubscribed: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationaccountcontactassociation.html
@@ -26,5 +29,11 @@ type CfnManagedNotificationAccountContactAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationaccountcontactassociation.html#cfn-notifications-managednotificationaccountcontactassociation-managednotificationconfigurationarn
 	//
 	ManagedNotificationConfigurationArn *string `field:"required" json:"managedNotificationConfigurationArn" yaml:"managedNotificationConfigurationArn"`
+	// Whether the account contact association is subscribed to sensitive events.
+	//
+	// Access to sensitive events is gated by the SubscribeSensitiveEvents virtual IAM action.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationaccountcontactassociation.html#cfn-notifications-managednotificationaccountcontactassociation-issensitiveeventssubscribed
+	//
+	IsSensitiveEventsSubscribed interface{} `field:"optional" json:"isSensitiveEventsSubscribed" yaml:"isSensitiveEventsSubscribed"`
 }
 

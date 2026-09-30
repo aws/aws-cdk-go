@@ -13,6 +13,13 @@ package awsquicksight
 //   	FieldId: jsii.String("fieldId"),
 //   	FieldValue: jsii.String("fieldValue"),
 //   	Settings: &LineChartSeriesSettingsProperty{
+//   		DecalSettings: &DecalSettingsProperty{
+//   			DecalColor: jsii.String("decalColor"),
+//   			DecalPatternType: jsii.String("decalPatternType"),
+//   			DecalStyleType: jsii.String("decalStyleType"),
+//   			DecalVisibility: jsii.String("decalVisibility"),
+//   			ElementValue: jsii.String("elementValue"),
+//   		},
 //   		LineStyleSettings: &LineChartLineStyleSettingsProperty{
 //   			LineInterpolation: jsii.String("lineInterpolation"),
 //   			LineStyle: jsii.String("lineStyle"),

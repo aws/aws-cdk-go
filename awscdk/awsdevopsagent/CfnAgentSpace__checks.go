@@ -292,6 +292,30 @@ func (j *jsiiProxy_CfnAgentSpace) validateSetOperatorAppParameters(val interface
 	return nil
 }
 
+func (j *jsiiProxy_CfnAgentSpace) validateSetPreferencesParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAgentSpace_PreferencesProperty:
+		val := val.(*CfnAgentSpace_PreferencesProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAgentSpace_PreferencesProperty:
+		val_ := val.(CfnAgentSpace_PreferencesProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAgentSpace_PreferencesProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAgentSpace) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

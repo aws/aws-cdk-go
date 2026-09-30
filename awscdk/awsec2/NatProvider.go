@@ -11,17 +11,14 @@ import (
 // instance.
 //
 // Example:
-//   var instanceType InstanceType
-//
-//
-//   provider := ec2.NatProvider_InstanceV2(&NatInstanceProps{
-//   	InstanceType: InstanceType,
-//   	DefaultAllowedTraffic: ec2.NatTrafficDirection_OUTBOUND_ONLY,
+//   natInstanceProvider := ec2.NatProvider_Instance(&NatInstanceProps{
+//   	InstanceType: ec2.InstanceType_Of(ec2.InstanceClass_T4G, ec2.InstanceSize_LARGE),
+//   	MachineImage: ec2.NewAmazonLinuxImage(),
+//   	CreditSpecification: ec2.CpuCredits_UNLIMITED,
 //   })
-//   ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
-//   	NatGatewayProvider: provider,
+//   ec2.NewVpc(this, jsii.String("VPC"), &VpcProps{
+//   	NatGatewayProvider: natInstanceProvider,
 //   })
-//   provider.connections.AllowFrom(ec2.Peer_Ipv4(jsii.String("1.2.3.4/8")), ec2.Port_HTTP())
 //
 type NatProvider interface {
 	// Return list of gateways spawned by the provider.
@@ -134,6 +131,31 @@ func NatProvider_InstanceV2(props *NatInstanceProps) NatInstanceProviderV2 {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_ec2.NatProvider",
 		"instanceV2",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use a Regional NAT Gateway to provide NAT services for your VPC.
+//
+// Regional NAT Gateways provide automatic multi-AZ redundancy with a single
+// gateway that scales across availability zones. AWS automatically manages
+// AZ coverage and EIP allocation.
+// See: https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html
+//
+func NatProvider_RegionalGateway(props *RegionalNatGatewayProviderProps) RegionalNatGatewayProvider {
+	_init_.Initialize()
+
+	if err := validateNatProvider_RegionalGatewayParameters(props); err != nil {
+		panic(err)
+	}
+	var returns RegionalNatGatewayProvider
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_ec2.NatProvider",
+		"regionalGateway",
 		[]interface{}{props},
 		&returns,
 	)

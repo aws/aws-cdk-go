@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnMemory) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnMemory) validateSetNamespaceKeysParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnMemory) validateSetStreamDeliveryResourcesParameters(val interface{}) error {
 	return nil
 }

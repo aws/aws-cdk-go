@@ -40,6 +40,7 @@ import (
 //   	FifoThroughputScope: jsii.String("fifoThroughputScope"),
 //   	FifoTopic: jsii.Boolean(false),
 //   	KmsMasterKeyId: jsii.String("kmsMasterKeyId"),
+//   	MaximumMessageSize: jsii.Number(123),
 //   	SignatureVersion: jsii.String("signatureVersion"),
 //   	Subscription: []interface{}{
 //   		&SubscriptionProperty{

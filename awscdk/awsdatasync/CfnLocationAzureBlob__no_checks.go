@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnLocationAzureBlob) validateSetCustomSecretConfigParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnLocationAzureBlob) validateSetFederatedIdentityParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLocationAzureBlob) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

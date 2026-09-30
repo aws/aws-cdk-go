@@ -63,6 +63,11 @@ package awspcs
 //   		MinInstanceCount: jsii.Number(123),
 //   	},
 //   	SlurmConfiguration: &SlurmConfigurationProperty{
+//   		GresCustomSettings: []interface{}{
+//   			map[string]*string{
+//   				"gresCustomSettingsKey": jsii.String("gresCustomSettings"),
+//   			},
+//   		},
 //   		ScaleDownIdleTimeInSeconds: jsii.Number(123),
 //   		SlurmCustomSettings: []interface{}{
 //   			&SlurmCustomSettingProperty{

@@ -23,7 +23,7 @@ package awsmedialive
 //   			Sid: jsii.Number(123),
 //   			Timezone: jsii.String("timezone"),
 //   		},
-//   		NielsenNwOnlySettings: &NielsenNwOnlyProperty{
+//   		NielsenNwOnlySettings: &NielsenNaesIiNwOnlySettingsProperty{
 //   			CheckDigitString: jsii.String("checkDigitString"),
 //   			Sid: jsii.Number(123),
 //   			Timezone: jsii.String("timezone"),

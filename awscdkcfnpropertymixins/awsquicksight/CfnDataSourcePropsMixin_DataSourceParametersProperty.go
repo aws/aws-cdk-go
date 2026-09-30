@@ -18,6 +18,7 @@ package awsquicksight
 //   		Domain: jsii.String("domain"),
 //   	},
 //   	AthenaParameters: &AthenaParametersProperty{
+//   		ConsumerAccountRoleArn: jsii.String("consumerAccountRoleArn"),
 //   		IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
 //   			EnableIdentityPropagation: jsii.Boolean(false),
 //   		},

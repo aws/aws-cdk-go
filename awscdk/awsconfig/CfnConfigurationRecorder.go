@@ -66,6 +66,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	StartedOnCreate: jsii.Boolean(false),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
@@ -75,6 +76,8 @@ type CfnConfigurationRecorder interface {
 	awscdk.IInspectable
 	interfacesawsconfig.IConfigurationRecorderRef
 	AttrId() *string
+	// Returns the Amazon Resource Name (ARN) for the Configuration Recorder.
+	AttrResourceArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -125,6 +128,9 @@ type CfnConfigurationRecorder interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// Defaults to 'true'.
+	StartedOnCreate() interface{}
+	SetStartedOnCreate(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -318,6 +324,16 @@ func (j *jsiiProxy_CfnConfigurationRecorder) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigurationRecorder) AttrResourceArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrResourceArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationRecorder) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -468,6 +484,16 @@ func (j *jsiiProxy_CfnConfigurationRecorder) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConfigurationRecorder) StartedOnCreate() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"startedOnCreate",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConfigurationRecorder) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -555,6 +581,17 @@ func (j *jsiiProxy_CfnConfigurationRecorder)SetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"roleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConfigurationRecorder)SetStartedOnCreate(val interface{}) {
+	if err := j.validateSetStartedOnCreateParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"startedOnCreate",
 		val,
 	)
 }

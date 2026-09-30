@@ -44,6 +44,9 @@ type CfnFunctionPropsMixin_HttpRequestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-httprequestconfiguration.html#cfn-mediatailor-function-httprequestconfiguration-requesttimeoutmilliseconds
 	//
 	RequestTimeoutMilliseconds *float64 `field:"optional" json:"requestTimeoutMilliseconds" yaml:"requestTimeoutMilliseconds"`
+	// The expression language used to evaluate expressions in the function configuration.
+	//
+	// Set this to JSONATA.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-httprequestconfiguration.html#cfn-mediatailor-function-httprequestconfiguration-runtime
 	//
 	Runtime *string `field:"optional" json:"runtime" yaml:"runtime"`

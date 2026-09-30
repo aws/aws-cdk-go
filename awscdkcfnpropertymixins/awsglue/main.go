@@ -160,6 +160,126 @@ func init() {
 		reflect.TypeOf((*CfnConnectionPropsMixin_PhysicalConnectionRequirementsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypeMixinProps",
+		reflect.TypeOf((*CfnConnectionTypeMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnConnectionTypePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.BasicAuthenticationPropertiesProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_BasicAuthenticationPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.BetweenConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_BetweenConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ClientCredentialsPropertiesProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ClientCredentialsPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ConnectionPropertiesConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ConnectionPropertiesConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ConnectorAuthenticationConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ConnectorAuthenticationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ConnectorAuthorizationCodePropertiesProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ConnectorAuthorizationCodePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ConnectorOAuth2PropertiesProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ConnectorOAuth2PropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ConnectorPropertyProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ConnectorPropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.CursorConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_CursorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.CustomAuthenticationPropertiesProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_CustomAuthenticationPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.EntityConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_EntityConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ExtractedParameterProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ExtractedParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.FieldDefinitionProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_FieldDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.FilterConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_FilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.FilterOverridesProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_FilterOverridesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.FilterStringConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_FilterStringConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.JWTBearerPropertiesProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_JWTBearerPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.OffsetConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_OffsetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.PaginationConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_PaginationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ResponseConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ResponseConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ResponseExtractionMappingProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ResponseExtractionMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.RestConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_RestConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.SecretConnectorPropertyProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_SecretConnectorPropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.SourceConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_SourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnConnectionTypePropsMixin.ValidationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnConnectionTypePropsMixin_ValidationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCrawlerMixinProps",
 		reflect.TypeOf((*CfnCrawlerMixinProps)(nil)).Elem(),
 	)

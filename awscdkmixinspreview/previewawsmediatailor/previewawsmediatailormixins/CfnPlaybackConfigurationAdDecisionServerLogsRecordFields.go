@@ -84,6 +84,8 @@ const (
 	// Experimental.
 	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_HTTP CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "HTTP"
 	// Experimental.
+	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_STREAMID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "STREAMID"
+	// Experimental.
 	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_EVENTTIMESTAMP CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "EVENTTIMESTAMP"
 	// Experimental.
 	CfnPlaybackConfigurationAdDecisionServerLogsRecordFields_AWSACCOUNTID CfnPlaybackConfigurationAdDecisionServerLogsRecordFields = "AWSACCOUNTID"

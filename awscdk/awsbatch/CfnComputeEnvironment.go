@@ -161,6 +161,12 @@ import (
 //   	EksConfiguration: &EksConfigurationProperty{
 //   		EksClusterArn: jsii.String("eksClusterArn"),
 //   		KubernetesNamespace: jsii.String("kubernetesNamespace"),
+//
+//   		// the properties below are optional
+//   		AccessEntry: &EksAccessEntryProperty{
+//   			DesiredState: jsii.String("desiredState"),
+//   			Status: jsii.String("status"),
+//   		},
 //   	},
 //   	ReplaceComputeEnvironment: jsii.Boolean(false),
 //   	ServiceRole: jsii.String("serviceRole"),
@@ -184,6 +190,8 @@ type CfnComputeEnvironment interface {
 	awscdk.ITaggable
 	// Returns the compute environment ARN, such as `batch: *us-east-1* : *111122223333* :compute-environment/ *ComputeEnvironmentName*` .
 	AttrComputeEnvironmentArn() *string
+	// The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+	AttrEksConfigurationAccessEntryStatus() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -444,6 +452,16 @@ func (j *jsiiProxy_CfnComputeEnvironment) AttrComputeEnvironmentArn() *string {
 	_jsii_.Get(
 		j,
 		"attrComputeEnvironmentArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComputeEnvironment) AttrEksConfigurationAccessEntryStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEksConfigurationAccessEntryStatus",
 		&returns,
 	)
 	return returns

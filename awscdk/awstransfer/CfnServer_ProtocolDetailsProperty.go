@@ -20,6 +20,9 @@ package awstransfer
 //   		jsii.String("as2Transports"),
 //   	},
 //   	PassiveIp: jsii.String("passiveIp"),
+//   	ProxyConfig: &ProxyConfigProperty{
+//   		SftpMode: jsii.String("sftpMode"),
+//   	},
 //   	SetStatOption: jsii.String("setStatOption"),
 //   	TlsSessionResumptionMode: jsii.String("tlsSessionResumptionMode"),
 //   }
@@ -49,6 +52,9 @@ type CfnServer_ProtocolDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html#cfn-transfer-server-protocoldetails-passiveip
 	//
 	PassiveIp *string `field:"optional" json:"passiveIp" yaml:"passiveIp"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html#cfn-transfer-server-protocoldetails-proxyconfig
+	//
+	ProxyConfig interface{} `field:"optional" json:"proxyConfig" yaml:"proxyConfig"`
 	// Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
 	//
 	// Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.

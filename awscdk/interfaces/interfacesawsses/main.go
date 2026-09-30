@@ -28,6 +28,10 @@ func init() {
 		reflect.TypeOf((*DedicatedIpPoolReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ses.EmailIdentityCertificateReference",
+		reflect.TypeOf((*EmailIdentityCertificateReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ses.EmailIdentityReference",
 		reflect.TypeOf((*EmailIdentityReference)(nil)).Elem(),
 	)
@@ -106,6 +110,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDedicatedIpPoolRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ses.IEmailIdentityCertificateRef",
+		reflect.TypeOf((*IEmailIdentityCertificateRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "emailIdentityCertificateRef", GoGetter: "EmailIdentityCertificateRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IEmailIdentityCertificateRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

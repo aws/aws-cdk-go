@@ -256,6 +256,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_emr.CfnInstanceGroupConfigPropsMixin.AppConfigurationProperty",
+		reflect.TypeOf((*CfnInstanceGroupConfigPropsMixin_AppConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_emr.CfnInstanceGroupConfigPropsMixin.AutoScalingPolicyProperty",
 		reflect.TypeOf((*CfnInstanceGroupConfigPropsMixin_AutoScalingPolicyProperty)(nil)).Elem(),
 	)

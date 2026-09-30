@@ -161,6 +161,28 @@ import (
 //   		AttributeName: jsii.String("attributeName"),
 //   		Enabled: jsii.Boolean(false),
 //   	},
+//   	VectorIndexes: []interface{}{
+//   		&VectorIndexProperty{
+//   			Dimensions: jsii.Number(123),
+//   			DistanceFunction: jsii.String("distanceFunction"),
+//   			IndexName: jsii.String("indexName"),
+//   			Projection: &ProjectionProperty{
+//   				NonKeyAttributes: []*string{
+//   					jsii.String("nonKeyAttributes"),
+//   				},
+//   				ProjectionType: jsii.String("projectionType"),
+//   			},
+//   			SearchSchema: []interface{}{
+//   				&SearchSchemaElementProperty{
+//   					AttributeName: jsii.String("attributeName"),
+//   					SearchSchemaElementType: jsii.String("searchSchemaElementType"),
+//   				},
+//   			},
+//   			VectorAttribute: &VectorAttributeProperty{
+//   				AttributeName: jsii.String("attributeName"),
+//   			},
+//   		},
+//   	},
 //   	WarmThroughput: &WarmThroughputProperty{
 //   		ReadUnitsPerSecond: jsii.Number(123),
 //   		WriteUnitsPerSecond: jsii.Number(123),

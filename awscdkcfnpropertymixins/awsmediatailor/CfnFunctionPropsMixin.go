@@ -21,6 +21,21 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnFunctionPropsMixin := awscdkcfnpropertymixins.Aws_mediatailor.NewCfnFunctionPropsMixin(&CfnFunctionMixinProps{
+//   	ConcurrentExecutorConfiguration: &ConcurrentExecutorConfigurationProperty{
+//   		FunctionList: []interface{}{
+//   			&FunctionRefProperty{
+//   				Alias: jsii.String("alias"),
+//   				FunctionId: jsii.String("functionId"),
+//   				RunCondition: jsii.String("runCondition"),
+//   			},
+//   		},
+//   		MaxConcurrency: jsii.Number(123),
+//   		Output: map[string]*string{
+//   			"outputKey": jsii.String("output"),
+//   		},
+//   		Runtime: jsii.String("runtime"),
+//   		TimeoutMilliseconds: jsii.Number(123),
+//   	},
 //   	CustomOutputConfiguration: &CustomOutputConfigurationProperty{
 //   		Output: map[string]*string{
 //   			"outputKey": jsii.String("output"),
@@ -46,6 +61,7 @@ import (
 //   	SequentialExecutorConfiguration: &SequentialExecutorConfigurationProperty{
 //   		FunctionList: []interface{}{
 //   			&FunctionRefProperty{
+//   				Alias: jsii.String("alias"),
 //   				FunctionId: jsii.String("functionId"),
 //   				RunCondition: jsii.String("runCondition"),
 //   			},

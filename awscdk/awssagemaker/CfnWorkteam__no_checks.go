@@ -104,6 +104,10 @@ func validateCfnWorkteam_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkteam) validateSetDescriptionParameters(val *string) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkteam) validateSetMemberDefinitionsParameters(val interface{}) error {
 	return nil
 }

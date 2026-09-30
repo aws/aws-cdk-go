@@ -21,6 +21,18 @@ package awsquicksight
 //   	Column: &ColumnIdentifierProperty{
 //   		ColumnName: jsii.String("columnName"),
 //   		DataSetIdentifier: jsii.String("dataSetIdentifier"),
+//   		TopicIdentifier: jsii.String("topicIdentifier"),
+//   	},
+//   	DecalSettingsConfiguration: &DecalSettingsConfigurationProperty{
+//   		CustomDecalSettings: []interface{}{
+//   			&DecalSettingsProperty{
+//   				DecalColor: jsii.String("decalColor"),
+//   				DecalPatternType: jsii.String("decalPatternType"),
+//   				DecalStyleType: jsii.String("decalStyleType"),
+//   				DecalVisibility: jsii.String("decalVisibility"),
+//   				ElementValue: jsii.String("elementValue"),
+//   			},
+//   		},
 //   	},
 //   	FormatConfiguration: &FormatConfigurationProperty{
 //   		DateTimeFormatConfiguration: &DateTimeFormatConfigurationProperty{
@@ -255,6 +267,9 @@ type CfnTemplatePropsMixin_ColumnConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnconfiguration.html#cfn-quicksight-template-columnconfiguration-column
 	//
 	Column interface{} `field:"optional" json:"column" yaml:"column"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnconfiguration.html#cfn-quicksight-template-columnconfiguration-decalsettingsconfiguration
+	//
+	DecalSettingsConfiguration interface{} `field:"optional" json:"decalSettingsConfiguration" yaml:"decalSettingsConfiguration"`
 	// The format configuration of a column.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnconfiguration.html#cfn-quicksight-template-columnconfiguration-formatconfiguration
 	//

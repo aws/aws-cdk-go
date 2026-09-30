@@ -52,6 +52,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_AacSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.AbWatermarkingCustomProfileProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_AbWatermarkingCustomProfileProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.Ac3SettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_Ac3SettingsProperty)(nil)).Elem(),
 	)
@@ -240,12 +244,20 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_CmafIngestCaptionLanguageMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.CmafIngestFrameCaptureOutputSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_CmafIngestFrameCaptureOutputSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.CmafIngestGroupSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_CmafIngestGroupSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.CmafIngestOutputSettingsProperty",
-		reflect.TypeOf((*CfnChannelPropsMixin_CmafIngestOutputSettingsProperty)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.CmafIngestMediaPackageV2AbWatermarkerIrdetoSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_CmafIngestMediaPackageV2AbWatermarkerIrdetoSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.CmafIngestWatermarkingSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_CmafIngestWatermarkingSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.ColorCorrectionProperty",
@@ -298,6 +310,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.EbuTtDDestinationSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_EbuTtDDestinationSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.EmbeddedCaptionPositionSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_EmbeddedCaptionPositionSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.EmbeddedDestinationSettingsProperty",
@@ -500,10 +516,6 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_MaintenanceCreateSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaConnectRouterContainerSettingsProperty",
-		reflect.TypeOf((*CfnChannelPropsMixin_MediaConnectRouterContainerSettingsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaConnectRouterGroupSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_MediaConnectRouterGroupSettingsProperty)(nil)).Elem(),
 	)
@@ -518,10 +530,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaConnectRouterOutputSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_MediaConnectRouterOutputSettingsProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaPackageAdditionalDestinationsProperty",
-		reflect.TypeOf((*CfnChannelPropsMixin_MediaPackageAdditionalDestinationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaPackageGroupSettingsProperty",
@@ -542,6 +550,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaPackageV2GroupSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_MediaPackageV2GroupSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MediaPackageV2WatermarkingSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_MediaPackageV2WatermarkingSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.MotionGraphicsConfigurationProperty",
@@ -608,12 +620,12 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_NielsenConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.NielsenNaesIiNwProperty",
-		reflect.TypeOf((*CfnChannelPropsMixin_NielsenNaesIiNwProperty)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.NielsenNaesIiNwOnlySettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_NielsenNaesIiNwOnlySettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.NielsenNwOnlyProperty",
-		reflect.TypeOf((*CfnChannelPropsMixin_NielsenNwOnlyProperty)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.NielsenNaesIiNwProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_NielsenNaesIiNwProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.NielsenWatermarksSettingsProperty",
@@ -756,6 +768,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_TemporalFilterSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.TextCaptionPositionSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_TextCaptionPositionSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.ThumbnailConfigurationProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_ThumbnailConfigurationProperty)(nil)).Elem(),
 	)
@@ -780,6 +796,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_UdpGroupSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.UdpMediaConnectRouterContainerSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_UdpMediaConnectRouterContainerSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.UdpOutputSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_UdpOutputSettingsProperty)(nil)).Elem(),
 	)
@@ -794,6 +814,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.VideoDescriptionProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_VideoDescriptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.VideoPositionRectangleProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_VideoPositionRectangleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.VideoSelectorColorSpaceSettingsProperty",
