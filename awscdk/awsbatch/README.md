@@ -861,3 +861,73 @@ queue := batch.NewJobQueue(this, jsii.String("JobQueue"), &JobQueueProps{
 user := iam.NewUser(this, jsii.String("MyUser"))
 ecsJob.GrantSubmitJob(user, queue)
 ```
+
+### Managing Consumable Resources
+
+Consumable resources are finite resources that are consumed by jobs, such as third-party software licenses or API rate limits. AWS Batch tracks the usage of these resources and ensures that jobs only run when the required resources are available.
+
+There are two types of consumable resources:
+
+* **REPLENISHABLE**: Resources that can be re-used after a job completes (e.g., software licenses)
+* **NON_REPLENISHABLE**: Resources that cannot be re-used after a job completes (e.g., API rate limits)
+
+#### Creating Consumable Resources
+
+You can create consumable resources to track and manage finite resources in your Batch workflows:
+
+```go
+// Create a replenishable consumable resource (e.g., software licenses)
+licenseResource := batch.NewConsumableResource(this, jsii.String("LicenseResource"), &ConsumableResourceProps{
+	ConsumableResourceName: jsii.String("my-software-license"),
+	ResourceType: batch.ConsumableResourceType_REPLENISHABLE,
+	TotalQuantity: jsii.Number(100),
+})
+
+// Create a non-replenishable consumable resource (e.g., API rate limits)
+apiRateLimitResource := batch.NewConsumableResource(this, jsii.String("ApiRateLimitResource"), &ConsumableResourceProps{
+	ConsumableResourceName: jsii.String("api-rate-limit"),
+	ResourceType: batch.ConsumableResourceType_NON_REPLENISHABLE,
+	TotalQuantity: jsii.Number(1000),
+})
+```
+
+`resourceType` defaults to `REPLENISHABLE`, matching the AWS Batch API, and `totalQuantity` must be
+a non-negative integer. Both `consumableResourceName` and `resourceType` replace the resource when
+changed, so changing the type of a resource that has an explicit name also requires a new name.
+
+Tags can be passed directly to the resource:
+
+```go
+taggedResource := batch.NewConsumableResource(this, jsii.String("TaggedResource"), &ConsumableResourceProps{
+	TotalQuantity: jsii.Number(100),
+	Tags: map[string]*string{
+		"Team": jsii.String("batch"),
+	},
+})
+```
+
+#### Granting Access to Consumable Resources
+
+Use the `grants` property to give an identity permission to inspect or update a consumable resource:
+
+```go
+licenseResource := batch.NewConsumableResource(this, jsii.String("LicenseResource"), &ConsumableResourceProps{
+	TotalQuantity: jsii.Number(100),
+})
+
+user := iam.NewUser(this, jsii.String("MyUser"))
+
+// Describe the resource and list the jobs that use it
+licenseResource.grants.Read(user)
+
+// Change the total quantity, e.g. to replenish a NON_REPLENISHABLE pool
+licenseResource.grants.Update(user)
+```
+
+#### Importing Existing Consumable Resources
+
+You can import existing consumable resources by their ARN:
+
+```go
+importedResource := batch.ConsumableResource_FromConsumableResourceArn(this, jsii.String("ImportedResource"), jsii.String("arn:aws:batch:us-east-1:123456789012:consumable-resource/my-resource"))
+```

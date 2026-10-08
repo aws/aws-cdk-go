@@ -19,6 +19,9 @@ import (
 //   	},
 //   	DataSourceConfig: &DataSourceConfigProperty{
 //   		CloudWatchLogs: &CloudWatchLogsInputConfigProperty{
+//   			LogGroupNamePrefixes: []*string{
+//   				jsii.String("logGroupNamePrefixes"),
+//   			},
 //   			LogGroupNames: []*string{
 //   				jsii.String("logGroupNames"),
 //   			},
@@ -41,6 +44,13 @@ import (
 //   		},
 //   	},
 //   	OnlineEvaluationConfigName: jsii.String("onlineEvaluationConfigName"),
+//   	OutputConfig: &OutputConfigProperty{
+//   		CloudWatchConfig: &CloudWatchOutputConfigProperty{
+//   			LogGroupName: jsii.String("logGroupName"),
+//   			MetricsNamespace: jsii.String("metricsNamespace"),
+//   			ResultDestination: jsii.String("resultDestination"),
+//   		},
+//   	},
 //   	Rule: &RuleProperty{
 //   		Filters: []interface{}{
 //   			&FilterProperty{
@@ -104,6 +114,10 @@ type CfnOnlineEvaluationConfigMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-onlineevaluationconfigname
 	//
 	OnlineEvaluationConfigName *string `field:"optional" json:"onlineEvaluationConfigName" yaml:"onlineEvaluationConfigName"`
+	// The configuration that specifies where evaluation results should be written.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-outputconfig
+	//
+	OutputConfig interface{} `field:"optional" json:"outputConfig" yaml:"outputConfig"`
 	// The evaluation rule that defines sampling configuration, filtering criteria, and session detection settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-rule
 	//

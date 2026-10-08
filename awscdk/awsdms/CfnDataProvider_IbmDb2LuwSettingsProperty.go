@@ -16,6 +16,8 @@ package awsdms
 //
 //   	// the properties below are optional
 //   	CertificateArn: jsii.String("certificateArn"),
+//   	EncryptionAlgorithm: jsii.Number(123),
+//   	SecurityMechanism: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html
@@ -36,5 +38,11 @@ type CfnDataProvider_IbmDb2LuwSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html#cfn-dms-dataprovider-ibmdb2luwsettings-certificatearn
 	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html#cfn-dms-dataprovider-ibmdb2luwsettings-encryptionalgorithm
+	//
+	EncryptionAlgorithm *float64 `field:"optional" json:"encryptionAlgorithm" yaml:"encryptionAlgorithm"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html#cfn-dms-dataprovider-ibmdb2luwsettings-securitymechanism
+	//
+	SecurityMechanism *float64 `field:"optional" json:"securityMechanism" yaml:"securityMechanism"`
 }
 

@@ -104,14 +104,6 @@ func validateCfnEnvironmentEC2_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnEnvironmentEC2) validateSetImageIdParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnEnvironmentEC2) validateSetInstanceTypeParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnEnvironmentEC2) validateSetRepositoriesParameters(val interface{}) error {
 	return nil
 }

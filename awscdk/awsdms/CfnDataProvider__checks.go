@@ -287,6 +287,23 @@ func (j *jsiiProxy_CfnDataProvider) validateSetTagsParameters(val *[]*awscdk.Cfn
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataProvider) validateSetVirtualParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnDataProviderParameters(scope constructs.Construct, id *string, props *CfnDataProviderProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

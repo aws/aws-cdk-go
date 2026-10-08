@@ -16,6 +16,8 @@ package awsdms
 //
 //   	// the properties below are optional
 //   	CertificateArn: jsii.String("certificateArn"),
+//   	S3AccessRoleArn: jsii.String("s3AccessRoleArn"),
+//   	S3Path: jsii.String("s3Path"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html
@@ -41,5 +43,13 @@ type CfnDataProvider_MicrosoftSqlServerSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html#cfn-dms-dataprovider-microsoftsqlserversettings-certificatearn
 	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
+	// The ARN for the role the application uses to access its Amazon S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html#cfn-dms-dataprovider-microsoftsqlserversettings-s3accessrolearn
+	//
+	S3AccessRoleArn *string `field:"optional" json:"s3AccessRoleArn" yaml:"s3AccessRoleArn"`
+	// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-microsoftsqlserversettings.html#cfn-dms-dataprovider-microsoftsqlserversettings-s3path
+	//
+	S3Path *string `field:"optional" json:"s3Path" yaml:"s3Path"`
 }
 

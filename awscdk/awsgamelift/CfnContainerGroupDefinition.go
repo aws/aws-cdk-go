@@ -28,7 +28,6 @@ import (
 //   	Name: jsii.String("name"),
 //   	OperatingSystem: jsii.String("operatingSystem"),
 //   	TotalMemoryLimitMebibytes: jsii.Number(123),
-//   	TotalVcpuLimit: jsii.Number(123),
 //
 //   	// the properties below are optional
 //   	ContainerGroupType: jsii.String("containerGroupType"),
@@ -140,6 +139,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TotalVcpuLimit: jsii.Number(123),
 //   	VersionDescription: jsii.String("versionDescription"),
 //   })
 //
@@ -827,9 +827,6 @@ func (j *jsiiProxy_CfnContainerGroupDefinition)SetTotalMemoryLimitMebibytes(val 
 }
 
 func (j *jsiiProxy_CfnContainerGroupDefinition)SetTotalVcpuLimit(val *float64) {
-	if err := j.validateSetTotalVcpuLimitParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"totalVcpuLimit",

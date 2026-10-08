@@ -332,6 +332,54 @@ func init() {
 		reflect.TypeOf((*CfnAssistantPropsMixin_ServerSideEncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnContentAssociationMixinProps",
+		reflect.TypeOf((*CfnContentAssociationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnContentAssociationPropsMixin",
+		reflect.TypeOf((*CfnContentAssociationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnContentAssociationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnContentAssociationPropsMixin.AmazonConnectGuideAssociationDataProperty",
+		reflect.TypeOf((*CfnContentAssociationPropsMixin_AmazonConnectGuideAssociationDataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnContentAssociationPropsMixin.ContentAssociationContentsProperty",
+		reflect.TypeOf((*CfnContentAssociationPropsMixin_ContentAssociationContentsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnContentMixinProps",
+		reflect.TypeOf((*CfnContentMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnContentPropsMixin",
+		reflect.TypeOf((*CfnContentPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnContentPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnKnowledgeBaseMixinProps",
 		reflect.TypeOf((*CfnKnowledgeBaseMixinProps)(nil)).Elem(),
 	)

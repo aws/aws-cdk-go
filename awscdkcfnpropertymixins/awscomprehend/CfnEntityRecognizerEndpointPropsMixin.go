@@ -1,0 +1,166 @@
+package awscomprehend
+
+import (
+	_init_ "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
+
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2"
+	"github.com/aws/aws-cdk-go/awscdkcfnpropertymixins/v2/awscomprehend/internal"
+	"github.com/aws/constructs-go/constructs/v10"
+)
+
+// An Amazon Comprehend endpoint that hosts a custom entity recognizer model for real-time inference.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var mergeStrategy IMergeStrategy
+//
+//   cfnEntityRecognizerEndpointPropsMixin := awscdkcfnpropertymixins.Aws_comprehend.NewCfnEntityRecognizerEndpointPropsMixin(&CfnEntityRecognizerEndpointMixinProps{
+//   	DataAccessRoleArn: jsii.String("dataAccessRoleArn"),
+//   	DesiredInferenceUnits: jsii.Number(123),
+//   	EndpointName: jsii.String("endpointName"),
+//   	FlywheelArn: jsii.String("flywheelArn"),
+//   	ModelArn: jsii.String("modelArn"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
+//   }, &CfnPropertyMixinOptions{
+//   	Strategy: mergeStrategy,
+//   })
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-entityrecognizerendpoint.html
+//
+type CfnEntityRecognizerEndpointPropsMixin interface {
+	awscdk.Mixin
+	constructs.IMixin
+	Props() *CfnEntityRecognizerEndpointMixinProps
+	Strategy() awscdk.IMergeStrategy
+	// Apply the mixin properties to the construct.
+	ApplyTo(construct constructs.IConstruct)
+	// Check if this mixin supports the given construct.
+	Supports(construct constructs.IConstruct) *bool
+}
+
+// The jsii proxy struct for CfnEntityRecognizerEndpointPropsMixin
+type jsiiProxy_CfnEntityRecognizerEndpointPropsMixin struct {
+	internal.Type__awscdkMixin
+	internal.Type__constructsIMixin
+}
+
+func (j *jsiiProxy_CfnEntityRecognizerEndpointPropsMixin) Props() *CfnEntityRecognizerEndpointMixinProps {
+	var returns *CfnEntityRecognizerEndpointMixinProps
+	_jsii_.Get(
+		j,
+		"props",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEntityRecognizerEndpointPropsMixin) Strategy() awscdk.IMergeStrategy {
+	var returns awscdk.IMergeStrategy
+	_jsii_.Get(
+		j,
+		"strategy",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a mixin to apply properties to `AWS::Comprehend::EntityRecognizerEndpoint`.
+func NewCfnEntityRecognizerEndpointPropsMixin(props *CfnEntityRecognizerEndpointMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) CfnEntityRecognizerEndpointPropsMixin {
+	_init_.Initialize()
+
+	if err := validateNewCfnEntityRecognizerEndpointPropsMixinParameters(props, options); err != nil {
+		panic(err)
+	}
+	j := jsiiProxy_CfnEntityRecognizerEndpointPropsMixin{}
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_comprehend.CfnEntityRecognizerEndpointPropsMixin",
+		[]interface{}{props, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a mixin to apply properties to `AWS::Comprehend::EntityRecognizerEndpoint`.
+func NewCfnEntityRecognizerEndpointPropsMixin_Override(c CfnEntityRecognizerEndpointPropsMixin, props *CfnEntityRecognizerEndpointMixinProps, options *awscdkcfnpropertymixins.CfnPropertyMixinOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/cfn-property-mixins.aws_comprehend.CfnEntityRecognizerEndpointPropsMixin",
+		[]interface{}{props, options},
+		c,
+	)
+}
+
+// Checks if `x` is a Mixin.
+//
+// Returns: true if `x` is an object created from a class which extends `Mixin`.
+func CfnEntityRecognizerEndpointPropsMixin_IsMixin(x interface{}) *bool {
+	_init_.Initialize()
+
+	if err := validateCfnEntityRecognizerEndpointPropsMixin_IsMixinParameters(x); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"@aws-cdk/cfn-property-mixins.aws_comprehend.CfnEntityRecognizerEndpointPropsMixin",
+		"isMixin",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnEntityRecognizerEndpointPropsMixin_CFN_PROPERTY_KEYS() *[]*string {
+	_init_.Initialize()
+	var returns *[]*string
+	_jsii_.StaticGet(
+		"@aws-cdk/cfn-property-mixins.aws_comprehend.CfnEntityRecognizerEndpointPropsMixin",
+		"CFN_PROPERTY_KEYS",
+		&returns,
+	)
+	return returns
+}
+
+func (c *jsiiProxy_CfnEntityRecognizerEndpointPropsMixin) ApplyTo(construct constructs.IConstruct) {
+	if err := c.validateApplyToParameters(construct); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		c,
+		"applyTo",
+		[]interface{}{construct},
+	)
+}
+
+func (c *jsiiProxy_CfnEntityRecognizerEndpointPropsMixin) Supports(construct constructs.IConstruct) *bool {
+	if err := c.validateSupportsParameters(construct); err != nil {
+		panic(err)
+	}
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"supports",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+

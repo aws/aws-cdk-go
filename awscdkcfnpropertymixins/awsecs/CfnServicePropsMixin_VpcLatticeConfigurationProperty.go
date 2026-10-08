@@ -9,6 +9,11 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   vpcLatticeConfigurationProperty := &VpcLatticeConfigurationProperty{
+//   	AdvancedConfiguration: &VpcLatticeAdvancedConfigurationProperty{
+//   		AlternateTargetGroupArn: jsii.String("alternateTargetGroupArn"),
+//   		ProductionListenerRule: jsii.String("productionListenerRule"),
+//   		TestListenerRule: jsii.String("testListenerRule"),
+//   	},
 //   	PortName: jsii.String("portName"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	TargetGroupArn: jsii.String("targetGroupArn"),
@@ -17,6 +22,9 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html
 //
 type CfnServicePropsMixin_VpcLatticeConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html#cfn-ecs-service-vpclatticeconfiguration-advancedconfiguration
+	//
+	AdvancedConfiguration interface{} `field:"optional" json:"advancedConfiguration" yaml:"advancedConfiguration"`
 	// The name of the port mapping to register in the VPC Lattice target group.
 	//
 	// This is the name of the `portMapping` you defined in your task definition.

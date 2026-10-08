@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetOnlineEvaluationConfigN
 	return nil
 }
 
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetOutputConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetRuleParameters(val interface{}) error {
 	return nil
 }

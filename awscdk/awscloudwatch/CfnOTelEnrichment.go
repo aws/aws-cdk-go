@@ -19,6 +19,26 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnOTelEnrichment := awscdk.Aws_cloudwatch.NewCfnOTelEnrichment(this, jsii.String("MyCfnOTelEnrichment"), &CfnOTelEnrichmentProps{
+//   	ExcludeFilters: []interface{}{
+//   		&OTelEnrichmentMetricSelectorProperty{
+//   			Namespace: jsii.String("namespace"),
+//
+//   			// the properties below are optional
+//   			MetricNames: []*string{
+//   				jsii.String("metricNames"),
+//   			},
+//   		},
+//   	},
+//   	IncludeFilters: []interface{}{
+//   		&OTelEnrichmentMetricSelectorProperty{
+//   			Namespace: jsii.String("namespace"),
+//
+//   			// the properties below are optional
+//   			MetricNames: []*string{
+//   				jsii.String("metricNames"),
+//   			},
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-otelenrichment.html
@@ -44,6 +64,12 @@ type CfnOTelEnrichment interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	Env() *interfaces.ResourceEnvironment
+	// Removes metrics from the include set.
+	ExcludeFilters() interface{}
+	SetExcludeFilters(val interface{})
+	// Scopes enrichment to a subset of the account's telemetry.
+	IncludeFilters() interface{}
+	SetIncludeFilters(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -330,6 +356,26 @@ func (j *jsiiProxy_CfnOTelEnrichment) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnOTelEnrichment) ExcludeFilters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"excludeFilters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnOTelEnrichment) IncludeFilters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"includeFilters",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOTelEnrichment) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -427,6 +473,28 @@ func NewCfnOTelEnrichment_Override(c CfnOTelEnrichment, scope constructs.Constru
 		"aws-cdk-lib.aws_cloudwatch.CfnOTelEnrichment",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnOTelEnrichment)SetExcludeFilters(val interface{}) {
+	if err := j.validateSetExcludeFiltersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"excludeFilters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOTelEnrichment)SetIncludeFilters(val interface{}) {
+	if err := j.validateSetIncludeFiltersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"includeFilters",
+		val,
 	)
 }
 

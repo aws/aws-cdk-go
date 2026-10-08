@@ -32,6 +32,7 @@ import (
 //   			Minimum: jsii.Number(123),
 //   		},
 //   	},
+//   	ConnectionType: jsii.String("connectionType"),
 //   	DailySnapshotTime: jsii.String("dailySnapshotTime"),
 //   	Description: jsii.String("description"),
 //   	Endpoint: &EndpointProperty{

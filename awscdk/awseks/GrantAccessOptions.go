@@ -21,7 +21,7 @@ type GrantAccessOptions struct {
 	// `AccessEntryType.HYBRID_LINUX` for EKS Hybrid Nodes, or
 	// `AccessEntryType.HYPERPOD_LINUX` for SageMaker HyperPod.
 	//
-	// Note that EC2, HYBRID_LINUX, and HYPERPOD_LINUX types cannot
+	// Note that HYBRID_LINUX and HYPERPOD_LINUX types cannot
 	// have access policies attached per AWS EKS API constraints.
 	// Default: AccessEntryType.STANDARD - Standard access entry type that supports access policies
 	//

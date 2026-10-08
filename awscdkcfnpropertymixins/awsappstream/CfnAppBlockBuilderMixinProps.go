@@ -22,6 +22,7 @@ import (
 //   		jsii.String("appBlockArns"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DisableImdsv1: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
 //   	EnableDefaultInternetAccess: jsii.Boolean(false),
 //   	IamRoleArn: jsii.String("iamRoleArn"),
@@ -61,6 +62,9 @@ type CfnAppBlockBuilderMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-disableimdsv1
+	//
+	DisableImdsv1 interface{} `field:"optional" json:"disableImdsv1" yaml:"disableImdsv1"`
 	// The display name of the app block builder.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html#cfn-appstream-appblockbuilder-displayname
 	//

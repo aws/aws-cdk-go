@@ -11,7 +11,9 @@ package awsdms
 //   ibmDb2LuwSettingsProperty := &IbmDb2LuwSettingsProperty{
 //   	CertificateArn: jsii.String("certificateArn"),
 //   	DatabaseName: jsii.String("databaseName"),
+//   	EncryptionAlgorithm: jsii.Number(123),
 //   	Port: jsii.Number(123),
+//   	SecurityMechanism: jsii.Number(123),
 //   	ServerName: jsii.String("serverName"),
 //   	SslMode: jsii.String("sslMode"),
 //   }
@@ -25,9 +27,15 @@ type CfnDataProviderPropsMixin_IbmDb2LuwSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html#cfn-dms-dataprovider-ibmdb2luwsettings-databasename
 	//
 	DatabaseName *string `field:"optional" json:"databaseName" yaml:"databaseName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html#cfn-dms-dataprovider-ibmdb2luwsettings-encryptionalgorithm
+	//
+	EncryptionAlgorithm *float64 `field:"optional" json:"encryptionAlgorithm" yaml:"encryptionAlgorithm"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html#cfn-dms-dataprovider-ibmdb2luwsettings-port
 	//
 	Port *float64 `field:"optional" json:"port" yaml:"port"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html#cfn-dms-dataprovider-ibmdb2luwsettings-securitymechanism
+	//
+	SecurityMechanism *float64 `field:"optional" json:"securityMechanism" yaml:"securityMechanism"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html#cfn-dms-dataprovider-ibmdb2luwsettings-servername
 	//
 	ServerName *string `field:"optional" json:"serverName" yaml:"serverName"`

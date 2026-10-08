@@ -28,6 +28,9 @@ import (
 //   	},
 //   	DataSourceConfig: &DataSourceConfigProperty{
 //   		CloudWatchLogs: &CloudWatchLogsInputConfigProperty{
+//   			LogGroupNamePrefixes: []*string{
+//   				jsii.String("logGroupNamePrefixes"),
+//   			},
 //   			LogGroupNames: []*string{
 //   				jsii.String("logGroupNames"),
 //   			},
@@ -50,6 +53,13 @@ import (
 //   		},
 //   	},
 //   	OnlineEvaluationConfigName: jsii.String("onlineEvaluationConfigName"),
+//   	OutputConfig: &OutputConfigProperty{
+//   		CloudWatchConfig: &CloudWatchOutputConfigProperty{
+//   			LogGroupName: jsii.String("logGroupName"),
+//   			MetricsNamespace: jsii.String("metricsNamespace"),
+//   			ResultDestination: jsii.String("resultDestination"),
+//   		},
+//   	},
 //   	Rule: &RuleProperty{
 //   		Filters: []interface{}{
 //   			&FilterProperty{

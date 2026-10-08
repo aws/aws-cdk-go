@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnPlan) validateSetReportConfigurationParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlan) validateSetServiceQuotaChecksEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlan) validateSetTriggersParameters(val interface{}) error {
 	return nil
 }

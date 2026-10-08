@@ -128,10 +128,6 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalMemoryLimitMebib
 	return nil
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalVcpuLimitParameters(val *float64) error {
-	return nil
-}
-
 func validateNewCfnContainerGroupDefinitionParameters(scope constructs.Construct, id *string, props *CfnContainerGroupDefinitionProps) error {
 	return nil
 }

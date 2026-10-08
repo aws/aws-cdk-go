@@ -1607,6 +1607,17 @@ func InterfaceVpcEndpointAwsService_EKS_AUTH() InterfaceVpcEndpointAwsService {
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_EKS_PROXY() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"EKS_PROXY",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_ELASTIC_BEANSTALK() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

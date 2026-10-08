@@ -12,6 +12,13 @@ package awsecs
 //   	PortName: jsii.String("portName"),
 //   	RoleArn: jsii.String("roleArn"),
 //   	TargetGroupArn: jsii.String("targetGroupArn"),
+//
+//   	// the properties below are optional
+//   	AdvancedConfiguration: &VpcLatticeAdvancedConfigurationProperty{
+//   		AlternateTargetGroupArn: jsii.String("alternateTargetGroupArn"),
+//   		ProductionListenerRule: jsii.String("productionListenerRule"),
+//   		TestListenerRule: jsii.String("testListenerRule"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html
@@ -33,5 +40,8 @@ type CfnService_VpcLatticeConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html#cfn-ecs-service-vpclatticeconfiguration-targetgrouparn
 	//
 	TargetGroupArn *string `field:"required" json:"targetGroupArn" yaml:"targetGroupArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html#cfn-ecs-service-vpclatticeconfiguration-advancedconfiguration
+	//
+	AdvancedConfiguration interface{} `field:"optional" json:"advancedConfiguration" yaml:"advancedConfiguration"`
 }
 

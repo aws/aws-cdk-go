@@ -28,7 +28,7 @@ package awslambda
 type CfnNetworkConnectorPropsMixin_VpcEgressConfigurationProperty struct {
 	// The types of Lambda compute resources that can use this connector.
 	//
-	// Currently, only MicroVm is supported.
+	// Supported values are MicroVm and WebFunction.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-associatedcomputeresourcetypes
 	//
 	AssociatedComputeResourceTypes *[]*string `field:"optional" json:"associatedComputeResourceTypes" yaml:"associatedComputeResourceTypes"`

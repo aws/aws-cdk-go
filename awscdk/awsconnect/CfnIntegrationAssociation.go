@@ -24,6 +24,9 @@ import (
 //   	IntegrationType: jsii.String("integrationType"),
 //
 //   	// the properties below are optional
+//   	SourceApplicationName: jsii.String("sourceApplicationName"),
+//   	SourceApplicationUrl: jsii.String("sourceApplicationUrl"),
+//   	SourceType: jsii.String("sourceType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -82,6 +85,15 @@ type CfnIntegrationAssociation interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The name of the external application.
+	SourceApplicationName() *string
+	SetSourceApplicationName(val *string)
+	// The URL for the external application.
+	SourceApplicationUrl() *string
+	SetSourceApplicationUrl(val *string)
+	// The type of the data source.
+	SourceType() *string
+	SetSourceType(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -423,6 +435,36 @@ func (j *jsiiProxy_CfnIntegrationAssociation) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnIntegrationAssociation) SourceApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceApplicationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIntegrationAssociation) SourceApplicationUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceApplicationUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnIntegrationAssociation) SourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnIntegrationAssociation) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -522,6 +564,30 @@ func (j *jsiiProxy_CfnIntegrationAssociation)SetIntegrationType(val *string) {
 	_jsii_.Set(
 		j,
 		"integrationType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIntegrationAssociation)SetSourceApplicationName(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceApplicationName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIntegrationAssociation)SetSourceApplicationUrl(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceApplicationUrl",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnIntegrationAssociation)SetSourceType(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceType",
 		val,
 	)
 }

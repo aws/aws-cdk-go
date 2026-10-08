@@ -75,7 +75,6 @@ type CfnConfigurationRecorder interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsconfig.IConfigurationRecorderRef
-	AttrId() *string
 	// Returns the Amazon Resource Name (ARN) for the Configuration Recorder.
 	AttrResourceArn() *string
 	// Options for this resource, such as condition, update policy etc.
@@ -312,16 +311,6 @@ type jsiiProxy_CfnConfigurationRecorder struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsconfigIConfigurationRecorderRef
-}
-
-func (j *jsiiProxy_CfnConfigurationRecorder) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnConfigurationRecorder) AttrResourceArn() *string {

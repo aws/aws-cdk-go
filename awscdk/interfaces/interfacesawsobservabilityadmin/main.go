@@ -7,6 +7,26 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.DatasetIntegrationReference",
+		reflect.TypeOf((*DatasetIntegrationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_observabilityadmin.IDatasetIntegrationRef",
+		reflect.TypeOf((*IDatasetIntegrationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "datasetIntegrationRef", GoGetter: "DatasetIntegrationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDatasetIntegrationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_observabilityadmin.IOrganizationCentralizationRuleRef",
 		reflect.TypeOf((*IOrganizationCentralizationRuleRef)(nil)).Elem(),

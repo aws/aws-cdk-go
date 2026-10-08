@@ -10,13 +10,13 @@ package interfacesawscloud9
 //
 //   environmentEC2Reference := &EnvironmentEC2Reference{
 //   	EnvironmentEc2Arn: jsii.String("environmentEc2Arn"),
-//   	EnvironmentEc2Id: jsii.String("environmentEc2Id"),
+//   	EnvironmentId: jsii.String("environmentId"),
 //   }
 //
 type EnvironmentEC2Reference struct {
 	// The ARN of the EnvironmentEC2 resource.
 	EnvironmentEc2Arn *string `field:"required" json:"environmentEc2Arn" yaml:"environmentEc2Arn"`
-	// The Id of the EnvironmentEC2 resource.
-	EnvironmentEc2Id *string `field:"required" json:"environmentEc2Id" yaml:"environmentEc2Id"`
+	// The EnvironmentId of the EnvironmentEC2 resource.
+	EnvironmentId *string `field:"required" json:"environmentId" yaml:"environmentId"`
 }
 

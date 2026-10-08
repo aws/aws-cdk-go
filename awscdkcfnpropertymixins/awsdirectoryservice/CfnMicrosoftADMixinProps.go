@@ -39,11 +39,15 @@ type CfnMicrosoftADMixinProps struct {
 	// `Enterprise` is the default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-edition
 	//
+	// Default: - "Enterprise".
+	//
 	Edition *string `field:"optional" json:"edition" yaml:"edition"`
 	// Whether to enable single sign-on for a Microsoft Active Directory in AWS .
 	//
 	// Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately. If you don't specify a value, CloudFormation disables single sign-on by default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-enablesso
+	//
+	// Default: - false.
 	//
 	EnableSso interface{} `field:"optional" json:"enableSso" yaml:"enableSso"`
 	// The fully qualified domain name for the AWS Managed Microsoft AD directory, such as `corp.example.com` . This name will resolve inside your VPC only. It does not need to be publicly resolvable.

@@ -10,7 +10,6 @@ package awsdirectoryservice
 //
 //   cfnMicrosoftADProps := &CfnMicrosoftADProps{
 //   	Name: jsii.String("name"),
-//   	Password: jsii.String("password"),
 //   	VpcSettings: &VpcSettingsProperty{
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
@@ -22,6 +21,7 @@ package awsdirectoryservice
 //   	CreateAlias: jsii.Boolean(false),
 //   	Edition: jsii.String("edition"),
 //   	EnableSso: jsii.Boolean(false),
+//   	Password: jsii.String("password"),
 //   	ShortName: jsii.String("shortName"),
 //   }
 //
@@ -32,12 +32,6 @@ type CfnMicrosoftADProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The password for the default administrative user named `Admin` .
-	//
-	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *Directory Service API Reference* .
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-password
-	//
-	Password *string `field:"required" json:"password" yaml:"password"`
 	// Specifies the VPC settings of the Microsoft AD directory server in AWS .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-vpcsettings
 	//
@@ -55,13 +49,23 @@ type CfnMicrosoftADProps struct {
 	// `Enterprise` is the default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-edition
 	//
+	// Default: - "Enterprise".
+	//
 	Edition *string `field:"optional" json:"edition" yaml:"edition"`
 	// Whether to enable single sign-on for a Microsoft Active Directory in AWS .
 	//
 	// Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately. If you don't specify a value, CloudFormation disables single sign-on by default.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-enablesso
 	//
+	// Default: - false.
+	//
 	EnableSso interface{} `field:"optional" json:"enableSso" yaml:"enableSso"`
+	// The password for the default administrative user named `Admin` .
+	//
+	// If you need to change the password for the administrator account, see the [ResetUserPassword](https://docs.aws.amazon.com/directoryservice/latest/devguide/API_ResetUserPassword.html) API call in the *Directory Service API Reference* .
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-password
+	//
+	Password *string `field:"optional" json:"password" yaml:"password"`
 	// The NetBIOS name for your domain, such as `CORP` .
 	//
 	// If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, `CORP` for the directory DNS `corp.example.com` .

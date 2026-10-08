@@ -38,6 +38,7 @@ package awsarcregionswitch
 //   			},
 //   		},
 //   	},
+//   	ServiceQuotaChecksEnabled: jsii.Boolean(false),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -138,6 +139,7 @@ package awsarcregionswitch
 //   							Ungraceful: &Ec2UngracefulProperty{
 //   								MinimumSuccessPercentage: jsii.Number(123),
 //   							},
+//   							WaitElbTargetGroupHealthy: jsii.String("waitElbTargetGroupHealthy"),
 //   						},
 //   						EcsCapacityIncreaseConfig: &EcsCapacityIncreaseConfigurationProperty{
 //   							CapacityMonitoringApproach: jsii.String("capacityMonitoringApproach"),
@@ -154,6 +156,7 @@ package awsarcregionswitch
 //   							Ungraceful: &EcsUngracefulProperty{
 //   								MinimumSuccessPercentage: jsii.Number(123),
 //   							},
+//   							WaitElbTargetGroupHealthy: jsii.String("waitElbTargetGroupHealthy"),
 //   						},
 //   						EksResourceScalingConfig: &EksResourceScalingConfigurationProperty{
 //   							CapacityMonitoringApproach: jsii.String("capacityMonitoringApproach"),
@@ -330,6 +333,9 @@ type CfnPlanMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arcregionswitch-plan.html#cfn-arcregionswitch-plan-reportconfiguration
 	//
 	ReportConfiguration interface{} `field:"optional" json:"reportConfiguration" yaml:"reportConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arcregionswitch-plan.html#cfn-arcregionswitch-plan-servicequotachecksenabled
+	//
+	ServiceQuotaChecksEnabled interface{} `field:"optional" json:"serviceQuotaChecksEnabled" yaml:"serviceQuotaChecksEnabled"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arcregionswitch-plan.html#cfn-arcregionswitch-plan-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`

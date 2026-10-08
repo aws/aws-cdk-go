@@ -15,14 +15,12 @@ package awslambda
 //   		AssociatedComputeResourceTypes: []*string{
 //   			jsii.String("associatedComputeResourceTypes"),
 //   		},
-//   		SubnetIds: []*string{
-//   			jsii.String("subnetIds"),
-//   		},
-//
-//   		// the properties below are optional
 //   		NetworkProtocol: jsii.String("networkProtocol"),
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),
+//   		},
+//   		SubnetIds: []*string{
+//   			jsii.String("subnetIds"),
 //   		},
 //   	},
 //   }

@@ -594,6 +594,7 @@ The domain can be configured to use service software updates.
 domain := awscdk.NewDomain(this, jsii.String("Domain"), &DomainProps{
 	Version: awscdk.EngineVersion_OPENSEARCH_1_3(),
 	EnableAutoSoftwareUpdate: jsii.Boolean(true),
+	UseLatestServiceSoftwareForBlueGreen: jsii.Boolean(true),
 })
 ```
 

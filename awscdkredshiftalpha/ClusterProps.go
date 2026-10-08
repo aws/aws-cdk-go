@@ -103,11 +103,11 @@ type ClusterProps struct {
 	//
 	// Experimental.
 	EnhancedVpcRouting *bool `field:"optional" json:"enhancedVpcRouting" yaml:"enhancedVpcRouting"`
-	// Bucket details for log files to be sent to, including prefix.
-	// Default: - No logging bucket is used.
+	// Logging configuration for the cluster.
+	// Default: - no logging.
 	//
 	// Experimental.
-	LoggingProperties *LoggingProperties `field:"optional" json:"loggingProperties" yaml:"loggingProperties"`
+	Logging ClusterLogging `field:"optional" json:"logging" yaml:"logging"`
 	// The maintenance track name for the cluster.
 	// See: https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-considerations.html#rs-mgmt-maintenance-tracks
 	//

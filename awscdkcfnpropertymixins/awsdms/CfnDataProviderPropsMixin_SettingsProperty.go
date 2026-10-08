@@ -19,7 +19,9 @@ package awsdms
 //   	IbmDb2LuwSettings: &IbmDb2LuwSettingsProperty{
 //   		CertificateArn: jsii.String("certificateArn"),
 //   		DatabaseName: jsii.String("databaseName"),
+//   		EncryptionAlgorithm: jsii.Number(123),
 //   		Port: jsii.Number(123),
+//   		SecurityMechanism: jsii.Number(123),
 //   		ServerName: jsii.String("serverName"),
 //   		SslMode: jsii.String("sslMode"),
 //   	},
@@ -40,6 +42,8 @@ package awsdms
 //   		CertificateArn: jsii.String("certificateArn"),
 //   		DatabaseName: jsii.String("databaseName"),
 //   		Port: jsii.Number(123),
+//   		S3AccessRoleArn: jsii.String("s3AccessRoleArn"),
+//   		S3Path: jsii.String("s3Path"),
 //   		ServerName: jsii.String("serverName"),
 //   		SslMode: jsii.String("sslMode"),
 //   	},

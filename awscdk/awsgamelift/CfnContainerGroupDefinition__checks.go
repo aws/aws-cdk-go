@@ -346,14 +346,6 @@ func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalMemoryLimitMebib
 	return nil
 }
 
-func (j *jsiiProxy_CfnContainerGroupDefinition) validateSetTotalVcpuLimitParameters(val *float64) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-
-	return nil
-}
-
 func validateNewCfnContainerGroupDefinitionParameters(scope constructs.Construct, id *string, props *CfnContainerGroupDefinitionProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

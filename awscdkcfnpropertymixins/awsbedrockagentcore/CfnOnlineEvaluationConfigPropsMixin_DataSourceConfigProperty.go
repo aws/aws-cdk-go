@@ -10,6 +10,9 @@ package awsbedrockagentcore
 //
 //   dataSourceConfigProperty := &DataSourceConfigProperty{
 //   	CloudWatchLogs: &CloudWatchLogsInputConfigProperty{
+//   		LogGroupNamePrefixes: []*string{
+//   			jsii.String("logGroupNamePrefixes"),
+//   		},
 //   		LogGroupNames: []*string{
 //   			jsii.String("logGroupNames"),
 //   		},

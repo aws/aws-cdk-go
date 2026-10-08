@@ -1761,6 +1761,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "harnessName", GoGetter: "HarnessName"},
 			_jsii_.MemberProperty{JsiiProperty: "harnessRef", GoGetter: "HarnessRef"},
+			_jsii_.MemberProperty{JsiiProperty: "hooks", GoGetter: "Hooks"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maxIterations", GoGetter: "MaxIterations"},
@@ -1831,6 +1832,14 @@ func init() {
 		reflect.TypeOf((*CfnHarness_FilesystemConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessAfterInvocationHookProperty",
+		reflect.TypeOf((*CfnHarness_HarnessAfterInvocationHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessAfterToolCallHookProperty",
+		reflect.TypeOf((*CfnHarness_HarnessAfterToolCallHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessAgentCoreBrowserConfigProperty",
 		reflect.TypeOf((*CfnHarness_HarnessAgentCoreBrowserConfigProperty)(nil)).Elem(),
 	)
@@ -1859,6 +1868,14 @@ func init() {
 		reflect.TypeOf((*CfnHarness_HarnessBedrockModelConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessBeforeInvocationHookProperty",
+		reflect.TypeOf((*CfnHarness_HarnessBeforeInvocationHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessBeforeToolCallHookProperty",
+		reflect.TypeOf((*CfnHarness_HarnessBeforeToolCallHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessEnvironmentArtifactProperty",
 		reflect.TypeOf((*CfnHarness_HarnessEnvironmentArtifactProperty)(nil)).Elem(),
 	)
@@ -1873,6 +1890,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessGeminiModelConfigProperty",
 		reflect.TypeOf((*CfnHarness_HarnessGeminiModelConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessHookEventBridgeTargetProperty",
+		reflect.TypeOf((*CfnHarness_HarnessHookEventBridgeTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessHookLambdaTargetProperty",
+		reflect.TypeOf((*CfnHarness_HarnessHookLambdaTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessHookProperty",
+		reflect.TypeOf((*CfnHarness_HarnessHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessHookSnsTargetProperty",
+		reflect.TypeOf((*CfnHarness_HarnessHookSnsTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessHookTargetProperty",
+		reflect.TypeOf((*CfnHarness_HarnessHookTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessInlineFunctionConfigProperty",
@@ -2479,7 +2516,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOnlineEvaluationConfigArn", GoGetter: "AttrOnlineEvaluationConfigArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOnlineEvaluationConfigId", GoGetter: "AttrOnlineEvaluationConfigId"},
-			_jsii_.MemberProperty{JsiiProperty: "attrOutputConfig", GoGetter: "AttrOutputConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
@@ -2505,6 +2541,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigName", GoGetter: "OnlineEvaluationConfigName"},
 			_jsii_.MemberProperty{JsiiProperty: "onlineEvaluationConfigRef", GoGetter: "OnlineEvaluationConfigRef"},
+			_jsii_.MemberProperty{JsiiProperty: "outputConfig", GoGetter: "OutputConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -5223,6 +5260,17 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.OverrideConfig",
 		reflect.TypeOf((*OverrideConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrockagentcore.PlatformVersion",
+		reflect.TypeOf((*PlatformVersion)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
+		},
+		func() interface{} {
+			return &jsiiProxy_PlatformVersion{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrockagentcore.Policy",

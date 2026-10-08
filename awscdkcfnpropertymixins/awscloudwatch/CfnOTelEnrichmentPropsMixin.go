@@ -21,6 +21,22 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnOTelEnrichmentPropsMixin := awscdkcfnpropertymixins.Aws_cloudwatch.NewCfnOTelEnrichmentPropsMixin(&CfnOTelEnrichmentMixinProps{
+//   	ExcludeFilters: []interface{}{
+//   		&OTelEnrichmentMetricSelectorProperty{
+//   			MetricNames: []*string{
+//   				jsii.String("metricNames"),
+//   			},
+//   			Namespace: jsii.String("namespace"),
+//   		},
+//   	},
+//   	IncludeFilters: []interface{}{
+//   		&OTelEnrichmentMetricSelectorProperty{
+//   			MetricNames: []*string{
+//   				jsii.String("metricNames"),
+//   			},
+//   			Namespace: jsii.String("namespace"),
+//   		},
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

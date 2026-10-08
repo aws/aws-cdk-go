@@ -21,6 +21,21 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnFunctionPropsMixin := awscdkcfnpropertymixins.Aws_mediatailor.NewCfnFunctionPropsMixin(&CfnFunctionMixinProps{
+//   	AwsServiceRequestConfiguration: &AwsServiceRequestConfigurationProperty{
+//   		Body: jsii.String("body"),
+//   		Headers: map[string]*string{
+//   			"headersKey": jsii.String("headers"),
+//   		},
+//   		MethodType: jsii.String("methodType"),
+//   		Output: map[string]*string{
+//   			"outputKey": jsii.String("output"),
+//   		},
+//   		RequestTimeoutMilliseconds: jsii.Number(123),
+//   		Runtime: jsii.String("runtime"),
+//   		TargetRegion: jsii.String("targetRegion"),
+//   		TargetService: jsii.String("targetService"),
+//   		Url: jsii.String("url"),
+//   	},
 //   	ConcurrentExecutorConfiguration: &ConcurrentExecutorConfigurationProperty{
 //   		FunctionList: []interface{}{
 //   			&FunctionRefProperty{
@@ -77,6 +92,19 @@ import (
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),
 //   		},
+//   	},
+//   	VastRequestConfiguration: &VastRequestConfigurationProperty{
+//   		Body: jsii.String("body"),
+//   		Headers: map[string]*string{
+//   			"headersKey": jsii.String("headers"),
+//   		},
+//   		MethodType: jsii.String("methodType"),
+//   		Output: map[string]*string{
+//   			"outputKey": jsii.String("output"),
+//   		},
+//   		RequestTimeoutMilliseconds: jsii.Number(123),
+//   		Runtime: jsii.String("runtime"),
+//   		Url: jsii.String("url"),
 //   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

@@ -108,6 +108,7 @@ package awsarcregionswitch
 //   					Ungraceful: &Ec2UngracefulProperty{
 //   						MinimumSuccessPercentage: jsii.Number(123),
 //   					},
+//   					WaitElbTargetGroupHealthy: jsii.String("waitElbTargetGroupHealthy"),
 //   				},
 //   				EcsCapacityIncreaseConfig: &EcsCapacityIncreaseConfigurationProperty{
 //   					Services: []interface{}{
@@ -126,6 +127,7 @@ package awsarcregionswitch
 //   					Ungraceful: &EcsUngracefulProperty{
 //   						MinimumSuccessPercentage: jsii.Number(123),
 //   					},
+//   					WaitElbTargetGroupHealthy: jsii.String("waitElbTargetGroupHealthy"),
 //   				},
 //   				EksResourceScalingConfig: &EksResourceScalingConfigurationProperty{
 //   					KubernetesResourceType: &KubernetesResourceTypeProperty{

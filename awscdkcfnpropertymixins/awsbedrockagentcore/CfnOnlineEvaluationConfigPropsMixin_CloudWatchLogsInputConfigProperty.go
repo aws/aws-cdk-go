@@ -9,6 +9,9 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cloudWatchLogsInputConfigProperty := &CloudWatchLogsInputConfigProperty{
+//   	LogGroupNamePrefixes: []*string{
+//   		jsii.String("logGroupNamePrefixes"),
+//   	},
 //   	LogGroupNames: []*string{
 //   		jsii.String("logGroupNames"),
 //   	},
@@ -20,6 +23,12 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-cloudwatchlogsinputconfig.html
 //
 type CfnOnlineEvaluationConfigPropsMixin_CloudWatchLogsInputConfigProperty struct {
+	// The list of CloudWatch log group name prefixes to monitor for agent traces.
+	//
+	// Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-cloudwatchlogsinputconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-cloudwatchlogsinputconfig-loggroupnameprefixes
+	//
+	LogGroupNamePrefixes *[]*string `field:"optional" json:"logGroupNamePrefixes" yaml:"logGroupNamePrefixes"`
 	// The list of CloudWatch log group names to monitor for agent traces.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-cloudwatchlogsinputconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-cloudwatchlogsinputconfig-loggroupnames
 	//

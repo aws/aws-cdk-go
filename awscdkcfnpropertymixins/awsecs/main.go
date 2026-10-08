@@ -560,6 +560,10 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_TimeoutConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.VpcLatticeAdvancedConfigurationProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_VpcLatticeAdvancedConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.VpcLatticeConfigurationProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_VpcLatticeConfigurationProperty)(nil)).Elem(),
 	)

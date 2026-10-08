@@ -33,6 +33,9 @@ type CfnFleet interface {
 	awscdk.IInspectable
 	interfacesawsappstream.IFleetRef
 	awscdk.ITaggable
+	AttrArn() *string
+	AttributesToDelete() *[]*string
+	SetAttributesToDelete(val *[]*string)
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -324,6 +327,26 @@ type jsiiProxy_CfnFleet struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsappstreamIFleetRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnFleet) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFleet) AttributesToDelete() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attributesToDelete",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnFleet) AttrId() *string {
@@ -746,6 +769,14 @@ func NewCfnFleet_Override(c CfnFleet, scope constructs.Construct, id *string, pr
 	)
 }
 
+func (j *jsiiProxy_CfnFleet)SetAttributesToDelete(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"attributesToDelete",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFleet)SetComputeCapacity(val interface{}) {
 	if err := j.validateSetComputeCapacityParameters(val); err != nil {
 		panic(err)
@@ -966,6 +997,62 @@ func (j *jsiiProxy_CfnFleet)SetVpcConfig(val interface{}) {
 		"vpcConfig",
 		val,
 	)
+}
+
+func CfnFleet_ArnForFleet(resource interfacesawsappstream.IFleetRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnFleet_ArnForFleetParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnFleet",
+		"arnForFleet",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IFleetRef from an ARN.
+func CfnFleet_FromFleetArn(scope constructs.Construct, id *string, arn *string) interfacesawsappstream.IFleetRef {
+	_init_.Initialize()
+
+	if err := validateCfnFleet_FromFleetArnParameters(scope, id, arn); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsappstream.IFleetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnFleet",
+		"fromFleetArn",
+		[]interface{}{scope, id, arn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IFleetRef from a fleetName.
+func CfnFleet_FromFleetName(scope constructs.Construct, id *string, fleetName *string) interfacesawsappstream.IFleetRef {
+	_init_.Initialize()
+
+	if err := validateCfnFleet_FromFleetNameParameters(scope, id, fleetName); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsappstream.IFleetRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_appstream.CfnFleet",
+		"fromFleetName",
+		[]interface{}{scope, id, fleetName},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

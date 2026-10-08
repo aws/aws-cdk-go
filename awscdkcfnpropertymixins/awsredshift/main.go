@@ -232,6 +232,58 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationMixinProps",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationPropsMixin",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnRedshiftIdcApplicationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationPropsMixin.AuthorizedTokenIssuerProperty",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationPropsMixin_AuthorizedTokenIssuerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationPropsMixin.ConnectProperty",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationPropsMixin_ConnectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationPropsMixin.LakeFormationQueryProperty",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationPropsMixin_LakeFormationQueryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationPropsMixin.LakeFormationScopeUnionProperty",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationPropsMixin_LakeFormationScopeUnionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationPropsMixin.ReadWriteAccessProperty",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationPropsMixin_ReadWriteAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationPropsMixin.RedshiftScopeUnionProperty",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationPropsMixin_RedshiftScopeUnionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationPropsMixin.S3AccessGrantsScopeUnionProperty",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationPropsMixin_S3AccessGrantsScopeUnionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnRedshiftIdcApplicationPropsMixin.ServiceIntegrationsUnionProperty",
+		reflect.TypeOf((*CfnRedshiftIdcApplicationPropsMixin_ServiceIntegrationsUnionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_redshift.CfnScheduledActionMixinProps",
 		reflect.TypeOf((*CfnScheduledActionMixinProps)(nil)).Elem(),
 	)

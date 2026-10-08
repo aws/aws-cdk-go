@@ -74,6 +74,8 @@ type TargetTrackingScalingPolicyProps struct {
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
 	// the target value, scaling in will happen in the metric is lower than the target value.
 	//
+	// The metric must be in the same account and region as the scaling policy.
+	//
 	// Exactly one of customMetric or predefinedMetric must be specified.
 	// Default: - No custom metric.
 	//

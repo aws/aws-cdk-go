@@ -248,6 +248,30 @@ func init() {
 		reflect.TypeOf((*CfnServerlessCacheSnapshotPropsMixin_ServerlessCacheConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnSnapshotMixinProps",
+		reflect.TypeOf((*CfnSnapshotMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnSnapshotPropsMixin",
+		reflect.TypeOf((*CfnSnapshotPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSnapshotPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnSnapshotPropsMixin.NodeSnapshotProperty",
+		reflect.TypeOf((*CfnSnapshotPropsMixin_NodeSnapshotProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_elasticache.CfnSubnetGroupMixinProps",
 		reflect.TypeOf((*CfnSubnetGroupMixinProps)(nil)).Elem(),
 	)

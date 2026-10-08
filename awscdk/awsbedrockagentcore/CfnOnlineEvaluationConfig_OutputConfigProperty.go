@@ -11,6 +11,8 @@ package awsbedrockagentcore
 //   outputConfigProperty := &OutputConfigProperty{
 //   	CloudWatchConfig: &CloudWatchOutputConfigProperty{
 //   		LogGroupName: jsii.String("logGroupName"),
+//   		MetricsNamespace: jsii.String("metricsNamespace"),
+//   		ResultDestination: jsii.String("resultDestination"),
 //   	},
 //   }
 //

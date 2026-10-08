@@ -99,7 +99,9 @@ type BehaviorOptions struct {
 	//
 	TrustedKeyGroups *[]interfacesawscloudfront.IKeyGroupRef `field:"optional" json:"trustedKeyGroups" yaml:"trustedKeyGroups"`
 	// The protocol that viewers can use to access the files controlled by this behavior.
-	// Default: ViewerProtocolPolicy.ALLOW_ALL
+	// Default: - ViewerProtocolPolicy.REDIRECT_TO_HTTPS if the
+	// `@aws-cdk/aws-cloudfront:defaultViewerProtocolPolicyRedirectToHttps` feature flag is enabled,
+	// otherwise ViewerProtocolPolicy.ALLOW_ALL
 	//
 	ViewerProtocolPolicy ViewerProtocolPolicy `field:"optional" json:"viewerProtocolPolicy" yaml:"viewerProtocolPolicy"`
 	// The origin that you want CloudFront to route requests to when they match this behavior.

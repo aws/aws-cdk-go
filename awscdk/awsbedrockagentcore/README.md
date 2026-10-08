@@ -175,6 +175,7 @@ to production by simply updating the endpoint to point to the newer version.
 | `networkConfiguration` | `NetworkConfiguration` | No | Network configuration for the agent runtime. Defaults to `RuntimeNetworkConfiguration.usingPublicNetwork()` |
 | `description` | `string` | No | Optional description for the agent runtime |
 | `protocolConfiguration` | `ProtocolType` | No | Protocol configuration for the agent runtime. Defaults to `ProtocolType.HTTP` |
+| `platformVersion` | `PlatformVersion` | No | The platform version of the runtime (for example `PlatformVersion.V1` or `PlatformVersion.V2`). Defaults to the service default platform version |
 | `authorizerConfiguration` | `RuntimeAuthorizerConfiguration` | No | Authorizer configuration for the agent runtime. Use `RuntimeAuthorizerConfiguration` static methods to create configurations for IAM, Cognito, JWT, or OAuth authentication |
 | `environmentVariables` | `{ [key: string]: string }` | No | Environment variables for the agent runtime. Maximum 50 environment variables |
 | `tags` | `{ [key: string]: string }` | No | Tags for the agent runtime. A list of key:value pairs of tags to apply to this Runtime resource |
@@ -965,6 +966,26 @@ logs.NewMetricFilter(this, jsii.String("ToolErrors"), &MetricFilterProps{
 ```
 
 The log group itself is created by the AgentCore service on the runtime's first invocation, not by CDK. Constructs that require the log group to exist at deploy time may race the first invocation; if that is a concern, pre-create the log group with a `LogRetention` resource using the same name.
+
+#### Platform version
+
+Set `platformVersion` to choose the runtime platform (`V1` or `V2`). If omitted when creating a runtime, the service applies its default platform version; if omitted when updating an existing runtime, the runtime keeps its current platform version.
+
+Switching an existing runtime between platform versions updates it in place rather than replacing it. AgentCore creates a new runtime version, points the `DEFAULT` endpoint at it, leaves pinned endpoints on their versions, and drains in-flight sessions on the old one. Because `V2` snapshots your agent, a `V2` create or update takes a few minutes to reach `READY` (versus seconds on `V1`). See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#platform-versions) for `V2` specifics.
+
+```go
+repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+	RepositoryName: jsii.String("test-agent-runtime"),
+})
+
+agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+
+agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+	RuntimeName: jsii.String("test_runtime"),
+	AgentRuntimeArtifact: agentRuntimeArtifact,
+	PlatformVersion: agentcore.PlatformVersion_V2(),
+})
+```
 
 ## Browser
 

@@ -15,7 +15,6 @@ import (
 //   	Name: jsii.String("name"),
 //   	OperatingSystem: jsii.String("operatingSystem"),
 //   	TotalMemoryLimitMebibytes: jsii.Number(123),
-//   	TotalVcpuLimit: jsii.Number(123),
 //
 //   	// the properties below are optional
 //   	ContainerGroupType: jsii.String("containerGroupType"),
@@ -127,6 +126,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TotalVcpuLimit: jsii.Number(123),
 //   	VersionDescription: jsii.String("versionDescription"),
 //   }
 //
@@ -153,12 +153,6 @@ type CfnContainerGroupDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalmemorylimitmebibytes
 	//
 	TotalMemoryLimitMebibytes *float64 `field:"required" json:"totalMemoryLimitMebibytes" yaml:"totalMemoryLimitMebibytes"`
-	// The amount of vCPU units on a fleet instance to allocate for the container group (1 vCPU is equal to 1024 CPU units).
-	//
-	// All containers in the group share these resources. You can set a limit for each container definition in the group. If individual containers have limits, this total value must be equal to or greater than the sum of the limits for each container in the group.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalvcpulimit
-	//
-	TotalVcpuLimit *float64 `field:"required" json:"totalVcpuLimit" yaml:"totalVcpuLimit"`
 	// The type of container group.
 	//
 	// Container group type determines how Amazon GameLift Servers deploys the container group on each fleet instance.
@@ -185,6 +179,12 @@ type CfnContainerGroupDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The amount of vCPU units on a fleet instance to allocate for the container group (1 vCPU is equal to 1024 CPU units).
+	//
+	// All containers in the group share these resources. You can set a limit for each container definition in the group. If individual containers have limits, this total value must be equal to or greater than the sum of the limits for each container in the group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html#cfn-gamelift-containergroupdefinition-totalvcpulimit
+	//
+	TotalVcpuLimit *float64 `field:"optional" json:"totalVcpuLimit" yaml:"totalVcpuLimit"`
 	// An optional description that was provided for a container group definition update.
 	//
 	// Each version can have a unique description.

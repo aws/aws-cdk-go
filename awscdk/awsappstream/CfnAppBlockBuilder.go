@@ -42,6 +42,7 @@ import (
 //   		jsii.String("appBlockArns"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DisableImdsv1: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
 //   	EnableDefaultInternetAccess: jsii.Boolean(false),
 //   	IamRoleArn: jsii.String("iamRoleArn"),
@@ -87,6 +88,8 @@ type CfnAppBlockBuilder interface {
 	// The description of the app block builder.
 	Description() *string
 	SetDescription(val *string)
+	DisableImdsv1() interface{}
+	SetDisableImdsv1(val interface{})
 	// The display name of the app block builder.
 	DisplayName() *string
 	SetDisplayName(val *string)
@@ -437,6 +440,16 @@ func (j *jsiiProxy_CfnAppBlockBuilder) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAppBlockBuilder) DisableImdsv1() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"disableImdsv1",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAppBlockBuilder) DisplayName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -640,6 +653,17 @@ func (j *jsiiProxy_CfnAppBlockBuilder)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAppBlockBuilder)SetDisableImdsv1(val interface{}) {
+	if err := j.validateSetDisableImdsv1Parameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"disableImdsv1",
 		val,
 	)
 }

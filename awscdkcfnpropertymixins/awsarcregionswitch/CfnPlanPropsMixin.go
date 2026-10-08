@@ -51,6 +51,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ServiceQuotaChecksEnabled: jsii.Boolean(false),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -151,6 +152,7 @@ import (
 //   							Ungraceful: &Ec2UngracefulProperty{
 //   								MinimumSuccessPercentage: jsii.Number(123),
 //   							},
+//   							WaitElbTargetGroupHealthy: jsii.String("waitElbTargetGroupHealthy"),
 //   						},
 //   						EcsCapacityIncreaseConfig: &EcsCapacityIncreaseConfigurationProperty{
 //   							CapacityMonitoringApproach: jsii.String("capacityMonitoringApproach"),
@@ -167,6 +169,7 @@ import (
 //   							Ungraceful: &EcsUngracefulProperty{
 //   								MinimumSuccessPercentage: jsii.Number(123),
 //   							},
+//   							WaitElbTargetGroupHealthy: jsii.String("waitElbTargetGroupHealthy"),
 //   						},
 //   						EksResourceScalingConfig: &EksResourceScalingConfigurationProperty{
 //   							CapacityMonitoringApproach: jsii.String("capacityMonitoringApproach"),

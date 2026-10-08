@@ -36,6 +36,7 @@ import (
 //   			Minimum: jsii.Number(123),
 //   		},
 //   	},
+//   	ConnectionType: jsii.String("connectionType"),
 //   	DailySnapshotTime: jsii.String("dailySnapshotTime"),
 //   	Description: jsii.String("description"),
 //   	Endpoint: &EndpointProperty{
@@ -105,6 +106,9 @@ type CfnServerlessCache interface {
 	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
+	// The connection type for the serverless cache.
+	ConnectionType() *string
+	SetConnectionType(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -505,6 +509,16 @@ func (j *jsiiProxy_CfnServerlessCache) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServerlessCache) ConnectionType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectionType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServerlessCache) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -792,6 +806,14 @@ func (j *jsiiProxy_CfnServerlessCache)SetCacheUsageLimits(val interface{}) {
 	_jsii_.Set(
 		j,
 		"cacheUsageLimits",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServerlessCache)SetConnectionType(val *string) {
+	_jsii_.Set(
+		j,
+		"connectionType",
 		val,
 	)
 }

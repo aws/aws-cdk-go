@@ -22,7 +22,6 @@ import (
 //
 //   cfnMicrosoftAD := awscdk.Aws_directoryservice.NewCfnMicrosoftAD(this, jsii.String("MyCfnMicrosoftAD"), &CfnMicrosoftADProps{
 //   	Name: jsii.String("name"),
-//   	Password: jsii.String("password"),
 //   	VpcSettings: &VpcSettingsProperty{
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
@@ -34,6 +33,7 @@ import (
 //   	CreateAlias: jsii.Boolean(false),
 //   	Edition: jsii.String("edition"),
 //   	EnableSso: jsii.Boolean(false),
+//   	Password: jsii.String("password"),
 //   	ShortName: jsii.String("shortName"),
 //   })
 //
@@ -47,12 +47,10 @@ type CfnMicrosoftAD interface {
 	//
 	// For example: `alias4-mydirectory-12345abcgmzsk` (if you have the `CreateAlias` property set to true).
 	AttrAlias() *string
+	// Unique identifier for the Microsoft Active Directory.
+	AttrDirectoryId() *string
 	// The IP addresses of the DNS servers for the directory, such as `[ "192.0.2.1", "192.0.2.2" ]` .
 	AttrDnsIpAddresses() *[]*string
-	// The directory ID.
-	//
-	// For example: `d-12373a053a` .
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -301,21 +299,21 @@ func (j *jsiiProxy_CfnMicrosoftAD) AttrAlias() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMicrosoftAD) AttrDnsIpAddresses() *[]*string {
-	var returns *[]*string
+func (j *jsiiProxy_CfnMicrosoftAD) AttrDirectoryId() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
-		"attrDnsIpAddresses",
+		"attrDirectoryId",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_CfnMicrosoftAD) AttrId() *string {
-	var returns *string
+func (j *jsiiProxy_CfnMicrosoftAD) AttrDnsIpAddresses() *[]*string {
+	var returns *[]*string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrDnsIpAddresses",
 		&returns,
 	)
 	return returns
@@ -593,9 +591,6 @@ func (j *jsiiProxy_CfnMicrosoftAD)SetName(val *string) {
 }
 
 func (j *jsiiProxy_CfnMicrosoftAD)SetPassword(val *string) {
-	if err := j.validateSetPasswordParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"password",
@@ -620,6 +615,43 @@ func (j *jsiiProxy_CfnMicrosoftAD)SetVpcSettings(val interface{}) {
 		"vpcSettings",
 		val,
 	)
+}
+
+func CfnMicrosoftAD_ArnForMicrosoftAD(resource interfacesawsdirectoryservice.IMicrosoftADRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnMicrosoftAD_ArnForMicrosoftADParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
+		"arnForMicrosoftAD",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new IMicrosoftADRef from a directoryId.
+func CfnMicrosoftAD_FromDirectoryId(scope constructs.Construct, id *string, directoryId *string) interfacesawsdirectoryservice.IMicrosoftADRef {
+	_init_.Initialize()
+
+	if err := validateCfnMicrosoftAD_FromDirectoryIdParameters(scope, id, directoryId); err != nil {
+		panic(err)
+	}
+	var returns interfacesawsdirectoryservice.IMicrosoftADRef
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_directoryservice.CfnMicrosoftAD",
+		"fromDirectoryId",
+		[]interface{}{scope, id, directoryId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

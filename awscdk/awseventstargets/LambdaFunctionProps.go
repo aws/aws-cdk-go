@@ -9,31 +9,15 @@ import (
 // Customize the Lambda Event Target.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var rule Rule
+//   var fn Function
 //
-//
-//   fn := lambda.NewFunction(this, jsii.String("MyFunc"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.Code_FromInline(jsii.String("exports.handler = handler.toString()")),
-//   })
-//
-//   rule := events.NewRule(this, jsii.String("rule"), &RuleProps{
-//   	EventPattern: &EventPattern{
-//   		Source: []*string{
-//   			jsii.String("aws.ec2"),
-//   		},
-//   	},
-//   })
-//
-//   queue := sqs.NewQueue(this, jsii.String("Queue"))
 //
 //   rule.AddTarget(targets.NewLambdaFunction(fn, &LambdaFunctionProps{
-//   	DeadLetterQueue: queue,
-//   	 // Optional: add a dead letter queue
-//   	MaxEventAge: awscdk.Duration_Hours(jsii.Number(2)),
-//   	 // Optional: set the maxEventAge retry policy
-//   	RetryAttempts: jsii.Number(2),
+//   	Event: events.RuleTargetInput_FromObject(map[string]*string{
+//   		"instance": events.EventField_fromPath(jsii.String("$.detail.instance-id")),
+//   		"account": events.EventField_account(),
+//   	}),
 //   }))
 //
 type LambdaFunctionProps struct {

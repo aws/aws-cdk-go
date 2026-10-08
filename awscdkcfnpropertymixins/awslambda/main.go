@@ -555,4 +555,108 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnVersionPropsMixin.RuntimePolicyProperty",
 		reflect.TypeOf((*CfnVersionPropsMixin_RuntimePolicyProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionEndpointMixinProps",
+		reflect.TypeOf((*CfnWebFunctionEndpointMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionEndpointPropsMixin",
+		reflect.TypeOf((*CfnWebFunctionEndpointPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnWebFunctionEndpointPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionEndpointPropsMixin.RegionalEndpointProperty",
+		reflect.TypeOf((*CfnWebFunctionEndpointPropsMixin_RegionalEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionEndpointPropsMixin.RevisionWeightProperty",
+		reflect.TypeOf((*CfnWebFunctionEndpointPropsMixin_RevisionWeightProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionEndpointPropsMixin.ScalingConfigProperty",
+		reflect.TypeOf((*CfnWebFunctionEndpointPropsMixin_ScalingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionEndpointPropsMixin.ThrottleConfigProperty",
+		reflect.TypeOf((*CfnWebFunctionEndpointPropsMixin_ThrottleConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionMixinProps",
+		reflect.TypeOf((*CfnWebFunctionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionPropsMixin",
+		reflect.TypeOf((*CfnWebFunctionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnWebFunctionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionRevisionMixinProps",
+		reflect.TypeOf((*CfnWebFunctionRevisionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionRevisionPropsMixin",
+		reflect.TypeOf((*CfnWebFunctionRevisionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnWebFunctionRevisionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionRevisionPropsMixin.BuildConfigProperty",
+		reflect.TypeOf((*CfnWebFunctionRevisionPropsMixin_BuildConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionRevisionPropsMixin.CodeConfigProperty",
+		reflect.TypeOf((*CfnWebFunctionRevisionPropsMixin_CodeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionRevisionPropsMixin.LoggingConfigProperty",
+		reflect.TypeOf((*CfnWebFunctionRevisionPropsMixin_LoggingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionRevisionPropsMixin.RuntimeConfigProperty",
+		reflect.TypeOf((*CfnWebFunctionRevisionPropsMixin_RuntimeConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionRevisionPropsMixin.S3ObjectProperty",
+		reflect.TypeOf((*CfnWebFunctionRevisionPropsMixin_S3ObjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionRevisionPropsMixin.ServiceConfigProperty",
+		reflect.TypeOf((*CfnWebFunctionRevisionPropsMixin_ServiceConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnWebFunctionRevisionPropsMixin.TelemetryConfigProperty",
+		reflect.TypeOf((*CfnWebFunctionRevisionPropsMixin_TelemetryConfigProperty)(nil)).Elem(),
+	)
 }

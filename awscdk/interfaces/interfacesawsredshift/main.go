@@ -200,6 +200,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_redshift.IRedshiftIdcApplicationRef",
+		reflect.TypeOf((*IRedshiftIdcApplicationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "redshiftIdcApplicationRef", GoGetter: "RedshiftIdcApplicationRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRedshiftIdcApplicationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_redshift.IScheduledActionRef",
 		reflect.TypeOf((*IScheduledActionRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -286,6 +302,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_redshift.QEV2IdcApplicationReference",
 		reflect.TypeOf((*QEV2IdcApplicationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_redshift.RedshiftIdcApplicationReference",
+		reflect.TypeOf((*RedshiftIdcApplicationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_redshift.ScheduledActionReference",

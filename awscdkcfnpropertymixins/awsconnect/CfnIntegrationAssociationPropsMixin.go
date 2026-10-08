@@ -24,6 +24,9 @@ import (
 //   	InstanceId: jsii.String("instanceId"),
 //   	IntegrationArn: jsii.String("integrationArn"),
 //   	IntegrationType: jsii.String("integrationType"),
+//   	SourceApplicationName: jsii.String("sourceApplicationName"),
+//   	SourceApplicationUrl: jsii.String("sourceApplicationUrl"),
+//   	SourceType: jsii.String("sourceType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

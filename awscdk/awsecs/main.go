@@ -1290,6 +1290,10 @@ func init() {
 		reflect.TypeOf((*CfnService_TimeoutConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.VpcLatticeAdvancedConfigurationProperty",
+		reflect.TypeOf((*CfnService_VpcLatticeAdvancedConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.VpcLatticeConfigurationProperty",
 		reflect.TypeOf((*CfnService_VpcLatticeConfigurationProperty)(nil)).Elem(),
 	)

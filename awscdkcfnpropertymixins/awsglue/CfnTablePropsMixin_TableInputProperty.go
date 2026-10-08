@@ -153,6 +153,7 @@ type CfnTablePropsMixin_TableInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
 	//
 	TargetTable interface{} `field:"optional" json:"targetTable" yaml:"targetTable"`
+	// A structure that defines the view.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewdefinition
 	//
 	ViewDefinition interface{} `field:"optional" json:"viewDefinition" yaml:"viewDefinition"`

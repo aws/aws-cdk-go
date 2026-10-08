@@ -848,6 +848,14 @@ func init() {
 		reflect.TypeOf((*CfnHarnessPropsMixin_FilesystemConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessAfterInvocationHookProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessAfterInvocationHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessAfterToolCallHookProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessAfterToolCallHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessAgentCoreBrowserConfigProperty",
 		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessAgentCoreBrowserConfigProperty)(nil)).Elem(),
 	)
@@ -876,6 +884,14 @@ func init() {
 		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessBedrockModelConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessBeforeInvocationHookProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessBeforeInvocationHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessBeforeToolCallHookProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessBeforeToolCallHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessEnvironmentArtifactProperty",
 		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessEnvironmentArtifactProperty)(nil)).Elem(),
 	)
@@ -890,6 +906,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessGeminiModelConfigProperty",
 		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessGeminiModelConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessHookEventBridgeTargetProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessHookEventBridgeTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessHookLambdaTargetProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessHookLambdaTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessHookProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessHookProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessHookSnsTargetProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessHookSnsTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessHookTargetProperty",
+		reflect.TypeOf((*CfnHarnessPropsMixin_HarnessHookTargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnHarnessPropsMixin.HarnessInlineFunctionConfigProperty",

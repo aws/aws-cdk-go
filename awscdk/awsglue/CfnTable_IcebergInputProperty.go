@@ -70,6 +70,7 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html
 //
 type CfnTable_IcebergInputProperty struct {
+	// Specifies the Iceberg table configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html#cfn-glue-table-iceberginput-icebergtableinput
 	//
 	IcebergTableInput interface{} `field:"optional" json:"icebergTableInput" yaml:"icebergTableInput"`

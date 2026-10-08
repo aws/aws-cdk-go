@@ -52,8 +52,8 @@ type ArnComponents struct {
 	//
 	Account *string `field:"optional" json:"account" yaml:"account"`
 	// The specific ARN format to use for this ARN value.
-	// Default: - uses value of `sep` as the separator for formatting,
-	// `ArnFormat.SLASH_RESOURCE_NAME` if that property was also not provided
+	// Default: - ':' when `arnFormat` is `COLON_RESOURCE_NAME`, '/' otherwise.
+	// The deprecated `sep` property takes precedence when specified.
 	//
 	ArnFormat ArnFormat `field:"optional" json:"arnFormat" yaml:"arnFormat"`
 	// The partition that the resource is in.

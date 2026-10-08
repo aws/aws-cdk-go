@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) validateSetDbProxyNameParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBProxyTargetGroup) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDBProxyTargetGroup) validateSetTargetGroupNameParameters(val *string) error {
 	return nil
 }

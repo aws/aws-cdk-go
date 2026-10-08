@@ -19,8 +19,7 @@ import (
 //   		MasterPassword: cdk.SecretValue_UnsafePlainText(jsii.String("tooshort")),
 //   	},
 //   	Vpc: Vpc,
-//   	PubliclyAccessible: jsii.Boolean(true),
-//   	ElasticIp: jsii.String("10.123.123.255"),
+//   	EnhancedVpcRouting: jsii.Boolean(true),
 //   })
 //
 // Experimental.

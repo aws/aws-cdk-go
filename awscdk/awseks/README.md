@@ -1595,7 +1595,7 @@ cluster.GrantAccess(jsii.String("NodeAccess"), nodeRole.roleArn, []IAccessPolicy
 
 Supported types: `STANDARD` (default), `FARGATE_LINUX`, `EC2_LINUX`, `EC2_WINDOWS`, `EC2`, `HYBRID_LINUX`, `HYPERPOD_LINUX`.
 
-**Note**: `EC2`, `HYBRID_LINUX`, and `HYPERPOD_LINUX` types cannot have access policies attached.
+**Note**: `HYBRID_LINUX` and `HYPERPOD_LINUX` types cannot have access policies attached.
 
 ### Migrating from ConfigMap to Access Entry
 

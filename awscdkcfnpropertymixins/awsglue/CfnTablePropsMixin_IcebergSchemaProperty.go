@@ -1,6 +1,8 @@
 package awsglue
 
 
+// The schema for an Iceberg table.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -26,15 +28,19 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergschema.html
 //
 type CfnTablePropsMixin_IcebergSchemaProperty struct {
+	// The fields in the schema.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergschema.html#cfn-glue-table-icebergschema-fields
 	//
 	Fields interface{} `field:"optional" json:"fields" yaml:"fields"`
+	// The identifier field IDs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergschema.html#cfn-glue-table-icebergschema-identifierfieldids
 	//
 	IdentifierFieldIds interface{} `field:"optional" json:"identifierFieldIds" yaml:"identifierFieldIds"`
+	// The schema ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergschema.html#cfn-glue-table-icebergschema-schemaid
 	//
 	SchemaId *float64 `field:"optional" json:"schemaId" yaml:"schemaId"`
+	// The type of the schema.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergschema.html#cfn-glue-table-icebergschema-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

@@ -6,7 +6,10 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var additionalParams interface{}
+//
 //   harnessLiteLlmModelConfigProperty := &HarnessLiteLlmModelConfigProperty{
+//   	AdditionalParams: additionalParams,
 //   	ApiBase: jsii.String("apiBase"),
 //   	ApiKeyArn: jsii.String("apiKeyArn"),
 //   	MaxTokens: jsii.Number(123),
@@ -18,6 +21,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnesslitellmmodelconfig.html
 //
 type CfnHarnessPropsMixin_HarnessLiteLlmModelConfigProperty struct {
+	// Provider-specific parameters passed through to LiteLLM unchanged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnesslitellmmodelconfig.html#cfn-bedrockagentcore-harness-harnesslitellmmodelconfig-additionalparams
+	//
+	AdditionalParams interface{} `field:"optional" json:"additionalParams" yaml:"additionalParams"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnesslitellmmodelconfig.html#cfn-bedrockagentcore-harness-harnesslitellmmodelconfig-apibase
 	//
 	ApiBase *string `field:"optional" json:"apiBase" yaml:"apiBase"`

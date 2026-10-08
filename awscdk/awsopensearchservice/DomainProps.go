@@ -178,6 +178,15 @@ type DomainProps struct {
 	// Default: - TLSSecurityPolicy.TLS_1_2
 	//
 	TlsSecurityPolicy TLSSecurityPolicy `field:"optional" json:"tlsSecurityPolicy" yaml:"tlsSecurityPolicy"`
+	// Specifies whether the domain should use the latest service software version during a blue/green deployment.
+	//
+	// If enabled, the domain will automatically use the latest available service software when a blue/green
+	// deployment is triggered.
+	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html
+	//
+	// Default: - no value is set and the service default is used.
+	//
+	UseLatestServiceSoftwareForBlueGreen *bool `field:"optional" json:"useLatestServiceSoftwareForBlueGreen" yaml:"useLatestServiceSoftwareForBlueGreen"`
 	// Configures the domain so that unsigned basic auth is enabled.
 	//
 	// If no master user is provided a default master user

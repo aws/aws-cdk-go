@@ -248,6 +248,7 @@ type CfnAlarm interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The configuration settings that define the warm-up behavior for an alarm.
 	WarmUpConfiguration() interface{}
 	SetWarmUpConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.

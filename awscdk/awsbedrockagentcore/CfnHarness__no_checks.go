@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnHarness) validateSetHarnessNameParameters(val *string) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnHarness) validateSetHooksParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnHarness) validateSetMemoryParameters(val interface{}) error {
 	return nil
 }

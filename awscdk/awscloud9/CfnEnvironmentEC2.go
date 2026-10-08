@@ -21,13 +21,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnEnvironmentEC2 := awscdk.Aws_cloud9.NewCfnEnvironmentEC2(this, jsii.String("MyCfnEnvironmentEC2"), &CfnEnvironmentEC2Props{
-//   	ImageId: jsii.String("imageId"),
-//   	InstanceType: jsii.String("instanceType"),
-//
-//   	// the properties below are optional
 //   	AutomaticStopTimeMinutes: jsii.Number(123),
 //   	ConnectionType: jsii.String("connectionType"),
 //   	Description: jsii.String("description"),
+//   	ImageId: jsii.String("imageId"),
+//   	InstanceType: jsii.String("instanceType"),
 //   	Name: jsii.String("name"),
 //   	OwnerArn: jsii.String("ownerArn"),
 //   	Repositories: []interface{}{
@@ -54,7 +52,8 @@ type CfnEnvironmentEC2 interface {
 	awscdk.ITaggable
 	// The Amazon Resource Name (ARN) of the development environment, such as `arn:aws:cloud9:us-east-2:123456789012:environment:2bc3642873c342e485f7e0c561234567` .
 	AttrArn() *string
-	AttrId() *string
+	// The ID of the environment.
+	AttrEnvironmentId() *string
 	// The name of the environment.
 	AttrName() *string
 	// The number of minutes until the running instance is shut down after the environment was last used.
@@ -317,11 +316,11 @@ func (j *jsiiProxy_CfnEnvironmentEC2) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentEC2) AttrId() *string {
+func (j *jsiiProxy_CfnEnvironmentEC2) AttrEnvironmentId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrEnvironmentId",
 		&returns,
 	)
 	return returns
@@ -632,9 +631,6 @@ func (j *jsiiProxy_CfnEnvironmentEC2)SetDescription(val *string) {
 }
 
 func (j *jsiiProxy_CfnEnvironmentEC2)SetImageId(val *string) {
-	if err := j.validateSetImageIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"imageId",
@@ -643,9 +639,6 @@ func (j *jsiiProxy_CfnEnvironmentEC2)SetImageId(val *string) {
 }
 
 func (j *jsiiProxy_CfnEnvironmentEC2)SetInstanceType(val *string) {
-	if err := j.validateSetInstanceTypeParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"instanceType",

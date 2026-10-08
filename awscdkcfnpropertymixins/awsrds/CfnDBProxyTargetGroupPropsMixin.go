@@ -53,6 +53,12 @@ import (
 //   		jsii.String("dbInstanceIdentifiers"),
 //   	},
 //   	DbProxyName: jsii.String("dbProxyName"),
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   	TargetGroupName: jsii.String("targetGroupName"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

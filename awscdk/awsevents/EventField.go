@@ -10,16 +10,28 @@ import (
 
 // Represents a field in the event pattern.
 //
+// Each `EventField` you reference from a `RuleTargetInput` becomes an entry in the
+// target's `InputPathsMap`, keyed by a readable hint derived from the path, and the
+// place you referenced it becomes a matching placeholder in the `InputTemplate`.
+// Referencing the same path more than once reuses a single entry.
+//
+// Because these are string tokens, they can be embedded in template literals and
+// composed with other strings.
+//
 // Example:
-//   import logs "github.com/aws/aws-cdk-go/awscdk"
-//   var logGroup LogGroup
 //   var rule Rule
+//   var topic Topic
 //
 //
-//   rule.AddTarget(targets.NewCloudWatchLogGroup(logGroup, &LogGroupProps{
-//   	LogEvent: targets.LogGroupTargetInput_FromObjectV2(&LogGroupTargetInputOptions{
-//   		Timestamp: events.EventField_FromPath(jsii.String("$.time")),
-//   		Message: events.EventField_*FromPath(jsii.String("$.detail-type")),
+//   rule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
+//   	Message: events.RuleTargetInput_FromObject(map[string]*string{
+//   		// Named shorthands for the standard top-level event envelope fields
+//   		"account": events.EventField_account(),
+//   		"region": events.EventField_region(),
+//   		// Any other field is reachable by JSONPath
+//   		"bucket": events.EventField_fromPath(jsii.String("$.detail.bucket.name")),
+//   		// Tokens compose with ordinary strings
+//   		"summary": fmt.Sprintf("Event %v from %v", events.EventField_eventId(), events.EventField_source()),
 //   	}),
 //   }))
 //

@@ -46,6 +46,10 @@ func NewLogGroupTargetInput_Override(l LogGroupTargetInput) {
 }
 
 // Take the event target input from a path in the event JSON.
+//
+// This emits CloudFormation's `InputPath` directly, so the target receives only
+// the selected fragment of the event. Use this when you want to forward part of
+// the event unchanged; use `fromObject()` when you need to reshape it.
 func LogGroupTargetInput_FromEventPath(path *string) awsevents.RuleTargetInput {
 	_init_.Initialize()
 

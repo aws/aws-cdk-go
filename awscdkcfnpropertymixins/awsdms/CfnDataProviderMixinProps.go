@@ -28,7 +28,9 @@ import (
 //   		IbmDb2LuwSettings: &IbmDb2LuwSettingsProperty{
 //   			CertificateArn: jsii.String("certificateArn"),
 //   			DatabaseName: jsii.String("databaseName"),
+//   			EncryptionAlgorithm: jsii.Number(123),
 //   			Port: jsii.Number(123),
+//   			SecurityMechanism: jsii.Number(123),
 //   			ServerName: jsii.String("serverName"),
 //   			SslMode: jsii.String("sslMode"),
 //   		},
@@ -49,6 +51,8 @@ import (
 //   			CertificateArn: jsii.String("certificateArn"),
 //   			DatabaseName: jsii.String("databaseName"),
 //   			Port: jsii.Number(123),
+//   			S3AccessRoleArn: jsii.String("s3AccessRoleArn"),
+//   			S3Path: jsii.String("s3Path"),
 //   			ServerName: jsii.String("serverName"),
 //   			SslMode: jsii.String("sslMode"),
 //   		},
@@ -107,6 +111,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Virtual: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html
@@ -148,5 +153,11 @@ type CfnDataProviderMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// Indicates whether the data provider is virtual.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html#cfn-dms-dataprovider-virtual
+	//
+	// Default: - false.
+	//
+	Virtual interface{} `field:"optional" json:"virtual" yaml:"virtual"`
 }
 

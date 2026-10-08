@@ -9,11 +9,14 @@ package interfacesawsappstream
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   stackFleetAssociationReference := &StackFleetAssociationReference{
-//   	StackFleetAssociationId: jsii.String("stackFleetAssociationId"),
+//   	FleetName: jsii.String("fleetName"),
+//   	StackName: jsii.String("stackName"),
 //   }
 //
 type StackFleetAssociationReference struct {
-	// The Id of the StackFleetAssociation resource.
-	StackFleetAssociationId *string `field:"required" json:"stackFleetAssociationId" yaml:"stackFleetAssociationId"`
+	// The FleetName of the StackFleetAssociation resource.
+	FleetName *string `field:"required" json:"fleetName" yaml:"fleetName"`
+	// The StackName of the StackFleetAssociation resource.
+	StackName *string `field:"required" json:"stackName" yaml:"stackName"`
 }
 

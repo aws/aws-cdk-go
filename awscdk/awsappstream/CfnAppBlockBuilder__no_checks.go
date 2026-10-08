@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnAppBlockBuilder) validateSetAccessEndpointsParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnAppBlockBuilder) validateSetDisableImdsv1Parameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAppBlockBuilder) validateSetEnableDefaultInternetAccessParameters(val interface{}) error {
 	return nil
 }

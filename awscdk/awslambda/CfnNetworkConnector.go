@@ -24,14 +24,12 @@ import (
 //   			AssociatedComputeResourceTypes: []*string{
 //   				jsii.String("associatedComputeResourceTypes"),
 //   			},
-//   			SubnetIds: []*string{
-//   				jsii.String("subnetIds"),
-//   			},
-//
-//   			// the properties below are optional
 //   			NetworkProtocol: jsii.String("networkProtocol"),
 //   			SecurityGroupIds: []*string{
 //   				jsii.String("securityGroupIds"),
+//   			},
+//   			SubnetIds: []*string{
+//   				jsii.String("subnetIds"),
 //   			},
 //   		},
 //   	},
@@ -56,6 +54,14 @@ type CfnNetworkConnector interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the network connector.
 	AttrArn() *string
+	// The version number of the network connector's latest version.
+	//
+	// Updates to the connector's configuration create a new immutable version; this attribute exposes the most recent one.
+	AttrLatestVersion() *float64
+	// The qualified Amazon Resource Name (ARN) of the network connector's latest version.
+	//
+	// Includes the immutable version suffix and can be used to pin to a specific version.
+	AttrLatestVersionArn() *string
 	// The current state of the network connector.
 	AttrState() *string
 	// Tag Manager which manages the tags for this resource.
@@ -295,6 +301,26 @@ func (j *jsiiProxy_CfnNetworkConnector) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkConnector) AttrLatestVersion() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrLatestVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNetworkConnector) AttrLatestVersionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLatestVersionArn",
 		&returns,
 	)
 	return returns

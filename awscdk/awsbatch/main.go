@@ -800,6 +800,58 @@ func init() {
 		"aws-cdk-lib.aws_batch.ComputeEnvironmentProps",
 		reflect.TypeOf((*ComputeEnvironmentProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_batch.ConsumableResource",
+		reflect.TypeOf((*ConsumableResource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "consumableResourceArn", GoGetter: "ConsumableResourceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "consumableResourceName", GoGetter: "ConsumableResourceName"},
+			_jsii_.MemberProperty{JsiiProperty: "consumableResourceRef", GoGetter: "ConsumableResourceRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ConsumableResource{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IConsumableResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_batch.ConsumableResourceGrants",
+		reflect.TypeOf((*ConsumableResourceGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "actions", GoMethod: "Actions"},
+			_jsii_.MemberMethod{JsiiMethod: "read", GoMethod: "Read"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberMethod{JsiiMethod: "update", GoMethod: "Update"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ConsumableResourceGrants{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.ConsumableResourceProps",
+		reflect.TypeOf((*ConsumableResourceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_batch.ConsumableResourceType",
+		reflect.TypeOf((*ConsumableResourceType)(nil)).Elem(),
+		map[string]interface{}{
+			"REPLENISHABLE": ConsumableResourceType_REPLENISHABLE,
+			"NON_REPLENISHABLE": ConsumableResourceType_NON_REPLENISHABLE,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CustomReason",
 		reflect.TypeOf((*CustomReason)(nil)).Elem(),
@@ -1283,6 +1335,27 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_IComputeEnvironment{}
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbatchIComputeEnvironmentRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_batch.IConsumableResource",
+		reflect.TypeOf((*IConsumableResource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "consumableResourceArn", GoGetter: "ConsumableResourceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "consumableResourceName", GoGetter: "ConsumableResourceName"},
+			_jsii_.MemberProperty{JsiiProperty: "consumableResourceRef", GoGetter: "ConsumableResourceRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IConsumableResource{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsbatchIConsumableResourceRef)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},

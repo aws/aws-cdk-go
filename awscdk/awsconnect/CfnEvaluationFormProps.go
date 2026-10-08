@@ -307,6 +307,9 @@ type CfnEvaluationFormProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-title
 	//
 	Title *string `field:"required" json:"title" yaml:"title"`
+	// The AI version to use for the evaluation form.
+	//
+	// This specifies which AI model version is used for automated evaluations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html#cfn-connect-evaluationform-aiversion
 	//
 	AiVersion *string `field:"optional" json:"aiVersion" yaml:"aiVersion"`

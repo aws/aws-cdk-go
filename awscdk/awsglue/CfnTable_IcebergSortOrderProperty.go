@@ -1,6 +1,8 @@
 package awsglue
 
 
+// The sort order for an Iceberg table.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,9 +23,11 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergsortorder.html
 //
 type CfnTable_IcebergSortOrderProperty struct {
+	// The sort fields.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergsortorder.html#cfn-glue-table-icebergsortorder-fields
 	//
 	Fields interface{} `field:"required" json:"fields" yaml:"fields"`
+	// The order ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergsortorder.html#cfn-glue-table-icebergsortorder-orderid
 	//
 	OrderId *float64 `field:"required" json:"orderId" yaml:"orderId"`

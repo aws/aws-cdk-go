@@ -9,11 +9,11 @@ package interfacesawsdirectoryservice
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   microsoftADReference := &MicrosoftADReference{
-//   	MicrosoftAdId: jsii.String("microsoftAdId"),
+//   	DirectoryId: jsii.String("directoryId"),
 //   }
 //
 type MicrosoftADReference struct {
-	// The Id of the MicrosoftAD resource.
-	MicrosoftAdId *string `field:"required" json:"microsoftAdId" yaml:"microsoftAdId"`
+	// The DirectoryId of the MicrosoftAD resource.
+	DirectoryId *string `field:"required" json:"directoryId" yaml:"directoryId"`
 }
 

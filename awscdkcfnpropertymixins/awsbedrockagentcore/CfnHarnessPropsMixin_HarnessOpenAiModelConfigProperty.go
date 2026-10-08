@@ -6,7 +6,10 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var additionalParams interface{}
+//
 //   harnessOpenAiModelConfigProperty := &HarnessOpenAiModelConfigProperty{
+//   	AdditionalParams: additionalParams,
 //   	ApiFormat: jsii.String("apiFormat"),
 //   	ApiKeyArn: jsii.String("apiKeyArn"),
 //   	MaxTokens: jsii.Number(123),
@@ -18,6 +21,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessopenaimodelconfig.html
 //
 type CfnHarnessPropsMixin_HarnessOpenAiModelConfigProperty struct {
+	// Provider-specific parameters passed through to the model provider unchanged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessopenaimodelconfig.html#cfn-bedrockagentcore-harness-harnessopenaimodelconfig-additionalparams
+	//
+	AdditionalParams interface{} `field:"optional" json:"additionalParams" yaml:"additionalParams"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessopenaimodelconfig.html#cfn-bedrockagentcore-harness-harnessopenaimodelconfig-apiformat
 	//
 	ApiFormat *string `field:"optional" json:"apiFormat" yaml:"apiFormat"`

@@ -182,6 +182,9 @@ type CfnTableProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-databasename
 	//
 	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// The table name.
+	//
+	// For Hive compatibility, this is folded to lowercase when it is stored.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html#cfn-glue-table-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

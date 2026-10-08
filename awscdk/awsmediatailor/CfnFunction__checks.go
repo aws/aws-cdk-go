@@ -228,6 +228,30 @@ func validateCfnFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetAwsServiceRequestConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFunction_AwsServiceRequestConfigurationProperty:
+		val := val.(*CfnFunction_AwsServiceRequestConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFunction_AwsServiceRequestConfigurationProperty:
+		val_ := val.(CfnFunction_AwsServiceRequestConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_AwsServiceRequestConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetConcurrentExecutorConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -344,6 +368,30 @@ func (j *jsiiProxy_CfnFunction) validateSetTagsParameters(val *[]*awscdk.CfnTag)
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {
 			return err
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnFunction) validateSetVastRequestConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFunction_VastRequestConfigurationProperty:
+		val := val.(*CfnFunction_VastRequestConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFunction_VastRequestConfigurationProperty:
+		val_ := val.(CfnFunction_VastRequestConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFunction_VastRequestConfigurationProperty; received %#v (a %T)", val, val)
 		}
 	}
 

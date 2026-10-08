@@ -21,11 +21,16 @@ import (
 //   cfnOnlineEvaluationConfig := awscdk.Aws_bedrockagentcore.NewCfnOnlineEvaluationConfig(this, jsii.String("MyCfnOnlineEvaluationConfig"), &CfnOnlineEvaluationConfigProps{
 //   	DataSourceConfig: &DataSourceConfigProperty{
 //   		CloudWatchLogs: &CloudWatchLogsInputConfigProperty{
-//   			LogGroupNames: []*string{
-//   				jsii.String("logGroupNames"),
-//   			},
 //   			ServiceNames: []*string{
 //   				jsii.String("serviceNames"),
+//   			},
+//
+//   			// the properties below are optional
+//   			LogGroupNamePrefixes: []*string{
+//   				jsii.String("logGroupNamePrefixes"),
+//   			},
+//   			LogGroupNames: []*string{
+//   				jsii.String("logGroupNames"),
 //   			},
 //   		},
 //   	},
@@ -71,6 +76,13 @@ import (
 //   			InsightId: jsii.String("insightId"),
 //   		},
 //   	},
+//   	OutputConfig: &OutputConfigProperty{
+//   		CloudWatchConfig: &CloudWatchOutputConfigProperty{
+//   			LogGroupName: jsii.String("logGroupName"),
+//   			MetricsNamespace: jsii.String("metricsNamespace"),
+//   			ResultDestination: jsii.String("resultDestination"),
+//   		},
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -92,8 +104,6 @@ type CfnOnlineEvaluationConfig interface {
 	AttrOnlineEvaluationConfigArn() *string
 	// The unique identifier of the online evaluation configuration.
 	AttrOnlineEvaluationConfigId() *string
-	// The configuration that specifies where evaluation results should be written.
-	AttrOutputConfig() awscdk.IResolvable
 	AttrStatus() *string
 	// The timestamp when the online evaluation configuration was last updated.
 	AttrUpdatedAt() *string
@@ -147,6 +157,9 @@ type CfnOnlineEvaluationConfig interface {
 	SetOnlineEvaluationConfigName(val *string)
 	// A reference to a OnlineEvaluationConfig resource.
 	OnlineEvaluationConfigRef() *interfacesawsbedrockagentcore.OnlineEvaluationConfigReference
+	// The configuration that specifies where evaluation results should be written.
+	OutputConfig() interface{}
+	SetOutputConfig(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -376,16 +389,6 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) AttrOnlineEvaluationConfigId() *st
 	return returns
 }
 
-func (j *jsiiProxy_CfnOnlineEvaluationConfig) AttrOutputConfig() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrOutputConfig",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) AttrStatus() *string {
 	var returns *string
 	_jsii_.Get(
@@ -586,6 +589,16 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) OnlineEvaluationConfigRef() *inter
 	return returns
 }
 
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) OutputConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"outputConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -754,6 +767,17 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig)SetOnlineEvaluationConfigName(val *
 	_jsii_.Set(
 		j,
 		"onlineEvaluationConfigName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnOnlineEvaluationConfig)SetOutputConfig(val interface{}) {
+	if err := j.validateSetOutputConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"outputConfig",
 		val,
 	)
 }

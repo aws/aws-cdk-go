@@ -272,6 +272,10 @@ type CfnAlarmProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-unit
 	//
 	Unit *string `field:"optional" json:"unit" yaml:"unit"`
+	// The configuration settings that define the warm-up behavior for an alarm.
+	//
+	// Use these settings to delay alarm evaluation after you create or update the alarm, which reduces alarm noise while a new resource or service starts publishing data.
+	//  During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-warmupconfiguration
 	//
 	WarmUpConfiguration interface{} `field:"optional" json:"warmUpConfiguration" yaml:"warmUpConfiguration"`

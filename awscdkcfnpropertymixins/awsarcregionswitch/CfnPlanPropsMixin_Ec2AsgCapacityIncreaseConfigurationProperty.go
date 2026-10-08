@@ -22,6 +22,7 @@ package awsarcregionswitch
 //   	Ungraceful: &Ec2UngracefulProperty{
 //   		MinimumSuccessPercentage: jsii.Number(123),
 //   	},
+//   	WaitElbTargetGroupHealthy: jsii.String("waitElbTargetGroupHealthy"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-ec2asgcapacityincreaseconfiguration.html
@@ -51,5 +52,8 @@ type CfnPlanPropsMixin_Ec2AsgCapacityIncreaseConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-ec2asgcapacityincreaseconfiguration.html#cfn-arcregionswitch-plan-ec2asgcapacityincreaseconfiguration-ungraceful
 	//
 	Ungraceful interface{} `field:"optional" json:"ungraceful" yaml:"ungraceful"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-ec2asgcapacityincreaseconfiguration.html#cfn-arcregionswitch-plan-ec2asgcapacityincreaseconfiguration-waitelbtargetgrouphealthy
+	//
+	WaitElbTargetGroupHealthy *string `field:"optional" json:"waitElbTargetGroupHealthy" yaml:"waitElbTargetGroupHealthy"`
 }
 

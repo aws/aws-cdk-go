@@ -28,6 +28,7 @@ import (
 //   	},
 //   	MaxRecordSizeInKiB: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	RecordDistributionStrategy: jsii.String("recordDistributionStrategy"),
 //   	RetentionPeriodHours: jsii.Number(123),
 //   	ShardCount: jsii.Number(123),
 //   	StreamEncryption: &StreamEncryptionProperty{

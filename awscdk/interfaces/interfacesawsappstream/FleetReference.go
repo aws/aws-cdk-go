@@ -9,11 +9,14 @@ package interfacesawsappstream
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   fleetReference := &FleetReference{
-//   	FleetId: jsii.String("fleetId"),
+//   	FleetArn: jsii.String("fleetArn"),
+//   	FleetName: jsii.String("fleetName"),
 //   }
 //
 type FleetReference struct {
-	// The Id of the Fleet resource.
-	FleetId *string `field:"required" json:"fleetId" yaml:"fleetId"`
+	// The ARN of the Fleet resource.
+	FleetArn *string `field:"required" json:"fleetArn" yaml:"fleetArn"`
+	// The Name of the Fleet resource.
+	FleetName *string `field:"required" json:"fleetName" yaml:"fleetName"`
 }
 

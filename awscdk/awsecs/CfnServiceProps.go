@@ -268,6 +268,13 @@ import (
 //   			PortName: jsii.String("portName"),
 //   			RoleArn: jsii.String("roleArn"),
 //   			TargetGroupArn: jsii.String("targetGroupArn"),
+//
+//   			// the properties below are optional
+//   			AdvancedConfiguration: &VpcLatticeAdvancedConfigurationProperty{
+//   				AlternateTargetGroupArn: jsii.String("alternateTargetGroupArn"),
+//   				ProductionListenerRule: jsii.String("productionListenerRule"),
+//   				TestListenerRule: jsii.String("testListenerRule"),
+//   			},
 //   		},
 //   	},
 //   }

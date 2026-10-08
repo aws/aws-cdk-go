@@ -85,6 +85,13 @@ type RuntimeProps struct {
 	// Default: - RuntimeNetworkConfiguration.usingPublicNetwork()
 	//
 	NetworkConfiguration RuntimeNetworkConfiguration `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// The platform version of the runtime.
+	//
+	// When omitted, the property is not rendered and the AgentCore service applies
+	// its own default platform version.
+	// Default: - the AgentCore service default platform version.
+	//
+	PlatformVersion PlatformVersion `field:"optional" json:"platformVersion" yaml:"platformVersion"`
 	// Protocol configuration for the agent runtime.
 	// Default: - ProtocolType.HTTP
 	//

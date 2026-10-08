@@ -21,6 +21,9 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnFleetPropsMixin := awscdkcfnpropertymixins.Aws_appstream.NewCfnFleetPropsMixin(&CfnFleetMixinProps{
+//   	AttributesToDelete: []*string{
+//   		jsii.String("attributesToDelete"),
+//   	},
 //   	ComputeCapacity: &ComputeCapacityProperty{
 //   		DesiredInstances: jsii.Number(123),
 //   		DesiredSessions: jsii.Number(123),

@@ -29,6 +29,7 @@ import (
 //   			Minimum: jsii.Number(123),
 //   		},
 //   	},
+//   	ConnectionType: jsii.String("connectionType"),
 //   	DailySnapshotTime: jsii.String("dailySnapshotTime"),
 //   	Description: jsii.String("description"),
 //   	Endpoint: &EndpointProperty{
@@ -77,6 +78,12 @@ type CfnServerlessCacheProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-cacheusagelimits
 	//
 	CacheUsageLimits interface{} `field:"optional" json:"cacheUsageLimits" yaml:"cacheUsageLimits"`
+	// The connection type for the serverless cache.
+	//
+	// Valid values are vpc or public.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-connectiontype
+	//
+	ConnectionType *string `field:"optional" json:"connectionType" yaml:"connectionType"`
 	// The daily time that a cache snapshot will be created.
 	//
 	// Default is NULL, i.e. snapshots will not be created at a specific time on a daily basis. Available for Valkey, Redis OSS and Serverless Memcached only.

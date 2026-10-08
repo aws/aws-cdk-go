@@ -84,6 +84,14 @@ func (c *jsiiProxy_CfnMicrosoftAD) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnMicrosoftAD_ArnForMicrosoftADParameters(resource interfacesawsdirectoryservice.IMicrosoftADRef) error {
+	return nil
+}
+
+func validateCfnMicrosoftAD_FromDirectoryIdParameters(scope constructs.Construct, id *string, directoryId *string) error {
+	return nil
+}
+
 func validateCfnMicrosoftAD_IsCfnElementParameters(x interface{}) error {
 	return nil
 }
@@ -109,10 +117,6 @@ func (j *jsiiProxy_CfnMicrosoftAD) validateSetEnableSsoParameters(val interface{
 }
 
 func (j *jsiiProxy_CfnMicrosoftAD) validateSetNameParameters(val *string) error {
-	return nil
-}
-
-func (j *jsiiProxy_CfnMicrosoftAD) validateSetPasswordParameters(val *string) error {
 	return nil
 }
 

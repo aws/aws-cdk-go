@@ -15,6 +15,9 @@ import (
 //   	InstanceId: jsii.String("instanceId"),
 //   	IntegrationArn: jsii.String("integrationArn"),
 //   	IntegrationType: jsii.String("integrationType"),
+//   	SourceApplicationName: jsii.String("sourceApplicationName"),
+//   	SourceApplicationUrl: jsii.String("sourceApplicationUrl"),
+//   	SourceType: jsii.String("sourceType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -48,6 +51,24 @@ type CfnIntegrationAssociationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-integrationtype
 	//
 	IntegrationType *string `field:"optional" json:"integrationType" yaml:"integrationType"`
+	// The name of the external application.
+	//
+	// This is only supported for the EVENT integration type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-sourceapplicationname
+	//
+	SourceApplicationName *string `field:"optional" json:"sourceApplicationName" yaml:"sourceApplicationName"`
+	// The URL for the external application.
+	//
+	// This is only supported for the EVENT integration type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-sourceapplicationurl
+	//
+	SourceApplicationUrl *string `field:"optional" json:"sourceApplicationUrl" yaml:"sourceApplicationUrl"`
+	// The type of the data source.
+	//
+	// This is only supported for the EVENT integration type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-sourcetype
+	//
+	SourceType *string `field:"optional" json:"sourceType" yaml:"sourceType"`
 	// The tags used to organize, track, or control access for this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html#cfn-connect-integrationassociation-tags
 	//

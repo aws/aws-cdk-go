@@ -179,6 +179,9 @@ type CfnEvaluationFormPropsMixin_EvaluationFormQuestionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-instructions
 	//
 	Instructions *string `field:"optional" json:"instructions" yaml:"instructions"`
+	// Information about the metric configuration for an evaluation form question.
+	//
+	// Use this to associate a business outcome metric with a question.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-metricconfiguration
 	//
 	MetricConfiguration interface{} `field:"optional" json:"metricConfiguration" yaml:"metricConfiguration"`

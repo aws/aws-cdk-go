@@ -560,6 +560,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_connect.IUseCaseRef",
+		reflect.TypeOf((*IUseCaseRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "useCaseRef", GoGetter: "UseCaseRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IUseCaseRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_connect.IUserHierarchyGroupRef",
 		reflect.TypeOf((*IUserHierarchyGroupRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -738,6 +754,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_connect.TrafficDistributionGroupReference",
 		reflect.TypeOf((*TrafficDistributionGroupReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_connect.UseCaseReference",
+		reflect.TypeOf((*UseCaseReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_connect.UserHierarchyGroupReference",

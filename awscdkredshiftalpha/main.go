@@ -8,6 +8,10 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-redshift-alpha.CloudWatchLoggingOptions",
+		reflect.TypeOf((*CloudWatchLoggingOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-redshift-alpha.Cluster",
 		reflect.TypeOf((*Cluster)(nil)).Elem(),
@@ -46,6 +50,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-redshift-alpha.ClusterAttributes",
 		reflect.TypeOf((*ClusterAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-redshift-alpha.ClusterLogging",
+		reflect.TypeOf((*ClusterLogging)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_ClusterLogging{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-redshift-alpha.ClusterParameterGroup",
@@ -293,9 +305,14 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-redshift-alpha.LoggingProperties",
-		reflect.TypeOf((*LoggingProperties)(nil)).Elem(),
+	_jsii_.RegisterEnum(
+		"@aws-cdk/aws-redshift-alpha.LogExport",
+		reflect.TypeOf((*LogExport)(nil)).Elem(),
+		map[string]interface{}{
+			"CONNECTION_LOG": LogExport_CONNECTION_LOG,
+			"USER_ACTIVITY_LOG": LogExport_USER_ACTIVITY_LOG,
+			"USER_LOG": LogExport_USER_LOG,
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-redshift-alpha.Login",
@@ -337,6 +354,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-redshift-alpha.RotationMultiUserOptions",
 		reflect.TypeOf((*RotationMultiUserOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-redshift-alpha.S3LoggingOptions",
+		reflect.TypeOf((*S3LoggingOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-redshift-alpha.Table",

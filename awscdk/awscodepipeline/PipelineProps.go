@@ -81,6 +81,8 @@ type PipelineProps struct {
 	//
 	EnableKeyRotation *bool `field:"optional" json:"enableKeyRotation" yaml:"enableKeyRotation"`
 	// The method that the pipeline will use to handle multiple executions.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works.html
+	//
 	// Default: - ExecutionMode.SUPERSEDED
 	//
 	ExecutionMode ExecutionMode `field:"optional" json:"executionMode" yaml:"executionMode"`

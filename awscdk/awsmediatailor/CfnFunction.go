@@ -23,6 +23,23 @@ import (
 //   	FunctionType: jsii.String("functionType"),
 //
 //   	// the properties below are optional
+//   	AwsServiceRequestConfiguration: &AwsServiceRequestConfigurationProperty{
+//   		MethodType: jsii.String("methodType"),
+//   		RequestTimeoutMilliseconds: jsii.Number(123),
+//   		Runtime: jsii.String("runtime"),
+//   		TargetRegion: jsii.String("targetRegion"),
+//   		TargetService: jsii.String("targetService"),
+//   		Url: jsii.String("url"),
+//
+//   		// the properties below are optional
+//   		Body: jsii.String("body"),
+//   		Headers: map[string]*string{
+//   			"headersKey": jsii.String("headers"),
+//   		},
+//   		Output: map[string]*string{
+//   			"outputKey": jsii.String("output"),
+//   		},
+//   	},
 //   	ConcurrentExecutorConfiguration: &ConcurrentExecutorConfigurationProperty{
 //   		FunctionList: []interface{}{
 //   			&FunctionRefProperty{
@@ -84,6 +101,21 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	VastRequestConfiguration: &VastRequestConfigurationProperty{
+//   		MethodType: jsii.String("methodType"),
+//   		RequestTimeoutMilliseconds: jsii.Number(123),
+//   		Runtime: jsii.String("runtime"),
+//   		Url: jsii.String("url"),
+//
+//   		// the properties below are optional
+//   		Body: jsii.String("body"),
+//   		Headers: map[string]*string{
+//   			"headersKey": jsii.String("headers"),
+//   		},
+//   		Output: map[string]*string{
+//   			"outputKey": jsii.String("output"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-function.html
@@ -95,6 +127,9 @@ type CfnFunction interface {
 	awscdk.ITaggableV2
 	// The ARN of the function.
 	AttrArn() *string
+	// The configuration for an AWS_SERVICE_REQUEST function.
+	AwsServiceRequestConfiguration() interface{}
+	SetAwsServiceRequestConfiguration(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -167,6 +202,9 @@ type CfnFunction interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The configuration for a VAST_REQUEST function.
+	VastRequestConfiguration() interface{}
+	SetVastRequestConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -343,6 +381,16 @@ func (j *jsiiProxy_CfnFunction) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) AwsServiceRequestConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"awsServiceRequestConfiguration",
 		&returns,
 	)
 	return returns
@@ -568,6 +616,16 @@ func (j *jsiiProxy_CfnFunction) UpdatedProperties() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) VastRequestConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vastRequestConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::MediaTailor::Function`.
 func NewCfnFunction(scope constructs.Construct, id *string, props *CfnFunctionProps) CfnFunction {
@@ -595,6 +653,17 @@ func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_mediatailor.CfnFunction",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetAwsServiceRequestConfiguration(val interface{}) {
+	if err := j.validateSetAwsServiceRequestConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"awsServiceRequestConfiguration",
+		val,
 	)
 }
 
@@ -679,6 +748,17 @@ func (j *jsiiProxy_CfnFunction)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetVastRequestConfiguration(val interface{}) {
+	if err := j.validateSetVastRequestConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vastRequestConfiguration",
 		val,
 	)
 }

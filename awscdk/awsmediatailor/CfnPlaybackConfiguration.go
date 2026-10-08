@@ -38,8 +38,6 @@ import (
 //   			},
 //   			HttpMethod: jsii.String("httpMethod"),
 //   		},
-//
-//   		// the properties below are optional
 //   		VastResponse: &VastResponseProperty{
 //   			AdSequencingMode: jsii.String("adSequencingMode"),
 //   		},

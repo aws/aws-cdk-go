@@ -25,12 +25,6 @@ import (
 //   var delegateCreateEnvironmentProfile interface{}
 //
 //   cfnPolicyGrant := awscdk.Aws_datazone.NewCfnPolicyGrant(this, jsii.String("MyCfnPolicyGrant"), &CfnPolicyGrantProps{
-//   	DomainIdentifier: jsii.String("domainIdentifier"),
-//   	EntityIdentifier: jsii.String("entityIdentifier"),
-//   	EntityType: jsii.String("entityType"),
-//   	PolicyType: jsii.String("policyType"),
-//
-//   	// the properties below are optional
 //   	Detail: &PolicyGrantDetailProperty{
 //   		AddToProjectMemberPool: &AddToProjectMemberPoolPolicyGrantDetailProperty{
 //   			IncludeChildDomainUnits: jsii.Boolean(false),
@@ -69,6 +63,10 @@ import (
 //   			IncludeChildDomainUnits: jsii.Boolean(false),
 //   		},
 //   	},
+//   	DomainIdentifier: jsii.String("domainIdentifier"),
+//   	EntityIdentifier: jsii.String("entityIdentifier"),
+//   	EntityType: jsii.String("entityType"),
+//   	PolicyType: jsii.String("policyType"),
 //   	Principal: &PolicyGrantPrincipalProperty{
 //   		DomainUnit: &DomainUnitPolicyGrantPrincipalProperty{
 //   			DomainUnitDesignation: jsii.String("domainUnitDesignation"),

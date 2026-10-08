@@ -61,6 +61,7 @@ type CfnTable interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The table name.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

@@ -126,6 +126,7 @@ import (
 //   							Ungraceful: &Ec2UngracefulProperty{
 //   								MinimumSuccessPercentage: jsii.Number(123),
 //   							},
+//   							WaitElbTargetGroupHealthy: jsii.String("waitElbTargetGroupHealthy"),
 //   						},
 //   						EcsCapacityIncreaseConfig: &EcsCapacityIncreaseConfigurationProperty{
 //   							Services: []interface{}{
@@ -144,6 +145,7 @@ import (
 //   							Ungraceful: &EcsUngracefulProperty{
 //   								MinimumSuccessPercentage: jsii.Number(123),
 //   							},
+//   							WaitElbTargetGroupHealthy: jsii.String("waitElbTargetGroupHealthy"),
 //   						},
 //   						EksResourceScalingConfig: &EksResourceScalingConfigurationProperty{
 //   							KubernetesResourceType: &KubernetesResourceTypeProperty{
@@ -332,6 +334,7 @@ import (
 //   			},
 //   		},
 //   	},
+//   	ServiceQuotaChecksEnabled: jsii.Boolean(false),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -428,6 +431,8 @@ type CfnPlan interface {
 	// The report configuration for a plan.
 	ReportConfiguration() interface{}
 	SetReportConfiguration(val interface{})
+	ServiceQuotaChecksEnabled() interface{}
+	SetServiceQuotaChecksEnabled(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -884,6 +889,16 @@ func (j *jsiiProxy_CfnPlan) ReportConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPlan) ServiceQuotaChecksEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"serviceQuotaChecksEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPlan) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -1060,6 +1075,17 @@ func (j *jsiiProxy_CfnPlan)SetReportConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"reportConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPlan)SetServiceQuotaChecksEnabled(val interface{}) {
+	if err := j.validateSetServiceQuotaChecksEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"serviceQuotaChecksEnabled",
 		val,
 	)
 }

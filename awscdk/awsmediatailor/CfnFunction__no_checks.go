@@ -104,6 +104,10 @@ func validateCfnFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetAwsServiceRequestConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetConcurrentExecutorConfigurationParameters(val interface{}) error {
 	return nil
 }
@@ -129,6 +133,10 @@ func (j *jsiiProxy_CfnFunction) validateSetSequentialExecutorConfigurationParame
 }
 
 func (j *jsiiProxy_CfnFunction) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFunction) validateSetVastRequestConfigurationParameters(val interface{}) error {
 	return nil
 }
 

@@ -6,11 +6,14 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var additionalParams interface{}
+//
 //   harnessModelConfigurationProperty := &HarnessModelConfigurationProperty{
 //   	BedrockModelConfig: &HarnessBedrockModelConfigProperty{
 //   		ModelId: jsii.String("modelId"),
 //
 //   		// the properties below are optional
+//   		AdditionalParams: additionalParams,
 //   		ApiFormat: jsii.String("apiFormat"),
 //   		MaxTokens: jsii.Number(123),
 //   		Temperature: jsii.Number(123),
@@ -30,6 +33,7 @@ package awsbedrockagentcore
 //   		ModelId: jsii.String("modelId"),
 //
 //   		// the properties below are optional
+//   		AdditionalParams: additionalParams,
 //   		ApiBase: jsii.String("apiBase"),
 //   		ApiKeyArn: jsii.String("apiKeyArn"),
 //   		MaxTokens: jsii.Number(123),
@@ -41,6 +45,7 @@ package awsbedrockagentcore
 //   		ModelId: jsii.String("modelId"),
 //
 //   		// the properties below are optional
+//   		AdditionalParams: additionalParams,
 //   		ApiFormat: jsii.String("apiFormat"),
 //   		MaxTokens: jsii.Number(123),
 //   		Temperature: jsii.Number(123),

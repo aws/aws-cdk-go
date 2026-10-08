@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnDataProvider) validateSetTagsParameters(val *[]*awscdk.Cfn
 	return nil
 }
 
+func (j *jsiiProxy_CfnDataProvider) validateSetVirtualParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnDataProviderParameters(scope constructs.Construct, id *string, props *CfnDataProviderProps) error {
 	return nil
 }

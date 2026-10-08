@@ -72,27 +72,71 @@ cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &Cluste
 })
 ```
 
-## Adding a logging bucket for database audit logging to S3
+## Database Audit Logging
 
-Amazon Redshift logs information about connections and user activities in your database. These logs help you to monitor the database for security and troubleshooting purposes, a process called database auditing. To send these logs to an S3 bucket, specify the `loggingProperties` when creating a new cluster.
+Amazon Redshift logs information about connections and user activities in your database. These logs help you to monitor the database for security and troubleshooting purposes, a process called database auditing.
+
+To capture user activity logs, you must also enable the `enable_user_activity_logging` database parameter:
+
+```go
+cluster.AddToParameterGroup(jsii.String("enable_user_activity_logging"), jsii.String("true"))
+```
+
+Parameter changes on an existing cluster take effect only after a reboot. See [Rebooting for Parameter Updates](#rebooting-for-parameter-updates) for how to automate it with `rebootForParameterChanges`.
+
+### S3 Logging
+
+To send audit logs to an S3 bucket, use `ClusterLogging.s3()`:
 
 ```go
 import ec2 "github.com/aws/aws-cdk-go/awscdk"
 import s3 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
 
+var vpc IVpc
+var bucket IBucket
 
-vpc := ec2.NewVpc(this, jsii.String("Vpc"))
-bucket := s3.Bucket_FromBucketName(this, jsii.String("bucket"), jsii.String("amzn-s3-demo-bucket"))
 
 cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
 	MasterUser: &Login{
 		MasterUsername: jsii.String("admin"),
 	},
 	Vpc: Vpc,
-	LoggingProperties: &LoggingProperties{
-		LoggingBucket: bucket,
-		LoggingKeyPrefix: jsii.String("prefix"),
+	Logging: awscdkredshiftalpha.ClusterLogging_S3(&S3LoggingOptions{
+		Bucket: *Bucket,
+		KeyPrefix: jsii.String("redshift-logs/"),
+	}),
+})
+```
+
+The bucket must meet the following requirements, otherwise Redshift does not deliver the logs ([docs](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html)):
+
+* It must use Amazon S3-managed keys (SSE-S3) for encryption. SSE-KMS is not supported.
+* It must be in the same Region as the cluster.
+* S3 Object Lock must be turned off.
+
+### CloudWatch Logging
+
+To send audit logs to CloudWatch, use `ClusterLogging.cloudWatch()`. If `logExports` is omitted, all log types are exported.
+
+```go
+import ec2 "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdkredshiftalpha"
+
+var vpc IVpc
+
+
+cluster := awscdkredshiftalpha.NewCluster(this, jsii.String("Redshift"), &ClusterProps{
+	MasterUser: &Login{
+		MasterUsername: jsii.String("admin"),
 	},
+	Vpc: Vpc,
+	Logging: awscdkredshiftalpha.ClusterLogging_CloudWatch(&CloudWatchLoggingOptions{
+		LogExports: []LogExport{
+			awscdkredshiftalpha.LogExport_CONNECTION_LOG,
+			awscdkredshiftalpha.LogExport_USER_LOG,
+		},
+	}),
 })
 ```
 

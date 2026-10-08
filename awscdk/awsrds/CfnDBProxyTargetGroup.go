@@ -54,6 +54,12 @@ import (
 //   	DbInstanceIdentifiers: []*string{
 //   		jsii.String("dbInstanceIdentifiers"),
 //   	},
+//   	Tags: []CfnTag{
+//   		&CfnTag{
+//   			Key: jsii.String("key"),
+//   			Value: jsii.String("value"),
+//   		},
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
@@ -62,8 +68,11 @@ type CfnDBProxyTargetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsrds.IDBProxyTargetGroupRef
+	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) representing the target group.
 	AttrTargetGroupArn() *string
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -110,6 +119,9 @@ type CfnDBProxyTargetGroup interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// An array of key-value pairs to apply to this resource.
+	Tags() *[]*awscdk.CfnTag
+	SetTags(val *[]*awscdk.CfnTag)
 	// The identifier for the target group.
 	TargetGroupName() *string
 	SetTargetGroupName(val *string)
@@ -294,6 +306,7 @@ type jsiiProxy_CfnDBProxyTargetGroup struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsrdsIDBProxyTargetGroupRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnDBProxyTargetGroup) AttrTargetGroupArn() *string {
@@ -301,6 +314,16 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) AttrTargetGroupArn() *string {
 	_jsii_.Get(
 		j,
 		"attrTargetGroupArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBProxyTargetGroup) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -456,6 +479,16 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBProxyTargetGroup) Tags() *[]*awscdk.CfnTag {
+	var returns *[]*awscdk.CfnTag
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDBProxyTargetGroup) TargetGroupName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -550,6 +583,17 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup)SetDbProxyName(val *string) {
 	_jsii_.Set(
 		j,
 		"dbProxyName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBProxyTargetGroup)SetTags(val *[]*awscdk.CfnTag) {
+	if err := j.validateSetTagsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"tags",
 		val,
 	)
 }

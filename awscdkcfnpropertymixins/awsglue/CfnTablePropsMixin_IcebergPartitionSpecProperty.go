@@ -1,6 +1,8 @@
 package awsglue
 
 
+// The partition spec for an Iceberg table.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -21,9 +23,11 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergpartitionspec.html
 //
 type CfnTablePropsMixin_IcebergPartitionSpecProperty struct {
+	// The partition fields.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergpartitionspec.html#cfn-glue-table-icebergpartitionspec-fields
 	//
 	Fields interface{} `field:"optional" json:"fields" yaml:"fields"`
+	// The spec ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergpartitionspec.html#cfn-glue-table-icebergpartitionspec-specid
 	//
 	SpecId *float64 `field:"optional" json:"specId" yaml:"specId"`

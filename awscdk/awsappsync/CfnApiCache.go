@@ -47,6 +47,9 @@ type CfnApiCache interface {
 	// *This parameter has been deprecated* .
 	AtRestEncryptionEnabled() interface{}
 	SetAtRestEncryptionEnabled(val interface{})
+	// The CloudFormation primary identifier for an ApiCache.
+	//
+	// Mirrors ApiId once the resource exists; populated by the handler. Customers should reference the ApiCache by ApiId.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

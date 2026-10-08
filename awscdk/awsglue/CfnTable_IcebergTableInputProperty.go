@@ -1,6 +1,8 @@
 package awsglue
 
 
+// Specifies the Iceberg table configuration.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -64,18 +66,23 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergtableinput.html
 //
 type CfnTable_IcebergTableInputProperty struct {
+	// The location of the Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergtableinput.html#cfn-glue-table-icebergtableinput-location
 	//
 	Location *string `field:"required" json:"location" yaml:"location"`
+	// The schema for an Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergtableinput.html#cfn-glue-table-icebergtableinput-schema
 	//
 	Schema interface{} `field:"required" json:"schema" yaml:"schema"`
+	// The partition spec for an Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergtableinput.html#cfn-glue-table-icebergtableinput-partitionspec
 	//
 	PartitionSpec interface{} `field:"optional" json:"partitionSpec" yaml:"partitionSpec"`
+	// The properties for the Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergtableinput.html#cfn-glue-table-icebergtableinput-properties
 	//
 	Properties interface{} `field:"optional" json:"properties" yaml:"properties"`
+	// The sort order for an Iceberg table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergtableinput.html#cfn-glue-table-icebergtableinput-writeorder
 	//
 	WriteOrder interface{} `field:"optional" json:"writeOrder" yaml:"writeOrder"`

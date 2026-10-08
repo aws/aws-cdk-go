@@ -15,12 +15,6 @@ package awsdatazone
 //   var delegateCreateEnvironmentProfile interface{}
 //
 //   cfnPolicyGrantProps := &CfnPolicyGrantProps{
-//   	DomainIdentifier: jsii.String("domainIdentifier"),
-//   	EntityIdentifier: jsii.String("entityIdentifier"),
-//   	EntityType: jsii.String("entityType"),
-//   	PolicyType: jsii.String("policyType"),
-//
-//   	// the properties below are optional
 //   	Detail: &PolicyGrantDetailProperty{
 //   		AddToProjectMemberPool: &AddToProjectMemberPoolPolicyGrantDetailProperty{
 //   			IncludeChildDomainUnits: jsii.Boolean(false),
@@ -59,6 +53,10 @@ package awsdatazone
 //   			IncludeChildDomainUnits: jsii.Boolean(false),
 //   		},
 //   	},
+//   	DomainIdentifier: jsii.String("domainIdentifier"),
+//   	EntityIdentifier: jsii.String("entityIdentifier"),
+//   	EntityType: jsii.String("entityType"),
+//   	PolicyType: jsii.String("policyType"),
 //   	Principal: &PolicyGrantPrincipalProperty{
 //   		DomainUnit: &DomainUnitPolicyGrantPrincipalProperty{
 //   			DomainUnitDesignation: jsii.String("domainUnitDesignation"),
@@ -92,6 +90,10 @@ package awsdatazone
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html
 //
 type CfnPolicyGrantProps struct {
+	// The details of the policy grant member.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-detail
+	//
+	Detail interface{} `field:"required" json:"detail" yaml:"detail"`
 	// The ID of the domain where you want to add a policy grant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-domainidentifier
 	//
@@ -108,13 +110,9 @@ type CfnPolicyGrantProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-policytype
 	//
 	PolicyType *string `field:"required" json:"policyType" yaml:"policyType"`
-	// The details of the policy grant member.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-detail
-	//
-	Detail interface{} `field:"optional" json:"detail" yaml:"detail"`
 	// The principal of the policy grant member.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-policygrant.html#cfn-datazone-policygrant-principal
 	//
-	Principal interface{} `field:"optional" json:"principal" yaml:"principal"`
+	Principal interface{} `field:"required" json:"principal" yaml:"principal"`
 }
 

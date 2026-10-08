@@ -26,6 +26,8 @@ package awsdms
 //
 //   		// the properties below are optional
 //   		CertificateArn: jsii.String("certificateArn"),
+//   		EncryptionAlgorithm: jsii.Number(123),
+//   		SecurityMechanism: jsii.Number(123),
 //   	},
 //   	IbmDb2ZOsSettings: &IbmDb2zOsSettingsProperty{
 //   		DatabaseName: jsii.String("databaseName"),
@@ -52,6 +54,8 @@ package awsdms
 //
 //   		// the properties below are optional
 //   		CertificateArn: jsii.String("certificateArn"),
+//   		S3AccessRoleArn: jsii.String("s3AccessRoleArn"),
+//   		S3Path: jsii.String("s3Path"),
 //   	},
 //   	MongoDbSettings: &MongoDbSettingsProperty{
 //   		Port: jsii.Number(123),

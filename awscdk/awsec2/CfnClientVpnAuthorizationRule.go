@@ -39,6 +39,7 @@ type CfnClientVpnAuthorizationRule interface {
 	// The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group.
 	AccessGroupId() *string
 	SetAccessGroupId(val *string)
+	// The ID of the Client VPN Authorization Rule.
 	AttrId() *string
 	// Indicates whether to grant access to all clients.
 	AuthorizeAllGroups() interface{}

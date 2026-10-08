@@ -1,6 +1,8 @@
 package awsglue
 
 
+// A field in an Iceberg schema.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -17,18 +19,23 @@ package awsglue
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergstructfield.html
 //
 type CfnTablePropsMixin_IcebergStructFieldProperty struct {
+	// Documentation for the field.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergstructfield.html#cfn-glue-table-icebergstructfield-doc
 	//
 	Doc *string `field:"optional" json:"doc" yaml:"doc"`
+	// The field ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergstructfield.html#cfn-glue-table-icebergstructfield-id
 	//
 	Id *float64 `field:"optional" json:"id" yaml:"id"`
+	// The field name.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergstructfield.html#cfn-glue-table-icebergstructfield-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// Whether the field is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergstructfield.html#cfn-glue-table-icebergstructfield-required
 	//
 	Required interface{} `field:"optional" json:"required" yaml:"required"`
+	// The field type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergstructfield.html#cfn-glue-table-icebergstructfield-type
 	//
 	Type *string `field:"optional" json:"type" yaml:"type"`

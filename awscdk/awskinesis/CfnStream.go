@@ -26,6 +26,7 @@ import (
 //   	},
 //   	MaxRecordSizeInKiB: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	RecordDistributionStrategy: jsii.String("recordDistributionStrategy"),
 //   	RetentionPeriodHours: jsii.Number(123),
 //   	ShardCount: jsii.Number(123),
 //   	StreamEncryption: &StreamEncryptionProperty{
@@ -89,6 +90,9 @@ type CfnStream interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The record distribution strategy for the stream.
+	RecordDistributionStrategy() *string
+	SetRecordDistributionStrategy(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -434,6 +438,16 @@ func (j *jsiiProxy_CfnStream) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStream) RecordDistributionStrategy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"recordDistributionStrategy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStream) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -604,6 +618,14 @@ func (j *jsiiProxy_CfnStream)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStream)SetRecordDistributionStrategy(val *string) {
+	_jsii_.Set(
+		j,
+		"recordDistributionStrategy",
 		val,
 	)
 }

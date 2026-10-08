@@ -11,6 +11,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var additionalParams interface{}
 //   var awsIam interface{}
 //   var disabled interface{}
 //   var inputSchema interface{}
@@ -24,6 +25,7 @@ import (
 //   			ModelId: jsii.String("modelId"),
 //
 //   			// the properties below are optional
+//   			AdditionalParams: additionalParams,
 //   			ApiFormat: jsii.String("apiFormat"),
 //   			MaxTokens: jsii.Number(123),
 //   			Temperature: jsii.Number(123),
@@ -43,6 +45,7 @@ import (
 //   			ModelId: jsii.String("modelId"),
 //
 //   			// the properties below are optional
+//   			AdditionalParams: additionalParams,
 //   			ApiBase: jsii.String("apiBase"),
 //   			ApiKeyArn: jsii.String("apiKeyArn"),
 //   			MaxTokens: jsii.Number(123),
@@ -54,6 +57,7 @@ import (
 //   			ModelId: jsii.String("modelId"),
 //
 //   			// the properties below are optional
+//   			AdditionalParams: additionalParams,
 //   			ApiFormat: jsii.String("apiFormat"),
 //   			MaxTokens: jsii.Number(123),
 //   			Temperature: jsii.Number(123),
@@ -189,6 +193,82 @@ import (
 //   	},
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
+//   	},
+//   	Hooks: []interface{}{
+//   		&HarnessHookProperty{
+//   			AfterInvocation: &HarnessAfterInvocationHookProperty{
+//   				Name: jsii.String("name"),
+//   				Target: &HarnessHookTargetProperty{
+//   					EventBridge: &HarnessHookEventBridgeTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   					Lambda: &HarnessHookLambdaTargetProperty{
+//   						Arn: jsii.String("arn"),
+//
+//   						// the properties below are optional
+//   						FailureMode: jsii.String("failureMode"),
+//   						TimeoutSeconds: jsii.Number(123),
+//   					},
+//   					Sns: &HarnessHookSnsTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   				},
+//   			},
+//   			AfterToolCall: &HarnessAfterToolCallHookProperty{
+//   				Name: jsii.String("name"),
+//   				Target: &HarnessHookTargetProperty{
+//   					EventBridge: &HarnessHookEventBridgeTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   					Lambda: &HarnessHookLambdaTargetProperty{
+//   						Arn: jsii.String("arn"),
+//
+//   						// the properties below are optional
+//   						FailureMode: jsii.String("failureMode"),
+//   						TimeoutSeconds: jsii.Number(123),
+//   					},
+//   					Sns: &HarnessHookSnsTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   				},
+//   			},
+//   			BeforeInvocation: &HarnessBeforeInvocationHookProperty{
+//   				Name: jsii.String("name"),
+//   				Target: &HarnessHookTargetProperty{
+//   					EventBridge: &HarnessHookEventBridgeTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   					Lambda: &HarnessHookLambdaTargetProperty{
+//   						Arn: jsii.String("arn"),
+//
+//   						// the properties below are optional
+//   						FailureMode: jsii.String("failureMode"),
+//   						TimeoutSeconds: jsii.Number(123),
+//   					},
+//   					Sns: &HarnessHookSnsTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   				},
+//   			},
+//   			BeforeToolCall: &HarnessBeforeToolCallHookProperty{
+//   				Name: jsii.String("name"),
+//   				Target: &HarnessHookTargetProperty{
+//   					EventBridge: &HarnessHookEventBridgeTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   					Lambda: &HarnessHookLambdaTargetProperty{
+//   						Arn: jsii.String("arn"),
+//
+//   						// the properties below are optional
+//   						FailureMode: jsii.String("failureMode"),
+//   						TimeoutSeconds: jsii.Number(123),
+//   					},
+//   					Sns: &HarnessHookSnsTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	MaxIterations: jsii.Number(123),
 //   	MaxTokens: jsii.Number(123),
@@ -352,6 +432,10 @@ type CfnHarnessProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-harness.html#cfn-bedrockagentcore-harness-environmentvariables
 	//
 	EnvironmentVariables interface{} `field:"optional" json:"environmentVariables" yaml:"environmentVariables"`
+	// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-harness.html#cfn-bedrockagentcore-harness-hooks
+	//
+	Hooks interface{} `field:"optional" json:"hooks" yaml:"hooks"`
 	// The maximum number of iterations the agent loop can execute per invocation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-harness.html#cfn-bedrockagentcore-harness-maxiterations
 	//

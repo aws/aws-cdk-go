@@ -415,6 +415,30 @@ func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetOnlineEvaluationConfigN
 	return nil
 }
 
+func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetOutputConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnOnlineEvaluationConfig_OutputConfigProperty:
+		val := val.(*CfnOnlineEvaluationConfig_OutputConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnOnlineEvaluationConfig_OutputConfigProperty:
+		val_ := val.(CfnOnlineEvaluationConfig_OutputConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnOnlineEvaluationConfig_OutputConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnOnlineEvaluationConfig) validateSetRuleParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

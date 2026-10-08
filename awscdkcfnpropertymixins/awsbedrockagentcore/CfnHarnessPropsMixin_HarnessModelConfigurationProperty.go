@@ -6,8 +6,11 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var additionalParams interface{}
+//
 //   harnessModelConfigurationProperty := &HarnessModelConfigurationProperty{
 //   	BedrockModelConfig: &HarnessBedrockModelConfigProperty{
+//   		AdditionalParams: additionalParams,
 //   		ApiFormat: jsii.String("apiFormat"),
 //   		MaxTokens: jsii.Number(123),
 //   		ModelId: jsii.String("modelId"),
@@ -23,6 +26,7 @@ package awsbedrockagentcore
 //   		TopP: jsii.Number(123),
 //   	},
 //   	LiteLlmModelConfig: &HarnessLiteLlmModelConfigProperty{
+//   		AdditionalParams: additionalParams,
 //   		ApiBase: jsii.String("apiBase"),
 //   		ApiKeyArn: jsii.String("apiKeyArn"),
 //   		MaxTokens: jsii.Number(123),
@@ -31,6 +35,7 @@ package awsbedrockagentcore
 //   		TopP: jsii.Number(123),
 //   	},
 //   	OpenAiModelConfig: &HarnessOpenAiModelConfigProperty{
+//   		AdditionalParams: additionalParams,
 //   		ApiFormat: jsii.String("apiFormat"),
 //   		ApiKeyArn: jsii.String("apiKeyArn"),
 //   		MaxTokens: jsii.Number(123),

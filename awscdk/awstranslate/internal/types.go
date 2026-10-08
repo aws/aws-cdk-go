@@ -7,3 +7,4 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawstranslateIParallelDataRef = interfacesawstranslate.IParallelDataRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawstranslateITerminologyRef = interfacesawstranslate.ITerminologyRef

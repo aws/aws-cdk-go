@@ -12,6 +12,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnFleetMixinProps := &CfnFleetMixinProps{
+//   	AttributesToDelete: []*string{
+//   		jsii.String("attributesToDelete"),
+//   	},
 //   	ComputeCapacity: &ComputeCapacityProperty{
 //   		DesiredInstances: jsii.Number(123),
 //   		DesiredSessions: jsii.Number(123),
@@ -66,6 +69,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html
 //
 type CfnFleetMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-attributestodelete
+	//
+	AttributesToDelete *[]*string `field:"optional" json:"attributesToDelete" yaml:"attributesToDelete"`
 	// The desired capacity for the fleet.
 	//
 	// This is not allowed for Elastic fleets.

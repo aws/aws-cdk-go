@@ -220,6 +220,9 @@ func validateCfnPolicyGrant_IsConstructParameters(x interface{}) error {
 }
 
 func (j *jsiiProxy_CfnPolicyGrant) validateSetDetailParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok
@@ -276,6 +279,9 @@ func (j *jsiiProxy_CfnPolicyGrant) validateSetPolicyTypeParameters(val *string) 
 }
 
 func (j *jsiiProxy_CfnPolicyGrant) validateSetPrincipalParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

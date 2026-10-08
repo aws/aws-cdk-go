@@ -101,7 +101,8 @@ type CfnOrganizationConfigRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsconfig.IOrganizationConfigRuleRef
-	AttrId() *string
+	// The Amazon Resource Name (ARN) of an organization AWS Config rule.
+	AttrOrganizationConfigRuleArn() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -334,11 +335,11 @@ type jsiiProxy_CfnOrganizationConfigRule struct {
 	internal.Type__interfacesawsconfigIOrganizationConfigRuleRef
 }
 
-func (j *jsiiProxy_CfnOrganizationConfigRule) AttrId() *string {
+func (j *jsiiProxy_CfnOrganizationConfigRule) AttrOrganizationConfigRuleArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrOrganizationConfigRuleArn",
 		&returns,
 	)
 	return returns
@@ -618,25 +619,6 @@ func CfnOrganizationConfigRule_ArnForOrganizationConfigRule(resource interfacesa
 		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
 		"arnForOrganizationConfigRule",
 		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IOrganizationConfigRuleRef from a organizationConfigRuleId.
-func CfnOrganizationConfigRule_FromOrganizationConfigRuleId(scope constructs.Construct, id *string, organizationConfigRuleId *string) interfacesawsconfig.IOrganizationConfigRuleRef {
-	_init_.Initialize()
-
-	if err := validateCfnOrganizationConfigRule_FromOrganizationConfigRuleIdParameters(scope, id, organizationConfigRuleId); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsconfig.IOrganizationConfigRuleRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
-		"fromOrganizationConfigRuleId",
-		[]interface{}{scope, id, organizationConfigRuleId},
 		&returns,
 	)
 

@@ -84,6 +84,18 @@ func (c *jsiiProxy_CfnFleet) validateValidatePropertiesParameters(_properties in
 	return nil
 }
 
+func validateCfnFleet_ArnForFleetParameters(resource interfacesawsappstream.IFleetRef) error {
+	return nil
+}
+
+func validateCfnFleet_FromFleetArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnFleet_FromFleetNameParameters(scope constructs.Construct, id *string, fleetName *string) error {
+	return nil
+}
+
 func validateCfnFleet_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

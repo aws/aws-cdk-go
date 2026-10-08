@@ -100,6 +100,14 @@ func validateCfnOTelEnrichment_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnOTelEnrichment) validateSetExcludeFiltersParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnOTelEnrichment) validateSetIncludeFiltersParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnOTelEnrichmentParameters(scope constructs.Construct, id *string, props *CfnOTelEnrichmentProps) error {
 	return nil
 }

@@ -153,6 +153,14 @@ type CodePipelineProps struct {
 	// Default: - false (key rotation is disabled).
 	//
 	EnableKeyRotation *bool `field:"optional" json:"enableKeyRotation" yaml:"enableKeyRotation"`
+	// The method that the pipeline will use to handle multiple executions.
+	//
+	// `QUEUED` and `PARALLEL` require `pipelineType: PipelineType.V2`.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works.html
+	//
+	// Default: - ExecutionMode.SUPERSEDED
+	//
+	ExecutionMode awscodepipeline.ExecutionMode `field:"optional" json:"executionMode" yaml:"executionMode"`
 	// The name of the CodePipeline pipeline.
 	// Default: - Automatically generated.
 	//

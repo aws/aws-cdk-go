@@ -39,4 +39,36 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_translate.CfnParallelDataPropsMixin.TagsItemsProperty",
 		reflect.TypeOf((*CfnParallelDataPropsMixin_TagsItemsProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_translate.CfnTerminologyMixinProps",
+		reflect.TypeOf((*CfnTerminologyMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_translate.CfnTerminologyPropsMixin",
+		reflect.TypeOf((*CfnTerminologyPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTerminologyPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_translate.CfnTerminologyPropsMixin.EncryptionKeyProperty",
+		reflect.TypeOf((*CfnTerminologyPropsMixin_EncryptionKeyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_translate.CfnTerminologyPropsMixin.TagsItemsProperty",
+		reflect.TypeOf((*CfnTerminologyPropsMixin_TagsItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_translate.CfnTerminologyPropsMixin.TerminologyDataProperty",
+		reflect.TypeOf((*CfnTerminologyPropsMixin_TerminologyDataProperty)(nil)).Elem(),
+	)
 }

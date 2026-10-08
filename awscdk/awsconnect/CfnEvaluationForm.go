@@ -292,6 +292,7 @@ type CfnEvaluationForm interface {
 	awscdk.IInspectable
 	interfacesawsconnect.IEvaluationFormRef
 	awscdk.ITaggable
+	// The AI version to use for the evaluation form.
 	AiVersion() *string
 	SetAiVersion(val *string)
 	// The Amazon Resource Name (ARN) of the evaluation form.

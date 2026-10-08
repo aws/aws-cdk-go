@@ -6,7 +6,10 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var additionalParams interface{}
+//
 //   harnessBedrockModelConfigProperty := &HarnessBedrockModelConfigProperty{
+//   	AdditionalParams: additionalParams,
 //   	ApiFormat: jsii.String("apiFormat"),
 //   	MaxTokens: jsii.Number(123),
 //   	ModelId: jsii.String("modelId"),
@@ -17,6 +20,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessbedrockmodelconfig.html
 //
 type CfnHarnessPropsMixin_HarnessBedrockModelConfigProperty struct {
+	// Provider-specific parameters passed through to the model provider unchanged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessbedrockmodelconfig.html#cfn-bedrockagentcore-harness-harnessbedrockmodelconfig-additionalparams
+	//
+	AdditionalParams interface{} `field:"optional" json:"additionalParams" yaml:"additionalParams"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessbedrockmodelconfig.html#cfn-bedrockagentcore-harness-harnessbedrockmodelconfig-apiformat
 	//
 	ApiFormat *string `field:"optional" json:"apiFormat" yaml:"apiFormat"`

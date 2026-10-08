@@ -16,6 +16,10 @@ func init() {
 		reflect.TypeOf((*DocumentClassifierReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_comprehend.EntityRecognizerEndpointReference",
+		reflect.TypeOf((*EntityRecognizerEndpointReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_comprehend.EntityRecognizerReference",
 		reflect.TypeOf((*EntityRecognizerReference)(nil)).Elem(),
 	)
@@ -50,6 +54,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDocumentClassifierRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_comprehend.IEntityRecognizerEndpointRef",
+		reflect.TypeOf((*IEntityRecognizerEndpointRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "entityRecognizerEndpointRef", GoGetter: "EntityRecognizerEndpointRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IEntityRecognizerEndpointRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

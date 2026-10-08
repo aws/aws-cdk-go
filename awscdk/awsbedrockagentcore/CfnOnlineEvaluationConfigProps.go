@@ -14,11 +14,16 @@ import (
 //   cfnOnlineEvaluationConfigProps := &CfnOnlineEvaluationConfigProps{
 //   	DataSourceConfig: &DataSourceConfigProperty{
 //   		CloudWatchLogs: &CloudWatchLogsInputConfigProperty{
-//   			LogGroupNames: []*string{
-//   				jsii.String("logGroupNames"),
-//   			},
 //   			ServiceNames: []*string{
 //   				jsii.String("serviceNames"),
+//   			},
+//
+//   			// the properties below are optional
+//   			LogGroupNamePrefixes: []*string{
+//   				jsii.String("logGroupNamePrefixes"),
+//   			},
+//   			LogGroupNames: []*string{
+//   				jsii.String("logGroupNames"),
 //   			},
 //   		},
 //   	},
@@ -62,6 +67,13 @@ import (
 //   	Insights: []interface{}{
 //   		&InsightProperty{
 //   			InsightId: jsii.String("insightId"),
+//   		},
+//   	},
+//   	OutputConfig: &OutputConfigProperty{
+//   		CloudWatchConfig: &CloudWatchOutputConfigProperty{
+//   			LogGroupName: jsii.String("logGroupName"),
+//   			MetricsNamespace: jsii.String("metricsNamespace"),
+//   			ResultDestination: jsii.String("resultDestination"),
 //   		},
 //   	},
 //   	Tags: []CfnTag{
@@ -112,6 +124,10 @@ type CfnOnlineEvaluationConfigProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-insights
 	//
 	Insights interface{} `field:"optional" json:"insights" yaml:"insights"`
+	// The configuration that specifies where evaluation results should be written.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-outputconfig
+	//
+	OutputConfig interface{} `field:"optional" json:"outputConfig" yaml:"outputConfig"`
 	// A list of tags to assign to the online evaluation configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-onlineevaluationconfig.html#cfn-bedrockagentcore-onlineevaluationconfig-tags
 	//

@@ -44,6 +44,8 @@ import (
 //
 //   			// the properties below are optional
 //   			CertificateArn: jsii.String("certificateArn"),
+//   			EncryptionAlgorithm: jsii.Number(123),
+//   			SecurityMechanism: jsii.Number(123),
 //   		},
 //   		IbmDb2ZOsSettings: &IbmDb2zOsSettingsProperty{
 //   			DatabaseName: jsii.String("databaseName"),
@@ -70,6 +72,8 @@ import (
 //
 //   			// the properties below are optional
 //   			CertificateArn: jsii.String("certificateArn"),
+//   			S3AccessRoleArn: jsii.String("s3AccessRoleArn"),
+//   			S3Path: jsii.String("s3Path"),
 //   		},
 //   		MongoDbSettings: &MongoDbSettingsProperty{
 //   			Port: jsii.Number(123),
@@ -136,6 +140,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	Virtual: jsii.Boolean(false),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html
@@ -219,6 +224,9 @@ type CfnDataProvider interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// Indicates whether the data provider is virtual.
+	Virtual() interface{}
+	SetVirtual(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -620,6 +628,16 @@ func (j *jsiiProxy_CfnDataProvider) UpdatedProperties() *map[string]interface{} 
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataProvider) Virtual() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"virtual",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::DMS::DataProvider`.
 func NewCfnDataProvider(scope constructs.Construct, id *string, props *CfnDataProviderProps) CfnDataProvider {
@@ -714,6 +732,17 @@ func (j *jsiiProxy_CfnDataProvider)SetTags(val *[]*awscdk.CfnTag) {
 	_jsii_.Set(
 		j,
 		"tags",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataProvider)SetVirtual(val interface{}) {
+	if err := j.validateSetVirtualParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"virtual",
 		val,
 	)
 }

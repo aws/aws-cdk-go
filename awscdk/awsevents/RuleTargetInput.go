@@ -9,28 +9,38 @@ import (
 
 // The input to send to the event target.
 //
+// This class abstracts over the three different ways CloudFormation lets you shape
+// a target's input, so you do not have to choose between them yourself:
+//
+// * `Input` - a literal value, emitted when the input does not reference the event.
+// * `InputPath` - a single JSONPath into the event, emitted by `fromEventPath()`.
+// * `InputTransformer` - an `InputPathsMap` plus an `InputTemplate`, emitted
+//   automatically when the input references parts of the event via `EventField`.
+//
+// You pick a factory method based on the *shape* you want the target to receive, and
+// whether you reference `EventField` determines which of the above is synthesized.
+// For example, `fromObject({ foo: 'bar' })` produces a literal `Input`, while
+// `fromObject({ id: EventField.fromPath('$.detail.instance-id') })` produces an
+// `InputTransformer` with the path lifted into `InputPathsMap`.
+//
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var rule Rule
+//   var topic Topic
 //
 //
-//   api := appsync.NewGraphqlApi(this, jsii.String("api"), &GraphqlApiProps{
-//   	Name: jsii.String("api"),
-//   	Definition: appsync.Definition_FromFile(jsii.String("schema.graphql")),
-//   	AuthorizationConfig: &AuthorizationConfig{
-//   		DefaultAuthorization: &AuthorizationMode{
-//   			AuthorizationType: appsync.AuthorizationType_IAM,
-//   		},
-//   	},
-//   })
+//   // Without EventField this is a literal `Input`:
+//   //   {"source":"my-app"}
+//   rule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
+//   	Message: events.RuleTargetInput_FromObject(map[string]*string{
+//   		"source": jsii.String("my-app"),
+//   	}),
+//   }))
 //
-//   rule := events.NewRule(this, jsii.String("Rule"), &RuleProps{
-//   	Schedule: events.Schedule_Rate(cdk.Duration_Hours(jsii.Number(1))),
-//   })
-//
-//   rule.AddTarget(targets.NewAppSync(api, &AppSyncGraphQLApiProps{
-//   	GraphQLOperation: jsii.String("mutation Publish($message: String!){ publish(message: $message) { message } }"),
-//   	Variables: events.RuleTargetInput_FromObject(map[string]*string{
-//   		"message": jsii.String("hello world"),
+//   // Referencing the event inserts those fields from each matched event.
+//   rule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
+//   	Message: events.RuleTargetInput_*FromObject(map[string]*string{
+//   		"instance": events.EventField_fromPath(jsii.String("$.detail.instance-id")),
+//   		"state": events.EventField_fromPath(jsii.String("$.detail.state")),
 //   	}),
 //   }))
 //
@@ -55,6 +65,10 @@ func NewRuleTargetInput_Override(r RuleTargetInput) {
 }
 
 // Take the event target input from a path in the event JSON.
+//
+// This emits CloudFormation's `InputPath` directly, so the target receives only
+// the selected fragment of the event. Use this when you want to forward part of
+// the event unchanged; use `fromObject()` when you need to reshape it.
 func RuleTargetInput_FromEventPath(path *string) RuleTargetInput {
 	_init_.Initialize()
 
@@ -108,6 +122,28 @@ func RuleTargetInput_FromMultilineText(text *string) RuleTargetInput {
 // matched event.
 //
 // Returns: RuleTargetInput.
+//
+// Example:
+//   var rule Rule
+//   var topic Topic
+//
+//
+//   // Without EventField this is a literal `Input`:
+//   //   {"source":"my-app"}
+//   rule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
+//   	Message: events.RuleTargetInput_FromObject(map[string]*string{
+//   		"source": jsii.String("my-app"),
+//   	}),
+//   }))
+//
+//   // Referencing the event inserts those fields from each matched event.
+//   rule.AddTarget(targets.NewSnsTopic(topic, &SnsTopicProps{
+//   	Message: events.RuleTargetInput_*FromObject(map[string]*string{
+//   		"instance": events.EventField_fromPath(jsii.String("$.detail.instance-id")),
+//   		"state": events.EventField_fromPath(jsii.String("$.detail.state")),
+//   	}),
+//   }))
+//
 func RuleTargetInput_FromObject(obj interface{}) RuleTargetInput {
 	_init_.Initialize()
 

@@ -17,6 +17,7 @@ import (
 //   	},
 //   	MaxRecordSizeInKiB: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	RecordDistributionStrategy: jsii.String("recordDistributionStrategy"),
 //   	RetentionPeriodHours: jsii.Number(123),
 //   	ShardCount: jsii.Number(123),
 //   	StreamEncryption: &StreamEncryptionProperty{
@@ -54,6 +55,12 @@ type CfnStreamMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The record distribution strategy for the stream.
+	//
+	// This property can ONLY be set when StreamMode is ON_DEMAND.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-recorddistributionstrategy
+	//
+	RecordDistributionStrategy *string `field:"optional" json:"recordDistributionStrategy" yaml:"recordDistributionStrategy"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
 	//
 	// The default value is 24. For more information about the stream retention period, see [Changing the Data Retention Period](https://docs.aws.amazon.com/streams/latest/dev/kinesis-extended-retention.html) in the Amazon Kinesis Developer Guide.

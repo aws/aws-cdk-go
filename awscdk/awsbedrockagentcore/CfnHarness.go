@@ -18,6 +18,7 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var additionalParams interface{}
 //   var awsIam interface{}
 //   var disabled interface{}
 //   var inputSchema interface{}
@@ -31,6 +32,7 @@ import (
 //   			ModelId: jsii.String("modelId"),
 //
 //   			// the properties below are optional
+//   			AdditionalParams: additionalParams,
 //   			ApiFormat: jsii.String("apiFormat"),
 //   			MaxTokens: jsii.Number(123),
 //   			Temperature: jsii.Number(123),
@@ -50,6 +52,7 @@ import (
 //   			ModelId: jsii.String("modelId"),
 //
 //   			// the properties below are optional
+//   			AdditionalParams: additionalParams,
 //   			ApiBase: jsii.String("apiBase"),
 //   			ApiKeyArn: jsii.String("apiKeyArn"),
 //   			MaxTokens: jsii.Number(123),
@@ -61,6 +64,7 @@ import (
 //   			ModelId: jsii.String("modelId"),
 //
 //   			// the properties below are optional
+//   			AdditionalParams: additionalParams,
 //   			ApiFormat: jsii.String("apiFormat"),
 //   			MaxTokens: jsii.Number(123),
 //   			Temperature: jsii.Number(123),
@@ -196,6 +200,82 @@ import (
 //   	},
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
+//   	},
+//   	Hooks: []interface{}{
+//   		&HarnessHookProperty{
+//   			AfterInvocation: &HarnessAfterInvocationHookProperty{
+//   				Name: jsii.String("name"),
+//   				Target: &HarnessHookTargetProperty{
+//   					EventBridge: &HarnessHookEventBridgeTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   					Lambda: &HarnessHookLambdaTargetProperty{
+//   						Arn: jsii.String("arn"),
+//
+//   						// the properties below are optional
+//   						FailureMode: jsii.String("failureMode"),
+//   						TimeoutSeconds: jsii.Number(123),
+//   					},
+//   					Sns: &HarnessHookSnsTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   				},
+//   			},
+//   			AfterToolCall: &HarnessAfterToolCallHookProperty{
+//   				Name: jsii.String("name"),
+//   				Target: &HarnessHookTargetProperty{
+//   					EventBridge: &HarnessHookEventBridgeTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   					Lambda: &HarnessHookLambdaTargetProperty{
+//   						Arn: jsii.String("arn"),
+//
+//   						// the properties below are optional
+//   						FailureMode: jsii.String("failureMode"),
+//   						TimeoutSeconds: jsii.Number(123),
+//   					},
+//   					Sns: &HarnessHookSnsTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   				},
+//   			},
+//   			BeforeInvocation: &HarnessBeforeInvocationHookProperty{
+//   				Name: jsii.String("name"),
+//   				Target: &HarnessHookTargetProperty{
+//   					EventBridge: &HarnessHookEventBridgeTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   					Lambda: &HarnessHookLambdaTargetProperty{
+//   						Arn: jsii.String("arn"),
+//
+//   						// the properties below are optional
+//   						FailureMode: jsii.String("failureMode"),
+//   						TimeoutSeconds: jsii.Number(123),
+//   					},
+//   					Sns: &HarnessHookSnsTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   				},
+//   			},
+//   			BeforeToolCall: &HarnessBeforeToolCallHookProperty{
+//   				Name: jsii.String("name"),
+//   				Target: &HarnessHookTargetProperty{
+//   					EventBridge: &HarnessHookEventBridgeTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   					Lambda: &HarnessHookLambdaTargetProperty{
+//   						Arn: jsii.String("arn"),
+//
+//   						// the properties below are optional
+//   						FailureMode: jsii.String("failureMode"),
+//   						TimeoutSeconds: jsii.Number(123),
+//   					},
+//   					Sns: &HarnessHookSnsTargetProperty{
+//   						Arn: jsii.String("arn"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	MaxIterations: jsii.Number(123),
 //   	MaxTokens: jsii.Number(123),
@@ -391,6 +471,9 @@ type CfnHarness interface {
 	SetHarnessName(val *string)
 	// A reference to a Harness resource.
 	HarnessRef() *interfacesawsbedrockagentcore.HarnessReference
+	// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+	Hooks() interface{}
+	SetHooks(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -873,6 +956,16 @@ func (j *jsiiProxy_CfnHarness) HarnessRef() *interfacesawsbedrockagentcore.Harne
 	return returns
 }
 
+func (j *jsiiProxy_CfnHarness) Hooks() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"hooks",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHarness) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1133,6 +1226,17 @@ func (j *jsiiProxy_CfnHarness)SetHarnessName(val *string) {
 	_jsii_.Set(
 		j,
 		"harnessName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHarness)SetHooks(val interface{}) {
+	if err := j.validateSetHooksParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"hooks",
 		val,
 	)
 }

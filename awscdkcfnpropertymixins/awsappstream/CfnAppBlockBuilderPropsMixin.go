@@ -31,6 +31,7 @@ import (
 //   		jsii.String("appBlockArns"),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DisableImdsv1: jsii.Boolean(false),
 //   	DisplayName: jsii.String("displayName"),
 //   	EnableDefaultInternetAccess: jsii.Boolean(false),
 //   	IamRoleArn: jsii.String("iamRoleArn"),

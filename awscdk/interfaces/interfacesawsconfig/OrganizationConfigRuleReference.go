@@ -9,11 +9,14 @@ package interfacesawsconfig
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   organizationConfigRuleReference := &OrganizationConfigRuleReference{
-//   	OrganizationConfigRuleId: jsii.String("organizationConfigRuleId"),
+//   	OrganizationConfigRuleArn: jsii.String("organizationConfigRuleArn"),
+//   	OrganizationConfigRuleName: jsii.String("organizationConfigRuleName"),
 //   }
 //
 type OrganizationConfigRuleReference struct {
-	// The Id of the OrganizationConfigRule resource.
-	OrganizationConfigRuleId *string `field:"required" json:"organizationConfigRuleId" yaml:"organizationConfigRuleId"`
+	// The ARN of the OrganizationConfigRule resource.
+	OrganizationConfigRuleArn *string `field:"required" json:"organizationConfigRuleArn" yaml:"organizationConfigRuleArn"`
+	// The OrganizationConfigRuleName of the OrganizationConfigRule resource.
+	OrganizationConfigRuleName *string `field:"required" json:"organizationConfigRuleName" yaml:"organizationConfigRuleName"`
 }
 
