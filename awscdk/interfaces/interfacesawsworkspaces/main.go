@@ -11,6 +11,10 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_workspaces.ConnectionAliasReference",
 		reflect.TypeOf((*ConnectionAliasReference)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_workspaces.DirectoryReference",
+		reflect.TypeOf((*DirectoryReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_workspaces.IConnectionAliasRef",
 		reflect.TypeOf((*IConnectionAliasRef)(nil)).Elem(),
@@ -22,6 +26,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IConnectionAliasRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_workspaces.IDirectoryRef",
+		reflect.TypeOf((*IDirectoryRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "directoryRef", GoGetter: "DirectoryRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDirectoryRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

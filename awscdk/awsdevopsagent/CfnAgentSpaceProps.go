@@ -35,6 +35,18 @@ import (
 //   			IdcApplicationArn: jsii.String("idcApplicationArn"),
 //   			UpdatedAt: jsii.String("updatedAt"),
 //   		},
+//   		Idp: &IdpAuthConfigurationProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   			IssuerUrl: jsii.String("issuerUrl"),
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//   			Provider: jsii.String("provider"),
+//
+//   			// the properties below are optional
+//   			CreatedAt: jsii.String("createdAt"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   			UserIdClaim: jsii.String("userIdClaim"),
+//   		},
 //   	},
 //   	Preferences: &PreferencesProperty{
 //   		ElevatedActionsEnabled: jsii.Boolean(false),

@@ -338,6 +338,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrPlaybackEndpointPrefix", GoGetter: "AttrPlaybackEndpointPrefix"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSessionInitializationEndpointPrefix", GoGetter: "AttrSessionInitializationEndpointPrefix"},
 			_jsii_.MemberProperty{JsiiProperty: "availSuppression", GoGetter: "AvailSuppression"},
+			_jsii_.MemberProperty{JsiiProperty: "beaconingConfiguration", GoGetter: "BeaconingConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "bumper", GoGetter: "Bumper"},
 			_jsii_.MemberProperty{JsiiProperty: "cdnConfiguration", GoGetter: "CdnConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -421,12 +422,20 @@ func init() {
 		reflect.TypeOf((*CfnPlaybackConfiguration_AvailSuppressionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.BeaconingConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfiguration_BeaconingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.BumperProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_BumperProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.CdnConfigurationProperty",
 		reflect.TypeOf((*CfnPlaybackConfiguration_CdnConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.ClientSideBeaconingConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfiguration_ClientSideBeaconingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediatailor.CfnPlaybackConfiguration.DashConfigurationProperty",

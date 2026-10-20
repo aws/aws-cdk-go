@@ -30,6 +30,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrOperatorAppIdcCreatedAt", GoGetter: "AttrOperatorAppIdcCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOperatorAppIdcIdcApplicationArn", GoGetter: "AttrOperatorAppIdcIdcApplicationArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOperatorAppIdcUpdatedAt", GoGetter: "AttrOperatorAppIdcUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrOperatorAppIdpCreatedAt", GoGetter: "AttrOperatorAppIdpCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrOperatorAppIdpUpdatedAt", GoGetter: "AttrOperatorAppIdpUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrOperatorAppIdpUserIdClaim", GoGetter: "AttrOperatorAppIdpUserIdClaim"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -82,6 +85,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAgentSpace.IdcAuthConfigurationProperty",
 		reflect.TypeOf((*CfnAgentSpace_IdcAuthConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAgentSpace.IdpAuthConfigurationProperty",
+		reflect.TypeOf((*CfnAgentSpace_IdpAuthConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAgentSpace.OperatorAppProperty",
@@ -289,6 +296,10 @@ func init() {
 		reflect.TypeOf((*CfnAssociation_ServiceNowConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.SlackBidirectionalConfigurationProperty",
+		reflect.TypeOf((*CfnAssociation_SlackBidirectionalConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAssociation.SlackChannelProperty",
 		reflect.TypeOf((*CfnAssociation_SlackChannelProperty)(nil)).Elem(),
 	)
@@ -415,6 +426,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyArn", GoGetter: "KmsKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
@@ -469,6 +481,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnService.DynatraceServiceDetailsProperty",
 		reflect.TypeOf((*CfnService_DynatraceServiceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnService.GitHubAppVerificationDetailsProperty",
+		reflect.TypeOf((*CfnService_GitHubAppVerificationDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnService.GitHubDetailsProperty",
+		reflect.TypeOf((*CfnService_GitHubDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnService.GitHubPatDetailsProperty",
+		reflect.TypeOf((*CfnService_GitHubPatDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnService.GitLabDetailsProperty",
@@ -541,6 +565,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnService.RegisteredDynatraceDetailsProperty",
 		reflect.TypeOf((*CfnService_RegisteredDynatraceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnService.RegisteredGitHubServiceDetailsProperty",
+		reflect.TypeOf((*CfnService_RegisteredGitHubServiceDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnService.RegisteredGitLabServiceDetailsProperty",

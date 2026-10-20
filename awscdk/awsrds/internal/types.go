@@ -12,6 +12,7 @@ type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsrdsICustomDBEngineVersionRef = interfacesawsrds.ICustomDBEngineVersionRef
 type Type__interfacesawsrdsIDBClusterRef = interfacesawsrds.IDBClusterRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsrdsIDBClusterEndpointRef = interfacesawsrds.IDBClusterEndpointRef
 type Type__interfacesawsrdsIDBClusterParameterGroupRef = interfacesawsrds.IDBClusterParameterGroupRef
 type Type__interfacesawsrdsIDBInstanceRef = interfacesawsrds.IDBInstanceRef
 type Type__interfacesawsrdsIDBParameterGroupRef = interfacesawsrds.IDBParameterGroupRef

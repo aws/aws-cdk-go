@@ -58,6 +58,7 @@ package awsgamelift
 //   		},
 //   	},
 //   	ResolvedImageDigest: jsii.String("resolvedImageDigest"),
+//   	Vcpu: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html
@@ -115,5 +116,11 @@ type CfnContainerGroupDefinition_GameServerContainerDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-resolvedimagedigest
 	//
 	ResolvedImageDigest *string `field:"optional" json:"resolvedImageDigest" yaml:"resolvedImageDigest"`
+	// The number of virtual CPUs to give to the game server container.
+	//
+	// This is required when the container group definition doesn't set TotalVcpuLimit.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html#cfn-gamelift-containergroupdefinition-gameservercontainerdefinition-vcpu
+	//
+	Vcpu *float64 `field:"optional" json:"vcpu" yaml:"vcpu"`
 }
 

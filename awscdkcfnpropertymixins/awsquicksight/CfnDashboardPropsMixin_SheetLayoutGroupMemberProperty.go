@@ -6,11 +6,9 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var type interface{}
-//
 //   sheetLayoutGroupMemberProperty := &SheetLayoutGroupMemberProperty{
 //   	Id: jsii.String("id"),
-//   	Type: type,
+//   	Type: jsii.String("type"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetlayoutgroupmember.html
@@ -21,6 +19,6 @@ type CfnDashboardPropsMixin_SheetLayoutGroupMemberProperty struct {
 	Id *string `field:"optional" json:"id" yaml:"id"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetlayoutgroupmember.html#cfn-quicksight-dashboard-sheetlayoutgroupmember-type
 	//
-	Type interface{} `field:"optional" json:"type" yaml:"type"`
+	Type *string `field:"optional" json:"type" yaml:"type"`
 }
 

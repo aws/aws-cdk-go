@@ -5,10 +5,11 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsivsIAdConfigurationRef = interfacesawsivs.IAdConfigurationRef
+type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsivsIChannelRef = interfacesawsivs.IChannelRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsivsIEncoderConfigurationRef = interfacesawsivs.IEncoderConfigurationRef
-type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsivsIIngestConfigurationRef = interfacesawsivs.IIngestConfigurationRef
 type Type__interfacesawsivsIPlaybackKeyPairRef = interfacesawsivs.IPlaybackKeyPairRef
 type Type__interfacesawsivsIPlaybackRestrictionPolicyRef = interfacesawsivs.IPlaybackRestrictionPolicyRef

@@ -40,7 +40,16 @@ package awsquicksight
 //   					Port: jsii.Number(123),
 //   				},
 //   				DatabricksParameters: &DatabricksParametersProperty{
+//   					AuthenticationType: jsii.String("authenticationType"),
 //   					Host: jsii.String("host"),
+//   					OAuthParameters: &OAuthParametersProperty{
+//   						IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   						IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   							VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   						},
+//   						OAuthScope: jsii.String("oAuthScope"),
+//   						TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//   					},
 //   					Port: jsii.Number(123),
 //   					SqlEndpointPath: jsii.String("sqlEndpointPath"),
 //   				},
@@ -161,6 +170,11 @@ package awsquicksight
 //   		PrivateKey: jsii.String("privateKey"),
 //   		PrivateKeyPassphrase: jsii.String("privateKeyPassphrase"),
 //   	},
+//   	OAuthClientCredentials: &OAuthClientCredentialsProperty{
+//   		ClientId: jsii.String("clientId"),
+//   		ClientSecret: jsii.String("clientSecret"),
+//   		Username: jsii.String("username"),
+//   	},
 //   	SecretArn: jsii.String("secretArn"),
 //   }
 //
@@ -183,6 +197,9 @@ type CfnDataSourcePropsMixin_DataSourceCredentialsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-keypaircredentials
 	//
 	KeyPairCredentials interface{} `field:"optional" json:"keyPairCredentials" yaml:"keyPairCredentials"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-oauthclientcredentials
+	//
+	OAuthClientCredentials interface{} `field:"optional" json:"oAuthClientCredentials" yaml:"oAuthClientCredentials"`
 	// The Amazon Resource Name (ARN) of the secret associated with the data source in AWS Secrets Manager .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-secretarn
 	//

@@ -10,10 +10,13 @@ package interfacesawslambda
 //
 //   webFunctionReference := &WebFunctionReference{
 //   	FunctionArn: jsii.String("functionArn"),
+//   	FunctionName: jsii.String("functionName"),
 //   }
 //
 type WebFunctionReference struct {
 	// The FunctionArn of the WebFunction resource.
 	FunctionArn *string `field:"required" json:"functionArn" yaml:"functionArn"`
+	// The FunctionName of the WebFunction resource.
+	FunctionName *string `field:"required" json:"functionName" yaml:"functionName"`
 }
 

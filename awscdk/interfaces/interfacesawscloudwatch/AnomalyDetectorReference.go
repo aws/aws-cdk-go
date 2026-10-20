@@ -13,7 +13,7 @@ package interfacesawscloudwatch
 //   }
 //
 type AnomalyDetectorReference struct {
-	// The Id of the AnomalyDetector resource.
+	// The AnomalyDetectorId of the AnomalyDetector resource.
 	AnomalyDetectorId *string `field:"required" json:"anomalyDetectorId" yaml:"anomalyDetectorId"`
 }
 

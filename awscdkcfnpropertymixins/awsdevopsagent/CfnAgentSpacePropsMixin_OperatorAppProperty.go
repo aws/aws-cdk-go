@@ -19,6 +19,16 @@ package awsdevopsagent
 //   		OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
 //   		UpdatedAt: jsii.String("updatedAt"),
 //   	},
+//   	Idp: &IdpAuthConfigurationProperty{
+//   		ClientId: jsii.String("clientId"),
+//   		ClientSecret: jsii.String("clientSecret"),
+//   		CreatedAt: jsii.String("createdAt"),
+//   		IssuerUrl: jsii.String("issuerUrl"),
+//   		OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//   		Provider: jsii.String("provider"),
+//   		UpdatedAt: jsii.String("updatedAt"),
+//   		UserIdClaim: jsii.String("userIdClaim"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-operatorapp.html
@@ -30,5 +40,9 @@ type CfnAgentSpacePropsMixin_OperatorAppProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-operatorapp.html#cfn-devopsagent-agentspace-operatorapp-idc
 	//
 	Idc interface{} `field:"optional" json:"idc" yaml:"idc"`
+	// External identity provider configuration for the Operator App.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-operatorapp.html#cfn-devopsagent-agentspace-operatorapp-idp
+	//
+	Idp interface{} `field:"optional" json:"idp" yaml:"idp"`
 }
 

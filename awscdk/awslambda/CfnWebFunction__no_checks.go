@@ -84,6 +84,14 @@ func (c *jsiiProxy_CfnWebFunction) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnWebFunction_ArnForWebFunctionParameters(resource interfacesawslambda.IWebFunctionRef) error {
+	return nil
+}
+
+func validateCfnWebFunction_FromFunctionNameParameters(scope constructs.Construct, id *string, functionName *string) error {
+	return nil
+}
+
 func validateCfnWebFunction_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

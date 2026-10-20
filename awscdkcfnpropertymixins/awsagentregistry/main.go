@@ -56,6 +56,10 @@ func init() {
 		reflect.TypeOf((*CfnRegistryPropsMixin_DiscoveryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_agentregistry.CfnRegistryPropsMixin.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRegistryPropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_agentregistry.CfnRegistryRecordMixinProps",
 		reflect.TypeOf((*CfnRegistryRecordMixinProps)(nil)).Elem(),
 	)

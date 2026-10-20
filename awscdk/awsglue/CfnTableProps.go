@@ -9,7 +9,6 @@ package awsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var parameters interface{}
-//   var properties interface{}
 //   var skewedColumnValueLocationMaps interface{}
 //
 //   cfnTableProps := &CfnTableProps{
@@ -59,7 +58,9 @@ package awsglue
 //   					// the properties below are optional
 //   					SpecId: jsii.Number(123),
 //   				},
-//   				Properties: properties,
+//   				Properties: map[string]*string{
+//   					"propertiesKey": jsii.String("properties"),
+//   				},
 //   				WriteOrder: &IcebergSortOrderProperty{
 //   					Fields: []interface{}{
 //   						&IcebergSortFieldProperty{

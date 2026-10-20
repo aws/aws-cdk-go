@@ -18,6 +18,14 @@ package awsdevopsagent
 //   	Dynatrace: &RegisteredDynatraceDetailsProperty{
 //   		AccountUrn: jsii.String("accountUrn"),
 //   	},
+//   	GitHub: &RegisteredGitHubServiceDetailsProperty{
+//   		AppVariant: jsii.String("appVariant"),
+//   		AuthMode: jsii.String("authMode"),
+//   		HostingType: jsii.String("hostingType"),
+//   		Owner: jsii.String("owner"),
+//   		OwnerType: jsii.String("ownerType"),
+//   		TargetUrl: jsii.String("targetUrl"),
+//   	},
 //   	GitLab: &RegisteredGitLabServiceDetailsProperty{
 //   		GroupId: jsii.String("groupId"),
 //   		TargetUrl: jsii.String("targetUrl"),
@@ -81,6 +89,10 @@ type CfnServicePropsMixin_AdditionalServiceDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-dynatrace
 	//
 	Dynatrace interface{} `field:"optional" json:"dynatrace" yaml:"dynatrace"`
+	// GitHub service details returned after registration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-github
+	//
+	GitHub interface{} `field:"optional" json:"gitHub" yaml:"gitHub"`
 	// GitLab service details returned after registration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-additionalservicedetails.html#cfn-devopsagent-service-additionalservicedetails-gitlab
 	//

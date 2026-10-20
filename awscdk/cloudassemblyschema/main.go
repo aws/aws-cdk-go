@@ -301,6 +301,7 @@ func init() {
 			"NEVER": RequireApproval_NEVER,
 			"ANYCHANGE": RequireApproval_ANYCHANGE,
 			"BROADENING": RequireApproval_BROADENING,
+			"DESTRUCTIVE": RequireApproval_DESTRUCTIVE,
 		},
 	)
 	_jsii_.RegisterStruct(

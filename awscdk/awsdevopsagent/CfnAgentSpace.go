@@ -42,6 +42,18 @@ import (
 //   			IdcApplicationArn: jsii.String("idcApplicationArn"),
 //   			UpdatedAt: jsii.String("updatedAt"),
 //   		},
+//   		Idp: &IdpAuthConfigurationProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   			IssuerUrl: jsii.String("issuerUrl"),
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//   			Provider: jsii.String("provider"),
+//
+//   			// the properties below are optional
+//   			CreatedAt: jsii.String("createdAt"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   			UserIdClaim: jsii.String("userIdClaim"),
+//   		},
 //   	},
 //   	Preferences: &PreferencesProperty{
 //   		ElevatedActionsEnabled: jsii.Boolean(false),
@@ -74,6 +86,12 @@ type CfnAgentSpace interface {
 	AttrOperatorAppIdcCreatedAt() *string
 	AttrOperatorAppIdcIdcApplicationArn() *string
 	AttrOperatorAppIdcUpdatedAt() *string
+	AttrOperatorAppIdpCreatedAt() *string
+	AttrOperatorAppIdpUpdatedAt() *string
+	// The identity claim used to identify users.
+	//
+	// This value is selected by the service for the configured provider.
+	AttrOperatorAppIdpUserIdClaim() *string
 	// The timestamp when the resource was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
@@ -399,6 +417,36 @@ func (j *jsiiProxy_CfnAgentSpace) AttrOperatorAppIdcUpdatedAt() *string {
 	_jsii_.Get(
 		j,
 		"attrOperatorAppIdcUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentSpace) AttrOperatorAppIdpCreatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOperatorAppIdpCreatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentSpace) AttrOperatorAppIdpUpdatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOperatorAppIdpUpdatedAt",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAgentSpace) AttrOperatorAppIdpUserIdClaim() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrOperatorAppIdpUserIdClaim",
 		&returns,
 	)
 	return returns

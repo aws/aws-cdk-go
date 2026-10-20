@@ -15,6 +15,7 @@ package awsdevopsagent
 //   sourceAwsConfigurationProperty := &SourceAwsConfigurationProperty{
 //   	AccountId: jsii.String("accountId"),
 //   	AccountType: jsii.String("accountType"),
+//   	AgentElevatedRoleArn: jsii.String("agentElevatedRoleArn"),
 //   	AssumableRoleArn: jsii.String("assumableRoleArn"),
 //   	Resources: []interface{}{
 //   		&AWSResourceProperty{
@@ -42,6 +43,12 @@ type CfnAssociationPropsMixin_SourceAwsConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-sourceawsconfiguration.html#cfn-devopsagent-association-sourceawsconfiguration-accounttype
 	//
 	AccountType *string `field:"optional" json:"accountType" yaml:"accountType"`
+	// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account.
+	//
+	// Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-sourceawsconfiguration.html#cfn-devopsagent-association-sourceawsconfiguration-agentelevatedrolearn
+	//
+	AgentElevatedRoleArn *string `field:"optional" json:"agentElevatedRoleArn" yaml:"agentElevatedRoleArn"`
 	// Role ARN to be assumed by AWS DevOps Agent to operate on behalf of customer.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-sourceawsconfiguration.html#cfn-devopsagent-association-sourceawsconfiguration-assumablerolearn
 	//

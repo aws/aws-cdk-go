@@ -72,7 +72,7 @@ for all constructs at the same time.
 
 ```go
 stringValue := ssm.StringParameter_ValueFromLookup(this, jsii.String("/My/Public/Parameter"), undefined, &StringParameterLookupOptions{
-	AdditionalCacheKey: this.Node.path,
+	AdditionalCacheKey: this.Node.Path,
 })
 ```
 

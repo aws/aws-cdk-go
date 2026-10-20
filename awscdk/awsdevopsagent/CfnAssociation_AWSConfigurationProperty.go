@@ -18,6 +18,7 @@ package awsdevopsagent
 //   	AssumableRoleArn: jsii.String("assumableRoleArn"),
 //
 //   	// the properties below are optional
+//   	AgentElevatedRoleArn: jsii.String("agentElevatedRoleArn"),
 //   	Resources: []interface{}{
 //   		&AWSResourceProperty{
 //   			ResourceArn: jsii.String("resourceArn"),
@@ -50,6 +51,12 @@ type CfnAssociation_AWSConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-awsconfiguration.html#cfn-devopsagent-association-awsconfiguration-assumablerolearn
 	//
 	AssumableRoleArn *string `field:"required" json:"assumableRoleArn" yaml:"assumableRoleArn"`
+	// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account.
+	//
+	// Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-awsconfiguration.html#cfn-devopsagent-association-awsconfiguration-agentelevatedrolearn
+	//
+	AgentElevatedRoleArn *string `field:"optional" json:"agentElevatedRoleArn" yaml:"agentElevatedRoleArn"`
 	// List of resources to monitor.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-awsconfiguration.html#cfn-devopsagent-association-awsconfiguration-resources
 	//

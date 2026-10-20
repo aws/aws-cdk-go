@@ -9,7 +9,6 @@ package awsglue
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   var parameters interface{}
-//   var properties interface{}
 //   var skewedColumnValueLocationMaps interface{}
 //
 //   cfnTableMixinProps := &CfnTableMixinProps{
@@ -31,7 +30,9 @@ package awsglue
 //   					},
 //   					SpecId: jsii.Number(123),
 //   				},
-//   				Properties: properties,
+//   				Properties: map[string]*string{
+//   					"propertiesKey": jsii.String("properties"),
+//   				},
 //   				Schema: &IcebergSchemaProperty{
 //   					Fields: []interface{}{
 //   						&IcebergStructFieldProperty{

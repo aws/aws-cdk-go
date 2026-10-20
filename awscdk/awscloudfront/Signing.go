@@ -103,12 +103,34 @@ func Signing_SIGV4_ALWAYS() Signing {
 	return returns
 }
 
+func Signing_SIGV4_ALWAYS_AMZ_AUTH() Signing {
+	_init_.Initialize()
+	var returns Signing
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.Signing",
+		"SIGV4_ALWAYS_AMZ_AUTH",
+		&returns,
+	)
+	return returns
+}
+
 func Signing_SIGV4_NO_OVERRIDE() Signing {
 	_init_.Initialize()
 	var returns Signing
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_cloudfront.Signing",
 		"SIGV4_NO_OVERRIDE",
+		&returns,
+	)
+	return returns
+}
+
+func Signing_SIGV4A_ALWAYS() Signing {
+	_init_.Initialize()
+	var returns Signing
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.Signing",
+		"SIGV4A_ALWAYS",
 		&returns,
 	)
 	return returns

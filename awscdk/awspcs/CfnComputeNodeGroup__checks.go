@@ -237,9 +237,6 @@ func (j *jsiiProxy_CfnComputeNodeGroup) validateSetClusterIdParameters(val *stri
 }
 
 func (j *jsiiProxy_CfnComputeNodeGroup) validateSetCustomLaunchTemplateParameters(val interface{}) error {
-	if val == nil {
-		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
 	switch val.(type) {
 	case awscdk.IResolvable:
 		// ok

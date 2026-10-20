@@ -192,12 +192,20 @@ func init() {
 		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_AvailSuppressionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.BeaconingConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_BeaconingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.BumperProperty",
 		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_BumperProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.CdnConfigurationProperty",
 		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_CdnConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.ClientSideBeaconingConfigurationProperty",
+		reflect.TypeOf((*CfnPlaybackConfigurationPropsMixin_ClientSideBeaconingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnPlaybackConfigurationPropsMixin.DashConfigurationProperty",

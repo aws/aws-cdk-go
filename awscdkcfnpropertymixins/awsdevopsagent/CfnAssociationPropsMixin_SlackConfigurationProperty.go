@@ -11,6 +11,10 @@ package awsdevopsagent
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   slackConfigurationProperty := &SlackConfigurationProperty{
+//   	Bidirectional: &SlackBidirectionalConfigurationProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		RoleArn: jsii.String("roleArn"),
+//   	},
 //   	TransmissionTarget: &SlackTransmissionTargetProperty{
 //   		IncidentResponseTarget: &SlackChannelProperty{
 //   			ChannelId: jsii.String("channelId"),
@@ -24,6 +28,12 @@ package awsdevopsagent
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slackconfiguration.html
 //
 type CfnAssociationPropsMixin_SlackConfigurationProperty struct {
+	// Optional bidirectional communication configuration.
+	//
+	// Supply this configuration and set Enabled to true so you can interact with the agent directly from Slack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slackconfiguration.html#cfn-devopsagent-association-slackconfiguration-bidirectional
+	//
+	Bidirectional interface{} `field:"optional" json:"bidirectional" yaml:"bidirectional"`
 	// Transmission targets for agent notifications.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slackconfiguration.html#cfn-devopsagent-association-slackconfiguration-transmissiontarget
 	//

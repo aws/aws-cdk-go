@@ -8,8 +8,6 @@ package awsglue
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var properties interface{}
-//
 //   icebergInputProperty := &IcebergInputProperty{
 //   	IcebergTableInput: &IcebergTableInputProperty{
 //   		Location: jsii.String("location"),
@@ -24,7 +22,9 @@ package awsglue
 //   			},
 //   			SpecId: jsii.Number(123),
 //   		},
-//   		Properties: properties,
+//   		Properties: map[string]*string{
+//   			"propertiesKey": jsii.String("properties"),
+//   		},
 //   		Schema: &IcebergSchemaProperty{
 //   			Fields: []interface{}{
 //   				&IcebergStructFieldProperty{

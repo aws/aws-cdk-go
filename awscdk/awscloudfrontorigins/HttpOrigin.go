@@ -13,17 +13,16 @@ import (
 // An Origin for an HTTP server or S3 bucket configured for website hosting.
 //
 // Example:
-//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
+//   oac := cloudfront.NewFunctionUrlOriginAccessControl(this, jsii.String("WebFunctionOAC"), &FunctionUrlOriginAccessControlProps{
+//   	Signing: cloudfront.Signing_SIGV4_ALWAYS_AMZ_AUTH(),
+//   })
+//
+//   cloudfront.NewDistribution(this, jsii.String("MyDistribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewOriginGroup(&OriginGroupProps{
-//   			PrimaryOrigin: origins.S3BucketOrigin_WithOriginAccessControl(myBucket),
-//   			FallbackOrigin: origins.NewHttpOrigin(jsii.String("www.example.com")),
-//   			// optional, defaults to: 500, 502, 503 and 504
-//   			FallbackStatusCodes: []*f64{
-//   				jsii.Number(404),
-//   			},
+//   		Origin: origins.NewHttpOrigin(jsii.String("bcdfghjklmnpqrst.b7t.lambda-web.us-east-1.on.aws"), &HttpOriginProps{
+//   			OriginAccessControlId: oac.OriginAccessControlId,
 //   		}),
+//   		OriginRequestPolicy: cloudfront.OriginRequestPolicy_ALL_VIEWER_EXCEPT_HOST_HEADER(),
 //   	},
 //   })
 //

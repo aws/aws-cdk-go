@@ -12,6 +12,9 @@ package awsdevopsagent
 //
 //   mCPServerDatadogConfigurationProperty := &MCPServerDatadogConfigurationProperty{
 //   	Description: jsii.String("description"),
+//   	EnabledElevatedTools: []*string{
+//   		jsii.String("enabledElevatedTools"),
+//   	},
 //   	EnableWebhookUpdates: jsii.Boolean(false),
 //   	Endpoint: jsii.String("endpoint"),
 //   	Name: jsii.String("name"),
@@ -24,6 +27,12 @@ type CfnAssociation_MCPServerDatadogConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html#cfn-devopsagent-association-mcpserverdatadogconfiguration-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The mutative MCP tools enabled for this integration, by tool name.
+	//
+	// Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html#cfn-devopsagent-association-mcpserverdatadogconfiguration-enabledelevatedtools
+	//
+	EnabledElevatedTools *[]*string `field:"optional" json:"enabledElevatedTools" yaml:"enabledElevatedTools"`
 	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserverdatadogconfiguration.html#cfn-devopsagent-association-mcpserverdatadogconfiguration-enablewebhookupdates
 	//

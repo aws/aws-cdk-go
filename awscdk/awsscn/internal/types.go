@@ -8,4 +8,5 @@ type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsscnIDataIntegrationFlowRef = interfacesawsscn.IDataIntegrationFlowRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsscnIDatasetRef = interfacesawsscn.IDatasetRef
+type Type__interfacesawsscnIInstanceRef = interfacesawsscn.IInstanceRef
 type Type__interfacesawsscnINamespaceRef = interfacesawsscn.INamespaceRef

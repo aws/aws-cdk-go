@@ -5933,6 +5933,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_MySqlParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDataSource.OAuthClientCredentialsProperty",
+		reflect.TypeOf((*CfnDataSource_OAuthClientCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDataSource.OAuthParametersProperty",
 		reflect.TypeOf((*CfnDataSource_OAuthParametersProperty)(nil)).Elem(),
 	)

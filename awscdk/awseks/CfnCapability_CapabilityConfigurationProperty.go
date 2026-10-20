@@ -27,6 +27,7 @@ package awseks
 //   		},
 //
 //   		// the properties below are optional
+//   		EndpointPrefix: jsii.String("endpointPrefix"),
 //   		Namespace: jsii.String("namespace"),
 //   		NetworkAccess: &NetworkAccessProperty{
 //   			VpceIds: []*string{

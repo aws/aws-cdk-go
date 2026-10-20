@@ -27,6 +27,7 @@ import (
 //   		Aws: &AWSConfigurationProperty{
 //   			AccountId: jsii.String("accountId"),
 //   			AccountType: jsii.String("accountType"),
+//   			AgentElevatedRoleArn: jsii.String("agentElevatedRoleArn"),
 //   			AssumableRoleArn: jsii.String("assumableRoleArn"),
 //   			Resources: []interface{}{
 //   				&AWSResourceProperty{
@@ -78,11 +79,17 @@ import (
 //   		},
 //   		McpServerDatadog: &MCPServerDatadogConfigurationProperty{
 //   			Description: jsii.String("description"),
+//   			EnabledElevatedTools: []*string{
+//   				jsii.String("enabledElevatedTools"),
+//   			},
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   			Endpoint: jsii.String("endpoint"),
 //   			Name: jsii.String("name"),
 //   		},
 //   		McpServerGrafana: &MCPServerGrafanaConfigurationProperty{
+//   			EnabledElevatedTools: []*string{
+//   				jsii.String("enabledElevatedTools"),
+//   			},
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   			Endpoint: jsii.String("endpoint"),
 //   			Tools: []*string{
@@ -116,6 +123,10 @@ import (
 //   			InstanceId: jsii.String("instanceId"),
 //   		},
 //   		Slack: &SlackConfigurationProperty{
+//   			Bidirectional: &SlackBidirectionalConfigurationProperty{
+//   				Enabled: jsii.Boolean(false),
+//   				RoleArn: jsii.String("roleArn"),
+//   			},
 //   			TransmissionTarget: &SlackTransmissionTargetProperty{
 //   				IncidentResponseTarget: &SlackChannelProperty{
 //   					ChannelId: jsii.String("channelId"),
@@ -128,6 +139,7 @@ import (
 //   		SourceAws: &SourceAwsConfigurationProperty{
 //   			AccountId: jsii.String("accountId"),
 //   			AccountType: jsii.String("accountType"),
+//   			AgentElevatedRoleArn: jsii.String("agentElevatedRoleArn"),
 //   			AssumableRoleArn: jsii.String("assumableRoleArn"),
 //   			Resources: []interface{}{
 //   				&AWSResourceProperty{

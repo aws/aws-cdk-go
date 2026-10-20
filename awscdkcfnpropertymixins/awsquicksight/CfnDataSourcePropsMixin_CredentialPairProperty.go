@@ -36,7 +36,16 @@ package awsquicksight
 //   				Port: jsii.Number(123),
 //   			},
 //   			DatabricksParameters: &DatabricksParametersProperty{
+//   				AuthenticationType: jsii.String("authenticationType"),
 //   				Host: jsii.String("host"),
+//   				OAuthParameters: &OAuthParametersProperty{
+//   					IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   					IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   						VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   					},
+//   					OAuthScope: jsii.String("oAuthScope"),
+//   					TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//   				},
 //   				Port: jsii.Number(123),
 //   				SqlEndpointPath: jsii.String("sqlEndpointPath"),
 //   			},

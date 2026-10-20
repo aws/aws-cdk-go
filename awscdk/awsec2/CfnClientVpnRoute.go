@@ -37,6 +37,7 @@ type CfnClientVpnRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsec2.IClientVpnRouteRef
+	// The CloudFormation-generated identifier for this Client VPN route, derived from the logical resource id and client request token.
 	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions

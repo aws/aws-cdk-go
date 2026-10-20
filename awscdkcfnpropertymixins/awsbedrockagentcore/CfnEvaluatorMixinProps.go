@@ -22,6 +22,29 @@ import (
 //   				LambdaTimeoutInSeconds: jsii.Number(123),
 //   			},
 //   		},
+//   		Derived: &DerivedEvaluatorConfigProperty{
+//   			BaseEvaluatorId: jsii.String("baseEvaluatorId"),
+//   			ModelConfig: &EvaluatorModelConfigProperty{
+//   				BedrockEvaluatorModelConfig: &BedrockEvaluatorModelConfigProperty{
+//   					AdditionalModelRequestFields: additionalModelRequestFields,
+//   					InferenceConfig: &InferenceConfigurationProperty{
+//   						MaxTokens: jsii.Number(123),
+//   						Temperature: jsii.Number(123),
+//   						TopP: jsii.Number(123),
+//   					},
+//   					ModelId: jsii.String("modelId"),
+//   				},
+//   				ResponsesEvaluatorModelConfig: &OpenResponsesEvaluatorModelConfigProperty{
+//   					MaxOutputTokens: jsii.Number(123),
+//   					ModelId: jsii.String("modelId"),
+//   					Reasoning: &ReasoningConfigurationProperty{
+//   						Effort: jsii.String("effort"),
+//   					},
+//   					Temperature: jsii.Number(123),
+//   					TopP: jsii.Number(123),
+//   				},
+//   			},
+//   		},
 //   		LlmAsAJudge: &LlmAsAJudgeEvaluatorConfigProperty{
 //   			Instructions: jsii.String("instructions"),
 //   			ModelConfig: &EvaluatorModelConfigProperty{

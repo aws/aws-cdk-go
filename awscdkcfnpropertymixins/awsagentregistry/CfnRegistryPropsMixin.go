@@ -27,6 +27,8 @@ import (
 //   		},
 //   	},
 //   	AuthorizerType: jsii.String("authorizerType"),
+//   	AutoDetectionEnabled: jsii.Boolean(false),
+//   	AutoDetectionScope: jsii.String("autoDetectionScope"),
 //   	Description: jsii.String("description"),
 //   	DiscoveryConfiguration: &DiscoveryConfigurationProperty{
 //   		AuthorizerConfiguration: &AuthorizerConfigurationProperty{
@@ -58,6 +60,9 @@ import (
 //   				DiscoveryUrl: jsii.String("discoveryUrl"),
 //   			},
 //   		},
+//   	},
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	},
 //   	Name: jsii.String("name"),
 //   	Tags: []CfnTag{

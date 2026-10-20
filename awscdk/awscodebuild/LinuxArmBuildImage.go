@@ -239,6 +239,17 @@ func LinuxArmBuildImage_AMAZON_LINUX_2023_STANDARD_3_0() IBuildImage {
 	return returns
 }
 
+func LinuxArmBuildImage_AMAZON_LINUX_2023_STANDARD_4_0() IBuildImage {
+	_init_.Initialize()
+	var returns IBuildImage
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_codebuild.LinuxArmBuildImage",
+		"AMAZON_LINUX_2023_STANDARD_4_0",
+		&returns,
+	)
+	return returns
+}
+
 func (l *jsiiProxy_LinuxArmBuildImage) RunScriptBuildspec(entrypoint *string) BuildSpec {
 	if err := l.validateRunScriptBuildspecParameters(entrypoint); err != nil {
 		panic(err)

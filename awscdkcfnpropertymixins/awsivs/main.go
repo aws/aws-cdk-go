@@ -8,6 +8,34 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ivs.CfnAdConfigurationMixinProps",
+		reflect.TypeOf((*CfnAdConfigurationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ivs.CfnAdConfigurationPropsMixin",
+		reflect.TypeOf((*CfnAdConfigurationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnAdConfigurationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ivs.CfnAdConfigurationPropsMixin.MediaTailorPlaybackConfigurationProperty",
+		reflect.TypeOf((*CfnAdConfigurationPropsMixin_MediaTailorPlaybackConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ivs.CfnAdConfigurationPropsMixin.PostRollConfigurationProperty",
+		reflect.TypeOf((*CfnAdConfigurationPropsMixin_PostRollConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ivs.CfnChannelMixinProps",
 		reflect.TypeOf((*CfnChannelMixinProps)(nil)).Elem(),
 	)

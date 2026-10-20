@@ -64,6 +64,7 @@ import (
 //   			},
 //   			CurrentCount: jsii.Number(123),
 //   			ImageId: jsii.String("imageId"),
+//   			ImageReleaseVersion: jsii.String("imageReleaseVersion"),
 //   			InstanceRequirements: &InstanceRequirementsProperty{
 //   				InstanceTypes: []*string{
 //   					jsii.String("instanceTypes"),

@@ -324,6 +324,10 @@ func init() {
 		reflect.TypeOf((*CfnEvaluatorPropsMixin_CodeBasedEvaluatorConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.DerivedEvaluatorConfigProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_DerivedEvaluatorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.EvaluatorConfigProperty",
 		reflect.TypeOf((*CfnEvaluatorPropsMixin_EvaluatorConfigProperty)(nil)).Elem(),
 	)

@@ -9,6 +9,7 @@ package awslambda
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   serviceConfigProperty := &ServiceConfigProperty{
+//   	EgressNetworkConnectorArn: jsii.String("egressNetworkConnectorArn"),
 //   	EnvironmentVariables: map[string]*string{
 //   		"environmentVariablesKey": jsii.String("environmentVariables"),
 //   	},
@@ -27,6 +28,10 @@ package awslambda
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-serviceconfig.html
 //
 type CfnWebFunctionRevisionPropsMixin_ServiceConfigProperty struct {
+	// The versioned ARN of the network connector used for outbound network access from the revision.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-serviceconfig.html#cfn-lambda-webfunctionrevision-serviceconfig-egressnetworkconnectorarn
+	//
+	EgressNetworkConnectorArn *string `field:"optional" json:"egressNetworkConnectorArn" yaml:"egressNetworkConnectorArn"`
 	// Environment variables for the function.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-webfunctionrevision-serviceconfig.html#cfn-lambda-webfunctionrevision-serviceconfig-environmentvariables
 	//

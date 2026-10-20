@@ -40,6 +40,38 @@ func init() {
 		reflect.TypeOf((*CfnDeploymentPropsMixin_DeploymentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networksecuritymanager.CfnPolicyMixinProps",
+		reflect.TypeOf((*CfnPolicyMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_networksecuritymanager.CfnPolicyPropsMixin",
+		reflect.TypeOf((*CfnPolicyPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPolicyPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networksecuritymanager.CfnPolicyPropsMixin.AssociatedTemplateAndRuleProperty",
+		reflect.TypeOf((*CfnPolicyPropsMixin_AssociatedTemplateAndRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networksecuritymanager.CfnPolicyPropsMixin.PolicyConfigurationProperty",
+		reflect.TypeOf((*CfnPolicyPropsMixin_PolicyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networksecuritymanager.CfnPolicyPropsMixin.WafConfigProperty",
+		reflect.TypeOf((*CfnPolicyPropsMixin_WafConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networksecuritymanager.CfnRuleMixinProps",
 		reflect.TypeOf((*CfnRuleMixinProps)(nil)).Elem(),
 	)

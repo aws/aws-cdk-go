@@ -10,12 +10,6 @@ package awspcs
 //
 //   cfnComputeNodeGroupProps := &CfnComputeNodeGroupProps{
 //   	ClusterId: jsii.String("clusterId"),
-//   	CustomLaunchTemplate: &CustomLaunchTemplateProperty{
-//   		Version: jsii.String("version"),
-//
-//   		// the properties below are optional
-//   		TemplateId: jsii.String("templateId"),
-//   	},
 //   	IamInstanceProfileArn: jsii.String("iamInstanceProfileArn"),
 //   	InstanceConfigs: []interface{}{
 //   		&InstanceConfigProperty{
@@ -32,6 +26,12 @@ package awspcs
 //
 //   	// the properties below are optional
 //   	AmiId: jsii.String("amiId"),
+//   	CustomLaunchTemplate: &CustomLaunchTemplateProperty{
+//   		Version: jsii.String("version"),
+//
+//   		// the properties below are optional
+//   		TemplateId: jsii.String("templateId"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
 //   		Stages: &NodeLifecycleStagesProperty{
@@ -108,10 +108,6 @@ type CfnComputeNodeGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-clusterid
 	//
 	ClusterId *string `field:"required" json:"clusterId" yaml:"clusterId"`
-	// An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-customlaunchtemplate
-	//
-	CustomLaunchTemplate interface{} `field:"required" json:"customLaunchTemplate" yaml:"customLaunchTemplate"`
 	// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances.
 	//
 	// The role contained in your instance profile must have the `pcs:RegisterComputeNodeGroupInstance` permission and the role name must start with `AWSPCS` or must have the path `/aws-pcs/` . For more information, see [IAM instance profiles for AWS PCS](https://docs.aws.amazon.com//pcs/latest/userguide/security-instance-profiles.html) in the *AWS PCS User Guide* .
@@ -138,6 +134,10 @@ type CfnComputeNodeGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-amiid
 	//
 	AmiId *string `field:"optional" json:"amiId" yaml:"amiId"`
+	// An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-customlaunchtemplate
+	//
+	CustomLaunchTemplate interface{} `field:"optional" json:"customLaunchTemplate" yaml:"customLaunchTemplate"`
 	// The name that identifies the compute node group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-name
 	//

@@ -7,22 +7,24 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   harnessAgentCoreMemoryRetrievalConfigProperty := &HarnessAgentCoreMemoryRetrievalConfigProperty{
-//   	RelevanceScore: jsii.String("relevanceScore"),
+//   	RelevanceScore: jsii.Number(123),
 //   	StrategyId: jsii.String("strategyId"),
-//   	TopK: jsii.String("topK"),
+//   	TopK: jsii.Number(123),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig.html
 //
 type CfnHarness_HarnessAgentCoreMemoryRetrievalConfigProperty struct {
+	// Minimum relevance score for retrieved memories.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig.html#cfn-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig-relevancescore
 	//
-	RelevanceScore interface{} `field:"optional" json:"relevanceScore" yaml:"relevanceScore"`
+	RelevanceScore *float64 `field:"optional" json:"relevanceScore" yaml:"relevanceScore"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig.html#cfn-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig-strategyid
 	//
 	StrategyId *string `field:"optional" json:"strategyId" yaml:"strategyId"`
+	// Maximum number of memory records to retrieve.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig.html#cfn-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig-topk
 	//
-	TopK interface{} `field:"optional" json:"topK" yaml:"topK"`
+	TopK *float64 `field:"optional" json:"topK" yaml:"topK"`
 }
 

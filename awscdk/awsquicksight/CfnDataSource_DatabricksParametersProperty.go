@@ -12,6 +12,19 @@ package awsquicksight
 //   	Host: jsii.String("host"),
 //   	Port: jsii.Number(123),
 //   	SqlEndpointPath: jsii.String("sqlEndpointPath"),
+//
+//   	// the properties below are optional
+//   	AuthenticationType: jsii.String("authenticationType"),
+//   	OAuthParameters: &OAuthParametersProperty{
+//   		TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   		// the properties below are optional
+//   		IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   		IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   			VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   		},
+//   		OAuthScope: jsii.String("oAuthScope"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html
@@ -31,5 +44,11 @@ type CfnDataSource_DatabricksParametersProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-sqlendpointpath
 	//
 	SqlEndpointPath *string `field:"required" json:"sqlEndpointPath" yaml:"sqlEndpointPath"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-authenticationtype
+	//
+	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-oauthparameters
+	//
+	OAuthParameters interface{} `field:"optional" json:"oAuthParameters" yaml:"oAuthParameters"`
 }
 

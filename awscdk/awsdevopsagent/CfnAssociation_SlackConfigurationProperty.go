@@ -21,6 +21,14 @@ package awsdevopsagent
 //   	},
 //   	WorkspaceId: jsii.String("workspaceId"),
 //   	WorkspaceName: jsii.String("workspaceName"),
+//
+//   	// the properties below are optional
+//   	Bidirectional: &SlackBidirectionalConfigurationProperty{
+//   		RoleArn: jsii.String("roleArn"),
+//
+//   		// the properties below are optional
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slackconfiguration.html
@@ -38,5 +46,11 @@ type CfnAssociation_SlackConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slackconfiguration.html#cfn-devopsagent-association-slackconfiguration-workspacename
 	//
 	WorkspaceName *string `field:"required" json:"workspaceName" yaml:"workspaceName"`
+	// Optional bidirectional communication configuration.
+	//
+	// Supply this configuration and set Enabled to true so you can interact with the agent directly from Slack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-slackconfiguration.html#cfn-devopsagent-association-slackconfiguration-bidirectional
+	//
+	Bidirectional interface{} `field:"optional" json:"bidirectional" yaml:"bidirectional"`
 }
 

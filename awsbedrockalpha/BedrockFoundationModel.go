@@ -58,6 +58,11 @@ type BedrockFoundationModel interface {
 	// When true, the model can be used with Bedrock Agents for automated task execution.
 	// Experimental.
 	SupportsAgents() *bool
+	// Whether the number of vector dimensions can be chosen when the model is used by a knowledge base.
+	//
+	// Only applicable for embedding models.
+	// Experimental.
+	SupportsConfigurableDimensions() *bool
 	// Whether this model supports cross-region inference.
 	//
 	// When true, the model can be used with Cross-Region Inference Profiles.
@@ -144,6 +149,16 @@ func (j *jsiiProxy_BedrockFoundationModel) SupportsAgents() *bool {
 	_jsii_.Get(
 		j,
 		"supportsAgents",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BedrockFoundationModel) SupportsConfigurableDimensions() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"supportsConfigurableDimensions",
 		&returns,
 	)
 	return returns
@@ -428,6 +443,17 @@ func BedrockFoundationModel_ANTHROPIC_CLAUDE_HAIKU_4_5_V1_0() BedrockFoundationM
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
 		"ANTHROPIC_CLAUDE_HAIKU_4_5_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_ANTHROPIC_CLAUDE_HAIKU_5_5() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"ANTHROPIC_CLAUDE_HAIKU_5_5",
 		&returns,
 	)
 	return returns
@@ -857,6 +883,50 @@ func BedrockFoundationModel_OPENAI_GPT_5_6_TERRA() BedrockFoundationModel {
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
 		"OPENAI_GPT_5_6_TERRA",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_6_1_SOL() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_6_1_SOL",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_6_ASTRA() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_6_ASTRA",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_6_LUNA() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_6_LUNA",
+		&returns,
+	)
+	return returns
+}
+
+func BedrockFoundationModel_OPENAI_GPT_6_SOL() BedrockFoundationModel {
+	_init_.Initialize()
+	var returns BedrockFoundationModel
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-bedrock-alpha.BedrockFoundationModel",
+		"OPENAI_GPT_6_SOL",
 		&returns,
 	)
 	return returns

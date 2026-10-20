@@ -55,6 +55,14 @@ import (
 //   		Mode: jsii.String("mode"),
 //   		Value: jsii.String("value"),
 //   	},
+//   	BeaconingConfiguration: &BeaconingConfigurationProperty{
+//   		ClientSide: &ClientSideBeaconingConfigurationProperty{
+//   			AdditionalEventTypes: []*string{
+//   				jsii.String("additionalEventTypes"),
+//   			},
+//   			ReportingMode: jsii.String("reportingMode"),
+//   		},
+//   	},
 //   	Bumper: &BumperProperty{
 //   		EndUrl: jsii.String("endUrl"),
 //   		StartUrl: jsii.String("startUrl"),

@@ -38,6 +38,16 @@ import (
 //   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
 //   			UpdatedAt: jsii.String("updatedAt"),
 //   		},
+//   		Idp: &IdpAuthConfigurationProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   			CreatedAt: jsii.String("createdAt"),
+//   			IssuerUrl: jsii.String("issuerUrl"),
+//   			OperatorAppRoleArn: jsii.String("operatorAppRoleArn"),
+//   			Provider: jsii.String("provider"),
+//   			UpdatedAt: jsii.String("updatedAt"),
+//   			UserIdClaim: jsii.String("userIdClaim"),
+//   		},
 //   	},
 //   	Preferences: &PreferencesProperty{
 //   		ElevatedActionsEnabled: jsii.Boolean(false),

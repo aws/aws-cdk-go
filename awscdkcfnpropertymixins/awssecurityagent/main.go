@@ -88,6 +88,46 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnIntegrationMixinProps",
+		reflect.TypeOf((*CfnIntegrationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnIntegrationPropsMixin",
+		reflect.TypeOf((*CfnIntegrationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnIntegrationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnIntegrationPropsMixin.BitbucketInputProperty",
+		reflect.TypeOf((*CfnIntegrationPropsMixin_BitbucketInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnIntegrationPropsMixin.ConfluenceInputProperty",
+		reflect.TypeOf((*CfnIntegrationPropsMixin_ConfluenceInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnIntegrationPropsMixin.GitHubInputProperty",
+		reflect.TypeOf((*CfnIntegrationPropsMixin_GitHubInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnIntegrationPropsMixin.GitLabInputProperty",
+		reflect.TypeOf((*CfnIntegrationPropsMixin_GitLabInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnIntegrationPropsMixin.ProviderInputProperty",
+		reflect.TypeOf((*CfnIntegrationPropsMixin_ProviderInputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestMixinProps",
 		reflect.TypeOf((*CfnPentestMixinProps)(nil)).Elem(),
 	)

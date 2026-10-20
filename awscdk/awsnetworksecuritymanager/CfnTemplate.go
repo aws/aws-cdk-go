@@ -55,6 +55,8 @@ type CfnTemplate interface {
 	AttrTemplateArn() *string
 	// The unique identifier of the template.
 	AttrTemplateId() *string
+	// An ISO 8601 timestamp indicating when the template was last modified.
+	AttrUpdatedAt() *string
 	// The version number.
 	AttrVersion() *string
 	// Tag Manager which manages the tags for this resource.
@@ -324,6 +326,16 @@ func (j *jsiiProxy_CfnTemplate) AttrTemplateId() *string {
 	_jsii_.Get(
 		j,
 		"attrTemplateId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTemplate) AttrUpdatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUpdatedAt",
 		&returns,
 	)
 	return returns

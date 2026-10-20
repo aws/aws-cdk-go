@@ -2893,6 +2893,7 @@ func init() {
 		reflect.TypeOf((*SigningBehavior)(nil)).Elem(),
 		map[string]interface{}{
 			"ALWAYS": SigningBehavior_ALWAYS,
+			"ALWAYS_AMZ_AUTH": SigningBehavior_ALWAYS_AMZ_AUTH,
 			"NEVER": SigningBehavior_NEVER,
 			"NO_OVERRIDE": SigningBehavior_NO_OVERRIDE,
 		},
@@ -2902,6 +2903,7 @@ func init() {
 		reflect.TypeOf((*SigningProtocol)(nil)).Elem(),
 		map[string]interface{}{
 			"SIGV4": SigningProtocol_SIGV4,
+			"SIGV4A": SigningProtocol_SIGV4A,
 		},
 	)
 	_jsii_.RegisterStruct(

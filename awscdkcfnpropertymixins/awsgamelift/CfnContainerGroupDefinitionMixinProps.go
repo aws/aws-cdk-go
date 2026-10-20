@@ -51,6 +51,7 @@ import (
 //   		},
 //   		ResolvedImageDigest: jsii.String("resolvedImageDigest"),
 //   		ServerSdkVersion: jsii.String("serverSdkVersion"),
+//   		Vcpu: jsii.Number(123),
 //   	},
 //   	Name: jsii.String("name"),
 //   	OperatingSystem: jsii.String("operatingSystem"),

@@ -21,6 +21,8 @@ import (
 //   		},
 //   	},
 //   	AuthorizerType: jsii.String("authorizerType"),
+//   	AutoDetectionEnabled: jsii.Boolean(false),
+//   	AutoDetectionScope: jsii.String("autoDetectionScope"),
 //   	Description: jsii.String("description"),
 //   	DiscoveryConfiguration: &DiscoveryConfigurationProperty{
 //   		AuthorizerConfiguration: &AuthorizerConfigurationProperty{
@@ -55,6 +57,9 @@ import (
 //   			},
 //   		},
 //   	},
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -78,6 +83,18 @@ type CfnRegistryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-authorizertype
 	//
 	AuthorizerType *string `field:"optional" json:"authorizerType" yaml:"authorizerType"`
+	// Specifies whether auto-detection is requested for the registry.
+	//
+	// Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-autodetectionenabled
+	//
+	AutoDetectionEnabled interface{} `field:"optional" json:"autoDetectionEnabled" yaml:"autoDetectionEnabled"`
+	// The source from which resources are detected.
+	//
+	// ORGANIZATION sources resources from all member accounts of an AWS Organization.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-autodetectionscope
+	//
+	AutoDetectionScope *string `field:"optional" json:"autoDetectionScope" yaml:"autoDetectionScope"`
 	// The description of the registry.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-description
 	//
@@ -88,6 +105,12 @@ type CfnRegistryProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-discoveryconfiguration
 	//
 	DiscoveryConfiguration interface{} `field:"optional" json:"discoveryConfiguration" yaml:"discoveryConfiguration"`
+	// The server-side encryption configuration for a registry.
+	//
+	// Specifies a customer managed key used to encrypt the registry's content. When omitted, the registry's content is encrypted with an AWS owned key. You cannot change the encryption configuration after registry creation. Specifying a different KMS key, adding this property to an existing registry, or removing it replaces the registry: CloudFormation creates a new registry with a new Amazon Resource Name (ARN) and then deletes the original, including all registry records it contains. Registry records that are not managed by the stack are not re-created in the new registry, and if any remain in the original registry its deletion fails and it is left behind.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-encryptionconfiguration
+	//
+	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
 	// Tags to assign to the registry.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-tags
 	//

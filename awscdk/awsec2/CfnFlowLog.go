@@ -753,43 +753,6 @@ func (j *jsiiProxy_CfnFlowLog)SetTrafficType(val *string) {
 	)
 }
 
-func CfnFlowLog_ArnForFlowLog(resource interfacesawsec2.IFlowLogRef) *string {
-	_init_.Initialize()
-
-	if err := validateCfnFlowLog_ArnForFlowLogParameters(resource); err != nil {
-		panic(err)
-	}
-	var returns *string
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnFlowLog",
-		"arnForFlowLog",
-		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IFlowLogRef from a flowLogId.
-func CfnFlowLog_FromFlowLogId(scope constructs.Construct, id *string, flowLogId *string) interfacesawsec2.IFlowLogRef {
-	_init_.Initialize()
-
-	if err := validateCfnFlowLog_FromFlowLogIdParameters(scope, id, flowLogId); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsec2.IFlowLogRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.CfnFlowLog",
-		"fromFlowLogId",
-		[]interface{}{scope, id, flowLogId},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

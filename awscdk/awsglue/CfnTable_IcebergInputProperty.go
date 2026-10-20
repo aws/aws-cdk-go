@@ -8,8 +8,6 @@ package awsglue
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var properties interface{}
-//
 //   icebergInputProperty := &IcebergInputProperty{
 //   	IcebergTableInput: &IcebergTableInputProperty{
 //   		Location: jsii.String("location"),
@@ -50,7 +48,9 @@ package awsglue
 //   			// the properties below are optional
 //   			SpecId: jsii.Number(123),
 //   		},
-//   		Properties: properties,
+//   		Properties: map[string]*string{
+//   			"propertiesKey": jsii.String("properties"),
+//   		},
 //   		WriteOrder: &IcebergSortOrderProperty{
 //   			Fields: []interface{}{
 //   				&IcebergSortFieldProperty{

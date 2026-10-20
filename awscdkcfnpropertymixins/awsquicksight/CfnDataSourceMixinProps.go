@@ -39,7 +39,16 @@ import (
 //   				Port: jsii.Number(123),
 //   			},
 //   			DatabricksParameters: &DatabricksParametersProperty{
+//   				AuthenticationType: jsii.String("authenticationType"),
 //   				Host: jsii.String("host"),
+//   				OAuthParameters: &OAuthParametersProperty{
+//   					IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   					IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   						VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   					},
+//   					OAuthScope: jsii.String("oAuthScope"),
+//   					TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//   				},
 //   				Port: jsii.Number(123),
 //   				SqlEndpointPath: jsii.String("sqlEndpointPath"),
 //   			},
@@ -183,7 +192,16 @@ import (
 //   						Port: jsii.Number(123),
 //   					},
 //   					DatabricksParameters: &DatabricksParametersProperty{
+//   						AuthenticationType: jsii.String("authenticationType"),
 //   						Host: jsii.String("host"),
+//   						OAuthParameters: &OAuthParametersProperty{
+//   							IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   							IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   								VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   							},
+//   							OAuthScope: jsii.String("oAuthScope"),
+//   							TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//   						},
 //   						Port: jsii.Number(123),
 //   						SqlEndpointPath: jsii.String("sqlEndpointPath"),
 //   					},
@@ -304,6 +322,11 @@ import (
 //   			PrivateKey: jsii.String("privateKey"),
 //   			PrivateKeyPassphrase: jsii.String("privateKeyPassphrase"),
 //   		},
+//   		OAuthClientCredentials: &OAuthClientCredentialsProperty{
+//   			ClientId: jsii.String("clientId"),
+//   			ClientSecret: jsii.String("clientSecret"),
+//   			Username: jsii.String("username"),
+//   		},
 //   		SecretArn: jsii.String("secretArn"),
 //   	},
 //   	DataSourceId: jsii.String("dataSourceId"),
@@ -333,7 +356,16 @@ import (
 //   			Port: jsii.Number(123),
 //   		},
 //   		DatabricksParameters: &DatabricksParametersProperty{
+//   			AuthenticationType: jsii.String("authenticationType"),
 //   			Host: jsii.String("host"),
+//   			OAuthParameters: &OAuthParametersProperty{
+//   				IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   				IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   					VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   				},
+//   				OAuthScope: jsii.String("oAuthScope"),
+//   				TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//   			},
 //   			Port: jsii.Number(123),
 //   			SqlEndpointPath: jsii.String("sqlEndpointPath"),
 //   		},

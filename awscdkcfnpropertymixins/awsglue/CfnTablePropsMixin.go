@@ -22,7 +22,6 @@ import (
 //
 //   var mergeStrategy IMergeStrategy
 //   var parameters interface{}
-//   var properties interface{}
 //   var skewedColumnValueLocationMaps interface{}
 //
 //   cfnTablePropsMixin := awscdkcfnpropertymixins.Aws_glue.NewCfnTablePropsMixin(&CfnTableMixinProps{
@@ -44,7 +43,9 @@ import (
 //   					},
 //   					SpecId: jsii.Number(123),
 //   				},
-//   				Properties: properties,
+//   				Properties: map[string]*string{
+//   					"propertiesKey": jsii.String("properties"),
+//   				},
 //   				Schema: &IcebergSchemaProperty{
 //   					Fields: []interface{}{
 //   						&IcebergStructFieldProperty{

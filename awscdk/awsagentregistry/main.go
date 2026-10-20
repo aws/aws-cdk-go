@@ -22,12 +22,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "approvalConfiguration", GoGetter: "ApprovalConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAutoDetectionStatus", GoGetter: "AttrAutoDetectionStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRegistryArn", GoGetter: "AttrRegistryArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRegistryId", GoGetter: "AttrRegistryId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "authorizerType", GoGetter: "AuthorizerType"},
+			_jsii_.MemberProperty{JsiiProperty: "autoDetectionEnabled", GoGetter: "AutoDetectionEnabled"},
+			_jsii_.MemberProperty{JsiiProperty: "autoDetectionScope", GoGetter: "AutoDetectionScope"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -37,6 +40,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "discoveryConfiguration", GoGetter: "DiscoveryConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -97,6 +101,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_agentregistry.CfnRegistry.DiscoveryConfigurationProperty",
 		reflect.TypeOf((*CfnRegistry_DiscoveryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_agentregistry.CfnRegistry.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRegistry_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_agentregistry.CfnRegistryProps",

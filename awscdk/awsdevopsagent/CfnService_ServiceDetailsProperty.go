@@ -32,6 +32,23 @@ package awsdevopsagent
 //   			},
 //   		},
 //   	},
+//   	GitHub: &GitHubDetailsProperty{
+//   		AppVerification: &GitHubAppVerificationDetailsProperty{
+//   			AppVariant: jsii.String("appVariant"),
+//   			TokenValue: jsii.String("tokenValue"),
+//
+//   			// the properties below are optional
+//   			OrganizationName: jsii.String("organizationName"),
+//   			TargetUrl: jsii.String("targetUrl"),
+//   		},
+//   		DirectAccess: &GitHubPatDetailsProperty{
+//   			TokenValue: jsii.String("tokenValue"),
+//
+//   			// the properties below are optional
+//   			OrganizationName: jsii.String("organizationName"),
+//   			TargetUrl: jsii.String("targetUrl"),
+//   		},
+//   	},
 //   	GitLab: &GitLabDetailsProperty{
 //   		TargetUrl: jsii.String("targetUrl"),
 //   		TokenType: jsii.String("tokenType"),
@@ -186,6 +203,12 @@ type CfnService_ServiceDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-dynatrace
 	//
 	Dynatrace interface{} `field:"optional" json:"dynatrace" yaml:"dynatrace"`
+	// GitHub personal access token (PAT) service configuration.
+	//
+	// Exactly one of AppVerification or DirectAccess selects how the token is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-github
+	//
+	GitHub interface{} `field:"optional" json:"gitHub" yaml:"gitHub"`
 	// GitLab service configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html#cfn-devopsagent-service-servicedetails-gitlab
 	//

@@ -9,11 +9,14 @@ package interfacesawsiot
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   policyPrincipalAttachmentReference := &PolicyPrincipalAttachmentReference{
-//   	PolicyPrincipalAttachmentId: jsii.String("policyPrincipalAttachmentId"),
+//   	PolicyName: jsii.String("policyName"),
+//   	Principal: jsii.String("principal"),
 //   }
 //
 type PolicyPrincipalAttachmentReference struct {
-	// The Id of the PolicyPrincipalAttachment resource.
-	PolicyPrincipalAttachmentId *string `field:"required" json:"policyPrincipalAttachmentId" yaml:"policyPrincipalAttachmentId"`
+	// The PolicyName of the PolicyPrincipalAttachment resource.
+	PolicyName *string `field:"required" json:"policyName" yaml:"policyName"`
+	// The Principal of the PolicyPrincipalAttachment resource.
+	Principal *string `field:"required" json:"principal" yaml:"principal"`
 }
 

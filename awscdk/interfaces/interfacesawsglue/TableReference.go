@@ -9,11 +9,17 @@ package interfacesawsglue
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   tableReference := &TableReference{
-//   	TableId: jsii.String("tableId"),
+//   	CatalogId: jsii.String("catalogId"),
+//   	DatabaseName: jsii.String("databaseName"),
+//   	TableName: jsii.String("tableName"),
 //   }
 //
 type TableReference struct {
-	// The Id of the Table resource.
-	TableId *string `field:"required" json:"tableId" yaml:"tableId"`
+	// The CatalogId of the Table resource.
+	CatalogId *string `field:"required" json:"catalogId" yaml:"catalogId"`
+	// The DatabaseName of the Table resource.
+	DatabaseName *string `field:"required" json:"databaseName" yaml:"databaseName"`
+	// The Name of the Table resource.
+	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }
 

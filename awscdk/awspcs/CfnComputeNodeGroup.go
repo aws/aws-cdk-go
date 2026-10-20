@@ -22,12 +22,6 @@ import (
 //
 //   cfnComputeNodeGroup := awscdk.Aws_pcs.NewCfnComputeNodeGroup(this, jsii.String("MyCfnComputeNodeGroup"), &CfnComputeNodeGroupProps{
 //   	ClusterId: jsii.String("clusterId"),
-//   	CustomLaunchTemplate: &CustomLaunchTemplateProperty{
-//   		Version: jsii.String("version"),
-//
-//   		// the properties below are optional
-//   		TemplateId: jsii.String("templateId"),
-//   	},
 //   	IamInstanceProfileArn: jsii.String("iamInstanceProfileArn"),
 //   	InstanceConfigs: []interface{}{
 //   		&InstanceConfigProperty{
@@ -44,6 +38,12 @@ import (
 //
 //   	// the properties below are optional
 //   	AmiId: jsii.String("amiId"),
+//   	CustomLaunchTemplate: &CustomLaunchTemplateProperty{
+//   		Version: jsii.String("version"),
+//
+//   		// the properties below are optional
+//   		TemplateId: jsii.String("templateId"),
+//   	},
 //   	Name: jsii.String("name"),
 //   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
 //   		Stages: &NodeLifecycleStagesProperty{

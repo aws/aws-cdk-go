@@ -47,6 +47,14 @@ import (
 //   		Mode: jsii.String("mode"),
 //   		Value: jsii.String("value"),
 //   	},
+//   	BeaconingConfiguration: &BeaconingConfigurationProperty{
+//   		ClientSide: &ClientSideBeaconingConfigurationProperty{
+//   			AdditionalEventTypes: []*string{
+//   				jsii.String("additionalEventTypes"),
+//   			},
+//   			ReportingMode: jsii.String("reportingMode"),
+//   		},
+//   	},
 //   	Bumper: &BumperProperty{
 //   		EndUrl: jsii.String("endUrl"),
 //   		StartUrl: jsii.String("startUrl"),
@@ -147,6 +155,12 @@ type CfnPlaybackConfigurationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-availsuppression
 	//
 	AvailSuppression interface{} `field:"optional" json:"availSuppression" yaml:"availSuppression"`
+	// The beaconing configuration for a playback configuration.
+	//
+	// Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-playbackconfiguration.html#cfn-mediatailor-playbackconfiguration-beaconingconfiguration
+	//
+	BeaconingConfiguration interface{} `field:"optional" json:"beaconingConfiguration" yaml:"beaconingConfiguration"`
 	// The configuration for bumpers.
 	//
 	// Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see [Bumpers](https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html) .

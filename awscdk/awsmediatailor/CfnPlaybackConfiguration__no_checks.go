@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAvailSuppressionParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetBeaconingConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetBumperParameters(val interface{}) error {
 	return nil
 }

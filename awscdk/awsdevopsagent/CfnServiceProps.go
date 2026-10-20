@@ -19,6 +19,7 @@ import (
 //   	// the properties below are optional
 //   	ExchangeUrlPrivateConnectionName: jsii.String("exchangeUrlPrivateConnectionName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	Name: jsii.String("name"),
 //   	PrivateConnectionName: jsii.String("privateConnectionName"),
 //   	ServiceDetails: &ServiceDetailsProperty{
 //   		AzureIdentity: &AzureIdentityServiceDetailsProperty{
@@ -42,6 +43,23 @@ import (
 //   					ClientName: jsii.String("clientName"),
 //   					ExchangeParameters: exchangeParameters,
 //   				},
+//   			},
+//   		},
+//   		GitHub: &GitHubDetailsProperty{
+//   			AppVerification: &GitHubAppVerificationDetailsProperty{
+//   				AppVariant: jsii.String("appVariant"),
+//   				TokenValue: jsii.String("tokenValue"),
+//
+//   				// the properties below are optional
+//   				OrganizationName: jsii.String("organizationName"),
+//   				TargetUrl: jsii.String("targetUrl"),
+//   			},
+//   			DirectAccess: &GitHubPatDetailsProperty{
+//   				TokenValue: jsii.String("tokenValue"),
+//
+//   				// the properties below are optional
+//   				OrganizationName: jsii.String("organizationName"),
+//   				TargetUrl: jsii.String("targetUrl"),
 //   			},
 //   		},
 //   		GitLab: &GitLabDetailsProperty{
@@ -212,6 +230,10 @@ type CfnServiceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	// The display name for the service registration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-name
+	//
+	Name *string `field:"optional" json:"name" yaml:"name"`
 	// The name of the private connection to use for VPC connectivity.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html#cfn-devopsagent-service-privateconnectionname
 	//

@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+// Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations.
+//
+// Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,6 +30,33 @@ import (
 //
 //   				// the properties below are optional
 //   				LambdaTimeoutInSeconds: jsii.Number(123),
+//   			},
+//   		},
+//   		Derived: &DerivedEvaluatorConfigProperty{
+//   			BaseEvaluatorId: jsii.String("baseEvaluatorId"),
+//   			ModelConfig: &EvaluatorModelConfigProperty{
+//   				BedrockEvaluatorModelConfig: &BedrockEvaluatorModelConfigProperty{
+//   					ModelId: jsii.String("modelId"),
+//
+//   					// the properties below are optional
+//   					AdditionalModelRequestFields: additionalModelRequestFields,
+//   					InferenceConfig: &InferenceConfigurationProperty{
+//   						MaxTokens: jsii.Number(123),
+//   						Temperature: jsii.Number(123),
+//   						TopP: jsii.Number(123),
+//   					},
+//   				},
+//   				ResponsesEvaluatorModelConfig: &OpenResponsesEvaluatorModelConfigProperty{
+//   					ModelId: jsii.String("modelId"),
+//
+//   					// the properties below are optional
+//   					MaxOutputTokens: jsii.Number(123),
+//   					Reasoning: &ReasoningConfigurationProperty{
+//   						Effort: jsii.String("effort"),
+//   					},
+//   					Temperature: jsii.Number(123),
+//   					TopP: jsii.Number(123),
+//   				},
 //   			},
 //   		},
 //   		LlmAsAJudge: &LlmAsAJudgeEvaluatorConfigProperty{
@@ -100,6 +129,12 @@ type CfnEvaluator interface {
 	AttrEvaluatorArn() *string
 	// The unique identifier of the evaluator.
 	AttrEvaluatorId() *string
+	// The kind of evaluator resource.
+	//
+	// Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+	AttrEvaluatorType() *string
+	// Where the evaluator's logic comes from: AWS for AWS-authored evaluators, DeepEval or AutoEval for the corresponding third-party libraries, or Custom for an evaluator that you authored.
+	AttrProvider() *string
 	AttrStatus() *string
 	// The timestamp when the evaluator was last updated.
 	AttrUpdatedAt() *string
@@ -365,6 +400,26 @@ func (j *jsiiProxy_CfnEvaluator) AttrEvaluatorId() *string {
 	_jsii_.Get(
 		j,
 		"attrEvaluatorId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEvaluator) AttrEvaluatorType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEvaluatorType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEvaluator) AttrProvider() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrProvider",
 		&returns,
 	)
 	return returns

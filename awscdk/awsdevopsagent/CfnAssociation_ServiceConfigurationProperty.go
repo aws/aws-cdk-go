@@ -19,6 +19,7 @@ package awsdevopsagent
 //   		AssumableRoleArn: jsii.String("assumableRoleArn"),
 //
 //   		// the properties below are optional
+//   		AgentElevatedRoleArn: jsii.String("agentElevatedRoleArn"),
 //   		Resources: []interface{}{
 //   			&AWSResourceProperty{
 //   				ResourceArn: jsii.String("resourceArn"),
@@ -77,6 +78,9 @@ package awsdevopsagent
 //   	},
 //   	McpServerDatadog: &MCPServerDatadogConfigurationProperty{
 //   		Description: jsii.String("description"),
+//   		EnabledElevatedTools: []*string{
+//   			jsii.String("enabledElevatedTools"),
+//   		},
 //   		EnableWebhookUpdates: jsii.Boolean(false),
 //   		Endpoint: jsii.String("endpoint"),
 //   		Name: jsii.String("name"),
@@ -85,6 +89,9 @@ package awsdevopsagent
 //   		Endpoint: jsii.String("endpoint"),
 //
 //   		// the properties below are optional
+//   		EnabledElevatedTools: []*string{
+//   			jsii.String("enabledElevatedTools"),
+//   		},
 //   		EnableWebhookUpdates: jsii.Boolean(false),
 //   		Tools: []*string{
 //   			jsii.String("tools"),
@@ -129,6 +136,14 @@ package awsdevopsagent
 //   		},
 //   		WorkspaceId: jsii.String("workspaceId"),
 //   		WorkspaceName: jsii.String("workspaceName"),
+//
+//   		// the properties below are optional
+//   		Bidirectional: &SlackBidirectionalConfigurationProperty{
+//   			RoleArn: jsii.String("roleArn"),
+//
+//   			// the properties below are optional
+//   			Enabled: jsii.Boolean(false),
+//   		},
 //   	},
 //   	SourceAws: &SourceAwsConfigurationProperty{
 //   		AccountId: jsii.String("accountId"),
@@ -136,6 +151,7 @@ package awsdevopsagent
 //   		AssumableRoleArn: jsii.String("assumableRoleArn"),
 //
 //   		// the properties below are optional
+//   		AgentElevatedRoleArn: jsii.String("agentElevatedRoleArn"),
 //   		Resources: []interface{}{
 //   			&AWSResourceProperty{
 //   				ResourceArn: jsii.String("resourceArn"),

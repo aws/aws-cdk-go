@@ -5420,6 +5420,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSourcePropsMixin_MySqlParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSourcePropsMixin.OAuthClientCredentialsProperty",
+		reflect.TypeOf((*CfnDataSourcePropsMixin_OAuthClientCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_quicksight.CfnDataSourcePropsMixin.OAuthParametersProperty",
 		reflect.TypeOf((*CfnDataSourcePropsMixin_OAuthParametersProperty)(nil)).Elem(),
 	)

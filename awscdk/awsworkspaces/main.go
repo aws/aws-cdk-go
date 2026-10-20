@@ -73,6 +73,150 @@ func init() {
 		reflect.TypeOf((*CfnConnectionAliasProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory",
+		reflect.TypeOf((*CfnDirectory)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "activeDirectoryConfig", GoGetter: "ActiveDirectoryConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAlias", GoGetter: "AttrAlias"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCustomerUserName", GoGetter: "AttrCustomerUserName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDirectoryId", GoGetter: "AttrDirectoryId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDirectoryName", GoGetter: "AttrDirectoryName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDirectoryType", GoGetter: "AttrDirectoryType"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDnsIpAddresses", GoGetter: "AttrDnsIpAddresses"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDnsIpv6Addresses", GoGetter: "AttrDnsIpv6Addresses"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIamRoleId", GoGetter: "AttrIamRoleId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrIdcConfig", GoGetter: "AttrIdcConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRegistrationCode", GoGetter: "AttrRegistrationCode"},
+			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrWorkspaceSecurityGroupId", GoGetter: "AttrWorkspaceSecurityGroupId"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "certificateBasedAuthProperties", GoGetter: "CertificateBasedAuthProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "directoryRef", GoGetter: "DirectoryRef"},
+			_jsii_.MemberProperty{JsiiProperty: "enableSelfService", GoGetter: "EnableSelfService"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointEncryptionMode", GoGetter: "EndpointEncryptionMode"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "idcInstanceArn", GoGetter: "IdcInstanceArn"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "ipGroupIds", GoGetter: "IpGroupIds"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "microsoftEntraConfig", GoGetter: "MicrosoftEntraConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "samlProperties", GoGetter: "SamlProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "selfservicePermissions", GoGetter: "SelfservicePermissions"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "streamingProperties", GoGetter: "StreamingProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "subnetIds", GoGetter: "SubnetIds"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancy", GoGetter: "Tenancy"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "userIdentityType", GoGetter: "UserIdentityType"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceAccessProperties", GoGetter: "WorkspaceAccessProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceCreationProperties", GoGetter: "WorkspaceCreationProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceDirectoryDescription", GoGetter: "WorkspaceDirectoryDescription"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceDirectoryName", GoGetter: "WorkspaceDirectoryName"},
+			_jsii_.MemberProperty{JsiiProperty: "workspaceType", GoGetter: "WorkspaceType"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDirectory{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsworkspacesIDirectoryRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.AccessEndpointConfigProperty",
+		reflect.TypeOf((*CfnDirectory_AccessEndpointConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.AccessEndpointProperty",
+		reflect.TypeOf((*CfnDirectory_AccessEndpointProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.ActiveDirectoryConfigProperty",
+		reflect.TypeOf((*CfnDirectory_ActiveDirectoryConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.CertificateBasedAuthPropertiesProperty",
+		reflect.TypeOf((*CfnDirectory_CertificateBasedAuthPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.DefaultWorkspaceCreationPropertiesProperty",
+		reflect.TypeOf((*CfnDirectory_DefaultWorkspaceCreationPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.GlobalAcceleratorForDirectoryProperty",
+		reflect.TypeOf((*CfnDirectory_GlobalAcceleratorForDirectoryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.IDCConfigProperty",
+		reflect.TypeOf((*CfnDirectory_IDCConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.MicrosoftEntraConfigProperty",
+		reflect.TypeOf((*CfnDirectory_MicrosoftEntraConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.SamlPropertiesProperty",
+		reflect.TypeOf((*CfnDirectory_SamlPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.SelfservicePermissionsProperty",
+		reflect.TypeOf((*CfnDirectory_SelfservicePermissionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.StorageConnectorProperty",
+		reflect.TypeOf((*CfnDirectory_StorageConnectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.StreamingPropertiesProperty",
+		reflect.TypeOf((*CfnDirectory_StreamingPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.UserSettingProperty",
+		reflect.TypeOf((*CfnDirectory_UserSettingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectory.WorkspaceAccessPropertiesProperty",
+		reflect.TypeOf((*CfnDirectory_WorkspaceAccessPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_workspaces.CfnDirectoryProps",
+		reflect.TypeOf((*CfnDirectoryProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_workspaces.CfnWorkspace",
 		reflect.TypeOf((*CfnWorkspace)(nil)).Elem(),
 		[]_jsii_.Member{

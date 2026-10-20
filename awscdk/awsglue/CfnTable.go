@@ -33,7 +33,6 @@ type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsglue.ITableRef
-	AttrId() *string
 	// The ID of the Data Catalog in which to create the `Table` .
 	CatalogId() *string
 	SetCatalogId(val *string)
@@ -264,16 +263,6 @@ type jsiiProxy_CfnTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsglueITableRef
-}
-
-func (j *jsiiProxy_CfnTable) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_CfnTable) CatalogId() *string {

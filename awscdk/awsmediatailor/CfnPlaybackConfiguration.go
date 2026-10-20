@@ -58,6 +58,16 @@ import (
 //   		Mode: jsii.String("mode"),
 //   		Value: jsii.String("value"),
 //   	},
+//   	BeaconingConfiguration: &BeaconingConfigurationProperty{
+//   		ClientSide: &ClientSideBeaconingConfigurationProperty{
+//   			ReportingMode: jsii.String("reportingMode"),
+//
+//   			// the properties below are optional
+//   			AdditionalEventTypes: []*string{
+//   				jsii.String("additionalEventTypes"),
+//   			},
+//   		},
+//   	},
 //   	Bumper: &BumperProperty{
 //   		EndUrl: jsii.String("endUrl"),
 //   		StartUrl: jsii.String("startUrl"),
@@ -168,6 +178,9 @@ type CfnPlaybackConfiguration interface {
 	// The configuration for avail suppression, also known as ad suppression.
 	AvailSuppression() interface{}
 	SetAvailSuppression(val interface{})
+	// The beaconing configuration for a playback configuration.
+	BeaconingConfiguration() interface{}
+	SetBeaconingConfiguration(val interface{})
 	// The configuration for bumpers.
 	Bumper() interface{}
 	SetBumper(val interface{})
@@ -541,6 +554,16 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) AvailSuppression() interface{} {
 	_jsii_.Get(
 		j,
 		"availSuppression",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration) BeaconingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"beaconingConfiguration",
 		&returns,
 	)
 	return returns
@@ -938,6 +961,17 @@ func (j *jsiiProxy_CfnPlaybackConfiguration)SetAvailSuppression(val interface{})
 	_jsii_.Set(
 		j,
 		"availSuppression",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPlaybackConfiguration)SetBeaconingConfiguration(val interface{}) {
+	if err := j.validateSetBeaconingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"beaconingConfiguration",
 		val,
 	)
 }

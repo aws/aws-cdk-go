@@ -39,6 +39,7 @@ import (
 //   	FunctionName: jsii.String("functionName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
 //   	ServiceConfig: &ServiceConfigProperty{
+//   		EgressNetworkConnectorArn: jsii.String("egressNetworkConnectorArn"),
 //   		EnvironmentVariables: map[string]*string{
 //   			"environmentVariablesKey": jsii.String("environmentVariables"),
 //   		},

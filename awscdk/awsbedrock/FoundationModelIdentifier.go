@@ -772,6 +772,17 @@ func FoundationModelIdentifier_ANTHROPIC_CLAUDE_HAIKU_4_5_20251001_V1_0() Founda
 	return returns
 }
 
+func FoundationModelIdentifier_ANTHROPIC_CLAUDE_HAIKU_5_5() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"ANTHROPIC_CLAUDE_HAIKU_5_5",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_ANTHROPIC_CLAUDE_INSTANT_V1() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -1592,6 +1603,50 @@ func FoundationModelIdentifier_OPENAI_GPT_5_6_TERRA() FoundationModelIdentifier 
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"OPENAI_GPT_5_6_TERRA",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_6_1_SOL() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_6_1_SOL",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_6_ASTRA() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_6_ASTRA",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_6_LUNA() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_6_LUNA",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_OPENAI_GPT_6_SOL() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"OPENAI_GPT_6_SOL",
 		&returns,
 	)
 	return returns

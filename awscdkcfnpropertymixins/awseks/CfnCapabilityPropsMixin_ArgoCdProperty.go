@@ -16,6 +16,7 @@ package awseks
 //   		IdcManagedApplicationArn: jsii.String("idcManagedApplicationArn"),
 //   		IdcRegion: jsii.String("idcRegion"),
 //   	},
+//   	EndpointPrefix: jsii.String("endpointPrefix"),
 //   	Namespace: jsii.String("namespace"),
 //   	NetworkAccess: &NetworkAccessProperty{
 //   		VpceIds: []*string{
@@ -45,6 +46,12 @@ type CfnCapabilityPropsMixin_ArgoCdProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-argocd.html#cfn-eks-capability-argocd-awsidc
 	//
 	AwsIdc interface{} `field:"optional" json:"awsIdc" yaml:"awsIdc"`
+	// An optional prefix for the Argo CD server endpoint.
+	//
+	// When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-capability-argocd.html#cfn-eks-capability-argocd-endpointprefix
+	//
+	EndpointPrefix *string `field:"optional" json:"endpointPrefix" yaml:"endpointPrefix"`
 	// The Kubernetes namespace where Argo CD resources will be created.
 	//
 	// If not specified, the default namespace is used.

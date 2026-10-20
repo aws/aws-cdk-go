@@ -49,6 +49,8 @@ type CfnRule interface {
 	AttrRuleId() *string
 	// The status of the rule.
 	AttrStatus() *string
+	// An ISO 8601 timestamp indicating when the rule was last modified.
+	AttrUpdatedAt() *string
 	// The version number of the rule.
 	AttrVersion() *string
 	// Tag Manager which manages the tags for this resource.
@@ -314,6 +316,16 @@ func (j *jsiiProxy_CfnRule) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRule) AttrUpdatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUpdatedAt",
 		&returns,
 	)
 	return returns

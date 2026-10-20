@@ -17,6 +17,7 @@ package awsbedrockalpha
 //   		bedrock_alpha.VectorType_FLOATING_POINT,
 //   	},
 //   	SupportsAgents: jsii.Boolean(false),
+//   	SupportsConfigurableDimensions: jsii.Boolean(false),
 //   	SupportsCrossRegion: jsii.Boolean(false),
 //   	SupportsKnowledgeBase: jsii.Boolean(false),
 //   	VectorDimensions: jsii.Number(123),
@@ -50,6 +51,15 @@ type BedrockFoundationModelProps struct {
 	//
 	// Experimental.
 	SupportsAgents *bool `field:"optional" json:"supportsAgents" yaml:"supportsAgents"`
+	// Whether the number of vector dimensions can be chosen when the model is used by a knowledge base.
+	//
+	// Only applicable for embedding models. When true, `vectorDimensions` is
+	// passed to the knowledge base; when false, the model's dimension is fixed and
+	// `vectorDimensions` is informational only.
+	// Default: false.
+	//
+	// Experimental.
+	SupportsConfigurableDimensions *bool `field:"optional" json:"supportsConfigurableDimensions" yaml:"supportsConfigurableDimensions"`
 	// Can be used with a Cross-Region Inference Profile.
 	//
 	// When true, the model supports inference across different AWS regions.

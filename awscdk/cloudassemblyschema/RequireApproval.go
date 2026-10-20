@@ -11,5 +11,7 @@ const (
 	RequireApproval_ANYCHANGE RequireApproval = "ANYCHANGE"
 	// Manual approval required if changes involve a broadening of permissions or security group rules.
 	RequireApproval_BROADENING RequireApproval = "BROADENING"
+	// Manual approval required if changes replace, delete or orphan an existing resource.
+	RequireApproval_DESTRUCTIVE RequireApproval = "DESTRUCTIVE"
 )
 

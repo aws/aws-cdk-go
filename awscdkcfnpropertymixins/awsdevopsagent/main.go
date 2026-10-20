@@ -36,6 +36,10 @@ func init() {
 		reflect.TypeOf((*CfnAgentSpacePropsMixin_IdcAuthConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAgentSpacePropsMixin.IdpAuthConfigurationProperty",
+		reflect.TypeOf((*CfnAgentSpacePropsMixin_IdpAuthConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAgentSpacePropsMixin.OperatorAppProperty",
 		reflect.TypeOf((*CfnAgentSpacePropsMixin_OperatorAppProperty)(nil)).Elem(),
 	)
@@ -156,6 +160,10 @@ func init() {
 		reflect.TypeOf((*CfnAssociationPropsMixin_ServiceNowConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.SlackBidirectionalConfigurationProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_SlackBidirectionalConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.SlackChannelProperty",
 		reflect.TypeOf((*CfnAssociationPropsMixin_SlackChannelProperty)(nil)).Elem(),
 	)
@@ -248,6 +256,18 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_DynatraceServiceDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.GitHubAppVerificationDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_GitHubAppVerificationDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.GitHubDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_GitHubDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.GitHubPatDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_GitHubPatDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.GitLabDetailsProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_GitLabDetailsProperty)(nil)).Elem(),
 	)
@@ -318,6 +338,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredDynatraceDetailsProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_RegisteredDynatraceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredGitHubServiceDetailsProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_RegisteredGitHubServiceDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnServicePropsMixin.RegisteredGitLabServiceDetailsProperty",

@@ -47,6 +47,19 @@ package awsquicksight
 //   					Host: jsii.String("host"),
 //   					Port: jsii.Number(123),
 //   					SqlEndpointPath: jsii.String("sqlEndpointPath"),
+//
+//   					// the properties below are optional
+//   					AuthenticationType: jsii.String("authenticationType"),
+//   					OAuthParameters: &OAuthParametersProperty{
+//   						TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   						// the properties below are optional
+//   						IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   						IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   							VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   						},
+//   						OAuthScope: jsii.String("oAuthScope"),
+//   					},
 //   				},
 //   				MariaDbParameters: &MariaDbParametersProperty{
 //   					Database: jsii.String("database"),
@@ -181,6 +194,11 @@ package awsquicksight
 //   		// the properties below are optional
 //   		PrivateKeyPassphrase: jsii.String("privateKeyPassphrase"),
 //   	},
+//   	OAuthClientCredentials: &OAuthClientCredentialsProperty{
+//   		ClientId: jsii.String("clientId"),
+//   		ClientSecret: jsii.String("clientSecret"),
+//   		Username: jsii.String("username"),
+//   	},
 //   	SecretArn: jsii.String("secretArn"),
 //   }
 //
@@ -203,6 +221,9 @@ type CfnDataSource_DataSourceCredentialsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-keypaircredentials
 	//
 	KeyPairCredentials interface{} `field:"optional" json:"keyPairCredentials" yaml:"keyPairCredentials"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-oauthclientcredentials
+	//
+	OAuthClientCredentials interface{} `field:"optional" json:"oAuthClientCredentials" yaml:"oAuthClientCredentials"`
 	// The Amazon Resource Name (ARN) of the secret associated with the data source in AWS Secrets Manager .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-secretarn
 	//

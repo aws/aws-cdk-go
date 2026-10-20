@@ -19,6 +19,33 @@ package awsbedrockagentcore
 //   			LambdaTimeoutInSeconds: jsii.Number(123),
 //   		},
 //   	},
+//   	Derived: &DerivedEvaluatorConfigProperty{
+//   		BaseEvaluatorId: jsii.String("baseEvaluatorId"),
+//   		ModelConfig: &EvaluatorModelConfigProperty{
+//   			BedrockEvaluatorModelConfig: &BedrockEvaluatorModelConfigProperty{
+//   				ModelId: jsii.String("modelId"),
+//
+//   				// the properties below are optional
+//   				AdditionalModelRequestFields: additionalModelRequestFields,
+//   				InferenceConfig: &InferenceConfigurationProperty{
+//   					MaxTokens: jsii.Number(123),
+//   					Temperature: jsii.Number(123),
+//   					TopP: jsii.Number(123),
+//   				},
+//   			},
+//   			ResponsesEvaluatorModelConfig: &OpenResponsesEvaluatorModelConfigProperty{
+//   				ModelId: jsii.String("modelId"),
+//
+//   				// the properties below are optional
+//   				MaxOutputTokens: jsii.Number(123),
+//   				Reasoning: &ReasoningConfigurationProperty{
+//   					Effort: jsii.String("effort"),
+//   				},
+//   				Temperature: jsii.Number(123),
+//   				TopP: jsii.Number(123),
+//   			},
+//   		},
+//   	},
 //   	LlmAsAJudge: &LlmAsAJudgeEvaluatorConfigProperty{
 //   		Instructions: jsii.String("instructions"),
 //   		ModelConfig: &EvaluatorModelConfigProperty{
@@ -70,6 +97,12 @@ type CfnEvaluator_EvaluatorConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatorconfig.html#cfn-bedrockagentcore-evaluator-evaluatorconfig-codebased
 	//
 	CodeBased interface{} `field:"optional" json:"codeBased" yaml:"codeBased"`
+	// The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model.
+	//
+	// The base evaluator supplies the prompt and scoring logic.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatorconfig.html#cfn-bedrockagentcore-evaluator-evaluatorconfig-derived
+	//
+	Derived interface{} `field:"optional" json:"derived" yaml:"derived"`
 	// The configuration for LLM-as-a-Judge evaluation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatorconfig.html#cfn-bedrockagentcore-evaluator-evaluatorconfig-llmasajudge
 	//

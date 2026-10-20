@@ -43,6 +43,19 @@ package awsquicksight
 //   				Host: jsii.String("host"),
 //   				Port: jsii.Number(123),
 //   				SqlEndpointPath: jsii.String("sqlEndpointPath"),
+//
+//   				// the properties below are optional
+//   				AuthenticationType: jsii.String("authenticationType"),
+//   				OAuthParameters: &OAuthParametersProperty{
+//   					TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//
+//   					// the properties below are optional
+//   					IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   					IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   						VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   					},
+//   					OAuthScope: jsii.String("oAuthScope"),
+//   				},
 //   			},
 //   			MariaDbParameters: &MariaDbParametersProperty{
 //   				Database: jsii.String("database"),

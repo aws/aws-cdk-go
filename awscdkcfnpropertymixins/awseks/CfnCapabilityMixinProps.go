@@ -27,6 +27,7 @@ import (
 //   				IdcManagedApplicationArn: jsii.String("idcManagedApplicationArn"),
 //   				IdcRegion: jsii.String("idcRegion"),
 //   			},
+//   			EndpointPrefix: jsii.String("endpointPrefix"),
 //   			Namespace: jsii.String("namespace"),
 //   			NetworkAccess: &NetworkAccessProperty{
 //   				VpceIds: []*string{

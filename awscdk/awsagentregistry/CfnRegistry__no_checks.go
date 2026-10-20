@@ -108,7 +108,15 @@ func (j *jsiiProxy_CfnRegistry) validateSetApprovalConfigurationParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnRegistry) validateSetAutoDetectionEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRegistry) validateSetDiscoveryConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnRegistry) validateSetEncryptionConfigurationParameters(val interface{}) error {
 	return nil
 }
 

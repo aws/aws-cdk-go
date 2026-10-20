@@ -47,6 +47,8 @@ type CfnScope interface {
 	AttrScopeId() *string
 	// The status of the scope.
 	AttrStatus() *string
+	// An ISO 8601 timestamp indicating when the scope was last modified.
+	AttrUpdatedAt() *string
 	// The version number of the scope.
 	AttrVersion() *string
 	// Tag Manager which manages the tags for this resource.
@@ -306,6 +308,16 @@ func (j *jsiiProxy_CfnScope) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScope) AttrUpdatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUpdatedAt",
 		&returns,
 	)
 	return returns

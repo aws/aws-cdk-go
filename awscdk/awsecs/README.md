@@ -191,7 +191,7 @@ var vpc Vpc
 autoScalingGroup := autoscaling.NewAutoScalingGroup(this, jsii.String("ASG"), &AutoScalingGroupProps{
 	MachineImage: ecs.EcsOptimizedImage_AmazonLinux(&EcsOptimizedImageOptions{
 		CachedInContext: jsii.Boolean(true),
-		AdditionalCacheKey: this.Node.path,
+		AdditionalCacheKey: this.Node.Path,
 	}),
 	Vpc: Vpc,
 	InstanceType: ec2.NewInstanceType(jsii.String("t2.micro")),

@@ -60,6 +60,7 @@ import (
 //   			},
 //   		},
 //   		ResolvedImageDigest: jsii.String("resolvedImageDigest"),
+//   		Vcpu: jsii.Number(123),
 //   	},
 //   	SourceVersionNumber: jsii.Number(123),
 //   	SupportContainerDefinitions: []interface{}{

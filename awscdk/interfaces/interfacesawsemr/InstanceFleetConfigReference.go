@@ -9,11 +9,14 @@ package interfacesawsemr
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   instanceFleetConfigReference := &InstanceFleetConfigReference{
-//   	InstanceFleetConfigId: jsii.String("instanceFleetConfigId"),
+//   	ClusterId: jsii.String("clusterId"),
+//   	InstanceFleetId: jsii.String("instanceFleetId"),
 //   }
 //
 type InstanceFleetConfigReference struct {
-	// The Id of the InstanceFleetConfig resource.
-	InstanceFleetConfigId *string `field:"required" json:"instanceFleetConfigId" yaml:"instanceFleetConfigId"`
+	// The ClusterId of the InstanceFleetConfig resource.
+	ClusterId *string `field:"required" json:"clusterId" yaml:"clusterId"`
+	// The InstanceFleetId of the InstanceFleetConfig resource.
+	InstanceFleetId *string `field:"required" json:"instanceFleetId" yaml:"instanceFleetId"`
 }
 

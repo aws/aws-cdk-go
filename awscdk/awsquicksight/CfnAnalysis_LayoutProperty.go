@@ -12,8 +12,6 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var type interface{}
-//
 //   layoutProperty := &LayoutProperty{
 //   	Configuration: &LayoutConfigurationProperty{
 //   		FreeFormLayout: &FreeFormLayoutConfigurationProperty{
@@ -70,7 +68,7 @@ package awsquicksight
 //   					Members: []interface{}{
 //   						&SheetLayoutGroupMemberProperty{
 //   							Id: jsii.String("id"),
-//   							Type: type,
+//   							Type: jsii.String("type"),
 //   						},
 //   					},
 //   				},

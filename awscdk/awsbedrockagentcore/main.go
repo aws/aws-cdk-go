@@ -1009,6 +1009,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEvaluatorArn", GoGetter: "AttrEvaluatorArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEvaluatorId", GoGetter: "AttrEvaluatorId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEvaluatorType", GoGetter: "AttrEvaluatorType"},
+			_jsii_.MemberProperty{JsiiProperty: "attrProvider", GoGetter: "AttrProvider"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
@@ -1066,6 +1068,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.CodeBasedEvaluatorConfigProperty",
 		reflect.TypeOf((*CfnEvaluator_CodeBasedEvaluatorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.DerivedEvaluatorConfigProperty",
+		reflect.TypeOf((*CfnEvaluator_DerivedEvaluatorConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnEvaluator.EvaluatorConfigProperty",

@@ -48,6 +48,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_applicationsignals.IInstrumentationConfigRef",
+		reflect.TypeOf((*IInstrumentationConfigRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "instrumentationConfigRef", GoGetter: "InstrumentationConfigRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IInstrumentationConfigRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_applicationsignals.IServiceLevelObjectiveRef",
 		reflect.TypeOf((*IServiceLevelObjectiveRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -62,6 +78,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_applicationsignals.InstrumentationConfigReference",
+		reflect.TypeOf((*InstrumentationConfigReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_applicationsignals.ServiceLevelObjectiveReference",

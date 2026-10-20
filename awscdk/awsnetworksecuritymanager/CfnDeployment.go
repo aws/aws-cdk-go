@@ -65,6 +65,8 @@ type CfnDeployment interface {
 	AttrDeploymentId() *string
 	// The status of the deployment.
 	AttrStatus() *string
+	// An ISO 8601 timestamp indicating when the deployment was last modified.
+	AttrUpdatedAt() *string
 	// The version number.
 	AttrVersion() *string
 	// Tag Manager which manages the tags for this resource.
@@ -344,6 +346,16 @@ func (j *jsiiProxy_CfnDeployment) AttrStatus() *string {
 	_jsii_.Get(
 		j,
 		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeployment) AttrUpdatedAt() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrUpdatedAt",
 		&returns,
 	)
 	return returns

@@ -8,8 +8,6 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var type interface{}
-//
 //   freeFormLayoutConfigurationProperty := &FreeFormLayoutConfigurationProperty{
 //   	CanvasSizeOptions: &FreeFormLayoutCanvasSizeOptionsProperty{
 //   		ScreenCanvasSizeOptions: &FreeFormLayoutScreenCanvasSizeOptionsProperty{
@@ -60,7 +58,7 @@ package awsquicksight
 //   			Members: []interface{}{
 //   				&SheetLayoutGroupMemberProperty{
 //   					Id: jsii.String("id"),
-//   					Type: type,
+//   					Type: jsii.String("type"),
 //   				},
 //   			},
 //   		},

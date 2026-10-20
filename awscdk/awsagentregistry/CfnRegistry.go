@@ -28,6 +28,8 @@ import (
 //   		},
 //   	},
 //   	AuthorizerType: jsii.String("authorizerType"),
+//   	AutoDetectionEnabled: jsii.Boolean(false),
+//   	AutoDetectionScope: jsii.String("autoDetectionScope"),
 //   	Description: jsii.String("description"),
 //   	DiscoveryConfiguration: &DiscoveryConfigurationProperty{
 //   		AuthorizerConfiguration: &AuthorizerConfigurationProperty{
@@ -62,6 +64,9 @@ import (
 //   			},
 //   		},
 //   	},
+//   	EncryptionConfiguration: &EncryptionConfigurationProperty{
+//   		KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -80,6 +85,10 @@ type CfnRegistry interface {
 	// Configuration for the registry's record approval workflow.
 	ApprovalConfiguration() interface{}
 	SetApprovalConfiguration(val interface{})
+	// The current auto-detection status.
+	//
+	// ACTIVE indicates that the registry is actively being populated with detected resources. INACTIVE indicates that the preconditions required at the configured scope are not currently met.
+	AttrAutoDetectionStatus() *string
 	// The timestamp when the registry was created.
 	AttrCreatedAt() *string
 	// The Amazon Resource Name (ARN) of the registry.
@@ -93,6 +102,12 @@ type CfnRegistry interface {
 	// The type of authorizer that controls how consumers access the registry's search and MCP invoke operations.
 	AuthorizerType() *string
 	SetAuthorizerType(val *string)
+	// Specifies whether auto-detection is requested for the registry.
+	AutoDetectionEnabled() interface{}
+	SetAutoDetectionEnabled(val interface{})
+	// The source from which resources are detected.
+	AutoDetectionScope() *string
+	SetAutoDetectionScope(val *string)
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -111,6 +126,9 @@ type CfnRegistry interface {
 	// Discovery configuration for the registry.
 	DiscoveryConfiguration() interface{}
 	SetDiscoveryConfiguration(val interface{})
+	// The server-side encryption configuration for a registry.
+	EncryptionConfiguration() interface{}
+	SetEncryptionConfiguration(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// The logical ID for this CloudFormation stack element.
 	//
@@ -335,6 +353,16 @@ func (j *jsiiProxy_CfnRegistry) ApprovalConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRegistry) AttrAutoDetectionStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAutoDetectionStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRegistry) AttrCreatedAt() *string {
 	var returns *string
 	_jsii_.Get(
@@ -390,6 +418,26 @@ func (j *jsiiProxy_CfnRegistry) AuthorizerType() *string {
 	_jsii_.Get(
 		j,
 		"authorizerType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRegistry) AutoDetectionEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"autoDetectionEnabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRegistry) AutoDetectionScope() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"autoDetectionScope",
 		&returns,
 	)
 	return returns
@@ -470,6 +518,16 @@ func (j *jsiiProxy_CfnRegistry) DiscoveryConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"discoveryConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRegistry) EncryptionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"encryptionConfiguration",
 		&returns,
 	)
 	return returns
@@ -624,6 +682,25 @@ func (j *jsiiProxy_CfnRegistry)SetAuthorizerType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnRegistry)SetAutoDetectionEnabled(val interface{}) {
+	if err := j.validateSetAutoDetectionEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"autoDetectionEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRegistry)SetAutoDetectionScope(val *string) {
+	_jsii_.Set(
+		j,
+		"autoDetectionScope",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnRegistry)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
@@ -639,6 +716,17 @@ func (j *jsiiProxy_CfnRegistry)SetDiscoveryConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"discoveryConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRegistry)SetEncryptionConfiguration(val interface{}) {
+	if err := j.validateSetEncryptionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"encryptionConfiguration",
 		val,
 	)
 }

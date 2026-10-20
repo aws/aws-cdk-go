@@ -8,13 +8,15 @@ import (
 // Properties for an Origin backed by an S3 website-configured bucket, load balancer, or custom HTTP server.
 //
 // Example:
-//   origin := origins.NewHttpOrigin(jsii.String("www.example.com"), &HttpOriginProps{
-//   	IpAddressType: cloudfront.OriginIpAddressType_IPV6,
+//   oac := cloudfront.NewS3OriginAccessControl(this, jsii.String("MyMrapOAC"), &S3OriginAccessControlProps{
+//   	Signing: cloudfront.Signing_SIGV4A_ALWAYS(),
 //   })
 //
-//   cloudfront.NewDistribution(this, jsii.String("Distribution"), &DistributionProps{
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: *Origin,
+//   		Origin: origins.NewHttpOrigin(jsii.String("mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com"), &HttpOriginProps{
+//   			OriginAccessControlId: oac.OriginAccessControlId,
+//   		}),
 //   	},
 //   })
 //

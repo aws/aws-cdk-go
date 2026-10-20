@@ -117,6 +117,8 @@ type CfnInstanceFleetConfig interface {
 	awscdk.IInspectable
 	interfacesawsemr.IInstanceFleetConfigRef
 	AttrId() *string
+	// The unique identifier for instance fleet for specific cluster.
+	AttrInstanceFleetId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -363,6 +365,16 @@ func (j *jsiiProxy_CfnInstanceFleetConfig) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInstanceFleetConfig) AttrInstanceFleetId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInstanceFleetId",
 		&returns,
 	)
 	return returns

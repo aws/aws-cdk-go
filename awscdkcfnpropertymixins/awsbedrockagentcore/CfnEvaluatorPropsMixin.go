@@ -10,7 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+// Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations.
+//
+// Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -28,6 +30,29 @@ import (
 //   			LambdaConfig: &LambdaEvaluatorConfigProperty{
 //   				LambdaArn: jsii.String("lambdaArn"),
 //   				LambdaTimeoutInSeconds: jsii.Number(123),
+//   			},
+//   		},
+//   		Derived: &DerivedEvaluatorConfigProperty{
+//   			BaseEvaluatorId: jsii.String("baseEvaluatorId"),
+//   			ModelConfig: &EvaluatorModelConfigProperty{
+//   				BedrockEvaluatorModelConfig: &BedrockEvaluatorModelConfigProperty{
+//   					AdditionalModelRequestFields: additionalModelRequestFields,
+//   					InferenceConfig: &InferenceConfigurationProperty{
+//   						MaxTokens: jsii.Number(123),
+//   						Temperature: jsii.Number(123),
+//   						TopP: jsii.Number(123),
+//   					},
+//   					ModelId: jsii.String("modelId"),
+//   				},
+//   				ResponsesEvaluatorModelConfig: &OpenResponsesEvaluatorModelConfigProperty{
+//   					MaxOutputTokens: jsii.Number(123),
+//   					ModelId: jsii.String("modelId"),
+//   					Reasoning: &ReasoningConfigurationProperty{
+//   						Effort: jsii.String("effort"),
+//   					},
+//   					Temperature: jsii.Number(123),
+//   					TopP: jsii.Number(123),
+//   				},
 //   			},
 //   		},
 //   		LlmAsAJudge: &LlmAsAJudgeEvaluatorConfigProperty{

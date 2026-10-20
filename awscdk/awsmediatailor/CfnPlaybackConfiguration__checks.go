@@ -356,6 +356,30 @@ func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetAvailSuppressionParamete
 	return nil
 }
 
+func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetBeaconingConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnPlaybackConfiguration_BeaconingConfigurationProperty:
+		val := val.(*CfnPlaybackConfiguration_BeaconingConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPlaybackConfiguration_BeaconingConfigurationProperty:
+		val_ := val.(CfnPlaybackConfiguration_BeaconingConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPlaybackConfiguration_BeaconingConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnPlaybackConfiguration) validateSetBumperParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

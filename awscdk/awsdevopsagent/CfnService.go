@@ -26,6 +26,7 @@ import (
 //   	// the properties below are optional
 //   	ExchangeUrlPrivateConnectionName: jsii.String("exchangeUrlPrivateConnectionName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	Name: jsii.String("name"),
 //   	PrivateConnectionName: jsii.String("privateConnectionName"),
 //   	ServiceDetails: &ServiceDetailsProperty{
 //   		AzureIdentity: &AzureIdentityServiceDetailsProperty{
@@ -49,6 +50,23 @@ import (
 //   					ClientName: jsii.String("clientName"),
 //   					ExchangeParameters: exchangeParameters,
 //   				},
+//   			},
+//   		},
+//   		GitHub: &GitHubDetailsProperty{
+//   			AppVerification: &GitHubAppVerificationDetailsProperty{
+//   				AppVariant: jsii.String("appVariant"),
+//   				TokenValue: jsii.String("tokenValue"),
+//
+//   				// the properties below are optional
+//   				OrganizationName: jsii.String("organizationName"),
+//   				TargetUrl: jsii.String("targetUrl"),
+//   			},
+//   			DirectAccess: &GitHubPatDetailsProperty{
+//   				TokenValue: jsii.String("tokenValue"),
+//
+//   				// the properties below are optional
+//   				OrganizationName: jsii.String("organizationName"),
+//   				TargetUrl: jsii.String("targetUrl"),
 //   			},
 //   		},
 //   		GitLab: &GitLabDetailsProperty{
@@ -246,6 +264,9 @@ type CfnService interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The display name for the service registration.
+	Name() *string
+	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// The name of the private connection to use for VPC connectivity.
@@ -598,6 +619,16 @@ func (j *jsiiProxy_CfnService) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -750,6 +781,14 @@ func (j *jsiiProxy_CfnService)SetKmsKeyArn(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetName(val *string) {
+	_jsii_.Set(
+		j,
+		"name",
 		val,
 	)
 }

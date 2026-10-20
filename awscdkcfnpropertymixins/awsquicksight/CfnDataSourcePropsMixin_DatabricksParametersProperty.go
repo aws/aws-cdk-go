@@ -9,7 +9,16 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   databricksParametersProperty := &DatabricksParametersProperty{
+//   	AuthenticationType: jsii.String("authenticationType"),
 //   	Host: jsii.String("host"),
+//   	OAuthParameters: &OAuthParametersProperty{
+//   		IdentityProviderResourceUri: jsii.String("identityProviderResourceUri"),
+//   		IdentityProviderVpcConnectionProperties: &VpcConnectionPropertiesProperty{
+//   			VpcConnectionArn: jsii.String("vpcConnectionArn"),
+//   		},
+//   		OAuthScope: jsii.String("oAuthScope"),
+//   		TokenProviderUrl: jsii.String("tokenProviderUrl"),
+//   	},
 //   	Port: jsii.Number(123),
 //   	SqlEndpointPath: jsii.String("sqlEndpointPath"),
 //   }
@@ -17,10 +26,16 @@ package awsquicksight
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html
 //
 type CfnDataSourcePropsMixin_DatabricksParametersProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-authenticationtype
+	//
+	AuthenticationType *string `field:"optional" json:"authenticationType" yaml:"authenticationType"`
 	// The host name of the Databricks data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-host
 	//
 	Host *string `field:"optional" json:"host" yaml:"host"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-oauthparameters
+	//
+	OAuthParameters interface{} `field:"optional" json:"oAuthParameters" yaml:"oAuthParameters"`
 	// The port for the Databricks data source.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html#cfn-quicksight-datasource-databricksparameters-port
 	//

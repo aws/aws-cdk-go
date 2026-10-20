@@ -14,16 +14,15 @@ import (
 // An Origin Access Control for Amazon S3 origins.
 //
 // Example:
-//   myBucket := s3.NewBucket(this, jsii.String("myBucket"))
-//   oac := cloudfront.NewS3OriginAccessControl(this, jsii.String("MyOAC"), &S3OriginAccessControlProps{
-//   	Signing: cloudfront.Signing_SIGV4_NO_OVERRIDE(),
+//   oac := cloudfront.NewS3OriginAccessControl(this, jsii.String("MyMrapOAC"), &S3OriginAccessControlProps{
+//   	Signing: cloudfront.Signing_SIGV4A_ALWAYS(),
 //   })
-//   s3Origin := origins.S3BucketOrigin_WithOriginAccessControl(myBucket, &S3BucketOriginWithOACProps{
-//   	OriginAccessControl: oac,
-//   })
+//
 //   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: s3Origin,
+//   		Origin: origins.NewHttpOrigin(jsii.String("mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com"), &HttpOriginProps{
+//   			OriginAccessControlId: oac.OriginAccessControlId,
+//   		}),
 //   	},
 //   })
 //

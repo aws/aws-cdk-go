@@ -14,13 +14,16 @@ import (
 // A Origin Request Policy configuration.
 //
 // Example:
-//   // Using an existing origin request policy for a Distribution
-//   var bucketOrigin S3Origin
+//   oac := cloudfront.NewFunctionUrlOriginAccessControl(this, jsii.String("WebFunctionOAC"), &FunctionUrlOriginAccessControlProps{
+//   	Signing: cloudfront.Signing_SIGV4_ALWAYS_AMZ_AUTH(),
+//   })
 //
-//   cloudfront.NewDistribution(this, jsii.String("myDistManagedPolicy"), &DistributionProps{
+//   cloudfront.NewDistribution(this, jsii.String("MyDistribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: bucketOrigin,
-//   		OriginRequestPolicy: cloudfront.OriginRequestPolicy_CORS_S3_ORIGIN(),
+//   		Origin: origins.NewHttpOrigin(jsii.String("bcdfghjklmnpqrst.b7t.lambda-web.us-east-1.on.aws"), &HttpOriginProps{
+//   			OriginAccessControlId: oac.OriginAccessControlId,
+//   		}),
+//   		OriginRequestPolicy: cloudfront.OriginRequestPolicy_ALL_VIEWER_EXCEPT_HOST_HEADER(),
 //   	},
 //   })
 //

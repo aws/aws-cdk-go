@@ -24,6 +24,7 @@ import (
 //   cfnServicePropsMixin := awscdkcfnpropertymixins.Aws_devopsagent.NewCfnServicePropsMixin(&CfnServiceMixinProps{
 //   	ExchangeUrlPrivateConnectionName: jsii.String("exchangeUrlPrivateConnectionName"),
 //   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	Name: jsii.String("name"),
 //   	PrivateConnectionName: jsii.String("privateConnectionName"),
 //   	ServiceDetails: &ServiceDetailsProperty{
 //   		AzureIdentity: &AzureIdentityServiceDetailsProperty{
@@ -43,6 +44,19 @@ import (
 //   					ClientSecret: jsii.String("clientSecret"),
 //   					ExchangeParameters: exchangeParameters,
 //   				},
+//   			},
+//   		},
+//   		GitHub: &GitHubDetailsProperty{
+//   			AppVerification: &GitHubAppVerificationDetailsProperty{
+//   				AppVariant: jsii.String("appVariant"),
+//   				OrganizationName: jsii.String("organizationName"),
+//   				TargetUrl: jsii.String("targetUrl"),
+//   				TokenValue: jsii.String("tokenValue"),
+//   			},
+//   			DirectAccess: &GitHubPatDetailsProperty{
+//   				OrganizationName: jsii.String("organizationName"),
+//   				TargetUrl: jsii.String("targetUrl"),
+//   				TokenValue: jsii.String("tokenValue"),
 //   			},
 //   		},
 //   		GitLab: &GitLabDetailsProperty{

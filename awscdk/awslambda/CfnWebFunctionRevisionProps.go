@@ -28,6 +28,7 @@ package awslambda
 //   		ExecutionRoleArn: jsii.String("executionRoleArn"),
 //
 //   		// the properties below are optional
+//   		EgressNetworkConnectorArn: jsii.String("egressNetworkConnectorArn"),
 //   		EnvironmentVariables: map[string]*string{
 //   			"environmentVariablesKey": jsii.String("environmentVariables"),
 //   		},

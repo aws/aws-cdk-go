@@ -1764,7 +1764,7 @@ ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
 		CachedInContext: jsii.Boolean(true),
 		// creates a distinct context variable for this image, instead of resolving to the same
 		// value anywhere this lookup is done in your app
-		AdditionalCacheKey: this.Node.path,
+		AdditionalCacheKey: this.Node.Path,
 	}),
 })
 
@@ -1777,7 +1777,7 @@ ec2.NewInstance(this, jsii.String("LatestAl2023"), &InstanceProps{
 	MachineImage: ec2.NewAmazonLinux2023ImageSsmParameter(&AmazonLinux2023ImageSsmParameterProps{
 		// creates a distinct context variable for this image, instead of resolving to the same
 		// value anywhere this lookup is done in your app
-		AdditionalCacheKey: this.*Node.path,
+		AdditionalCacheKey: this.*Node.*Path,
 	}),
 })
 ```
