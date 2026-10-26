@@ -23,10 +23,21 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnTenantPropsMixin := awscdkcfnpropertymixins.Aws_ses.NewCfnTenantPropsMixin(&CfnTenantMixinProps{
+//   	ReputationEntity: &ReputationEntityProperty{
+//   		Policy: &ReputationPolicyProperty{
+//   			ReputationEntityPolicy: jsii.String("reputationEntityPolicy"),
+//   		},
+//   	},
 //   	ResourceAssociations: []interface{}{
 //   		&ResourceAssociationProperty{
 //   			ResourceArn: jsii.String("resourceArn"),
 //   		},
+//   	},
+//   	SuppressionAttributes: &TenantSuppressionAttributesProperty{
+//   		SuppressedReasons: []*string{
+//   			jsii.String("suppressedReasons"),
+//   		},
+//   		SuppressionScope: jsii.String("suppressionScope"),
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{

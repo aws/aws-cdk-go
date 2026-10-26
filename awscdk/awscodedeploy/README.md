@@ -755,7 +755,7 @@ var deploymentGroup IEcsDeploymentGroup
 var taskDefinition ITaskDefinition
 
 
-NewEcsDeployment(map[string]interface{}{
+newEcsDeployment(map[string]interface{}{
 	"deploymentGroup": deploymentGroup,
 	"targetService": map[string]interface{}{
 		"taskDefinition": taskDefinition,
@@ -772,7 +772,7 @@ var deploymentGroup IEcsDeploymentGroup
 var taskDefinition ITaskDefinition
 
 
-NewEcsDeployment(map[string]interface{}{
+newEcsDeployment(map[string]interface{}{
 	"deploymentGroup": deploymentGroup,
 	"targetService": map[string]interface{}{
 		"taskDefinition": taskDefinition,
@@ -794,7 +794,7 @@ var deploymentGroup IEcsDeploymentGroup
 var taskDefinition ITaskDefinition
 
 
-NewEcsDeployment(map[string]interface{}{
+newEcsDeployment(map[string]interface{}{
 	"deploymentGroup": deploymentGroup,
 	"targetService": map[string]interface{}{
 		"taskDefinition": taskDefinition,

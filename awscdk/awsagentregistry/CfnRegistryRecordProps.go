@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var customMetadata interface{}
+//
 //   cfnRegistryRecordProps := &CfnRegistryRecordProps{
 //   	Descriptors: &DescriptorsProperty{
 //   		A2AAgentCard: &A2aAgentCardDescriptorProperty{
@@ -126,6 +128,7 @@ import (
 //   	RecordType: jsii.String("recordType"),
 //
 //   	// the properties below are optional
+//   	CustomMetadata: customMetadata,
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	RecordVersion: jsii.String("recordVersion"),
@@ -155,6 +158,12 @@ type CfnRegistryRecordProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-recordtype
 	//
 	RecordType *string `field:"required" json:"recordType" yaml:"recordType"`
+	// The custom metadata to attach to the registry record.
+	//
+	// Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-custommetadata
+	//
+	CustomMetadata interface{} `field:"optional" json:"customMetadata" yaml:"customMetadata"`
 	// The description of the registry record.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registryrecord.html#cfn-agentregistry-registryrecord-description
 	//

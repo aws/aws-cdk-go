@@ -41,7 +41,7 @@ import (
 //   			"Fred": jsii.String("Thud"),
 //   		},
 //   	})
-//   	cdk.Aspects_Of(stack).Add(NewMyAspect())
+//   	cdk.Aspects_Of(stack).Add(newMyAspect())
 //   	return this
 //   }
 //

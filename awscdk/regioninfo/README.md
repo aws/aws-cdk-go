@@ -48,7 +48,7 @@ type myFact struct {
 	value
 }
 
-regionInfo.Fact_Register(NewMyFact())
+regionInfo.Fact_Register(newMyFact())
 ```
 
 ## Overriding incorrect information
@@ -64,7 +64,7 @@ type myFact struct {
 	value
 }
 
-regionInfo.Fact_Register(NewMyFact(), jsii.Boolean(true))
+regionInfo.Fact_Register(newMyFact(), jsii.Boolean(true))
 ```
 
 If you happen to have stumbled upon incorrect data built into this library, it

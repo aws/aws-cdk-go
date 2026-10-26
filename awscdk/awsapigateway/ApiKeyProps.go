@@ -6,7 +6,7 @@ package awsapigateway
 // Example:
 //   stack := awscdk.NewStack(app, jsii.String("my-stack"), &StackProps{
 //   	PropertyInjectors: []IPropertyInjector{
-//   		NewApiKeyPropsInjector(),
+//   		newApiKeyPropsInjector(),
 //   	},
 //   })
 //   api.NewApiKey(stack, jsii.String("my-api-key"), &ApiKeyProps{

@@ -104,6 +104,10 @@ func validateCfnLogAlarm_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLogAlarm) validateSetActionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnLogAlarm) validateSetActionsEnabledParameters(val interface{}) error {
 	return nil
 }

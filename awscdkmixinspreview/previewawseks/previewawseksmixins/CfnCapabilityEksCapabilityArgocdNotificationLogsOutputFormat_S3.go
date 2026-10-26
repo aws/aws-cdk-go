@@ -1,0 +1,17 @@
+package previewawseksmixins
+
+
+// Experimental.
+type CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3 string
+
+const (
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3_PLAIN CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3 = "PLAIN"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3_JSON CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3 = "JSON"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3_W3C CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3 = "W3C"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3_PARQUET CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3 = "PARQUET"
+)
+

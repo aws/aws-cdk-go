@@ -15,6 +15,9 @@ import (
 //   	DatastoreTypeVersion: jsii.String("datastoreTypeVersion"),
 //
 //   	// the properties below are optional
+//   	AnalyticsConfiguration: &AnalyticsConfigurationProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	DatastoreName: jsii.String("datastoreName"),
 //   	IdentityProviderConfiguration: &IdentityProviderConfigurationProperty{
 //   		AuthorizationStrategy: jsii.String("authorizationStrategy"),
@@ -24,8 +27,16 @@ import (
 //   		IdpLambdaArn: jsii.String("idpLambdaArn"),
 //   		Metadata: jsii.String("metadata"),
 //   	},
+//   	NlpConfiguration: &NlpConfigurationProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	PreloadDataConfig: &PreloadDataConfigProperty{
 //   		PreloadDataType: jsii.String("preloadDataType"),
+//   	},
+//   	ProfileConfiguration: &ProfileConfigurationProperty{
+//   		DefaultProfiles: []*string{
+//   			jsii.String("defaultProfiles"),
+//   		},
 //   	},
 //   	SseConfiguration: &SseConfigurationProperty{
 //   		KmsEncryptionConfig: &KmsEncryptionConfigProperty{
@@ -52,6 +63,12 @@ type CfnFHIRDatastoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastoretypeversion
 	//
 	DatastoreTypeVersion *string `field:"required" json:"datastoreTypeVersion" yaml:"datastoreTypeVersion"`
+	// The analytics configuration for the Data Store.
+	//
+	// Omitted when the Data Store can't carry analytics.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-analyticsconfiguration
+	//
+	AnalyticsConfiguration interface{} `field:"optional" json:"analyticsConfiguration" yaml:"analyticsConfiguration"`
 	// The data store name (user-generated).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-datastorename
 	//
@@ -60,10 +77,18 @@ type CfnFHIRDatastoreProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-identityproviderconfiguration
 	//
 	IdentityProviderConfiguration interface{} `field:"optional" json:"identityProviderConfiguration" yaml:"identityProviderConfiguration"`
+	// The natural language processing (NLP) configuration for the Data Store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-nlpconfiguration
+	//
+	NlpConfiguration interface{} `field:"optional" json:"nlpConfiguration" yaml:"nlpConfiguration"`
 	// The preloaded Synthea data configuration for the data store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-preloaddataconfig
 	//
 	PreloadDataConfig interface{} `field:"optional" json:"preloadDataConfig" yaml:"preloadDataConfig"`
+	// The profile configuration for the Data Store.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-profileconfiguration
+	//
+	ProfileConfiguration interface{} `field:"optional" json:"profileConfiguration" yaml:"profileConfiguration"`
 	// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#cfn-healthlake-fhirdatastore-sseconfiguration
 	//

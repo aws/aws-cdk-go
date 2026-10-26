@@ -13,6 +13,7 @@ import (
 //
 //   cfnServerProps := &CfnServerProps{
 //   	Certificate: jsii.String("certificate"),
+//   	CreateWithHostKey: jsii.Boolean(false),
 //   	Domain: jsii.String("domain"),
 //   	EndpointDetails: &EndpointDetailsProperty{
 //   		AddressAllocationIds: []*string{
@@ -106,6 +107,12 @@ type CfnServerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-certificate
 	//
 	Certificate *string `field:"optional" json:"certificate" yaml:"certificate"`
+	// When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients.
+	//
+	// When set to `false`, clients will not be able to establish an SFTP session until you import one or more host keys (see AWS::Transfer::HostKey). This property cannot be changed after resource creation. Default: `true`.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-createwithhostkey
+	//
+	CreateWithHostKey interface{} `field:"optional" json:"createWithHostKey" yaml:"createWithHostKey"`
 	// Specifies the domain of the storage system that is used for file transfers.
 	//
 	// There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.

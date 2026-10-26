@@ -251,6 +251,22 @@ func init() {
 		reflect.TypeOf((*CfnPlan_ServiceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.SsmDocumentConfigProperty",
+		reflect.TypeOf((*CfnPlan_SsmDocumentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.SsmSendCommandConfigurationProperty",
+		reflect.TypeOf((*CfnPlan_SsmSendCommandConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.SsmSendCommandUngracefulProperty",
+		reflect.TypeOf((*CfnPlan_SsmSendCommandUngracefulProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.SsmTargetProperty",
+		reflect.TypeOf((*CfnPlan_SsmTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_arcregionswitch.CfnPlan.StepProperty",
 		reflect.TypeOf((*CfnPlan_StepProperty)(nil)).Elem(),
 	)

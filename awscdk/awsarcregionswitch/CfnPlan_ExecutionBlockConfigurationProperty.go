@@ -280,6 +280,38 @@ package awsarcregionswitch
 //   		},
 //   		TimeoutMinutes: jsii.Number(123),
 //   	},
+//   	SsmSendCommandConfig: &SsmSendCommandConfigurationProperty{
+//   		RegionDocuments: map[string]interface{}{
+//   			"regionDocumentsKey": &SsmDocumentConfigProperty{
+//   				"documentArn": jsii.String("documentArn"),
+//   				"targets": []interface{}{
+//   					&SsmTargetProperty{
+//   						"key": jsii.String("key"),
+//   						"values": []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//
+//   				// the properties below are optional
+//   				"crossAccountRole": jsii.String("crossAccountRole"),
+//   				"documentVersion": jsii.String("documentVersion"),
+//   				"externalId": jsii.String("externalId"),
+//   				"parameters": map[string][]*string{
+//   					"parametersKey": []*string{
+//   						jsii.String("parameters"),
+//   					},
+//   				},
+//   			},
+//   		},
+//   		RetryIntervalMinutes: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		TimeoutMinutes: jsii.Number(123),
+//   		Ungraceful: &SsmSendCommandUngracefulProperty{
+//   			Behavior: jsii.String("behavior"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html
@@ -349,5 +381,8 @@ type CfnPlan_ExecutionBlockConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-route53healthcheckconfig
 	//
 	Route53HealthCheckConfig interface{} `field:"optional" json:"route53HealthCheckConfig" yaml:"route53HealthCheckConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-ssmsendcommandconfig
+	//
+	SsmSendCommandConfig interface{} `field:"optional" json:"ssmSendCommandConfig" yaml:"ssmSendCommandConfig"`
 }
 

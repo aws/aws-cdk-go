@@ -104,8 +104,8 @@ type StackProps struct {
 	//   // `.account` and `.region` will resolve to the concrete values as above
 	//   // both of these stacks will use the stage's account/region:
 	//   // `.account` and `.region` will resolve to the concrete values as above
-	//   NewMyStack(myStage, jsii.String("Stack1"))
-	//   NewYourStack(myStage, jsii.String("Stack2"))
+	//   newMyStack(myStage, jsii.String("Stack1"))
+	//   newYourStack(myStage, jsii.String("Stack2"))
 	//
 	//   // Define an environment-agnostic stack:
 	//   // `.account` and `.region` will resolve to `{ "Ref": "AWS::AccountId" }` and `{ "Ref": "AWS::Region" }` respectively.
@@ -113,7 +113,7 @@ type StackProps struct {
 	//   // Define an environment-agnostic stack:
 	//   // `.account` and `.region` will resolve to `{ "Ref": "AWS::AccountId" }` and `{ "Ref": "AWS::Region" }` respectively.
 	//   // which will only resolve to actual values by CloudFormation during deployment.
-	//   NewMyStack(app, jsii.String("Stack1"))
+	//   newMyStack(app, jsii.String("Stack1"))
 	//
 	// Default: - The environment of the containing `Stage` if available,
 	// otherwise create the stack will be environment-agnostic.

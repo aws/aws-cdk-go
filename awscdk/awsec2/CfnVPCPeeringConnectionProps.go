@@ -42,6 +42,8 @@ type CfnVPCPeeringConnectionProps struct {
 	//
 	VpcId interface{} `field:"required" json:"vpcId" yaml:"vpcId"`
 	// The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+	//
+	// You can update this property.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-assumeroleregion
 	//
 	AssumeRoleRegion *string `field:"optional" json:"assumeRoleRegion" yaml:"assumeRoleRegion"`

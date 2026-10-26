@@ -30,6 +30,15 @@ import (
 //   	AuthorizerType: jsii.String("authorizerType"),
 //   	AutoDetectionEnabled: jsii.Boolean(false),
 //   	AutoDetectionScope: jsii.String("autoDetectionScope"),
+//   	CustomMetadataSchemaConfiguration: &CustomMetadataSchemaConfigurationProperty{
+//   		DefaultSchema: jsii.String("defaultSchema"),
+//   		RecordTypeSchemaOverrides: []interface{}{
+//   			&RecordTypeSchemaOverrideProperty{
+//   				RecordType: jsii.String("recordType"),
+//   				Schema: jsii.String("schema"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DiscoveryConfiguration: &DiscoveryConfigurationProperty{
 //   		AuthorizerConfiguration: &AuthorizerConfigurationProperty{
@@ -120,6 +129,9 @@ type CfnRegistry interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// Configuration that defines a typed metadata schema for a registry.
+	CustomMetadataSchemaConfiguration() interface{}
+	SetCustomMetadataSchemaConfiguration(val interface{})
 	// The description of the registry.
 	Description() *string
 	SetDescription(val *string)
@@ -503,6 +515,16 @@ func (j *jsiiProxy_CfnRegistry) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRegistry) CustomMetadataSchemaConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customMetadataSchemaConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRegistry) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -697,6 +719,17 @@ func (j *jsiiProxy_CfnRegistry)SetAutoDetectionScope(val *string) {
 	_jsii_.Set(
 		j,
 		"autoDetectionScope",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRegistry)SetCustomMetadataSchemaConfiguration(val interface{}) {
+	if err := j.validateSetCustomMetadataSchemaConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"customMetadataSchemaConfiguration",
 		val,
 	)
 }

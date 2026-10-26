@@ -27,6 +27,9 @@ import (
 //   	},
 //   	DependencyDiscovery: jsii.String("dependencyDiscovery"),
 //   	Description: jsii.String("description"),
+//   	DevOpsAgentConfiguration: &DevOpsAgentConfigurationProperty{
+//   		AgentSpaceArn: jsii.String("agentSpaceArn"),
+//   	},
 //   	InputSources: []interface{}{
 //   		&InputSourceDefinitionProperty{
 //   			ResourceConfiguration: &ResourceConfigurationProperty{
@@ -116,6 +119,12 @@ type CfnServiceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehubv2-service.html#cfn-resiliencehubv2-service-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Links the service to an AWS DevOps Agent Agent Space.
+	//
+	// Provide AgentSpaceArn to connect the service; omit this property to leave an existing link unchanged. The DevOps Agent integration is governed by the service's resilience policy and operates in analysis-only mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehubv2-service.html#cfn-resiliencehubv2-service-devopsagentconfiguration
+	//
+	DevOpsAgentConfiguration interface{} `field:"optional" json:"devOpsAgentConfiguration" yaml:"devOpsAgentConfiguration"`
 	// Input sources for this service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehubv2-service.html#cfn-resiliencehubv2-service-inputsources
 	//

@@ -18,6 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var customMetadata interface{}
+//
 //   cfnRegistryRecord := awscdk.Aws_agentregistry.NewCfnRegistryRecord(this, jsii.String("MyCfnRegistryRecord"), &CfnRegistryRecordProps{
 //   	Descriptors: &DescriptorsProperty{
 //   		A2AAgentCard: &A2aAgentCardDescriptorProperty{
@@ -133,6 +135,7 @@ import (
 //   	RecordType: jsii.String("recordType"),
 //
 //   	// the properties below are optional
+//   	CustomMetadata: customMetadata,
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	RecordVersion: jsii.String("recordVersion"),
@@ -178,6 +181,9 @@ type CfnRegistryRecord interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// The custom metadata to attach to the registry record.
+	CustomMetadata() interface{}
+	SetCustomMetadata(val interface{})
 	// The description of the registry record.
 	Description() *string
 	SetDescription(val *string)
@@ -540,6 +546,16 @@ func (j *jsiiProxy_CfnRegistryRecord) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRegistryRecord) CustomMetadata() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customMetadata",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRegistryRecord) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -727,6 +743,17 @@ func NewCfnRegistryRecord_Override(c CfnRegistryRecord, scope constructs.Constru
 		"aws-cdk-lib.aws_agentregistry.CfnRegistryRecord",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnRegistryRecord)SetCustomMetadata(val interface{}) {
+	if err := j.validateSetCustomMetadataParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"customMetadata",
+		val,
 	)
 }
 

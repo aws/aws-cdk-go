@@ -984,8 +984,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.InputDestinationProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_InputDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.InputDestinationRequestProperty",
 		reflect.TypeOf((*CfnInputPropsMixin_InputDestinationRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.InputDestinationRouteProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_InputDestinationRouteProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.InputDestinationVpcProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_InputDestinationVpcProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.InputDeviceSettingsProperty",
@@ -1000,12 +1012,20 @@ func init() {
 		reflect.TypeOf((*CfnInputPropsMixin_InputSdpLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.InputSourceProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_InputSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.InputSourceRequestProperty",
 		reflect.TypeOf((*CfnInputPropsMixin_InputSourceRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.InputVpcRequestProperty",
 		reflect.TypeOf((*CfnInputPropsMixin_InputVpcRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.MediaConnectFlowProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_MediaConnectFlowProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.MediaConnectFlowRequestProperty",
@@ -1016,8 +1036,16 @@ func init() {
 		reflect.TypeOf((*CfnInputPropsMixin_MulticastSettingsCreateRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.MulticastSettingsProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_MulticastSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.MulticastSourceCreateRequestProperty",
 		reflect.TypeOf((*CfnInputPropsMixin_MulticastSourceCreateRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.MulticastSourceProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_MulticastSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.RouterDestinationSettingsProperty",
@@ -1040,20 +1068,40 @@ func init() {
 		reflect.TypeOf((*CfnInputPropsMixin_Smpte2110ReceiverGroupSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtCallerDecryptionProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_SrtCallerDecryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtCallerDecryptionRequestProperty",
 		reflect.TypeOf((*CfnInputPropsMixin_SrtCallerDecryptionRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtCallerSourceProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_SrtCallerSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtCallerSourceRequestProperty",
 		reflect.TypeOf((*CfnInputPropsMixin_SrtCallerSourceRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtListenerDecryptionProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_SrtListenerDecryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtListenerDecryptionRequestProperty",
 		reflect.TypeOf((*CfnInputPropsMixin_SrtListenerDecryptionRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtListenerSettingsProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_SrtListenerSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtListenerSettingsRequestProperty",
 		reflect.TypeOf((*CfnInputPropsMixin_SrtListenerSettingsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtSettingsProperty",
+		reflect.TypeOf((*CfnInputPropsMixin_SrtSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputPropsMixin.SrtSettingsRequestProperty",
@@ -1082,6 +1130,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputSecurityGroupPropsMixin.InputWhitelistRuleCidrProperty",
 		reflect.TypeOf((*CfnInputSecurityGroupPropsMixin_InputWhitelistRuleCidrProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnInputSecurityGroupPropsMixin.InputWhitelistRuleProperty",
+		reflect.TypeOf((*CfnInputSecurityGroupPropsMixin_InputWhitelistRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnMultiplexMixinProps",

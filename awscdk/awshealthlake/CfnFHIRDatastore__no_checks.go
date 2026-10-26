@@ -112,6 +112,10 @@ func validateCfnFHIRDatastore_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore) validateSetAnalyticsConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore) validateSetDatastoreTypeVersionParameters(val *string) error {
 	return nil
 }
@@ -120,7 +124,15 @@ func (j *jsiiProxy_CfnFHIRDatastore) validateSetIdentityProviderConfigurationPar
 	return nil
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore) validateSetNlpConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore) validateSetPreloadDataConfigParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFHIRDatastore) validateSetProfileConfigurationParameters(val interface{}) error {
 	return nil
 }
 

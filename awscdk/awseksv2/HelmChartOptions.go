@@ -8,17 +8,16 @@ import (
 // Helm Chart options.
 //
 // Example:
-//   import s3Assets "github.com/aws/aws-cdk-go/awscdk"
-//
 //   var cluster Cluster
 //
-//   chartAsset := s3Assets.NewAsset(this, jsii.String("ChartAsset"), &AssetProps{
-//   	Path: jsii.String("/path/to/asset"),
+//   chart1 := cluster.addHelmChart(jsii.String("MyChart"), &HelmChartOptions{
+//   	Chart: jsii.String("foo"),
+//   })
+//   chart2 := cluster.addHelmChart(jsii.String("MyChart"), &HelmChartOptions{
+//   	Chart: jsii.String("bar"),
 //   })
 //
-//   cluster.addHelmChart(jsii.String("test-chart"), &HelmChartOptions{
-//   	ChartAsset: chartAsset,
-//   })
+//   chart2.Node.AddDependency(chart1)
 //
 type HelmChartOptions struct {
 	// Whether or not Helm should treat this operation as atomic;
@@ -85,7 +84,11 @@ type HelmChartOptions struct {
 	// values: {
 	//  installationCRDs: true,
 	//  webhook: { port: 9443 }
-	// }.
+	// }
+	//
+	// In languages other than TypeScript and JavaScript, `null` values (such as
+	// `None` in Python) are dropped when crossing the jsii boundary. To pass
+	// `null` values to the chart, see the "Helm Charts" section of the module README.
 	// Default: - No values are provided to the chart.
 	//
 	Values *map[string]interface{} `field:"optional" json:"values" yaml:"values"`

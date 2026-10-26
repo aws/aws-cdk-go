@@ -26,6 +26,20 @@ import (
 //   	FirewallName: jsii.String("firewallName"),
 //   	FirewallPolicyArn: jsii.String("firewallPolicyArn"),
 //   	FirewallPolicyChangeProtection: jsii.Boolean(false),
+//   	NatGatewayMappings: []interface{}{
+//   		&NatGatewayMappingProperty{
+//   			NatGatewayId: jsii.String("natGatewayId"),
+//   		},
+//   	},
+//   	NoSourcePreservation: jsii.Boolean(false),
+//   	ProxySettings: &ProxySettingsProperty{
+//   		ListenerProperties: []interface{}{
+//   			&ListenerPropertyProperty{
+//   				Port: jsii.Number(123),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	SubnetChangeProtection: jsii.Boolean(false),
 //   	SubnetMappings: []interface{}{
 //   		&SubnetMappingProperty{
@@ -40,6 +54,15 @@ import (
 //   		},
 //   	},
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
+//   	VpcEndpoint: &VpcEndpointProperty{
+//   		SubnetMappings: []interface{}{
+//   			&SubnetMappingProperty{
+//   				IpAddressType: jsii.String("ipAddressType"),
+//   				SubnetId: jsii.String("subnetId"),
+//   			},
+//   		},
+//   		VpcId: jsii.String("vpcId"),
+//   	},
 //   	VpcId: jsii.String("vpcId"),
 //   }
 //
@@ -90,6 +113,20 @@ type CfnFirewallMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
 	//
 	FirewallPolicyChangeProtection interface{} `field:"optional" json:"firewallPolicyChangeProtection" yaml:"firewallPolicyChangeProtection"`
+	// The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-natgatewaymappings
+	//
+	NatGatewayMappings interface{} `field:"optional" json:"natGatewayMappings" yaml:"natGatewayMappings"`
+	// Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved.
+	//
+	// When true, specify NatGatewayMappings and VpcEndpoint instead of the top-level VpcId and SubnetMappings. You can't change this setting after you create the firewall.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-nosourcepreservation
+	//
+	NoSourcePreservation interface{} `field:"optional" json:"noSourcePreservation" yaml:"noSourcePreservation"`
+	// The proxy listener configuration for a proxy-mode (no source preservation) firewall.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-proxysettings
+	//
+	ProxySettings interface{} `field:"optional" json:"proxySettings" yaml:"proxySettings"`
 	// A setting indicating whether the firewall is protected against changes to the subnet associations.
 	//
 	// Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
@@ -118,6 +155,12 @@ type CfnFirewallMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-transitgatewayid
 	//
 	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
+	// The VPC and subnets for a proxy-mode firewall's endpoint.
+	//
+	// Provide this instead of the top-level VpcId and SubnetMappings when NoSourcePreservation is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcendpoint
+	//
+	VpcEndpoint interface{} `field:"optional" json:"vpcEndpoint" yaml:"vpcEndpoint"`
 	// The unique identifier of the VPC where the firewall is in use.
 	//
 	// You can't change the VPC of a firewall after you create the firewall.

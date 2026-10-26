@@ -23,6 +23,17 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnLogAlarmPropsMixin := awscdkcfnpropertymixins.Aws_cloudwatch.NewCfnLogAlarmPropsMixin(&CfnLogAlarmMixinProps{
+//   	ActionConfiguration: &ActionConfigurationProperty{
+//   		AlarmTagsPropagation: &AlarmTagsPropagationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			ExcludedTagKeys: []*string{
+//   				jsii.String("excludedTagKeys"),
+//   			},
+//   			IncludedTagKeys: []*string{
+//   				jsii.String("includedTagKeys"),
+//   			},
+//   		},
+//   	},
 //   	ActionLogLineCount: jsii.Number(123),
 //   	ActionLogLineRoleArn: jsii.String("actionLogLineRoleArn"),
 //   	ActionsEnabled: jsii.Boolean(false),

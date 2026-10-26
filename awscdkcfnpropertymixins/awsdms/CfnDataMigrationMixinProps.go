@@ -41,9 +41,12 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-datamigration.html
 //
 type CfnDataMigrationMixinProps struct {
-	// The property describes an ARN of the data migration.
+	// [DEPRECATED] This property is unused and will be ignored.
+	//
+	// Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-datamigration.html#cfn-dms-datamigration-datamigrationidentifier
 	//
+	// Deprecated: this property has been deprecated.
 	DataMigrationIdentifier *string `field:"optional" json:"dataMigrationIdentifier" yaml:"dataMigrationIdentifier"`
 	// The user-friendly name for the data migration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-datamigration.html#cfn-dms-datamigration-datamigrationname

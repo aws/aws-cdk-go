@@ -10,6 +10,9 @@ package awsmediapackagev2
 //
 //   spekeKeyProviderProperty := &SpekeKeyProviderProperty{
 //   	CertificateArn: jsii.String("certificateArn"),
+//   	ContentKeyPeriodConfiguration: &ContentKeyPeriodConfigurationProperty{
+//   		ContentKeyPeriodTiming: jsii.String("contentKeyPeriodTiming"),
+//   	},
 //   	DrmSystems: []*string{
 //   		jsii.String("drmSystems"),
 //   	},
@@ -19,6 +22,7 @@ package awsmediapackagev2
 //   	},
 //   	ResourceId: jsii.String("resourceId"),
 //   	RoleArn: jsii.String("roleArn"),
+//   	SpekeVersion: jsii.String("spekeVersion"),
 //   	Url: jsii.String("url"),
 //   }
 //
@@ -31,6 +35,10 @@ type CfnOriginEndpointPropsMixin_SpekeKeyProviderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-certificatearn
 	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
+	// <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-contentkeyperiodconfiguration
+	//
+	ContentKeyPeriodConfiguration interface{} `field:"optional" json:"contentKeyPeriodConfiguration" yaml:"contentKeyPeriodConfiguration"`
 	// The DRM solution provider you're using to protect your content during distribution.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-drmsystems
 	//
@@ -55,6 +63,9 @@ type CfnOriginEndpointPropsMixin_SpekeKeyProviderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-spekeversion
+	//
+	SpekeVersion *string `field:"optional" json:"spekeVersion" yaml:"spekeVersion"`
 	// The URL of the SPEKE key provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-url
 	//

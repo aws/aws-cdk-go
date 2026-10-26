@@ -26,7 +26,7 @@ type jsiiProxy_IEnvironmentPlaceholderProvider struct {
 func (i *jsiiProxy_IEnvironmentPlaceholderProvider) AccountId() *string {
 	var returns *string
 
-	_jsii_.Invoke(
+	_jsii_.AsyncInvoke(
 		i,
 		"accountId",
 		nil, // no parameters
@@ -39,7 +39,7 @@ func (i *jsiiProxy_IEnvironmentPlaceholderProvider) AccountId() *string {
 func (i *jsiiProxy_IEnvironmentPlaceholderProvider) Partition() *string {
 	var returns *string
 
-	_jsii_.Invoke(
+	_jsii_.AsyncInvoke(
 		i,
 		"partition",
 		nil, // no parameters
@@ -52,7 +52,7 @@ func (i *jsiiProxy_IEnvironmentPlaceholderProvider) Partition() *string {
 func (i *jsiiProxy_IEnvironmentPlaceholderProvider) Region() *string {
 	var returns *string
 
-	_jsii_.Invoke(
+	_jsii_.AsyncInvoke(
 		i,
 		"region",
 		nil, // no parameters

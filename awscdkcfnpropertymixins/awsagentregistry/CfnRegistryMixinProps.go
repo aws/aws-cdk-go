@@ -20,6 +20,15 @@ import (
 //   	AuthorizerType: jsii.String("authorizerType"),
 //   	AutoDetectionEnabled: jsii.Boolean(false),
 //   	AutoDetectionScope: jsii.String("autoDetectionScope"),
+//   	CustomMetadataSchemaConfiguration: &CustomMetadataSchemaConfigurationProperty{
+//   		DefaultSchema: jsii.String("defaultSchema"),
+//   		RecordTypeSchemaOverrides: []interface{}{
+//   			&RecordTypeSchemaOverrideProperty{
+//   				RecordType: jsii.String("recordType"),
+//   				Schema: jsii.String("schema"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DiscoveryConfiguration: &DiscoveryConfigurationProperty{
 //   		AuthorizerConfiguration: &AuthorizerConfigurationProperty{
@@ -87,6 +96,12 @@ type CfnRegistryMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-autodetectionscope
 	//
 	AutoDetectionScope *string `field:"optional" json:"autoDetectionScope" yaml:"autoDetectionScope"`
+	// Configuration that defines a typed metadata schema for a registry.
+	//
+	// A default schema and per-record-type schema overrides are both optional. Schema evolution is additive only: you can add fields and enum values, but you cannot remove fields, change types, or remove enum values.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-custommetadataschemaconfiguration
+	//
+	CustomMetadataSchemaConfiguration interface{} `field:"optional" json:"customMetadataSchemaConfiguration" yaml:"customMetadataSchemaConfiguration"`
 	// The description of the registry.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-agentregistry-registry.html#cfn-agentregistry-registry-description
 	//

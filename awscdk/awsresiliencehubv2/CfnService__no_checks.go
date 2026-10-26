@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnService) validateSetAssociatedSystemsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetDevOpsAgentConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnService) validateSetInputSourcesParameters(val interface{}) error {
 	return nil
 }

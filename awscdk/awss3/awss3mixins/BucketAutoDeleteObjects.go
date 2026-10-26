@@ -32,7 +32,7 @@ import (
 //   // Mixins work with all types of constructs:
 //   // L1, L2 and even custom constructs
 //   s3.NewBucket(stack, jsii.String("MyL2Bucket")).With(awscdk.NewBucketBlockPublicAccess())
-//   NewCustomBucket(stack, jsii.String("MyCustomBucket")).With(awscdk.NewBucketBlockPublicAccess())
+//   newCustomBucket(stack, jsii.String("MyCustomBucket")).With(awscdk.NewBucketBlockPublicAccess())
 //
 type BucketAutoDeleteObjects interface {
 	awscdk.Mixin

@@ -22,6 +22,7 @@ import (
 //
 //   cfnServer := awscdk.Aws_transfer.NewCfnServer(this, jsii.String("MyCfnServer"), &CfnServerProps{
 //   	Certificate: jsii.String("certificate"),
+//   	CreateWithHostKey: jsii.Boolean(false),
 //   	Domain: jsii.String("domain"),
 //   	EndpointDetails: &EndpointDetailsProperty{
 //   		AddressAllocationIds: []*string{
@@ -126,6 +127,9 @@ type CfnServer interface {
 	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
+	// When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients.
+	CreateWithHostKey() interface{}
+	SetCreateWithHostKey(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -480,6 +484,16 @@ func (j *jsiiProxy_CfnServer) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServer) CreateWithHostKey() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"createWithHostKey",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnServer) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -774,6 +788,17 @@ func (j *jsiiProxy_CfnServer)SetCertificate(val *string) {
 	_jsii_.Set(
 		j,
 		"certificate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServer)SetCreateWithHostKey(val interface{}) {
+	if err := j.validateSetCreateWithHostKeyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"createWithHostKey",
 		val,
 	)
 }

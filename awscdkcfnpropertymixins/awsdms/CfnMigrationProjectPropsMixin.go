@@ -22,10 +22,7 @@ import (
 //
 //   cfnMigrationProjectPropsMixin := awscdkcfnpropertymixins.Aws_dms.NewCfnMigrationProjectPropsMixin(&CfnMigrationProjectMixinProps{
 //   	Description: jsii.String("description"),
-//   	InstanceProfileArn: jsii.String("instanceProfileArn"),
 //   	InstanceProfileIdentifier: jsii.String("instanceProfileIdentifier"),
-//   	InstanceProfileName: jsii.String("instanceProfileName"),
-//   	MigrationProjectCreationTime: jsii.String("migrationProjectCreationTime"),
 //   	MigrationProjectIdentifier: jsii.String("migrationProjectIdentifier"),
 //   	MigrationProjectName: jsii.String("migrationProjectName"),
 //   	SchemaConversionApplicationAttributes: &SchemaConversionApplicationAttributesProperty{

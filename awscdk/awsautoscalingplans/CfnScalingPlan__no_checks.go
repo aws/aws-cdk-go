@@ -84,6 +84,10 @@ func (c *jsiiProxy_CfnScalingPlan) validateValidatePropertiesParameters(_propert
 	return nil
 }
 
+func validateCfnScalingPlan_ArnForScalingPlanParameters(resource interfacesawsautoscalingplans.IScalingPlanRef) error {
+	return nil
+}
+
 func validateCfnScalingPlan_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

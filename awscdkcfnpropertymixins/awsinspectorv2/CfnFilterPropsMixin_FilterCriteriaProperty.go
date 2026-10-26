@@ -75,6 +75,12 @@ package awsinspectorv2
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	EcrImageInUseCount: []interface{}{
+//   		&NumberFilterProperty{
+//   			LowerInclusive: jsii.Number(123),
+//   			UpperInclusive: jsii.Number(123),
+//   		},
+//   	},
 //   	EcrImagePushedAt: []interface{}{
 //   		&DateFilterProperty{
 //   			EndInclusive: jsii.Number(123),
@@ -338,6 +344,9 @@ type CfnFilterPropsMixin_FilterCriteriaProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimagehash
 	//
 	EcrImageHash interface{} `field:"optional" json:"ecrImageHash" yaml:"ecrImageHash"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimageinusecount
+	//
+	EcrImageInUseCount interface{} `field:"optional" json:"ecrImageInUseCount" yaml:"ecrImageInUseCount"`
 	// Details on the Amazon ECR image push date and time used to filter findings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimagepushedat
 	//

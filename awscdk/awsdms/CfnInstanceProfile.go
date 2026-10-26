@@ -69,7 +69,9 @@ type CfnInstanceProfile interface {
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
 	// The identifier of the instance profile.
+	// Deprecated: this property has been deprecated.
 	InstanceProfileIdentifier() *string
+	// Deprecated: this property has been deprecated.
 	SetInstanceProfileIdentifier(val *string)
 	// The user-friendly name for the instance profile.
 	InstanceProfileName() *string

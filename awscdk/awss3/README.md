@@ -241,10 +241,10 @@ type myFactory struct {
 }
 
 func (this *myFactory) forResource(resource CfnResource) IResourceWithPolicyV2 {
-	return NewMyResourceWithPolicy(*resource)
+	return newMyResourceWithPolicy(*resource)
 }
 
-awscdk.ResourceWithPolicies_Register(scope, jsii.String("AWS::S3::Bucket"), NewMyFactory())
+awscdk.ResourceWithPolicies_Register(scope, jsii.String("AWS::S3::Bucket"), newMyFactory())
 ```
 
 `IResourcePolicyFactory` is responsible for converting a construct into a `IResourceWithPolicyV2`,
@@ -371,8 +371,8 @@ func newConsumer(scope Construct, id *string, props consumerProps) *consumer {
 }
 
 app := awscdk.NewApp()
-producer := NewProducer(app, jsii.String("ProducerStack"))
-NewConsumer(app, jsii.String("ConsumerStack"), &consumerProps{
+producer := newProducer(app, jsii.String("ProducerStack"))
+newConsumer(app, jsii.String("ConsumerStack"), &consumerProps{
 	userBucket: producer.myBucket,
 })
 ```

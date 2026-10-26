@@ -23,6 +23,9 @@ import (
 //   	},
 //   	AuthorizerConfiguration: &AuthorizerConfigurationProperty{
 //   		CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
+//   			AdvertisedScopeMapping: map[string]*string{
+//   				"advertisedScopeMappingKey": jsii.String("advertisedScopeMapping"),
+//   			},
 //   			AllowedAudience: []*string{
 //   				jsii.String("allowedAudience"),
 //   			},
@@ -243,6 +246,7 @@ import (
 //   			TopP: jsii.Number(123),
 //   		},
 //   		GeminiModelConfig: &HarnessGeminiModelConfigProperty{
+//   			AdditionalParams: additionalParams,
 //   			ApiKeyArn: jsii.String("apiKeyArn"),
 //   			MaxTokens: jsii.Number(123),
 //   			ModelId: jsii.String("modelId"),
@@ -261,6 +265,7 @@ import (
 //   		},
 //   		OpenAiModelConfig: &HarnessOpenAiModelConfigProperty{
 //   			AdditionalParams: additionalParams,
+//   			ApiBase: jsii.String("apiBase"),
 //   			ApiFormat: jsii.String("apiFormat"),
 //   			ApiKeyArn: jsii.String("apiKeyArn"),
 //   			MaxTokens: jsii.Number(123),

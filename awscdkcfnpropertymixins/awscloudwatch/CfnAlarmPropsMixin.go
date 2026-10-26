@@ -26,6 +26,17 @@ import (
 //   var slidingWindow interface{}
 //
 //   cfnAlarmPropsMixin := awscdkcfnpropertymixins.Aws_cloudwatch.NewCfnAlarmPropsMixin(&CfnAlarmMixinProps{
+//   	ActionConfiguration: &ActionConfigurationProperty{
+//   		AlarmTagsPropagation: &AlarmTagsPropagationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			ExcludedTagKeys: []*string{
+//   				jsii.String("excludedTagKeys"),
+//   			},
+//   			IncludedTagKeys: []*string{
+//   				jsii.String("includedTagKeys"),
+//   			},
+//   		},
+//   	},
 //   	ActionsEnabled: jsii.Boolean(false),
 //   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),

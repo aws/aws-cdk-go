@@ -180,6 +180,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnClientVpnEndpointPropsMixin.AuthorizationPolicyProperty",
+		reflect.TypeOf((*CfnClientVpnEndpointPropsMixin_AuthorizationPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnClientVpnEndpointPropsMixin.CertificateAuthenticationRequestProperty",
 		reflect.TypeOf((*CfnClientVpnEndpointPropsMixin_CertificateAuthenticationRequestProperty)(nil)).Elem(),
 	)
@@ -202,6 +206,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnClientVpnEndpointPropsMixin.ConnectionLogOptionsProperty",
 		reflect.TypeOf((*CfnClientVpnEndpointPropsMixin_ConnectionLogOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnClientVpnEndpointPropsMixin.DevicePostureOptionsProperty",
+		reflect.TypeOf((*CfnClientVpnEndpointPropsMixin_DevicePostureOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnClientVpnEndpointPropsMixin.DevicePostureTrustProviderProperty",
+		reflect.TypeOf((*CfnClientVpnEndpointPropsMixin_DevicePostureTrustProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnClientVpnEndpointPropsMixin.DirectoryServiceAuthenticationRequestProperty",
@@ -1092,6 +1104,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIpamInternetRegistryAssociationMixinProps",
+		reflect.TypeOf((*CfnIpamInternetRegistryAssociationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnIpamInternetRegistryAssociationPropsMixin",
+		reflect.TypeOf((*CfnIpamInternetRegistryAssociationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnIpamInternetRegistryAssociationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnKeyPairMixinProps",
 		reflect.TypeOf((*CfnKeyPairMixinProps)(nil)).Elem(),
 	)
@@ -1614,6 +1646,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnNetworkInsightsAnalysisPropsMixin.AnalysisSecurityGroupRuleProperty",
 		reflect.TypeOf((*CfnNetworkInsightsAnalysisPropsMixin_AnalysisSecurityGroupRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnNetworkInsightsAnalysisPropsMixin.AnalysisTransitGatewayPolicyTableEntryProperty",
+		reflect.TypeOf((*CfnNetworkInsightsAnalysisPropsMixin_AnalysisTransitGatewayPolicyTableEntryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnNetworkInsightsAnalysisPropsMixin.ExplanationProperty",

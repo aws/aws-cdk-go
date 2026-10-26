@@ -96,6 +96,10 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_CrossAccountRoleConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_resiliencehubv2.CfnServicePropsMixin.DevOpsAgentConfigurationProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_DevOpsAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_resiliencehubv2.CfnServicePropsMixin.DisasterRecoverySourceProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_DisasterRecoverySourceProperty)(nil)).Elem(),
 	)

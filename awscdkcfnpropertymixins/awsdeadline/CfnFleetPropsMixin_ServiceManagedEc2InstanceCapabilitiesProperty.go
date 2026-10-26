@@ -53,6 +53,11 @@ package awsdeadline
 //   		SizeGiB: jsii.Number(123),
 //   		ThroughputMiB: jsii.Number(123),
 //   	},
+//   	SoftwareAddOns: []interface{}{
+//   		&FleetSoftwareAddOnProperty{
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	VCpuCount: &VCpuCountRangeProperty{
 //   		Max: jsii.Number(123),
 //   		Min: jsii.Number(123),
@@ -98,6 +103,9 @@ type CfnFleetPropsMixin_ServiceManagedEc2InstanceCapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-rootebsvolume
 	//
 	RootEbsVolume interface{} `field:"optional" json:"rootEbsVolume" yaml:"rootEbsVolume"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-softwareaddons
+	//
+	SoftwareAddOns interface{} `field:"optional" json:"softwareAddOns" yaml:"softwareAddOns"`
 	// The amount of vCPU to require for instances in this fleet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-vcpucount
 	//

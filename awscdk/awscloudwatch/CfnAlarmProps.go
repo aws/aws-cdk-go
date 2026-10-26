@@ -14,6 +14,19 @@ import (
 //   var slidingWindow interface{}
 //
 //   cfnAlarmProps := &CfnAlarmProps{
+//   	ActionConfiguration: &ActionConfigurationProperty{
+//   		AlarmTagsPropagation: &AlarmTagsPropagationProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			ExcludedTagKeys: []*string{
+//   				jsii.String("excludedTagKeys"),
+//   			},
+//   			IncludedTagKeys: []*string{
+//   				jsii.String("includedTagKeys"),
+//   			},
+//   		},
+//   	},
 //   	ActionsEnabled: jsii.Boolean(false),
 //   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),
@@ -103,6 +116,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html
 //
 type CfnAlarmProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html#cfn-cloudwatch-alarm-actionconfiguration
+	//
+	ActionConfiguration interface{} `field:"optional" json:"actionConfiguration" yaml:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state.
 	//
 	// The default is TRUE.

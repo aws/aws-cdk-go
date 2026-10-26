@@ -1651,9 +1651,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "reputationEntity", GoGetter: "ReputationEntity"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceAssociations", GoGetter: "ResourceAssociations"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "suppressionAttributes", GoGetter: "SuppressionAttributes"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tenantName", GoGetter: "TenantName"},
 			_jsii_.MemberProperty{JsiiProperty: "tenantRef", GoGetter: "TenantRef"},
@@ -1673,8 +1675,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnTenant.ReputationEntityProperty",
+		reflect.TypeOf((*CfnTenant_ReputationEntityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnTenant.ReputationPolicyProperty",
+		reflect.TypeOf((*CfnTenant_ReputationPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnTenant.ResourceAssociationProperty",
 		reflect.TypeOf((*CfnTenant_ResourceAssociationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ses.CfnTenant.TenantSuppressionAttributesProperty",
+		reflect.TypeOf((*CfnTenant_TenantSuppressionAttributesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.CfnTenantProps",

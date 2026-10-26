@@ -34,15 +34,15 @@ package awscdk
 //   	})
 //   	restApi.Root.AddMethod(jsii.String("ANY"))
 //
-//   	petsStack := NewPetsStack(this, &resourceNestedStackProps{
+//   	petsStack := newPetsStack(this, &resourceNestedStackProps{
 //   		restApiId: restApi.RestApiId,
 //   		rootResourceId: restApi.RestApiRootResourceId,
 //   	})
-//   	booksStack := NewBooksStack(this, &resourceNestedStackProps{
+//   	booksStack := newBooksStack(this, &resourceNestedStackProps{
 //   		restApiId: restApi.*RestApiId,
 //   		rootResourceId: restApi.*RestApiRootResourceId,
 //   	})
-//   	NewDeployStack(this, &deployStackProps{
+//   	newDeployStack(this, &deployStackProps{
 //   		restApiId: restApi.*RestApiId,
 //   		methods: petsStack.methods.concat(booksStack.methods),
 //   	})
@@ -163,7 +163,7 @@ package awscdk
 //   	return this
 //   }
 //
-//   NewRootStack(awscdk.NewApp())
+//   newRootStack(awscdk.NewApp())
 //
 type NestedStackProps struct {
 	// A description of the stack.

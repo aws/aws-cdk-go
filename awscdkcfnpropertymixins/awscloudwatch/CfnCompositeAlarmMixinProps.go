@@ -12,6 +12,17 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnCompositeAlarmMixinProps := &CfnCompositeAlarmMixinProps{
+//   	ActionConfiguration: &ActionConfigurationProperty{
+//   		AlarmTagsPropagation: &AlarmTagsPropagationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			ExcludedTagKeys: []*string{
+//   				jsii.String("excludedTagKeys"),
+//   			},
+//   			IncludedTagKeys: []*string{
+//   				jsii.String("includedTagKeys"),
+//   			},
+//   		},
+//   	},
 //   	ActionsEnabled: jsii.Boolean(false),
 //   	ActionsSuppressor: jsii.String("actionsSuppressor"),
 //   	ActionsSuppressorExtensionPeriod: jsii.Number(123),
@@ -39,6 +50,10 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
 //
 type CfnCompositeAlarmMixinProps struct {
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionconfiguration
+	//
+	ActionConfiguration interface{} `field:"optional" json:"actionConfiguration" yaml:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm.
 	//
 	// The default is TRUE.

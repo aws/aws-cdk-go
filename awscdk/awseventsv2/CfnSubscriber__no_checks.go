@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnSubscriber) validateSetFilterConfigurationParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnSubscriber) validateSetInvokeConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSubscriber) validateSetLogConfigurationParameters(val interface{}) error {
 	return nil
 }

@@ -100,6 +100,10 @@ func validateCfnRegistryRecord_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnRegistryRecord) validateSetCustomMetadataParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRegistryRecord) validateSetDescriptorsParameters(val interface{}) error {
 	return nil
 }

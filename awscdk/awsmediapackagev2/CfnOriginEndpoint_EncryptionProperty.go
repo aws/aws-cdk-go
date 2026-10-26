@@ -28,6 +28,10 @@ package awsmediapackagev2
 //
 //   		// the properties below are optional
 //   		CertificateArn: jsii.String("certificateArn"),
+//   		ContentKeyPeriodConfiguration: &ContentKeyPeriodConfigurationProperty{
+//   			ContentKeyPeriodTiming: jsii.String("contentKeyPeriodTiming"),
+//   		},
+//   		SpekeVersion: jsii.String("spekeVersion"),
 //   	},
 //
 //   	// the properties below are optional

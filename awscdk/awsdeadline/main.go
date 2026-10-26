@@ -269,6 +269,10 @@ func init() {
 		reflect.TypeOf((*CfnFleet_FleetConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_deadline.CfnFleet.FleetSoftwareAddOnProperty",
+		reflect.TypeOf((*CfnFleet_FleetSoftwareAddOnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_deadline.CfnFleet.HostConfigurationProperty",
 		reflect.TypeOf((*CfnFleet_HostConfigurationProperty)(nil)).Elem(),
 	)

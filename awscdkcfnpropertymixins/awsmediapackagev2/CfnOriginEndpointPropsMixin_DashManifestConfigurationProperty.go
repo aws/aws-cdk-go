@@ -41,6 +41,12 @@ package awsmediapackagev2
 //   		DrmSettings: jsii.String("drmSettings"),
 //   		End: jsii.String("end"),
 //   		ManifestFilter: jsii.String("manifestFilter"),
+//   		Multiview: &MultiviewFilterConfigurationProperty{
+//   			Layout: jsii.String("layout"),
+//   			Sources: []*string{
+//   				jsii.String("sources"),
+//   			},
+//   		},
 //   		Start: jsii.String("start"),
 //   		TimeDelaySeconds: jsii.Number(123),
 //   	},

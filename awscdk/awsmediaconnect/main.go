@@ -609,6 +609,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "mediaStreamOutputConfigurations", GoGetter: "MediaStreamOutputConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "minLatency", GoGetter: "MinLatency"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberProperty{JsiiProperty: "ndiAudioReferenceLevel", GoGetter: "NdiAudioReferenceLevel"},
 			_jsii_.MemberProperty{JsiiProperty: "ndiOutputTimecodeSource", GoGetter: "NdiOutputTimecodeSource"},
 			_jsii_.MemberProperty{JsiiProperty: "ndiProgramName", GoGetter: "NdiProgramName"},
 			_jsii_.MemberProperty{JsiiProperty: "ndiSpeedHqQuality", GoGetter: "NdiSpeedHqQuality"},

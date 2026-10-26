@@ -111,7 +111,7 @@ package awsbudgets
 //   			},
 //   		},
 //   	},
-//   	ResourceTags: []interface{}{
+//   	ResourceTags: []ResourceTagProperty{
 //   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
 //
@@ -139,6 +139,6 @@ type CfnBudgetProps struct {
 	// Each tag consists of a key and a value, and each key must be unique for the resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-resourcetags
 	//
-	ResourceTags interface{} `field:"optional" json:"resourceTags" yaml:"resourceTags"`
+	ResourceTags *[]*CfnBudget_ResourceTagProperty `field:"optional" json:"resourceTags" yaml:"resourceTags"`
 }
 

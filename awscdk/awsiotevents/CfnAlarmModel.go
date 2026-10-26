@@ -186,6 +186,7 @@ type CfnAlarmModel interface {
 	// Defines when your alarm is invoked.
 	AlarmRule() interface{}
 	SetAlarmRule(val interface{})
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -476,6 +477,16 @@ func (j *jsiiProxy_CfnAlarmModel) AlarmRule() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAlarmModel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAlarmModel) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -761,43 +772,6 @@ func (j *jsiiProxy_CfnAlarmModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 		"tagsRaw",
 		val,
 	)
-}
-
-func CfnAlarmModel_ArnForAlarmModel(resource interfacesawsiotevents.IAlarmModelRef) *string {
-	_init_.Initialize()
-
-	if err := validateCfnAlarmModel_ArnForAlarmModelParameters(resource); err != nil {
-		panic(err)
-	}
-	var returns *string
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotevents.CfnAlarmModel",
-		"arnForAlarmModel",
-		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IAlarmModelRef from a alarmModelName.
-func CfnAlarmModel_FromAlarmModelName(scope constructs.Construct, id *string, alarmModelName *string) interfacesawsiotevents.IAlarmModelRef {
-	_init_.Initialize()
-
-	if err := validateCfnAlarmModel_FromAlarmModelNameParameters(scope, id, alarmModelName); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsiotevents.IAlarmModelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotevents.CfnAlarmModel",
-		"fromAlarmModelName",
-		[]interface{}{scope, id, alarmModelName},
-		&returns,
-	)
-
-	return returns
 }
 
 // Checks whether the given object is a CfnAlarmModel.

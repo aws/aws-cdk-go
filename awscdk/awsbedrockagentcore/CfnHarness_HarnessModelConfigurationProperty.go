@@ -24,6 +24,7 @@ package awsbedrockagentcore
 //   		ModelId: jsii.String("modelId"),
 //
 //   		// the properties below are optional
+//   		AdditionalParams: additionalParams,
 //   		MaxTokens: jsii.Number(123),
 //   		Temperature: jsii.Number(123),
 //   		TopK: jsii.Number(123),
@@ -46,6 +47,7 @@ package awsbedrockagentcore
 //
 //   		// the properties below are optional
 //   		AdditionalParams: additionalParams,
+//   		ApiBase: jsii.String("apiBase"),
 //   		ApiFormat: jsii.String("apiFormat"),
 //   		MaxTokens: jsii.Number(123),
 //   		Temperature: jsii.Number(123),

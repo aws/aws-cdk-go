@@ -205,12 +205,12 @@ func newBarStack(scope Construct, id *string, props barStackProps) *barStack {
 
 app := cdk.NewApp()
 
-fooStack := NewFooStack(app, jsii.String("FooStack"), &StackProps{
+fooStack := newFooStack(app, jsii.String("FooStack"), &StackProps{
 	Env: &Environment{
 		Region: jsii.String("us-west-2"),
 	},
 })
-barStack := NewBarStack(app, jsii.String("BarStack"), &barStackProps{
+barStack := newBarStack(app, jsii.String("BarStack"), &barStackProps{
 	replicaTable: fooStack.globalTable.Replica(jsii.String("us-east-1")),
 	env: &Environment{
 		Region: jsii.String("us-east-1"),
@@ -1675,12 +1675,12 @@ func newBarStack(scope Construct, id *string, props barStackProps) *barStack {
 }
 
 app := cdk.NewApp()
-fooStack := NewFooStack(app, jsii.String("FooStack"), &StackProps{
+fooStack := newFooStack(app, jsii.String("FooStack"), &StackProps{
 	Env: &Environment{
 		Region: jsii.String("us-west-2"),
 	},
 })
-barStack := NewBarStack(app, jsii.String("BarStack"), &barStackProps{
+barStack := newBarStack(app, jsii.String("BarStack"), &barStackProps{
 	replicaTable: fooStack.globalTable.Replica(jsii.String("us-east-1")),
 	env: &Environment{
 		Region: jsii.String("us-east-1"),

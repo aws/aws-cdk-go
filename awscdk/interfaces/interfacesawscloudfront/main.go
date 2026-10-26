@@ -40,6 +40,10 @@ func init() {
 		reflect.TypeOf((*DistributionTenantReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cloudfront.FieldLevelEncryptionConfigReference",
+		reflect.TypeOf((*FieldLevelEncryptionConfigReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cloudfront.FieldLevelEncryptionProfileReference",
 		reflect.TypeOf((*FieldLevelEncryptionProfileReference)(nil)).Elem(),
 	)
@@ -170,6 +174,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDistributionTenantRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cloudfront.IFieldLevelEncryptionConfigRef",
+		reflect.TypeOf((*IFieldLevelEncryptionConfigRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "fieldLevelEncryptionConfigRef", GoGetter: "FieldLevelEncryptionConfigRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IFieldLevelEncryptionConfigRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

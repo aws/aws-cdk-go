@@ -10,6 +10,9 @@ package awsbedrockagentcore
 //
 //   inferenceConfigurationProperty := &InferenceConfigurationProperty{
 //   	MaxTokens: jsii.Number(123),
+//   	StopSequences: []*string{
+//   		jsii.String("stopSequences"),
+//   	},
 //   	Temperature: jsii.Number(123),
 //   	TopP: jsii.Number(123),
 //   }
@@ -21,6 +24,10 @@ type CfnEvaluatorPropsMixin_InferenceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-inferenceconfiguration.html#cfn-bedrockagentcore-evaluator-inferenceconfiguration-maxtokens
 	//
 	MaxTokens *float64 `field:"optional" json:"maxTokens" yaml:"maxTokens"`
+	// The sequences that make the model stop generating further tokens.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-inferenceconfiguration.html#cfn-bedrockagentcore-evaluator-inferenceconfiguration-stopsequences
+	//
+	StopSequences *[]*string `field:"optional" json:"stopSequences" yaml:"stopSequences"`
 	// The temperature value that controls randomness in the model's responses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-inferenceconfiguration.html#cfn-bedrockagentcore-evaluator-inferenceconfiguration-temperature
 	//

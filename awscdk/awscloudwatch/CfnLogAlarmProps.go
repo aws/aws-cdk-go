@@ -41,6 +41,19 @@ import (
 //   	Threshold: jsii.Number(123),
 //
 //   	// the properties below are optional
+//   	ActionConfiguration: &ActionConfigurationProperty{
+//   		AlarmTagsPropagation: &AlarmTagsPropagationProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			ExcludedTagKeys: []*string{
+//   				jsii.String("excludedTagKeys"),
+//   			},
+//   			IncludedTagKeys: []*string{
+//   				jsii.String("includedTagKeys"),
+//   			},
+//   		},
+//   	},
 //   	ActionLogLineCount: jsii.Number(123),
 //   	ActionLogLineRoleArn: jsii.String("actionLogLineRoleArn"),
 //   	ActionsEnabled: jsii.Boolean(false),
@@ -93,6 +106,10 @@ type CfnLogAlarmProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-logalarm.html#cfn-cloudwatch-logalarm-threshold
 	//
 	Threshold *float64 `field:"required" json:"threshold" yaml:"threshold"`
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-logalarm.html#cfn-cloudwatch-logalarm-actionconfiguration
+	//
+	ActionConfiguration interface{} `field:"optional" json:"actionConfiguration" yaml:"actionConfiguration"`
 	// The number of log lines to include in alarm notifications.
 	//
 	// Valid values are 0 to 50.

@@ -112,6 +112,11 @@ import (
 //   					SizeGiB: jsii.Number(123),
 //   					ThroughputMiB: jsii.Number(123),
 //   				},
+//   				SoftwareAddOns: []interface{}{
+//   					&FleetSoftwareAddOnProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
 //   				VCpuCount: &VCpuCountRangeProperty{
 //   					Max: jsii.Number(123),
 //   					Min: jsii.Number(123),

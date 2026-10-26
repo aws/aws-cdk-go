@@ -100,6 +100,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "analyticsConfiguration", GoGetter: "AnalyticsConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
@@ -124,10 +125,12 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "identityProviderConfiguration", GoGetter: "IdentityProviderConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "nlpConfiguration", GoGetter: "NlpConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "preloadDataConfig", GoGetter: "PreloadDataConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "profileConfiguration", GoGetter: "ProfileConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
@@ -154,6 +157,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore.AnalyticsConfigurationProperty",
+		reflect.TypeOf((*CfnFHIRDatastore_AnalyticsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore.CreatedAtProperty",
 		reflect.TypeOf((*CfnFHIRDatastore_CreatedAtProperty)(nil)).Elem(),
 	)
@@ -166,8 +173,16 @@ func init() {
 		reflect.TypeOf((*CfnFHIRDatastore_KmsEncryptionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore.NlpConfigurationProperty",
+		reflect.TypeOf((*CfnFHIRDatastore_NlpConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore.PreloadDataConfigProperty",
 		reflect.TypeOf((*CfnFHIRDatastore_PreloadDataConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore.ProfileConfigurationProperty",
+		reflect.TypeOf((*CfnFHIRDatastore_ProfileConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_healthlake.CfnFHIRDatastore.SseConfigurationProperty",

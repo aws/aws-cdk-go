@@ -284,6 +284,33 @@ func (j *jsiiProxy_CfnSubscriber) validateSetFilterConfigurationParameters(val i
 	return nil
 }
 
+func (j *jsiiProxy_CfnSubscriber) validateSetInvokeConfigurationParameters(val interface{}) error {
+	if val == nil {
+		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnSubscriber_InvokeConfigurationProperty:
+		val := val.(*CfnSubscriber_InvokeConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnSubscriber_InvokeConfigurationProperty:
+		val_ := val.(CfnSubscriber_InvokeConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnSubscriber_InvokeConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnSubscriber) validateSetLogConfigurationParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

@@ -307,6 +307,30 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetAuthenticationOptionsParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetAuthorizationPolicyParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnClientVpnEndpoint_AuthorizationPolicyProperty:
+		val := val.(*CfnClientVpnEndpoint_AuthorizationPolicyProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnClientVpnEndpoint_AuthorizationPolicyProperty:
+		val_ := val.(CfnClientVpnEndpoint_AuthorizationPolicyProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_AuthorizationPolicyProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientConnectOptionsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -400,6 +424,30 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetConnectionLogOptionsParamete
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_ConnectionLogOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetDevicePostureOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnClientVpnEndpoint_DevicePostureOptionsProperty:
+		val := val.(*CfnClientVpnEndpoint_DevicePostureOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnClientVpnEndpoint_DevicePostureOptionsProperty:
+		val_ := val.(CfnClientVpnEndpoint_DevicePostureOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnClientVpnEndpoint_DevicePostureOptionsProperty; received %#v (a %T)", val, val)
 		}
 	}
 

@@ -132,6 +132,10 @@ func init() {
 		reflect.TypeOf((*CfnFleetPropsMixin_FleetConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFleetPropsMixin.FleetSoftwareAddOnProperty",
+		reflect.TypeOf((*CfnFleetPropsMixin_FleetSoftwareAddOnProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_deadline.CfnFleetPropsMixin.HostConfigurationProperty",
 		reflect.TypeOf((*CfnFleetPropsMixin_HostConfigurationProperty)(nil)).Elem(),
 	)

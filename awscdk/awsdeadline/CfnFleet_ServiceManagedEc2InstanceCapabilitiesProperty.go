@@ -71,6 +71,11 @@ package awsdeadline
 //   		SizeGiB: jsii.Number(123),
 //   		ThroughputMiB: jsii.Number(123),
 //   	},
+//   	SoftwareAddOns: []interface{}{
+//   		&FleetSoftwareAddOnProperty{
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html
@@ -116,5 +121,8 @@ type CfnFleet_ServiceManagedEc2InstanceCapabilitiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-rootebsvolume
 	//
 	RootEbsVolume interface{} `field:"optional" json:"rootEbsVolume" yaml:"rootEbsVolume"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html#cfn-deadline-fleet-servicemanagedec2instancecapabilities-softwareaddons
+	//
+	SoftwareAddOns interface{} `field:"optional" json:"softwareAddOns" yaml:"softwareAddOns"`
 }
 

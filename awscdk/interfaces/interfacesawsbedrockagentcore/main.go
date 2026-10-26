@@ -32,6 +32,10 @@ func init() {
 		reflect.TypeOf((*ConfigurationBundleReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.ConsentPortalReference",
+		reflect.TypeOf((*ConsentPortalReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_bedrockagentcore.DatasetReference",
 		reflect.TypeOf((*DatasetReference)(nil)).Elem(),
 	)
@@ -154,6 +158,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IConfigurationBundleRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_bedrockagentcore.IConsentPortalRef",
+		reflect.TypeOf((*IConsentPortalRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "consentPortalRef", GoGetter: "ConsentPortalRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IConsentPortalRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

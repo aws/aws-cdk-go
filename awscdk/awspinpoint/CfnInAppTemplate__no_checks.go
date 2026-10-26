@@ -88,14 +88,6 @@ func validateCfnInAppTemplate_ArnForInAppTemplateParameters(resource interfacesa
 	return nil
 }
 
-func validateCfnInAppTemplate_FromInAppTemplateArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnInAppTemplate_FromTemplateNameParameters(scope constructs.Construct, id *string, templateName *string) error {
-	return nil
-}
-
 func validateCfnInAppTemplate_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

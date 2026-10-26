@@ -37,6 +37,20 @@ import (
 //   	FirewallName: jsii.String("firewallName"),
 //   	FirewallPolicyArn: jsii.String("firewallPolicyArn"),
 //   	FirewallPolicyChangeProtection: jsii.Boolean(false),
+//   	NatGatewayMappings: []interface{}{
+//   		&NatGatewayMappingProperty{
+//   			NatGatewayId: jsii.String("natGatewayId"),
+//   		},
+//   	},
+//   	NoSourcePreservation: jsii.Boolean(false),
+//   	ProxySettings: &ProxySettingsProperty{
+//   		ListenerProperties: []interface{}{
+//   			&ListenerPropertyProperty{
+//   				Port: jsii.Number(123),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	SubnetChangeProtection: jsii.Boolean(false),
 //   	SubnetMappings: []interface{}{
 //   		&SubnetMappingProperty{
@@ -51,6 +65,15 @@ import (
 //   		},
 //   	},
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
+//   	VpcEndpoint: &VpcEndpointProperty{
+//   		SubnetMappings: []interface{}{
+//   			&SubnetMappingProperty{
+//   				IpAddressType: jsii.String("ipAddressType"),
+//   				SubnetId: jsii.String("subnetId"),
+//   			},
+//   		},
+//   		VpcId: jsii.String("vpcId"),
+//   	},
 //   	VpcId: jsii.String("vpcId"),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

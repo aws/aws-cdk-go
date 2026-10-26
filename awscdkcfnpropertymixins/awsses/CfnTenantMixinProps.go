@@ -12,10 +12,21 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnTenantMixinProps := &CfnTenantMixinProps{
+//   	ReputationEntity: &ReputationEntityProperty{
+//   		Policy: &ReputationPolicyProperty{
+//   			ReputationEntityPolicy: jsii.String("reputationEntityPolicy"),
+//   		},
+//   	},
 //   	ResourceAssociations: []interface{}{
 //   		&ResourceAssociationProperty{
 //   			ResourceArn: jsii.String("resourceArn"),
 //   		},
+//   	},
+//   	SuppressionAttributes: &TenantSuppressionAttributesProperty{
+//   		SuppressedReasons: []*string{
+//   			jsii.String("suppressedReasons"),
+//   		},
+//   		SuppressionScope: jsii.String("suppressionScope"),
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -29,10 +40,18 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html
 //
 type CfnTenantMixinProps struct {
+	// The reputation configuration for the tenant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html#cfn-ses-tenant-reputationentity
+	//
+	ReputationEntity interface{} `field:"optional" json:"reputationEntity" yaml:"reputationEntity"`
 	// The list of resources to associate with the tenant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html#cfn-ses-tenant-resourceassociations
 	//
 	ResourceAssociations interface{} `field:"optional" json:"resourceAssociations" yaml:"resourceAssociations"`
+	// The suppression attributes for the tenant.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html#cfn-ses-tenant-suppressionattributes
+	//
+	SuppressionAttributes interface{} `field:"optional" json:"suppressionAttributes" yaml:"suppressionAttributes"`
 	// An array of objects that define the tags (keys and values) associated with the tenant.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-tenant.html#cfn-ses-tenant-tags
 	//

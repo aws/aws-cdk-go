@@ -43,6 +43,7 @@ import (
 //   			ModelId: jsii.String("modelId"),
 //
 //   			// the properties below are optional
+//   			AdditionalParams: additionalParams,
 //   			MaxTokens: jsii.Number(123),
 //   			Temperature: jsii.Number(123),
 //   			TopK: jsii.Number(123),
@@ -65,6 +66,7 @@ import (
 //
 //   			// the properties below are optional
 //   			AdditionalParams: additionalParams,
+//   			ApiBase: jsii.String("apiBase"),
 //   			ApiFormat: jsii.String("apiFormat"),
 //   			MaxTokens: jsii.Number(123),
 //   			Temperature: jsii.Number(123),
@@ -81,6 +83,9 @@ import (
 //   			DiscoveryUrl: jsii.String("discoveryUrl"),
 //
 //   			// the properties below are optional
+//   			AdvertisedScopeMapping: map[string]*string{
+//   				"advertisedScopeMappingKey": jsii.String("advertisedScopeMapping"),
+//   			},
 //   			AllowedAudience: []*string{
 //   				jsii.String("allowedAudience"),
 //   			},

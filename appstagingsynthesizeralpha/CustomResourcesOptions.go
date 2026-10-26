@@ -5,7 +5,7 @@ package appstagingsynthesizeralpha
 //
 // Example:
 //   resourceApp := awscdk.NewApp()
-//   resources := NewCustomStagingStack(resourceApp, jsii.String("CustomStagingStack"), &customStagingStackProps{
+//   resources := newCustomStagingStack(resourceApp, jsii.String("CustomStagingStack"), &customStagingStackProps{
 //   })
 //
 //   app := awscdk.NewApp(&AppProps{

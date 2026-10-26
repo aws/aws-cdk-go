@@ -144,7 +144,7 @@ Each of these synthesizers takes configuration arguments. To configure
 a stack with a synthesizer, pass it as one of its properties:
 
 ```go
-NewMyStack(app, jsii.String("MyStack"), &StackProps{
+newMyStack(app, jsii.String("MyStack"), &StackProps{
 	Synthesizer: awscdk.NewDefaultStackSynthesizer(&DefaultStackSynthesizerProps{
 		FileAssetsBucketName: jsii.String("amzn-s3-demo-bucket"),
 	}),
@@ -291,8 +291,8 @@ func newMyParentStack(scope Construct, id *string, props StackProps) *myParentSt
 	this := &myParentStack{}
 	newStack_Override(this, scope, id, props)
 
-	NewMyNestedStack(this, jsii.String("Nested1"))
-	NewMyNestedStack(this, jsii.String("Nested2"))
+	newMyNestedStack(this, jsii.String("Nested1"))
+	newMyNestedStack(this, jsii.String("Nested2"))
 	return this
 }
 ```
@@ -316,12 +316,12 @@ prod := map[string]*string{
 	"region": jsii.String("us-east-1"),
 }
 
-stack1 := NewStackThatProvidesABucket(app, jsii.String("Stack1"), &StackProps{
+stack1 := newStackThatProvidesABucket(app, jsii.String("Stack1"), &StackProps{
 	Env: prod,
 })
 
 // stack2 will take a property { bucket: IBucket }
-stack2 := NewStackThatExpectsABucket(app, jsii.String("Stack2"), &stackThatExpectsABucketProps{
+stack2 := newStackThatExpectsABucket(app, jsii.String("Stack2"), &stackThatExpectsABucketProps{
 	bucket: stack1.bucket,
 	env: prod,
 })
@@ -1037,7 +1037,7 @@ func NewSum(scope Construct, id *string, props SumProps) *Sum {
 Usage will look like this:
 
 ```go
-sum := NewSum(this, jsii.String("MySum"), &sumProps{
+sum := newSum(this, jsii.String("MySum"), &sumProps{
 	lhs: jsii.Number(40),
 	rhs: jsii.Number(2),
 })
@@ -1825,6 +1825,13 @@ An explicitly registered `CloudFormationValidatePlugin` still runs the CDK
 default rules in addition to your custom rules; pass
 `includeDefaultRules: false` to opt out of the default rules entirely.
 
+If you want to disable the automatic plugin registration without registering
+your own, you can do one of the following things:
+
+* Run `cdk synth --no-validation`.
+* Set `CDK_VALIDATION=false` in your environment.
+* Do `new App({ builtinCloudFormationValidation: false })`
+
 ### Additional plugins
 
 You can also add custom plugins like [cdk-nag](https://github.com/cdklabs/cdk-nag) and
@@ -1837,12 +1844,12 @@ To use one or more validation plugins in your application, use the
 ```go
 // globally for the entire app (an app is a stage)
 app := awscdk.NewApp()
-awscdk.Validations_Of(app).AddPlugins(NewThirdPartyPluginX())
-awscdk.Validations_Of(app).AddPlugins(NewThirdPartyPluginY())
+awscdk.Validations_Of(app).AddPlugins(newThirdPartyPluginX())
+awscdk.Validations_Of(app).AddPlugins(newThirdPartyPluginY())
 
 // only apply to a particular stage
 prodStage := awscdk.NewStage(app, jsii.String("ProdStage"))
-awscdk.Validations_Of(prodStage).AddPlugins(NewThirdPartyPluginX())
+awscdk.Validations_Of(prodStage).AddPlugins(newThirdPartyPluginX())
 ```
 
 Immediately after synthesis, all plugins registered this way will be invoked to
@@ -2019,7 +2026,7 @@ s3.NewCfnBucket(scope, jsii.String("MyL1Bucket")).With(awscdk.NewBucketBlockPubl
 // Mixins work with all types of constructs:
 // L1, L2 and even custom constructs
 s3.NewBucket(stack, jsii.String("MyL2Bucket")).With(awscdk.NewBucketBlockPublicAccess())
-NewCustomBucket(stack, jsii.String("MyCustomBucket")).With(awscdk.NewBucketBlockPublicAccess())
+newCustomBucket(stack, jsii.String("MyCustomBucket")).With(awscdk.NewBucketBlockPublicAccess())
 ```
 
 There is an alternative form available that allows additional, advanced configuration of Mixin application: `Mixins.of()`.
@@ -2036,10 +2043,10 @@ awscdk.Mixins_Of(myBucket).Apply(awscdk.NewBucketBlockPublicAccess()).Apply(awsc
 awscdk.Mixins_Of(myBucket).Apply(awscdk.NewBucketBlockPublicAccess(), awscdk.NewBucketAutoDeleteObjects())
 
 // Advanced: Apply to constructs matching a selector, e.g. match by ID
-awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(NewCustomProdSecurityConfig())
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(newCustomProdSecurityConfig())
 
 // Advanced: Require a mixin to be applied to every node in the construct tree
-awscdk.Mixins_Of(stack).Apply(NewCustomProdSecurityConfig()).RequireAll()
+awscdk.Mixins_Of(stack).Apply(newCustomProdSecurityConfig()).RequireAll()
 ```
 
 ### How Mixins are applied
@@ -2078,10 +2085,10 @@ awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ResourcesOfType(s3.CfnBucket_CF
 awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ResourcesOfType(jsii.String("AWS::S3::Bucket"))).Apply(awscdk.NewBucketBlockPublicAccess())
 
 // Apply to constructs matching a pattern
-awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(NewCustomProdSecurityConfig())
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_ById(jsii.String("prod/**"))).Apply(newCustomProdSecurityConfig())
 
 // The default is to apply to all constructs in the scope
-awscdk.Mixins_Of(scope, awscdk.ConstructSelector_All()).Apply(NewCustomProdSecurityConfig())
+awscdk.Mixins_Of(scope, awscdk.ConstructSelector_All()).Apply(newCustomProdSecurityConfig())
 ```
 
 #### Mixins that must be used
@@ -2126,7 +2133,7 @@ func (this *enableVersioning) applyTo(bucket IConstruct) {
 
 // Usage
 // Usage
-s3.NewCfnBucket(scope, jsii.String("MyBucket")).With(NewEnableVersioning())
+s3.NewCfnBucket(scope, jsii.String("MyBucket")).With(newEnableVersioning())
 ```
 
 We recommend to implement Mixins at the L1 level and to have them target a specific resource construct.
@@ -2244,10 +2251,10 @@ func (this *enableBucketVersioning) visit(node IConstruct) {
 }
 
 app := awscdk.NewApp()
-stack := NewMyStack(app, jsii.String("MyStack"))
+stack := newMyStack(app, jsii.String("MyStack"))
 
 // Apply the aspect to enable versioning on all S3 Buckets
-awscdk.Aspects_Of(stack).Add(NewEnableBucketVersioning())
+awscdk.Aspects_Of(stack).Add(newEnableBucketVersioning())
 ```
 
 ### Aspect Stabilization
@@ -2320,10 +2327,10 @@ func (this *validationAspect) visit(node IConstruct) {}
 
 stack := awscdk.Newstack()
 
-awscdk.Aspects_Of(stack).Add(NewMutatingAspect(), &AspectOptions{
+awscdk.Aspects_Of(stack).Add(newMutatingAspect(), &AspectOptions{
 	Priority: awscdk.AspectPriority_MUTATING(),
 }) // Run first (mutating aspects)
-awscdk.Aspects_Of(stack).Add(NewValidationAspect(), &AspectOptions{
+awscdk.Aspects_Of(stack).Add(newValidationAspect(), &AspectOptions{
 	Priority: awscdk.AspectPriority_READONLY(),
 })
 ```
@@ -2339,9 +2346,9 @@ Users can access AspectApplications on a node by calling `applied` from the Aspe
 var root Construct
 
 app := awscdk.NewApp()
-stack := NewMyStack(app, jsii.String("MyStack"))
+stack := newMyStack(app, jsii.String("MyStack"))
 
-awscdk.Aspects_Of(stack).Add(NewMyAspect())
+awscdk.Aspects_Of(stack).Add(newMyAspect())
 
 aspectApplications := awscdk.Aspects_Of(root).applied
 
@@ -2364,7 +2371,7 @@ Since Mixins and Aspects are both implementations of the visitor pattern, they c
 
 ```go
 // Applies an Aspect immediately as a Mixin
-versioningMixin := awscdk.Shims_AsMixin(NewEnableBucketVersioning())
+versioningMixin := awscdk.Shims_AsMixin(newEnableBucketVersioning())
 awscdk.Mixins_Of(scope).Apply(versioningMixin)
 
 // Delays application of a Mixin to the synthesis phase
@@ -2426,7 +2433,7 @@ Here is an example of how builders can use the injector the org created.
 ```go
 stack := awscdk.NewStack(app, jsii.String("my-stack"), &StackProps{
 	PropertyInjectors: []IPropertyInjector{
-		NewApiKeyPropsInjector(),
+		newApiKeyPropsInjector(),
 	},
 })
 api.NewApiKey(stack, jsii.String("my-api-key"), &ApiKeyProps{
@@ -2454,8 +2461,8 @@ If you specify two or more injectors for the same Constructs, the last one is in
 ```go
 stack := awscdk.NewStack(app, jsii.String("my-stack"), &StackProps{
 	PropertyInjectors: []IPropertyInjector{
-		NewApiKeyPropsInjector(),
-		NewAnotherApiKeyPropsInjector(),
+		newApiKeyPropsInjector(),
+		newAnotherApiKeyPropsInjector(),
 	},
 })
 ```

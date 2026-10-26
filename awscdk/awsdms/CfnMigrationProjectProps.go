@@ -13,10 +13,7 @@ import (
 //
 //   cfnMigrationProjectProps := &CfnMigrationProjectProps{
 //   	Description: jsii.String("description"),
-//   	InstanceProfileArn: jsii.String("instanceProfileArn"),
 //   	InstanceProfileIdentifier: jsii.String("instanceProfileIdentifier"),
-//   	InstanceProfileName: jsii.String("instanceProfileName"),
-//   	MigrationProjectCreationTime: jsii.String("migrationProjectCreationTime"),
 //   	MigrationProjectIdentifier: jsii.String("migrationProjectIdentifier"),
 //   	MigrationProjectName: jsii.String("migrationProjectName"),
 //   	SchemaConversionApplicationAttributes: &SchemaConversionApplicationAttributesProperty{
@@ -57,28 +54,16 @@ type CfnMigrationProjectProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
-	// The Amazon Resource Name (ARN) of the instance profile for your migration project.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-instanceprofilearn
-	//
-	InstanceProfileArn *string `field:"optional" json:"instanceProfileArn" yaml:"instanceProfileArn"`
 	// The identifier of the instance profile for your migration project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-instanceprofileidentifier
 	//
 	InstanceProfileIdentifier *string `field:"optional" json:"instanceProfileIdentifier" yaml:"instanceProfileIdentifier"`
-	// The name of the associated instance profile.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-instanceprofilename
-	//
-	InstanceProfileName *string `field:"optional" json:"instanceProfileName" yaml:"instanceProfileName"`
-	// The property describes a creating time of the migration project.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-migrationprojectcreationtime
-	//
-	// Deprecated: this property has been deprecated.
-	MigrationProjectCreationTime *string `field:"optional" json:"migrationProjectCreationTime" yaml:"migrationProjectCreationTime"`
 	// The identifier of the migration project.
 	//
 	// Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-migrationprojectidentifier
 	//
+	// Deprecated: this property has been deprecated.
 	MigrationProjectIdentifier *string `field:"optional" json:"migrationProjectIdentifier" yaml:"migrationProjectIdentifier"`
 	// The name of the migration project.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html#cfn-dms-migrationproject-migrationprojectname

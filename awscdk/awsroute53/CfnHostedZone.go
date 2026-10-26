@@ -44,6 +44,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnHostedZone := awscdk.Aws_route53.NewCfnHostedZone(this, jsii.String("MyCfnHostedZone"), &CfnHostedZoneProps{
+//   	DelegationSetId: jsii.String("delegationSetId"),
 //   	HostedZoneConfig: &HostedZoneConfigProperty{
 //   		Comment: jsii.String("comment"),
 //   	},
@@ -91,6 +92,8 @@ type CfnHostedZone interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	DelegationSetId() *string
+	SetDelegationSetId(val *string)
 	Env() *interfaces.ResourceEnvironment
 	// A complex type that contains an optional comment.
 	HostedZoneConfig() interface{}
@@ -389,6 +392,16 @@ func (j *jsiiProxy_CfnHostedZone) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHostedZone) DelegationSetId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"delegationSetId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHostedZone) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -566,6 +579,14 @@ func NewCfnHostedZone_Override(c CfnHostedZone, scope constructs.Construct, id *
 		"aws-cdk-lib.aws_route53.CfnHostedZone",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnHostedZone)SetDelegationSetId(val *string) {
+	_jsii_.Set(
+		j,
+		"delegationSetId",
+		val,
 	)
 }
 

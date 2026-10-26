@@ -173,7 +173,7 @@ product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"),
 	ProductVersions: []CloudFormationProductVersion{
 		&CloudFormationProductVersion{
 			ProductVersionName: jsii.String("v1"),
-			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewS3BucketProduct(this, jsii.String("S3BucketProduct"))),
+			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(newS3BucketProduct(this, jsii.String("S3BucketProduct"))),
 		},
 	},
 })
@@ -216,7 +216,7 @@ product := servicecatalog.NewCloudFormationProduct(this, jsii.String("Product"),
 	ProductVersions: []CloudFormationProductVersion{
 		&CloudFormationProductVersion{
 			ProductVersionName: jsii.String("v1"),
-			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewLambdaProduct(this, jsii.String("LambdaFunctionProduct"), &ProductStackProps{
+			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(newLambdaProduct(this, jsii.String("LambdaFunctionProduct"), &ProductStackProps{
 				AssetBucket: userDefinedBucket,
 			})),
 		},
@@ -320,7 +320,7 @@ func newS3BucketProduct(scope Construct, id *string) *s3BucketProduct {
 }
 
 productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &ProductStackHistoryProps{
-	ProductStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+	ProductStack: newS3BucketProduct(this, jsii.String("S3BucketProduct")),
 	CurrentVersionName: jsii.String("v1"),
 	CurrentVersionLocked: jsii.Boolean(true),
 })
@@ -342,7 +342,7 @@ func newS3BucketProduct(scope Construct, id *string) *s3BucketProduct {
 }
 
 productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &ProductStackHistoryProps{
-	ProductStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+	ProductStack: newS3BucketProduct(this, jsii.String("S3BucketProduct")),
 	CurrentVersionName: jsii.String("v2"),
 	CurrentVersionLocked: jsii.Boolean(true),
 })
@@ -379,7 +379,7 @@ func newS3BucketProduct(scope Construct, id *string) *s3BucketProduct {
 }
 
 productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &ProductStackHistoryProps{
-	ProductStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+	ProductStack: newS3BucketProduct(this, jsii.String("S3BucketProduct")),
 	CurrentVersionName: jsii.String("v2"),
 	CurrentVersionLocked: jsii.Boolean(true),
 })

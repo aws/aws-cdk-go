@@ -95,8 +95,8 @@ func newUseStack(scope App, id *string, props useStackProps) *useStack {
 	return this
 }
 
-keyStack := NewKeyStack(app, jsii.String("KeyStack"))
-NewUseStack(app, jsii.String("UseStack"), &useStackProps{
+keyStack := newKeyStack(app, jsii.String("KeyStack"))
+newUseStack(app, jsii.String("UseStack"), &useStackProps{
 	key: keyStack.key,
 })
 ```
@@ -374,10 +374,10 @@ type myFactory struct {
 }
 
 func (this *myFactory) forResource(resource CfnResource) IResourceWithPolicyV2 {
-	return NewMyResourceWithPolicy(*resource)
+	return newMyResourceWithPolicy(*resource)
 }
 
-awscdk.ResourceWithPolicies_Register(scope, jsii.String("AWS::KMS::Key"), NewMyFactory())
+awscdk.ResourceWithPolicies_Register(scope, jsii.String("AWS::KMS::Key"), newMyFactory())
 ```
 
 `IResourcePolicyFactory` is responsible for converting a construct into a `IResourceWithPolicyV2`,

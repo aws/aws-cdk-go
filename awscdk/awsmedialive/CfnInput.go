@@ -64,6 +64,9 @@ import (
 //   		Destinations: []interface{}{
 //   			&RouterDestinationSettingsProperty{
 //   				AvailabilityZoneName: jsii.String("availabilityZoneName"),
+//
+//   				// the properties below are optional
+//   				RouterOutputArn: jsii.String("routerOutputArn"),
 //   			},
 //   		},
 //   		EncryptionType: jsii.String("encryptionType"),
@@ -148,16 +151,36 @@ type CfnInput interface {
 	//
 	// For example: arn:aws:medialive:us-west-1:111122223333:medialive:input:1234567. MediaLive creates this ARN when it creates the input.
 	AttrArn() *string
+	// A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
+	AttrAttachedChannels() *[]*string
 	// For a push input, the the destination or destinations for the input.
 	//
 	// The destinations are the URLs of locations on MediaLive where the upstream system pushes the content to, for this input. MediaLive creates these addresses when it creates the input.
 	AttrDestinations() *[]*string
+	// A list of destination URLs of the input (PUSH-type).
+	AttrDestinationUrls() *[]*string
 	// The unique ID for the device.
 	AttrId() *string
+	// A standard input has two sources and a single pipeline input only has one.
+	AttrInputClass() *string
+	// A list of IDs for all Inputs which are partners of this one.
+	AttrInputPartnerIds() *[]*string
+	// There are two types of input sources, static and dynamic.
+	//
+	// If an input source is dynamic you can
+	// change the source url of the input dynamically using an input switch action. Currently, two input types
+	// support a dynamic url at this time, MP4_FILE and TS_FILE. By default all input sources are static.
+	AttrInputSourceType() *string
+	// A list of IDs for all the Input Security Groups attached to the input.
+	AttrSecurityGroups() *[]*string
 	// For a pull input, the source or sources for the input.
 	//
 	// The sources are the URLs of locations on the upstream system where MediaLive pulls the content from, for this input. You included these URLs in the create request.
 	AttrSources() *[]*string
+	// A list of source URLs of the input (PULL-type).
+	AttrSourceUrls() *[]*string
+	// Placeholder documentation for InputState.
+	AttrState() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -175,6 +198,7 @@ type CfnInput interface {
 	// Settings that apply only if the input is an Elemental Link input.
 	InputDevices() interface{}
 	SetInputDevices(val interface{})
+	// With the introduction of MediaLive Anywhere, a MediaLive input can now exist in two different places: AWS or inside an on-premises datacenter.
 	InputNetworkLocation() *string
 	SetInputNetworkLocation(val *string)
 	// A reference to a Input resource.
@@ -195,6 +219,7 @@ type CfnInput interface {
 	// Settings that apply only if the input is a MediaConnect input.
 	MediaConnectFlows() interface{}
 	SetMediaConnectFlows(val interface{})
+	// Settings for a Multicast input.
 	MulticastSettings() interface{}
 	SetMulticastSettings(val interface{})
 	// A name for the input.
@@ -210,15 +235,19 @@ type CfnInput interface {
 	// The IAM role for MediaLive to assume when creating a MediaConnect input or Amazon VPC input.
 	RoleArn() *string
 	SetRoleArn(val *string)
+	// Information about the MediaConnect Router association for this input.
 	RouterSettings() interface{}
 	SetRouterSettings(val interface{})
+	// SDI Sources for this Input.
 	SdiSources() *[]*string
 	SetSdiSources(val *[]*string)
+	// Configures the sources for the SMPTE 2110 Receiver Group input.
 	Smpte2110ReceiverGroupSettings() interface{}
 	SetSmpte2110ReceiverGroupSettings(val interface{})
 	// Settings that apply only if the input is a pull type of input.
 	Sources() interface{}
 	SetSources(val interface{})
+	// The configured sources for this SRT input.
 	SrtSettings() interface{}
 	SetSrtSettings(val interface{})
 	// The stack in which this element is defined.
@@ -430,11 +459,31 @@ func (j *jsiiProxy_CfnInput) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInput) AttrAttachedChannels() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrAttachedChannels",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInput) AttrDestinations() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
 		j,
 		"attrDestinations",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInput) AttrDestinationUrls() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrDestinationUrls",
 		&returns,
 	)
 	return returns
@@ -450,11 +499,71 @@ func (j *jsiiProxy_CfnInput) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInput) AttrInputClass() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInputClass",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInput) AttrInputPartnerIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrInputPartnerIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInput) AttrInputSourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInputSourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInput) AttrSecurityGroups() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrSecurityGroups",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInput) AttrSources() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
 		j,
 		"attrSources",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInput) AttrSourceUrls() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrSourceUrls",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInput) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
 		&returns,
 	)
 	return returns

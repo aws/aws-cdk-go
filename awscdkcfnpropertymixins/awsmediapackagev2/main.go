@@ -128,6 +128,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.ContentKeyPeriodConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpointPropsMixin_ContentKeyPeriodConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.DashAvailabilityStartTimeConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpointPropsMixin_DashAvailabilityStartTimeConfigurationProperty)(nil)).Elem(),
 	)
@@ -192,12 +196,24 @@ func init() {
 		reflect.TypeOf((*CfnOriginEndpointPropsMixin_HlsManifestConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.LowLatencyHlsFilterConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpointPropsMixin_LowLatencyHlsFilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.LowLatencyHlsManifestConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpointPropsMixin_LowLatencyHlsManifestConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.MssFilterConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpointPropsMixin_MssFilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.MssManifestConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpointPropsMixin_MssManifestConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.MultiviewFilterConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpointPropsMixin_MultiviewFilterConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediapackagev2.CfnOriginEndpointPropsMixin.ScteDashProperty",

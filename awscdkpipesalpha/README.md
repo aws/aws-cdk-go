@@ -326,7 +326,7 @@ enrichmentInputTransformation := pipes.inputTransformation_FromObject(map[string
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
 	Source: awscdkpipessourcesalpha.NewSqsSource(sourceQueue),
 	Target: awscdkpipestargetsalpha.NewSqsTarget(targetQueue),
-	Enrichment: NewLambdaEnrichment(enrichmentLambda, map[string]*inputTransformation{
+	Enrichment: newLambdaEnrichment(enrichmentLambda, map[string]*inputTransformation{
 		"inputTransformation": enrichmentInputTransformation,
 	}),
 })

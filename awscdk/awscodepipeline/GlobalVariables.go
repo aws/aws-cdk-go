@@ -13,7 +13,7 @@ import (
 // Example:
 //   // OtherAction is some action type that produces variables, like EcrSourceAction
 //   // OtherAction is some action type that produces variables, like EcrSourceAction
-//   NewOtherAction(&otherActionProps{
+//   newOtherAction(&otherActionProps{
 //   	// ...
 //   	config: codepipeline.GlobalVariables_ExecutionId(),
 //   	actionName: jsii.String("otherAction"),

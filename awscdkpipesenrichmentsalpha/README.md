@@ -38,9 +38,9 @@ var enrichmentFunction Function
 enrichment := enrichments.NewLambdaEnrichment(enrichmentFunction)
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: newSomeSource(sourceQueue),
 	Enrichment: Enrichment,
-	Target: NewSomeTarget(targetQueue),
+	Target: newSomeTarget(targetQueue),
 })
 ```
 
@@ -62,9 +62,9 @@ var enrichmentStateMachine StateMachine
 enrichment := enrichments.NewStepFunctionsEnrichment(enrichmentStateMachine)
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: newSomeSource(sourceQueue),
 	Enrichment: Enrichment,
-	Target: NewSomeTarget(targetQueue),
+	Target: newSomeTarget(targetQueue),
 })
 ```
 
@@ -82,9 +82,9 @@ var apiDestination ApiDestination
 enrichment := enrichments.NewApiDestinationEnrichment(apiDestination)
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: newSomeSource(sourceQueue),
 	Enrichment: Enrichment,
-	Target: NewSomeTarget(targetQueue),
+	Target: newSomeTarget(targetQueue),
 })
 ```
 
@@ -103,8 +103,8 @@ var restApi RestApi
 enrichment := enrichments.NewApiGatewayEnrichment(restApi)
 
 pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-	Source: NewSomeSource(sourceQueue),
+	Source: newSomeSource(sourceQueue),
 	Enrichment: Enrichment,
-	Target: NewSomeTarget(targetQueue),
+	Target: newSomeTarget(targetQueue),
 })
 ```

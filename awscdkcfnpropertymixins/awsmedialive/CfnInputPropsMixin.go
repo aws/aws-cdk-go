@@ -65,6 +65,7 @@ import (
 //   		Destinations: []interface{}{
 //   			&RouterDestinationSettingsProperty{
 //   				AvailabilityZoneName: jsii.String("availabilityZoneName"),
+//   				RouterOutputArn: jsii.String("routerOutputArn"),
 //   			},
 //   		},
 //   		EncryptionType: jsii.String("encryptionType"),

@@ -46,6 +46,7 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnHostedZonePropsMixin := awscdkcfnpropertymixins.Aws_route53.NewCfnHostedZonePropsMixin(&CfnHostedZoneMixinProps{
+//   	DelegationSetId: jsii.String("delegationSetId"),
 //   	HostedZoneConfig: &HostedZoneConfigProperty{
 //   		Comment: jsii.String("comment"),
 //   	},

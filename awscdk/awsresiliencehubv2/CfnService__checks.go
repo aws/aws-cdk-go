@@ -348,6 +348,30 @@ func (j *jsiiProxy_CfnService) validateSetAssociatedSystemsParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetDevOpsAgentConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnService_DevOpsAgentConfigurationProperty:
+		val := val.(*CfnService_DevOpsAgentConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnService_DevOpsAgentConfigurationProperty:
+		val_ := val.(CfnService_DevOpsAgentConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnService_DevOpsAgentConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnService) validateSetInputSourcesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

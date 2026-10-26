@@ -107,6 +107,7 @@ import (
 //   		MinLatency: jsii.Number(123),
 //   		Name: jsii.String("name"),
 //   		NdiSourceSettings: &NdiSourceSettingsProperty{
+//   			AudioReferenceLevel: jsii.Number(123),
 //   			SourceName: jsii.String("sourceName"),
 //   		},
 //   		Protocol: jsii.String("protocol"),

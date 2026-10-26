@@ -758,14 +758,14 @@ func newStack2(scope App, id *string, props stack2Props) *stack2 {
 
 	// Pass the VPC to a construct that needs it
 	// Pass the VPC to a construct that needs it
-	NewConstructThatTakesAVpc(this, jsii.String("Construct"), &constructThatTakesAVpcProps{
+	newConstructThatTakesAVpc(this, jsii.String("Construct"), &constructThatTakesAVpcProps{
 		vpc: props.vpc,
 	})
 	return this
 }
 
-stack1 := NewStack1(app, jsii.String("Stack1"))
-stack2 := NewStack2(app, jsii.String("Stack2"), &stack2Props{
+stack1 := newStack1(app, jsii.String("Stack1"))
+stack2 := newStack2(app, jsii.String("Stack2"), &stack2Props{
 	vpc: stack1.vpc,
 })
 ```

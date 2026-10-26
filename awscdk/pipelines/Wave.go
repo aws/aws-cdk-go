@@ -14,13 +14,13 @@ import (
 //
 //   europeWave := pipeline.AddWave(jsii.String("Europe"))
 //   europeWave.AddStage(
-//   NewMyApplicationStage(this, jsii.String("Ireland"), &StageProps{
+//   newMyApplicationStage(this, jsii.String("Ireland"), &StageProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("eu-west-1"),
 //   	},
 //   }))
 //   europeWave.AddStage(
-//   NewMyApplicationStage(this, jsii.String("Germany"), &StageProps{
+//   newMyApplicationStage(this, jsii.String("Germany"), &StageProps{
 //   	Env: &Environment{
 //   		Region: jsii.String("eu-central-1"),
 //   	},

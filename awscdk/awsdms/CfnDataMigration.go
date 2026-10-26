@@ -70,8 +70,10 @@ type CfnDataMigration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The property describes an ARN of the data migration.
+	// [DEPRECATED] This property is unused and will be ignored.
+	// Deprecated: this property has been deprecated.
 	DataMigrationIdentifier() *string
+	// Deprecated: this property has been deprecated.
 	SetDataMigrationIdentifier(val *string)
 	// The user-friendly name for the data migration.
 	DataMigrationName() *string

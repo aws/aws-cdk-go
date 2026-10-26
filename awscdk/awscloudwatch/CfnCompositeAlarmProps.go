@@ -15,6 +15,19 @@ import (
 //   	AlarmRule: jsii.String("alarmRule"),
 //
 //   	// the properties below are optional
+//   	ActionConfiguration: &ActionConfigurationProperty{
+//   		AlarmTagsPropagation: &AlarmTagsPropagationProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			ExcludedTagKeys: []*string{
+//   				jsii.String("excludedTagKeys"),
+//   			},
+//   			IncludedTagKeys: []*string{
+//   				jsii.String("includedTagKeys"),
+//   			},
+//   		},
+//   	},
 //   	ActionsEnabled: jsii.Boolean(false),
 //   	ActionsSuppressor: jsii.String("actionsSuppressor"),
 //   	ActionsSuppressorExtensionPeriod: jsii.Number(123),
@@ -61,6 +74,10 @@ type CfnCompositeAlarmProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
 	//
 	AlarmRule *string `field:"required" json:"alarmRule" yaml:"alarmRule"`
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionconfiguration
+	//
+	ActionConfiguration interface{} `field:"optional" json:"actionConfiguration" yaml:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm.
 	//
 	// The default is TRUE.

@@ -220,6 +220,25 @@ package awsec2
 //   				Arn: jsii.String("arn"),
 //   				Id: jsii.String("id"),
 //   			},
+//   			TransitGatewayPolicyTable: &AnalysisComponentProperty{
+//   				Arn: jsii.String("arn"),
+//   				Id: jsii.String("id"),
+//   			},
+//   			TransitGatewayPolicyTableEntry: &AnalysisTransitGatewayPolicyTableEntryProperty{
+//   				DestinationCidr: jsii.String("destinationCidr"),
+//   				DestinationPortRange: &PortRangeProperty{
+//   					From: jsii.Number(123),
+//   					To: jsii.Number(123),
+//   				},
+//   				Protocol: jsii.String("protocol"),
+//   				RuleNumber: jsii.Number(123),
+//   				SourceCidr: jsii.String("sourceCidr"),
+//   				SourcePortRange: &PortRangeProperty{
+//   					From: jsii.Number(123),
+//   					To: jsii.Number(123),
+//   				},
+//   				TargetRouteTableId: jsii.String("targetRouteTableId"),
+//   			},
 //   			TransitGatewayRouteTable: &AnalysisComponentProperty{
 //   				Arn: jsii.String("arn"),
 //   				Id: jsii.String("id"),
@@ -335,6 +354,21 @@ package awsec2
 //   		Arn: jsii.String("arn"),
 //   		Id: jsii.String("id"),
 //   	},
+//   	TransitGatewayPolicyTableEntry: &AnalysisTransitGatewayPolicyTableEntryProperty{
+//   		DestinationCidr: jsii.String("destinationCidr"),
+//   		DestinationPortRange: &PortRangeProperty{
+//   			From: jsii.Number(123),
+//   			To: jsii.Number(123),
+//   		},
+//   		Protocol: jsii.String("protocol"),
+//   		RuleNumber: jsii.Number(123),
+//   		SourceCidr: jsii.String("sourceCidr"),
+//   		SourcePortRange: &PortRangeProperty{
+//   			From: jsii.Number(123),
+//   			To: jsii.Number(123),
+//   		},
+//   		TargetRouteTableId: jsii.String("targetRouteTableId"),
+//   	},
 //   	TransitGatewayRouteTableRoute: &TransitGatewayRouteTableRouteProperty{
 //   		AttachmentId: jsii.String("attachmentId"),
 //   		DestinationCidr: jsii.String("destinationCidr"),
@@ -413,6 +447,9 @@ type CfnNetworkInsightsAnalysisPropsMixin_PathComponentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-transitgateway
 	//
 	TransitGateway interface{} `field:"optional" json:"transitGateway" yaml:"transitGateway"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-transitgatewaypolicytableentry
+	//
+	TransitGatewayPolicyTableEntry interface{} `field:"optional" json:"transitGatewayPolicyTableEntry" yaml:"transitGatewayPolicyTableEntry"`
 	// The route in a transit gateway route table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-pathcomponent.html#cfn-ec2-networkinsightsanalysis-pathcomponent-transitgatewayroutetableroute
 	//

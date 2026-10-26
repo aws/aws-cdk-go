@@ -38,7 +38,9 @@ type FunctionProps struct {
 	//
 	KeyValueStore interfacesawscloudfront.IKeyValueStoreRef `field:"optional" json:"keyValueStore" yaml:"keyValueStore"`
 	// The runtime environment for the function.
-	// Default: FunctionRuntime.JS_1_0 (unless `keyValueStore` is specified, then `FunctionRuntime.JS_2_0`)
+	// Default: - FunctionRuntime.JS_2_0 if `keyValueStore` is specified or the
+	// `@aws-cdk/aws-cloudfront:defaultFunctionRuntimeV2_0` feature flag is enabled;
+	// otherwise, FunctionRuntime.JS_1_0.
 	//
 	Runtime FunctionRuntime `field:"optional" json:"runtime" yaml:"runtime"`
 }

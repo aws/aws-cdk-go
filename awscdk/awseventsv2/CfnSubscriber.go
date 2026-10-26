@@ -22,6 +22,97 @@ import (
 //
 //   cfnSubscriber := awscdk.Aws_eventsv2.NewCfnSubscriber(this, jsii.String("MyCfnSubscriber"), &CfnSubscriberProps{
 //   	EventBusArn: jsii.String("eventBusArn"),
+//   	InvokeConfiguration: &InvokeConfigurationProperty{
+//   		RoleArn: jsii.String("roleArn"),
+//   		TargetArn: jsii.String("targetArn"),
+//
+//   		// the properties below are optional
+//   		EventBusV2Parameters: &EventBusV2ParametersProperty{
+//   			DeduplicationConfiguration: &DeduplicationConfigurationProperty{
+//   				DeduplicationType: jsii.String("deduplicationType"),
+//   			},
+//   			Metadata: map[string]*string{
+//   				"metadataKey": jsii.String("metadata"),
+//   			},
+//   			SystemMetadata: &EventBusV2SystemMetadataProperty{
+//   				DeduplicationId: jsii.String("deduplicationId"),
+//   				EventGroupId: jsii.String("eventGroupId"),
+//   			},
+//   		},
+//   		HttpParameters: &HttpParametersProperty{
+//   			HeaderParameters: map[string]*string{
+//   				"headerParametersKey": jsii.String("headerParameters"),
+//   			},
+//   			InvocationTimeoutSeconds: jsii.String("invocationTimeoutSeconds"),
+//   			PathParameterValues: []*string{
+//   				jsii.String("pathParameterValues"),
+//   			},
+//   			QueryStringParameters: map[string]*string{
+//   				"queryStringParametersKey": jsii.String("queryStringParameters"),
+//   			},
+//   		},
+//   		KinesisParameters: &KinesisParametersProperty{
+//   			ExplicitHashKey: jsii.String("explicitHashKey"),
+//   			PartitionKey: jsii.String("partitionKey"),
+//   		},
+//   		LambdaParameters: &LambdaParametersProperty{
+//   			DurableExecutionName: jsii.String("durableExecutionName"),
+//   			InvocationTimeoutSeconds: jsii.String("invocationTimeoutSeconds"),
+//   			InvocationType: jsii.String("invocationType"),
+//   			Qualifier: jsii.String("qualifier"),
+//   			TenantId: jsii.String("tenantId"),
+//   		},
+//   		SnsParameters: &SnsParametersProperty{
+//   			MessageAttributes: map[string]interface{}{
+//   				"messageAttributesKey": &MessageAttributeValueProperty{
+//   					"dataType": jsii.String("dataType"),
+//
+//   					// the properties below are optional
+//   					"binaryValue": jsii.String("binaryValue"),
+//   					"stringValue": jsii.String("stringValue"),
+//   				},
+//   			},
+//   			MessageDeduplicationId: jsii.String("messageDeduplicationId"),
+//   			MessageGroupId: jsii.String("messageGroupId"),
+//   			MessageStructure: jsii.String("messageStructure"),
+//   			Subject: jsii.String("subject"),
+//   		},
+//   		SqsParameters: &SqsParametersProperty{
+//   			DelaySeconds: jsii.String("delaySeconds"),
+//   			MessageAttributes: map[string]interface{}{
+//   				"messageAttributesKey": &MessageAttributeValueProperty{
+//   					"dataType": jsii.String("dataType"),
+//
+//   					// the properties below are optional
+//   					"binaryValue": jsii.String("binaryValue"),
+//   					"stringValue": jsii.String("stringValue"),
+//   				},
+//   			},
+//   			MessageDeduplicationId: jsii.String("messageDeduplicationId"),
+//   			MessageGroupId: jsii.String("messageGroupId"),
+//   			MessageSystemAttributes: map[string]interface{}{
+//   				"messageSystemAttributesKey": &MessageAttributeValueProperty{
+//   					"dataType": jsii.String("dataType"),
+//
+//   					// the properties below are optional
+//   					"binaryValue": jsii.String("binaryValue"),
+//   					"stringValue": jsii.String("stringValue"),
+//   				},
+//   			},
+//   		},
+//   		StepFunctionsParameters: &StepFunctionsParametersProperty{
+//   			InvocationTimeoutSeconds: jsii.String("invocationTimeoutSeconds"),
+//   			InvocationType: jsii.String("invocationType"),
+//   			Name: jsii.String("name"),
+//   			TraceHeader: jsii.String("traceHeader"),
+//   		},
+//   		UniversalTargetParameters: &UniversalTargetParametersProperty{
+//   			Input: jsii.String("input"),
+//
+//   			// the properties below are optional
+//   			InvocationTimeoutSeconds: jsii.String("invocationTimeoutSeconds"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -120,6 +211,9 @@ type CfnSubscriber interface {
 	// Configuration for filtering which events are delivered to the target.
 	FilterConfiguration() interface{}
 	SetFilterConfiguration(val interface{})
+	// Configuration for how the subscriber invokes its target.
+	InvokeConfiguration() interface{}
+	SetInvokeConfiguration(val interface{})
 	// Delivery logging configuration.
 	LogConfiguration() interface{}
 	SetLogConfiguration(val interface{})
@@ -510,6 +604,16 @@ func (j *jsiiProxy_CfnSubscriber) FilterConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnSubscriber) InvokeConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"invokeConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnSubscriber) LogConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -757,6 +861,17 @@ func (j *jsiiProxy_CfnSubscriber)SetFilterConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"filterConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSubscriber)SetInvokeConfiguration(val interface{}) {
+	if err := j.validateSetInvokeConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"invokeConfiguration",
 		val,
 	)
 }

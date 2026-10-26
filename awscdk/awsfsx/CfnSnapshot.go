@@ -38,6 +38,7 @@ type CfnSnapshot interface {
 	awscdk.IInspectable
 	interfacesawsfsx.ISnapshotRef
 	awscdk.ITaggable
+	// The ID of the snapshot.
 	AttrId() *string
 	// Returns the snapshot's Amazon Resource Name (ARN).
 	//

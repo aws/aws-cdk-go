@@ -104,6 +104,10 @@ func validateCfnServer_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnServer) validateSetCreateWithHostKeyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnServer) validateSetEndpointDetailsParameters(val interface{}) error {
 	return nil
 }

@@ -386,13 +386,13 @@ type customFactory struct {
 func (this *customFactory) obtainStagingResources(stack Stack, context ObtainStagingResourcesContext) customStagingStack {
 	myApp := awscdk.App_Of(*stack)
 
-	return NewCustomStagingStack(myApp, fmt.Sprintf("CustomStagingStack-%v", *context.EnvironmentString), &customStagingStackProps{
+	return newCustomStagingStack(myApp, fmt.Sprintf("CustomStagingStack-%v", *context.EnvironmentString), &customStagingStackProps{
 	})
 }
 
 app := awscdk.NewApp(&AppProps{
 	DefaultStackSynthesizer: appstagingsynthesizeralpha.AppStagingSynthesizer_CustomFactory(&CustomFactoryOptions{
-		Factory: NewCustomFactory(),
+		Factory: newCustomFactory(),
 		OncePerEnv: jsii.Boolean(true),
 	}),
 })
@@ -405,7 +405,7 @@ Make sure that the custom stack you provide implements `IStagingResources`.
 
 ```go
 resourceApp := awscdk.NewApp()
-resources := NewCustomStagingStack(resourceApp, jsii.String("CustomStagingStack"), &customStagingStackProps{
+resources := newCustomStagingStack(resourceApp, jsii.String("CustomStagingStack"), &customStagingStackProps{
 })
 
 app := awscdk.NewApp(&AppProps{

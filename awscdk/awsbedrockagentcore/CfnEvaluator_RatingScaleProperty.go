@@ -15,6 +15,27 @@ package awsbedrockagentcore
 //   			Label: jsii.String("label"),
 //   		},
 //   	},
+//   	MultiDimensional: []interface{}{
+//   		&EvaluationDimensionProperty{
+//   			DimensionInstruction: jsii.String("dimensionInstruction"),
+//   			DimensionName: jsii.String("dimensionName"),
+//   			DimensionRatingScale: &DimensionRatingScaleProperty{
+//   				Categorical: []interface{}{
+//   					&CategoricalScaleDefinitionProperty{
+//   						Definition: jsii.String("definition"),
+//   						Label: jsii.String("label"),
+//   					},
+//   				},
+//   				Numerical: []interface{}{
+//   					&NumericalScaleDefinitionProperty{
+//   						Definition: jsii.String("definition"),
+//   						Label: jsii.String("label"),
+//   						Value: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	Numerical: []interface{}{
 //   		&NumericalScaleDefinitionProperty{
 //   			Definition: jsii.String("definition"),
@@ -30,6 +51,12 @@ type CfnEvaluator_RatingScaleProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-ratingscale.html#cfn-bedrockagentcore-evaluator-ratingscale-categorical
 	//
 	Categorical interface{} `field:"optional" json:"categorical" yaml:"categorical"`
+	// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call.
+	//
+	// Each dimension has its own instruction and rating scale.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-ratingscale.html#cfn-bedrockagentcore-evaluator-ratingscale-multidimensional
+	//
+	MultiDimensional interface{} `field:"optional" json:"multiDimensional" yaml:"multiDimensional"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-ratingscale.html#cfn-bedrockagentcore-evaluator-ratingscale-numerical
 	//
 	Numerical interface{} `field:"optional" json:"numerical" yaml:"numerical"`

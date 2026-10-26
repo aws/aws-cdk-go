@@ -1742,7 +1742,7 @@ func newTestStack(scope App, id *string) *testStack {
 
 app := cdk.NewApp()
 
-stack := NewTestStack(app, jsii.String("aws-lambda-autoscaling"))
+stack := newTestStack(app, jsii.String("aws-lambda-autoscaling"))
 
 // Changes the function description when the feature flag is present
 // to validate the changed function hash.

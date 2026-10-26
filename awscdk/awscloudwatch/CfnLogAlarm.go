@@ -50,6 +50,19 @@ import (
 //   	Threshold: jsii.Number(123),
 //
 //   	// the properties below are optional
+//   	ActionConfiguration: &ActionConfigurationProperty{
+//   		AlarmTagsPropagation: &AlarmTagsPropagationProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			ExcludedTagKeys: []*string{
+//   				jsii.String("excludedTagKeys"),
+//   			},
+//   			IncludedTagKeys: []*string{
+//   				jsii.String("includedTagKeys"),
+//   			},
+//   		},
+//   	},
 //   	ActionLogLineCount: jsii.Number(123),
 //   	ActionLogLineRoleArn: jsii.String("actionLogLineRoleArn"),
 //   	ActionsEnabled: jsii.Boolean(false),
@@ -84,6 +97,9 @@ type CfnLogAlarm interface {
 	awscdk.IInspectable
 	interfacesawscloudwatch.ILogAlarmRef
 	awscdk.ITaggableV2
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration() interface{}
+	SetActionConfiguration(val interface{})
 	// The number of log lines to include in alarm notifications.
 	ActionLogLineCount() *float64
 	SetActionLogLineCount(val *float64)
@@ -352,6 +368,16 @@ type jsiiProxy_CfnLogAlarm struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawscloudwatchILogAlarmRef
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnLogAlarm) ActionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"actionConfiguration",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnLogAlarm) ActionLogLineCount() *float64 {
@@ -691,6 +717,17 @@ func NewCfnLogAlarm_Override(c CfnLogAlarm, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_cloudwatch.CfnLogAlarm",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnLogAlarm)SetActionConfiguration(val interface{}) {
+	if err := j.validateSetActionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"actionConfiguration",
+		val,
 	)
 }
 

@@ -114,7 +114,7 @@ func newMyPipelineStack(scope Construct, id *string, props StackProps) *myPipeli
 	// necessary with any account and region (may be different from the
 	// pipeline's).
 	pipeline.AddStage(
-	NewMyApplication(this, jsii.String("Prod"), &StageProps{
+	newMyApplication(this, jsii.String("Prod"), &StageProps{
 		Env: &Environment{
 			Account: jsii.String("123456789012"),
 			Region: jsii.String("eu-west-1"),
@@ -139,8 +139,8 @@ func newMyApplication(scope Construct, id *string, props StageProps) *myApplicat
 	this := &myApplication{}
 	newStage_Override(this, scope, id, props)
 
-	dbStack := NewDatabaseStack(this, jsii.String("Database"))
-	NewComputeStack(this, jsii.String("Compute"), &computeProps{
+	dbStack := newDatabaseStack(this, jsii.String("Database"))
+	newComputeStack(this, jsii.String("Compute"), &computeProps{
 		table: dbStack.table,
 	})
 	return this
@@ -148,7 +148,7 @@ func newMyApplication(scope Construct, id *string, props StageProps) *myApplicat
 
 // In your main file
 // In your main file
-NewMyPipelineStack(this, jsii.String("PipelineStack"), &StackProps{
+newMyPipelineStack(this, jsii.String("PipelineStack"), &StackProps{
 	Env: &Environment{
 		Account: jsii.String("123456789012"),
 		Region: jsii.String("eu-west-1"),
@@ -488,7 +488,7 @@ var pipeline CodePipeline
 // Do this as many times as necessary with any account and region
 // Account and region may different from the pipeline's.
 pipeline.AddStage(
-NewMyApplicationStage(this, jsii.String("Prod"), &StageProps{
+newMyApplicationStage(this, jsii.String("Prod"), &StageProps{
 	Env: &Environment{
 		Account: jsii.String("123456789012"),
 		Region: jsii.String("eu-west-1"),
@@ -522,13 +522,13 @@ var pipeline CodePipeline
 
 europeWave := pipeline.AddWave(jsii.String("Europe"))
 europeWave.AddStage(
-NewMyApplicationStage(this, jsii.String("Ireland"), &StageProps{
+newMyApplicationStage(this, jsii.String("Ireland"), &StageProps{
 	Env: &Environment{
 		Region: jsii.String("eu-west-1"),
 	},
 }))
 europeWave.AddStage(
-NewMyApplicationStage(this, jsii.String("Germany"), &StageProps{
+newMyApplicationStage(this, jsii.String("Germany"), &StageProps{
 	Env: &Environment{
 		Region: jsii.String("eu-central-1"),
 	},
@@ -637,8 +637,8 @@ pass in order to promote from the `PreProd` to the `Prod` environment:
 ```go
 var pipeline CodePipeline
 
-preprod := NewMyApplicationStage(this, jsii.String("PreProd"))
-prod := NewMyApplicationStage(this, jsii.String("Prod"))
+preprod := newMyApplicationStage(this, jsii.String("PreProd"))
+prod := newMyApplicationStage(this, jsii.String("Prod"))
 topic := sns.NewTopic(this, jsii.String("ChangeApprovalTopic"))
 
 pipeline.AddStage(preprod, &AddStageOpts{
@@ -679,7 +679,7 @@ func newMyStacksStage(scope Construct, id *string, props StageProps) *myStacksSt
 	this.stack2 = awscdk.Newstack(this, jsii.String("stack2"))
 	return this
 }
-prod := NewMyStacksStage(this, jsii.String("Prod"))
+prod := newMyStacksStage(this, jsii.String("Prod"))
 
 pipeline.AddStage(prod, &AddStageOpts{
 	StackSteps: []StackSteps{
@@ -753,7 +753,7 @@ func newMyOutputStage(scope Construct, id *string, props StageProps) *myOutputSt
 	return this
 }
 
-lbApp := NewMyOutputStage(this, jsii.String("MyApp"))
+lbApp := newMyOutputStage(this, jsii.String("MyApp"))
 pipeline.AddStage(lbApp, &AddStageOpts{
 	Post: []Step{
 		pipelines.NewShellStep(jsii.String("HitEndpoint"), &ShellStepProps{
@@ -784,7 +784,7 @@ step and runs tests from there:
 ```go
 var synth ShellStep
 
-stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
+stage := newMyApplicationStage(this, jsii.String("MyApplication"))
 pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 	Synth: Synth,
 })
@@ -1570,7 +1570,7 @@ You can insert the security check by using a `ConfirmPermissionsBroadening` step
 ```go
 var pipeline CodePipeline
 
-stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
+stage := newMyApplicationStage(this, jsii.String("MyApplication"))
 pipeline.AddStage(stage, &AddStageOpts{
 	Pre: []Step{
 		pipelines.NewConfirmPermissionsBroadening(jsii.String("Check"), &PermissionsBroadeningCheckProps{
@@ -1590,7 +1590,7 @@ var pipeline CodePipeline
 topic := sns.NewTopic(this, jsii.String("SecurityChangesTopic"))
 topic.AddSubscription(subscriptions.NewEmailSubscription(jsii.String("test@email.com")))
 
-stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
+stage := newMyApplicationStage(this, jsii.String("MyApplication"))
 pipeline.AddStage(stage, &AddStageOpts{
 	Pre: []Step{
 		pipelines.NewConfirmPermissionsBroadening(jsii.String("Check"), &PermissionsBroadeningCheckProps{

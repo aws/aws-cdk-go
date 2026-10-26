@@ -128,8 +128,24 @@ func init() {
 		reflect.TypeOf((*CfnFirewallPropsMixin_AvailabilityZoneMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPropsMixin.ListenerPropertyProperty",
+		reflect.TypeOf((*CfnFirewallPropsMixin_ListenerPropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPropsMixin.NatGatewayMappingProperty",
+		reflect.TypeOf((*CfnFirewallPropsMixin_NatGatewayMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPropsMixin.ProxySettingsProperty",
+		reflect.TypeOf((*CfnFirewallPropsMixin_ProxySettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPropsMixin.SubnetMappingProperty",
 		reflect.TypeOf((*CfnFirewallPropsMixin_SubnetMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPropsMixin.VpcEndpointProperty",
+		reflect.TypeOf((*CfnFirewallPropsMixin_VpcEndpointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnLoggingConfigurationMixinProps",

@@ -44,6 +44,8 @@ type CfnInputSecurityGroup interface {
 	AttrArn() *string
 	// The Id of the Input Security Group.
 	AttrId() *string
+	// The list of inputs currently using this Input Security Group.
+	AttrInputs() *[]*string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -285,6 +287,16 @@ func (j *jsiiProxy_CfnInputSecurityGroup) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInputSecurityGroup) AttrInputs() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrInputs",
 		&returns,
 	)
 	return returns

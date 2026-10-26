@@ -211,7 +211,7 @@ associatedApp := appreg.NewApplicationAssociator(app, jsii.String("AssociatedApp
 	},
 })
 
-cdkPipeline := NewApplicationPipelineStack(app, jsii.String("CDKApplicationPipelineStack"), &applicationPipelineStackProps{
+cdkPipeline := newApplicationPipelineStack(app, jsii.String("CDKApplicationPipelineStack"), &applicationPipelineStackProps{
 	application: associatedApp,
 	env: &Environment{
 		Account: jsii.String("123456789012"),

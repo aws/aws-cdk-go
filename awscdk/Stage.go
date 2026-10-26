@@ -21,7 +21,7 @@ import (
 // Example:
 //   var synth ShellStep
 //
-//   stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
+//   stage := newMyApplicationStage(this, jsii.String("MyApplication"))
 //   pipeline := pipelines.NewCodePipeline(this, jsii.String("Pipeline"), &CodePipelineProps{
 //   	Synth: Synth,
 //   })

@@ -228,6 +228,30 @@ func validateCfnTenant_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTenant) validateSetReputationEntityParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTenant_ReputationEntityProperty:
+		val := val.(*CfnTenant_ReputationEntityProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTenant_ReputationEntityProperty:
+		val_ := val.(CfnTenant_ReputationEntityProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTenant_ReputationEntityProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnTenant) validateSetResourceAssociationsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -282,6 +306,30 @@ func (j *jsiiProxy_CfnTenant) validateSetResourceAssociationsParameters(val inte
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *[]interface{}; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnTenant) validateSetSuppressionAttributesParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTenant_TenantSuppressionAttributesProperty:
+		val := val.(*CfnTenant_TenantSuppressionAttributesProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTenant_TenantSuppressionAttributesProperty:
+		val_ := val.(CfnTenant_TenantSuppressionAttributesProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTenant_TenantSuppressionAttributesProperty; received %#v (a %T)", val, val)
 		}
 	}
 

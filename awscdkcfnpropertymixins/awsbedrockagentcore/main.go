@@ -260,6 +260,34 @@ func init() {
 		reflect.TypeOf((*CfnConfigurationBundlePropsMixin_VersionLineageMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnConsentPortalMixinProps",
+		reflect.TypeOf((*CfnConsentPortalMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnConsentPortalPropsMixin",
+		reflect.TypeOf((*CfnConsentPortalPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnConsentPortalPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnConsentPortalPropsMixin.ConsentPortalSourceProperty",
+		reflect.TypeOf((*CfnConsentPortalPropsMixin_ConsentPortalSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnConsentPortalPropsMixin.IdpConfigProperty",
+		reflect.TypeOf((*CfnConsentPortalPropsMixin_IdpConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnDatasetMixinProps",
 		reflect.TypeOf((*CfnDatasetMixinProps)(nil)).Elem(),
 	)
@@ -326,6 +354,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.DerivedEvaluatorConfigProperty",
 		reflect.TypeOf((*CfnEvaluatorPropsMixin_DerivedEvaluatorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.DimensionRatingScaleProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_DimensionRatingScaleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.EvaluationDimensionProperty",
+		reflect.TypeOf((*CfnEvaluatorPropsMixin_EvaluationDimensionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnEvaluatorPropsMixin.EvaluatorConfigProperty",

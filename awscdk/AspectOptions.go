@@ -16,10 +16,10 @@ package awscdk
 //
 //   stack := awscdk.Newstack()
 //
-//   awscdk.Aspects_Of(stack).Add(NewMutatingAspect(), &AspectOptions{
+//   awscdk.Aspects_Of(stack).Add(newMutatingAspect(), &AspectOptions{
 //   	Priority: awscdk.AspectPriority_MUTATING(),
 //   }) // Run first (mutating aspects)
-//   awscdk.Aspects_Of(stack).Add(NewValidationAspect(), &AspectOptions{
+//   awscdk.Aspects_Of(stack).Add(newValidationAspect(), &AspectOptions{
 //   	Priority: awscdk.AspectPriority_READONLY(),
 //   })
 //

@@ -14,6 +14,9 @@ package awsbedrockagentcore
 //   	AdditionalModelRequestFields: additionalModelRequestFields,
 //   	InferenceConfig: &InferenceConfigurationProperty{
 //   		MaxTokens: jsii.Number(123),
+//   		StopSequences: []*string{
+//   			jsii.String("stopSequences"),
+//   		},
 //   		Temperature: jsii.Number(123),
 //   		TopP: jsii.Number(123),
 //   	},

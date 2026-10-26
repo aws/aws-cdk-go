@@ -904,6 +904,14 @@ func init() {
 		reflect.TypeOf((*CfnRulePropsMixin_FieldValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.InAppNotificationRecipientTypeProperty",
+		reflect.TypeOf((*CfnRulePropsMixin_InAppNotificationRecipientTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.NotificationContentProperty",
+		reflect.TypeOf((*CfnRulePropsMixin_NotificationContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.NotificationRecipientTypeProperty",
 		reflect.TypeOf((*CfnRulePropsMixin_NotificationRecipientTypeProperty)(nil)).Elem(),
 	)
@@ -914,6 +922,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.RuleTriggerEventSourceProperty",
 		reflect.TypeOf((*CfnRulePropsMixin_RuleTriggerEventSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.SendInAppNotificationActionProperty",
+		reflect.TypeOf((*CfnRulePropsMixin_SendInAppNotificationActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnRulePropsMixin.SendNotificationActionProperty",

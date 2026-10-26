@@ -28,6 +28,42 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBBackupMixinProps",
+		reflect.TypeOf((*CfnInfluxDBBackupMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBBackupPropsMixin",
+		reflect.TypeOf((*CfnInfluxDBBackupPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnInfluxDBBackupPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBBackupPropsMixin.ClusterConfigurationProperty",
+		reflect.TypeOf((*CfnInfluxDBBackupPropsMixin_ClusterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBBackupPropsMixin.LogDeliveryConfigurationProperty",
+		reflect.TypeOf((*CfnInfluxDBBackupPropsMixin_LogDeliveryConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBBackupPropsMixin.MaintenanceScheduleProperty",
+		reflect.TypeOf((*CfnInfluxDBBackupPropsMixin_MaintenanceScheduleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBBackupPropsMixin.S3ConfigurationProperty",
+		reflect.TypeOf((*CfnInfluxDBBackupPropsMixin_S3ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBClusterMixinProps",
 		reflect.TypeOf((*CfnInfluxDBClusterMixinProps)(nil)).Elem(),
 	)

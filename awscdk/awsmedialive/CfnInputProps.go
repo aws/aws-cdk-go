@@ -52,6 +52,9 @@ package awsmedialive
 //   		Destinations: []interface{}{
 //   			&RouterDestinationSettingsProperty{
 //   				AvailabilityZoneName: jsii.String("availabilityZoneName"),
+//
+//   				// the properties below are optional
+//   				RouterOutputArn: jsii.String("routerOutputArn"),
 //   			},
 //   		},
 //   		EncryptionType: jsii.String("encryptionType"),
@@ -136,6 +139,9 @@ type CfnInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
 	//
 	InputDevices interface{} `field:"optional" json:"inputDevices" yaml:"inputDevices"`
+	// With the introduction of MediaLive Anywhere, a MediaLive input can now exist in two different places: AWS or inside an on-premises datacenter.
+	//
+	// By default all inputs will continue to be AWS inputs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputnetworklocation
 	//
 	InputNetworkLocation *string `field:"optional" json:"inputNetworkLocation" yaml:"inputNetworkLocation"`
@@ -147,6 +153,9 @@ type CfnInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-mediaconnectflows
 	//
 	MediaConnectFlows interface{} `field:"optional" json:"mediaConnectFlows" yaml:"mediaConnectFlows"`
+	// Settings for a Multicast input.
+	//
+	// Contains a list of multicast Urls and optional source ip addresses.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-multicastsettings
 	//
 	MulticastSettings interface{} `field:"optional" json:"multicastSettings" yaml:"multicastSettings"`
@@ -160,12 +169,15 @@ type CfnInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
+	// Information about the MediaConnect Router association for this input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-routersettings
 	//
 	RouterSettings interface{} `field:"optional" json:"routerSettings" yaml:"routerSettings"`
+	// SDI Sources for this Input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sdisources
 	//
 	SdiSources *[]*string `field:"optional" json:"sdiSources" yaml:"sdiSources"`
+	// Configures the sources for the SMPTE 2110 Receiver Group input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-smpte2110receivergroupsettings
 	//
 	Smpte2110ReceiverGroupSettings interface{} `field:"optional" json:"smpte2110ReceiverGroupSettings" yaml:"smpte2110ReceiverGroupSettings"`
@@ -173,6 +185,7 @@ type CfnInputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sources
 	//
 	Sources interface{} `field:"optional" json:"sources" yaml:"sources"`
+	// The configured sources for this SRT input.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-srtsettings
 	//
 	SrtSettings interface{} `field:"optional" json:"srtSettings" yaml:"srtSettings"`

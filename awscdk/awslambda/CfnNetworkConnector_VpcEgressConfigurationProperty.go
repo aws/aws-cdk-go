@@ -40,7 +40,7 @@ type CfnNetworkConnector_VpcEgressConfigurationProperty struct {
 	NetworkProtocol *string `field:"required" json:"networkProtocol" yaml:"networkProtocol"`
 	// The IDs of the VPC security groups to attach to the ENIs.
 	//
-	// Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+	// All security groups must be in the same VPC as the subnets.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-securitygroupids
 	//
 	SecurityGroupIds *[]*string `field:"required" json:"securityGroupIds" yaml:"securityGroupIds"`

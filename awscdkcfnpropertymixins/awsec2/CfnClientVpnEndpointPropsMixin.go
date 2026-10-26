@@ -38,6 +38,11 @@ import (
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
+//   	AuthorizationPolicy: &AuthorizationPolicyProperty{
+//   		Description: jsii.String("description"),
+//   		PolicyDocument: jsii.String("policyDocument"),
+//   		ShadowMode: jsii.String("shadowMode"),
+//   	},
 //   	ClientCidrBlock: jsii.String("clientCidrBlock"),
 //   	ClientConnectOptions: &ClientConnectOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
@@ -54,8 +59,19 @@ import (
 //   		CloudwatchLogGroup: jsii.String("cloudwatchLogGroup"),
 //   		CloudwatchLogStream: jsii.String("cloudwatchLogStream"),
 //   		Enabled: jsii.Boolean(false),
+//   		IncludeAuthorizationPolicyContext: jsii.Boolean(false),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DevicePostureOptions: &DevicePostureOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		TrustProviders: []interface{}{
+//   			&DevicePostureTrustProviderProperty{
+//   				PublicSigningKeyUrl: jsii.String("publicSigningKeyUrl"),
+//   				TenantId: jsii.String("tenantId"),
+//   				TrustProviderType: jsii.String("trustProviderType"),
+//   			},
+//   		},
+//   	},
 //   	DisconnectOnSessionTimeout: jsii.Boolean(false),
 //   	DnsServers: []*string{
 //   		jsii.String("dnsServers"),

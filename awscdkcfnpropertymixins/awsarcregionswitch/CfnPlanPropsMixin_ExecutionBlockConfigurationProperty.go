@@ -238,6 +238,34 @@ package awsarcregionswitch
 //   		},
 //   		TimeoutMinutes: jsii.Number(123),
 //   	},
+//   	SsmSendCommandConfig: &SsmSendCommandConfigurationProperty{
+//   		RegionDocuments: map[string]interface{}{
+//   			"regionDocumentsKey": &SsmDocumentConfigProperty{
+//   				"crossAccountRole": jsii.String("crossAccountRole"),
+//   				"documentArn": jsii.String("documentArn"),
+//   				"documentVersion": jsii.String("documentVersion"),
+//   				"externalId": jsii.String("externalId"),
+//   				"parameters": map[string][]*string{
+//   					"parametersKey": []*string{
+//   						jsii.String("parameters"),
+//   					},
+//   				},
+//   				"targets": []interface{}{
+//   					&SsmTargetProperty{
+//   						"key": jsii.String("key"),
+//   						"values": []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		RetryIntervalMinutes: jsii.Number(123),
+//   		TimeoutMinutes: jsii.Number(123),
+//   		Ungraceful: &SsmSendCommandUngracefulProperty{
+//   			Behavior: jsii.String("behavior"),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html
@@ -307,5 +335,8 @@ type CfnPlanPropsMixin_ExecutionBlockConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-route53healthcheckconfig
 	//
 	Route53HealthCheckConfig interface{} `field:"optional" json:"route53HealthCheckConfig" yaml:"route53HealthCheckConfig"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblockconfiguration.html#cfn-arcregionswitch-plan-executionblockconfiguration-ssmsendcommandconfig
+	//
+	SsmSendCommandConfig interface{} `field:"optional" json:"ssmSendCommandConfig" yaml:"ssmSendCommandConfig"`
 }
 

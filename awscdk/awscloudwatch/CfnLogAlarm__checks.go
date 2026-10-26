@@ -228,6 +228,30 @@ func validateCfnLogAlarm_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnLogAlarm) validateSetActionConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnLogAlarm_ActionConfigurationProperty:
+		val := val.(*CfnLogAlarm_ActionConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnLogAlarm_ActionConfigurationProperty:
+		val_ := val.(CfnLogAlarm_ActionConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnLogAlarm_ActionConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnLogAlarm) validateSetActionsEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

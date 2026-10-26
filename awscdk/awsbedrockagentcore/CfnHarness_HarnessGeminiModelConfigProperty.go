@@ -6,11 +6,14 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var additionalParams interface{}
+//
 //   harnessGeminiModelConfigProperty := &HarnessGeminiModelConfigProperty{
 //   	ApiKeyArn: jsii.String("apiKeyArn"),
 //   	ModelId: jsii.String("modelId"),
 //
 //   	// the properties below are optional
+//   	AdditionalParams: additionalParams,
 //   	MaxTokens: jsii.Number(123),
 //   	Temperature: jsii.Number(123),
 //   	TopK: jsii.Number(123),
@@ -26,6 +29,10 @@ type CfnHarness_HarnessGeminiModelConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessgeminimodelconfig.html#cfn-bedrockagentcore-harness-harnessgeminimodelconfig-modelid
 	//
 	ModelId *string `field:"required" json:"modelId" yaml:"modelId"`
+	// Provider-specific parameters passed through to the Gemini model provider unchanged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessgeminimodelconfig.html#cfn-bedrockagentcore-harness-harnessgeminimodelconfig-additionalparams
+	//
+	AdditionalParams interface{} `field:"optional" json:"additionalParams" yaml:"additionalParams"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessgeminimodelconfig.html#cfn-bedrockagentcore-harness-harnessgeminimodelconfig-maxtokens
 	//
 	MaxTokens *float64 `field:"optional" json:"maxTokens" yaml:"maxTokens"`

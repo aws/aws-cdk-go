@@ -24,10 +24,21 @@ import (
 //   	TenantName: jsii.String("tenantName"),
 //
 //   	// the properties below are optional
+//   	ReputationEntity: &ReputationEntityProperty{
+//   		Policy: &ReputationPolicyProperty{
+//   			ReputationEntityPolicy: jsii.String("reputationEntityPolicy"),
+//   		},
+//   	},
 //   	ResourceAssociations: []interface{}{
 //   		&ResourceAssociationProperty{
 //   			ResourceArn: jsii.String("resourceArn"),
 //   		},
+//   	},
+//   	SuppressionAttributes: &TenantSuppressionAttributesProperty{
+//   		SuppressedReasons: []*string{
+//   			jsii.String("suppressedReasons"),
+//   		},
+//   		SuppressionScope: jsii.String("suppressionScope"),
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -76,6 +87,9 @@ type CfnTenant interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The reputation configuration for the tenant.
+	ReputationEntity() interface{}
+	SetReputationEntity(val interface{})
 	// The list of resources to associate with the tenant.
 	ResourceAssociations() interface{}
 	SetResourceAssociations(val interface{})
@@ -83,6 +97,9 @@ type CfnTenant interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The suppression attributes for the tenant.
+	SuppressionAttributes() interface{}
+	SetSuppressionAttributes(val interface{})
 	// An array of objects that define the tags (keys and values) associated with the tenant.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -385,6 +402,16 @@ func (j *jsiiProxy_CfnTenant) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTenant) ReputationEntity() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"reputationEntity",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTenant) ResourceAssociations() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -400,6 +427,16 @@ func (j *jsiiProxy_CfnTenant) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTenant) SuppressionAttributes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"suppressionAttributes",
 		&returns,
 	)
 	return returns
@@ -485,6 +522,17 @@ func NewCfnTenant_Override(c CfnTenant, scope constructs.Construct, id *string, 
 	)
 }
 
+func (j *jsiiProxy_CfnTenant)SetReputationEntity(val interface{}) {
+	if err := j.validateSetReputationEntityParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"reputationEntity",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTenant)SetResourceAssociations(val interface{}) {
 	if err := j.validateSetResourceAssociationsParameters(val); err != nil {
 		panic(err)
@@ -492,6 +540,17 @@ func (j *jsiiProxy_CfnTenant)SetResourceAssociations(val interface{}) {
 	_jsii_.Set(
 		j,
 		"resourceAssociations",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTenant)SetSuppressionAttributes(val interface{}) {
+	if err := j.validateSetSuppressionAttributesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"suppressionAttributes",
 		val,
 	)
 }

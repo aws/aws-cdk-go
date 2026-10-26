@@ -1,6 +1,8 @@
 package awsmedialive
 
 
+// Configures the sources for the SMPTE 2110 Receiver Group input.
+//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
@@ -34,6 +36,7 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-smpte2110receivergroupsettings.html
 //
 type CfnInputPropsMixin_Smpte2110ReceiverGroupSettingsProperty struct {
+	// Placeholder documentation for __listOfSmpte2110ReceiverGroup.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-smpte2110receivergroupsettings.html#cfn-medialive-input-smpte2110receivergroupsettings-smpte2110receivergroups
 	//
 	Smpte2110ReceiverGroups interface{} `field:"optional" json:"smpte2110ReceiverGroups" yaml:"smpte2110ReceiverGroups"`

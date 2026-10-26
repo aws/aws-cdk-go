@@ -4,26 +4,17 @@ package awscloudfront
 // Properties for creating a Lambda Function URL Origin Access Control resource.
 //
 // Example:
-//   import lambda "github.com/aws/aws-cdk-go/awscdk"
-//   var fn Function
+//   var regionalEndpointDomainName string
 //
 //
-//   fnUrl := fn.AddFunctionUrl(&FunctionUrlOptions{
-//   	AuthType: lambda.FunctionUrlAuthType_AWS_IAM,
+//   oac := cloudfront.NewFunctionUrlOriginAccessControl(this, jsii.String("WebFunctionOAC"), &FunctionUrlOriginAccessControlProps{
+//   	Signing: cloudfront.Signing_SIGV4_ALWAYS_AMZ_AUTH(),
 //   })
 //
-//   // Define a custom OAC
-//   oac := cloudfront.NewFunctionUrlOriginAccessControl(this, jsii.String("MyOAC"), &FunctionUrlOriginAccessControlProps{
-//   	OriginAccessControlName: jsii.String("CustomLambdaOAC"),
-//   	Signing: cloudfront.Signing_SIGV4_ALWAYS(),
-//   })
-//
-//   // Set up Lambda Function URL with OAC in CloudFront Distribution
-//   // Set up Lambda Function URL with OAC in CloudFront Distribution
 //   cloudfront.NewDistribution(this, jsii.String("MyDistribution"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.FunctionUrlOrigin_WithOriginAccessControl(fnUrl, &FunctionUrlOriginWithOACProps{
-//   			OriginAccessControl: oac,
+//   		Origin: origins.NewHttpOrigin(regionalEndpointDomainName, &HttpOriginProps{
+//   			OriginAccessControlId: oac.OriginAccessControlId,
 //   		}),
 //   	},
 //   })

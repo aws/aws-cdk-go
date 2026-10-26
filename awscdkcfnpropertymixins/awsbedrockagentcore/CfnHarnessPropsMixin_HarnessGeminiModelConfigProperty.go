@@ -6,7 +6,10 @@ package awsbedrockagentcore
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var additionalParams interface{}
+//
 //   harnessGeminiModelConfigProperty := &HarnessGeminiModelConfigProperty{
+//   	AdditionalParams: additionalParams,
 //   	ApiKeyArn: jsii.String("apiKeyArn"),
 //   	MaxTokens: jsii.Number(123),
 //   	ModelId: jsii.String("modelId"),
@@ -18,6 +21,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessgeminimodelconfig.html
 //
 type CfnHarnessPropsMixin_HarnessGeminiModelConfigProperty struct {
+	// Provider-specific parameters passed through to the Gemini model provider unchanged.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessgeminimodelconfig.html#cfn-bedrockagentcore-harness-harnessgeminimodelconfig-additionalparams
+	//
+	AdditionalParams interface{} `field:"optional" json:"additionalParams" yaml:"additionalParams"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessgeminimodelconfig.html#cfn-bedrockagentcore-harness-harnessgeminimodelconfig-apikeyarn
 	//
 	ApiKeyArn *string `field:"optional" json:"apiKeyArn" yaml:"apiKeyArn"`

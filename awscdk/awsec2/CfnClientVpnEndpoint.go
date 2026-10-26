@@ -46,10 +46,18 @@ import (
 //   		// the properties below are optional
 //   		CloudwatchLogGroup: jsii.String("cloudwatchLogGroup"),
 //   		CloudwatchLogStream: jsii.String("cloudwatchLogStream"),
+//   		IncludeAuthorizationPolicyContext: jsii.Boolean(false),
 //   	},
 //   	ServerCertificateArn: jsii.String("serverCertificateArn"),
 //
 //   	// the properties below are optional
+//   	AuthorizationPolicy: &AuthorizationPolicyProperty{
+//   		PolicyDocument: jsii.String("policyDocument"),
+//
+//   		// the properties below are optional
+//   		Description: jsii.String("description"),
+//   		ShadowMode: jsii.String("shadowMode"),
+//   	},
 //   	ClientCidrBlock: jsii.String("clientCidrBlock"),
 //   	ClientConnectOptions: &ClientConnectOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
@@ -67,6 +75,18 @@ import (
 //   		Enforced: jsii.Boolean(false),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DevicePostureOptions: &DevicePostureOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		TrustProviders: []interface{}{
+//   			&DevicePostureTrustProviderProperty{
+//   				TenantId: jsii.String("tenantId"),
+//   				TrustProviderType: jsii.String("trustProviderType"),
+//
+//   				// the properties below are optional
+//   				PublicSigningKeyUrl: jsii.String("publicSigningKeyUrl"),
+//   			},
+//   		},
+//   	},
 //   	DisconnectOnSessionTimeout: jsii.Boolean(false),
 //   	DnsServers: []*string{
 //   		jsii.String("dnsServers"),
@@ -116,6 +136,8 @@ type CfnClientVpnEndpoint interface {
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions() interface{}
 	SetAuthenticationOptions(val interface{})
+	AuthorizationPolicy() interface{}
+	SetAuthorizationPolicy(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -146,6 +168,8 @@ type CfnClientVpnEndpoint interface {
 	// A brief description of the Client VPN endpoint.
 	Description() *string
 	SetDescription(val *string)
+	DevicePostureOptions() interface{}
+	SetDevicePostureOptions(val interface{})
 	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached.
 	DisconnectOnSessionTimeout() interface{}
 	SetDisconnectOnSessionTimeout(val interface{})
@@ -412,6 +436,16 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) AuthenticationOptions() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) AuthorizationPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"authorizationPolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -527,6 +561,16 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint) DevicePostureOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"devicePostureOptions",
 		&returns,
 	)
 	return returns
@@ -783,6 +827,17 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetAuthenticationOptions(val interface{}
 	)
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetAuthorizationPolicy(val interface{}) {
+	if err := j.validateSetAuthorizationPolicyParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"authorizationPolicy",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint)SetClientCidrBlock(val *string) {
 	_jsii_.Set(
 		j,
@@ -839,6 +894,17 @@ func (j *jsiiProxy_CfnClientVpnEndpoint)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint)SetDevicePostureOptions(val interface{}) {
+	if err := j.validateSetDevicePostureOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"devicePostureOptions",
 		val,
 	)
 }

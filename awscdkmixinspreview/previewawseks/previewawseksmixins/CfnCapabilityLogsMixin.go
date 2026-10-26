@@ -158,6 +158,17 @@ func CfnCapabilityLogsMixin_EKS_CAPABILITY_ARGOCD_COMMITSERVER_LOGS() CfnCapabil
 	return returns
 }
 
+func CfnCapabilityLogsMixin_EKS_CAPABILITY_ARGOCD_NOTIFICATION_LOGS() CfnCapabilityEksCapabilityArgocdNotificationLogs {
+	_init_.Initialize()
+	var returns CfnCapabilityEksCapabilityArgocdNotificationLogs
+	_jsii_.StaticGet(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityLogsMixin",
+		"EKS_CAPABILITY_ARGOCD_NOTIFICATION_LOGS",
+		&returns,
+	)
+	return returns
+}
+
 func CfnCapabilityLogsMixin_EKS_CAPABILITY_ARGOCD_REPOSERVER_LOGS() CfnCapabilityEksCapabilityArgocdReposerverLogs {
 	_init_.Initialize()
 	var returns CfnCapabilityEksCapabilityArgocdReposerverLogs

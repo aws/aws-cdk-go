@@ -112,6 +112,10 @@ func validateCfnCompositeAlarm_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCompositeAlarm) validateSetActionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCompositeAlarm) validateSetActionsEnabledParameters(val interface{}) error {
 	return nil
 }

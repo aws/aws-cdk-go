@@ -9,8 +9,8 @@ import (
 // Example:
 //   var pipeline CodePipeline
 //
-//   preprod := NewMyApplicationStage(this, jsii.String("PreProd"))
-//   prod := NewMyApplicationStage(this, jsii.String("Prod"))
+//   preprod := newMyApplicationStage(this, jsii.String("PreProd"))
+//   prod := newMyApplicationStage(this, jsii.String("Prod"))
 //   topic := sns.NewTopic(this, jsii.String("ChangeApprovalTopic"))
 //
 //   pipeline.AddStage(preprod, &AddStageOpts{

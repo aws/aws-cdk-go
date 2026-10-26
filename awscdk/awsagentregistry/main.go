@@ -38,6 +38,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customMetadataSchemaConfiguration", GoGetter: "CustomMetadataSchemaConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "discoveryConfiguration", GoGetter: "DiscoveryConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionConfiguration", GoGetter: "EncryptionConfiguration"},
@@ -99,12 +100,20 @@ func init() {
 		reflect.TypeOf((*CfnRegistry_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_agentregistry.CfnRegistry.CustomMetadataSchemaConfigurationProperty",
+		reflect.TypeOf((*CfnRegistry_CustomMetadataSchemaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_agentregistry.CfnRegistry.DiscoveryConfigurationProperty",
 		reflect.TypeOf((*CfnRegistry_DiscoveryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_agentregistry.CfnRegistry.EncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnRegistry_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_agentregistry.CfnRegistry.RecordTypeSchemaOverrideProperty",
+		reflect.TypeOf((*CfnRegistry_RecordTypeSchemaOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_agentregistry.CfnRegistryProps",
@@ -138,6 +147,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customMetadata", GoGetter: "CustomMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "descriptors", GoGetter: "Descriptors"},
 			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},

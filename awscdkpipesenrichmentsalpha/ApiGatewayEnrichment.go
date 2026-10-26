@@ -22,9 +22,9 @@ import (
 //   enrichment := enrichments.NewApiGatewayEnrichment(restApi)
 //
 //   pipe := pipes.NewPipe(this, jsii.String("Pipe"), &PipeProps{
-//   	Source: NewSomeSource(sourceQueue),
+//   	Source: newSomeSource(sourceQueue),
 //   	Enrichment: Enrichment,
-//   	Target: NewSomeTarget(targetQueue),
+//   	Target: newSomeTarget(targetQueue),
 //   })
 //
 // Experimental.

@@ -14,7 +14,7 @@ import (
 //
 // Example:
 //   // Applies an Aspect immediately as a Mixin
-//   versioningMixin := awscdk.Shims_AsMixin(NewEnableBucketVersioning())
+//   versioningMixin := awscdk.Shims_AsMixin(newEnableBucketVersioning())
 //   awscdk.Mixins_Of(scope).Apply(versioningMixin)
 //
 //   // Delays application of a Mixin to the synthesis phase

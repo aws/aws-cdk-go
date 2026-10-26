@@ -116,7 +116,7 @@ import (
 //   			},
 //   		},
 //   	},
-//   	ResourceTags: []interface{}{
+//   	ResourceTags: []ResourceTagProperty{
 //   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
 //   			Value: jsii.String("value"),

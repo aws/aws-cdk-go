@@ -136,3 +136,14 @@ func Signing_SIGV4A_ALWAYS() Signing {
 	return returns
 }
 
+func Signing_SIGV4A_ALWAYS_AMZ_AUTH() Signing {
+	_init_.Initialize()
+	var returns Signing
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.Signing",
+		"SIGV4A_ALWAYS_AMZ_AUTH",
+		&returns,
+	)
+	return returns
+}
+

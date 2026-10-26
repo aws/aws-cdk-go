@@ -13,6 +13,12 @@ package awsmediapackagev2
 //   	DrmSettings: jsii.String("drmSettings"),
 //   	End: jsii.String("end"),
 //   	ManifestFilter: jsii.String("manifestFilter"),
+//   	Multiview: &MultiviewFilterConfigurationProperty{
+//   		Layout: jsii.String("layout"),
+//   		Sources: []*string{
+//   			jsii.String("sources"),
+//   		},
+//   	},
 //   	Start: jsii.String("start"),
 //   	TimeDelaySeconds: jsii.Number(123),
 //   }
@@ -44,6 +50,12 @@ type CfnOriginEndpoint_FilterConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-manifestfilter
 	//
 	ManifestFilter *string `field:"optional" json:"manifestFilter" yaml:"manifestFilter"`
+	// <p>The multiview combination for a pinned manifest.
+	//
+	// MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html#cfn-mediapackagev2-originendpoint-filterconfiguration-multiview
+	//
+	Multiview interface{} `field:"optional" json:"multiview" yaml:"multiview"`
 	// Optionally specify the start time for all of your manifest egress requests.
 	//
 	// When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.

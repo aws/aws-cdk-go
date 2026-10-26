@@ -48,6 +48,7 @@ import (
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	NdiAudioReferenceLevel: jsii.Number(123),
 //   	NdiOutputTimecodeSource: jsii.String("ndiOutputTimecodeSource"),
 //   	NdiProgramName: jsii.String("ndiProgramName"),
 //   	NdiSpeedHqQuality: jsii.Number(123),
@@ -128,6 +129,10 @@ type CfnFlowOutputMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`
+	// The audio reference level of the NDI receiver, in dBFS.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-ndiaudioreferencelevel
+	//
+	NdiAudioReferenceLevel *float64 `field:"optional" json:"ndiAudioReferenceLevel" yaml:"ndiAudioReferenceLevel"`
 	// The timecode source for the NDI output.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-ndioutputtimecodesource
 	//

@@ -23,6 +23,9 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnFHIRDatastorePropsMixin := awscdkcfnpropertymixins.Aws_healthlake.NewCfnFHIRDatastorePropsMixin(&CfnFHIRDatastoreMixinProps{
+//   	AnalyticsConfiguration: &AnalyticsConfigurationProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	DatastoreName: jsii.String("datastoreName"),
 //   	DatastoreTypeVersion: jsii.String("datastoreTypeVersion"),
 //   	IdentityProviderConfiguration: &IdentityProviderConfigurationProperty{
@@ -31,8 +34,16 @@ import (
 //   		IdpLambdaArn: jsii.String("idpLambdaArn"),
 //   		Metadata: jsii.String("metadata"),
 //   	},
+//   	NlpConfiguration: &NlpConfigurationProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	PreloadDataConfig: &PreloadDataConfigProperty{
 //   		PreloadDataType: jsii.String("preloadDataType"),
+//   	},
+//   	ProfileConfiguration: &ProfileConfigurationProperty{
+//   		DefaultProfiles: []*string{
+//   			jsii.String("defaultProfiles"),
+//   		},
 //   	},
 //   	SseConfiguration: &SseConfigurationProperty{
 //   		KmsEncryptionConfig: &KmsEncryptionConfigProperty{

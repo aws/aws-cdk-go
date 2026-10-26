@@ -121,6 +121,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencyDiscovery", GoGetter: "DependencyDiscovery"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "devOpsAgentConfiguration", GoGetter: "DevOpsAgentConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
@@ -171,6 +172,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_resiliencehubv2.CfnService.CrossAccountRoleConfigurationProperty",
 		reflect.TypeOf((*CfnService_CrossAccountRoleConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_resiliencehubv2.CfnService.DevOpsAgentConfigurationProperty",
+		reflect.TypeOf((*CfnService_DevOpsAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_resiliencehubv2.CfnService.DisasterRecoverySourceProperty",

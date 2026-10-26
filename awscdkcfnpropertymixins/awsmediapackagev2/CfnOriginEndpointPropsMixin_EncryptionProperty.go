@@ -19,6 +19,9 @@ package awsmediapackagev2
 //   	KeyRotationIntervalSeconds: jsii.Number(123),
 //   	SpekeKeyProvider: &SpekeKeyProviderProperty{
 //   		CertificateArn: jsii.String("certificateArn"),
+//   		ContentKeyPeriodConfiguration: &ContentKeyPeriodConfigurationProperty{
+//   			ContentKeyPeriodTiming: jsii.String("contentKeyPeriodTiming"),
+//   		},
 //   		DrmSystems: []*string{
 //   			jsii.String("drmSystems"),
 //   		},
@@ -28,6 +31,7 @@ package awsmediapackagev2
 //   		},
 //   		ResourceId: jsii.String("resourceId"),
 //   		RoleArn: jsii.String("roleArn"),
+//   		SpekeVersion: jsii.String("spekeVersion"),
 //   		Url: jsii.String("url"),
 //   	},
 //   }

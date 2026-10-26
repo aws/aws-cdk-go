@@ -9,6 +9,7 @@ package awsroute53
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnHostedZoneProps := &CfnHostedZoneProps{
+//   	DelegationSetId: jsii.String("delegationSetId"),
 //   	HostedZoneConfig: &HostedZoneConfigProperty{
 //   		Comment: jsii.String("comment"),
 //   	},
@@ -36,6 +37,9 @@ package awsroute53
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
 //
 type CfnHostedZoneProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-delegationsetid
+	//
+	DelegationSetId *string `field:"optional" json:"delegationSetId" yaml:"delegationSetId"`
 	// A complex type that contains an optional comment.
 	//
 	// If you don't want to specify a comment, omit the `HostedZoneConfig` and `Comment` elements.

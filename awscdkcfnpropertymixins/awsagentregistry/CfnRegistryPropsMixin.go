@@ -29,6 +29,15 @@ import (
 //   	AuthorizerType: jsii.String("authorizerType"),
 //   	AutoDetectionEnabled: jsii.Boolean(false),
 //   	AutoDetectionScope: jsii.String("autoDetectionScope"),
+//   	CustomMetadataSchemaConfiguration: &CustomMetadataSchemaConfigurationProperty{
+//   		DefaultSchema: jsii.String("defaultSchema"),
+//   		RecordTypeSchemaOverrides: []interface{}{
+//   			&RecordTypeSchemaOverrideProperty{
+//   				RecordType: jsii.String("recordType"),
+//   				Schema: jsii.String("schema"),
+//   			},
+//   		},
+//   	},
 //   	Description: jsii.String("description"),
 //   	DiscoveryConfiguration: &DiscoveryConfigurationProperty{
 //   		AuthorizerConfiguration: &AuthorizerConfigurationProperty{

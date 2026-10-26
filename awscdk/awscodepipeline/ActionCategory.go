@@ -3,11 +3,11 @@ package awscodepipeline
 
 // Example:
 //   // MyAction is some action type that produces variables, like EcrSourceAction
-//   myAction := NewMyAction(&myActionProps{
+//   myAction := newMyAction(&myActionProps{
 //   	// ...
 //   	actionName: jsii.String("myAction"),
 //   })
-//   NewOtherAction(&otherActionProps{
+//   newOtherAction(&otherActionProps{
 //   	// ...
 //   	config: myAction.variables.myVariable,
 //   	actionName: jsii.String("otherAction"),

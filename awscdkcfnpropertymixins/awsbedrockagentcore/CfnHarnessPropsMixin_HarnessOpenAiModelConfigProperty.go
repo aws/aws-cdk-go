@@ -10,6 +10,7 @@ package awsbedrockagentcore
 //
 //   harnessOpenAiModelConfigProperty := &HarnessOpenAiModelConfigProperty{
 //   	AdditionalParams: additionalParams,
+//   	ApiBase: jsii.String("apiBase"),
 //   	ApiFormat: jsii.String("apiFormat"),
 //   	ApiKeyArn: jsii.String("apiKeyArn"),
 //   	MaxTokens: jsii.Number(123),
@@ -25,6 +26,10 @@ type CfnHarnessPropsMixin_HarnessOpenAiModelConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessopenaimodelconfig.html#cfn-bedrockagentcore-harness-harnessopenaimodelconfig-additionalparams
 	//
 	AdditionalParams interface{} `field:"optional" json:"additionalParams" yaml:"additionalParams"`
+	// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessopenaimodelconfig.html#cfn-bedrockagentcore-harness-harnessopenaimodelconfig-apibase
+	//
+	ApiBase *string `field:"optional" json:"apiBase" yaml:"apiBase"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessopenaimodelconfig.html#cfn-bedrockagentcore-harness-harnessopenaimodelconfig-apiformat
 	//
 	ApiFormat *string `field:"optional" json:"apiFormat" yaml:"apiFormat"`

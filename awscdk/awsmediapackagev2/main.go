@@ -289,6 +289,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.ContentKeyPeriodConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_ContentKeyPeriodConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.DashAvailabilityStartTimeConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_DashAvailabilityStartTimeConfigurationProperty)(nil)).Elem(),
 	)
@@ -353,12 +357,24 @@ func init() {
 		reflect.TypeOf((*CfnOriginEndpoint_HlsManifestConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.LowLatencyHlsFilterConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_LowLatencyHlsFilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.LowLatencyHlsManifestConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_LowLatencyHlsManifestConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.MssFilterConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_MssFilterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.MssManifestConfigurationProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_MssManifestConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.MultiviewFilterConfigurationProperty",
+		reflect.TypeOf((*CfnOriginEndpoint_MultiviewFilterConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediapackagev2.CfnOriginEndpoint.ScteDashProperty",

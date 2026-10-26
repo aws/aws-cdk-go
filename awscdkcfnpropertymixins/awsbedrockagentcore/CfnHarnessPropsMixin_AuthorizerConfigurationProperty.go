@@ -8,6 +8,9 @@ package awsbedrockagentcore
 //
 //   authorizerConfigurationProperty := &AuthorizerConfigurationProperty{
 //   	CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
+//   		AdvertisedScopeMapping: map[string]*string{
+//   			"advertisedScopeMappingKey": jsii.String("advertisedScopeMapping"),
+//   		},
 //   		AllowedAudience: []*string{
 //   			jsii.String("allowedAudience"),
 //   		},

@@ -58,6 +58,42 @@ package awsconnect
 //   			Name: jsii.String("name"),
 //   		},
 //   	},
+//   	SendInAppNotificationActions: []interface{}{
+//   		&SendInAppNotificationActionProperty{
+//   			Content: &NotificationContentProperty{
+//   				DeDe: jsii.String("deDe"),
+//   				EnUs: jsii.String("enUs"),
+//   				EsEs: jsii.String("esEs"),
+//   				FrFr: jsii.String("frFr"),
+//   				IdId: jsii.String("idId"),
+//   				ItIt: jsii.String("itIt"),
+//   				JaJp: jsii.String("jaJp"),
+//   				KoKr: jsii.String("koKr"),
+//   				PtBr: jsii.String("ptBr"),
+//   				ZhCn: jsii.String("zhCn"),
+//   				ZhTw: jsii.String("zhTw"),
+//   			},
+//   			Recipient: &InAppNotificationRecipientTypeProperty{
+//   				UserArns: []*string{
+//   					jsii.String("userArns"),
+//   				},
+//   				UserTags: map[string]*string{
+//   					"userTagsKey": jsii.String("userTags"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			Exclusion: &InAppNotificationRecipientTypeProperty{
+//   				UserArns: []*string{
+//   					jsii.String("userArns"),
+//   				},
+//   				UserTags: map[string]*string{
+//   					"userTagsKey": jsii.String("userTags"),
+//   				},
+//   			},
+//   			Priority: jsii.String("priority"),
+//   		},
+//   	},
 //   	SendNotificationActions: []interface{}{
 //   		&SendNotificationActionProperty{
 //   			Content: jsii.String("content"),
@@ -146,6 +182,10 @@ type CfnRule_ActionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-eventbridgeactions
 	//
 	EventBridgeActions interface{} `field:"optional" json:"eventBridgeActions" yaml:"eventBridgeActions"`
+	// This action will send an in-app notification when a rule is triggered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-sendinappnotificationactions
+	//
+	SendInAppNotificationActions interface{} `field:"optional" json:"sendInAppNotificationActions" yaml:"sendInAppNotificationActions"`
 	// Information about the send notification action.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html#cfn-connect-rule-actions-sendnotificationactions
 	//

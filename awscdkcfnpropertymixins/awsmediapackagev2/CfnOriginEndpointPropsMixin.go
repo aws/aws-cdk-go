@@ -58,6 +58,12 @@ import (
 //   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Multiview: &MultiviewFilterConfigurationProperty{
+//   					Layout: jsii.String("layout"),
+//   					Sources: []*string{
+//   						jsii.String("sources"),
+//   					},
+//   				},
 //   				Start: jsii.String("start"),
 //   				TimeDelaySeconds: jsii.Number(123),
 //   			},
@@ -110,6 +116,12 @@ import (
 //   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Multiview: &MultiviewFilterConfigurationProperty{
+//   					Layout: jsii.String("layout"),
+//   					Sources: []*string{
+//   						jsii.String("sources"),
+//   					},
+//   				},
 //   				Start: jsii.String("start"),
 //   				TimeDelaySeconds: jsii.Number(123),
 //   			},
@@ -132,7 +144,7 @@ import (
 //   	LowLatencyHlsManifests: []interface{}{
 //   		&LowLatencyHlsManifestConfigurationProperty{
 //   			ChildManifestName: jsii.String("childManifestName"),
-//   			FilterConfiguration: &FilterConfigurationProperty{
+//   			FilterConfiguration: &LowLatencyHlsFilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
 //   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
@@ -158,7 +170,7 @@ import (
 //   	},
 //   	MssManifests: []interface{}{
 //   		&MssManifestConfigurationProperty{
-//   			FilterConfiguration: &FilterConfigurationProperty{
+//   			FilterConfiguration: &MssFilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
 //   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
@@ -184,6 +196,9 @@ import (
 //   			KeyRotationIntervalSeconds: jsii.Number(123),
 //   			SpekeKeyProvider: &SpekeKeyProviderProperty{
 //   				CertificateArn: jsii.String("certificateArn"),
+//   				ContentKeyPeriodConfiguration: &ContentKeyPeriodConfigurationProperty{
+//   					ContentKeyPeriodTiming: jsii.String("contentKeyPeriodTiming"),
+//   				},
 //   				DrmSystems: []*string{
 //   					jsii.String("drmSystems"),
 //   				},
@@ -193,6 +208,7 @@ import (
 //   				},
 //   				ResourceId: jsii.String("resourceId"),
 //   				RoleArn: jsii.String("roleArn"),
+//   				SpekeVersion: jsii.String("spekeVersion"),
 //   				Url: jsii.String("url"),
 //   			},
 //   		},

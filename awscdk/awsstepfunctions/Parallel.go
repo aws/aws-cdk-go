@@ -50,11 +50,11 @@ import (
 //   	this := &myStack{}
 //   	newStack_Override(this, scope, id)
 //   	// Do 3 different variants of MyJob in parallel
-//   	parallel := sfn.NewParallel(this, jsii.String("All jobs")).Branch(NewMyJob(this, jsii.String("Quick"), &myJobProps{
+//   	parallel := sfn.NewParallel(this, jsii.String("All jobs")).Branch(newMyJob(this, jsii.String("Quick"), &myJobProps{
 //   		jobFlavor: jsii.String("quick"),
-//   	}).PrefixStates()).Branch(NewMyJob(this, jsii.String("Medium"), &myJobProps{
+//   	}).PrefixStates()).Branch(newMyJob(this, jsii.String("Medium"), &myJobProps{
 //   		jobFlavor: jsii.String("medium"),
-//   	}).PrefixStates()).Branch(NewMyJob(this, jsii.String("Slow"), &myJobProps{
+//   	}).PrefixStates()).Branch(newMyJob(this, jsii.String("Slow"), &myJobProps{
 //   		jobFlavor: jsii.String("slow"),
 //   	}).PrefixStates())
 //

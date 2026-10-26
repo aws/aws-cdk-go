@@ -20,6 +20,9 @@ package awsbedrockagentcore
 //   			AdditionalModelRequestFields: additionalModelRequestFields,
 //   			InferenceConfig: &InferenceConfigurationProperty{
 //   				MaxTokens: jsii.Number(123),
+//   				StopSequences: []*string{
+//   					jsii.String("stopSequences"),
+//   				},
 //   				Temperature: jsii.Number(123),
 //   				TopP: jsii.Number(123),
 //   			},
@@ -41,6 +44,27 @@ package awsbedrockagentcore
 //   			&CategoricalScaleDefinitionProperty{
 //   				Definition: jsii.String("definition"),
 //   				Label: jsii.String("label"),
+//   			},
+//   		},
+//   		MultiDimensional: []interface{}{
+//   			&EvaluationDimensionProperty{
+//   				DimensionInstruction: jsii.String("dimensionInstruction"),
+//   				DimensionName: jsii.String("dimensionName"),
+//   				DimensionRatingScale: &DimensionRatingScaleProperty{
+//   					Categorical: []interface{}{
+//   						&CategoricalScaleDefinitionProperty{
+//   							Definition: jsii.String("definition"),
+//   							Label: jsii.String("label"),
+//   						},
+//   					},
+//   					Numerical: []interface{}{
+//   						&NumericalScaleDefinitionProperty{
+//   							Definition: jsii.String("definition"),
+//   							Label: jsii.String("label"),
+//   							Value: jsii.Number(123),
+//   						},
+//   					},
+//   				},
 //   			},
 //   		},
 //   		Numerical: []interface{}{

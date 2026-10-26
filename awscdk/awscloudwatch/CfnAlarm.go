@@ -25,6 +25,19 @@ import (
 //   var slidingWindow interface{}
 //
 //   cfnAlarm := awscdk.Aws_cloudwatch.NewCfnAlarm(this, jsii.String("MyCfnAlarm"), &CfnAlarmProps{
+//   	ActionConfiguration: &ActionConfigurationProperty{
+//   		AlarmTagsPropagation: &AlarmTagsPropagationProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			ExcludedTagKeys: []*string{
+//   				jsii.String("excludedTagKeys"),
+//   			},
+//   			IncludedTagKeys: []*string{
+//   				jsii.String("includedTagKeys"),
+//   			},
+//   		},
+//   	},
 //   	ActionsEnabled: jsii.Boolean(false),
 //   	AlarmActions: []interface{}{
 //   		jsii.String("alarmActions"),
@@ -118,6 +131,8 @@ type CfnAlarm interface {
 	awscdk.IInspectable
 	interfacesawscloudwatch.IAlarmRef
 	awscdk.ITaggableV2
+	ActionConfiguration() interface{}
+	SetActionConfiguration(val interface{})
 	// Indicates whether actions should be executed during any changes to the alarm state.
 	ActionsEnabled() interface{}
 	SetActionsEnabled(val interface{})
@@ -420,6 +435,16 @@ type jsiiProxy_CfnAlarm struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawscloudwatchIAlarmRef
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnAlarm) ActionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"actionConfiguration",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAlarm) ActionsEnabled() interface{} {
@@ -859,6 +884,17 @@ func NewCfnAlarm_Override(c CfnAlarm, scope constructs.Construct, id *string, pr
 		"aws-cdk-lib.aws_cloudwatch.CfnAlarm",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnAlarm)SetActionConfiguration(val interface{}) {
+	if err := j.validateSetActionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"actionConfiguration",
+		val,
 	)
 }
 

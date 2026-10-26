@@ -52,12 +52,20 @@ func init() {
 		reflect.TypeOf((*CfnRegistryPropsMixin_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_agentregistry.CfnRegistryPropsMixin.CustomMetadataSchemaConfigurationProperty",
+		reflect.TypeOf((*CfnRegistryPropsMixin_CustomMetadataSchemaConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_agentregistry.CfnRegistryPropsMixin.DiscoveryConfigurationProperty",
 		reflect.TypeOf((*CfnRegistryPropsMixin_DiscoveryConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_agentregistry.CfnRegistryPropsMixin.EncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnRegistryPropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_agentregistry.CfnRegistryPropsMixin.RecordTypeSchemaOverrideProperty",
+		reflect.TypeOf((*CfnRegistryPropsMixin_RecordTypeSchemaOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_agentregistry.CfnRegistryRecordMixinProps",

@@ -7,21 +7,25 @@ import (
 // Options for creating a new behavior.
 //
 // Example:
-//   var s3Bucket Bucket
-//   // Add a cloudfront Function to a Distribution
-//   cfFunction := cloudfront.NewFunction(this, jsii.String("Function"), &FunctionProps{
-//   	Code: cloudfront.FunctionCode_FromInline(jsii.String("function handler(event) { return event.request }")),
-//   	Runtime: cloudfront.FunctionRuntime_JS_2_0(),
+//   // Creates a distribution from a Network Load Balancer
+//   var vpc Vpc
+//
+//   // Create a network load balancer in a VPC. 'internetFacing' can be 'false'.
+//   nlb := elbv2.NewNetworkLoadBalancer(this, jsii.String("NLB"), &NetworkLoadBalancerProps{
+//   	Vpc: Vpc,
+//   	InternetFacing: jsii.Boolean(false),
+//   	VpcSubnets: &SubnetSelection{
+//   		SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+//   	},
+//   	SecurityGroups: []ISecurityGroup{
+//   		ec2.NewSecurityGroup(this, jsii.String("NLB-SG"), &SecurityGroupProps{
+//   			Vpc: *Vpc,
+//   		}),
+//   	},
 //   })
-//   cloudfront.NewDistribution(this, jsii.String("distro"), &DistributionProps{
+//   cloudfront.NewDistribution(this, jsii.String("myDist"), &DistributionProps{
 //   	DefaultBehavior: &BehaviorOptions{
-//   		Origin: origins.NewS3Origin(s3Bucket),
-//   		FunctionAssociations: []FunctionAssociation{
-//   			&FunctionAssociation{
-//   				Function: cfFunction,
-//   				EventType: cloudfront.FunctionEventType_VIEWER_REQUEST,
-//   			},
-//   		},
+//   		Origin: origins.VpcOrigin_WithNetworkLoadBalancer(nlb),
 //   	},
 //   })
 //

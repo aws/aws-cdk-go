@@ -780,8 +780,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnTenantPropsMixin.ReputationEntityProperty",
+		reflect.TypeOf((*CfnTenantPropsMixin_ReputationEntityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnTenantPropsMixin.ReputationPolicyProperty",
+		reflect.TypeOf((*CfnTenantPropsMixin_ReputationPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ses.CfnTenantPropsMixin.ResourceAssociationProperty",
 		reflect.TypeOf((*CfnTenantPropsMixin_ResourceAssociationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ses.CfnTenantPropsMixin.TenantSuppressionAttributesProperty",
+		reflect.TypeOf((*CfnTenantPropsMixin_TenantSuppressionAttributesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ses.CfnVdmAttributesMixinProps",

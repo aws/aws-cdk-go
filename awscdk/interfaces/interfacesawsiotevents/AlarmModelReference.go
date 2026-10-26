@@ -9,11 +9,11 @@ package interfacesawsiotevents
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   alarmModelReference := &AlarmModelReference{
-//   	AlarmModelName: jsii.String("alarmModelName"),
+//   	AlarmModelId: jsii.String("alarmModelId"),
 //   }
 //
 type AlarmModelReference struct {
-	// The AlarmModelName of the AlarmModel resource.
-	AlarmModelName *string `field:"required" json:"alarmModelName" yaml:"alarmModelName"`
+	// The Id of the AlarmModel resource.
+	AlarmModelId *string `field:"required" json:"alarmModelId" yaml:"alarmModelId"`
 }
 

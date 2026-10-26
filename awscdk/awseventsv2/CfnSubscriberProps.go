@@ -13,6 +13,97 @@ import (
 //
 //   cfnSubscriberProps := &CfnSubscriberProps{
 //   	EventBusArn: jsii.String("eventBusArn"),
+//   	InvokeConfiguration: &InvokeConfigurationProperty{
+//   		RoleArn: jsii.String("roleArn"),
+//   		TargetArn: jsii.String("targetArn"),
+//
+//   		// the properties below are optional
+//   		EventBusV2Parameters: &EventBusV2ParametersProperty{
+//   			DeduplicationConfiguration: &DeduplicationConfigurationProperty{
+//   				DeduplicationType: jsii.String("deduplicationType"),
+//   			},
+//   			Metadata: map[string]*string{
+//   				"metadataKey": jsii.String("metadata"),
+//   			},
+//   			SystemMetadata: &EventBusV2SystemMetadataProperty{
+//   				DeduplicationId: jsii.String("deduplicationId"),
+//   				EventGroupId: jsii.String("eventGroupId"),
+//   			},
+//   		},
+//   		HttpParameters: &HttpParametersProperty{
+//   			HeaderParameters: map[string]*string{
+//   				"headerParametersKey": jsii.String("headerParameters"),
+//   			},
+//   			InvocationTimeoutSeconds: jsii.String("invocationTimeoutSeconds"),
+//   			PathParameterValues: []*string{
+//   				jsii.String("pathParameterValues"),
+//   			},
+//   			QueryStringParameters: map[string]*string{
+//   				"queryStringParametersKey": jsii.String("queryStringParameters"),
+//   			},
+//   		},
+//   		KinesisParameters: &KinesisParametersProperty{
+//   			ExplicitHashKey: jsii.String("explicitHashKey"),
+//   			PartitionKey: jsii.String("partitionKey"),
+//   		},
+//   		LambdaParameters: &LambdaParametersProperty{
+//   			DurableExecutionName: jsii.String("durableExecutionName"),
+//   			InvocationTimeoutSeconds: jsii.String("invocationTimeoutSeconds"),
+//   			InvocationType: jsii.String("invocationType"),
+//   			Qualifier: jsii.String("qualifier"),
+//   			TenantId: jsii.String("tenantId"),
+//   		},
+//   		SnsParameters: &SnsParametersProperty{
+//   			MessageAttributes: map[string]interface{}{
+//   				"messageAttributesKey": &MessageAttributeValueProperty{
+//   					"dataType": jsii.String("dataType"),
+//
+//   					// the properties below are optional
+//   					"binaryValue": jsii.String("binaryValue"),
+//   					"stringValue": jsii.String("stringValue"),
+//   				},
+//   			},
+//   			MessageDeduplicationId: jsii.String("messageDeduplicationId"),
+//   			MessageGroupId: jsii.String("messageGroupId"),
+//   			MessageStructure: jsii.String("messageStructure"),
+//   			Subject: jsii.String("subject"),
+//   		},
+//   		SqsParameters: &SqsParametersProperty{
+//   			DelaySeconds: jsii.String("delaySeconds"),
+//   			MessageAttributes: map[string]interface{}{
+//   				"messageAttributesKey": &MessageAttributeValueProperty{
+//   					"dataType": jsii.String("dataType"),
+//
+//   					// the properties below are optional
+//   					"binaryValue": jsii.String("binaryValue"),
+//   					"stringValue": jsii.String("stringValue"),
+//   				},
+//   			},
+//   			MessageDeduplicationId: jsii.String("messageDeduplicationId"),
+//   			MessageGroupId: jsii.String("messageGroupId"),
+//   			MessageSystemAttributes: map[string]interface{}{
+//   				"messageSystemAttributesKey": &MessageAttributeValueProperty{
+//   					"dataType": jsii.String("dataType"),
+//
+//   					// the properties below are optional
+//   					"binaryValue": jsii.String("binaryValue"),
+//   					"stringValue": jsii.String("stringValue"),
+//   				},
+//   			},
+//   		},
+//   		StepFunctionsParameters: &StepFunctionsParametersProperty{
+//   			InvocationTimeoutSeconds: jsii.String("invocationTimeoutSeconds"),
+//   			InvocationType: jsii.String("invocationType"),
+//   			Name: jsii.String("name"),
+//   			TraceHeader: jsii.String("traceHeader"),
+//   		},
+//   		UniversalTargetParameters: &UniversalTargetParametersProperty{
+//   			Input: jsii.String("input"),
+//
+//   			// the properties below are optional
+//   			InvocationTimeoutSeconds: jsii.String("invocationTimeoutSeconds"),
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //
 //   	// the properties below are optional
@@ -76,6 +167,12 @@ type CfnSubscriberProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventsv2-subscriber.html#cfn-eventsv2-subscriber-eventbusarn
 	//
 	EventBusArn *string `field:"required" json:"eventBusArn" yaml:"eventBusArn"`
+	// Configuration for how the subscriber invokes its target.
+	//
+	// Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventsv2-subscriber.html#cfn-eventsv2-subscriber-invokeconfiguration
+	//
+	InvokeConfiguration interface{} `field:"required" json:"invokeConfiguration" yaml:"invokeConfiguration"`
 	// The name of the subscriber.
 	//
 	// The first character must be alphanumeric; the remaining characters may also include '.', '-', and '_'.

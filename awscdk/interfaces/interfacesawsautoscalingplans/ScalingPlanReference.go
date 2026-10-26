@@ -9,11 +9,17 @@ package interfacesawsautoscalingplans
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   scalingPlanReference := &ScalingPlanReference{
-//   	ScalingPlanId: jsii.String("scalingPlanId"),
+//   	ScalingPlanArn: jsii.String("scalingPlanArn"),
+//   	ScalingPlanName: jsii.String("scalingPlanName"),
+//   	ScalingPlanVersion: jsii.String("scalingPlanVersion"),
 //   }
 //
 type ScalingPlanReference struct {
-	// The Id of the ScalingPlan resource.
-	ScalingPlanId *string `field:"required" json:"scalingPlanId" yaml:"scalingPlanId"`
+	// The ARN of the ScalingPlan resource.
+	ScalingPlanArn *string `field:"required" json:"scalingPlanArn" yaml:"scalingPlanArn"`
+	// The ScalingPlanName of the ScalingPlan resource.
+	ScalingPlanName *string `field:"required" json:"scalingPlanName" yaml:"scalingPlanName"`
+	// The ScalingPlanVersion of the ScalingPlan resource.
+	ScalingPlanVersion *string `field:"required" json:"scalingPlanVersion" yaml:"scalingPlanVersion"`
 }
 

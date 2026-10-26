@@ -664,6 +664,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.IIpamInternetRegistryAssociationRef",
+		reflect.TypeOf((*IIpamInternetRegistryAssociationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "ipamInternetRegistryAssociationRef", GoGetter: "IpamInternetRegistryAssociationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IIpamInternetRegistryAssociationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.IKeyPairRef",
 		reflect.TypeOf((*IKeyPairRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2118,6 +2134,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.IpamExternalResourceVerificationTokenReference",
 		reflect.TypeOf((*IpamExternalResourceVerificationTokenReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.IpamInternetRegistryAssociationReference",
+		reflect.TypeOf((*IpamInternetRegistryAssociationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.KeyPairReference",

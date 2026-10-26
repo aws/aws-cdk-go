@@ -8,7 +8,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -183,30 +182,6 @@ func (c *jsiiProxy_CfnAlarmModel) validateReplaceDependencyParameters(target aws
 func (c *jsiiProxy_CfnAlarmModel) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnAlarmModel_ArnForAlarmModelParameters(resource interfacesawsiotevents.IAlarmModelRef) error {
-	if resource == nil {
-		return fmt.Errorf("parameter resource is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnAlarmModel_FromAlarmModelNameParameters(scope constructs.Construct, id *string, alarmModelName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if alarmModelName == nil {
-		return fmt.Errorf("parameter alarmModelName is required, but nil was provided")
 	}
 
 	return nil

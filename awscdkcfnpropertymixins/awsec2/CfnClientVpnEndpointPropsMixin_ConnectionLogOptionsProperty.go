@@ -12,6 +12,7 @@ package awsec2
 //   	CloudwatchLogGroup: jsii.String("cloudwatchLogGroup"),
 //   	CloudwatchLogStream: jsii.String("cloudwatchLogStream"),
 //   	Enabled: jsii.Boolean(false),
+//   	IncludeAuthorizationPolicyContext: jsii.Boolean(false),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html
@@ -31,5 +32,8 @@ type CfnClientVpnEndpointPropsMixin_ConnectionLogOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-includeauthorizationpolicycontext
+	//
+	IncludeAuthorizationPolicyContext interface{} `field:"optional" json:"includeAuthorizationPolicyContext" yaml:"includeAuthorizationPolicyContext"`
 }
 

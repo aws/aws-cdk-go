@@ -151,7 +151,7 @@ func (this *myBundle) tryBundle(outputDir *string, options BundlingOptions) *boo
 awscdk.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
 	Path: jsii.String("/path/to/asset"),
 	Bundling: &BundlingOptions{
-		Local: NewMyBundle(),
+		Local: newMyBundle(),
 		// Docker bundling fallback
 		Image: cdk.DockerImage_FromRegistry(jsii.String("alpine")),
 		Entrypoint: []*string{

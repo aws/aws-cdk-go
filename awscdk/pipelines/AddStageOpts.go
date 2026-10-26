@@ -9,7 +9,7 @@ package pipelines
 //   topic := sns.NewTopic(this, jsii.String("SecurityChangesTopic"))
 //   topic.AddSubscription(subscriptions.NewEmailSubscription(jsii.String("test@email.com")))
 //
-//   stage := NewMyApplicationStage(this, jsii.String("MyApplication"))
+//   stage := newMyApplicationStage(this, jsii.String("MyApplication"))
 //   pipeline.AddStage(stage, &AddStageOpts{
 //   	Pre: []Step{
 //   		pipelines.NewConfirmPermissionsBroadening(jsii.String("Check"), &PermissionsBroadeningCheckProps{

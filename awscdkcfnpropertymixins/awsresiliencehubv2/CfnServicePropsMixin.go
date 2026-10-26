@@ -36,6 +36,9 @@ import (
 //   	},
 //   	DependencyDiscovery: jsii.String("dependencyDiscovery"),
 //   	Description: jsii.String("description"),
+//   	DevOpsAgentConfiguration: &DevOpsAgentConfigurationProperty{
+//   		AgentSpaceArn: jsii.String("agentSpaceArn"),
+//   	},
 //   	InputSources: []interface{}{
 //   		&InputSourceDefinitionProperty{
 //   			ResourceConfiguration: &ResourceConfigurationProperty{

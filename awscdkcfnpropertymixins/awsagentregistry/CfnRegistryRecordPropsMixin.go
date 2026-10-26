@@ -18,9 +18,11 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var customMetadata interface{}
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnRegistryRecordPropsMixin := awscdkcfnpropertymixins.Aws_agentregistry.NewCfnRegistryRecordPropsMixin(&CfnRegistryRecordMixinProps{
+//   	CustomMetadata: customMetadata,
 //   	Description: jsii.String("description"),
 //   	Descriptors: &DescriptorsProperty{
 //   		A2AAgentCard: &A2aAgentCardDescriptorProperty{

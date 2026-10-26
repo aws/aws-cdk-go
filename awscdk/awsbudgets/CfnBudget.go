@@ -123,7 +123,7 @@ import (
 //   			},
 //   		},
 //   	},
-//   	ResourceTags: []interface{}{
+//   	ResourceTags: []ResourceTagProperty{
 //   		&ResourceTagProperty{
 //   			Key: jsii.String("key"),
 //
@@ -139,12 +139,15 @@ type CfnBudget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsbudgets.IBudgetRef
+	awscdk.ITaggableV2
 	AttrId() *string
 	// The budget object that you want to create.
 	Budget() interface{}
 	SetBudget(val interface{})
 	// A reference to a Budget resource.
 	BudgetRef() *interfacesawsbudgets.BudgetReference
+	// Tag Manager which manages the tags for this resource.
+	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -177,8 +180,8 @@ type CfnBudget interface {
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
 	// An optional list of tags to associate with the specified budget.
-	ResourceTags() interface{}
-	SetResourceTags(val interface{})
+	ResourceTags() *[]*CfnBudget_ResourceTagProperty
+	SetResourceTags(val *[]*CfnBudget_ResourceTagProperty)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -364,6 +367,7 @@ type jsiiProxy_CfnBudget struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsbudgetsIBudgetRef
+	internal.Type__awscdkITaggableV2
 }
 
 func (j *jsiiProxy_CfnBudget) AttrId() *string {
@@ -391,6 +395,16 @@ func (j *jsiiProxy_CfnBudget) BudgetRef() *interfacesawsbudgets.BudgetReference 
 	_jsii_.Get(
 		j,
 		"budgetRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudget) CdkTagManager() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"cdkTagManager",
 		&returns,
 	)
 	return returns
@@ -496,8 +510,8 @@ func (j *jsiiProxy_CfnBudget) Ref() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBudget) ResourceTags() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnBudget) ResourceTags() *[]*CfnBudget_ResourceTagProperty {
+	var returns *[]*CfnBudget_ResourceTagProperty
 	_jsii_.Get(
 		j,
 		"resourceTags",
@@ -588,7 +602,7 @@ func (j *jsiiProxy_CfnBudget)SetNotificationsWithSubscribers(val interface{}) {
 	)
 }
 
-func (j *jsiiProxy_CfnBudget)SetResourceTags(val interface{}) {
+func (j *jsiiProxy_CfnBudget)SetResourceTags(val *[]*CfnBudget_ResourceTagProperty) {
 	if err := j.validateSetResourceTagsParameters(val); err != nil {
 		panic(err)
 	}

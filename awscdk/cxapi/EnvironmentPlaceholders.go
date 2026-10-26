@@ -85,7 +85,7 @@ func EnvironmentPlaceholders_ReplaceAsync(object interface{}, provider IEnvironm
 	}
 	var returns interface{}
 
-	_jsii_.StaticInvoke(
+	_jsii_.StaticAsyncInvoke(
 		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"replaceAsync",
 		[]interface{}{object, provider},

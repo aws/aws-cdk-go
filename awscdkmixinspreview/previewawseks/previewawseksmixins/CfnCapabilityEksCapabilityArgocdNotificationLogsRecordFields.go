@@ -1,0 +1,51 @@
+package previewawseksmixins
+
+
+// Experimental.
+type CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields string
+
+const (
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_TIMESTAMP CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "TIMESTAMP"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_RESOURCE_ID CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "RESOURCE_ID"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_LEVEL CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "LEVEL"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_MESSAGE CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "MESSAGE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_NOTIFICATION_EVENT CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "NOTIFICATION_EVENT"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_SERVICE CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "SERVICE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_DESTINATION CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "DESTINATION"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_SUCCESS CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "SUCCESS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_DURATION_MS CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "DURATION_MS"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_STATUS_CODE CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "STATUS_CODE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_ERROR CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "ERROR"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_APP CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "APP"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_NAMESPACE CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "NAMESPACE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_REASON CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "REASON"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_RESOURCE CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "RESOURCE"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_TRIGGER_COUNT CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "TRIGGER_COUNT"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_TEMPLATE_COUNT CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "TEMPLATE_COUNT"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_SERVICE_COUNT CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "SERVICE_COUNT"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_ENABLED CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "ENABLED"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "RESOURCE_ARN"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_EVENT_TIMESTAMP CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields = "EVENT_TIMESTAMP"
+)
+

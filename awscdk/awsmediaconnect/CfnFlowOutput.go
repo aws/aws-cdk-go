@@ -65,6 +65,7 @@ import (
 //   	},
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
+//   	NdiAudioReferenceLevel: jsii.Number(123),
 //   	NdiOutputTimecodeSource: jsii.String("ndiOutputTimecodeSource"),
 //   	NdiProgramName: jsii.String("ndiProgramName"),
 //   	NdiSpeedHqQuality: jsii.Number(123),
@@ -159,6 +160,9 @@ type CfnFlowOutput interface {
 	// The name of the bridge's output.
 	Name() *string
 	SetName(val *string)
+	// The audio reference level of the NDI receiver, in dBFS.
+	NdiAudioReferenceLevel() *float64
+	SetNdiAudioReferenceLevel(val *float64)
 	// The timecode source for the NDI output.
 	NdiOutputTimecodeSource() *string
 	SetNdiOutputTimecodeSource(val *string)
@@ -582,6 +586,16 @@ func (j *jsiiProxy_CfnFlowOutput) Name() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowOutput) NdiAudioReferenceLevel() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"ndiAudioReferenceLevel",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowOutput) NdiOutputTimecodeSource() *string {
 	var returns *string
 	_jsii_.Get(
@@ -869,6 +883,14 @@ func (j *jsiiProxy_CfnFlowOutput)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetNdiAudioReferenceLevel(val *float64) {
+	_jsii_.Set(
+		j,
+		"ndiAudioReferenceLevel",
 		val,
 	)
 }

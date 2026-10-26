@@ -125,10 +125,10 @@ app := awscdk.NewApp()
 
 awscdkintegtestsalpha.NewIntegTest(app, jsii.String("DifferentArchitectures"), &IntegTestProps{
 	TestCases: []Stack{
-		NewStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
+		newStackUnderTest(app, jsii.String("Stack1"), &stackUnderTestProps{
 			architecture: lambda.Architecture_ARM_64(),
 		}),
-		NewStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
+		newStackUnderTest(app, jsii.String("Stack2"), &stackUnderTestProps{
 			architecture: lambda.Architecture_X86_64(),
 		}),
 	},

@@ -1319,9 +1319,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAttachedChannels", GoGetter: "AttrAttachedChannels"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDestinations", GoGetter: "AttrDestinations"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDestinationUrls", GoGetter: "AttrDestinationUrls"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrInputClass", GoGetter: "AttrInputClass"},
+			_jsii_.MemberProperty{JsiiProperty: "attrInputPartnerIds", GoGetter: "AttrInputPartnerIds"},
+			_jsii_.MemberProperty{JsiiProperty: "attrInputSourceType", GoGetter: "AttrInputSourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSecurityGroups", GoGetter: "AttrSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSources", GoGetter: "AttrSources"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSourceUrls", GoGetter: "AttrSourceUrls"},
+			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -1377,8 +1385,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.InputDestinationProperty",
+		reflect.TypeOf((*CfnInput_InputDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.InputDestinationRequestProperty",
 		reflect.TypeOf((*CfnInput_InputDestinationRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.InputDestinationRouteProperty",
+		reflect.TypeOf((*CfnInput_InputDestinationRouteProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.InputDestinationVpcProperty",
+		reflect.TypeOf((*CfnInput_InputDestinationVpcProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.InputDeviceRequestProperty",
@@ -1397,12 +1417,20 @@ func init() {
 		reflect.TypeOf((*CfnInput_InputSdpLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.InputSourceProperty",
+		reflect.TypeOf((*CfnInput_InputSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.InputSourceRequestProperty",
 		reflect.TypeOf((*CfnInput_InputSourceRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.InputVpcRequestProperty",
 		reflect.TypeOf((*CfnInput_InputVpcRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.MediaConnectFlowProperty",
+		reflect.TypeOf((*CfnInput_MediaConnectFlowProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.MediaConnectFlowRequestProperty",
@@ -1413,8 +1441,16 @@ func init() {
 		reflect.TypeOf((*CfnInput_MulticastSettingsCreateRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.MulticastSettingsProperty",
+		reflect.TypeOf((*CfnInput_MulticastSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.MulticastSourceCreateRequestProperty",
 		reflect.TypeOf((*CfnInput_MulticastSourceCreateRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.MulticastSourceProperty",
+		reflect.TypeOf((*CfnInput_MulticastSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.RouterDestinationSettingsProperty",
@@ -1437,20 +1473,40 @@ func init() {
 		reflect.TypeOf((*CfnInput_Smpte2110ReceiverGroupSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtCallerDecryptionProperty",
+		reflect.TypeOf((*CfnInput_SrtCallerDecryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.SrtCallerDecryptionRequestProperty",
 		reflect.TypeOf((*CfnInput_SrtCallerDecryptionRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtCallerSourceProperty",
+		reflect.TypeOf((*CfnInput_SrtCallerSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.SrtCallerSourceRequestProperty",
 		reflect.TypeOf((*CfnInput_SrtCallerSourceRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtListenerDecryptionProperty",
+		reflect.TypeOf((*CfnInput_SrtListenerDecryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.SrtListenerDecryptionRequestProperty",
 		reflect.TypeOf((*CfnInput_SrtListenerDecryptionRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtListenerSettingsProperty",
+		reflect.TypeOf((*CfnInput_SrtListenerSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.SrtListenerSettingsRequestProperty",
 		reflect.TypeOf((*CfnInput_SrtListenerSettingsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInput.SrtSettingsProperty",
+		reflect.TypeOf((*CfnInput_SrtSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInput.SrtSettingsRequestProperty",
@@ -1476,6 +1532,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrInputs", GoGetter: "AttrInputs"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -1519,6 +1576,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup.InputWhitelistRuleCidrProperty",
 		reflect.TypeOf((*CfnInputSecurityGroup_InputWhitelistRuleCidrProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup.InputWhitelistRuleProperty",
+		reflect.TypeOf((*CfnInputSecurityGroup_InputWhitelistRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroupProps",

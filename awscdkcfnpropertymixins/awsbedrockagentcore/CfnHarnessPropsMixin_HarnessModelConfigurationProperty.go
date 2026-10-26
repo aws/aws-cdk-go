@@ -18,6 +18,7 @@ package awsbedrockagentcore
 //   		TopP: jsii.Number(123),
 //   	},
 //   	GeminiModelConfig: &HarnessGeminiModelConfigProperty{
+//   		AdditionalParams: additionalParams,
 //   		ApiKeyArn: jsii.String("apiKeyArn"),
 //   		MaxTokens: jsii.Number(123),
 //   		ModelId: jsii.String("modelId"),
@@ -36,6 +37,7 @@ package awsbedrockagentcore
 //   	},
 //   	OpenAiModelConfig: &HarnessOpenAiModelConfigProperty{
 //   		AdditionalParams: additionalParams,
+//   		ApiBase: jsii.String("apiBase"),
 //   		ApiFormat: jsii.String("apiFormat"),
 //   		ApiKeyArn: jsii.String("apiKeyArn"),
 //   		MaxTokens: jsii.Number(123),

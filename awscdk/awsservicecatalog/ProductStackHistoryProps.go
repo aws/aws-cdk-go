@@ -17,7 +17,7 @@ package awsservicecatalog
 //   }
 //
 //   productStackHistory := servicecatalog.NewProductStackHistory(this, jsii.String("ProductStackHistory"), &ProductStackHistoryProps{
-//   	ProductStack: NewS3BucketProduct(this, jsii.String("S3BucketProduct")),
+//   	ProductStack: newS3BucketProduct(this, jsii.String("S3BucketProduct")),
 //   	CurrentVersionName: jsii.String("v2"),
 //   	CurrentVersionLocked: jsii.Boolean(true),
 //   })

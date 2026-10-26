@@ -200,6 +200,22 @@ func init() {
 		reflect.TypeOf((*CfnPlanPropsMixin_ServiceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.SsmDocumentConfigProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_SsmDocumentConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.SsmSendCommandConfigurationProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_SsmSendCommandConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.SsmSendCommandUngracefulProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_SsmSendCommandUngracefulProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.SsmTargetProperty",
+		reflect.TypeOf((*CfnPlanPropsMixin_SsmTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_arcregionswitch.CfnPlanPropsMixin.StepProperty",
 		reflect.TypeOf((*CfnPlanPropsMixin_StepProperty)(nil)).Elem(),
 	)

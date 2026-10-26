@@ -64,6 +64,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_healthlake.CfnFHIRDatastorePropsMixin.AnalyticsConfigurationProperty",
+		reflect.TypeOf((*CfnFHIRDatastorePropsMixin_AnalyticsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_healthlake.CfnFHIRDatastorePropsMixin.CreatedAtProperty",
 		reflect.TypeOf((*CfnFHIRDatastorePropsMixin_CreatedAtProperty)(nil)).Elem(),
 	)
@@ -76,8 +80,16 @@ func init() {
 		reflect.TypeOf((*CfnFHIRDatastorePropsMixin_KmsEncryptionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_healthlake.CfnFHIRDatastorePropsMixin.NlpConfigurationProperty",
+		reflect.TypeOf((*CfnFHIRDatastorePropsMixin_NlpConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_healthlake.CfnFHIRDatastorePropsMixin.PreloadDataConfigProperty",
 		reflect.TypeOf((*CfnFHIRDatastorePropsMixin_PreloadDataConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_healthlake.CfnFHIRDatastorePropsMixin.ProfileConfigurationProperty",
+		reflect.TypeOf((*CfnFHIRDatastorePropsMixin_ProfileConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_healthlake.CfnFHIRDatastorePropsMixin.SseConfigurationProperty",

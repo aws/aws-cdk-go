@@ -1,0 +1,13 @@
+package previewawseksmixins
+
+
+// Experimental.
+type CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_LogGroup string
+
+const (
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_LogGroup_PLAIN CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_LogGroup = "PLAIN"
+	// Experimental.
+	CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_LogGroup_JSON CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_LogGroup = "JSON"
+)
+

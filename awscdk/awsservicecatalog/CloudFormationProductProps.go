@@ -25,7 +25,7 @@ package awsservicecatalog
 //   	ProductVersions: []CloudFormationProductVersion{
 //   		&CloudFormationProductVersion{
 //   			ProductVersionName: jsii.String("v1"),
-//   			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewS3BucketProduct(this, jsii.String("S3BucketProduct"))),
+//   			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(newS3BucketProduct(this, jsii.String("S3BucketProduct"))),
 //   		},
 //   	},
 //   })

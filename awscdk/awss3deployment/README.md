@@ -51,7 +51,7 @@ deployment := s3deploy.NewBucketDeployment(this, jsii.String("DeployWebsite"), &
 	DestinationBucket: websiteBucket,
 })
 
-NewConstructThatReadsFromTheBucket(this, jsii.String("Consumer"), map[string]IBucket{
+newConstructThatReadsFromTheBucket(this, jsii.String("Consumer"), map[string]IBucket{
 	// Use 'deployment.deployedBucket' instead of 'websiteBucket' here
 	"bucket": deployment.deployedBucket,
 })

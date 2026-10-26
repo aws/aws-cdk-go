@@ -181,6 +181,25 @@ package awsec2
 //   		Arn: jsii.String("arn"),
 //   		Id: jsii.String("id"),
 //   	},
+//   	TransitGatewayPolicyTable: &AnalysisComponentProperty{
+//   		Arn: jsii.String("arn"),
+//   		Id: jsii.String("id"),
+//   	},
+//   	TransitGatewayPolicyTableEntry: &AnalysisTransitGatewayPolicyTableEntryProperty{
+//   		DestinationCidr: jsii.String("destinationCidr"),
+//   		DestinationPortRange: &PortRangeProperty{
+//   			From: jsii.Number(123),
+//   			To: jsii.Number(123),
+//   		},
+//   		Protocol: jsii.String("protocol"),
+//   		RuleNumber: jsii.Number(123),
+//   		SourceCidr: jsii.String("sourceCidr"),
+//   		SourcePortRange: &PortRangeProperty{
+//   			From: jsii.Number(123),
+//   			To: jsii.Number(123),
+//   		},
+//   		TargetRouteTableId: jsii.String("targetRouteTableId"),
+//   	},
 //   	TransitGatewayRouteTable: &AnalysisComponentProperty{
 //   		Arn: jsii.String("arn"),
 //   		Id: jsii.String("id"),
@@ -398,6 +417,12 @@ type CfnNetworkInsightsAnalysis_ExplanationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-transitgatewayattachment
 	//
 	TransitGatewayAttachment interface{} `field:"optional" json:"transitGatewayAttachment" yaml:"transitGatewayAttachment"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-transitgatewaypolicytable
+	//
+	TransitGatewayPolicyTable interface{} `field:"optional" json:"transitGatewayPolicyTable" yaml:"transitGatewayPolicyTable"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-transitgatewaypolicytableentry
+	//
+	TransitGatewayPolicyTableEntry interface{} `field:"optional" json:"transitGatewayPolicyTableEntry" yaml:"transitGatewayPolicyTableEntry"`
 	// The transit gateway route table.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-explanation.html#cfn-ec2-networkinsightsanalysis-explanation-transitgatewayroutetable
 	//

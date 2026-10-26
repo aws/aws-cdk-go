@@ -178,6 +178,13 @@ convertToSecondsArm64 := tasks.NewEvaluateExpression(this, jsii.String("Convert 
 })
 ```
 
+Each `EvaluateExpression` task is backed by its own Lambda function that only the state machine
+containing the task can invoke. A stack therefore has one Lambda function per `EvaluateExpression` task.
+
+If you set the `@aws-cdk/aws-stepfunctions-tasks:evaluateExpressionDedicatedFunction` feature flag
+to `false`, all tasks in a stack that use the same runtime and architecture share one Lambda
+function instead, including tasks in different state machines.
+
 ## API Gateway
 
 Step Functions supports [API Gateway](https://docs.aws.amazon.com/step-functions/latest/dg/connect-api-gateway.html) through the service integration pattern.

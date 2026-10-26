@@ -252,6 +252,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "invokeConfiguration", GoGetter: "InvokeConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logConfiguration", GoGetter: "LogConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -295,6 +296,18 @@ func init() {
 		reflect.TypeOf((*CfnSubscriber_BatchConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.DeduplicationConfigurationProperty",
+		reflect.TypeOf((*CfnSubscriber_DeduplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.EventBusV2ParametersProperty",
+		reflect.TypeOf((*CfnSubscriber_EventBusV2ParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.EventBusV2SystemMetadataProperty",
+		reflect.TypeOf((*CfnSubscriber_EventBusV2SystemMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.FilterConfigurationProperty",
 		reflect.TypeOf((*CfnSubscriber_FilterConfigurationProperty)(nil)).Elem(),
 	)
@@ -303,12 +316,32 @@ func init() {
 		reflect.TypeOf((*CfnSubscriber_FilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.HttpParametersProperty",
+		reflect.TypeOf((*CfnSubscriber_HttpParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.InvokeConfigurationProperty",
+		reflect.TypeOf((*CfnSubscriber_InvokeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.JsonataConfigurationProperty",
 		reflect.TypeOf((*CfnSubscriber_JsonataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.KinesisParametersProperty",
+		reflect.TypeOf((*CfnSubscriber_KinesisParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.LambdaParametersProperty",
+		reflect.TypeOf((*CfnSubscriber_LambdaParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.LogConfigurationProperty",
 		reflect.TypeOf((*CfnSubscriber_LogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.MessageAttributeValueProperty",
+		reflect.TypeOf((*CfnSubscriber_MessageAttributeValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.OnFailureConfigurationProperty",
@@ -323,8 +356,24 @@ func init() {
 		reflect.TypeOf((*CfnSubscriber_RetryPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.SnsParametersProperty",
+		reflect.TypeOf((*CfnSubscriber_SnsParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.SqsParametersProperty",
+		reflect.TypeOf((*CfnSubscriber_SqsParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.StepFunctionsParametersProperty",
+		reflect.TypeOf((*CfnSubscriber_StepFunctionsParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.TransformerProperty",
 		reflect.TypeOf((*CfnSubscriber_TransformerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eventsv2.CfnSubscriber.UniversalTargetParametersProperty",
+		reflect.TypeOf((*CfnSubscriber_UniversalTargetParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eventsv2.CfnSubscriberProps",

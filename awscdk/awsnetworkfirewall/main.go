@@ -96,6 +96,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointIds", GoGetter: "AttrEndpointIds"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFirewallArn", GoGetter: "AttrFirewallArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFirewallId", GoGetter: "AttrFirewallId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrNumberOfAssociations", GoGetter: "AttrNumberOfAssociations"},
 			_jsii_.MemberProperty{JsiiProperty: "attrTransitGatewayAttachmentId", GoGetter: "AttrTransitGatewayAttachmentId"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneChangeProtection", GoGetter: "AvailabilityZoneChangeProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZoneMappings", GoGetter: "AvailabilityZoneMappings"},
@@ -117,9 +118,12 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "natGatewayMappings", GoGetter: "NatGatewayMappings"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "noSourcePreservation", GoGetter: "NoSourcePreservation"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "proxySettings", GoGetter: "ProxySettings"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
@@ -136,6 +140,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "vpcEndpoint", GoGetter: "VpcEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcId", GoGetter: "VpcId"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
@@ -153,8 +158,24 @@ func init() {
 		reflect.TypeOf((*CfnFirewall_AvailabilityZoneMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewall.ListenerPropertyProperty",
+		reflect.TypeOf((*CfnFirewall_ListenerPropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewall.NatGatewayMappingProperty",
+		reflect.TypeOf((*CfnFirewall_NatGatewayMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewall.ProxySettingsProperty",
+		reflect.TypeOf((*CfnFirewall_ProxySettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkfirewall.CfnFirewall.SubnetMappingProperty",
 		reflect.TypeOf((*CfnFirewall_SubnetMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewall.VpcEndpointProperty",
+		reflect.TypeOf((*CfnFirewall_VpcEndpointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy",

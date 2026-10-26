@@ -39,7 +39,7 @@ import (
 //   	ProductVersions: []CloudFormationProductVersion{
 //   		&CloudFormationProductVersion{
 //   			ProductVersionName: jsii.String("v1"),
-//   			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(NewLambdaProduct(this, jsii.String("LambdaFunctionProduct"), &ProductStackProps{
+//   			CloudFormationTemplate: servicecatalog.CloudFormationTemplate_FromProductStack(newLambdaProduct(this, jsii.String("LambdaFunctionProduct"), &ProductStackProps{
 //   				AssetBucket: userDefinedBucket,
 //   			})),
 //   		},

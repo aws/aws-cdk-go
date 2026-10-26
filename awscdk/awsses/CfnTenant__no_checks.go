@@ -104,7 +104,15 @@ func validateCfnTenant_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTenant) validateSetReputationEntityParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTenant) validateSetResourceAssociationsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnTenant) validateSetSuppressionAttributesParameters(val interface{}) error {
 	return nil
 }
 

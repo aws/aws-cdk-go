@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetAuthenticationOptionsParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetAuthorizationPolicyParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientConnectOptionsParameters(val interface{}) error {
 	return nil
 }
@@ -125,6 +129,10 @@ func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetClientRouteEnforcementOption
 }
 
 func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetConnectionLogOptionsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnClientVpnEndpoint) validateSetDevicePostureOptionsParameters(val interface{}) error {
 	return nil
 }
 

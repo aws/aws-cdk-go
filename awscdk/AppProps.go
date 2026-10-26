@@ -33,6 +33,34 @@ type AppProps struct {
 	// otherwise.
 	//
 	AutoSynth *bool `field:"optional" json:"autoSynth" yaml:"autoSynth"`
+	// Whether to enable built-in CloudFormation template validation.
+	//
+	// CDK ships with a CloudFormation template validation plugin that
+	// is enabled by default (see `CloudFormationValidationPlugin`).
+	//
+	// To disable the built-in validation, you can do one of these things:
+	//
+	// - Set this property to `false`.
+	// - Run `cdk synth --no-validation`.
+	// - Set `CDK_VALIDATION=false` in your environment.
+	// - Register a custom configured instance of `CloudFormationValidationPlugin`
+	//   on the `app` object.
+	// Default: true.
+	//
+	BuiltinCloudFormationValidation *bool `field:"optional" json:"builtinCloudFormationValidation" yaml:"builtinCloudFormationValidation"`
+	// Confirm that validation plugins treat the assembly directory as read-only.
+	//
+	// Validation plugins should only read files in the `cdk.out` directory, and not modify or
+	// delete any.
+	//
+	// If this is set to `true`, the CDK will calculate a hash of all files in the
+	// assembly directory before running validation plugins and verify that the
+	// hashes match afterwards, to ensure no files got deleted or modified. You
+	// only need to set this if you do not trust your validation plugins to have
+	// been implemented correctly.
+	// Default: false.
+	//
+	ConfirmValidationPluginsDoNotMutate *bool `field:"optional" json:"confirmValidationPluginsDoNotMutate" yaml:"confirmValidationPluginsDoNotMutate"`
 	// Additional context values for the application.
 	//
 	// Context set by the CLI or the `context` key in `cdk.json` has precedence.

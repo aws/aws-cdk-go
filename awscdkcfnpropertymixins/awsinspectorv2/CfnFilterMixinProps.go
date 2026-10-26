@@ -78,6 +78,12 @@ package awsinspectorv2
 //   				Value: jsii.String("value"),
 //   			},
 //   		},
+//   		EcrImageInUseCount: []interface{}{
+//   			&NumberFilterProperty{
+//   				LowerInclusive: jsii.Number(123),
+//   				UpperInclusive: jsii.Number(123),
+//   			},
+//   		},
 //   		EcrImagePushedAt: []interface{}{
 //   			&DateFilterProperty{
 //   				EndInclusive: jsii.Number(123),

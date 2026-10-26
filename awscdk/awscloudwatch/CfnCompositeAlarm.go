@@ -32,6 +32,19 @@ import (
 //   	AlarmRule: jsii.String("alarmRule"),
 //
 //   	// the properties below are optional
+//   	ActionConfiguration: &ActionConfigurationProperty{
+//   		AlarmTagsPropagation: &AlarmTagsPropagationProperty{
+//   			Enabled: jsii.Boolean(false),
+//
+//   			// the properties below are optional
+//   			ExcludedTagKeys: []*string{
+//   				jsii.String("excludedTagKeys"),
+//   			},
+//   			IncludedTagKeys: []*string{
+//   				jsii.String("includedTagKeys"),
+//   			},
+//   		},
+//   	},
 //   	ActionsEnabled: jsii.Boolean(false),
 //   	ActionsSuppressor: jsii.String("actionsSuppressor"),
 //   	ActionsSuppressorExtensionPeriod: jsii.Number(123),
@@ -62,6 +75,9 @@ type CfnCompositeAlarm interface {
 	awscdk.IInspectable
 	interfacesawscloudwatch.ICompositeAlarmRef
 	awscdk.ITaggableV2
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration() interface{}
+	SetActionConfiguration(val interface{})
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm.
 	ActionsEnabled() interface{}
 	SetActionsEnabled(val interface{})
@@ -315,6 +331,16 @@ type jsiiProxy_CfnCompositeAlarm struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawscloudwatchICompositeAlarmRef
 	internal.Type__awscdkITaggableV2
+}
+
+func (j *jsiiProxy_CfnCompositeAlarm) ActionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"actionConfiguration",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCompositeAlarm) ActionsEnabled() interface{} {
@@ -604,6 +630,17 @@ func NewCfnCompositeAlarm_Override(c CfnCompositeAlarm, scope constructs.Constru
 		"aws-cdk-lib.aws_cloudwatch.CfnCompositeAlarm",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCompositeAlarm)SetActionConfiguration(val interface{}) {
+	if err := j.validateSetActionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"actionConfiguration",
+		val,
 	)
 }
 

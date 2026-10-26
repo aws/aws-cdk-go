@@ -14,6 +14,8 @@ package awspaymentcryptography
 //   	Status: jsii.String("status"),
 //
 //   	// the properties below are optional
+//   	KmsKeyArn: jsii.String("kmsKeyArn"),
+//   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	StatusMessage: jsii.String("statusMessage"),
 //   }
 //
@@ -26,6 +28,14 @@ type CfnKey_ReplicationStatusTypeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatustype.html#cfn-paymentcryptography-key-replicationstatustype-status
 	//
 	Status *string `field:"required" json:"status" yaml:"status"`
+	// The ARN of the AWS KMS key that protects the replica in this region.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatustype.html#cfn-paymentcryptography-key-replicationstatustype-kmskeyarn
+	//
+	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	// The AWS KMS key requested for this region, when replication failed before its ARN was known.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatustype.html#cfn-paymentcryptography-key-replicationstatustype-kmskeyid
+	//
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// A message that provides additional information about the current replication status of the key.
 	//
 	// This field contains details about any issues or progress updates related to key replication operations. It may include information about replication failures, synchronization status, or other operational details.

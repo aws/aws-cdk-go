@@ -129,6 +129,11 @@ type BundlingOptions struct {
 	DockerImage awscdk.DockerImage `field:"optional" json:"dockerImage" yaml:"dockerImage"`
 	// Build arguments to pass into esbuild.
 	//
+	// Use an array of strings for options that esbuild supports repeating, for example
+	// `{ "--alias": ["first=./first", "second=./second"] }`. Each array item
+	// uses `--flag:value` syntax. An empty array omits the option. Single-value
+	// options must use a string or boolean instead.
+	//
 	// For example, to add the [--log-limit](https://esbuild.github.io/api/#log-limit) flag:
 	//
 	// ```text

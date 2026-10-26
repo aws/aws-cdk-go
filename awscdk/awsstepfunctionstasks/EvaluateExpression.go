@@ -13,6 +13,9 @@ import (
 
 // A Step Functions Task to evaluate an expression.
 //
+// The expression is evaluated in a Lambda function that belongs to this task, unless the
+// `@aws-cdk/aws-stepfunctions-tasks:evaluateExpressionDedicatedFunction` feature flag is disabled.
+//
 // OUTPUT: the output of this task is the evaluated expression.
 //
 // Example:

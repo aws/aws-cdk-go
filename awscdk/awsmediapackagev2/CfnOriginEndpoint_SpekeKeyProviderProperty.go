@@ -22,6 +22,10 @@ package awsmediapackagev2
 //
 //   	// the properties below are optional
 //   	CertificateArn: jsii.String("certificateArn"),
+//   	ContentKeyPeriodConfiguration: &ContentKeyPeriodConfigurationProperty{
+//   		ContentKeyPeriodTiming: jsii.String("contentKeyPeriodTiming"),
+//   	},
+//   	SpekeVersion: jsii.String("spekeVersion"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html
@@ -61,5 +65,12 @@ type CfnOriginEndpoint_SpekeKeyProviderProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-certificatearn
 	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
+	// <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-contentkeyperiodconfiguration
+	//
+	ContentKeyPeriodConfiguration interface{} `field:"optional" json:"contentKeyPeriodConfiguration" yaml:"contentKeyPeriodConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html#cfn-mediapackagev2-originendpoint-spekekeyprovider-spekeversion
+	//
+	SpekeVersion *string `field:"optional" json:"spekeVersion" yaml:"spekeVersion"`
 }
 

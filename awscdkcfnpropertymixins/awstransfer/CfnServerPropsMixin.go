@@ -24,6 +24,7 @@ import (
 //
 //   cfnServerPropsMixin := awscdkcfnpropertymixins.Aws_transfer.NewCfnServerPropsMixin(&CfnServerMixinProps{
 //   	Certificate: jsii.String("certificate"),
+//   	CreateWithHostKey: jsii.Boolean(false),
 //   	Domain: jsii.String("domain"),
 //   	EndpointDetails: &EndpointDetailsProperty{
 //   		AddressAllocationIds: []*string{

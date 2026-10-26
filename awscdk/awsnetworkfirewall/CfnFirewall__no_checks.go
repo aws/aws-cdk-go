@@ -128,6 +128,18 @@ func (j *jsiiProxy_CfnFirewall) validateSetFirewallPolicyChangeProtectionParamet
 	return nil
 }
 
+func (j *jsiiProxy_CfnFirewall) validateSetNatGatewayMappingsParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFirewall) validateSetNoSourcePreservationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFirewall) validateSetProxySettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFirewall) validateSetSubnetChangeProtectionParameters(val interface{}) error {
 	return nil
 }
@@ -137,6 +149,10 @@ func (j *jsiiProxy_CfnFirewall) validateSetSubnetMappingsParameters(val interfac
 }
 
 func (j *jsiiProxy_CfnFirewall) validateSetTagsRawParameters(val *[]*awscdk.CfnTag) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFirewall) validateSetVpcEndpointParameters(val interface{}) error {
 	return nil
 }
 

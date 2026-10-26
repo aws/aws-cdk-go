@@ -391,11 +391,11 @@ Example:
 
 ```go
 // MyAction is some action type that produces variables, like EcrSourceAction
-myAction := NewMyAction(&myActionProps{
+myAction := newMyAction(&myActionProps{
 	// ...
 	actionName: jsii.String("myAction"),
 })
-NewOtherAction(&otherActionProps{
+newOtherAction(&otherActionProps{
 	// ...
 	config: myAction.variables.myVariable,
 	actionName: jsii.String("otherAction"),
@@ -408,7 +408,7 @@ you can pass a custom name when creating the action instance:
 
 ```go
 // MyAction is some action type that produces variables, like EcrSourceAction
-myAction := NewMyAction(&myActionProps{
+myAction := newMyAction(&myActionProps{
 	// ...
 	variablesNamespace: jsii.String("MyNamespace"),
 	actionName: jsii.String("myAction"),
@@ -422,7 +422,7 @@ these are accessed through static properties of the `GlobalVariables` class:
 ```go
 // OtherAction is some action type that produces variables, like EcrSourceAction
 // OtherAction is some action type that produces variables, like EcrSourceAction
-NewOtherAction(&otherActionProps{
+newOtherAction(&otherActionProps{
 	// ...
 	config: codepipeline.GlobalVariables_ExecutionId(),
 	actionName: jsii.String("otherAction"),

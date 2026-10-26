@@ -116,6 +116,18 @@ func init() {
 		reflect.TypeOf((*CfnSubscriberPropsMixin_BatchConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.DeduplicationConfigurationProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_DeduplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.EventBusV2ParametersProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_EventBusV2ParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.EventBusV2SystemMetadataProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_EventBusV2SystemMetadataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.FilterConfigurationProperty",
 		reflect.TypeOf((*CfnSubscriberPropsMixin_FilterConfigurationProperty)(nil)).Elem(),
 	)
@@ -124,12 +136,32 @@ func init() {
 		reflect.TypeOf((*CfnSubscriberPropsMixin_FilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.HttpParametersProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_HttpParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.InvokeConfigurationProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_InvokeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.JsonataConfigurationProperty",
 		reflect.TypeOf((*CfnSubscriberPropsMixin_JsonataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.KinesisParametersProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_KinesisParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.LambdaParametersProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_LambdaParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.LogConfigurationProperty",
 		reflect.TypeOf((*CfnSubscriberPropsMixin_LogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.MessageAttributeValueProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_MessageAttributeValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.OnFailureConfigurationProperty",
@@ -144,7 +176,23 @@ func init() {
 		reflect.TypeOf((*CfnSubscriberPropsMixin_RetryPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.SnsParametersProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_SnsParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.SqsParametersProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_SqsParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.StepFunctionsParametersProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_StepFunctionsParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.TransformerProperty",
 		reflect.TypeOf((*CfnSubscriberPropsMixin_TransformerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eventsv2.CfnSubscriberPropsMixin.UniversalTargetParametersProperty",
+		reflect.TypeOf((*CfnSubscriberPropsMixin_UniversalTargetParametersProperty)(nil)).Elem(),
 	)
 }

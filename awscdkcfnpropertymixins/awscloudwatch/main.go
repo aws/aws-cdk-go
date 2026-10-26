@@ -60,8 +60,16 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.ActionConfigurationProperty",
+		reflect.TypeOf((*CfnAlarmPropsMixin_ActionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.AlarmPromQLCriteriaProperty",
 		reflect.TypeOf((*CfnAlarmPropsMixin_AlarmPromQLCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.AlarmTagsPropagationProperty",
+		reflect.TypeOf((*CfnAlarmPropsMixin_AlarmTagsPropagationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmPropsMixin.DimensionProperty",
@@ -176,6 +184,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnCompositeAlarmPropsMixin.ActionConfigurationProperty",
+		reflect.TypeOf((*CfnCompositeAlarmPropsMixin_ActionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnCompositeAlarmPropsMixin.AlarmTagsPropagationProperty",
+		reflect.TypeOf((*CfnCompositeAlarmPropsMixin_AlarmTagsPropagationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDashboardMixinProps",
 		reflect.TypeOf((*CfnDashboardMixinProps)(nil)).Elem(),
 	)
@@ -216,6 +232,38 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnIntegrationMixinProps",
+		reflect.TypeOf((*CfnIntegrationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnIntegrationPropsMixin",
+		reflect.TypeOf((*CfnIntegrationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnIntegrationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnIntegrationPropsMixin.ApiKeyCredentialProperty",
+		reflect.TypeOf((*CfnIntegrationPropsMixin_ApiKeyCredentialProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnIntegrationPropsMixin.IntegrationCredentialProperty",
+		reflect.TypeOf((*CfnIntegrationPropsMixin_IntegrationCredentialProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnIntegrationPropsMixin.TagsItemsProperty",
+		reflect.TypeOf((*CfnIntegrationPropsMixin_TagsItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnLogAlarmMixinProps",
 		reflect.TypeOf((*CfnLogAlarmMixinProps)(nil)).Elem(),
 	)
@@ -234,6 +282,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnLogAlarmPropsMixin.ActionConfigurationProperty",
+		reflect.TypeOf((*CfnLogAlarmPropsMixin_ActionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnLogAlarmPropsMixin.AlarmTagsPropagationProperty",
+		reflect.TypeOf((*CfnLogAlarmPropsMixin_AlarmTagsPropagationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnLogAlarmPropsMixin.ScheduleConfigurationProperty",

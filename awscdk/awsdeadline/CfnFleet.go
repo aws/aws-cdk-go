@@ -148,6 +148,11 @@ import (
 //   					SizeGiB: jsii.Number(123),
 //   					ThroughputMiB: jsii.Number(123),
 //   				},
+//   				SoftwareAddOns: []interface{}{
+//   					&FleetSoftwareAddOnProperty{
+//   						Name: jsii.String("name"),
+//   					},
+//   				},
 //   			},
 //   			InstanceMarketOptions: &ServiceManagedEc2InstanceMarketOptionsProperty{
 //   				Type: jsii.String("type"),

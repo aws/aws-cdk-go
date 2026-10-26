@@ -388,6 +388,97 @@ func init() {
 		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdCommitserverLogsS3Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogs",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogs)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "toDestination", GoMethod: "ToDestination"},
+			_jsii_.MemberMethod{JsiiMethod: "toFirehose", GoMethod: "ToFirehose"},
+			_jsii_.MemberMethod{JsiiMethod: "toLogGroup", GoMethod: "ToLogGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "toS3", GoMethod: "ToS3"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdNotificationLogs{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogsDestProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogsDestProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogsFirehoseProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogsFirehoseProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogsLogGroupProps",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogsLogGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat.Firehose",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_Firehose)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_Firehose_PLAIN,
+			"JSON": CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_Firehose_JSON,
+			"RAW": CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_Firehose_RAW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat.LogGroup",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_LogGroup)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_LogGroup_PLAIN,
+			"JSON": CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_LogGroup_JSON,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat.S3",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3)(nil)).Elem(),
+		map[string]interface{}{
+			"PLAIN": CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3_PLAIN,
+			"JSON": CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3_JSON,
+			"W3C": CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3_W3C,
+			"PARQUET": CfnCapabilityEksCapabilityArgocdNotificationLogsOutputFormat_S3_PARQUET,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields)(nil)).Elem(),
+		map[string]interface{}{
+			"TIMESTAMP": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_TIMESTAMP,
+			"RESOURCE_ID": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_RESOURCE_ID,
+			"LEVEL": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_LEVEL,
+			"MESSAGE": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_MESSAGE,
+			"NOTIFICATION_EVENT": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_NOTIFICATION_EVENT,
+			"SERVICE": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_SERVICE,
+			"DESTINATION": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_DESTINATION,
+			"SUCCESS": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_SUCCESS,
+			"DURATION_MS": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_DURATION_MS,
+			"STATUS_CODE": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_STATUS_CODE,
+			"ERROR": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_ERROR,
+			"APP": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_APP,
+			"NAMESPACE": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_NAMESPACE,
+			"REASON": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_REASON,
+			"RESOURCE": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_RESOURCE,
+			"TRIGGER_COUNT": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_TRIGGER_COUNT,
+			"TEMPLATE_COUNT": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_TEMPLATE_COUNT,
+			"SERVICE_COUNT": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_SERVICE_COUNT,
+			"ENABLED": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_ENABLED,
+			"RESOURCE_ARN": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_RESOURCE_ARN,
+			"EVENT_TIMESTAMP": CfnCapabilityEksCapabilityArgocdNotificationLogsRecordFields_EVENT_TIMESTAMP,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdNotificationLogsS3Props",
+		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdNotificationLogsS3Props)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"@aws-cdk/mixins-preview.aws_eks.mixins.CfnCapabilityEksCapabilityArgocdReposerverLogs",
 		reflect.TypeOf((*CfnCapabilityEksCapabilityArgocdReposerverLogs)(nil)).Elem(),
 		[]_jsii_.Member{

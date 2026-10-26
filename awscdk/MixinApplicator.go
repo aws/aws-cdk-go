@@ -31,7 +31,7 @@ type MixinApplicator interface {
 	// Set this before calling `apply()` to take effect.
 	//
 	// Example:
-	//   awscdk.Mixins_Of(*scope).RequireAll().Apply(NewMyMixin())
+	//   awscdk.Mixins_Of(*scope).RequireAll().Apply(newMyMixin())
 	//
 	RequireAll() MixinApplicator
 	// Requires at least one mixin to be successfully applied.
@@ -40,7 +40,7 @@ type MixinApplicator interface {
 	// Set this before calling `apply()` to take effect.
 	//
 	// Example:
-	//   awscdk.Mixins_Of(*scope).RequireAny().Apply(NewMyMixin())
+	//   awscdk.Mixins_Of(*scope).RequireAny().Apply(newMyMixin())
 	//
 	RequireAny() MixinApplicator
 }

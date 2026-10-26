@@ -2050,6 +2050,14 @@ func init() {
 		reflect.TypeOf((*CfnRule_FieldValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnRule.InAppNotificationRecipientTypeProperty",
+		reflect.TypeOf((*CfnRule_InAppNotificationRecipientTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnRule.NotificationContentProperty",
+		reflect.TypeOf((*CfnRule_NotificationContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRule.NotificationRecipientTypeProperty",
 		reflect.TypeOf((*CfnRule_NotificationRecipientTypeProperty)(nil)).Elem(),
 	)
@@ -2060,6 +2068,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRule.RuleTriggerEventSourceProperty",
 		reflect.TypeOf((*CfnRule_RuleTriggerEventSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnRule.SendInAppNotificationActionProperty",
+		reflect.TypeOf((*CfnRule_SendInAppNotificationActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnRule.SendNotificationActionProperty",

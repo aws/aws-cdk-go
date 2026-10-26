@@ -673,7 +673,7 @@ func newMyStack(scope Construct, id *string) *myStack {
 			"Fred": jsii.String("Thud"),
 		},
 	})
-	cdk.Aspects_Of(stack).Add(NewMyAspect())
+	cdk.Aspects_Of(stack).Add(newMyAspect())
 	return this
 }
 ```

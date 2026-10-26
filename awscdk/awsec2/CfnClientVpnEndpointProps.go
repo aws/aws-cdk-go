@@ -34,10 +34,18 @@ package awsec2
 //   		// the properties below are optional
 //   		CloudwatchLogGroup: jsii.String("cloudwatchLogGroup"),
 //   		CloudwatchLogStream: jsii.String("cloudwatchLogStream"),
+//   		IncludeAuthorizationPolicyContext: jsii.Boolean(false),
 //   	},
 //   	ServerCertificateArn: jsii.String("serverCertificateArn"),
 //
 //   	// the properties below are optional
+//   	AuthorizationPolicy: &AuthorizationPolicyProperty{
+//   		PolicyDocument: jsii.String("policyDocument"),
+//
+//   		// the properties below are optional
+//   		Description: jsii.String("description"),
+//   		ShadowMode: jsii.String("shadowMode"),
+//   	},
 //   	ClientCidrBlock: jsii.String("clientCidrBlock"),
 //   	ClientConnectOptions: &ClientConnectOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
@@ -55,6 +63,18 @@ package awsec2
 //   		Enforced: jsii.Boolean(false),
 //   	},
 //   	Description: jsii.String("description"),
+//   	DevicePostureOptions: &DevicePostureOptionsProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		TrustProviders: []interface{}{
+//   			&DevicePostureTrustProviderProperty{
+//   				TenantId: jsii.String("tenantId"),
+//   				TrustProviderType: jsii.String("trustProviderType"),
+//
+//   				// the properties below are optional
+//   				PublicSigningKeyUrl: jsii.String("publicSigningKeyUrl"),
+//   			},
+//   		},
+//   	},
 //   	DisconnectOnSessionTimeout: jsii.Boolean(false),
 //   	DnsServers: []*string{
 //   		jsii.String("dnsServers"),
@@ -118,6 +138,9 @@ type CfnClientVpnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
 	//
 	ServerCertificateArn *string `field:"required" json:"serverCertificateArn" yaml:"serverCertificateArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-authorizationpolicy
+	//
+	AuthorizationPolicy interface{} `field:"optional" json:"authorizationPolicy" yaml:"authorizationPolicy"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses.
 	//
 	// The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.
@@ -144,6 +167,9 @@ type CfnClientVpnEndpointProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-devicepostureoptions
+	//
+	DevicePostureOptions interface{} `field:"optional" json:"devicePostureOptions" yaml:"devicePostureOptions"`
 	// Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached.
 	//
 	// If `true` , users are prompted to reconnect client VPN. If `false` , client VPN attempts to reconnect automatically. The default value is `true` .

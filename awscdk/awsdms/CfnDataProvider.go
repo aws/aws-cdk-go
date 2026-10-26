@@ -167,7 +167,9 @@ type CfnDataProvider interface {
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
 	// The identifier of the data provider.
+	// Deprecated: this property has been deprecated.
 	DataProviderIdentifier() *string
+	// Deprecated: this property has been deprecated.
 	SetDataProviderIdentifier(val *string)
 	// The name of the data provider.
 	DataProviderName() *string

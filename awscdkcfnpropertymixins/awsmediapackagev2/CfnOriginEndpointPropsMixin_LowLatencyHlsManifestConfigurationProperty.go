@@ -10,7 +10,7 @@ package awsmediapackagev2
 //
 //   lowLatencyHlsManifestConfigurationProperty := &LowLatencyHlsManifestConfigurationProperty{
 //   	ChildManifestName: jsii.String("childManifestName"),
-//   	FilterConfiguration: &FilterConfigurationProperty{
+//   	FilterConfiguration: &LowLatencyHlsFilterConfigurationProperty{
 //   		ClipStartTime: jsii.String("clipStartTime"),
 //   		DrmSettings: jsii.String("drmSettings"),
 //   		End: jsii.String("end"),

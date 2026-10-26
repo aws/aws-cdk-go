@@ -11,7 +11,7 @@ package awsmediapackagev2
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   mssManifestConfigurationProperty := &MssManifestConfigurationProperty{
-//   	FilterConfiguration: &FilterConfigurationProperty{
+//   	FilterConfiguration: &MssFilterConfigurationProperty{
 //   		ClipStartTime: jsii.String("clipStartTime"),
 //   		DrmSettings: jsii.String("drmSettings"),
 //   		End: jsii.String("end"),

@@ -122,7 +122,15 @@ type CfnScalingPlan interface {
 	ApplicationSource() interface{}
 	SetApplicationSource(val interface{})
 	AttrId() *string
+	// The Amazon Resource Name (ARN) of the scaling plan.
+	AttrScalingPlanArn() *string
+	// The name of the scaling plan.
+	//
+	// Names cannot contain vertical bars, colons, or forward slashes.
 	AttrScalingPlanName() *string
+	// The version number of the scaling plan.
+	//
+	// This value is always 1.
 	AttrScalingPlanVersion() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -364,6 +372,16 @@ func (j *jsiiProxy_CfnScalingPlan) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScalingPlan) AttrScalingPlanArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrScalingPlanArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScalingPlan) AttrScalingPlanName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -574,6 +592,24 @@ func (j *jsiiProxy_CfnScalingPlan)SetScalingInstructions(val interface{}) {
 		"scalingInstructions",
 		val,
 	)
+}
+
+func CfnScalingPlan_ArnForScalingPlan(resource interfacesawsautoscalingplans.IScalingPlanRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnScalingPlan_ArnForScalingPlanParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_autoscalingplans.CfnScalingPlan",
+		"arnForScalingPlan",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

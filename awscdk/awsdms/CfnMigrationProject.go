@@ -20,10 +20,7 @@ import (
 //
 //   cfnMigrationProject := awscdk.Aws_dms.NewCfnMigrationProject(this, jsii.String("MyCfnMigrationProject"), &CfnMigrationProjectProps{
 //   	Description: jsii.String("description"),
-//   	InstanceProfileArn: jsii.String("instanceProfileArn"),
 //   	InstanceProfileIdentifier: jsii.String("instanceProfileIdentifier"),
-//   	InstanceProfileName: jsii.String("instanceProfileName"),
-//   	MigrationProjectCreationTime: jsii.String("migrationProjectCreationTime"),
 //   	MigrationProjectIdentifier: jsii.String("migrationProjectIdentifier"),
 //   	MigrationProjectName: jsii.String("migrationProjectName"),
 //   	SchemaConversionApplicationAttributes: &SchemaConversionApplicationAttributesProperty{
@@ -64,8 +61,18 @@ type CfnMigrationProject interface {
 	awscdk.IInspectable
 	interfacesawsdms.IMigrationProjectRef
 	awscdk.ITaggableV2
+	// The property describes an instance profile arn for the migration project.
+	//
+	// For read.
+	AttrInstanceProfileArn() *string
+	// The property describes an instance profile name for the migration project.
+	//
+	// For read.
+	AttrInstanceProfileName() *string
 	// The ARN string that uniquely identifies the migration project.
 	AttrMigrationProjectArn() *string
+	// The property describes a creating time of the migration project.
+	AttrMigrationProjectCreationTime() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -82,15 +89,9 @@ type CfnMigrationProject interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
-	// The Amazon Resource Name (ARN) of the instance profile for your migration project.
-	InstanceProfileArn() *string
-	SetInstanceProfileArn(val *string)
 	// The identifier of the instance profile for your migration project.
 	InstanceProfileIdentifier() *string
 	SetInstanceProfileIdentifier(val *string)
-	// The name of the associated instance profile.
-	InstanceProfileName() *string
-	SetInstanceProfileName(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -101,13 +102,10 @@ type CfnMigrationProject interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The property describes a creating time of the migration project.
-	// Deprecated: this property has been deprecated.
-	MigrationProjectCreationTime() *string
-	// Deprecated: this property has been deprecated.
-	SetMigrationProjectCreationTime(val *string)
 	// The identifier of the migration project.
+	// Deprecated: this property has been deprecated.
 	MigrationProjectIdentifier() *string
+	// Deprecated: this property has been deprecated.
 	SetMigrationProjectIdentifier(val *string)
 	// The name of the migration project.
 	MigrationProjectName() *string
@@ -324,11 +322,41 @@ type jsiiProxy_CfnMigrationProject struct {
 	internal.Type__awscdkITaggableV2
 }
 
+func (j *jsiiProxy_CfnMigrationProject) AttrInstanceProfileArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInstanceProfileArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMigrationProject) AttrInstanceProfileName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInstanceProfileName",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMigrationProject) AttrMigrationProjectArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrMigrationProjectArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMigrationProject) AttrMigrationProjectCreationTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrMigrationProjectCreationTime",
 		&returns,
 	)
 	return returns
@@ -414,16 +442,6 @@ func (j *jsiiProxy_CfnMigrationProject) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMigrationProject) InstanceProfileArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"instanceProfileArn",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnMigrationProject) InstanceProfileIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
@@ -434,31 +452,11 @@ func (j *jsiiProxy_CfnMigrationProject) InstanceProfileIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMigrationProject) InstanceProfileName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"instanceProfileName",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnMigrationProject) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"logicalId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnMigrationProject) MigrationProjectCreationTime() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"migrationProjectCreationTime",
 		&returns,
 	)
 	return returns
@@ -632,34 +630,10 @@ func (j *jsiiProxy_CfnMigrationProject)SetDescription(val *string) {
 	)
 }
 
-func (j *jsiiProxy_CfnMigrationProject)SetInstanceProfileArn(val *string) {
-	_jsii_.Set(
-		j,
-		"instanceProfileArn",
-		val,
-	)
-}
-
 func (j *jsiiProxy_CfnMigrationProject)SetInstanceProfileIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"instanceProfileIdentifier",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnMigrationProject)SetInstanceProfileName(val *string) {
-	_jsii_.Set(
-		j,
-		"instanceProfileName",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnMigrationProject)SetMigrationProjectCreationTime(val *string) {
-	_jsii_.Set(
-		j,
-		"migrationProjectCreationTime",
 		val,
 	)
 }

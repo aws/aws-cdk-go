@@ -260,6 +260,30 @@ func validateCfnCompositeAlarm_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnCompositeAlarm) validateSetActionConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCompositeAlarm_ActionConfigurationProperty:
+		val := val.(*CfnCompositeAlarm_ActionConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCompositeAlarm_ActionConfigurationProperty:
+		val_ := val.(CfnCompositeAlarm_ActionConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCompositeAlarm_ActionConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCompositeAlarm) validateSetActionsEnabledParameters(val interface{}) error {
 	switch val.(type) {
 	case *bool:

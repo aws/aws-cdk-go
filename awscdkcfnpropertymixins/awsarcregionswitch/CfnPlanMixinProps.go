@@ -282,6 +282,34 @@ package awsarcregionswitch
 //   							},
 //   							TimeoutMinutes: jsii.Number(123),
 //   						},
+//   						SsmSendCommandConfig: &SsmSendCommandConfigurationProperty{
+//   							RegionDocuments: map[string]interface{}{
+//   								"regionDocumentsKey": &SsmDocumentConfigProperty{
+//   									"crossAccountRole": jsii.String("crossAccountRole"),
+//   									"documentArn": jsii.String("documentArn"),
+//   									"documentVersion": jsii.String("documentVersion"),
+//   									"externalId": jsii.String("externalId"),
+//   									"parameters": map[string][]*string{
+//   										"parametersKey": []*string{
+//   											jsii.String("parameters"),
+//   										},
+//   									},
+//   									"targets": []interface{}{
+//   										&SsmTargetProperty{
+//   											"key": jsii.String("key"),
+//   											"values": []*string{
+//   												jsii.String("values"),
+//   											},
+//   										},
+//   									},
+//   								},
+//   							},
+//   							RetryIntervalMinutes: jsii.Number(123),
+//   							TimeoutMinutes: jsii.Number(123),
+//   							Ungraceful: &SsmSendCommandUngracefulProperty{
+//   								Behavior: jsii.String("behavior"),
+//   							},
+//   						},
 //   					},
 //   					ExecutionBlockType: jsii.String("executionBlockType"),
 //   					Name: jsii.String("name"),

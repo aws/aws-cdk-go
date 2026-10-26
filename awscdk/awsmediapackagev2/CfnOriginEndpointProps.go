@@ -59,6 +59,12 @@ import (
 //   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Multiview: &MultiviewFilterConfigurationProperty{
+//   					Layout: jsii.String("layout"),
+//   					Sources: []*string{
+//   						jsii.String("sources"),
+//   					},
+//   				},
 //   				Start: jsii.String("start"),
 //   				TimeDelaySeconds: jsii.Number(123),
 //   			},
@@ -113,6 +119,12 @@ import (
 //   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
 //   				ManifestFilter: jsii.String("manifestFilter"),
+//   				Multiview: &MultiviewFilterConfigurationProperty{
+//   					Layout: jsii.String("layout"),
+//   					Sources: []*string{
+//   						jsii.String("sources"),
+//   					},
+//   				},
 //   				Start: jsii.String("start"),
 //   				TimeDelaySeconds: jsii.Number(123),
 //   			},
@@ -139,7 +151,7 @@ import (
 //
 //   			// the properties below are optional
 //   			ChildManifestName: jsii.String("childManifestName"),
-//   			FilterConfiguration: &FilterConfigurationProperty{
+//   			FilterConfiguration: &LowLatencyHlsFilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
 //   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
@@ -169,7 +181,7 @@ import (
 //   			ManifestName: jsii.String("manifestName"),
 //
 //   			// the properties below are optional
-//   			FilterConfiguration: &FilterConfigurationProperty{
+//   			FilterConfiguration: &MssFilterConfigurationProperty{
 //   				ClipStartTime: jsii.String("clipStartTime"),
 //   				DrmSettings: jsii.String("drmSettings"),
 //   				End: jsii.String("end"),
@@ -202,6 +214,10 @@ import (
 //
 //   				// the properties below are optional
 //   				CertificateArn: jsii.String("certificateArn"),
+//   				ContentKeyPeriodConfiguration: &ContentKeyPeriodConfigurationProperty{
+//   					ContentKeyPeriodTiming: jsii.String("contentKeyPeriodTiming"),
+//   				},
+//   				SpekeVersion: jsii.String("spekeVersion"),
 //   			},
 //
 //   			// the properties below are optional

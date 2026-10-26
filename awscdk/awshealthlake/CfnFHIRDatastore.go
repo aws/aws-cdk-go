@@ -24,6 +24,9 @@ import (
 //   	DatastoreTypeVersion: jsii.String("datastoreTypeVersion"),
 //
 //   	// the properties below are optional
+//   	AnalyticsConfiguration: &AnalyticsConfigurationProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	DatastoreName: jsii.String("datastoreName"),
 //   	IdentityProviderConfiguration: &IdentityProviderConfigurationProperty{
 //   		AuthorizationStrategy: jsii.String("authorizationStrategy"),
@@ -33,8 +36,16 @@ import (
 //   		IdpLambdaArn: jsii.String("idpLambdaArn"),
 //   		Metadata: jsii.String("metadata"),
 //   	},
+//   	NlpConfiguration: &NlpConfigurationProperty{
+//   		Status: jsii.String("status"),
+//   	},
 //   	PreloadDataConfig: &PreloadDataConfigProperty{
 //   		PreloadDataType: jsii.String("preloadDataType"),
+//   	},
+//   	ProfileConfiguration: &ProfileConfigurationProperty{
+//   		DefaultProfiles: []*string{
+//   			jsii.String("defaultProfiles"),
+//   		},
 //   	},
 //   	SseConfiguration: &SseConfigurationProperty{
 //   		KmsEncryptionConfig: &KmsEncryptionConfigProperty{
@@ -59,6 +70,9 @@ type CfnFHIRDatastore interface {
 	awscdk.IInspectable
 	interfacesawshealthlake.IFHIRDatastoreRef
 	awscdk.ITaggable
+	// The analytics configuration for the Data Store.
+	AnalyticsConfiguration() interface{}
+	SetAnalyticsConfiguration(val interface{})
 	// The time that a Data Store was created.
 	AttrCreatedAt() awscdk.IResolvable
 	AttrCreatedAtNanos() *float64
@@ -107,11 +121,17 @@ type CfnFHIRDatastore interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The natural language processing (NLP) configuration for the Data Store.
+	NlpConfiguration() interface{}
+	SetNlpConfiguration(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// The preloaded Synthea data configuration for the data store.
 	PreloadDataConfig() interface{}
 	SetPreloadDataConfig(val interface{})
+	// The profile configuration for the Data Store.
+	ProfileConfiguration() interface{}
+	SetProfileConfiguration(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -313,6 +333,16 @@ type jsiiProxy_CfnFHIRDatastore struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore) AnalyticsConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"analyticsConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore) AttrCreatedAt() awscdk.IResolvable {
 	var returns awscdk.IResolvable
 	_jsii_.Get(
@@ -493,6 +523,16 @@ func (j *jsiiProxy_CfnFHIRDatastore) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore) NlpConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"nlpConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -508,6 +548,16 @@ func (j *jsiiProxy_CfnFHIRDatastore) PreloadDataConfig() interface{} {
 	_jsii_.Get(
 		j,
 		"preloadDataConfig",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFHIRDatastore) ProfileConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"profileConfiguration",
 		&returns,
 	)
 	return returns
@@ -613,6 +663,17 @@ func NewCfnFHIRDatastore_Override(c CfnFHIRDatastore, scope constructs.Construct
 	)
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore)SetAnalyticsConfiguration(val interface{}) {
+	if err := j.validateSetAnalyticsConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"analyticsConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore)SetDatastoreName(val *string) {
 	_jsii_.Set(
 		j,
@@ -643,6 +704,17 @@ func (j *jsiiProxy_CfnFHIRDatastore)SetIdentityProviderConfiguration(val interfa
 	)
 }
 
+func (j *jsiiProxy_CfnFHIRDatastore)SetNlpConfiguration(val interface{}) {
+	if err := j.validateSetNlpConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"nlpConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFHIRDatastore)SetPreloadDataConfig(val interface{}) {
 	if err := j.validateSetPreloadDataConfigParameters(val); err != nil {
 		panic(err)
@@ -650,6 +722,17 @@ func (j *jsiiProxy_CfnFHIRDatastore)SetPreloadDataConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"preloadDataConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFHIRDatastore)SetProfileConfiguration(val interface{}) {
+	if err := j.validateSetProfileConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"profileConfiguration",
 		val,
 	)
 }

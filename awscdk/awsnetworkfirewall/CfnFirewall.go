@@ -37,6 +37,20 @@ import (
 //   		jsii.String("enabledAnalysisTypes"),
 //   	},
 //   	FirewallPolicyChangeProtection: jsii.Boolean(false),
+//   	NatGatewayMappings: []interface{}{
+//   		&NatGatewayMappingProperty{
+//   			NatGatewayId: jsii.String("natGatewayId"),
+//   		},
+//   	},
+//   	NoSourcePreservation: jsii.Boolean(false),
+//   	ProxySettings: &ProxySettingsProperty{
+//   		ListenerProperties: []interface{}{
+//   			&ListenerPropertyProperty{
+//   				Port: jsii.Number(123),
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   	},
 //   	SubnetChangeProtection: jsii.Boolean(false),
 //   	SubnetMappings: []interface{}{
 //   		&SubnetMappingProperty{
@@ -53,6 +67,17 @@ import (
 //   		},
 //   	},
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
+//   	VpcEndpoint: &VpcEndpointProperty{
+//   		SubnetMappings: []interface{}{
+//   			&SubnetMappingProperty{
+//   				SubnetId: jsii.String("subnetId"),
+//
+//   				// the properties below are optional
+//   				IpAddressType: jsii.String("ipAddressType"),
+//   			},
+//   		},
+//   		VpcId: jsii.String("vpcId"),
+//   	},
 //   	VpcId: jsii.String("vpcId"),
 //   })
 //
@@ -71,6 +96,8 @@ type CfnFirewall interface {
 	AttrFirewallArn() *string
 	// The name of the firewallresource.
 	AttrFirewallId() *string
+	// The number of VPC endpoint associations attached to the firewall.
+	AttrNumberOfAssociations() *float64
 	// The unique identifier of the transit gateway attachment associated with this firewall.
 	//
 	// This field is only present for transit gateway-attached firewalls.
@@ -122,8 +149,17 @@ type CfnFirewall interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The NAT gateways that the firewall proxies egress traffic through when NoSourcePreservation is true.
+	NatGatewayMappings() interface{}
+	SetNatGatewayMappings(val interface{})
 	// The tree node.
 	Node() constructs.Node
+	// Indicates whether the firewall operates in proxy mode, where the source IP address of traffic is not preserved.
+	NoSourcePreservation() interface{}
+	SetNoSourcePreservation(val interface{})
+	// The proxy listener configuration for a proxy-mode (no source preservation) firewall.
+	ProxySettings() interface{}
+	SetProxySettings(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -160,6 +196,9 @@ type CfnFirewall interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The VPC and subnets for a proxy-mode firewall's endpoint.
+	VpcEndpoint() interface{}
+	SetVpcEndpoint(val interface{})
 	// The unique identifier of the VPC where the firewall is in use.
 	VpcId() *string
 	SetVpcId(val *string)
@@ -364,6 +403,16 @@ func (j *jsiiProxy_CfnFirewall) AttrFirewallId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFirewall) AttrNumberOfAssociations() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrNumberOfAssociations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFirewall) AttrTransitGatewayAttachmentId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -534,11 +583,41 @@ func (j *jsiiProxy_CfnFirewall) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFirewall) NatGatewayMappings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"natGatewayMappings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFirewall) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFirewall) NoSourcePreservation() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"noSourcePreservation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFirewall) ProxySettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"proxySettings",
 		&returns,
 	)
 	return returns
@@ -629,6 +708,16 @@ func (j *jsiiProxy_CfnFirewall) UpdatedProperties() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFirewall) VpcEndpoint() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vpcEndpoint",
 		&returns,
 	)
 	return returns
@@ -756,6 +845,39 @@ func (j *jsiiProxy_CfnFirewall)SetFirewallPolicyChangeProtection(val interface{}
 	)
 }
 
+func (j *jsiiProxy_CfnFirewall)SetNatGatewayMappings(val interface{}) {
+	if err := j.validateSetNatGatewayMappingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"natGatewayMappings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewall)SetNoSourcePreservation(val interface{}) {
+	if err := j.validateSetNoSourcePreservationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"noSourcePreservation",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewall)SetProxySettings(val interface{}) {
+	if err := j.validateSetProxySettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"proxySettings",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFirewall)SetSubnetChangeProtection(val interface{}) {
 	if err := j.validateSetSubnetChangeProtectionParameters(val); err != nil {
 		panic(err)
@@ -793,6 +915,17 @@ func (j *jsiiProxy_CfnFirewall)SetTransitGatewayId(val *string) {
 	_jsii_.Set(
 		j,
 		"transitGatewayId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFirewall)SetVpcEndpoint(val interface{}) {
+	if err := j.validateSetVpcEndpointParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"vpcEndpoint",
 		val,
 	)
 }

@@ -42,6 +42,9 @@ import (
 //   	},
 //   	DependencyDiscovery: jsii.String("dependencyDiscovery"),
 //   	Description: jsii.String("description"),
+//   	DevOpsAgentConfiguration: &DevOpsAgentConfigurationProperty{
+//   		AgentSpaceArn: jsii.String("agentSpaceArn"),
+//   	},
 //   	InputSources: []interface{}{
 //   		&InputSourceDefinitionProperty{
 //   			ResourceConfiguration: &ResourceConfigurationProperty{
@@ -155,6 +158,9 @@ type CfnService interface {
 	// The description of the service.
 	Description() *string
 	SetDescription(val *string)
+	// Links the service to an AWS DevOps Agent Agent Space.
+	DevOpsAgentConfiguration() interface{}
+	SetDevOpsAgentConfiguration(val interface{})
 	Env() *interfaces.ResourceEnvironment
 	// Input sources for this service.
 	InputSources() interface{}
@@ -526,6 +532,16 @@ func (j *jsiiProxy_CfnService) Description() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) DevOpsAgentConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"devOpsAgentConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) Env() *interfaces.ResourceEnvironment {
 	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
@@ -750,6 +766,17 @@ func (j *jsiiProxy_CfnService)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetDevOpsAgentConfiguration(val interface{}) {
+	if err := j.validateSetDevOpsAgentConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"devOpsAgentConfiguration",
 		val,
 	)
 }

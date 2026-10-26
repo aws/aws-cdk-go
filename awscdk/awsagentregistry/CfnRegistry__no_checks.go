@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnRegistry) validateSetAutoDetectionEnabledParameters(val in
 	return nil
 }
 
+func (j *jsiiProxy_CfnRegistry) validateSetCustomMetadataSchemaConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRegistry) validateSetDiscoveryConfigurationParameters(val interface{}) error {
 	return nil
 }

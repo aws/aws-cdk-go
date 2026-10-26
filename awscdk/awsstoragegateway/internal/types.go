@@ -5,7 +5,9 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsstoragegatewayITapeRef = interfacesawsstoragegateway.ITapeRef
+type Type__interfacesawsstoragegatewayINFSFileShareRef = interfacesawsstoragegateway.INFSFileShareRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsstoragegatewayISMBFileShareRef = interfacesawsstoragegateway.ISMBFileShareRef
+type Type__interfacesawsstoragegatewayITapeRef = interfacesawsstoragegateway.ITapeRef
 type Type__interfacesawsstoragegatewayITapePoolRef = interfacesawsstoragegateway.ITapePoolRef
 type Type__interfacesawsstoragegatewayIVolumeRef = interfacesawsstoragegateway.IVolumeRef
