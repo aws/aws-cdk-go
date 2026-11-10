@@ -574,7 +574,7 @@ output format via the `CaptionDestination` factory. One selector can feed multip
 // Define a caption selector on the input attachment (see Input Attachment Settings below)
 captionSelector := medialive.CaptionSelector_Embedded(jsii.String("captions"))
 
-// WebVTT captions — packaged alongside the video encode in the same output
+// WebVTT captions
 webvtt := medialive.EncodeConfiguration_Caption(&CaptionEncodeProps{
 	Name: jsii.String("eng_webvtt"),
 	CaptionSelectorName: captionSelector.Name,
@@ -608,7 +608,7 @@ burnIn := medialive.EncodeConfiguration_Caption(&CaptionEncodeProps{
 
 Use `mediaPackageV2()` and pass a single `channel` — MediaLive maps each pipeline to a MediaPackage ingest endpoint automatically (one for `SINGLE_PIPELINE`, both for `STANDARD`). Each output contains a single encode (one track per output).
 
-In-band captions (burn-in, embedded) ride alongside a video encode via the `captions` prop:
+In-band captions (burn-in, embedded) ride alongside a video encode via the `captions` prop. Out-of-band (sidecar) captions are a track of their own, so they go in their own output as that output's `encode`:
 
 ```go
 var mpChannel IChannel
@@ -616,6 +616,7 @@ var hdVideo EncodeConfiguration
 var sdVideo EncodeConfiguration
 var audio EncodeConfiguration
 var burnIn EncodeConfiguration
+var ttml EncodeConfiguration
 
 
 medialive.OutputGroupConfiguration_MediaPackageV2(&MediaPackageV2OutputGroupProps{
@@ -636,6 +637,10 @@ medialive.OutputGroupConfiguration_MediaPackageV2(&MediaPackageV2OutputGroupProp
 		&MediaPackageV2OutputDefinition{
 			Encode: audio,
 			OutputName: jsii.String("audio"),
+		},
+		&MediaPackageV2OutputDefinition{
+			Encode: ttml,
+			OutputName: jsii.String("eng_ttml"),
 		},
 	},
 })

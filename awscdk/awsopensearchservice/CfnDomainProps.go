@@ -14,6 +14,9 @@ import (
 //   var accessPolicies interface{}
 //
 //   cfnDomainProps := &CfnDomainProps{
+//   	AcceptedWarnings: []*string{
+//   		jsii.String("acceptedWarnings"),
+//   	},
 //   	AccessPolicies: accessPolicies,
 //   	AdvancedOptions: map[string]*string{
 //   		"advancedOptionsKey": jsii.String("advancedOptions"),
@@ -122,6 +125,7 @@ import (
 //   	},
 //   	EncryptionAtRestOptions: &EncryptionAtRestOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
+//   		EncryptionMode: jsii.String("encryptionMode"),
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	EngineMode: jsii.String("engineMode"),
@@ -182,6 +186,12 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html
 //
 type CfnDomainProps struct {
+	// Warning codes to accept for this domain configuration update.
+	//
+	// Accepting a warning lets the update proceed past a validation that would otherwise block it. This property applies only to the current update and is not persisted on the domain. You can find warning codes in the ValidationFailures returned by DescribeDomainChangeProgress or DescribeDryRunProgress.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#cfn-opensearchservice-domain-acceptedwarnings
+	//
+	AcceptedWarnings *[]*string `field:"optional" json:"acceptedWarnings" yaml:"acceptedWarnings"`
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions.
 	//
 	// For more information, see [Configuring access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html#ac-creating) in the *Amazon OpenSearch Service Developer Guide* .

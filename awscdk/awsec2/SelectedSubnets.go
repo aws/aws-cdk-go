@@ -7,16 +7,26 @@ import (
 // Result of selecting a subset of subnets from a VPC.
 //
 // Example:
-//   vpc := ec2.NewVpc(this, jsii.String("TheVPC"), &VpcProps{
-//   	IpAddresses: ec2.IpAddresses_Cidr(jsii.String("10.0.0.0/16")),
+//   vpc := ec2.NewVpc(this, jsii.String("VpcWithExplicitAzs"), &VpcProps{
+//   	AvailabilityZones: []*string{
+//   		jsii.String("us-east-1a"),
+//   		jsii.String("us-east-1b"),
+//   	},
+//   	NatGateways: jsii.Number(0),
+//   	SubnetConfiguration: []SubnetConfiguration{
+//   		&SubnetConfiguration{
+//   			Name: jsii.String("Application"),
+//   			SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+//   		},
+//   	},
 //   })
 //
-//   // Iterate the private subnets
-//   selection := vpc.selectSubnets(&SubnetSelection{
-//   	SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   selectedSubnets := vpc.selectSubnets(&SubnetSelection{
+//   	SubnetType: ec2.SubnetType_PRIVATE_ISOLATED,
+//   	AvailabilityZones: []*string{
+//   		jsii.String("us-east-1a"),
+//   	},
 //   })
-//
-//   for _, subnet := range selection.Subnets {}
 //
 type SelectedSubnets struct {
 	// The respective AZs of each subnet.

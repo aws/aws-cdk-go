@@ -54,6 +54,19 @@ import (
 //   			MediaLiveInputArn: jsii.String("mediaLiveInputArn"),
 //   			MediaLivePipelineId: jsii.String("mediaLivePipelineId"),
 //   		},
+//   		SourceEndpoint: &SourceEndpointRouterOutputConfigurationProperty{
+//   			DestinationTransitEncryption: &EndpointEncryptionConfigurationProperty{
+//   				Automatic: automatic,
+//   				SecretsManager: &SecretsManagerEndpointEncryptionConfigurationProperty{
+//   					EncryptionSecret: &EndpointEncryptionSecretConfigurationProperty{
+//   						SecretArn: jsii.String("secretArn"),
+//   					},
+//   					EncryptionSecretType: jsii.String("encryptionSecretType"),
+//   				},
+//   			},
+//   			DestinationTransitEncryptionType: jsii.String("destinationTransitEncryptionType"),
+//   			EndpointLifecycleManagement: jsii.String("endpointLifecycleManagement"),
+//   		},
 //   		Standard: &StandardRouterOutputConfigurationProperty{
 //   			NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
 //   			Protocol: jsii.String("protocol"),

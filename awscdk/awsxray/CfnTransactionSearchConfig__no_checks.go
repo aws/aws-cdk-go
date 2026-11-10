@@ -100,6 +100,10 @@ func validateCfnTransactionSearchConfig_IsConstructParameters(x interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransactionSearchConfig) validateSetCloudWatchLogsConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnTransactionSearchConfigParameters(scope constructs.Construct, id *string, props *CfnTransactionSearchConfigProps) error {
 	return nil
 }

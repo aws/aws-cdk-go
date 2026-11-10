@@ -43,6 +43,8 @@ type TableAttributes struct {
 	// Experimental.
 	TableColumns *[]*Column `field:"required" json:"tableColumns" yaml:"tableColumns"`
 	// Name of the table.
+	//
+	// May be schema-qualified.
 	// Experimental.
 	TableName *string `field:"required" json:"tableName" yaml:"tableName"`
 }

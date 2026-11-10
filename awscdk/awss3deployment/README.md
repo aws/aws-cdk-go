@@ -485,20 +485,22 @@ while `arm64` costs less per millisecond of execution.
 
 ## JSON-Aware Source Processing
 
-When using `Source.jsonData` with CDK Tokens (references to construct properties), you may need to enable the escaping option. This is particularly important when the referenced properties might contain special characters that require proper JSON escaping (like double quotes, line breaks, etc.).
+`Source.jsonData()` and `Source.yamlData()` encode each deploy-time value according to the
+type of the tokenized value used in the data structure. So if the value is a tokenized
+string (`Token.asString()`) it will be quoted, if the value is a tokenized number or list, or
+arbitrary object (`Token.asNumber()`, `Token.asList()`, `Token.asAny()`) it will not be quoted.
 
 ```go
 var bucket Bucket
 var param StringParameter
 
 
-// Example with a secret value that contains double quotes
+// Works even if the parameter value contains double quotes
 deployment := s3deploy.NewBucketDeployment(this, jsii.String("JsonDeployment"), &BucketDeploymentProps{
 	Sources: []ISource{
 		s3deploy.Source_JsonData(jsii.String("config.json"), map[string]interface{}{
 			"api_endpoint": jsii.String("https://api.example.com"),
 			"secretValue": param.stringValue,
-			 // value with double quotes
 			"config": map[string]interface{}{
 				"enabled": jsii.Boolean(true),
 				"features": []*string{
@@ -506,13 +508,17 @@ deployment := s3deploy.NewBucketDeployment(this, jsii.String("JsonDeployment"), 
 					jsii.String("feature2"),
 				},
 			},
-		}, &JsonProcessingOptions{
-			Escape: jsii.Boolean(true),
 		}),
 	},
 	DestinationBucket: bucket,
 })
 ```
+
+CloudFormation passes every scalar to the deployment as a string, so the elements of a
+deploy-time list are always strings: a list of port numbers is deployed as `["80", "443"]`.
+
+Escaping used to require passing `{ escape: true }` to `Source.jsonData()`, and is now the
+default. See `JsonProcessingOptions` for the rare case where you want to turn it off.
 
 ## EFS Support
 

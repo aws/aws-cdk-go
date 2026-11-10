@@ -1247,6 +1247,155 @@ func init() {
 		reflect.TypeOf((*CfnMitigationActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate",
+		reflect.TypeOf((*CfnOTAUpdate)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberProperty{JsiiProperty: "additionalParameters", GoGetter: "AdditionalParameters"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreationDate", GoGetter: "AttrCreationDate"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLastModifiedDate", GoGetter: "AttrLastModifiedDate"},
+			_jsii_.MemberProperty{JsiiProperty: "attrOtaUpdateArn", GoGetter: "AttrOtaUpdateArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrOtaUpdateStatus", GoGetter: "AttrOtaUpdateStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "awsJobAbortConfig", GoGetter: "AwsJobAbortConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "awsJobExecutionsRolloutConfig", GoGetter: "AwsJobExecutionsRolloutConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "awsJobPresignedUrlConfig", GoGetter: "AwsJobPresignedUrlConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "awsJobTimeoutConfig", GoGetter: "AwsJobTimeoutConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "files", GoGetter: "Files"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberProperty{JsiiProperty: "otaUpdateId", GoGetter: "OtaUpdateId"},
+			_jsii_.MemberProperty{JsiiProperty: "otaUpdateRef", GoGetter: "OtaUpdateRef"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "protocols", GoGetter: "Protocols"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "targets", GoGetter: "Targets"},
+			_jsii_.MemberProperty{JsiiProperty: "targetSelection", GoGetter: "TargetSelection"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnOTAUpdate{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsiotIOTAUpdateRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.AwsJobAbortConfigProperty",
+		reflect.TypeOf((*CfnOTAUpdate_AwsJobAbortConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.AwsJobAbortCriteriaProperty",
+		reflect.TypeOf((*CfnOTAUpdate_AwsJobAbortCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.AwsJobExecutionsRolloutConfigProperty",
+		reflect.TypeOf((*CfnOTAUpdate_AwsJobExecutionsRolloutConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.AwsJobExponentialRolloutRateProperty",
+		reflect.TypeOf((*CfnOTAUpdate_AwsJobExponentialRolloutRateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.AwsJobPresignedUrlConfigProperty",
+		reflect.TypeOf((*CfnOTAUpdate_AwsJobPresignedUrlConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.AwsJobRateIncreaseCriteriaProperty",
+		reflect.TypeOf((*CfnOTAUpdate_AwsJobRateIncreaseCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.AwsJobTimeoutConfigProperty",
+		reflect.TypeOf((*CfnOTAUpdate_AwsJobTimeoutConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.CodeSigningCertificateChainProperty",
+		reflect.TypeOf((*CfnOTAUpdate_CodeSigningCertificateChainProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.CodeSigningProperty",
+		reflect.TypeOf((*CfnOTAUpdate_CodeSigningProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.CodeSigningSignatureProperty",
+		reflect.TypeOf((*CfnOTAUpdate_CodeSigningSignatureProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.CustomCodeSigningProperty",
+		reflect.TypeOf((*CfnOTAUpdate_CustomCodeSigningProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.DestinationProperty",
+		reflect.TypeOf((*CfnOTAUpdate_DestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.FileLocationProperty",
+		reflect.TypeOf((*CfnOTAUpdate_FileLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.OTAUpdateFileProperty",
+		reflect.TypeOf((*CfnOTAUpdate_OTAUpdateFileProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.S3DestinationProperty",
+		reflect.TypeOf((*CfnOTAUpdate_S3DestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.S3LocationProperty",
+		reflect.TypeOf((*CfnOTAUpdate_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.SigningProfileParameterProperty",
+		reflect.TypeOf((*CfnOTAUpdate_SigningProfileParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.StartSigningJobParameterProperty",
+		reflect.TypeOf((*CfnOTAUpdate_StartSigningJobParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdate.StreamProperty",
+		reflect.TypeOf((*CfnOTAUpdate_StreamProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iot.CfnOTAUpdateProps",
+		reflect.TypeOf((*CfnOTAUpdateProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_iot.CfnPolicy",
 		reflect.TypeOf((*CfnPolicy)(nil)).Elem(),
 		[]_jsii_.Member{

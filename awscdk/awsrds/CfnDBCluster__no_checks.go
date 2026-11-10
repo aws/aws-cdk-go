@@ -176,6 +176,10 @@ func (j *jsiiProxy_CfnDBCluster) validateSetUseLatestRestorableTimeParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnDBCluster) validateSetWithExpressConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnDBClusterParameters(scope constructs.Construct, id *string, props *CfnDBClusterProps) error {
 	return nil
 }

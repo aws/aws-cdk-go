@@ -237,6 +237,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deploymentGroupName", GoGetter: "DeploymentGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "deploymentGroupRef", GoGetter: "DeploymentGroupRef"},
 			_jsii_.MemberProperty{JsiiProperty: "deploymentStyle", GoGetter: "DeploymentStyle"},
+			_jsii_.MemberProperty{JsiiProperty: "ec2DeploymentOptions", GoGetter: "Ec2DeploymentOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "ec2TagFilters", GoGetter: "Ec2TagFilters"},
 			_jsii_.MemberProperty{JsiiProperty: "ec2TagSet", GoGetter: "Ec2TagSet"},
 			_jsii_.MemberProperty{JsiiProperty: "ecsServices", GoGetter: "EcsServices"},
@@ -330,6 +331,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codedeploy.CfnDeploymentGroup.ELBInfoProperty",
 		reflect.TypeOf((*CfnDeploymentGroup_ELBInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_codedeploy.CfnDeploymentGroup.Ec2DeploymentOptionsProperty",
+		reflect.TypeOf((*CfnDeploymentGroup_Ec2DeploymentOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_codedeploy.CfnDeploymentGroup.GitHubLocationProperty",

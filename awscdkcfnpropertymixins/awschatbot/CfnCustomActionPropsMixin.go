@@ -10,7 +10,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > AWS Chatbot is now  .
+// > AWS Chatbot is now Amazon Q Developer .
 //
 // [Learn more](https://docs.aws.amazon.com//chatbot/latest/adminguide/service-rename.html)
 // >

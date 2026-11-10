@@ -110,6 +110,28 @@ func MCPProtocolVersion_MCP_2025_06_18() MCPProtocolVersion {
 	return returns
 }
 
+func MCPProtocolVersion_MCP_2025_11_25() MCPProtocolVersion {
+	_init_.Initialize()
+	var returns MCPProtocolVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrockagentcore.MCPProtocolVersion",
+		"MCP_2025_11_25",
+		&returns,
+	)
+	return returns
+}
+
+func MCPProtocolVersion_MCP_2026_07_28() MCPProtocolVersion {
+	_init_.Initialize()
+	var returns MCPProtocolVersion
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrockagentcore.MCPProtocolVersion",
+		"MCP_2026_07_28",
+		&returns,
+	)
+	return returns
+}
+
 func (m *jsiiProxy_MCPProtocolVersion) ToString() *string {
 	var returns *string
 

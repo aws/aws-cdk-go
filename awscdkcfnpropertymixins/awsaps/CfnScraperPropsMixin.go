@@ -38,6 +38,13 @@ import (
 //   			DatasetArn: jsii.String("datasetArn"),
 //   		},
 //   	},
+//   	Exporters: []interface{}{
+//   		&ExporterConfigurationProperty{
+//   			OpenSearchConfiguration: &OpenSearchConfigurationProperty{
+//   				DomainArn: jsii.String("domainArn"),
+//   			},
+//   		},
+//   	},
 //   	RoleConfiguration: &RoleConfigurationProperty{
 //   		SourceRoleArn: jsii.String("sourceRoleArn"),
 //   		TargetRoleArn: jsii.String("targetRoleArn"),

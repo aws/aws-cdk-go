@@ -204,6 +204,14 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_EtcdPlacementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.GatewayApiCrdsProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_GatewayApiCrdsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.GatewayApiProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_GatewayApiProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_eks.CfnClusterPropsMixin.HorizontalPodAutoscalerControllerConfigProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_HorizontalPodAutoscalerControllerConfigProperty)(nil)).Elem(),
 	)

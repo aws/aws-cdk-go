@@ -19,7 +19,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnVPNConcentrator := awscdk.Aws_ec2.NewCfnVPNConcentrator(this, jsii.String("MyCfnVPNConcentrator"), &CfnVPNConcentratorProps{
-//   	TransitGatewayId: jsii.String("transitGatewayId"),
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
@@ -29,6 +28,7 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TransitGatewayId: jsii.String("transitGatewayId"),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html
@@ -503,9 +503,6 @@ func (j *jsiiProxy_CfnVPNConcentrator)SetTags(val *[]*awscdk.CfnTag) {
 }
 
 func (j *jsiiProxy_CfnVPNConcentrator)SetTransitGatewayId(val *string) {
-	if err := j.validateSetTransitGatewayIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"transitGatewayId",

@@ -21,6 +21,13 @@ import (
 //   			DatasetArn: jsii.String("datasetArn"),
 //   		},
 //   	},
+//   	Exporters: []interface{}{
+//   		&ExporterConfigurationProperty{
+//   			OpenSearchConfiguration: &OpenSearchConfigurationProperty{
+//   				DomainArn: jsii.String("domainArn"),
+//   			},
+//   		},
+//   	},
 //   	RoleConfiguration: &RoleConfigurationProperty{
 //   		SourceRoleArn: jsii.String("sourceRoleArn"),
 //   		TargetRoleArn: jsii.String("targetRoleArn"),
@@ -83,6 +90,10 @@ type CfnScraperMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-destination
 	//
 	Destination interface{} `field:"optional" json:"destination" yaml:"destination"`
+	// Exporter configurations for the scraper.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-exporters
+	//
+	Exporters interface{} `field:"optional" json:"exporters" yaml:"exporters"`
 	// The role configuration in an Amazon Managed Service for Prometheus scraper.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-roleconfiguration
 	//

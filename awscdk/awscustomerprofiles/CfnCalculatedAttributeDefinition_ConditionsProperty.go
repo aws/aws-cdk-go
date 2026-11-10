@@ -11,11 +11,9 @@ package awscustomerprofiles
 //   conditionsProperty := &ConditionsProperty{
 //   	ObjectCount: jsii.Number(123),
 //   	Range: &RangeProperty{
-//   		Unit: jsii.String("unit"),
-//
-//   		// the properties below are optional
 //   		TimestampFormat: jsii.String("timestampFormat"),
 //   		TimestampSource: jsii.String("timestampSource"),
+//   		Unit: jsii.String("unit"),
 //   		Value: jsii.Number(123),
 //   		ValueRange: &ValueRangeProperty{
 //   			End: jsii.Number(123),

@@ -4,34 +4,26 @@ package awss3deployment
 // Define options which can be passed using the method `Source.jsonData()`.
 //
 // Example:
-//   var bucket Bucket
-//   var param StringParameter
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//
-//   // Example with a secret value that contains double quotes
-//   deployment := s3deploy.NewBucketDeployment(this, jsii.String("JsonDeployment"), &BucketDeploymentProps{
-//   	Sources: []ISource{
-//   		s3deploy.Source_JsonData(jsii.String("config.json"), map[string]interface{}{
-//   			"api_endpoint": jsii.String("https://api.example.com"),
-//   			"secretValue": param.stringValue,
-//   			 // value with double quotes
-//   			"config": map[string]interface{}{
-//   				"enabled": jsii.Boolean(true),
-//   				"features": []*string{
-//   					jsii.String("feature1"),
-//   					jsii.String("feature2"),
-//   				},
-//   			},
-//   		}, &JsonProcessingOptions{
-//   			Escape: jsii.Boolean(true),
-//   		}),
-//   	},
-//   	DestinationBucket: bucket,
-//   })
+//   jsonProcessingOptions := &JsonProcessingOptions{
+//   	Escape: jsii.Boolean(false),
+//   }
 //
 type JsonProcessingOptions struct {
-	// If set to `true`, the marker substitution will make sure the value inserted in the file will be a valid JSON string.
-	// Default: - false.
+	// Whether deploy-time values should be treated as values and escaped.
+	//
+	// The default behavior (`true`) treats deploy-time values as values and
+	// serializes them accordingly.
+	//
+	// The only reason to set this to `false` would be if all Token values are
+	// full JSON strings that you want to include into your JSON content as-is. You
+	// must use `Token.asNumber()` on those to serialize them into an unquoted
+	// context. This should be an exceedingly rare use case and hence it
+	// is not the default.
+	// Default: - true.
 	//
 	Escape *bool `field:"optional" json:"escape" yaml:"escape"`
 }

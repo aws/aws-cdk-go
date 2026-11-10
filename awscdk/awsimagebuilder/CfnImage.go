@@ -41,6 +41,15 @@ import (
 //   			RepositoryName: jsii.String("repositoryName"),
 //   		},
 //   		ImageScanningEnabled: jsii.Boolean(false),
+//   		ImageScanningTypes: []*string{
+//   			jsii.String("imageScanningTypes"),
+//   		},
+//   		ScanResultCondition: &ScanResultConditionProperty{
+//   			MaximumSeverityLabel: jsii.String("maximumSeverityLabel"),
+//
+//   			// the properties below are optional
+//   			FixAvailable: jsii.Boolean(false),
+//   		},
 //   	},
 //   	ImageTestsConfiguration: &ImageTestsConfigurationProperty{
 //   		ImageTestsEnabled: jsii.Boolean(false),

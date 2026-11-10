@@ -14,6 +14,9 @@ package awsecs
 //   	Host: &HostVolumePropertiesProperty{
 //   		SourcePath: jsii.String("sourcePath"),
 //   	},
+//   	LogDriverVolumeConfiguration: &LogDriverVolumeConfigurationProperty{
+//   		Driver: jsii.String("driver"),
+//   	},
 //   	Name: jsii.String("name"),
 //   }
 //
@@ -24,6 +27,9 @@ type CfnDaemonTaskDefinitionPropsMixin_VolumeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-volume.html#cfn-ecs-daemontaskdefinition-volume-host
 	//
 	Host interface{} `field:"optional" json:"host" yaml:"host"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-daemontaskdefinition-volume.html#cfn-ecs-daemontaskdefinition-volume-logdrivervolumeconfiguration
+	//
+	LogDriverVolumeConfiguration interface{} `field:"optional" json:"logDriverVolumeConfiguration" yaml:"logDriverVolumeConfiguration"`
 	// The name of the volume.
 	//
 	// Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.

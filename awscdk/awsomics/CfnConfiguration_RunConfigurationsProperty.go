@@ -14,6 +14,7 @@ package awsomics
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
 //   		},
+//   		VpcOwnerAccountId: jsii.String("vpcOwnerAccountId"),
 //   	},
 //   }
 //

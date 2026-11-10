@@ -35,11 +35,9 @@ import (
 //   	Conditions: &ConditionsProperty{
 //   		ObjectCount: jsii.Number(123),
 //   		Range: &RangeProperty{
-//   			Unit: jsii.String("unit"),
-//
-//   			// the properties below are optional
 //   			TimestampFormat: jsii.String("timestampFormat"),
 //   			TimestampSource: jsii.String("timestampSource"),
+//   			Unit: jsii.String("unit"),
 //   			Value: jsii.Number(123),
 //   			ValueRange: &ValueRangeProperty{
 //   				End: jsii.Number(123),
@@ -53,6 +51,26 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
+//   	Filter: &FilterProperty{
+//   		Groups: []interface{}{
+//   			&FilterGroupProperty{
+//   				Dimensions: []interface{}{
+//   					&FilterDimensionProperty{
+//   						Attributes: map[string]interface{}{
+//   							"attributesKey": &FilterAttributeDimensionProperty{
+//   								"dimensionType": jsii.String("dimensionType"),
+//   								"values": []*string{
+//   									jsii.String("values"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   		Include: jsii.String("include"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -110,6 +128,9 @@ type CfnCalculatedAttributeDefinition interface {
 	DomainName() *string
 	SetDomainName(val *string)
 	Env() *interfaces.ResourceEnvironment
+	// Defines how to filter the objects coming in for calculated attributes.
+	Filter() interface{}
+	SetFilter(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -504,6 +525,16 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) Env() *interfaces.ResourceE
 	return returns
 }
 
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) Filter() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"filter",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCalculatedAttributeDefinition) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -680,6 +711,17 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition)SetDomainName(val *string) {
 	_jsii_.Set(
 		j,
 		"domainName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition)SetFilter(val interface{}) {
+	if err := j.validateSetFilterParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"filter",
 		val,
 	)
 }

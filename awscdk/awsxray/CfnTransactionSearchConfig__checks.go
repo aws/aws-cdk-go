@@ -219,6 +219,30 @@ func validateCfnTransactionSearchConfig_IsConstructParameters(x interface{}) err
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransactionSearchConfig) validateSetCloudWatchLogsConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTransactionSearchConfig_CloudWatchLogsConfigurationProperty:
+		val := val.(*CfnTransactionSearchConfig_CloudWatchLogsConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTransactionSearchConfig_CloudWatchLogsConfigurationProperty:
+		val_ := val.(CfnTransactionSearchConfig_CloudWatchLogsConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTransactionSearchConfig_CloudWatchLogsConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnTransactionSearchConfigParameters(scope constructs.Construct, id *string, props *CfnTransactionSearchConfigProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

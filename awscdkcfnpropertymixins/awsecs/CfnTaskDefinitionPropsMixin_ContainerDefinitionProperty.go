@@ -152,6 +152,12 @@ package awsecs
 //   	},
 //   	ResourceRequirements: []interface{}{
 //   		&ResourceRequirementProperty{
+//   			SharingStrategy: &SharingStrategyProperty{
+//   				NvidiaMps: &NvidiaMpsAllocationProperty{
+//   					MaxComputePercent: jsii.Number(123),
+//   					Memory: jsii.Number(123),
+//   				},
+//   			},
 //   			Type: jsii.String("type"),
 //   			Value: jsii.String("value"),
 //   		},

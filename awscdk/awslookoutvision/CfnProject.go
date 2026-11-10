@@ -461,44 +461,6 @@ func CfnProject_ArnForProject(resource interfacesawslookoutvision.IProjectRef) *
 	return returns
 }
 
-// Creates a new IProjectRef from an ARN.
-func CfnProject_FromProjectArn(scope constructs.Construct, id *string, arn *string) interfacesawslookoutvision.IProjectRef {
-	_init_.Initialize()
-
-	if err := validateCfnProject_FromProjectArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns interfacesawslookoutvision.IProjectRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lookoutvision.CfnProject",
-		"fromProjectArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IProjectRef from a projectName.
-func CfnProject_FromProjectName(scope constructs.Construct, id *string, projectName *string) interfacesawslookoutvision.IProjectRef {
-	_init_.Initialize()
-
-	if err := validateCfnProject_FromProjectNameParameters(scope, id, projectName); err != nil {
-		panic(err)
-	}
-	var returns interfacesawslookoutvision.IProjectRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lookoutvision.CfnProject",
-		"fromProjectName",
-		[]interface{}{scope, id, projectName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

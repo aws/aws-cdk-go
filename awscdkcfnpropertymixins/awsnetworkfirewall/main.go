@@ -64,6 +64,10 @@ func init() {
 		reflect.TypeOf((*CfnFirewallPolicyPropsMixin_ActionDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPolicyPropsMixin.AddressProperty",
+		reflect.TypeOf((*CfnFirewallPolicyPropsMixin_AddressProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPolicyPropsMixin.CustomActionProperty",
 		reflect.TypeOf((*CfnFirewallPolicyPropsMixin_CustomActionProperty)(nil)).Elem(),
 	)
@@ -90,6 +94,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPolicyPropsMixin.PublishMetricActionProperty",
 		reflect.TypeOf((*CfnFirewallPolicyPropsMixin_PublishMetricActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPolicyPropsMixin.Route53ResolvedIPValidationProperty",
+		reflect.TypeOf((*CfnFirewallPolicyPropsMixin_Route53ResolvedIPValidationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networkfirewall.CfnFirewallPolicyPropsMixin.StatefulEngineOptionsProperty",

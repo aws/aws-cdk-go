@@ -22,6 +22,9 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnDomainPropsMixin := awscdkcfnpropertymixins.Aws_opensearchservice.NewCfnDomainPropsMixin(&CfnDomainMixinProps{
+//   	AcceptedWarnings: []*string{
+//   		jsii.String("acceptedWarnings"),
+//   	},
 //   	AccessPolicies: accessPolicies,
 //   	AdvancedOptions: map[string]*string{
 //   		"advancedOptionsKey": jsii.String("advancedOptions"),
@@ -128,6 +131,7 @@ import (
 //   	},
 //   	EncryptionAtRestOptions: &EncryptionAtRestOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
+//   		EncryptionMode: jsii.String("encryptionMode"),
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	EngineMode: jsii.String("engineMode"),

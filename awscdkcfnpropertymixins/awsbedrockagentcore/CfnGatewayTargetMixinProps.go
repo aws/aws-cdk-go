@@ -12,6 +12,17 @@ package awsbedrockagentcore
 //   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
 //   cfnGatewayTargetMixinProps := &CfnGatewayTargetMixinProps{
+//   	CertificateConfigurations: []interface{}{
+//   		&CertificateConfigurationProperty{
+//   			S3: &S3CertificateConfigurationProperty{
+//   				BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   				Uri: jsii.String("uri"),
+//   			},
+//   			SecretsManager: &SecretsManagerCertificateConfigurationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	CredentialProviderConfigurations: []interface{}{
 //   		&CredentialProviderConfigurationProperty{
 //   			CredentialProvider: &CredentialProviderProperty{
@@ -256,6 +267,9 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html
 //
 type CfnGatewayTargetMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-certificateconfigurations
+	//
+	CertificateConfigurations interface{} `field:"optional" json:"certificateConfigurations" yaml:"certificateConfigurations"`
 	// The OAuth credential provider configuration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#cfn-bedrockagentcore-gatewaytarget-credentialproviderconfigurations
 	//

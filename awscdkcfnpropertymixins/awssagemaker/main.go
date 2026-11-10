@@ -448,6 +448,46 @@ func init() {
 		reflect.TypeOf((*CfnCodeRepositoryPropsMixin_GitConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnComputeQuotaMixinProps",
+		reflect.TypeOf((*CfnComputeQuotaMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnComputeQuotaPropsMixin",
+		reflect.TypeOf((*CfnComputeQuotaPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnComputeQuotaPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnComputeQuotaPropsMixin.AcceleratorPartitionConfigProperty",
+		reflect.TypeOf((*CfnComputeQuotaPropsMixin_AcceleratorPartitionConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnComputeQuotaPropsMixin.ComputeQuotaConfigProperty",
+		reflect.TypeOf((*CfnComputeQuotaPropsMixin_ComputeQuotaConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnComputeQuotaPropsMixin.ComputeQuotaResourceConfigProperty",
+		reflect.TypeOf((*CfnComputeQuotaPropsMixin_ComputeQuotaResourceConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnComputeQuotaPropsMixin.ComputeQuotaTargetProperty",
+		reflect.TypeOf((*CfnComputeQuotaPropsMixin_ComputeQuotaTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnComputeQuotaPropsMixin.ResourceSharingConfigProperty",
+		reflect.TypeOf((*CfnComputeQuotaPropsMixin_ResourceSharingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_sagemaker.CfnContextMixinProps",
 		reflect.TypeOf((*CfnContextMixinProps)(nil)).Elem(),
 	)

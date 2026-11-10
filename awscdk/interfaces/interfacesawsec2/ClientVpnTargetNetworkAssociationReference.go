@@ -9,11 +9,14 @@ package interfacesawsec2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   clientVpnTargetNetworkAssociationReference := &ClientVpnTargetNetworkAssociationReference{
-//   	ClientVpnTargetNetworkAssociationId: jsii.String("clientVpnTargetNetworkAssociationId"),
+//   	AssociationId: jsii.String("associationId"),
+//   	ClientVpnEndpointId: jsii.String("clientVpnEndpointId"),
 //   }
 //
 type ClientVpnTargetNetworkAssociationReference struct {
-	// The Id of the ClientVpnTargetNetworkAssociation resource.
-	ClientVpnTargetNetworkAssociationId *string `field:"required" json:"clientVpnTargetNetworkAssociationId" yaml:"clientVpnTargetNetworkAssociationId"`
+	// The AssociationId of the ClientVpnTargetNetworkAssociation resource.
+	AssociationId *string `field:"required" json:"associationId" yaml:"associationId"`
+	// The ClientVpnEndpointId of the ClientVpnTargetNetworkAssociation resource.
+	ClientVpnEndpointId *string `field:"required" json:"clientVpnEndpointId" yaml:"clientVpnEndpointId"`
 }
 

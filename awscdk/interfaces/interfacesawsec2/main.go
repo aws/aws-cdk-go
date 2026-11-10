@@ -1264,6 +1264,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ISnapshotRef",
+		reflect.TypeOf((*ISnapshotRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "snapshotRef", GoGetter: "SnapshotRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ISnapshotRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.ISpotFleetRef",
 		reflect.TypeOf((*ISpotFleetRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1434,6 +1450,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ITrafficMirrorTargetRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayAttachmentNatConfigurationRef",
+		reflect.TypeOf((*ITransitGatewayAttachmentNatConfigurationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayAttachmentNatConfigurationRef", GoGetter: "TransitGatewayAttachmentNatConfigurationRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITransitGatewayAttachmentNatConfigurationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -2276,6 +2308,10 @@ func init() {
 		reflect.TypeOf((*SnapshotBlockPublicAccessReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.SnapshotReference",
+		reflect.TypeOf((*SnapshotReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.SpotFleetReference",
 		reflect.TypeOf((*SpotFleetReference)(nil)).Elem(),
 	)
@@ -2318,6 +2354,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.TrafficMirrorTargetReference",
 		reflect.TypeOf((*TrafficMirrorTargetReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayAttachmentNatConfigurationReference",
+		reflect.TypeOf((*TransitGatewayAttachmentNatConfigurationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayAttachmentReference",

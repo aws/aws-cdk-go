@@ -10,7 +10,9 @@ package awswisdom
 //
 //   var annotations interface{}
 //   var inputSchema interface{}
+//   var inputSchemas interface{}
 //   var outputSchema interface{}
+//   var outputSchemas interface{}
 //
 //   cfnAIAgentProps := &CfnAIAgentProps{
 //   	AssistantId: jsii.String("assistantId"),
@@ -236,12 +238,50 @@ package awswisdom
 //   			NoteTakingAiPromptId: jsii.String("noteTakingAiPromptId"),
 //   		},
 //   		OrchestrationAiAgentConfiguration: &OrchestrationAIAgentConfigurationProperty{
-//   			OrchestrationAiPromptId: jsii.String("orchestrationAiPromptId"),
-//
-//   			// the properties below are optional
 //   			ConnectInstanceArn: jsii.String("connectInstanceArn"),
+//   			InputSchemas: []interface{}{
+//   				inputSchemas,
+//   			},
 //   			Locale: jsii.String("locale"),
+//   			MultiAgentConfigurations: []interface{}{
+//   				&MultiAgentConfigurationProperty{
+//   					DelegateAgentConfiguration: &DelegateAgentConfigurationProperty{
+//   						AgentTarget: &AgentTargetProperty{
+//   							AiAgentId: jsii.String("aiAgentId"),
+//   							ApplicationId: jsii.String("applicationId"),
+//   						},
+//
+//   						// the properties below are optional
+//   						Instruction: &MultiAgentInstructionProperty{
+//   							Examples: []*string{
+//   								jsii.String("examples"),
+//   							},
+//   							Instruction: jsii.String("instruction"),
+//   						},
+//   					},
+//   					HandoffAgentConfiguration: &HandoffAgentConfigurationProperty{
+//   						AgentTarget: &AgentTargetProperty{
+//   							AiAgentId: jsii.String("aiAgentId"),
+//   							ApplicationId: jsii.String("applicationId"),
+//   						},
+//
+//   						// the properties below are optional
+//   						AudioStreamingEnabled: jsii.Boolean(false),
+//   						ImmediateHandoff: jsii.Boolean(false),
+//   						Instruction: &MultiAgentInstructionProperty{
+//   							Examples: []*string{
+//   								jsii.String("examples"),
+//   							},
+//   							Instruction: jsii.String("instruction"),
+//   						},
+//   					},
+//   				},
+//   			},
 //   			OrchestrationAiGuardrailId: jsii.String("orchestrationAiGuardrailId"),
+//   			OrchestrationAiPromptId: jsii.String("orchestrationAiPromptId"),
+//   			OutputSchemas: []interface{}{
+//   				outputSchemas,
+//   			},
 //   			ToolConfigurations: []interface{}{
 //   				&ToolConfigurationProperty{
 //   					ToolName: jsii.String("toolName"),

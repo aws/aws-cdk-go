@@ -1987,6 +1987,40 @@ awscdk.Validations_Of(this).Acknowledge(&Acknowledgment{
 })
 ```
 
+#### Acknowledging a subset of a warning (context filters)
+
+A single warning `id` is sometimes emitted for a range of situations. A construct
+can attach structured **context** to each occurrence (the keys and values are the
+construct's choice — values may be strings, numbers, booleans, or arrays), and you
+can then acknowledge only the occurrences whose context matches — leaving the rest
+to still warn.
+
+```go
+// The construct attaches context describing this specific occurrence:
+awscdk.Validations_Of(this).AddWarning(jsii.String("my-lib:unsupportedActionType"), jsii.String("This action type is not supported and will be ignored"), &WarningOptions{
+	Context: map[string]interface{}{
+		"service": jsii.String("aiops"),
+		"resource": jsii.String("investigation-group"),
+	},
+})
+
+// Acknowledge only the occurrences that match. `where` is an objectLike partial
+// match against the context: any key you do not mention is left unconstrained,
+// so the filter below also suppresses an occurrence whose context is
+// `{ service: 'aiops', resource: 'other' }`:
+awscdk.Validations_Of(this).Acknowledge(&Acknowledgment{
+	Id: jsii.String("my-lib:unsupportedActionType"),
+	Reason: jsii.String("aiops actions are attached intentionally"),
+	Where: map[string]interface{}{
+		"service": jsii.String("aiops"),
+	},
+})
+```
+
+Omitting `where` acknowledges every occurrence of the `id`, which is the default
+behavior. A warning emitted without any context can only be acknowledged by an
+unfiltered acknowledgement, so a specific filter never silences it accidentally.
+
 ### Acknowledging Infos
 
 Informational messages can also be emitted and acknowledged. Use `addInfoV2()`

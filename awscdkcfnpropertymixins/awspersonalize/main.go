@@ -148,6 +148,34 @@ func init() {
 		reflect.TypeOf((*CfnMetricAttributionPropsMixin_S3DataDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnRecommenderMixinProps",
+		reflect.TypeOf((*CfnRecommenderMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnRecommenderPropsMixin",
+		reflect.TypeOf((*CfnRecommenderPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnRecommenderPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnRecommenderPropsMixin.RecommenderConfigProperty",
+		reflect.TypeOf((*CfnRecommenderPropsMixin_RecommenderConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnRecommenderPropsMixin.TrainingDataConfigProperty",
+		reflect.TypeOf((*CfnRecommenderPropsMixin_TrainingDataConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_personalize.CfnSchemaMixinProps",
 		reflect.TypeOf((*CfnSchemaMixinProps)(nil)).Elem(),
 	)

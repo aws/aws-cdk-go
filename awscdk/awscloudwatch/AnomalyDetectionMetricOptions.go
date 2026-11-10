@@ -24,6 +24,7 @@ import (
 //   	SearchAccount: jsii.String("searchAccount"),
 //   	SearchRegion: jsii.String("searchRegion"),
 //   	StdDevs: jsii.Number(123),
+//   	Visible: jsii.Boolean(false),
 //   }
 //
 type AnomalyDetectionMetricOptions struct {
@@ -77,6 +78,13 @@ type AnomalyDetectionMetricOptions struct {
 	// Default: - Deployment region.
 	//
 	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
+	// Whether this metric should be visible in dashboard graphs.
+	//
+	// Setting this to false is useful when you want to hide raw metrics
+	// that are used in math expressions, and show only the expression results.
+	// Default: true.
+	//
+	Visible *bool `field:"optional" json:"visible" yaml:"visible"`
 	// The metric to add the alarm on.
 	//
 	// Metric objects can be obtained from most resources, or you can construct

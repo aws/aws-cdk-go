@@ -41,7 +41,7 @@ import (
 //   			},
 //   		},
 //   	},
-//   	Properties: &AwsCloudFormationStackProperties{
+//   	Properties: &NestedCloudAssemblyProperties{
 //   		TemplateFile: jsii.String("templateFile"),
 //
 //   		// the properties below are optional

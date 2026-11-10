@@ -139,6 +139,7 @@ import (
 //   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
+//   	WithExpressConfiguration: jsii.Boolean(false),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

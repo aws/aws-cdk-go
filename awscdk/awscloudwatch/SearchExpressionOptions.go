@@ -18,6 +18,7 @@ import (
 //   	Period: cdk.Duration_Minutes(jsii.Number(30)),
 //   	SearchAccount: jsii.String("searchAccount"),
 //   	SearchRegion: jsii.String("searchRegion"),
+//   	Visible: jsii.Boolean(false),
 //   }
 //
 type SearchExpressionOptions struct {
@@ -66,5 +67,12 @@ type SearchExpressionOptions struct {
 	// Default: - Deployment region.
 	//
 	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
+	// Whether the time series produced by this search expression should be visible in dashboard graphs.
+	//
+	// Setting this to false keeps the time series on the widget without rendering
+	// them, so they can still be toggled on in the CloudWatch console.
+	// Default: true.
+	//
+	Visible *bool `field:"optional" json:"visible" yaml:"visible"`
 }
 

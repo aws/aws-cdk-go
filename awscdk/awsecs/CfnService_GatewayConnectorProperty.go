@@ -1,0 +1,46 @@
+package awsecs
+
+
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   gatewayConnectorProperty := &GatewayConnectorProperty{
+//   	PortName: jsii.String("portName"),
+//
+//   	// the properties below are optional
+//   	Filters: &GatewayConnectorFiltersProperty{
+//   		AccessTypes: []*string{
+//   			jsii.String("accessTypes"),
+//   		},
+//   	},
+//   	HealthCheck: &GatewayConnectorHealthCheckProperty{
+//   		HealthCheckIntervalSeconds: jsii.Number(123),
+//   		HealthCheckPath: jsii.String("healthCheckPath"),
+//   		HealthCheckPort: jsii.Number(123),
+//   		HealthCheckProtocol: jsii.String("healthCheckProtocol"),
+//   		HealthCheckTimeoutSeconds: jsii.Number(123),
+//   		HealthyThresholdCount: jsii.Number(123),
+//   		Matcher: &GatewayConnectorHealthCheckMatcherProperty{
+//   			GrpcCode: jsii.String("grpcCode"),
+//   			HttpCode: jsii.String("httpCode"),
+//   		},
+//   		UnhealthyThresholdCount: jsii.Number(123),
+//   	},
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html
+//
+type CfnService_GatewayConnectorProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html#cfn-ecs-service-gatewayconnector-portname
+	//
+	PortName *string `field:"required" json:"portName" yaml:"portName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html#cfn-ecs-service-gatewayconnector-filters
+	//
+	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html#cfn-ecs-service-gatewayconnector-healthcheck
+	//
+	HealthCheck interface{} `field:"optional" json:"healthCheck" yaml:"healthCheck"`
+}
+

@@ -27,6 +27,7 @@ import (
 //   	DbParameterGroupIdentifier: jsii.String("dbParameterGroupIdentifier"),
 //   	DbStorageType: jsii.String("dbStorageType"),
 //   	DeploymentType: jsii.String("deploymentType"),
+//   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LogDeliveryConfiguration: &LogDeliveryConfigurationProperty{
 //   		S3Configuration: &S3ConfigurationProperty{
 //   			BucketName: jsii.String("bucketName"),
@@ -72,6 +73,8 @@ type CfnInfluxDBInstance interface {
 	AttrArn() *string
 	// The Availability Zone in which the DB instance resides.
 	AttrAvailabilityZone() *string
+	// The service generated unique identifier of the InfluxDB cluster containing this instance.
+	AttrDbClusterId() *string
 	// The endpoint used to connect to InfluxDB.
 	//
 	// The default InfluxDB port is 8086.
@@ -120,6 +123,9 @@ type CfnInfluxDBInstance interface {
 	Env() *interfaces.ResourceEnvironment
 	// A reference to a InfluxDBInstance resource.
 	InfluxDbInstanceRef() *interfacesawstimestream.InfluxDBInstanceReference
+	// The customer managed key used to encrypt data in the InfluxDB instance.
+	KmsKeyId() *string
+	SetKmsKeyId(val *string)
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket.
 	LogDeliveryConfiguration() interface{}
 	SetLogDeliveryConfiguration(val interface{})
@@ -391,6 +397,16 @@ func (j *jsiiProxy_CfnInfluxDBInstance) AttrAvailabilityZone() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInfluxDBInstance) AttrDbClusterId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDbClusterId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInfluxDBInstance) AttrEndpoint() *string {
 	var returns *string
 	_jsii_.Get(
@@ -576,6 +592,16 @@ func (j *jsiiProxy_CfnInfluxDBInstance) InfluxDbInstanceRef() *interfacesawstime
 	_jsii_.Get(
 		j,
 		"influxDbInstanceRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance) KmsKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyId",
 		&returns,
 	)
 	return returns
@@ -835,6 +861,14 @@ func (j *jsiiProxy_CfnInfluxDBInstance)SetDeploymentType(val *string) {
 	_jsii_.Set(
 		j,
 		"deploymentType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInfluxDBInstance)SetKmsKeyId(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyId",
 		val,
 	)
 }

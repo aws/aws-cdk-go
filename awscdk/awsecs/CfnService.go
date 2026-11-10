@@ -116,6 +116,8 @@ type CfnService interface {
 	// Determines whether to force a new deployment of the service.
 	ForceNewDeployment() interface{}
 	SetForceNewDeployment(val interface{})
+	GatewayConnectors() interface{}
+	SetGatewayConnectors(val interface{})
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started.
 	HealthCheckGracePeriodSeconds() *float64
 	SetHealthCheckGracePeriodSeconds(val *float64)
@@ -553,6 +555,16 @@ func (j *jsiiProxy_CfnService) ForceNewDeployment() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnService) GatewayConnectors() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"gatewayConnectors",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnService) HealthCheckGracePeriodSeconds() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -929,6 +941,17 @@ func (j *jsiiProxy_CfnService)SetForceNewDeployment(val interface{}) {
 	_jsii_.Set(
 		j,
 		"forceNewDeployment",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnService)SetGatewayConnectors(val interface{}) {
+	if err := j.validateSetGatewayConnectorsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"gatewayConnectors",
 		val,
 	)
 }

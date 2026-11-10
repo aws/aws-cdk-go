@@ -20,6 +20,15 @@ type ITopic interface {
 	awscdk.IResource
 	interfacesawssns.ITopicRef
 	// Subscribe some endpoint to this topic.
+	//
+	// Creates an `AWS::SNS::Subscription` resource. The endpoint and protocol
+	// come from the given `ITopicSubscription` (for example an SQS queue, a
+	// Lambda function or an email address). For some subscribers the
+	// subscription also waits for a related resource; for example, an SQS
+	// subscription is created only after the queue policy that lets the topic
+	// send to the queue.
+	//
+	// Subscribing the same subscriber to this topic twice throws an error.
 	AddSubscription(subscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
@@ -28,8 +37,31 @@ type ITopic interface {
 	// the topic is imported (`Topic.import`), then this is a no-op.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Grant topic publishing permissions to the given identity.
+	//
+	// This will grant the following permissions:
+	//
+	//  - sns:Publish
+	//
+	// If the topic is encrypted with a customer-managed KMS key, permission
+	// to use the key for encryption will also be granted to the same principal.
+	//
+	// This will grant the following KMS permissions:
+	//
+	//  - kms:Decrypt
+	// - kms:GenerateDataKey*.
+	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html
+	//
 	GrantPublish(identity awsiam.IGrantable) awsiam.Grant
 	// Grant topic subscribing permissions to the given identity.
+	//
+	// This will grant the following permissions:
+	//
+	//  - sns:Subscribe
+	//
+	// Note that this only grants permission to call the `Subscribe` API;
+	// it does not grant permission to receive messages on a particular
+	// delivery protocol. KMS permissions are not required because subscribing
+	// does not access topic message payloads.
 	GrantSubscribe(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Topic.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric

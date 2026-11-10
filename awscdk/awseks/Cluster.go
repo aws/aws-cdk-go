@@ -21,13 +21,13 @@ import (
 // The user is still required to create the worker nodes.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 //
 //
 //   cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_36(),
+//   	Version: eks.KubernetesVersion_V1_37(),
 //   	DefaultCapacity: jsii.Number(0),
-//   	KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
+//   	KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 //   })
 //
 //   cluster.AddNodegroupCapacity(jsii.String("custom-node-group"), &NodegroupOptions{

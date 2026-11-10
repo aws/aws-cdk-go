@@ -2,28 +2,34 @@ package awsec2
 
 
 // Example:
-//   vpc := ec2.Vpc_FromLookup(this, jsii.String("ExistingVPC"), &VpcLookupOptions{
-//   	VpcId: jsii.String("vpc-12345678"),
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var vpc Vpc
+//   var code WebFunctionCode
+//
+//
+//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("EgressSecurityGroup"), &SecurityGroupProps{
+//   	Vpc: Vpc,
 //   })
-//   bucket := s3.NewBucket(this, jsii.String("MyBucket"))
 //
-//   securityGroup := ec2.NewSecurityGroup(this, jsii.String("CustomSG"), &SecurityGroupProps{
-//   	Vpc: vpc,
-//   	Description: jsii.String("Allow HTTPS outbound access"),
-//   	AllowAllOutbound: jsii.Boolean(false),
+//   connector := lambda.NewNetworkConnector(this, jsii.String("Egress"), &NetworkConnectorProps{
+//   	Configuration: lambda.NetworkConnectorConfiguration_VpcEgress(&VpcEgressConfiguration{
+//   		ComputeType: lambda.NetworkConnectorComputeType_WEB_FUNCTION,
+//   		Vpc: *Vpc,
+//   		VpcSubnets: &SubnetSelection{
+//   			SubnetType: ec2.SubnetType_PRIVATE_WITH_EGRESS,
+//   		},
+//   		SecurityGroups: []ISecurityGroupRef{
+//   			securityGroup,
+//   		},
+//   	}),
 //   })
 //
-//   securityGroup.AddEgressRule(ec2.Peer_AnyIpv4(), ec2.Port_Tcp(jsii.Number(443)), jsii.String("Allow HTTPS traffic"))
-//
-//   s3deploy.NewBucketDeployment(this, jsii.String("DeployWithSecurityGroup"), &BucketDeploymentProps{
-//   	DestinationBucket: bucket,
-//   	Vpc: vpc,
-//   	SecurityGroups: []ISecurityGroup{
-//   		securityGroup,
-//   	},
-//   	Sources: []ISource{
-//   		s3deploy.Source_Asset(jsii.String("./website")),
-//   	},
+//   lambda.NewWebFunction(this, jsii.String("MyWebFunction"), &WebFunctionProps{
+//   	Code: Code,
+//   	Runtime: lambda.WebFunctionRuntime_NODEJS_24_X(),
+//   	DefaultEndpointAuth: lambda.WebFunctionAuthType_IAM_AUTH,
+//   	EgressNetworkConnector: connector,
 //   })
 //
 type SecurityGroupProps struct {

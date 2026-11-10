@@ -1495,6 +1495,10 @@ func init() {
 		reflect.TypeOf((*CfnGatewayRule_ActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.CircuitBreakerConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayRule_CircuitBreakerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.ConditionProperty",
 		reflect.TypeOf((*CfnGatewayRule_ConditionProperty)(nil)).Elem(),
 	)
@@ -1507,8 +1511,28 @@ func init() {
 		reflect.TypeOf((*CfnGatewayRule_ConfigurationBundleReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.FallbackProperty",
+		reflect.TypeOf((*CfnGatewayRule_FallbackProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.FallbackTargetProperty",
+		reflect.TypeOf((*CfnGatewayRule_FallbackTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.FallbackTriggersProperty",
+		reflect.TypeOf((*CfnGatewayRule_FallbackTriggersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.IamPrincipalProperty",
 		reflect.TypeOf((*CfnGatewayRule_IamPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.MatchModelEntryProperty",
+		reflect.TypeOf((*CfnGatewayRule_MatchModelEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.MatchModelsProperty",
+		reflect.TypeOf((*CfnGatewayRule_MatchModelsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayRule.MatchPathsProperty",
@@ -1582,6 +1606,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrStatusReasons", GoGetter: "AttrStatusReasons"},
 			_jsii_.MemberProperty{JsiiProperty: "attrTargetId", GoGetter: "AttrTargetId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "certificateConfigurations", GoGetter: "CertificateConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -1652,6 +1677,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.AuthorizationDataProperty",
 		reflect.TypeOf((*CfnGatewayTarget_AuthorizationDataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.CertificateConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_CertificateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.ConnectorConfigurationProperty",
@@ -1778,12 +1807,20 @@ func init() {
 		reflect.TypeOf((*CfnGatewayTarget_RuntimeTargetConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.S3CertificateConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_S3CertificateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.S3ConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayTarget_S3ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.SchemaDefinitionProperty",
 		reflect.TypeOf((*CfnGatewayTarget_SchemaDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.SecretsManagerCertificateConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTarget_SecretsManagerCertificateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget.SelfManagedLatticeResourceProperty",
@@ -2339,6 +2376,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.NumberValidationProperty",
 		reflect.TypeOf((*CfnMemory_NumberValidationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.RecordExpirySpecificationProperty",
+		reflect.TypeOf((*CfnMemory_RecordExpirySpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnMemory.SelfManagedConfigurationProperty",
@@ -2948,20 +2989,20 @@ func init() {
 		reflect.TypeOf((*CfnPaymentManager_AuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.AuthorizingClaimMatchValueTypeProperty",
-		reflect.TypeOf((*CfnPaymentManager_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.AuthorizingClaimMatchValueProperty",
+		reflect.TypeOf((*CfnPaymentManager_AuthorizingClaimMatchValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.ClaimMatchValueTypeProperty",
-		reflect.TypeOf((*CfnPaymentManager_ClaimMatchValueTypeProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.ClaimMatchValueProperty",
+		reflect.TypeOf((*CfnPaymentManager_ClaimMatchValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.CustomClaimValidationTypeProperty",
 		reflect.TypeOf((*CfnPaymentManager_CustomClaimValidationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.CustomJWTAuthorizerConfigurationProperty",
-		reflect.TypeOf((*CfnPaymentManager_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.CustomJWTAuthorizerProperty",
+		reflect.TypeOf((*CfnPaymentManager_CustomJWTAuthorizerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.WorkloadIdentityDetailsProperty",

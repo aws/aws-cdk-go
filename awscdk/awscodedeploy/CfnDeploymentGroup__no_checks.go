@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetDeploymentStyleParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2DeploymentOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2TagFiltersParameters(val interface{}) error {
 	return nil
 }

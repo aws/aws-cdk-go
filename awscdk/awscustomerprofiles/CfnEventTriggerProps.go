@@ -52,6 +52,26 @@ import (
 //   			},
 //   		},
 //   	},
+//   	IntentFilterDefinition: &IntentFilterDefinitionProperty{
+//   		Groups: []interface{}{
+//   			&IntentFilterGroupProperty{
+//   				Conditions: []interface{}{
+//   					&IntentFilterConditionProperty{
+//   						ComparisonOperator: jsii.String("comparisonOperator"),
+//   						Intent: &IntentProperty{
+//   							IntentDomain: jsii.String("intentDomain"),
+//   							Type: jsii.String("type"),
+//   						},
+//   						Values: []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   				LogicalOperator: jsii.String("logicalOperator"),
+//   			},
+//   		},
+//   		LogicalOperator: jsii.String("logicalOperator"),
+//   	},
 //   	SegmentFilter: jsii.String("segmentFilter"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -88,6 +108,10 @@ type CfnEventTriggerProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventtrigger.html#cfn-customerprofiles-eventtrigger-eventtriggerlimits
 	//
 	EventTriggerLimits interface{} `field:"optional" json:"eventTriggerLimits" yaml:"eventTriggerLimits"`
+	// Filters the destination to profiles whose predicted intents meet the specified conditions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventtrigger.html#cfn-customerprofiles-eventtrigger-intentfilterdefinition
+	//
+	IntentFilterDefinition interface{} `field:"optional" json:"intentFilterDefinition" yaml:"intentFilterDefinition"`
 	// The destination is triggered only for profiles that meet the criteria of a segment definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventtrigger.html#cfn-customerprofiles-eventtrigger-segmentfilter
 	//

@@ -172,6 +172,10 @@ func init() {
 		reflect.TypeOf((*CfnServerPropsMixin_S3StorageOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_transfer.CfnServerPropsMixin.SftpPortWithOptionsProperty",
+		reflect.TypeOf((*CfnServerPropsMixin_SftpPortWithOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_transfer.CfnServerPropsMixin.WorkflowDetailProperty",
 		reflect.TypeOf((*CfnServerPropsMixin_WorkflowDetailProperty)(nil)).Elem(),
 	)

@@ -19,6 +19,7 @@ import (
 //   	DbStorageType: jsii.String("dbStorageType"),
 //   	DeploymentType: jsii.String("deploymentType"),
 //   	FailoverMode: jsii.String("failoverMode"),
+//   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LogDeliveryConfiguration: &LogDeliveryConfigurationProperty{
 //   		S3Configuration: &S3ConfigurationProperty{
 //   			BucketName: jsii.String("bucketName"),
@@ -81,6 +82,10 @@ type CfnInfluxDBClusterProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbcluster.html#cfn-timestream-influxdbcluster-failovermode
 	//
 	FailoverMode *string `field:"optional" json:"failoverMode" yaml:"failoverMode"`
+	// The customer managed key used to encrypt data in the InfluxDB cluster.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbcluster.html#cfn-timestream-influxdbcluster-kmskeyid
+	//
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Configuration for sending logs to customer account from the InfluxDB cluster.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbcluster.html#cfn-timestream-influxdbcluster-logdeliveryconfiguration
 	//

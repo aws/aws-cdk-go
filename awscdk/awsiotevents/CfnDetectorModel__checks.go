@@ -8,7 +8,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsiotevents"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -183,30 +182,6 @@ func (c *jsiiProxy_CfnDetectorModel) validateReplaceDependencyParameters(target 
 func (c *jsiiProxy_CfnDetectorModel) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnDetectorModel_ArnForDetectorModelParameters(resource interfacesawsiotevents.IDetectorModelRef) error {
-	if resource == nil {
-		return fmt.Errorf("parameter resource is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnDetectorModel_FromDetectorModelNameParameters(scope constructs.Construct, id *string, detectorModelName *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if detectorModelName == nil {
-		return fmt.Errorf("parameter detectorModelName is required, but nil was provided")
 	}
 
 	return nil

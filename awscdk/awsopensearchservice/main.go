@@ -96,6 +96,7 @@ func init() {
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
 		reflect.TypeOf((*CfnDomain)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "acceptedWarnings", GoGetter: "AcceptedWarnings"},
 			_jsii_.MemberProperty{JsiiProperty: "accessPolicies", GoGetter: "AccessPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},

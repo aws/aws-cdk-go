@@ -27,6 +27,12 @@ package awsec2
 //
 type SubnetSelection struct {
 	// Select subnets only in the given AZs.
+	//
+	// Filtering happens at synthesis time. Literal AZ names do not match subnets
+	// whose availability zones are unresolved tokens (for example, from
+	// `Fn.getAzs()` in an environment-agnostic stack). To filter by literal names,
+	// the subnet AZs must also be known at synthesis time. For a new VPC, you can
+	// specify explicit AZ names in `VpcProps.availabilityZones`.
 	// Default: no filtering on AZs is done.
 	//
 	AvailabilityZones *[]*string `field:"optional" json:"availabilityZones" yaml:"availabilityZones"`

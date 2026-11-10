@@ -34,6 +34,7 @@ type CfnClientVpnEndpoint_ConnectionLogOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchlogstream
 	//
 	CloudwatchLogStream *string `field:"optional" json:"cloudwatchLogStream" yaml:"cloudwatchLogStream"`
+	// Indicates whether authorization-policy evaluation context is included in the connection logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-includeauthorizationpolicycontext
 	//
 	IncludeAuthorizationPolicyContext interface{} `field:"optional" json:"includeAuthorizationPolicyContext" yaml:"includeAuthorizationPolicyContext"`

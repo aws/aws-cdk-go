@@ -9,6 +9,7 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   mCPGatewayConfigurationProperty := &MCPGatewayConfigurationProperty{
+//   	DisableMcpListToolsPagination: jsii.Boolean(false),
 //   	Instructions: jsii.String("instructions"),
 //   	SearchType: jsii.String("searchType"),
 //   	SessionConfiguration: &SessionConfigurationProperty{
@@ -25,6 +26,9 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-mcpgatewayconfiguration.html
 //
 type CfnGatewayPropsMixin_MCPGatewayConfigurationProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-mcpgatewayconfiguration.html#cfn-bedrockagentcore-gateway-mcpgatewayconfiguration-disablemcplisttoolspagination
+	//
+	DisableMcpListToolsPagination interface{} `field:"optional" json:"disableMcpListToolsPagination" yaml:"disableMcpListToolsPagination"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-mcpgatewayconfiguration.html#cfn-bedrockagentcore-gateway-mcpgatewayconfiguration-instructions
 	//
 	Instructions *string `field:"optional" json:"instructions" yaml:"instructions"`

@@ -132,6 +132,9 @@ type CfnGlobalTableMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
 	//
 	TableName *string `field:"optional" json:"tableName" yaml:"tableName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tabletype
+	//
+	TableType *string `field:"optional" json:"tableType" yaml:"tableType"`
 	// Specifies the time to live (TTL) settings for the table.
 	//
 	// This setting will be applied to all replicas.

@@ -8,12 +8,12 @@ package awseks
 // such as AI training/inference, high-performance computing, or large-scale data processing.
 //
 // Example:
-//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
+//   import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 //
 //
 //   eks.NewCluster(this, jsii.String("HighPerformanceCluster"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_35(),
-//   	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
+//   	Version: eks.KubernetesVersion_V1_37(),
+//   	KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 //   	ControlPlaneScalingTier: eks.ControlPlaneScalingTier_TIER_XL,
 //   })
 //

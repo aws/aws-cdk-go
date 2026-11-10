@@ -3,9 +3,9 @@ package awsmedialivealpha
 
 // Output definition for a MediaPackage V2 output group.
 //
-// MediaPackage V2 uses CMAF ingest which requires one media track (video or audio) per output.
-// In-band captions (burn-in, embedded) can ride alongside the primary encode because they do not
-// produce a separate track.
+// MediaPackage V2 uses CMAF ingest which requires one track per output. The track is a video
+// encode, an audio encode, or a caption encode. In-band captions (burn-in,
+// embedded) ride alongside the primary encode because they do not produce a separate track.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -31,7 +31,10 @@ package awsmedialivealpha
 //
 // Experimental.
 type MediaPackageV2OutputDefinition struct {
-	// The primary encode for this output — one video or one audio track.
+	// The encode that produces this output's track — one video encode, one audio encode, or one caption encode.
+	//
+	// Those caption types are packaged as their own track, so they
+	// are set here rather than in `captions`.
 	// Experimental.
 	Encode EncodeConfiguration `field:"required" json:"encode" yaml:"encode"`
 	// The name of this output.
@@ -52,7 +55,8 @@ type MediaPackageV2OutputDefinition struct {
 	// Caption encodes that ride alongside the primary encode.
 	//
 	// Only in-band caption types are
-	// allowed (burn-in, embedded) — out-of-band captions must go in their own output.
+	// allowed (burn-in, embedded) — out-of-band captions go in their own output, as that output's
+	// `encode`. Must be empty when `encode` is itself a caption.
 	// Default: - no captions on this output.
 	//
 	// Experimental.

@@ -1,7 +1,7 @@
 package awschatbot
 
 
-// > AWS Chatbot is now  . [Learn more](https://docs.aws.amazon.com//chatbot/latest/adminguide/service-rename.html) >  > `Type` attribute values remain unchanged.
+// > AWS Chatbot is now Amazon Q Developer . [Learn more](https://docs.aws.amazon.com//chatbot/latest/adminguide/service-rename.html) >  > `Type` attribute values remain unchanged.
 //
 // A criteria for when a button should be shown based on values in the notification.
 //

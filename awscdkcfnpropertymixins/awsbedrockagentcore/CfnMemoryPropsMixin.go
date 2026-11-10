@@ -179,6 +179,10 @@ import (
 //   				NamespaceTemplates: []*string{
 //   					jsii.String("namespaceTemplates"),
 //   				},
+//   				RecordExpiryDurationDays: jsii.Number(123),
+//   				RecordExpirySpecification: &RecordExpirySpecificationProperty{
+//   					RecordExpiryDurationDays: jsii.Number(123),
+//   				},
 //   				Status: jsii.String("status"),
 //   				StrategyId: jsii.String("strategyId"),
 //   				Type: jsii.String("type"),
@@ -225,6 +229,10 @@ import (
 //   				},
 //   				NamespaceTemplates: []*string{
 //   					jsii.String("namespaceTemplates"),
+//   				},
+//   				RecordExpiryDurationDays: jsii.Number(123),
+//   				RecordExpirySpecification: &RecordExpirySpecificationProperty{
+//   					RecordExpiryDurationDays: jsii.Number(123),
 //   				},
 //   				ReflectionConfiguration: &EpisodicReflectionConfigurationInputProperty{
 //   					MemoryRecordSchema: &MemoryRecordSchemaProperty{
@@ -313,6 +321,10 @@ import (
 //   				NamespaceTemplates: []*string{
 //   					jsii.String("namespaceTemplates"),
 //   				},
+//   				RecordExpiryDurationDays: jsii.Number(123),
+//   				RecordExpirySpecification: &RecordExpirySpecificationProperty{
+//   					RecordExpiryDurationDays: jsii.Number(123),
+//   				},
 //   				Status: jsii.String("status"),
 //   				StrategyId: jsii.String("strategyId"),
 //   				Type: jsii.String("type"),
@@ -360,6 +372,10 @@ import (
 //   				NamespaceTemplates: []*string{
 //   					jsii.String("namespaceTemplates"),
 //   				},
+//   				RecordExpiryDurationDays: jsii.Number(123),
+//   				RecordExpirySpecification: &RecordExpirySpecificationProperty{
+//   					RecordExpiryDurationDays: jsii.Number(123),
+//   				},
 //   				Status: jsii.String("status"),
 //   				StrategyId: jsii.String("strategyId"),
 //   				Type: jsii.String("type"),
@@ -406,6 +422,10 @@ import (
 //   				},
 //   				NamespaceTemplates: []*string{
 //   					jsii.String("namespaceTemplates"),
+//   				},
+//   				RecordExpiryDurationDays: jsii.Number(123),
+//   				RecordExpirySpecification: &RecordExpirySpecificationProperty{
+//   					RecordExpiryDurationDays: jsii.Number(123),
 //   				},
 //   				Status: jsii.String("status"),
 //   				StrategyId: jsii.String("strategyId"),

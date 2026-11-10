@@ -28,6 +28,7 @@ import (
 //   		OutboundCalls: jsii.Boolean(false),
 //
 //   		// the properties below are optional
+//   		AutoMuteAgentOnHold: jsii.Boolean(false),
 //   		AutoResolveBestVoices: jsii.Boolean(false),
 //   		ContactflowLogs: jsii.Boolean(false),
 //   		ContactLens: jsii.Boolean(false),

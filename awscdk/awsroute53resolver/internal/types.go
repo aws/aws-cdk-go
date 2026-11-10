@@ -5,6 +5,7 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawsroute53resolverIFirewallConfigRef = interfacesawsroute53resolver.IFirewallConfigRef
 type Type__interfacesawsroute53resolverIFirewallDomainListRef = interfacesawsroute53resolver.IFirewallDomainListRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsroute53resolverIFirewallRuleGroupRef = interfacesawsroute53resolver.IFirewallRuleGroupRef

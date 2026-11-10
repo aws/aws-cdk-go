@@ -28,11 +28,9 @@ import (
 //   	Conditions: &ConditionsProperty{
 //   		ObjectCount: jsii.Number(123),
 //   		Range: &RangeProperty{
-//   			Unit: jsii.String("unit"),
-//
-//   			// the properties below are optional
 //   			TimestampFormat: jsii.String("timestampFormat"),
 //   			TimestampSource: jsii.String("timestampSource"),
+//   			Unit: jsii.String("unit"),
 //   			Value: jsii.Number(123),
 //   			ValueRange: &ValueRangeProperty{
 //   				End: jsii.Number(123),
@@ -46,6 +44,26 @@ import (
 //   	},
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
+//   	Filter: &FilterProperty{
+//   		Groups: []interface{}{
+//   			&FilterGroupProperty{
+//   				Dimensions: []interface{}{
+//   					&FilterDimensionProperty{
+//   						Attributes: map[string]interface{}{
+//   							"attributesKey": &FilterAttributeDimensionProperty{
+//   								"dimensionType": jsii.String("dimensionType"),
+//   								"values": []*string{
+//   									jsii.String("values"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   		Include: jsii.String("include"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -86,6 +104,10 @@ type CfnCalculatedAttributeDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-displayname
 	//
 	DisplayName *string `field:"optional" json:"displayName" yaml:"displayName"`
+	// Defines how to filter the objects coming in for calculated attributes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-filter
+	//
+	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-tags
 	//

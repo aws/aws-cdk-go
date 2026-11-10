@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetDomainNameParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetFilterParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetStatisticParameters(val *string) error {
 	return nil
 }

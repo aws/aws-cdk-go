@@ -32,6 +32,7 @@ type CfnClientVpnEndpointPropsMixin_ConnectionLogOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// Indicates whether authorization-policy evaluation context is included in the connection logs.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-includeauthorizationpolicycontext
 	//
 	IncludeAuthorizationPolicyContext interface{} `field:"optional" json:"includeAuthorizationPolicyContext" yaml:"includeAuthorizationPolicyContext"`

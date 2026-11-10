@@ -83,6 +83,9 @@ import (
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
+//   	StructuredLogDestinations: []*string{
+//   		jsii.String("structuredLogDestinations"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -143,6 +146,9 @@ type CfnWorkflow interface {
 	// Specifies the details for the steps that are in the specified workflow.
 	Steps() interface{}
 	SetSteps(val interface{})
+	// Specifies the log destinations for the workflow.
+	StructuredLogDestinations() *[]*string
+	SetStructuredLogDestinations(val *[]*string)
 	// Tag Manager which manages the tags for this resource.
 	Tags() awscdk.TagManager
 	// Key-value pairs that can be used to group and search for workflows.
@@ -484,6 +490,16 @@ func (j *jsiiProxy_CfnWorkflow) Steps() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) StructuredLogDestinations() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"structuredLogDestinations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -590,6 +606,14 @@ func (j *jsiiProxy_CfnWorkflow)SetSteps(val interface{}) {
 	_jsii_.Set(
 		j,
 		"steps",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetStructuredLogDestinations(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"structuredLogDestinations",
 		val,
 	)
 }

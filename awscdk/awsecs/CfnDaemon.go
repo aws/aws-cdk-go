@@ -77,6 +77,7 @@ type CfnDaemon interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	// If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it.
 	Critical() interface{}
 	SetCritical(val interface{})
 	DaemonName() *string

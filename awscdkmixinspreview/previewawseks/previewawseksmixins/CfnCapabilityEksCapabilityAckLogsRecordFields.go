@@ -50,6 +50,8 @@ const (
 	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_ROLE CfnCapabilityEksCapabilityAckLogsRecordFields = "ROLE"
 	// Experimental.
+	CfnCapabilityEksCapabilityAckLogsRecordFields_DIFF CfnCapabilityEksCapabilityAckLogsRecordFields = "DIFF"
+	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_RESOURCE_ARN CfnCapabilityEksCapabilityAckLogsRecordFields = "RESOURCE_ARN"
 	// Experimental.
 	CfnCapabilityEksCapabilityAckLogsRecordFields_EVENT_TIMESTAMP CfnCapabilityEksCapabilityAckLogsRecordFields = "EVENT_TIMESTAMP"

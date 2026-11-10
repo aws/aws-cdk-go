@@ -28,6 +28,14 @@ package awsimagebuilder
 //   			S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   		},
 //   	},
+//   	ParentInstance: &ParentInstanceProperty{
+//   		AutoScalingGroup: &AutoScalingGroupProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			CapacityWaitTimeoutSeconds: jsii.Number(123),
+//   		},
+//   	},
 //   	Placement: &PlacementProperty{
 //   		AvailabilityZone: jsii.String("availabilityZone"),
 //   		HostId: jsii.String("hostId"),
@@ -45,6 +53,7 @@ package awsimagebuilder
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	TerminateInstanceOnCompletion: jsii.Boolean(false),
 //   	TerminateInstanceOnFailure: jsii.Boolean(false),
 //   }
 //
@@ -83,6 +92,10 @@ type CfnInfrastructureConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
 	//
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`
+	// Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-parentinstance
+	//
+	ParentInstance interface{} `field:"optional" json:"parentInstance" yaml:"parentInstance"`
 	// The instance placement settings that define where the instances that are launched from your image will run.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-placement
 	//
@@ -113,6 +126,12 @@ type CfnInfrastructureConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
+	// Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure.
+	//
+	// A TerminateInstance step in a workflow runs even when this is false.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceoncompletion
+	//
+	TerminateInstanceOnCompletion interface{} `field:"optional" json:"terminateInstanceOnCompletion" yaml:"terminateInstanceOnCompletion"`
 	// The terminate instance on failure setting of the infrastructure configuration.
 	//
 	// Set to false if you want Image Builder to retain the instance used to configure your AMI if the build or test phase of your workflow fails.

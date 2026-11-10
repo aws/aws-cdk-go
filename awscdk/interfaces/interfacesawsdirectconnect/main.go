@@ -116,6 +116,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_directconnect.IResiliencyGroupRef",
+		reflect.TypeOf((*IResiliencyGroupRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "resiliencyGroupRef", GoGetter: "ResiliencyGroupRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IResiliencyGroupRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_directconnect.ITransitVirtualInterfaceRef",
 		reflect.TypeOf((*ITransitVirtualInterfaceRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -142,6 +158,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_directconnect.PublicVirtualInterfaceReference",
 		reflect.TypeOf((*PublicVirtualInterfaceReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_directconnect.ResiliencyGroupReference",
+		reflect.TypeOf((*ResiliencyGroupReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_directconnect.TransitVirtualInterfaceReference",

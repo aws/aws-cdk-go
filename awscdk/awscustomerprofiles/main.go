@@ -40,6 +40,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "filter", GoGetter: "Filter"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -83,6 +84,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnCalculatedAttributeDefinition.ConditionsProperty",
 		reflect.TypeOf((*CfnCalculatedAttributeDefinition_ConditionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnCalculatedAttributeDefinition.FilterAttributeDimensionProperty",
+		reflect.TypeOf((*CfnCalculatedAttributeDefinition_FilterAttributeDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnCalculatedAttributeDefinition.FilterDimensionProperty",
+		reflect.TypeOf((*CfnCalculatedAttributeDefinition_FilterDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnCalculatedAttributeDefinition.FilterGroupProperty",
+		reflect.TypeOf((*CfnCalculatedAttributeDefinition_FilterGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnCalculatedAttributeDefinition.FilterProperty",
+		reflect.TypeOf((*CfnCalculatedAttributeDefinition_FilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnCalculatedAttributeDefinition.RangeProperty",
@@ -396,6 +413,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "intentFilterDefinition", GoGetter: "IntentFilterDefinition"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "objectTypeName", GoGetter: "ObjectTypeName"},
@@ -436,6 +454,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnEventTrigger.EventTriggerLimitsProperty",
 		reflect.TypeOf((*CfnEventTrigger_EventTriggerLimitsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnEventTrigger.IntentFilterConditionProperty",
+		reflect.TypeOf((*CfnEventTrigger_IntentFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnEventTrigger.IntentFilterDefinitionProperty",
+		reflect.TypeOf((*CfnEventTrigger_IntentFilterDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnEventTrigger.IntentFilterGroupProperty",
+		reflect.TypeOf((*CfnEventTrigger_IntentFilterGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_customerprofiles.CfnEventTrigger.IntentProperty",
+		reflect.TypeOf((*CfnEventTrigger_IntentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_customerprofiles.CfnEventTrigger.ObjectAttributeProperty",

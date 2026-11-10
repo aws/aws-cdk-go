@@ -579,43 +579,6 @@ func (j *jsiiProxy_CfnDetectorModel)SetTagsRaw(val *[]*awscdk.CfnTag) {
 	)
 }
 
-func CfnDetectorModel_ArnForDetectorModel(resource interfacesawsiotevents.IDetectorModelRef) *string {
-	_init_.Initialize()
-
-	if err := validateCfnDetectorModel_ArnForDetectorModelParameters(resource); err != nil {
-		panic(err)
-	}
-	var returns *string
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotevents.CfnDetectorModel",
-		"arnForDetectorModel",
-		[]interface{}{resource},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IDetectorModelRef from a detectorModelName.
-func CfnDetectorModel_FromDetectorModelName(scope constructs.Construct, id *string, detectorModelName *string) interfacesawsiotevents.IDetectorModelRef {
-	_init_.Initialize()
-
-	if err := validateCfnDetectorModel_FromDetectorModelNameParameters(scope, id, detectorModelName); err != nil {
-		panic(err)
-	}
-	var returns interfacesawsiotevents.IDetectorModelRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_iotevents.CfnDetectorModel",
-		"fromDetectorModelName",
-		[]interface{}{scope, id, detectorModelName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Checks whether the given object is a CfnDetectorModel.
 func CfnDetectorModel_IsCfnDetectorModel(x interface{}) *bool {
 	_init_.Initialize()

@@ -112,3 +112,14 @@ func ParameterGroupFamily_NEPTUNE_1_4() ParameterGroupFamily {
 	return returns
 }
 
+func ParameterGroupFamily_NEPTUNE_1_5() ParameterGroupFamily {
+	_init_.Initialize()
+	var returns ParameterGroupFamily
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.ParameterGroupFamily",
+		"NEPTUNE_1_5",
+		&returns,
+	)
+	return returns
+}
+

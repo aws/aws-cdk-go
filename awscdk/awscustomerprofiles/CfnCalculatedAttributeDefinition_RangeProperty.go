@@ -9,11 +9,9 @@ package awscustomerprofiles
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   rangeProperty := &RangeProperty{
-//   	Unit: jsii.String("unit"),
-//
-//   	// the properties below are optional
 //   	TimestampFormat: jsii.String("timestampFormat"),
 //   	TimestampSource: jsii.String("timestampSource"),
+//   	Unit: jsii.String("unit"),
 //   	Value: jsii.Number(123),
 //   	ValueRange: &ValueRangeProperty{
 //   		End: jsii.Number(123),
@@ -24,10 +22,6 @@ package awscustomerprofiles
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html
 //
 type CfnCalculatedAttributeDefinition_RangeProperty struct {
-	// The unit of time.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html#cfn-customerprofiles-calculatedattributedefinition-range-unit
-	//
-	Unit *string `field:"required" json:"unit" yaml:"unit"`
 	// The format the timestamp field in your JSON object is specified.
 	//
 	// This value should be one of EPOCHMILLI (for Unix epoch timestamps with second/millisecond level precision) or ISO_8601 (following ISO_8601 format with second/millisecond level precision, with an optional offset of Z or in the format HH:MM or HHMM.). E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235-0700"}}, then TimestampFormat should be "ISO_8601"
@@ -40,6 +34,10 @@ type CfnCalculatedAttributeDefinition_RangeProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html#cfn-customerprofiles-calculatedattributedefinition-range-timestampsource
 	//
 	TimestampSource *string `field:"optional" json:"timestampSource" yaml:"timestampSource"`
+	// The unit of time.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html#cfn-customerprofiles-calculatedattributedefinition-range-unit
+	//
+	Unit *string `field:"optional" json:"unit" yaml:"unit"`
 	// The amount of time of the specified unit.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html#cfn-customerprofiles-calculatedattributedefinition-range-value
 	//

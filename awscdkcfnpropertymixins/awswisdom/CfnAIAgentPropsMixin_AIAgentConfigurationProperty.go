@@ -10,7 +10,9 @@ package awswisdom
 //
 //   var annotations interface{}
 //   var inputSchema interface{}
+//   var inputSchemas interface{}
 //   var outputSchema interface{}
+//   var outputSchemas interface{}
 //
 //   aIAgentConfigurationProperty := &AIAgentConfigurationProperty{
 //   	AnswerRecommendationAiAgentConfiguration: &AnswerRecommendationAIAgentConfigurationProperty{
@@ -203,9 +205,45 @@ package awswisdom
 //   	},
 //   	OrchestrationAiAgentConfiguration: &OrchestrationAIAgentConfigurationProperty{
 //   		ConnectInstanceArn: jsii.String("connectInstanceArn"),
+//   		InputSchemas: []interface{}{
+//   			inputSchemas,
+//   		},
 //   		Locale: jsii.String("locale"),
+//   		MultiAgentConfigurations: []interface{}{
+//   			&MultiAgentConfigurationProperty{
+//   				DelegateAgentConfiguration: &DelegateAgentConfigurationProperty{
+//   					AgentTarget: &AgentTargetProperty{
+//   						AiAgentId: jsii.String("aiAgentId"),
+//   						ApplicationId: jsii.String("applicationId"),
+//   					},
+//   					Instruction: &MultiAgentInstructionProperty{
+//   						Examples: []*string{
+//   							jsii.String("examples"),
+//   						},
+//   						Instruction: jsii.String("instruction"),
+//   					},
+//   				},
+//   				HandoffAgentConfiguration: &HandoffAgentConfigurationProperty{
+//   					AgentTarget: &AgentTargetProperty{
+//   						AiAgentId: jsii.String("aiAgentId"),
+//   						ApplicationId: jsii.String("applicationId"),
+//   					},
+//   					AudioStreamingEnabled: jsii.Boolean(false),
+//   					ImmediateHandoff: jsii.Boolean(false),
+//   					Instruction: &MultiAgentInstructionProperty{
+//   						Examples: []*string{
+//   							jsii.String("examples"),
+//   						},
+//   						Instruction: jsii.String("instruction"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   		OrchestrationAiGuardrailId: jsii.String("orchestrationAiGuardrailId"),
 //   		OrchestrationAiPromptId: jsii.String("orchestrationAiPromptId"),
+//   		OutputSchemas: []interface{}{
+//   			outputSchemas,
+//   		},
 //   		ToolConfigurations: []interface{}{
 //   			&ToolConfigurationProperty{
 //   				Annotations: annotations,

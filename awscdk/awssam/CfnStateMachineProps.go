@@ -18,7 +18,7 @@ package awssam
 //   	DefinitionUri: jsii.String("definitionUri"),
 //   	Events: map[string]interface{}{
 //   		"eventsKey": &EventSourceProperty{
-//   			"properties": &ApiEventProperty{
+//   			"properties": &ScheduleEventProperty{
 //   				"method": jsii.String("method"),
 //   				"path": jsii.String("path"),
 //

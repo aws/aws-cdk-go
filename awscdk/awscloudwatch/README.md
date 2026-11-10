@@ -125,6 +125,32 @@ problemPercentage := cloudwatch.NewMathExpression(&MathExpressionProps{
 })
 ```
 
+Like `Metric`, a `MathExpression` can be hidden from a graph by setting
+`visible: false`. This keeps the expression available (for example, as an input
+to another expression) while removing its line from the widget:
+
+```go
+var fn Function
+var dashboard Dashboard
+
+
+errorRate := cloudwatch.NewMathExpression(&MathExpressionProps{
+	Expression: jsii.String("errors / invocations * 100"),
+	UsingMetrics: map[string]IMetric{
+		"errors": fn.metricErrors(),
+		"invocations": fn.metricInvocations(),
+	},
+	Visible: jsii.Boolean(false),
+})
+
+dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
+	Left: []IMetric{
+		fn.metricInvocations(),
+		errorRate,
+	},
+}))
+```
+
 ### Metric ID Usage in Math Expressions
 
 When metrics have custom IDs, you can reference them directly in math expressions.
@@ -178,6 +204,27 @@ crossAccountSearch := cloudwatch.NewSearchExpression(&SearchExpressionProps{
 	SearchRegion: jsii.String("us-west-2"),
 	Label: jsii.String("Production Lambda Invocations"),
 })
+```
+
+Like `Metric` and `MathExpression`, a `SearchExpression` can be hidden from a
+graph by setting `visible: false`. The time series stay on the widget without
+being rendered, so they can still be toggled on in the CloudWatch console:
+
+```go
+var dashboard Dashboard
+
+
+hiddenSearch := cloudwatch.NewSearchExpression(&SearchExpressionProps{
+	Expression: jsii.String("SEARCH('{AWS/EC2,InstanceId} MetricName=\"CPUUtilization\"', 'Average', 300)"),
+	Label: jsii.String("EC2 CPU Utilization"),
+	Visible: jsii.Boolean(false),
+})
+
+dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
+	Left: []IMetric{
+		hiddenSearch,
+	},
+}))
 ```
 
 ### Aggregation
@@ -971,6 +1018,20 @@ dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
 	},
 
 	Period: awscdk.Duration_Minutes(jsii.Number(15)),
+}))
+```
+
+The widget can show live data published within the last minute that has not been fully aggregated.
+
+```go
+var dashboard Dashboard
+
+
+dashboard.AddWidgets(cloudwatch.NewSingleValueWidget(&SingleValueWidgetProps{
+	Metrics: []IMetric{
+	},
+
+	LiveData: jsii.Boolean(true),
 }))
 ```
 

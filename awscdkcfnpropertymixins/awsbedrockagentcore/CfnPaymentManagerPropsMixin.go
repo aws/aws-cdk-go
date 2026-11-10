@@ -22,7 +22,7 @@ import (
 //
 //   cfnPaymentManagerPropsMixin := awscdkcfnpropertymixins.Aws_bedrockagentcore.NewCfnPaymentManagerPropsMixin(&CfnPaymentManagerMixinProps{
 //   	AuthorizerConfiguration: &AuthorizerConfigurationProperty{
-//   		CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
+//   		CustomJwtAuthorizer: &CustomJWTAuthorizerProperty{
 //   			AllowedAudience: []*string{
 //   				jsii.String("allowedAudience"),
 //   			},
@@ -34,9 +34,9 @@ import (
 //   			},
 //   			CustomClaims: []interface{}{
 //   				&CustomClaimValidationTypeProperty{
-//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
+//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueProperty{
 //   						ClaimMatchOperator: jsii.String("claimMatchOperator"),
-//   						ClaimMatchValue: &ClaimMatchValueTypeProperty{
+//   						ClaimMatchValue: &ClaimMatchValueProperty{
 //   							MatchValueString: jsii.String("matchValueString"),
 //   							MatchValueStringList: []*string{
 //   								jsii.String("matchValueStringList"),

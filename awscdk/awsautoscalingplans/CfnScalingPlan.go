@@ -121,7 +121,6 @@ type CfnScalingPlan interface {
 	// A CloudFormation stack or a set of tags.
 	ApplicationSource() interface{}
 	SetApplicationSource(val interface{})
-	AttrId() *string
 	// The Amazon Resource Name (ARN) of the scaling plan.
 	AttrScalingPlanArn() *string
 	// The name of the scaling plan.
@@ -357,16 +356,6 @@ func (j *jsiiProxy_CfnScalingPlan) ApplicationSource() interface{} {
 	_jsii_.Get(
 		j,
 		"applicationSource",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnScalingPlan) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

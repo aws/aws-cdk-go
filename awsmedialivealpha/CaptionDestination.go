@@ -14,7 +14,7 @@ import (
 //   // Define a caption selector on the input attachment (see Input Attachment Settings below)
 //   captionSelector := medialive.CaptionSelector_Embedded(jsii.String("captions"))
 //
-//   // WebVTT captions — packaged alongside the video encode in the same output
+//   // WebVTT captions
 //   webvtt := medialive.EncodeConfiguration_Caption(&CaptionEncodeProps{
 //   	Name: jsii.String("eng_webvtt"),
 //   	CaptionSelectorName: captionSelector.Name,

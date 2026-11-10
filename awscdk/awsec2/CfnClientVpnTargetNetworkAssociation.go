@@ -35,9 +35,12 @@ type CfnClientVpnTargetNetworkAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	interfacesawsec2.IClientVpnTargetNetworkAssociationRef
-	AttrId() *string
+	// The ID of the association between the Client VPN endpoint and the target network.
+	AttrAssociationId() *string
+	// The Availability Zone to associate with the Client VPN endpoint.
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
+	// The ID of the Availability Zone to associate with the Client VPN endpoint.
 	AvailabilityZoneId() *string
 	SetAvailabilityZoneId(val *string)
 	// Options for this resource, such as condition, update policy etc.
@@ -263,11 +266,11 @@ type jsiiProxy_CfnClientVpnTargetNetworkAssociation struct {
 	internal.Type__interfacesawsec2IClientVpnTargetNetworkAssociationRef
 }
 
-func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AttrId() *string {
+func (j *jsiiProxy_CfnClientVpnTargetNetworkAssociation) AttrAssociationId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrId",
+		"attrAssociationId",
 		&returns,
 	)
 	return returns

@@ -23,6 +23,7 @@ import (
 //
 //   				// the properties below are optional
 //   				KeyPrefix: jsii.String("keyPrefix"),
+//   				ResultFormat: jsii.String("resultFormat"),
 //   			},
 //   		},
 //   		RoleArn: jsii.String("roleArn"),

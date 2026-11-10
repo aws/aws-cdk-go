@@ -73,7 +73,6 @@ type CfnCluster interface {
 	AttrClusterDiscoveryEndpoint() *string
 	// Returns the endpoint URL of the DAX cluster.
 	AttrClusterDiscoveryEndpointUrl() *string
-	AttrId() *string
 	// The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
@@ -368,16 +367,6 @@ func (j *jsiiProxy_CfnCluster) AttrClusterDiscoveryEndpointUrl() *string {
 	_jsii_.Get(
 		j,
 		"attrClusterDiscoveryEndpointUrl",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnCluster) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

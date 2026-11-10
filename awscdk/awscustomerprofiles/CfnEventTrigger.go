@@ -59,6 +59,26 @@ import (
 //   			},
 //   		},
 //   	},
+//   	IntentFilterDefinition: &IntentFilterDefinitionProperty{
+//   		Groups: []interface{}{
+//   			&IntentFilterGroupProperty{
+//   				Conditions: []interface{}{
+//   					&IntentFilterConditionProperty{
+//   						ComparisonOperator: jsii.String("comparisonOperator"),
+//   						Intent: &IntentProperty{
+//   							IntentDomain: jsii.String("intentDomain"),
+//   							Type: jsii.String("type"),
+//   						},
+//   						Values: []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   				LogicalOperator: jsii.String("logicalOperator"),
+//   			},
+//   		},
+//   		LogicalOperator: jsii.String("logicalOperator"),
+//   	},
 //   	SegmentFilter: jsii.String("segmentFilter"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -109,6 +129,9 @@ type CfnEventTrigger interface {
 	SetEventTriggerName(val *string)
 	// A reference to a EventTrigger resource.
 	EventTriggerRef() *interfacesawscustomerprofiles.EventTriggerReference
+	// Filters the destination to profiles whose predicted intents meet the specified conditions.
+	IntentFilterDefinition() interface{}
+	SetIntentFilterDefinition(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -473,6 +496,16 @@ func (j *jsiiProxy_CfnEventTrigger) EventTriggerRef() *interfacesawscustomerprof
 	return returns
 }
 
+func (j *jsiiProxy_CfnEventTrigger) IntentFilterDefinition() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"intentFilterDefinition",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEventTrigger) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -641,6 +674,17 @@ func (j *jsiiProxy_CfnEventTrigger)SetEventTriggerName(val *string) {
 	_jsii_.Set(
 		j,
 		"eventTriggerName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventTrigger)SetIntentFilterDefinition(val interface{}) {
+	if err := j.validateSetIntentFilterDefinitionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"intentFilterDefinition",
 		val,
 	)
 }

@@ -260,6 +260,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrDateImported", GoGetter: "AttrDateImported"},
 			_jsii_.MemberProperty{JsiiProperty: "attrHostKeyFingerprint", GoGetter: "AttrHostKeyFingerprint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrHostKeyId", GoGetter: "AttrHostKeyId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSecretId", GoGetter: "AttrSecretId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrType", GoGetter: "AttrType"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -275,6 +276,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "hostKeyBody", GoGetter: "HostKeyBody"},
 			_jsii_.MemberProperty{JsiiProperty: "hostKeyRef", GoGetter: "HostKeyRef"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKey", GoGetter: "KmsKey"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -287,6 +289,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serverId", GoGetter: "ServerId"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "storageType", GoGetter: "StorageType"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
@@ -462,6 +465,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnServer.S3StorageOptionsProperty",
 		reflect.TypeOf((*CfnServer_S3StorageOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_transfer.CfnServer.SftpPortWithOptionsProperty",
+		reflect.TypeOf((*CfnServer_SftpPortWithOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_transfer.CfnServer.WorkflowDetailProperty",
@@ -679,6 +686,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "steps", GoGetter: "Steps"},
+			_jsii_.MemberProperty{JsiiProperty: "structuredLogDestinations", GoGetter: "StructuredLogDestinations"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},

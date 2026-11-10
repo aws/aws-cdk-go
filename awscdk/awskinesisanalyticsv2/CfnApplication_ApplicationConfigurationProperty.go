@@ -31,6 +31,9 @@ package awskinesisanalyticsv2
 //   	},
 //   	ApplicationSnapshotConfiguration: &ApplicationSnapshotConfigurationProperty{
 //   		SnapshotsEnabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		SnapshotMode: jsii.String("snapshotMode"),
 //   	},
 //   	ApplicationSystemRollbackConfiguration: &ApplicationSystemRollbackConfigurationProperty{
 //   		RollbackEnabled: jsii.Boolean(false),

@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnEventTrigger) validateSetEventTriggerNameParameters(val *s
 	return nil
 }
 
+func (j *jsiiProxy_CfnEventTrigger) validateSetIntentFilterDefinitionParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnEventTrigger) validateSetObjectTypeNameParameters(val *string) error {
 	return nil
 }

@@ -17,6 +17,11 @@ package awsecs
 //   		Format: jsii.String("format"),
 //   		IncludeQueryParameters: jsii.String("includeQueryParameters"),
 //   	},
+//   	ContainerConfigurations: []interface{}{
+//   		&ServiceConnectContainerConfigurationProperty{
+//   			LogLevel: jsii.String("logLevel"),
+//   		},
+//   	},
 //   	Enabled: jsii.Boolean(false),
 //   	LogConfiguration: &LogConfigurationProperty{
 //   		LogDriver: jsii.String("logDriver"),
@@ -76,6 +81,9 @@ type CfnServicePropsMixin_ServiceConnectConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-accesslogconfiguration
 	//
 	AccessLogConfiguration interface{} `field:"optional" json:"accessLogConfiguration" yaml:"accessLogConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-containerconfigurations
+	//
+	ContainerConfigurations interface{} `field:"optional" json:"containerConfigurations" yaml:"containerConfigurations"`
 	// Specifies whether to use Service Connect with this service.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-enabled
 	//

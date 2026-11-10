@@ -18,16 +18,12 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var actions interface{}
-//   var assetTypes interface{}
-//   var type interface{}
-//
 //   cfnApprovalPolicy := awscdk.Aws_quicksight.NewCfnApprovalPolicy(this, jsii.String("MyCfnApprovalPolicy"), &CfnApprovalPolicyProps{
-//   	Actions: []interface{}{
-//   		actions,
+//   	Actions: []*string{
+//   		jsii.String("actions"),
 //   	},
 //   	ApplicableTo: &ApplicableToProperty{
-//   		Type: type,
+//   		Type: jsii.String("type"),
 //
 //   		// the properties below are optional
 //   		GroupArns: []*string{
@@ -37,8 +33,8 @@ import (
 //   	ApprovalGroups: []*string{
 //   		jsii.String("approvalGroups"),
 //   	},
-//   	AssetTypes: []interface{}{
-//   		assetTypes,
+//   	AssetTypes: []*string{
+//   		jsii.String("assetTypes"),
 //   	},
 //   	Name: jsii.String("name"),
 //   	PolicyId: jsii.String("policyId"),
@@ -54,19 +50,19 @@ type CfnApprovalPolicy interface {
 	awscdk.IInspectable
 	interfacesawsquicksight.IApprovalPolicyRef
 	// List of governed actions a policy applies to.
-	Actions() interface{}
-	SetActions(val interface{})
+	Actions() *[]*string
+	SetActions(val *[]*string)
 	// Scoping: who the policy applies to.
 	ApplicableTo() interface{}
 	SetApplicableTo(val interface{})
-	// List of approval group ARNs (e.g. QuickSight group ARNs). At least one approval group is required; the upper bound is enforced per-account at the service layer via the configurable approver-group limit.
+	// List of approval group ARNs (e.g. QuickSight group ARNs). At least one approval group is required.
 	ApprovalGroups() *[]*string
 	SetApprovalGroups(val *[]*string)
 	// A reference to a ApprovalPolicy resource.
 	ApprovalPolicyRef() *interfacesawsquicksight.ApprovalPolicyReference
 	// List of asset types a policy applies to.
-	AssetTypes() interface{}
-	SetAssetTypes(val interface{})
+	AssetTypes() *[]*string
+	SetAssetTypes(val *[]*string)
 	AttrCreatedAt() *string
 	AttrPolicyArn() *string
 	AttrUpdatedAt() *string
@@ -291,8 +287,8 @@ type jsiiProxy_CfnApprovalPolicy struct {
 	internal.Type__interfacesawsquicksightIApprovalPolicyRef
 }
 
-func (j *jsiiProxy_CfnApprovalPolicy) Actions() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnApprovalPolicy) Actions() *[]*string {
+	var returns *[]*string
 	_jsii_.Get(
 		j,
 		"actions",
@@ -331,8 +327,8 @@ func (j *jsiiProxy_CfnApprovalPolicy) ApprovalPolicyRef() *interfacesawsquicksig
 	return returns
 }
 
-func (j *jsiiProxy_CfnApprovalPolicy) AssetTypes() interface{} {
-	var returns interface{}
+func (j *jsiiProxy_CfnApprovalPolicy) AssetTypes() *[]*string {
+	var returns *[]*string
 	_jsii_.Get(
 		j,
 		"assetTypes",
@@ -551,7 +547,7 @@ func NewCfnApprovalPolicy_Override(c CfnApprovalPolicy, scope constructs.Constru
 	)
 }
 
-func (j *jsiiProxy_CfnApprovalPolicy)SetActions(val interface{}) {
+func (j *jsiiProxy_CfnApprovalPolicy)SetActions(val *[]*string) {
 	if err := j.validateSetActionsParameters(val); err != nil {
 		panic(err)
 	}
@@ -584,7 +580,7 @@ func (j *jsiiProxy_CfnApprovalPolicy)SetApprovalGroups(val *[]*string) {
 	)
 }
 
-func (j *jsiiProxy_CfnApprovalPolicy)SetAssetTypes(val interface{}) {
+func (j *jsiiProxy_CfnApprovalPolicy)SetAssetTypes(val *[]*string) {
 	if err := j.validateSetAssetTypesParameters(val); err != nil {
 		panic(err)
 	}

@@ -21,6 +21,9 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnTransactionSearchConfigPropsMixin := awscdkcfnpropertymixins.Aws_xray.NewCfnTransactionSearchConfigPropsMixin(&CfnTransactionSearchConfigMixinProps{
+//   	CloudWatchLogsConfiguration: &CloudWatchLogsConfigurationProperty{
+//   		SpansLogGroupKmsKeyId: jsii.String("spansLogGroupKmsKeyId"),
+//   	},
 //   	IndexingPercentage: jsii.Number(123),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

@@ -18,6 +18,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Arn: jsii.String("arn"),
+//   	Priority: jsii.Number(123),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -47,6 +48,12 @@ type CfnProfileAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-arn
 	//
 	Arn *string `field:"optional" json:"arn" yaml:"arn"`
+	// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it.
+	//
+	// Lower values have higher precedence. Omit for the first profile associated with a VPC. This orders whole profiles on a VPC and is distinct from the DNS Firewall rule group priority carried in a ProfileResourceAssociation's ResourceProperties.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-priority
+	//
+	Priority *float64 `field:"optional" json:"priority" yaml:"priority"`
 	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html#cfn-route53profiles-profileassociation-tags
 	//

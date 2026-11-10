@@ -10,12 +10,29 @@ package awss3deployment
 //
 //   markersConfig := &MarkersConfig{
 //   	JsonEscape: jsii.Boolean(false),
+//   	MarkerEncodings: map[string]MarkerEncoding{
+//   		"markerEncodingsKey": awscdk.aws_s3_deployment.MarkerEncoding_LITERAL,
+//   	},
 //   }
 //
 type MarkersConfig struct {
-	// If set to `true`, the marker substitution will make ure the value inserted in the file will be a valid JSON string.
+	// Default marker encoding for markers that don't have a `markerEncodings` entry.
+	//
+	// - If `false` (default), the default marker encoding is `MarkerEncoding.LITERAL`.
+	// - If `true`, the default marker encoding is `MarkerEncoding.UNQUOTED_JSON_VALUE`.
+	//
+	// See `Source.data()` for a full description of the effect of this setting.
+	//
+	// Unless you need fine-grained control over marker encoding, you should
+	// use `Source.jsonData()` or `Source.yamlData()`.
 	// Default: - false.
 	//
 	JsonEscape *bool `field:"optional" json:"jsonEscape" yaml:"jsonEscape"`
+	// For every marker specified in the `markers` property, this defines how the marker value should be encoded.
+	//
+	// The key is the marker name and the value is the encoding to use for that marker.
+	// Default: - markers with no entry use the default encoding derived from jsonEscape.
+	//
+	MarkerEncodings *map[string]MarkerEncoding `field:"optional" json:"markerEncodings" yaml:"markerEncodings"`
 }
 

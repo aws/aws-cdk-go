@@ -18,6 +18,13 @@ package awsmediatailor
 //
 //   	// the properties below are optional
 //   	Body: jsii.String("body"),
+//   	Cache: &HttpRequestCacheConfigurationProperty{
+//   		TtlMaximumSeconds: jsii.Number(123),
+//   		TtlMinimumSeconds: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		Key: jsii.String("key"),
+//   	},
 //   	Headers: map[string]*string{
 //   		"headersKey": jsii.String("headers"),
 //   	},
@@ -56,6 +63,12 @@ type CfnFunction_VastRequestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-vastrequestconfiguration.html#cfn-mediatailor-function-vastrequestconfiguration-body
 	//
 	Body *string `field:"optional" json:"body" yaml:"body"`
+	// The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST).
+	//
+	// When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-vastrequestconfiguration.html#cfn-mediatailor-function-vastrequestconfiguration-cache
+	//
+	Cache interface{} `field:"optional" json:"cache" yaml:"cache"`
 	// A map of HTTP header names to expression values.
 	//
 	// MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.

@@ -8,13 +8,51 @@ package awswisdom
 //
 //   var annotations interface{}
 //   var inputSchema interface{}
+//   var inputSchemas interface{}
 //   var outputSchema interface{}
+//   var outputSchemas interface{}
 //
 //   orchestrationAIAgentConfigurationProperty := &OrchestrationAIAgentConfigurationProperty{
 //   	ConnectInstanceArn: jsii.String("connectInstanceArn"),
+//   	InputSchemas: []interface{}{
+//   		inputSchemas,
+//   	},
 //   	Locale: jsii.String("locale"),
+//   	MultiAgentConfigurations: []interface{}{
+//   		&MultiAgentConfigurationProperty{
+//   			DelegateAgentConfiguration: &DelegateAgentConfigurationProperty{
+//   				AgentTarget: &AgentTargetProperty{
+//   					AiAgentId: jsii.String("aiAgentId"),
+//   					ApplicationId: jsii.String("applicationId"),
+//   				},
+//   				Instruction: &MultiAgentInstructionProperty{
+//   					Examples: []*string{
+//   						jsii.String("examples"),
+//   					},
+//   					Instruction: jsii.String("instruction"),
+//   				},
+//   			},
+//   			HandoffAgentConfiguration: &HandoffAgentConfigurationProperty{
+//   				AgentTarget: &AgentTargetProperty{
+//   					AiAgentId: jsii.String("aiAgentId"),
+//   					ApplicationId: jsii.String("applicationId"),
+//   				},
+//   				AudioStreamingEnabled: jsii.Boolean(false),
+//   				ImmediateHandoff: jsii.Boolean(false),
+//   				Instruction: &MultiAgentInstructionProperty{
+//   					Examples: []*string{
+//   						jsii.String("examples"),
+//   					},
+//   					Instruction: jsii.String("instruction"),
+//   				},
+//   			},
+//   		},
+//   	},
 //   	OrchestrationAiGuardrailId: jsii.String("orchestrationAiGuardrailId"),
 //   	OrchestrationAiPromptId: jsii.String("orchestrationAiPromptId"),
+//   	OutputSchemas: []interface{}{
+//   		outputSchemas,
+//   	},
 //   	ToolConfigurations: []interface{}{
 //   		&ToolConfigurationProperty{
 //   			Annotations: annotations,
@@ -64,15 +102,24 @@ type CfnAIAgentPropsMixin_OrchestrationAIAgentConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orchestrationaiagentconfiguration.html#cfn-wisdom-aiagent-orchestrationaiagentconfiguration-connectinstancearn
 	//
 	ConnectInstanceArn *string `field:"optional" json:"connectInstanceArn" yaml:"connectInstanceArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orchestrationaiagentconfiguration.html#cfn-wisdom-aiagent-orchestrationaiagentconfiguration-inputschemas
+	//
+	InputSchemas interface{} `field:"optional" json:"inputSchemas" yaml:"inputSchemas"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orchestrationaiagentconfiguration.html#cfn-wisdom-aiagent-orchestrationaiagentconfiguration-locale
 	//
 	Locale *string `field:"optional" json:"locale" yaml:"locale"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orchestrationaiagentconfiguration.html#cfn-wisdom-aiagent-orchestrationaiagentconfiguration-multiagentconfigurations
+	//
+	MultiAgentConfigurations interface{} `field:"optional" json:"multiAgentConfigurations" yaml:"multiAgentConfigurations"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orchestrationaiagentconfiguration.html#cfn-wisdom-aiagent-orchestrationaiagentconfiguration-orchestrationaiguardrailid
 	//
 	OrchestrationAiGuardrailId *string `field:"optional" json:"orchestrationAiGuardrailId" yaml:"orchestrationAiGuardrailId"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orchestrationaiagentconfiguration.html#cfn-wisdom-aiagent-orchestrationaiagentconfiguration-orchestrationaipromptid
 	//
 	OrchestrationAiPromptId *string `field:"optional" json:"orchestrationAiPromptId" yaml:"orchestrationAiPromptId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orchestrationaiagentconfiguration.html#cfn-wisdom-aiagent-orchestrationaiagentconfiguration-outputschemas
+	//
+	OutputSchemas interface{} `field:"optional" json:"outputSchemas" yaml:"outputSchemas"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orchestrationaiagentconfiguration.html#cfn-wisdom-aiagent-orchestrationaiagentconfiguration-toolconfigurations
 	//
 	ToolConfigurations interface{} `field:"optional" json:"toolConfigurations" yaml:"toolConfigurations"`

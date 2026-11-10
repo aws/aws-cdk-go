@@ -312,6 +312,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_iot.IOTAUpdateRef",
+		reflect.TypeOf((*IOTAUpdateRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "otaUpdateRef", GoGetter: "OtaUpdateRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IOTAUpdateRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_iot.IPolicyPrincipalAttachmentRef",
 		reflect.TypeOf((*IPolicyPrincipalAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -582,6 +598,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_iot.MitigationActionReference",
 		reflect.TypeOf((*MitigationActionReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_iot.OTAUpdateReference",
+		reflect.TypeOf((*OTAUpdateReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_iot.PolicyPrincipalAttachmentReference",

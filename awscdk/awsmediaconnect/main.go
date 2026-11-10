@@ -250,6 +250,138 @@ func init() {
 		reflect.TypeOf((*CfnBridgeSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint",
+		reflect.TypeOf((*CfnDestinationEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAssociatedResourceDetails", GoGetter: "AttrAssociatedResourceDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAvailabilityZone", GoGetter: "AttrAvailabilityZone"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAvailabilityZoneId", GoGetter: "AttrAvailabilityZoneId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrConnectionState", GoGetter: "AttrConnectionState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDestinationType", GoGetter: "AttrDestinationType"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLifecycleManagement", GoGetter: "AttrLifecycleManagement"},
+			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRegistrationState", GoGetter: "AttrRegistrationState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "configuration", GoGetter: "Configuration"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "destinationEndpointRef", GoGetter: "DestinationEndpointRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberProperty{JsiiProperty: "regionName", GoGetter: "RegionName"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDestinationEndpoint{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsmediaconnectIDestinationEndpointRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.DestinationEndpointAssociatedResourceDetailsProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_DestinationEndpointAssociatedResourceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.DestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_DestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.EndpointEncryptionSecretConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_EndpointEncryptionSecretConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.PublicDestinationEndpointNetworkingConfigurationAllowRuleProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_PublicDestinationEndpointNetworkingConfigurationAllowRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.PublicDestinationEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_PublicDestinationEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.RistStandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_RistStandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.RouterInputDestinationEndpointAssociatedResourceDetailsProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_RouterInputDestinationEndpointAssociatedResourceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.RouterInputDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_RouterInputDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.RtpStandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_RtpStandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.SrtCallerStandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_SrtCallerStandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.SrtListenerStandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_SrtListenerStandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.StandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_StandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.StandardDestinationEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_StandardDestinationEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.StandardDestinationEndpointProtocolConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_StandardDestinationEndpointProtocolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpoint.VpcDestinationEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpoint_VpcDestinationEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnDestinationEndpointProps",
+		reflect.TypeOf((*CfnDestinationEndpointProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow",
 		reflect.TypeOf((*CfnFlow)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -923,6 +1055,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAssociatedDestinationEndpointArns", GoGetter: "AttrAssociatedDestinationEndpointArns"},
 			_jsii_.MemberProperty{JsiiProperty: "attrContentQualityAnalysisType", GoGetter: "AttrContentQualityAnalysisType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
@@ -988,6 +1121,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.ContentQualityAnalysisFeatureConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInput_ContentQualityAnalysisFeatureConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.DestinationEndpointRouterInputConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInput_DestinationEndpointRouterInputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.EndpointEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInput_EndpointEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.EndpointEncryptionSecretConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInput_EndpointEncryptionSecretConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.FailoverRouterInputConfigurationProperty",
@@ -1072,6 +1217,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.SecretsManagerEncryptionKeyConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInput_SecretsManagerEncryptionKeyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.SecretsManagerEndpointEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInput_SecretsManagerEndpointEncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.SilentAudioConfigurationProperty",
@@ -1196,6 +1345,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAssociatedSourceEndpointArns", GoGetter: "AttrAssociatedSourceEndpointArns"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIpAddress", GoGetter: "AttrIpAddress"},
@@ -1251,6 +1401,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterOutput.EndpointEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutput_EndpointEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterOutput.EndpointEncryptionSecretConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutput_EndpointEncryptionSecretConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterOutput.FabricConfigurationProperty",
@@ -1313,6 +1471,14 @@ func init() {
 		reflect.TypeOf((*CfnRouterOutput_SecretsManagerEncryptionKeyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterOutput.SecretsManagerEndpointEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutput_SecretsManagerEndpointEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterOutput.SourceEndpointRouterOutputConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutput_SourceEndpointRouterOutputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterOutput.SrtCallerRouterOutputConfigurationProperty",
 		reflect.TypeOf((*CfnRouterOutput_SrtCallerRouterOutputConfigurationProperty)(nil)).Elem(),
 	)
@@ -1339,5 +1505,137 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterOutputProps",
 		reflect.TypeOf((*CfnRouterOutputProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint",
+		reflect.TypeOf((*CfnSourceEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addResourceDependency", GoMethod: "AddResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAssociatedResourceDetails", GoGetter: "AttrAssociatedResourceDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAvailabilityZone", GoGetter: "AttrAvailabilityZone"},
+			_jsii_.MemberProperty{JsiiProperty: "attrAvailabilityZoneId", GoGetter: "AttrAvailabilityZoneId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrConnectionState", GoGetter: "AttrConnectionState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLifecycleManagement", GoGetter: "AttrLifecycleManagement"},
+			_jsii_.MemberProperty{JsiiProperty: "attrName", GoGetter: "AttrName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRegistrationState", GoGetter: "AttrRegistrationState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSourceType", GoGetter: "AttrSourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "configuration", GoGetter: "Configuration"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberProperty{JsiiProperty: "regionName", GoGetter: "RegionName"},
+			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceEndpointRef", GoGetter: "SourceEndpointRef"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSourceEndpoint{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawsmediaconnectISourceEndpointRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.EndpointEncryptionSecretConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_EndpointEncryptionSecretConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.PublicSourceEndpointNetworkingConfigurationAllowRuleProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_PublicSourceEndpointNetworkingConfigurationAllowRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.PublicSourceEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_PublicSourceEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.RistStandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_RistStandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.RouterOutputSourceEndpointAssociatedResourceDetailsProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_RouterOutputSourceEndpointAssociatedResourceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.RouterOutputSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_RouterOutputSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.RtpStandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_RtpStandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.SourceEndpointAssociatedResourceDetailsProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_SourceEndpointAssociatedResourceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.SourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_SourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.SrtCallerStandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_SrtCallerStandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.SrtListenerStandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_SrtListenerStandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.StandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_StandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.StandardSourceEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_StandardSourceEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.StandardSourceEndpointProtocolConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_StandardSourceEndpointProtocolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpoint.VpcSourceEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpoint_VpcSourceEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnSourceEndpointProps",
+		reflect.TypeOf((*CfnSourceEndpointProps)(nil)).Elem(),
 	)
 }

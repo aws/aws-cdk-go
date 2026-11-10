@@ -347,6 +347,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcSecurityGroupIds", GoGetter: "VpcSecurityGroupIds"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+			_jsii_.MemberProperty{JsiiProperty: "withExpressConfiguration", GoGetter: "WithExpressConfiguration"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnDBCluster{}

@@ -25,6 +25,19 @@ import (
 //   cfnRouterInputPropsMixin := awscdkcfnpropertymixins.Aws_mediaconnect.NewCfnRouterInputPropsMixin(&CfnRouterInputMixinProps{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
 //   	Configuration: &RouterInputConfigurationProperty{
+//   		DestinationEndpoint: &DestinationEndpointRouterInputConfigurationProperty{
+//   			EndpointLifecycleManagement: jsii.String("endpointLifecycleManagement"),
+//   			SourceTransitDecryption: &EndpointEncryptionConfigurationProperty{
+//   				Automatic: automatic,
+//   				SecretsManager: &SecretsManagerEndpointEncryptionConfigurationProperty{
+//   					EncryptionSecret: &EndpointEncryptionSecretConfigurationProperty{
+//   						SecretArn: jsii.String("secretArn"),
+//   					},
+//   					EncryptionSecretType: jsii.String("encryptionSecretType"),
+//   				},
+//   			},
+//   			SourceTransitDecryptionType: jsii.String("sourceTransitDecryptionType"),
+//   		},
 //   		Failover: &FailoverRouterInputConfigurationProperty{
 //   			NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
 //   			PrimarySourceIndex: jsii.Number(123),

@@ -40,6 +40,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPort", GoGetter: "AttrPort"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReadEndpoint", GoGetter: "AttrReadEndpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "attrServerlessV2PlatformVersion", GoGetter: "AttrServerlessV2PlatformVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "backupRetentionPeriod", GoGetter: "BackupRetentionPeriod"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},

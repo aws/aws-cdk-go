@@ -74,6 +74,10 @@ func init() {
 		reflect.TypeOf((*CfnAIAgent_AIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.AgentTargetProperty",
+		reflect.TypeOf((*CfnAIAgent_AgentTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.AnswerRecommendationAIAgentConfigurationProperty",
 		reflect.TypeOf((*CfnAIAgent_AnswerRecommendationAIAgentConfigurationProperty)(nil)).Elem(),
 	)
@@ -90,6 +94,10 @@ func init() {
 		reflect.TypeOf((*CfnAIAgent_CaseSummarizationAIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.DelegateAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_DelegateAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.EmailGenerativeAnswerAIAgentConfigurationProperty",
 		reflect.TypeOf((*CfnAIAgent_EmailGenerativeAnswerAIAgentConfigurationProperty)(nil)).Elem(),
 	)
@@ -102,12 +110,24 @@ func init() {
 		reflect.TypeOf((*CfnAIAgent_EmailResponseAIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.HandoffAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_HandoffAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.KnowledgeBaseAssociationConfigurationDataProperty",
 		reflect.TypeOf((*CfnAIAgent_KnowledgeBaseAssociationConfigurationDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.ManualSearchAIAgentConfigurationProperty",
 		reflect.TypeOf((*CfnAIAgent_ManualSearchAIAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.MultiAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgent_MultiAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wisdom.CfnAIAgent.MultiAgentInstructionProperty",
+		reflect.TypeOf((*CfnAIAgent_MultiAgentInstructionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wisdom.CfnAIAgent.NoteTakingAIAgentConfigurationProperty",

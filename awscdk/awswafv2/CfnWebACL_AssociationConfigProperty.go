@@ -14,7 +14,12 @@ package awswafv2
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var challengeJavascriptSdkInjection interface{}
+//
 //   associationConfigProperty := &AssociationConfigProperty{
+//   	ChallengeJavascriptSdkInjection: map[string]interface{}{
+//   		"challengeJavascriptSdkInjectionKey": challengeJavascriptSdkInjection,
+//   	},
 //   	RequestBody: map[string]interface{}{
 //   		"requestBodyKey": &RequestBodyAssociatedResourceTypeConfigProperty{
 //   			"defaultSizeInspectionLimit": jsii.String("defaultSizeInspectionLimit"),
@@ -25,6 +30,10 @@ package awswafv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html
 //
 type CfnWebACL_AssociationConfigProperty struct {
+	// Map of AssociatedResourceType and ChallengeJavascriptSdkInjectionConfig.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html#cfn-wafv2-webacl-associationconfig-challengejavascriptsdkinjection
+	//
+	ChallengeJavascriptSdkInjection interface{} `field:"optional" json:"challengeJavascriptSdkInjection" yaml:"challengeJavascriptSdkInjection"`
 	// Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection.
 	//
 	// The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.

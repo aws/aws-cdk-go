@@ -8,16 +8,12 @@ package awsquicksight
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var actions interface{}
-//   var assetTypes interface{}
-//   var type interface{}
-//
 //   cfnApprovalPolicyProps := &CfnApprovalPolicyProps{
-//   	Actions: []interface{}{
-//   		actions,
+//   	Actions: []*string{
+//   		jsii.String("actions"),
 //   	},
 //   	ApplicableTo: &ApplicableToProperty{
-//   		Type: type,
+//   		Type: jsii.String("type"),
 //
 //   		// the properties below are optional
 //   		GroupArns: []*string{
@@ -27,8 +23,8 @@ package awsquicksight
 //   	ApprovalGroups: []*string{
 //   		jsii.String("approvalGroups"),
 //   	},
-//   	AssetTypes: []interface{}{
-//   		assetTypes,
+//   	AssetTypes: []*string{
+//   		jsii.String("assetTypes"),
 //   	},
 //   	Name: jsii.String("name"),
 //   	PolicyId: jsii.String("policyId"),
@@ -43,14 +39,12 @@ type CfnApprovalPolicyProps struct {
 	// List of governed actions a policy applies to.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-approvalpolicy.html#cfn-quicksight-approvalpolicy-actions
 	//
-	Actions interface{} `field:"required" json:"actions" yaml:"actions"`
+	Actions *[]*string `field:"required" json:"actions" yaml:"actions"`
 	// Scoping: who the policy applies to.
-	//
-	// GROUP: `groupArns` required (one or more group ARNs).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-approvalpolicy.html#cfn-quicksight-approvalpolicy-applicableto
 	//
 	ApplicableTo interface{} `field:"required" json:"applicableTo" yaml:"applicableTo"`
-	// List of approval group ARNs (e.g. QuickSight group ARNs). At least one approval group is required; the upper bound is enforced per-account at the service layer via the configurable approver-group limit.
+	// List of approval group ARNs (e.g. QuickSight group ARNs). At least one approval group is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-approvalpolicy.html#cfn-quicksight-approvalpolicy-approvalgroups
 	//
 	ApprovalGroups *[]*string `field:"required" json:"approvalGroups" yaml:"approvalGroups"`
@@ -59,7 +53,7 @@ type CfnApprovalPolicyProps struct {
 	// At least one asset type is required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-approvalpolicy.html#cfn-quicksight-approvalpolicy-assettypes
 	//
-	AssetTypes interface{} `field:"required" json:"assetTypes" yaml:"assetTypes"`
+	AssetTypes *[]*string `field:"required" json:"assetTypes" yaml:"assetTypes"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-approvalpolicy.html#cfn-quicksight-approvalpolicy-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`

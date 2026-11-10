@@ -77,6 +77,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -141,6 +142,9 @@ type CfnMicrovmImage interface {
 	SetEnvironmentVariables(val interface{})
 	Hooks() interface{}
 	SetHooks(val interface{})
+	// The customer managed KMS key used to encrypt the MicroVM image configuration at rest.
+	KmsKeyIdentifier() *string
+	SetKmsKeyIdentifier(val *string)
 	Logging() interface{}
 	SetLogging(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -588,6 +592,16 @@ func (j *jsiiProxy_CfnMicrovmImage) Hooks() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnMicrovmImage) KmsKeyIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnMicrovmImage) Logging() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -834,6 +848,14 @@ func (j *jsiiProxy_CfnMicrovmImage)SetHooks(val interface{}) {
 	_jsii_.Set(
 		j,
 		"hooks",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnMicrovmImage)SetKmsKeyIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyIdentifier",
 		val,
 	)
 }

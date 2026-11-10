@@ -76,6 +76,13 @@ type MathExpressionProps struct {
 	// Default: - Deployment region.
 	//
 	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
+	// Whether this metric should be visible in dashboard graphs.
+	//
+	// Setting this to false is useful when you want to hide raw metrics
+	// that are used in math expressions, and show only the expression results.
+	// Default: true.
+	//
+	Visible *bool `field:"optional" json:"visible" yaml:"visible"`
 	// The expression defining the metric.
 	//
 	// When an expression contains a SEARCH function, it cannot be used

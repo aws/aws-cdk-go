@@ -83,6 +83,16 @@ func init() {
 		"aws-cdk-lib.aws_s3_deployment.JsonProcessingOptions",
 		reflect.TypeOf((*JsonProcessingOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_s3_deployment.MarkerEncoding",
+		reflect.TypeOf((*MarkerEncoding)(nil)).Elem(),
+		map[string]interface{}{
+			"LITERAL": MarkerEncoding_LITERAL,
+			"UNQUOTED_JSON_VALUE": MarkerEncoding_UNQUOTED_JSON_VALUE,
+			"JSON_VALUE": MarkerEncoding_JSON_VALUE,
+			"YAML_STRING": MarkerEncoding_YAML_STRING,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3_deployment.MarkersConfig",
 		reflect.TypeOf((*MarkersConfig)(nil)).Elem(),
@@ -107,6 +117,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3_deployment.SourceConfig",
 		reflect.TypeOf((*SourceConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3_deployment.SourceDataOptions",
+		reflect.TypeOf((*SourceDataOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_s3_deployment.StorageClass",

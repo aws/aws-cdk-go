@@ -17,6 +17,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	HostKeyBody: jsii.String("hostKeyBody"),
+//   	KmsKey: jsii.String("kmsKey"),
+//   	StorageType: jsii.String("storageType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -42,6 +44,18 @@ type CfnHostKeyProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-hostkey.html#cfn-transfer-hostkey-hostkeybody
 	//
 	HostKeyBody *string `field:"optional" json:"hostKeyBody" yaml:"hostKeyBody"`
+	// The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key.
+	//
+	// Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-hostkey.html#cfn-transfer-hostkey-kmskey
+	//
+	KmsKey *string `field:"optional" json:"kmsKey" yaml:"kmsKey"`
+	// The type of storage used for the host key.
+	//
+	// SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-hostkey.html#cfn-transfer-hostkey-storagetype
+	//
+	StorageType *string `field:"optional" json:"storageType" yaml:"storageType"`
 	// Key-value pairs that can be used to group and search for host keys.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-hostkey.html#cfn-transfer-hostkey-tags
 	//

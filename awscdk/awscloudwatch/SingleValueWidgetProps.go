@@ -14,7 +14,7 @@ import (
 //   	Metrics: []IMetric{
 //   	},
 //
-//   	Period: awscdk.Duration_Minutes(jsii.Number(15)),
+//   	FullPrecision: jsii.Boolean(true),
 //   }))
 //
 type SingleValueWidgetProps struct {
@@ -59,6 +59,10 @@ type SingleValueWidgetProps struct {
 	// Default: false.
 	//
 	FullPrecision *bool `field:"optional" json:"fullPrecision" yaml:"fullPrecision"`
+	// Whether the widget should show live data, which is data published within the last minute that has not been fully aggregated.
+	// Default: false.
+	//
+	LiveData *bool `field:"optional" json:"liveData" yaml:"liveData"`
 	// The default period for all metrics in this widget.
 	//
 	// The period is the length of time represented by one data point on the graph.

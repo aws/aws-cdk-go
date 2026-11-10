@@ -51,6 +51,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "logUri", GoGetter: "LogUri"},
 			_jsii_.MemberProperty{JsiiProperty: "managedScalingPolicy", GoGetter: "ManagedScalingPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "monitoringConfiguration", GoGetter: "MonitoringConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -66,6 +67,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "scaleDownBehavior", GoGetter: "ScaleDownBehavior"},
 			_jsii_.MemberProperty{JsiiProperty: "securityConfiguration", GoGetter: "SecurityConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
+			_jsii_.MemberProperty{JsiiProperty: "sessionEnabled", GoGetter: "SessionEnabled"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stepConcurrencyLevel", GoGetter: "StepConcurrencyLevel"},
@@ -109,12 +111,20 @@ func init() {
 		reflect.TypeOf((*CfnCluster_CloudWatchAlarmDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnCluster.CloudWatchLogConfigurationProperty",
+		reflect.TypeOf((*CfnCluster_CloudWatchLogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.ComputeLimitsProperty",
 		reflect.TypeOf((*CfnCluster_ComputeLimitsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.ConfigurationProperty",
 		reflect.TypeOf((*CfnCluster_ConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnCluster.EMRConfigurationProperty",
+		reflect.TypeOf((*CfnCluster_EMRConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.EbsBlockDeviceConfigProperty",
@@ -167,6 +177,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.MetricDimensionProperty",
 		reflect.TypeOf((*CfnCluster_MetricDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_emr.CfnCluster.MonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnCluster_MonitoringConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_emr.CfnCluster.OnDemandCapacityReservationOptionsProperty",

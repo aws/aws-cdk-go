@@ -13,6 +13,7 @@ package awskinesisanalytics
 //   		ApplicationRestoreType: jsii.String("applicationRestoreType"),
 //
 //   		// the properties below are optional
+//   		SnapshotArn: jsii.String("snapshotArn"),
 //   		SnapshotName: jsii.String("snapshotName"),
 //   	},
 //   	FlinkRunConfiguration: &FlinkRunConfigurationProperty{

@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnService) validateSetForceNewDeploymentParameters(val inter
 	return nil
 }
 
+func (j *jsiiProxy_CfnService) validateSetGatewayConnectorsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnService) validateSetLoadBalancersParameters(val interface{}) error {
 	return nil
 }

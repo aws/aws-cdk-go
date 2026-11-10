@@ -32,13 +32,17 @@ func (v *jsiiProxy_Validations) validateAddErrorParameters(id *string, message *
 	return nil
 }
 
-func (v *jsiiProxy_Validations) validateAddWarningParameters(id *string, message *string) error {
+func (v *jsiiProxy_Validations) validateAddWarningParameters(id *string, message *string, options *WarningOptions) error {
 	if id == nil {
 		return fmt.Errorf("parameter id is required, but nil was provided")
 	}
 
 	if message == nil {
 		return fmt.Errorf("parameter message is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
 	}
 
 	return nil

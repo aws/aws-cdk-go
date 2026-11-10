@@ -23,7 +23,9 @@ import (
 //   cfnHostKeyPropsMixin := awscdkcfnpropertymixins.Aws_transfer.NewCfnHostKeyPropsMixin(&CfnHostKeyMixinProps{
 //   	Description: jsii.String("description"),
 //   	HostKeyBody: jsii.String("hostKeyBody"),
+//   	KmsKey: jsii.String("kmsKey"),
 //   	ServerId: jsii.String("serverId"),
+//   	StorageType: jsii.String("storageType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

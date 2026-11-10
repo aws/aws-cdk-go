@@ -9,11 +9,8 @@ package interfacesawsiotevents
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   inputReference := &InputReference{
-//   	InputName: jsii.String("inputName"),
 //   }
 //
 type InputReference struct {
-	// The InputName of the Input resource.
-	InputName *string `field:"required" json:"inputName" yaml:"inputName"`
 }
 

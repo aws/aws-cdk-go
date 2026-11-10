@@ -11,6 +11,7 @@ package awskinesisanalyticsv2
 //   runConfigurationProperty := &RunConfigurationProperty{
 //   	ApplicationRestoreConfiguration: &ApplicationRestoreConfigurationProperty{
 //   		ApplicationRestoreType: jsii.String("applicationRestoreType"),
+//   		SnapshotArn: jsii.String("snapshotArn"),
 //   		SnapshotName: jsii.String("snapshotName"),
 //   	},
 //   	FlinkRunConfiguration: &FlinkRunConfigurationProperty{

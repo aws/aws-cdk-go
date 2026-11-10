@@ -107,4 +107,8 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_xray.CfnTransactionSearchConfigPropsMixin.CloudWatchLogsConfigurationProperty",
+		reflect.TypeOf((*CfnTransactionSearchConfigPropsMixin_CloudWatchLogsConfigurationProperty)(nil)).Elem(),
+	)
 }

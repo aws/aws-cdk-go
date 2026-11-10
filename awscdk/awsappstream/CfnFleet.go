@@ -36,7 +36,6 @@ type CfnFleet interface {
 	AttrArn() *string
 	AttributesToDelete() *[]*string
 	SetAttributesToDelete(val *[]*string)
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -344,16 +343,6 @@ func (j *jsiiProxy_CfnFleet) AttributesToDelete() *[]*string {
 	_jsii_.Get(
 		j,
 		"attributesToDelete",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnFleet) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

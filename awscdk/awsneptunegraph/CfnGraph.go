@@ -71,6 +71,8 @@ type CfnGraph interface {
 	awscdk.IInspectable
 	interfacesawsneptunegraph.IGraphRef
 	awscdk.ITaggableV2
+	// The time at which the graph was created.
+	AttrCreateTime() *string
 	// The connection endpoint for the graph.
 	//
 	// For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
@@ -83,6 +85,8 @@ type CfnGraph interface {
 	//
 	// For example: `g-12a3bcdef4`.
 	AttrGraphId() *string
+	// The current status of the graph.
+	AttrStatus() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -334,6 +338,16 @@ type jsiiProxy_CfnGraph struct {
 	internal.Type__awscdkITaggableV2
 }
 
+func (j *jsiiProxy_CfnGraph) AttrCreateTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreateTime",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGraph) AttrEndpoint() *string {
 	var returns *string
 	_jsii_.Get(
@@ -359,6 +373,16 @@ func (j *jsiiProxy_CfnGraph) AttrGraphId() *string {
 	_jsii_.Get(
 		j,
 		"attrGraphId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnGraph) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
 		&returns,
 	)
 	return returns

@@ -25,6 +25,7 @@ import (
 //
 //   	// the properties below are optional
 //   	Arn: jsii.String("arn"),
+//   	Priority: jsii.Number(123),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -73,6 +74,9 @@ type CfnProfileAssociation interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// The priority of the profile association, used to order the profiles applied to a VPC when multiple profiles are associated with it.
+	Priority() *float64
+	SetPriority(val *float64)
 	// A reference to a ProfileAssociation resource.
 	ProfileAssociationRef() *interfacesawsroute53profiles.ProfileAssociationReference
 	// ID of the Profile.
@@ -397,6 +401,16 @@ func (j *jsiiProxy_CfnProfileAssociation) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProfileAssociation) Priority() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"priority",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProfileAssociation) ProfileAssociationRef() *interfacesawsroute53profiles.ProfileAssociationReference {
 	var returns *interfacesawsroute53profiles.ProfileAssociationReference
 	_jsii_.Get(
@@ -522,6 +536,14 @@ func (j *jsiiProxy_CfnProfileAssociation)SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProfileAssociation)SetPriority(val *float64) {
+	_jsii_.Set(
+		j,
+		"priority",
 		val,
 	)
 }

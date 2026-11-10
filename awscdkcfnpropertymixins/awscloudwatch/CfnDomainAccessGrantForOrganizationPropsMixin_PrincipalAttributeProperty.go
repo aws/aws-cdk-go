@@ -1,0 +1,28 @@
+package awscloudwatch
+
+
+// An attribute key-value pair used to select principals.
+//
+// Example:
+//   // The code below shows an example of how to instantiate this type.
+//   // The values are placeholders you should change.
+//   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
+//
+//   principalAttributeProperty := &PrincipalAttributeProperty{
+//   	Key: jsii.String("key"),
+//   	Value: jsii.String("value"),
+//   }
+//
+// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-domainaccessgrantfororganization-principalattribute.html
+//
+type CfnDomainAccessGrantForOrganizationPropsMixin_PrincipalAttributeProperty struct {
+	// The attribute name.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-domainaccessgrantfororganization-principalattribute.html#cfn-cloudwatch-domainaccessgrantfororganization-principalattribute-key
+	//
+	Key *string `field:"optional" json:"key" yaml:"key"`
+	// The attribute value.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-domainaccessgrantfororganization-principalattribute.html#cfn-cloudwatch-domainaccessgrantfororganization-principalattribute-value
+	//
+	Value *string `field:"optional" json:"value" yaml:"value"`
+}
+

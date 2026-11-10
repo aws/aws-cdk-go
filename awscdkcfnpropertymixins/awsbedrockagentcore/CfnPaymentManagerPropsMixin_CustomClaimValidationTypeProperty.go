@@ -7,9 +7,9 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   customClaimValidationTypeProperty := &CustomClaimValidationTypeProperty{
-//   	AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
+//   	AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueProperty{
 //   		ClaimMatchOperator: jsii.String("claimMatchOperator"),
-//   		ClaimMatchValue: &ClaimMatchValueTypeProperty{
+//   		ClaimMatchValue: &ClaimMatchValueProperty{
 //   			MatchValueString: jsii.String("matchValueString"),
 //   			MatchValueStringList: []*string{
 //   				jsii.String("matchValueStringList"),

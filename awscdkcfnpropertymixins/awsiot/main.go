@@ -536,6 +536,102 @@ func init() {
 		reflect.TypeOf((*CfnMitigationActionPropsMixin_UpdateDeviceCertificateParamsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdateMixinProps",
+		reflect.TypeOf((*CfnOTAUpdateMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnOTAUpdatePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.AwsJobAbortConfigProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_AwsJobAbortConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.AwsJobAbortCriteriaProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_AwsJobAbortCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.AwsJobExecutionsRolloutConfigProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_AwsJobExecutionsRolloutConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.AwsJobExponentialRolloutRateProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_AwsJobExponentialRolloutRateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.AwsJobPresignedUrlConfigProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_AwsJobPresignedUrlConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.AwsJobRateIncreaseCriteriaProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_AwsJobRateIncreaseCriteriaProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.AwsJobTimeoutConfigProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_AwsJobTimeoutConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.CodeSigningCertificateChainProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_CodeSigningCertificateChainProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.CodeSigningProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_CodeSigningProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.CodeSigningSignatureProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_CodeSigningSignatureProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.CustomCodeSigningProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_CustomCodeSigningProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.DestinationProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_DestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.FileLocationProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_FileLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.OTAUpdateFileProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_OTAUpdateFileProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.S3DestinationProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_S3DestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.S3LocationProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.SigningProfileParameterProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_SigningProfileParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.StartSigningJobParameterProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_StartSigningJobParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_iot.CfnOTAUpdatePropsMixin.StreamProperty",
+		reflect.TypeOf((*CfnOTAUpdatePropsMixin_StreamProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_iot.CfnPolicyMixinProps",
 		reflect.TypeOf((*CfnPolicyMixinProps)(nil)).Elem(),
 	)

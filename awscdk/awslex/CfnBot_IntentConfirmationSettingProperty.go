@@ -9,12 +9,6 @@ package awslex
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html
 //
 type CfnBot_IntentConfirmationSettingProperty struct {
-	// Prompts the user to confirm the intent. This question should have a yes or no answer.
-	//
-	// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-promptspecification
-	//
-	PromptSpecification interface{} `field:"required" json:"promptSpecification" yaml:"promptSpecification"`
 	// The `DialogCodeHookInvocationSetting` object associated with intent's confirmation step.
 	//
 	// The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `InvokeDialogCodeHook` .
@@ -69,5 +63,11 @@ type CfnBot_IntentConfirmationSettingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-isactive
 	//
 	IsActive interface{} `field:"optional" json:"isActive" yaml:"isActive"`
+	// Prompts the user to confirm the intent. This question should have a yes or no answer.
+	//
+	// Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the `OrderPizza` intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentconfirmationsetting.html#cfn-lex-bot-intentconfirmationsetting-promptspecification
+	//
+	PromptSpecification interface{} `field:"optional" json:"promptSpecification" yaml:"promptSpecification"`
 }
 

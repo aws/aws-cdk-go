@@ -24,6 +24,8 @@ import (
 //   	// the properties below are optional
 //   	Description: jsii.String("description"),
 //   	HostKeyBody: jsii.String("hostKeyBody"),
+//   	KmsKey: jsii.String("kmsKey"),
+//   	StorageType: jsii.String("storageType"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -47,6 +49,10 @@ type CfnHostKey interface {
 	AttrHostKeyFingerprint() *string
 	// A unique identifier for the host key.
 	AttrHostKeyId() *string
+	// The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key.
+	//
+	// Returned only when StorageType is SECRETS_MANAGER.
+	AttrSecretId() *string
 	// The encryption algorithm that is used for the host key.
 	AttrType() *string
 	// Tag Manager which manages the tags for this resource.
@@ -70,6 +76,9 @@ type CfnHostKey interface {
 	SetHostKeyBody(val *string)
 	// A reference to a HostKey resource.
 	HostKeyRef() *interfacesawstransfer.HostKeyReference
+	// The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key.
+	KmsKey() *string
+	SetKmsKey(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -94,6 +103,9 @@ type CfnHostKey interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The type of storage used for the host key.
+	StorageType() *string
+	SetStorageType(val *string)
 	// Key-value pairs that can be used to group and search for host keys.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
@@ -321,6 +333,16 @@ func (j *jsiiProxy_CfnHostKey) AttrHostKeyId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnHostKey) AttrSecretId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSecretId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHostKey) AttrType() *string {
 	var returns *string
 	_jsii_.Get(
@@ -431,6 +453,16 @@ func (j *jsiiProxy_CfnHostKey) HostKeyRef() *interfacesawstransfer.HostKeyRefere
 	return returns
 }
 
+func (j *jsiiProxy_CfnHostKey) KmsKey() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKey",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnHostKey) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -476,6 +508,16 @@ func (j *jsiiProxy_CfnHostKey) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnHostKey) StorageType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"storageType",
 		&returns,
 	)
 	return returns
@@ -557,6 +599,14 @@ func (j *jsiiProxy_CfnHostKey)SetHostKeyBody(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnHostKey)SetKmsKey(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKey",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnHostKey)SetServerId(val *string) {
 	if err := j.validateSetServerIdParameters(val); err != nil {
 		panic(err)
@@ -564,6 +614,14 @@ func (j *jsiiProxy_CfnHostKey)SetServerId(val *string) {
 	_jsii_.Set(
 		j,
 		"serverId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnHostKey)SetStorageType(val *string) {
+	_jsii_.Set(
+		j,
+		"storageType",
 		val,
 	)
 }

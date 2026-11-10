@@ -168,6 +168,10 @@ func init() {
 		reflect.TypeOf((*CfnImagePipelinePropsMixin_PipelineLoggingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnImagePipelinePropsMixin.ScanResultConditionProperty",
+		reflect.TypeOf((*CfnImagePipelinePropsMixin_ScanResultConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnImagePipelinePropsMixin.ScheduleProperty",
 		reflect.TypeOf((*CfnImagePipelinePropsMixin_ScheduleProperty)(nil)).Elem(),
 	)
@@ -222,6 +226,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnImagePropsMixin.LatestVersionProperty",
 		reflect.TypeOf((*CfnImagePropsMixin_LatestVersionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnImagePropsMixin.ScanResultConditionProperty",
+		reflect.TypeOf((*CfnImagePropsMixin_ScanResultConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnImagePropsMixin.WorkflowConfigurationProperty",
@@ -300,12 +308,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnInfrastructureConfigurationPropsMixin.AutoScalingGroupProperty",
+		reflect.TypeOf((*CfnInfrastructureConfigurationPropsMixin_AutoScalingGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnInfrastructureConfigurationPropsMixin.InstanceMetadataOptionsProperty",
 		reflect.TypeOf((*CfnInfrastructureConfigurationPropsMixin_InstanceMetadataOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnInfrastructureConfigurationPropsMixin.LoggingProperty",
 		reflect.TypeOf((*CfnInfrastructureConfigurationPropsMixin_LoggingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnInfrastructureConfigurationPropsMixin.ParentInstanceProperty",
+		reflect.TypeOf((*CfnInfrastructureConfigurationPropsMixin_ParentInstanceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_imagebuilder.CfnInfrastructureConfigurationPropsMixin.PlacementProperty",

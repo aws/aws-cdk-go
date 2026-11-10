@@ -17,6 +17,17 @@ package awscleanrooms
 //   		TableName: jsii.String("tableName"),
 //   		WorkGroup: jsii.String("workGroup"),
 //   	},
+//   	Databricks: &DatabricksTableReferenceProperty{
+//   		ConnectionType: &DatabricksConnectionTypeProperty{
+//   			DeltaSharing: &DatabricksDeltaSharingConnectionProperty{
+//   				DeltaShareEndpoint: jsii.String("deltaShareEndpoint"),
+//   				ShareName: jsii.String("shareName"),
+//   			},
+//   		},
+//   		SchemaName: jsii.String("schemaName"),
+//   		TableName: jsii.String("tableName"),
+//   		WorkspaceUrl: jsii.String("workspaceUrl"),
+//   	},
 //   	Glue: &GlueTableReferenceProperty{
 //   		DatabaseName: jsii.String("databaseName"),
 //   		Region: jsii.String("region"),
@@ -46,6 +57,9 @@ type CfnConfiguredTablePropsMixin_TableReferenceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html#cfn-cleanrooms-configuredtable-tablereference-athena
 	//
 	Athena interface{} `field:"optional" json:"athena" yaml:"athena"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html#cfn-cleanrooms-configuredtable-tablereference-databricks
+	//
+	Databricks interface{} `field:"optional" json:"databricks" yaml:"databricks"`
 	// If present, a reference to the AWS Glue table referred to by this table reference.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html#cfn-cleanrooms-configuredtable-tablereference-glue
 	//

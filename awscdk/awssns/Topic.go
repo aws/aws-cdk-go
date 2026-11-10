@@ -85,6 +85,15 @@ type Topic interface {
 	// Adds a SSL policy to the topic resource policy.
 	AddSSLPolicy()
 	// Subscribe some endpoint to this topic.
+	//
+	// Creates an `AWS::SNS::Subscription` resource. The endpoint and protocol
+	// come from the given `ITopicSubscription` (for example an SQS queue, a
+	// Lambda function or an email address). For some subscribers the
+	// subscription also waits for a related resource; for example, an SQS
+	// subscription is created only after the queue policy that lets the topic
+	// send to the queue.
+	//
+	// Subscribing the same subscriber to this topic twice throws an error.
 	AddSubscription(subscription ITopicSubscription) Subscription
 	// Adds a statement to the IAM resource policy associated with this topic.
 	//
@@ -139,11 +148,34 @@ type Topic interface {
 	GrantOnKey(grantee awsiam.IGrantable, actions ...*string) *awsiam.GrantOnKeyResult
 	// Grant topic publishing permissions to the given identity.
 	//
+	// This will grant the following permissions:
+	//
+	//  - sns:Publish
+	//
+	// If the topic is encrypted with a customer-managed KMS key, permission
+	// to use the key for encryption will also be granted to the same principal.
+	//
+	// This will grant the following KMS permissions:
+	//
+	//  - kms:Decrypt
+	//  - kms:GenerateDataKey*
+	//
 	// The use of this method is discouraged. Please use `grants.publish()` instead.
 	//
 	// [disable-awslint:no-grants].
+	// See: https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html
+	//
 	GrantPublish(identity awsiam.IGrantable) awsiam.Grant
 	// Grant topic subscribing permissions to the given identity.
+	//
+	// This will grant the following permissions:
+	//
+	//  - sns:Subscribe
+	//
+	// Note that this only grants permission to call the `Subscribe` API;
+	// it does not grant permission to receive messages on a particular
+	// delivery protocol. KMS permissions are not required because subscribing
+	// does not access topic message payloads.
 	//
 	// The use of this method is discouraged. Please use `grants.subscribe()` instead.
 	//

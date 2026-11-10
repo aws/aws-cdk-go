@@ -16,6 +16,13 @@ package awsimagebuilder
 //   		RepositoryName: jsii.String("repositoryName"),
 //   	},
 //   	ImageScanningEnabled: jsii.Boolean(false),
+//   	ImageScanningTypes: []*string{
+//   		jsii.String("imageScanningTypes"),
+//   	},
+//   	ScanResultCondition: &ScanResultConditionProperty{
+//   		FixAvailable: jsii.Boolean(false),
+//   		MaximumSeverityLabel: jsii.String("maximumSeverityLabel"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagescanningconfiguration.html
@@ -29,5 +36,17 @@ type CfnImagePropsMixin_ImageScanningConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagescanningconfiguration.html#cfn-imagebuilder-image-imagescanningconfiguration-imagescanningenabled
 	//
 	ImageScanningEnabled interface{} `field:"optional" json:"imageScanningEnabled" yaml:"imageScanningEnabled"`
+	// The type of vulnerability scan that Image Builder runs for AMI output when ImageScanningEnabled is true.
+	//
+	// Specify a single value. If you omit ImageScanningTypes, Image Builder uses TEST_INSTANCE_CVE. With TEST_INSTANCE_CVE, Amazon Inspector scans the test instance during image tests, and you must activate Amazon Inspector for Amazon EC2 scanning in your account. With ON_DEMAND_AMI_CVE, Amazon Inspector starts an on-demand scan of the output AMI during image tests. You must build from an image recipe, but you do not need to activate Amazon Inspector in your account.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagescanningconfiguration.html#cfn-imagebuilder-image-imagescanningconfiguration-imagescanningtypes
+	//
+	ImageScanningTypes *[]*string `field:"optional" json:"imageScanningTypes" yaml:"imageScanningTypes"`
+	// The condition that the output AMI's scan results must meet for the image to pass.
+	//
+	// When you set it, the test phase waits for the scan to finish, and Image Builder fails the image if a counted finding exceeds MaximumSeverityLabel.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagescanningconfiguration.html#cfn-imagebuilder-image-imagescanningconfiguration-scanresultcondition
+	//
+	ScanResultCondition interface{} `field:"optional" json:"scanResultCondition" yaml:"scanResultCondition"`
 }
 

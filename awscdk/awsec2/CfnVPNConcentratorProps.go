@@ -12,7 +12,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnVPNConcentratorProps := &CfnVPNConcentratorProps{
-//   	TransitGatewayId: jsii.String("transitGatewayId"),
 //   	Type: jsii.String("type"),
 //
 //   	// the properties below are optional
@@ -22,15 +21,12 @@ import (
 //   			Value: jsii.String("value"),
 //   		},
 //   	},
+//   	TransitGatewayId: jsii.String("transitGatewayId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html
 //
 type CfnVPNConcentratorProps struct {
-	// The ID of the transit gateway associated with the VPN concentrator.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html#cfn-ec2-vpnconcentrator-transitgatewayid
-	//
-	TransitGatewayId *string `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
 	// The type of VPN concentrator.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html#cfn-ec2-vpnconcentrator-type
 	//
@@ -39,5 +35,9 @@ type CfnVPNConcentratorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html#cfn-ec2-vpnconcentrator-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`
+	// The ID of the transit gateway associated with the VPN concentrator.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconcentrator.html#cfn-ec2-vpnconcentrator-transitgatewayid
+	//
+	TransitGatewayId *string `field:"optional" json:"transitGatewayId" yaml:"transitGatewayId"`
 }
 

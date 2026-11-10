@@ -88,6 +88,14 @@ func validateCfnGeofenceCollection_ArnForGeofenceCollectionParameters(resource i
 	return nil
 }
 
+func validateCfnGeofenceCollection_FromCollectionNameParameters(scope constructs.Construct, id *string, collectionName *string) error {
+	return nil
+}
+
+func validateCfnGeofenceCollection_FromGeofenceCollectionArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
 func validateCfnGeofenceCollection_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

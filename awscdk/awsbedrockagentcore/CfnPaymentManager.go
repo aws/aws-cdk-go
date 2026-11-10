@@ -25,7 +25,7 @@ import (
 //
 //   	// the properties below are optional
 //   	AuthorizerConfiguration: &AuthorizerConfigurationProperty{
-//   		CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
+//   		CustomJwtAuthorizer: &CustomJWTAuthorizerProperty{
 //   			DiscoveryUrl: jsii.String("discoveryUrl"),
 //
 //   			// the properties below are optional
@@ -40,9 +40,9 @@ import (
 //   			},
 //   			CustomClaims: []interface{}{
 //   				&CustomClaimValidationTypeProperty{
-//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
+//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueProperty{
 //   						ClaimMatchOperator: jsii.String("claimMatchOperator"),
-//   						ClaimMatchValue: &ClaimMatchValueTypeProperty{
+//   						ClaimMatchValue: &ClaimMatchValueProperty{
 //   							MatchValueString: jsii.String("matchValueString"),
 //   							MatchValueStringList: []*string{
 //   								jsii.String("matchValueStringList"),
@@ -75,14 +75,18 @@ type CfnPaymentManager interface {
 	AttrCreatedAt() *string
 	// The timestamp when the payment manager was last updated.
 	AttrLastUpdatedAt() *string
-	// The Amazon Resource Name (ARN) of the payment manager.
+	// The Amazon Resource Name (ARN) of the resource.
 	AttrPaymentManagerArn() *string
 	// The unique identifier for the payment manager.
 	AttrPaymentManagerId() *string
+	// The current status of the payment manager.
 	AttrStatus() *string
+	// The workload identity details for the payment manager.
 	AttrWorkloadIdentityDetails() awscdk.IResolvable
+	// The authorizer configuration for the payment manager.
 	AuthorizerConfiguration() interface{}
 	SetAuthorizerConfiguration(val interface{})
+	// The type of authorizer for the payment manager.
 	AuthorizerType() *string
 	SetAuthorizerType(val *string)
 	// Tag Manager which manages the tags for this resource.
@@ -130,7 +134,7 @@ type CfnPaymentManager interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
-	// Tags to assign to the payment manager.
+	// An array of key-value pairs to apply to this resource.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// Deprecated.

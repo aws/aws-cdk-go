@@ -41,6 +41,26 @@ import (
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	DomainName: jsii.String("domainName"),
+//   	Filter: &FilterProperty{
+//   		Groups: []interface{}{
+//   			&FilterGroupProperty{
+//   				Dimensions: []interface{}{
+//   					&FilterDimensionProperty{
+//   						Attributes: map[string]interface{}{
+//   							"attributesKey": &FilterAttributeDimensionProperty{
+//   								"dimensionType": jsii.String("dimensionType"),
+//   								"values": []*string{
+//   									jsii.String("values"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   		Include: jsii.String("include"),
+//   	},
 //   	Statistic: jsii.String("statistic"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -78,6 +98,10 @@ type CfnCalculatedAttributeDefinitionMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-domainname
 	//
 	DomainName *string `field:"optional" json:"domainName" yaml:"domainName"`
+	// Defines how to filter the objects coming in for calculated attributes.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-filter
+	//
+	Filter interface{} `field:"optional" json:"filter" yaml:"filter"`
 	// The aggregation operation to perform for the calculated attribute.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-statistic
 	//

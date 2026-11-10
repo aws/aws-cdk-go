@@ -35,7 +35,7 @@ func validateSource_BucketParameters(bucket awss3.IBucket, zipObjectKey *string)
 	return nil
 }
 
-func validateSource_DataParameters(objectKey *string, data *string, markersConfig *MarkersConfig) error {
+func validateSource_DataParameters(objectKey *string, data *string, markersConfig *SourceDataOptions) error {
 	if objectKey == nil {
 		return fmt.Errorf("parameter objectKey is required, but nil was provided")
 	}

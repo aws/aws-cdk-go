@@ -290,11 +290,12 @@ awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
 })
 ```
 
+`tableName` may be schema-qualified, such as `analytics.orders`.
+
 Tables greater than v2.114.1 can have their table name changed, for versions <= v2.114.1, this would not be possible.
 Therefore, changing of table names for <= v2.114.1 have been disabled.
 
 ```go
-// Example automatically generated from non-compiling source. May contain errors.
 awscdkredshiftalpha.NewTable(this, jsii.String("Table"), &TableProps{
 	TableName: jsii.String("oldTableName"),
 	 // This value can be change for versions greater than v2.114.1

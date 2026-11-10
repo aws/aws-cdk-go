@@ -1056,6 +1056,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "hooks", GoGetter: "Hooks"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKeyIdentifier", GoGetter: "KmsKeyIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "logging", GoGetter: "Logging"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "microvmImageRef", GoGetter: "MicrovmImageRef"},
@@ -2464,6 +2465,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_lambda.INetworkConnector",
+		reflect.TypeOf((*INetworkConnector)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "latestVersionArn", GoGetter: "LatestVersionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "networkConnectorArn", GoGetter: "NetworkConnectorArn"},
+			_jsii_.MemberProperty{JsiiProperty: "networkConnectorRef", GoGetter: "NetworkConnectorRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_INetworkConnector{}
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslambdaINetworkConnectorRef)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_lambda.IScalableFunctionAttribute",
 		reflect.TypeOf((*IScalableFunctionAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2535,6 +2556,58 @@ func init() {
 			j := jsiiProxy_IVersion{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IFunction)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawslambdaIVersionRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_lambda.IWebFunction",
+		reflect.TypeOf((*IWebFunction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionArn", GoGetter: "WebFunctionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionName", GoGetter: "WebFunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionRef", GoGetter: "WebFunctionRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWebFunction{}
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIResourceWithPolicyV2)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslambdaIWebFunctionRef)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_lambda.IWebFunctionEndpoint",
+		reflect.TypeOf((*IWebFunctionEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authType", GoGetter: "AuthType"},
+			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointArn", GoGetter: "EndpointArn"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointType", GoGetter: "EndpointType"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionArn", GoGetter: "WebFunctionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionEndpointRef", GoGetter: "WebFunctionEndpointRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWebFunctionEndpoint{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIResourceWithPolicyV2)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesawslambdaIWebFunctionEndpointRef)
 			return &j
 		},
 	)
@@ -2696,6 +2769,66 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.MetricsConfig",
 		reflect.TypeOf((*MetricsConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.NetworkConnector",
+		reflect.TypeOf((*NetworkConnector)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "latestVersionArn", GoGetter: "LatestVersionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "networkConnectorArn", GoGetter: "NetworkConnectorArn"},
+			_jsii_.MemberProperty{JsiiProperty: "networkConnectorRef", GoGetter: "NetworkConnectorRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "operatorRole", GoGetter: "OperatorRole"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_NetworkConnector{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_INetworkConnector)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.NetworkConnectorAttributes",
+		reflect.TypeOf((*NetworkConnectorAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.NetworkConnectorComputeType",
+		reflect.TypeOf((*NetworkConnectorComputeType)(nil)).Elem(),
+		map[string]interface{}{
+			"WEB_FUNCTION": NetworkConnectorComputeType_WEB_FUNCTION,
+			"MICRO_VM": NetworkConnectorComputeType_MICRO_VM,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.NetworkConnectorConfiguration",
+		reflect.TypeOf((*NetworkConnectorConfiguration)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_NetworkConnectorConfiguration{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.NetworkConnectorProps",
+		reflect.TypeOf((*NetworkConnectorProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.NetworkConnectorProtocol",
+		reflect.TypeOf((*NetworkConnectorProtocol)(nil)).Elem(),
+		map[string]interface{}{
+			"IPV4": NetworkConnectorProtocol_IPV4,
+			"DUAL_STACK": NetworkConnectorProtocol_DUAL_STACK,
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_lambda.ParamsAndSecretsLayerVersion",
@@ -3136,5 +3269,259 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.VersionWeight",
 		reflect.TypeOf((*VersionWeight)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.VpcEgressConfiguration",
+		reflect.TypeOf((*VpcEgressConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.WebFunction",
+		reflect.TypeOf((*WebFunction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addEndpoint", GoMethod: "AddEndpoint"},
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "canCreateResourcePolicy", GoGetter: "CanCreateResourcePolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "endpoint", GoGetter: "Endpoint"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceRevision", GoGetter: "ResourceRevision"},
+			_jsii_.MemberProperty{JsiiProperty: "revisionArn", GoGetter: "RevisionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "revisionId", GoGetter: "RevisionId"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionArn", GoGetter: "WebFunctionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionName", GoGetter: "WebFunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionRef", GoGetter: "WebFunctionRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebFunction{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_WebFunctionBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionAssetOptions",
+		reflect.TypeOf((*WebFunctionAssetOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionAttributes",
+		reflect.TypeOf((*WebFunctionAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.WebFunctionAuthType",
+		reflect.TypeOf((*WebFunctionAuthType)(nil)).Elem(),
+		map[string]interface{}{
+			"APPLICATION_MANAGED": WebFunctionAuthType_APPLICATION_MANAGED,
+			"IAM_AUTH": WebFunctionAuthType_IAM_AUTH,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.WebFunctionBase",
+		reflect.TypeOf((*WebFunctionBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "canCreateResourcePolicy", GoGetter: "CanCreateResourcePolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionArn", GoGetter: "WebFunctionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionName", GoGetter: "WebFunctionName"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionRef", GoGetter: "WebFunctionRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebFunctionBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWebFunction)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.WebFunctionCode",
+		reflect.TypeOf((*WebFunctionCode)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bindToResource", GoMethod: "BindToResource"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WebFunctionCode{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionCodeBindOptions",
+		reflect.TypeOf((*WebFunctionCodeBindOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionCodeConfig",
+		reflect.TypeOf((*WebFunctionCodeConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionCodeCopyOptions",
+		reflect.TypeOf((*WebFunctionCodeCopyOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionDefaultEndpointOptions",
+		reflect.TypeOf((*WebFunctionDefaultEndpointOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.WebFunctionEndpoint",
+		reflect.TypeOf((*WebFunctionEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authType", GoGetter: "AuthType"},
+			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointArn", GoGetter: "EndpointArn"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointType", GoGetter: "EndpointType"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionArn", GoGetter: "WebFunctionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionEndpointRef", GoGetter: "WebFunctionEndpointRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebFunctionEndpoint{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_WebFunctionEndpointBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionEndpointAttributes",
+		reflect.TypeOf((*WebFunctionEndpointAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.WebFunctionEndpointBase",
+		reflect.TypeOf((*WebFunctionEndpointBase)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authType", GoGetter: "AuthType"},
+			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointArn", GoGetter: "EndpointArn"},
+			_jsii_.MemberProperty{JsiiProperty: "endpointType", GoGetter: "EndpointType"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grants", GoGetter: "Grants"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionArn", GoGetter: "WebFunctionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "webFunctionEndpointRef", GoGetter: "WebFunctionEndpointRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebFunctionEndpointBase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWebFunctionEndpoint)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.WebFunctionEndpointGrants",
+		reflect.TypeOf((*WebFunctionEndpointGrants)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "invoke", GoMethod: "Invoke"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WebFunctionEndpointGrants{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.WebFunctionEndpointLocation",
+		reflect.TypeOf((*WebFunctionEndpointLocation)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "endpointType", GoGetter: "EndpointType"},
+			_jsii_.MemberProperty{JsiiProperty: "replicaRegions", GoGetter: "ReplicaRegions"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WebFunctionEndpointLocation{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionEndpointOptions",
+		reflect.TypeOf((*WebFunctionEndpointOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionEndpointProps",
+		reflect.TypeOf((*WebFunctionEndpointProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_lambda.WebFunctionEndpointType",
+		reflect.TypeOf((*WebFunctionEndpointType)(nil)).Elem(),
+		map[string]interface{}{
+			"HOME_REGION": WebFunctionEndpointType_HOME_REGION,
+			"MULTI_REGION": WebFunctionEndpointType_MULTI_REGION,
+			"PER_REGION": WebFunctionEndpointType_PER_REGION,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionManagedBucketAssetOptions",
+		reflect.TypeOf((*WebFunctionManagedBucketAssetOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionProps",
+		reflect.TypeOf((*WebFunctionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionProvidedBucketAssetOptions",
+		reflect.TypeOf((*WebFunctionProvidedBucketAssetOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.WebFunctionRuntime",
+		reflect.TypeOf((*WebFunctionRuntime)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WebFunctionRuntime{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_lambda.WebFunctionS3Location",
+		reflect.TypeOf((*WebFunctionS3Location)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_lambda.WebFunctionTraffic",
+		reflect.TypeOf((*WebFunctionTraffic)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_WebFunctionTraffic{}
+		},
 	)
 }

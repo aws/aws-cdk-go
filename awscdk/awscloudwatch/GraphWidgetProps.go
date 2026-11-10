@@ -10,19 +10,15 @@ import (
 //   var dashboard Dashboard
 //
 //
-//   dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
-//   	// ...
-//   	AccountId: jsii.String("123456789012"),
-//   }))
+//   hiddenSearch := cloudwatch.NewSearchExpression(&SearchExpressionProps{
+//   	Expression: jsii.String("SEARCH('{AWS/EC2,InstanceId} MetricName=\"CPUUtilization\"', 'Average', 300)"),
+//   	Label: jsii.String("EC2 CPU Utilization"),
+//   	Visible: jsii.Boolean(false),
+//   })
 //
-//   dashboard.AddWidgets(cloudwatch.NewLogQueryWidget(&LogQueryWidgetProps{
-//   	LogGroupNames: []*string{
-//   		jsii.String("my-log-group"),
-//   	},
-//   	// ...
-//   	AccountId: jsii.String("123456789012"),
-//   	QueryLines: []*string{
-//   		jsii.String("fields @message"),
+//   dashboard.AddWidgets(cloudwatch.NewGraphWidget(&GraphWidgetProps{
+//   	Left: []IMetric{
+//   		hiddenSearch,
 //   	},
 //   }))
 //

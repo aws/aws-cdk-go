@@ -15,12 +15,17 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-deviceposturetrustprovider.html
 //
 type CfnClientVpnEndpointPropsMixin_DevicePostureTrustProviderProperty struct {
+	// The URL of the public signing key.
+	//
+	// Conditionally required by the provider type and enforced server-side (crowdstrike/jumpcloud require it, jamf rejects it).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-deviceposturetrustprovider.html#cfn-ec2-clientvpnendpoint-deviceposturetrustprovider-publicsigningkeyurl
 	//
 	PublicSigningKeyUrl *string `field:"optional" json:"publicSigningKeyUrl" yaml:"publicSigningKeyUrl"`
+	// The tenant identifier registered with the trust provider.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-deviceposturetrustprovider.html#cfn-ec2-clientvpnendpoint-deviceposturetrustprovider-tenantid
 	//
 	TenantId *string `field:"optional" json:"tenantId" yaml:"tenantId"`
+	// The device-posture trust provider type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-deviceposturetrustprovider.html#cfn-ec2-clientvpnendpoint-deviceposturetrustprovider-trustprovidertype
 	//
 	TrustProviderType *string `field:"optional" json:"trustProviderType" yaml:"trustProviderType"`

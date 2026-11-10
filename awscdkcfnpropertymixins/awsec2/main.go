@@ -2128,6 +2128,30 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSnapshotMixinProps",
+		reflect.TypeOf((*CfnSnapshotMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSnapshotPropsMixin",
+		reflect.TypeOf((*CfnSnapshotPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSnapshotPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSnapshotPropsMixin.TagsItemsProperty",
+		reflect.TypeOf((*CfnSnapshotPropsMixin_TagsItemsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnSpotFleetMixinProps",
 		reflect.TypeOf((*CfnSpotFleetMixinProps)(nil)).Elem(),
 	)
@@ -2502,6 +2526,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayAttachmentMixinProps",
 		reflect.TypeOf((*CfnTransitGatewayAttachmentMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayAttachmentNatConfigurationMixinProps",
+		reflect.TypeOf((*CfnTransitGatewayAttachmentNatConfigurationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayAttachmentNatConfigurationPropsMixin",
+		reflect.TypeOf((*CfnTransitGatewayAttachmentNatConfigurationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTransitGatewayAttachmentNatConfigurationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayAttachmentNatConfigurationPropsMixin.NatRuleProperty",
+		reflect.TypeOf((*CfnTransitGatewayAttachmentNatConfigurationPropsMixin_NatRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayAttachmentPropsMixin",

@@ -127,6 +127,7 @@ import (
 //   				UseLocalStorage: jsii.Boolean(false),
 //   			},
 //   			Monitoring: jsii.String("monitoring"),
+//   			NitroEnclavesEnabled: jsii.Boolean(false),
 //   			StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
 //   				StorageSizeGiB: jsii.Number(123),
 //   			},

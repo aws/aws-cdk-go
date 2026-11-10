@@ -227,6 +227,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnPropertyNames", GoGetter: "CfnPropertyNames"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudWatchLogsConfiguration", GoGetter: "CloudWatchLogsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -258,6 +259,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__interfacesawsxrayITransactionSearchConfigRef)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_xray.CfnTransactionSearchConfig.CloudWatchLogsConfigurationProperty",
+		reflect.TypeOf((*CfnTransactionSearchConfig_CloudWatchLogsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_xray.CfnTransactionSearchConfigProps",

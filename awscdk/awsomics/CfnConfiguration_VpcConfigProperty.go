@@ -13,6 +13,7 @@ package awsomics
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
+//   	VpcOwnerAccountId: jsii.String("vpcOwnerAccountId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-configuration-vpcconfig.html
@@ -24,5 +25,9 @@ type CfnConfiguration_VpcConfigProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-configuration-vpcconfig.html#cfn-omics-configuration-vpcconfig-subnetids
 	//
 	SubnetIds *[]*string `field:"optional" json:"subnetIds" yaml:"subnetIds"`
+	// The Amazon Web Services account ID of the cross-account VPC owner for RAM-shared VPC configurations.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-configuration-vpcconfig.html#cfn-omics-configuration-vpcconfig-vpcowneraccountid
+	//
+	VpcOwnerAccountId *string `field:"optional" json:"vpcOwnerAccountId" yaml:"vpcOwnerAccountId"`
 }
 

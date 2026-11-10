@@ -136,6 +136,26 @@ func init() {
 		reflect.TypeOf((*CfnPublicVirtualInterfacePropsMixin_BgpPeerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_directconnect.CfnResiliencyGroupMixinProps",
+		reflect.TypeOf((*CfnResiliencyGroupMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_directconnect.CfnResiliencyGroupPropsMixin",
+		reflect.TypeOf((*CfnResiliencyGroupPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnResiliencyGroupPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_directconnect.CfnTransitVirtualInterfaceMixinProps",
 		reflect.TypeOf((*CfnTransitVirtualInterfaceMixinProps)(nil)).Elem(),
 	)

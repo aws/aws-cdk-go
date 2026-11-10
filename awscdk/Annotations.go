@@ -119,7 +119,7 @@ type Annotations interface {
 	//
 	//   awscdk.Annotations_Of(myConstruct).AddWarningV2(jsii.String("my-library:Construct.someWarning"), jsii.String("Some message explaining the warning"))
 	//
-	AddWarningV2(id *string, message *string)
+	AddWarningV2(id *string, message *string, options *WarningOptions)
 }
 
 // The jsii proxy struct for Annotations
@@ -223,14 +223,14 @@ func (a *jsiiProxy_Annotations) AddWarning(message *string) {
 	)
 }
 
-func (a *jsiiProxy_Annotations) AddWarningV2(id *string, message *string) {
-	if err := a.validateAddWarningV2Parameters(id, message); err != nil {
+func (a *jsiiProxy_Annotations) AddWarningV2(id *string, message *string, options *WarningOptions) {
+	if err := a.validateAddWarningV2Parameters(id, message, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		a,
 		"addWarningV2",
-		[]interface{}{id, message},
+		[]interface{}{id, message, options},
 	)
 }
 

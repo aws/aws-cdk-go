@@ -233,6 +233,10 @@ func init() {
 		reflect.TypeOf((*CfnFunction_FunctionRefProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediatailor.CfnFunction.HttpRequestCacheConfigurationProperty",
+		reflect.TypeOf((*CfnFunction_HttpRequestCacheConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediatailor.CfnFunction.HttpRequestConfigurationProperty",
 		reflect.TypeOf((*CfnFunction_HttpRequestConfigurationProperty)(nil)).Elem(),
 	)

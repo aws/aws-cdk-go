@@ -62,6 +62,13 @@ import (
 //
 //   	// the properties below are optional
 //   	Alias: jsii.String("alias"),
+//   	Exporters: []interface{}{
+//   		&ExporterConfigurationProperty{
+//   			OpenSearchConfiguration: &OpenSearchConfigurationProperty{
+//   				DomainArn: jsii.String("domainArn"),
+//   			},
+//   		},
+//   	},
 //   	RoleConfiguration: &RoleConfigurationProperty{
 //   		SourceRoleArn: jsii.String("sourceRoleArn"),
 //   		TargetRoleArn: jsii.String("targetRoleArn"),
@@ -131,6 +138,9 @@ type CfnScraper interface {
 	Destination() interface{}
 	SetDestination(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	// Exporter configurations for the scraper.
+	Exporters() interface{}
+	SetExporters(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -473,6 +483,16 @@ func (j *jsiiProxy_CfnScraper) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScraper) Exporters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"exporters",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScraper) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -638,6 +658,17 @@ func (j *jsiiProxy_CfnScraper)SetDestination(val interface{}) {
 	_jsii_.Set(
 		j,
 		"destination",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScraper)SetExporters(val interface{}) {
+	if err := j.validateSetExportersParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"exporters",
 		val,
 	)
 }

@@ -28,6 +28,7 @@ import (
 //   			SubnetIds: []*string{
 //   				jsii.String("subnetIds"),
 //   			},
+//   			VpcOwnerAccountId: jsii.String("vpcOwnerAccountId"),
 //   		},
 //   	},
 //

@@ -22,7 +22,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "applicationSource", GoGetter: "ApplicationSource"},
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrScalingPlanArn", GoGetter: "AttrScalingPlanArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrScalingPlanName", GoGetter: "AttrScalingPlanName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrScalingPlanVersion", GoGetter: "AttrScalingPlanVersion"},

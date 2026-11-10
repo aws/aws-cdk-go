@@ -11,6 +11,12 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   resourceRequirementProperty := &ResourceRequirementProperty{
+//   	SharingStrategy: &SharingStrategyProperty{
+//   		NvidiaMps: &NvidiaMpsAllocationProperty{
+//   			MaxComputePercent: jsii.Number(123),
+//   			Memory: jsii.Number(123),
+//   		},
+//   	},
 //   	Type: jsii.String("type"),
 //   	Value: jsii.String("value"),
 //   }
@@ -18,6 +24,9 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html
 //
 type CfnTaskDefinitionPropsMixin_ResourceRequirementProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-sharingstrategy
+	//
+	SharingStrategy interface{} `field:"optional" json:"sharingStrategy" yaml:"sharingStrategy"`
 	// The type of resource to assign to a container.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-type
 	//

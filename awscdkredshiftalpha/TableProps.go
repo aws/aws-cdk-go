@@ -64,6 +64,8 @@ type TableProps struct {
 	// Experimental.
 	TableComment *string `field:"optional" json:"tableComment" yaml:"tableComment"`
 	// The name of the table.
+	//
+	// May be schema-qualified.
 	// Default: - a name is generated.
 	//
 	// Experimental.

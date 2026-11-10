@@ -104,6 +104,7 @@ package awsbedrockagentcore
 //   	},
 //   	ProtocolConfiguration: &GatewayProtocolConfigurationProperty{
 //   		Mcp: &MCPGatewayConfigurationProperty{
+//   			DisableMcpListToolsPagination: jsii.Boolean(false),
 //   			Instructions: jsii.String("instructions"),
 //   			SearchType: jsii.String("searchType"),
 //   			SessionConfiguration: &SessionConfigurationProperty{

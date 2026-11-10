@@ -1567,13 +1567,13 @@ The following code snippet includes a Task state that uses eks:call to list the 
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv35"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 
 
 myEksCluster := eks.NewCluster(this, jsii.String("my sample cluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_35(),
+	Version: eks.KubernetesVersion_V1_37(),
 	ClusterName: jsii.String("myEksCluster"),
-	KubectlLayer: kubectlv35.NewKubectlV35Layer(this, jsii.String("kubectl")),
+	KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 })
 
 tasks.NewEksCall(this, jsii.String("Call a EKS Endpoint"), &EksCallProps{

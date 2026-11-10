@@ -25,6 +25,9 @@ import (
 //   	},
 //   	MarkersConfig: &MarkersConfig{
 //   		JsonEscape: jsii.Boolean(false),
+//   		MarkerEncodings: map[string]MarkerEncoding{
+//   			"markerEncodingsKey": awscdk.aws_s3_deployment.MarkerEncoding_LITERAL,
+//   		},
 //   	},
 //   }
 //
@@ -34,6 +37,9 @@ type SourceConfig struct {
 	// An S3 object key in the source bucket that points to a zip file.
 	ZipObjectKey *string `field:"required" json:"zipObjectKey" yaml:"zipObjectKey"`
 	// A set of markers to substitute in the source content.
+	//
+	// Keys are the markers to replace, and values are the replacement CloudFormation
+	// expressions.
 	// Default: - no markers.
 	//
 	Markers *map[string]interface{} `field:"optional" json:"markers" yaml:"markers"`

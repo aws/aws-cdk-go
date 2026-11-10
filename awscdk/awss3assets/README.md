@@ -212,7 +212,7 @@ asset := awscdk.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
 		Command: []*string{
 			jsii.String("bash"),
 			jsii.String("-c"),
-			jsii.String("pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"),
+			jsii.String("pip install -r requirements.txt -t /asset-output && cp -au * /asset-output"),
 		},
 		SecurityOpt: jsii.String("no-new-privileges:true"),
 		 // https://docs.docker.com/engine/reference/commandline/run/#optional-security-options---security-opt

@@ -132,6 +132,86 @@ func init() {
 		reflect.TypeOf((*CfnBridgeSourcePropsMixin_VpcInterfaceAttachmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointMixinProps",
+		reflect.TypeOf((*CfnDestinationEndpointMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDestinationEndpointPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.DestinationEndpointAssociatedResourceDetailsProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_DestinationEndpointAssociatedResourceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.DestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_DestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.EndpointEncryptionSecretConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_EndpointEncryptionSecretConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.PublicDestinationEndpointNetworkingConfigurationAllowRuleProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_PublicDestinationEndpointNetworkingConfigurationAllowRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.PublicDestinationEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_PublicDestinationEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.RistStandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_RistStandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.RouterInputDestinationEndpointAssociatedResourceDetailsProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_RouterInputDestinationEndpointAssociatedResourceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.RouterInputDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_RouterInputDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.RtpStandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_RtpStandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.SrtCallerStandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_SrtCallerStandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.SrtListenerStandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_SrtListenerStandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.StandardDestinationEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_StandardDestinationEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.StandardDestinationEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_StandardDestinationEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.StandardDestinationEndpointProtocolConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_StandardDestinationEndpointProtocolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnDestinationEndpointPropsMixin.VpcDestinationEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnDestinationEndpointPropsMixin_VpcDestinationEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnFlowEntitlementMixinProps",
 		reflect.TypeOf((*CfnFlowEntitlementMixinProps)(nil)).Elem(),
 	)
@@ -472,6 +552,18 @@ func init() {
 		reflect.TypeOf((*CfnRouterInputPropsMixin_ContentQualityAnalysisFeatureConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.DestinationEndpointRouterInputConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_DestinationEndpointRouterInputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.EndpointEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_EndpointEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.EndpointEncryptionSecretConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_EndpointEncryptionSecretConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.FailoverRouterInputConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInputPropsMixin_FailoverRouterInputConfigurationProperty)(nil)).Elem(),
 	)
@@ -556,6 +648,10 @@ func init() {
 		reflect.TypeOf((*CfnRouterInputPropsMixin_SecretsManagerEncryptionKeyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.SecretsManagerEndpointEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInputPropsMixin_SecretsManagerEndpointEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterInputPropsMixin.SilentAudioConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInputPropsMixin_SilentAudioConfigurationProperty)(nil)).Elem(),
 	)
@@ -632,6 +728,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterOutputPropsMixin.EndpointEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutputPropsMixin_EndpointEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterOutputPropsMixin.EndpointEncryptionSecretConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutputPropsMixin_EndpointEncryptionSecretConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterOutputPropsMixin.FabricConfigurationProperty",
 		reflect.TypeOf((*CfnRouterOutputPropsMixin_FabricConfigurationProperty)(nil)).Elem(),
 	)
@@ -692,6 +796,14 @@ func init() {
 		reflect.TypeOf((*CfnRouterOutputPropsMixin_SecretsManagerEncryptionKeyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterOutputPropsMixin.SecretsManagerEndpointEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutputPropsMixin_SecretsManagerEndpointEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterOutputPropsMixin.SourceEndpointRouterOutputConfigurationProperty",
+		reflect.TypeOf((*CfnRouterOutputPropsMixin_SourceEndpointRouterOutputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterOutputPropsMixin.SrtCallerRouterOutputConfigurationProperty",
 		reflect.TypeOf((*CfnRouterOutputPropsMixin_SrtCallerRouterOutputConfigurationProperty)(nil)).Elem(),
 	)
@@ -714,5 +826,85 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnRouterOutputPropsMixin.TlsEncryptionProperty",
 		reflect.TypeOf((*CfnRouterOutputPropsMixin_TlsEncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointMixinProps",
+		reflect.TypeOf((*CfnSourceEndpointMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSourceEndpointPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.EndpointEncryptionSecretConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_EndpointEncryptionSecretConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.PublicSourceEndpointNetworkingConfigurationAllowRuleProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_PublicSourceEndpointNetworkingConfigurationAllowRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.PublicSourceEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_PublicSourceEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.RistStandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_RistStandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.RouterOutputSourceEndpointAssociatedResourceDetailsProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_RouterOutputSourceEndpointAssociatedResourceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.RouterOutputSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_RouterOutputSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.RtpStandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_RtpStandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.SourceEndpointAssociatedResourceDetailsProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_SourceEndpointAssociatedResourceDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.SourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_SourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.SrtCallerStandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_SrtCallerStandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.SrtListenerStandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_SrtListenerStandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.StandardSourceEndpointConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_StandardSourceEndpointConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.StandardSourceEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_StandardSourceEndpointNetworkingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.StandardSourceEndpointProtocolConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_StandardSourceEndpointProtocolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediaconnect.CfnSourceEndpointPropsMixin.VpcSourceEndpointNetworkingConfigurationProperty",
+		reflect.TypeOf((*CfnSourceEndpointPropsMixin_VpcSourceEndpointNetworkingConfigurationProperty)(nil)).Elem(),
 	)
 }

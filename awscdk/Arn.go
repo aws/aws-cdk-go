@@ -83,6 +83,12 @@ func Arn_Format(components *ArnComponents, stack Stack) *string {
 // and a Token representing a dynamic CloudFormation expression
 // (in which case the returned components will also be dynamic CloudFormation expressions,
 // encoded as Tokens).
+//
+// Throws on a malformed ARN — a concrete string that is not a valid ARN, or
+// an `arn:`-prefixed string (even one that embeds tokens) missing a required
+// component — rather than returning a partial result. To handle a value that
+// may legitimately not be an ARN, branch it away up front (`startsWith('arn:')`
+// / `Token.isUnresolved`) instead of catching the throw.
 func Arn_Split(arn *string, arnFormat ArnFormat) *ArnComponents {
 	_init_.Initialize()
 

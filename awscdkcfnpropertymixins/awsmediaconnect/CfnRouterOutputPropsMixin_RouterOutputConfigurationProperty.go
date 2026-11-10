@@ -38,6 +38,19 @@ package awsmediaconnect
 //   		MediaLiveInputArn: jsii.String("mediaLiveInputArn"),
 //   		MediaLivePipelineId: jsii.String("mediaLivePipelineId"),
 //   	},
+//   	SourceEndpoint: &SourceEndpointRouterOutputConfigurationProperty{
+//   		DestinationTransitEncryption: &EndpointEncryptionConfigurationProperty{
+//   			Automatic: automatic,
+//   			SecretsManager: &SecretsManagerEndpointEncryptionConfigurationProperty{
+//   				EncryptionSecret: &EndpointEncryptionSecretConfigurationProperty{
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//   				EncryptionSecretType: jsii.String("encryptionSecretType"),
+//   			},
+//   		},
+//   		DestinationTransitEncryptionType: jsii.String("destinationTransitEncryptionType"),
+//   		EndpointLifecycleManagement: jsii.String("endpointLifecycleManagement"),
+//   	},
 //   	Standard: &StandardRouterOutputConfigurationProperty{
 //   		NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
 //   		Protocol: jsii.String("protocol"),
@@ -93,13 +106,21 @@ package awsmediaconnect
 //
 type CfnRouterOutputPropsMixin_RouterOutputConfigurationProperty struct {
 	// Configuration settings for connecting a router output to a MediaConnect flow source.
+	//
+	// To connect the router output to the flow source, provide both flowArn and flowSourceArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a flow source. To change it, first disconnect the router output, then update the encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-routeroutputconfiguration.html#cfn-mediaconnect-routeroutput-routeroutputconfiguration-mediaconnectflow
 	//
 	MediaConnectFlow interface{} `field:"optional" json:"mediaConnectFlow" yaml:"mediaConnectFlow"`
 	// Configuration settings for connecting a router output to a MediaLive input.
+	//
+	// To connect the router output to the MediaLive input, provide both mediaLiveInputArn and mediaLivePipelineId. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change destinationTransitEncryption while the router output is connected to a MediaLive input. To change it, first disconnect the router output, then update the encryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-routeroutputconfiguration.html#cfn-mediaconnect-routeroutput-routeroutputconfiguration-medialiveinput
 	//
 	MediaLiveInput interface{} `field:"optional" json:"mediaLiveInput" yaml:"mediaLiveInput"`
+	// Configuration settings for a router output that is represented by a source endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-routeroutputconfiguration.html#cfn-mediaconnect-routeroutput-routeroutputconfiguration-sourceendpoint
+	//
+	SourceEndpoint interface{} `field:"optional" json:"sourceEndpoint" yaml:"sourceEndpoint"`
 	// The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-routeroutputconfiguration.html#cfn-mediaconnect-routeroutput-routeroutputconfiguration-standard
 	//

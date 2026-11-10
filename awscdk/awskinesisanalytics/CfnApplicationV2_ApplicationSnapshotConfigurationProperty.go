@@ -10,6 +10,9 @@ package awskinesisanalytics
 //
 //   applicationSnapshotConfigurationProperty := &ApplicationSnapshotConfigurationProperty{
 //   	SnapshotsEnabled: jsii.Boolean(false),
+//
+//   	// the properties below are optional
+//   	SnapshotMode: jsii.String("snapshotMode"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html
@@ -19,5 +22,11 @@ type CfnApplicationV2_ApplicationSnapshotConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html#cfn-kinesisanalyticsv2-application-applicationsnapshotconfiguration-snapshotsenabled
 	//
 	SnapshotsEnabled interface{} `field:"required" json:"snapshotsEnabled" yaml:"snapshotsEnabled"`
+	// The snapshot mode of a Flink-based Kinesis Data Analytics application.
+	//
+	// Changing from APPLICATION_SNAPSHOTS_LEGACY to ENHANCED_SNAPSHOTS is one-way; an application in ENHANCED_SNAPSHOTS mode cannot return to APPLICATION_SNAPSHOTS_LEGACY.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsnapshotconfiguration.html#cfn-kinesisanalyticsv2-application-applicationsnapshotconfiguration-snapshotmode
+	//
+	SnapshotMode *string `field:"optional" json:"snapshotMode" yaml:"snapshotMode"`
 }
 

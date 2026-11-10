@@ -12,6 +12,16 @@ package awsecs
 //
 //   resourceRequirementProperty := &ResourceRequirementProperty{
 //   	Type: jsii.String("type"),
+//
+//   	// the properties below are optional
+//   	SharingStrategy: &SharingStrategyProperty{
+//   		NvidiaMps: &NvidiaMpsAllocationProperty{
+//   			Memory: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			MaxComputePercent: jsii.Number(123),
+//   		},
+//   	},
 //   	Value: jsii.String("value"),
 //   }
 //
@@ -22,6 +32,9 @@ type CfnTaskDefinition_ResourceRequirementProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-type
 	//
 	Type *string `field:"required" json:"type" yaml:"type"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-sharingstrategy
+	//
+	SharingStrategy interface{} `field:"optional" json:"sharingStrategy" yaml:"sharingStrategy"`
 	// The value for the specified resource type.
 	//
 	// When the type is `GPU` , the value is the number of physical `GPUs` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
@@ -29,6 +42,6 @@ type CfnTaskDefinition_ResourceRequirementProperty struct {
 	// When the type is `InferenceAccelerator` , the `value` matches the `deviceName` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-value
 	//
-	Value *string `field:"required" json:"value" yaml:"value"`
+	Value *string `field:"optional" json:"value" yaml:"value"`
 }
 

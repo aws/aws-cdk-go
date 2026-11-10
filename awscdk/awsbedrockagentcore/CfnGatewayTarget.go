@@ -236,6 +236,19 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	CertificateConfigurations: []interface{}{
+//   		&CertificateConfigurationProperty{
+//   			S3: &S3CertificateConfigurationProperty{
+//   				Uri: jsii.String("uri"),
+//
+//   				// the properties below are optional
+//   				BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   			},
+//   			SecretsManager: &SecretsManagerCertificateConfigurationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	CredentialProviderConfigurations: []interface{}{
 //   		&CredentialProviderConfigurationProperty{
 //   			CredentialProviderType: jsii.String("credentialProviderType"),
@@ -330,6 +343,8 @@ type CfnGatewayTarget interface {
 	AttrTargetId() *string
 	// The time at which the resource was updated.
 	AttrUpdatedAt() *string
+	CertificateConfigurations() interface{}
+	SetCertificateConfigurations(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -666,6 +681,16 @@ func (j *jsiiProxy_CfnGatewayTarget) AttrUpdatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGatewayTarget) CertificateConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"certificateConfigurations",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGatewayTarget) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -893,6 +918,17 @@ func NewCfnGatewayTarget_Override(c CfnGatewayTarget, scope constructs.Construct
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGatewayTarget",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnGatewayTarget)SetCertificateConfigurations(val interface{}) {
+	if err := j.validateSetCertificateConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"certificateConfigurations",
+		val,
 	)
 }
 

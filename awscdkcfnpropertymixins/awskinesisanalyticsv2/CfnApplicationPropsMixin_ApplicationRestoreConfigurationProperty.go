@@ -10,6 +10,7 @@ package awskinesisanalyticsv2
 //
 //   applicationRestoreConfigurationProperty := &ApplicationRestoreConfigurationProperty{
 //   	ApplicationRestoreType: jsii.String("applicationRestoreType"),
+//   	SnapshotArn: jsii.String("snapshotArn"),
 //   	SnapshotName: jsii.String("snapshotName"),
 //   }
 //
@@ -20,6 +21,12 @@ type CfnApplicationPropsMixin_ApplicationRestoreConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationrestoreconfiguration.html#cfn-kinesisanalyticsv2-application-applicationrestoreconfiguration-applicationrestoretype
 	//
 	ApplicationRestoreType *string `field:"optional" json:"applicationRestoreType" yaml:"applicationRestoreType"`
+	// The ARN of an existing snapshot to use to restart an application.
+	//
+	// The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType. Specify either SnapshotName or SnapshotArn, not both.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationrestoreconfiguration.html#cfn-kinesisanalyticsv2-application-applicationrestoreconfiguration-snapshotarn
+	//
+	SnapshotArn *string `field:"optional" json:"snapshotArn" yaml:"snapshotArn"`
 	// The identifier of an existing snapshot of application state to use to restart an application.
 	//
 	// The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for the `ApplicationRestoreType` .

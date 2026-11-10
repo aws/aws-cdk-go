@@ -107,6 +107,9 @@ import (
 //   			ComputeTypesAllowed: []*string{
 //   				jsii.String("computeTypesAllowed"),
 //   			},
+//   			FleetsAllowed: []*string{
+//   				jsii.String("fleetsAllowed"),
+//   			},
 //   			MaximumBuildsAllowed: jsii.Number(123),
 //   		},
 //   		ServiceRole: jsii.String("serviceRole"),
@@ -266,7 +269,6 @@ type CfnProject interface {
 	SetArtifacts(val interface{})
 	// The ARN of the AWS CodeBuild project, such as `arn:aws:codebuild:us-west-2:123456789012:project/myProjectName` .
 	AttrArn() *string
-	AttrId() *string
 	AutoRetryLimit() *float64
 	SetAutoRetryLimit(val *float64)
 	// Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge.
@@ -575,16 +577,6 @@ func (j *jsiiProxy_CfnProject) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnProject) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

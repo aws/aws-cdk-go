@@ -40,6 +40,14 @@ import (
 //   			S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   		},
 //   	},
+//   	ParentInstance: &ParentInstanceProperty{
+//   		AutoScalingGroup: &AutoScalingGroupProperty{
+//   			Name: jsii.String("name"),
+//
+//   			// the properties below are optional
+//   			CapacityWaitTimeoutSeconds: jsii.Number(123),
+//   		},
+//   	},
 //   	Placement: &PlacementProperty{
 //   		AvailabilityZone: jsii.String("availabilityZone"),
 //   		HostId: jsii.String("hostId"),
@@ -57,6 +65,7 @@ import (
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	TerminateInstanceOnCompletion: jsii.Boolean(false),
 //   	TerminateInstanceOnFailure: jsii.Boolean(false),
 //   })
 //
@@ -119,6 +128,9 @@ type CfnInfrastructureConfiguration interface {
 	SetName(val *string)
 	// The tree node.
 	Node() constructs.Node
+	// Settings for building on an instance that is already running, instead of an instance that Image Builder launches for the build.
+	ParentInstance() interface{}
+	SetParentInstance(val interface{})
 	// The instance placement settings that define where the instances that are launched from your image will run.
 	Placement() interface{}
 	SetPlacement(val interface{})
@@ -148,6 +160,9 @@ type CfnInfrastructureConfiguration interface {
 	// The metadata tags to assign to the infrastructure configuration resource that Image Builder creates as output.
 	TagsRaw() *map[string]*string
 	SetTagsRaw(val *map[string]*string)
+	// Specifies whether Image Builder terminates build and test instances that are still running when image creation ends without a failure.
+	TerminateInstanceOnCompletion() interface{}
+	SetTerminateInstanceOnCompletion(val interface{})
 	// The terminate instance on failure setting of the infrastructure configuration.
 	TerminateInstanceOnFailure() interface{}
 	SetTerminateInstanceOnFailure(val interface{})
@@ -515,6 +530,16 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInfrastructureConfiguration) ParentInstance() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"parentInstance",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInfrastructureConfiguration) Placement() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -600,6 +625,16 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) TagsRaw() *map[string]*string
 	_jsii_.Get(
 		j,
 		"tagsRaw",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfrastructureConfiguration) TerminateInstanceOnCompletion() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"terminateInstanceOnCompletion",
 		&returns,
 	)
 	return returns
@@ -733,6 +768,17 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration)SetName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnInfrastructureConfiguration)SetParentInstance(val interface{}) {
+	if err := j.validateSetParentInstanceParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"parentInstance",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnInfrastructureConfiguration)SetPlacement(val interface{}) {
 	if err := j.validateSetPlacementParameters(val); err != nil {
 		panic(err)
@@ -783,6 +829,17 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration)SetTagsRaw(val *map[string]*st
 	_jsii_.Set(
 		j,
 		"tagsRaw",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInfrastructureConfiguration)SetTerminateInstanceOnCompletion(val interface{}) {
+	if err := j.validateSetTerminateInstanceOnCompletionParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"terminateInstanceOnCompletion",
 		val,
 	)
 }

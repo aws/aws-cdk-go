@@ -38,6 +38,42 @@ package awsbedrockagentcore
 //   			RouteToTarget: &RouteToTargetActionProperty{
 //   				StaticRoute: &StaticRouteProperty{
 //   					TargetName: jsii.String("targetName"),
+//
+//   					// the properties below are optional
+//   					Fallback: &FallbackProperty{
+//   						TargetFallback: []interface{}{
+//   							&FallbackTargetProperty{
+//   								TargetName: jsii.String("targetName"),
+//
+//   								// the properties below are optional
+//   								FirstByteTimeoutMilliseconds: jsii.Number(123),
+//   								Model: jsii.String("model"),
+//   								TriggerOn: &FallbackTriggersProperty{
+//   									Errors: []*string{
+//   										jsii.String("errors"),
+//   									},
+//   									StatusCodes: []*string{
+//   										jsii.String("statusCodes"),
+//   									},
+//   								},
+//   							},
+//   						},
+//
+//   						// the properties below are optional
+//   						CircuitBreaker: &CircuitBreakerConfigurationProperty{
+//   							Mode: jsii.String("mode"),
+//   						},
+//   						FirstByteTimeoutMilliseconds: jsii.Number(123),
+//   						TriggerOn: &FallbackTriggersProperty{
+//   							Errors: []*string{
+//   								jsii.String("errors"),
+//   							},
+//   							StatusCodes: []*string{
+//   								jsii.String("statusCodes"),
+//   							},
+//   						},
+//   					},
+//   					Model: jsii.String("model"),
 //   				},
 //   				WeightedRoute: &WeightedRouteProperty{
 //   					TrafficSplit: []interface{}{
@@ -48,9 +84,43 @@ package awsbedrockagentcore
 //
 //   							// the properties below are optional
 //   							Description: jsii.String("description"),
+//   							Fallback: &FallbackProperty{
+//   								TargetFallback: []interface{}{
+//   									&FallbackTargetProperty{
+//   										TargetName: jsii.String("targetName"),
+//
+//   										// the properties below are optional
+//   										FirstByteTimeoutMilliseconds: jsii.Number(123),
+//   										Model: jsii.String("model"),
+//   										TriggerOn: &FallbackTriggersProperty{
+//   											Errors: []*string{
+//   												jsii.String("errors"),
+//   											},
+//   											StatusCodes: []*string{
+//   												jsii.String("statusCodes"),
+//   											},
+//   										},
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								CircuitBreaker: &CircuitBreakerConfigurationProperty{
+//   									Mode: jsii.String("mode"),
+//   								},
+//   								FirstByteTimeoutMilliseconds: jsii.Number(123),
+//   								TriggerOn: &FallbackTriggersProperty{
+//   									Errors: []*string{
+//   										jsii.String("errors"),
+//   									},
+//   									StatusCodes: []*string{
+//   										jsii.String("statusCodes"),
+//   									},
+//   								},
+//   							},
 //   							Metadata: map[string]*string{
 //   								"metadataKey": jsii.String("metadata"),
 //   							},
+//   							Model: jsii.String("model"),
 //   						},
 //   					},
 //   				},
@@ -62,6 +132,16 @@ package awsbedrockagentcore
 //   	// the properties below are optional
 //   	Conditions: []interface{}{
 //   		&ConditionProperty{
+//   			MatchModels: &MatchModelsProperty{
+//   				AnyOf: []interface{}{
+//   					&MatchModelEntryProperty{
+//   						Value: jsii.String("value"),
+//
+//   						// the properties below are optional
+//   						Operator: jsii.String("operator"),
+//   					},
+//   				},
+//   			},
 //   			MatchPaths: &MatchPathsProperty{
 //   				AnyOf: []*string{
 //   					jsii.String("anyOf"),

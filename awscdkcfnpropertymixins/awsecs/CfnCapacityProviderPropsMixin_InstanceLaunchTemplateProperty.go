@@ -100,6 +100,7 @@ package awsecs
 //   			jsii.String("subnets"),
 //   		},
 //   	},
+//   	NitroEnclavesEnabled: jsii.Boolean(false),
 //   	StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
 //   		StorageSizeGiB: jsii.Number(123),
 //   	},
@@ -164,6 +165,9 @@ type CfnCapacityProviderPropsMixin_InstanceLaunchTemplateProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-networkconfiguration
 	//
 	NetworkConfiguration interface{} `field:"optional" json:"networkConfiguration" yaml:"networkConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html#cfn-ecs-capacityprovider-instancelaunchtemplate-nitroenclavesenabled
+	//
+	NitroEnclavesEnabled interface{} `field:"optional" json:"nitroEnclavesEnabled" yaml:"nitroEnclavesEnabled"`
 	// The storage configuration for Amazon ECS Managed Instances.
 	//
 	// This defines the root volume size and type for the instances.

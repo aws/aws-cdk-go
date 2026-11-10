@@ -27,6 +27,23 @@ package awsnetworkfirewall
 //   			},
 //   		},
 //   	},
+//   	Route53ResolvedIpValidation: &Route53ResolvedIPValidationProperty{
+//   		Action: jsii.String("action"),
+//   		DnsExpiryExceptionPolicy: jsii.String("dnsExpiryExceptionPolicy"),
+//   		DnsFirewallRuleGroupId: jsii.String("dnsFirewallRuleGroupId"),
+//
+//   		// the properties below are optional
+//   		BypassDestinationValidationIpRanges: []interface{}{
+//   			&AddressProperty{
+//   				AddressDefinition: jsii.String("addressDefinition"),
+//   			},
+//   		},
+//   		SourceIpRanges: []interface{}{
+//   			&AddressProperty{
+//   				AddressDefinition: jsii.String("addressDefinition"),
+//   			},
+//   		},
+//   	},
 //   	StatefulDefaultActions: []*string{
 //   		jsii.String("statefulDefaultActions"),
 //   	},
@@ -105,6 +122,9 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-policyvariables
 	//
 	PolicyVariables interface{} `field:"optional" json:"policyVariables" yaml:"policyVariables"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-route53resolvedipvalidation
+	//
+	Route53ResolvedIpValidation interface{} `field:"optional" json:"route53ResolvedIpValidation" yaml:"route53ResolvedIpValidation"`
 	// The default actions to take on a packet that doesn't match any stateful rules.
 	//
 	// The stateful default action is optional, and is only valid when using the strict rule order.

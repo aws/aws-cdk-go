@@ -18,26 +18,23 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var actions interface{}
-//   var assetTypes interface{}
 //   var mergeStrategy IMergeStrategy
-//   var type interface{}
 //
 //   cfnApprovalPolicyPropsMixin := awscdkcfnpropertymixins.Aws_quicksight.NewCfnApprovalPolicyPropsMixin(&CfnApprovalPolicyMixinProps{
-//   	Actions: []interface{}{
-//   		actions,
+//   	Actions: []*string{
+//   		jsii.String("actions"),
 //   	},
 //   	ApplicableTo: &ApplicableToProperty{
 //   		GroupArns: []*string{
 //   			jsii.String("groupArns"),
 //   		},
-//   		Type: type,
+//   		Type: jsii.String("type"),
 //   	},
 //   	ApprovalGroups: []*string{
 //   		jsii.String("approvalGroups"),
 //   	},
-//   	AssetTypes: []interface{}{
-//   		assetTypes,
+//   	AssetTypes: []*string{
+//   		jsii.String("assetTypes"),
 //   	},
 //   	Description: jsii.String("description"),
 //   	Name: jsii.String("name"),

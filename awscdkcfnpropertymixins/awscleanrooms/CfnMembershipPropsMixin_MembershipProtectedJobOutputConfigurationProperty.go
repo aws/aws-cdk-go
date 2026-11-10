@@ -12,6 +12,7 @@ package awscleanrooms
 //   	S3: &ProtectedJobS3OutputConfigurationInputProperty{
 //   		Bucket: jsii.String("bucket"),
 //   		KeyPrefix: jsii.String("keyPrefix"),
+//   		ResultFormat: jsii.String("resultFormat"),
 //   	},
 //   }
 //

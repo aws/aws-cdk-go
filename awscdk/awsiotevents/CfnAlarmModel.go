@@ -186,7 +186,6 @@ type CfnAlarmModel interface {
 	// Defines when your alarm is invoked.
 	AlarmRule() interface{}
 	SetAlarmRule(val interface{})
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -472,16 +471,6 @@ func (j *jsiiProxy_CfnAlarmModel) AlarmRule() interface{} {
 	_jsii_.Get(
 		j,
 		"alarmRule",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnAlarmModel) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

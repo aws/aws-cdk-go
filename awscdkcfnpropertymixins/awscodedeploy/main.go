@@ -144,6 +144,10 @@ func init() {
 		reflect.TypeOf((*CfnDeploymentGroupPropsMixin_ELBInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_codedeploy.CfnDeploymentGroupPropsMixin.Ec2DeploymentOptionsProperty",
+		reflect.TypeOf((*CfnDeploymentGroupPropsMixin_Ec2DeploymentOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_codedeploy.CfnDeploymentGroupPropsMixin.GitHubLocationProperty",
 		reflect.TypeOf((*CfnDeploymentGroupPropsMixin_GitHubLocationProperty)(nil)).Elem(),
 	)

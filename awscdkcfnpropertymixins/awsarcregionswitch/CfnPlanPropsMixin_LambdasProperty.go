@@ -12,6 +12,7 @@ package awsarcregionswitch
 //   	Arn: jsii.String("arn"),
 //   	CrossAccountRole: jsii.String("crossAccountRole"),
 //   	ExternalId: jsii.String("externalId"),
+//   	Payload: jsii.String("payload"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-lambdas.html
@@ -29,5 +30,8 @@ type CfnPlanPropsMixin_LambdasProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-lambdas.html#cfn-arcregionswitch-plan-lambdas-externalid
 	//
 	ExternalId *string `field:"optional" json:"externalId" yaml:"externalId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-lambdas.html#cfn-arcregionswitch-plan-lambdas-payload
+	//
+	Payload *string `field:"optional" json:"payload" yaml:"payload"`
 }
 

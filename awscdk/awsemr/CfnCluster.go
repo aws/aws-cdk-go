@@ -102,6 +102,9 @@ type CfnCluster interface {
 	// Creates or updates a managed scaling policy for an Amazon EMR cluster.
 	ManagedScalingPolicy() interface{}
 	SetManagedScalingPolicy(val interface{})
+	// Contains CloudWatch log configuration metadata and settings.
+	MonitoringConfiguration() interface{}
+	SetMonitoringConfiguration(val interface{})
 	// The name of the cluster.
 	Name() *string
 	SetName(val *string)
@@ -110,6 +113,7 @@ type CfnCluster interface {
 	// The Amazon Linux release specified in a cluster launch RunJobFlow request.
 	OsReleaseLabel() *string
 	SetOsReleaseLabel(val *string)
+	// The configuration specifies the placement strategy that can be applied to instance roles during cluster creation.
 	PlacementGroupConfigs() interface{}
 	SetPlacementGroupConfigs(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -129,6 +133,9 @@ type CfnCluster interface {
 	// The IAM role that Amazon EMR assumes in order to access AWS resources on your behalf.
 	ServiceRole() *string
 	SetServiceRole(val *string)
+	// Indicates whether Spark Connect sessions are enabled on the cluster.
+	SessionEnabled() interface{}
+	SetSessionEnabled(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -158,7 +165,9 @@ type CfnCluster interface {
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
 	// Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster.
+	// Deprecated: this property has been deprecated.
 	VisibleToAllUsers() interface{}
+	// Deprecated: this property has been deprecated.
 	SetVisibleToAllUsers(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
@@ -591,6 +600,16 @@ func (j *jsiiProxy_CfnCluster) ManagedScalingPolicy() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) MonitoringConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"monitoringConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) Name() *string {
 	var returns *string
 	_jsii_.Get(
@@ -676,6 +695,16 @@ func (j *jsiiProxy_CfnCluster) ServiceRole() *string {
 	_jsii_.Get(
 		j,
 		"serviceRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) SessionEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sessionEnabled",
 		&returns,
 	)
 	return returns
@@ -946,6 +975,17 @@ func (j *jsiiProxy_CfnCluster)SetManagedScalingPolicy(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster)SetMonitoringConfiguration(val interface{}) {
+	if err := j.validateSetMonitoringConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"monitoringConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster)SetName(val *string) {
 	if err := j.validateSetNameParameters(val); err != nil {
 		panic(err)
@@ -1007,6 +1047,17 @@ func (j *jsiiProxy_CfnCluster)SetServiceRole(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetSessionEnabled(val interface{}) {
+	if err := j.validateSetSessionEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"sessionEnabled",
 		val,
 	)
 }

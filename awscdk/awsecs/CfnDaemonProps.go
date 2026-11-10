@@ -51,6 +51,9 @@ type CfnDaemonProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemon.html#cfn-ecs-daemon-clusterarn
 	//
 	ClusterArn *string `field:"optional" json:"clusterArn" yaml:"clusterArn"`
+	// If the ``critical`` parameter of this daemon revision is ``true``, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it.
+	//
+	// If the parameter is ``false``, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is ``true``.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-daemon.html#cfn-ecs-daemon-critical
 	//
 	Critical interface{} `field:"optional" json:"critical" yaml:"critical"`

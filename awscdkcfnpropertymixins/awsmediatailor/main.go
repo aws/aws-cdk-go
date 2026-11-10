@@ -108,6 +108,10 @@ func init() {
 		reflect.TypeOf((*CfnFunctionPropsMixin_FunctionRefProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionPropsMixin.HttpRequestCacheConfigurationProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_HttpRequestCacheConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mediatailor.CfnFunctionPropsMixin.HttpRequestConfigurationProperty",
 		reflect.TypeOf((*CfnFunctionPropsMixin_HttpRequestConfigurationProperty)(nil)).Elem(),
 	)

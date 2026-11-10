@@ -13,7 +13,7 @@ import (
 //
 //   cfnPaymentManagerMixinProps := &CfnPaymentManagerMixinProps{
 //   	AuthorizerConfiguration: &AuthorizerConfigurationProperty{
-//   		CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
+//   		CustomJwtAuthorizer: &CustomJWTAuthorizerProperty{
 //   			AllowedAudience: []*string{
 //   				jsii.String("allowedAudience"),
 //   			},
@@ -25,9 +25,9 @@ import (
 //   			},
 //   			CustomClaims: []interface{}{
 //   				&CustomClaimValidationTypeProperty{
-//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
+//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueProperty{
 //   						ClaimMatchOperator: jsii.String("claimMatchOperator"),
-//   						ClaimMatchValue: &ClaimMatchValueTypeProperty{
+//   						ClaimMatchValue: &ClaimMatchValueProperty{
 //   							MatchValueString: jsii.String("matchValueString"),
 //   							MatchValueStringList: []*string{
 //   								jsii.String("matchValueStringList"),
@@ -56,9 +56,11 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentmanager.html
 //
 type CfnPaymentManagerMixinProps struct {
+	// The authorizer configuration for the payment manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentmanager.html#cfn-bedrockagentcore-paymentmanager-authorizerconfiguration
 	//
 	AuthorizerConfiguration interface{} `field:"optional" json:"authorizerConfiguration" yaml:"authorizerConfiguration"`
+	// The type of authorizer for the payment manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentmanager.html#cfn-bedrockagentcore-paymentmanager-authorizertype
 	//
 	AuthorizerType *string `field:"optional" json:"authorizerType" yaml:"authorizerType"`
@@ -74,7 +76,7 @@ type CfnPaymentManagerMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentmanager.html#cfn-bedrockagentcore-paymentmanager-rolearn
 	//
 	RoleArn *string `field:"optional" json:"roleArn" yaml:"roleArn"`
-	// Tags to assign to the payment manager.
+	// An array of key-value pairs to apply to this resource.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentmanager.html#cfn-bedrockagentcore-paymentmanager-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

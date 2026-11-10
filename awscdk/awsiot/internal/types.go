@@ -23,6 +23,7 @@ type Type__interfacesawsiotIJobRef = interfacesawsiot.IJobRef
 type Type__interfacesawsiotIJobTemplateRef = interfacesawsiot.IJobTemplateRef
 type Type__interfacesawsiotILoggingRef = interfacesawsiot.ILoggingRef
 type Type__interfacesawsiotIMitigationActionRef = interfacesawsiot.IMitigationActionRef
+type Type__interfacesawsiotIOTAUpdateRef = interfacesawsiot.IOTAUpdateRef
 type Type__interfacesawsiotIPolicyRef = interfacesawsiot.IPolicyRef
 type Type__interfacesawsiotIPolicyPrincipalAttachmentRef = interfacesawsiot.IPolicyPrincipalAttachmentRef
 type Type__interfacesawsiotIProvisioningTemplateRef = interfacesawsiot.IProvisioningTemplateRef

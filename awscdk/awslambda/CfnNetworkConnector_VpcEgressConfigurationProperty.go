@@ -10,6 +10,8 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var elasticIpConfiguration interface{}
+//
 //   vpcEgressConfigurationProperty := &VpcEgressConfigurationProperty{
 //   	AssociatedComputeResourceTypes: []*string{
 //   		jsii.String("associatedComputeResourceTypes"),
@@ -21,6 +23,9 @@ package awslambda
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
+//
+//   	// the properties below are optional
+//   	ElasticIpConfiguration: elasticIpConfiguration,
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html
@@ -50,5 +55,8 @@ type CfnNetworkConnector_VpcEgressConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-subnetids
 	//
 	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-elasticipconfiguration
+	//
+	ElasticIpConfiguration interface{} `field:"optional" json:"elasticIpConfiguration" yaml:"elasticIpConfiguration"`
 }
 

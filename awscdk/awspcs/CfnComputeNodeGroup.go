@@ -39,10 +39,8 @@ import (
 //   	// the properties below are optional
 //   	AmiId: jsii.String("amiId"),
 //   	CustomLaunchTemplate: &CustomLaunchTemplateProperty{
-//   		Version: jsii.String("version"),
-//
-//   		// the properties below are optional
 //   		TemplateId: jsii.String("templateId"),
+//   		Version: jsii.String("version"),
 //   	},
 //   	Name: jsii.String("name"),
 //   	NodeLifecycleActions: &NodeLifecycleActionsProperty{

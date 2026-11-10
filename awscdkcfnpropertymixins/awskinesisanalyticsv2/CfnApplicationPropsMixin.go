@@ -41,6 +41,7 @@ import (
 //   			KeyType: jsii.String("keyType"),
 //   		},
 //   		ApplicationSnapshotConfiguration: &ApplicationSnapshotConfigurationProperty{
+//   			SnapshotMode: jsii.String("snapshotMode"),
 //   			SnapshotsEnabled: jsii.Boolean(false),
 //   		},
 //   		ApplicationSystemRollbackConfiguration: &ApplicationSystemRollbackConfigurationProperty{
@@ -169,6 +170,7 @@ import (
 //   	RunConfiguration: &RunConfigurationProperty{
 //   		ApplicationRestoreConfiguration: &ApplicationRestoreConfigurationProperty{
 //   			ApplicationRestoreType: jsii.String("applicationRestoreType"),
+//   			SnapshotArn: jsii.String("snapshotArn"),
 //   			SnapshotName: jsii.String("snapshotName"),
 //   		},
 //   		FlinkRunConfiguration: &FlinkRunConfigurationProperty{

@@ -11,6 +11,10 @@ func init() {
 		"aws-cdk-lib.interfaces.aws_appfabric.AppAuthorizationReference",
 		reflect.TypeOf((*AppAuthorizationReference)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_appfabric.AppBundleReference",
+		reflect.TypeOf((*AppBundleReference)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_appfabric.IAppAuthorizationRef",
 		reflect.TypeOf((*IAppAuthorizationRef)(nil)).Elem(),
@@ -22,6 +26,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAppAuthorizationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_appfabric.IAppBundleRef",
+		reflect.TypeOf((*IAppBundleRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "appBundleRef", GoGetter: "AppBundleRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAppBundleRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -43,8 +63,28 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_appfabric.IIngestionRef",
+		reflect.TypeOf((*IIngestionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "ingestionRef", GoGetter: "IngestionRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IIngestionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_appfabric.IngestionDestinationReference",
 		reflect.TypeOf((*IngestionDestinationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_appfabric.IngestionReference",
+		reflect.TypeOf((*IngestionReference)(nil)).Elem(),
 	)
 }

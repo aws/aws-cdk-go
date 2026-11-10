@@ -93,6 +93,7 @@ func init() {
 			"IS_ADOPTED": CfnCapabilityEksCapabilityAckLogsRecordFields_IS_ADOPTED,
 			"IAM_ROLE_SELECTOR": CfnCapabilityEksCapabilityAckLogsRecordFields_IAM_ROLE_SELECTOR,
 			"ROLE": CfnCapabilityEksCapabilityAckLogsRecordFields_ROLE,
+			"DIFF": CfnCapabilityEksCapabilityAckLogsRecordFields_DIFF,
 			"RESOURCE_ARN": CfnCapabilityEksCapabilityAckLogsRecordFields_RESOURCE_ARN,
 			"EVENT_TIMESTAMP": CfnCapabilityEksCapabilityAckLogsRecordFields_EVENT_TIMESTAMP,
 		},

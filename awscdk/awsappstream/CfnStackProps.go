@@ -64,6 +64,7 @@ import (
 //   	FeedbackUrl: jsii.String("feedbackUrl"),
 //   	Name: jsii.String("name"),
 //   	RedirectUrl: jsii.String("redirectUrl"),
+//   	StorageConnectorAuthentication: jsii.String("storageConnectorAuthentication"),
 //   	StorageConnectors: []interface{}{
 //   		&StorageConnectorProperty{
 //   			ConnectorType: jsii.String("connectorType"),
@@ -158,6 +159,12 @@ type CfnStackProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-redirecturl
 	//
 	RedirectUrl *string `field:"optional" json:"redirectUrl" yaml:"redirectUrl"`
+	// Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions.
+	//
+	// Valid values: FORCE_REAUTHENTICATION | REUSE_CREDENTIALS.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-storageconnectorauthentication
+	//
+	StorageConnectorAuthentication *string `field:"optional" json:"storageConnectorAuthentication" yaml:"storageConnectorAuthentication"`
 	// The storage connectors to enable.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-storageconnectors
 	//

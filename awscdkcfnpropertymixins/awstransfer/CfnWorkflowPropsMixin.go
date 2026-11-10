@@ -78,6 +78,9 @@ import (
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
+//   	StructuredLogDestinations: []*string{
+//   		jsii.String("structuredLogDestinations"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

@@ -15,7 +15,7 @@ type TextWidgetProps struct {
 	// The text to display, in MarkDown format.
 	Markdown *string `field:"required" json:"markdown" yaml:"markdown"`
 	// Background for the widget.
-	// Default: solid.
+	// Default: TextWidgetBackground.TRANSPARENT
 	//
 	Background TextWidgetBackground `field:"optional" json:"background" yaml:"background"`
 	// Height of the widget.

@@ -10,6 +10,7 @@ package awsopensearchservice
 //
 //   encryptionAtRestOptionsProperty := &EncryptionAtRestOptionsProperty{
 //   	Enabled: jsii.Boolean(false),
+//   	EncryptionMode: jsii.String("encryptionMode"),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
 //   }
 //
@@ -22,6 +23,12 @@ type CfnDomainPropsMixin_EncryptionAtRestOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html#cfn-opensearchservice-domain-encryptionatrestoptions-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// The type of encryption at rest applied to the domain's data.
+	//
+	// Valid values are DISK and NATIVE. DISK is the default and uses volume-level encryption. NATIVE uses engine-native, index-level encryption and requires encryption at rest to be enabled and OpenSearch version 3.3 or later. After the mode is set to NATIVE, it can't be changed back to DISK.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html#cfn-opensearchservice-domain-encryptionatrestoptions-encryptionmode
+	//
+	EncryptionMode *string `field:"optional" json:"encryptionMode" yaml:"encryptionMode"`
 	// The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a` . Required if you enable encryption at rest.
 	//
 	// You can also use `keyAlias` as a value.

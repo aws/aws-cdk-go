@@ -179,6 +179,9 @@ import (
 //   			Host: &HostVolumePropertiesProperty{
 //   				SourcePath: jsii.String("sourcePath"),
 //   			},
+//   			LogDriverVolumeConfiguration: &LogDriverVolumeConfigurationProperty{
+//   				Driver: jsii.String("driver"),
+//   			},
 //   			Name: jsii.String("name"),
 //   		},
 //   	},

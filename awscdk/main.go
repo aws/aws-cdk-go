@@ -3849,4 +3849,8 @@ func init() {
 			return &jsiiProxy_Validations{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.WarningOptions",
+		reflect.TypeOf((*WarningOptions)(nil)).Elem(),
+	)
 }

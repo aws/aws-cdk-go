@@ -99,7 +99,7 @@ type CfnAnomalyDetector interface {
 	interfacesawscloudwatch.IAnomalyDetectorRef
 	// A reference to a AnomalyDetector resource.
 	AnomalyDetectorRef() *interfacesawscloudwatch.AnomalyDetectorReference
-	AttrAnomalyDetectorId() *string
+	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -349,11 +349,11 @@ func (j *jsiiProxy_CfnAnomalyDetector) AnomalyDetectorRef() *interfacesawscloudw
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnomalyDetector) AttrAnomalyDetectorId() *string {
+func (j *jsiiProxy_CfnAnomalyDetector) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrAnomalyDetectorId",
+		"attrId",
 		&returns,
 	)
 	return returns

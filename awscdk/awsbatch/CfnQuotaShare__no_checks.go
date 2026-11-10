@@ -116,10 +116,6 @@ func (j *jsiiProxy_CfnQuotaShare) validateSetPreemptionConfigurationParameters(v
 	return nil
 }
 
-func (j *jsiiProxy_CfnQuotaShare) validateSetQuotaShareNameParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnQuotaShare) validateSetResourceSharingConfigurationParameters(val interface{}) error {
 	return nil
 }

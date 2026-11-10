@@ -14,6 +14,11 @@ import (
 //   cfnFunctionMixinProps := &CfnFunctionMixinProps{
 //   	AwsServiceRequestConfiguration: &AwsServiceRequestConfigurationProperty{
 //   		Body: jsii.String("body"),
+//   		Cache: &HttpRequestCacheConfigurationProperty{
+//   			Key: jsii.String("key"),
+//   			TtlMaximumSeconds: jsii.Number(123),
+//   			TtlMinimumSeconds: jsii.Number(123),
+//   		},
 //   		Headers: map[string]*string{
 //   			"headersKey": jsii.String("headers"),
 //   		},
@@ -53,6 +58,11 @@ import (
 //   	FunctionType: jsii.String("functionType"),
 //   	HttpRequestConfiguration: &HttpRequestConfigurationProperty{
 //   		Body: jsii.String("body"),
+//   		Cache: &HttpRequestCacheConfigurationProperty{
+//   			Key: jsii.String("key"),
+//   			TtlMaximumSeconds: jsii.Number(123),
+//   			TtlMinimumSeconds: jsii.Number(123),
+//   		},
 //   		Headers: map[string]*string{
 //   			"headersKey": jsii.String("headers"),
 //   		},
@@ -86,6 +96,11 @@ import (
 //   	},
 //   	VastRequestConfiguration: &VastRequestConfigurationProperty{
 //   		Body: jsii.String("body"),
+//   		Cache: &HttpRequestCacheConfigurationProperty{
+//   			Key: jsii.String("key"),
+//   			TtlMaximumSeconds: jsii.Number(123),
+//   			TtlMinimumSeconds: jsii.Number(123),
+//   		},
 //   		Headers: map[string]*string{
 //   			"headersKey": jsii.String("headers"),
 //   		},

@@ -120,13 +120,32 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 
 // Deploys an object with the specified string contents into the bucket.
 //
-// The
-// content can include deploy-time values (such as `snsTopic.topicArn`) that
-// will get resolved only during deployment.
+// The content can include deploy-time values (such as `snsTopic.topicArn`)
+// that will get resolved only during deployment.
 //
-// To store a JSON object use `Source.jsonData()`.
-// To store YAML content use `Source.yamlData()`.
-func Source_Data(objectKey *string, data *string, markersConfig *MarkersConfig) ISource {
+// The content is treated as an unstructured string, and deploy-time values
+// will (mostly) be replaced with a plain string substitution. To store
+// structured data, use either `Source.jsonData()` or `Source.yamlData()`.
+//
+// ## Default behavior
+//
+// Due to CloudFormation behavior, scalars (strings, numbers and booleans) in Token values are
+// all treated as strings at deploy time (`"80"`, `"true"`, etc).
+//
+// - Scalars are plain-text substituted.
+// - Non-scalars (lists, objects) lead to a deployment error
+//
+// ## JSON escaping
+//
+// JSON escaping can be forced by specifying `{ jsonEscape: true }`. Values
+// are substituted as follows:
+//
+// - Scalars come in as strings pre-encoded by CloudFormation; they are JSON-encoded, and then substituted without their surrounding quotes.
+//   - Strings expect to go into a pre-quoted JSON string context (e.g., `Source.data('{"arn": "' + snsTopic.topicArn + '"}')`).
+//   - Non-strings expect to go into a non-quoted JSON context (e.g., `Source.data('{"port": ' + cluster.port + '}')`).
+// - Non-scalars are JSON-encoded and then fully substituted. They expect to go into a non-quoted JSON
+//   context in the input string (e.g., `Source.data('{"ports": ' + Token.asString(cluster.allPorts) + '}')`).
+func Source_Data(objectKey *string, data *string, markersConfig *SourceDataOptions) ISource {
 	_init_.Initialize()
 
 	if err := validateSource_DataParameters(objectKey, data, markersConfig); err != nil {
@@ -146,9 +165,22 @@ func Source_Data(objectKey *string, data *string, markersConfig *MarkersConfig) 
 
 // Deploys an object with the specified JSON object into the bucket.
 //
-// The
-// object can include deploy-time values (such as `snsTopic.topicArn`) that
-// will get resolved only during deployment.
+// The content can include deploy-time values (such as `snsTopic.topicArn`)
+// that will get resolved only during deployment.
+//
+// Quoting of deploy-time values will be done according to the ostensible
+// type of the Token used to represent the deploy-time value.
+//
+// - String tokens will be quoted into the JSON string skeleton, and
+//   deploy-time values will be encoded and substituted without their
+//   surrounding quotes. Will substitute correctly to working JSON if the
+//   deploy-time value is a string.
+// - Number and list tokens will be encoded and substituted without quotes. Will
+//   substitute correctly to working JSON if the deploy-time value is a
+//   number, boolean or list or map.
+//
+// Note that due to CloudFormation behavior, scalars inside lists and maps
+// will always be converted to strings.
 func Source_JsonData(objectKey *string, obj interface{}, jsonProcessingOptions *JsonProcessingOptions) ISource {
 	_init_.Initialize()
 
@@ -171,6 +203,18 @@ func Source_JsonData(objectKey *string, obj interface{}, jsonProcessingOptions *
 //
 // The object can include deploy-time values (such as `snsTopic.topicArn`) that
 // will get resolved only during deployment.
+//
+// Quoting of deploy-time values will be done according to the ostensible
+// type of the Token used to represent the deploy-time value.
+//
+// - String tokens will be unquoted if they are simple strings (basically, identifiers), and quoted
+//   if they start to look complex.
+// - Number and list tokens will be encoded and substituted without quotes. Will
+//   substitute correctly to working JSON if the deploy-time value is a
+//   number, boolean or list or map.
+//
+// Note that due to CloudFormation behavior, scalars inside lists and maps
+// will always be converted to strings.
 func Source_YamlData(objectKey *string, obj interface{}) ISource {
 	_init_.Initialize()
 

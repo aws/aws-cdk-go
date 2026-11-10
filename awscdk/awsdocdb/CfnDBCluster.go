@@ -89,6 +89,7 @@ type CfnDBCluster interface {
 	//
 	// For example: `sample-cluster.cluster-ro-cozrlsfrcjoc.us-east-1.docdb.amazonaws.com` .
 	AttrReadEndpoint() *string
+	AttrServerlessV2PlatformVersion() *string
 	// A list of Amazon EC2 Availability Zones that instances in the cluster can be created in.
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
@@ -450,6 +451,16 @@ func (j *jsiiProxy_CfnDBCluster) AttrReadEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrReadEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDBCluster) AttrServerlessV2PlatformVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrServerlessV2PlatformVersion",
 		&returns,
 	)
 	return returns

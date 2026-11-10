@@ -85,6 +85,7 @@ import (
 //   				Mode: jsii.String("mode"),
 //   			},
 //   			DeletionProtectionEnabled: jsii.Boolean(false),
+//   			DisassociationProtectionEnabled: jsii.Boolean(false),
 //   			GlobalSecondaryIndexes: []interface{}{
 //   				&ReplicaGlobalSecondaryIndexSpecificationProperty{
 //   					IndexName: jsii.String("indexName"),
@@ -281,6 +282,7 @@ import (
 //   		StreamViewType: jsii.String("streamViewType"),
 //   	},
 //   	TableName: jsii.String("tableName"),
+//   	TableType: jsii.String("tableType"),
 //   	TimeToLiveSpecification: &TimeToLiveSpecificationProperty{
 //   		Enabled: jsii.Boolean(false),
 //
@@ -430,6 +432,8 @@ type CfnGlobalTable interface {
 	// A name for the global table.
 	TableName() *string
 	SetTableName(val *string)
+	TableType() *string
+	SetTableType(val *string)
 	// Specifies the time to live (TTL) settings for the table.
 	TimeToLiveSpecification() interface{}
 	SetTimeToLiveSpecification(val interface{})
@@ -907,6 +911,16 @@ func (j *jsiiProxy_CfnGlobalTable) TableName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalTable) TableType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tableType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalTable) TimeToLiveSpecification() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1145,6 +1159,14 @@ func (j *jsiiProxy_CfnGlobalTable)SetTableName(val *string) {
 	_jsii_.Set(
 		j,
 		"tableName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalTable)SetTableType(val *string) {
+	_jsii_.Set(
+		j,
+		"tableType",
 		val,
 	)
 }

@@ -17,12 +17,15 @@ package awsec2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-authorizationpolicy.html
 //
 type CfnClientVpnEndpoint_AuthorizationPolicyProperty struct {
+	// The Cedar policy document.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-authorizationpolicy.html#cfn-ec2-clientvpnendpoint-authorizationpolicy-policydocument
 	//
 	PolicyDocument *string `field:"required" json:"policyDocument" yaml:"policyDocument"`
+	// A brief description of the authorization policy.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-authorizationpolicy.html#cfn-ec2-clientvpnendpoint-authorizationpolicy-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Whether the authorization policy runs in shadow (observe-only) mode.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-authorizationpolicy.html#cfn-ec2-clientvpnendpoint-authorizationpolicy-shadowmode
 	//
 	ShadowMode *string `field:"optional" json:"shadowMode" yaml:"shadowMode"`

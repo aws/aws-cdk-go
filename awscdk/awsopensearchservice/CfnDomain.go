@@ -21,6 +21,9 @@ import (
 //   var accessPolicies interface{}
 //
 //   cfnDomain := awscdk.Aws_opensearchservice.NewCfnDomain(this, jsii.String("MyCfnDomain"), &CfnDomainProps{
+//   	AcceptedWarnings: []*string{
+//   		jsii.String("acceptedWarnings"),
+//   	},
 //   	AccessPolicies: accessPolicies,
 //   	AdvancedOptions: map[string]*string{
 //   		"advancedOptionsKey": jsii.String("advancedOptions"),
@@ -129,6 +132,7 @@ import (
 //   	},
 //   	EncryptionAtRestOptions: &EncryptionAtRestOptionsProperty{
 //   		Enabled: jsii.Boolean(false),
+//   		EncryptionMode: jsii.String("encryptionMode"),
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
 //   	EngineMode: jsii.String("engineMode"),
@@ -193,6 +197,9 @@ type CfnDomain interface {
 	awscdk.IInspectable
 	interfacesawsopensearchservice.IDomainRef
 	awscdk.ITaggable
+	// Warning codes to accept for this domain configuration update.
+	AcceptedWarnings() *[]*string
+	SetAcceptedWarnings(val *[]*string)
 	// An AWS Identity and Access Management ( IAM ) policy document that specifies who can access the OpenSearch Service domain and their permissions.
 	AccessPolicies() interface{}
 	SetAccessPolicies(val interface{})
@@ -515,6 +522,16 @@ type jsiiProxy_CfnDomain struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawsopensearchserviceIDomainRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnDomain) AcceptedWarnings() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"acceptedWarnings",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDomain) AccessPolicies() interface{} {
@@ -1114,6 +1131,14 @@ func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, 
 		"aws-cdk-lib.aws_opensearchservice.CfnDomain",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDomain)SetAcceptedWarnings(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"acceptedWarnings",
+		val,
 	)
 }
 

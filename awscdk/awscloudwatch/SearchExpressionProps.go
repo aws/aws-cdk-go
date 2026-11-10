@@ -7,10 +7,10 @@ import (
 // Properties for a SearchExpression.
 //
 // Example:
-//   cpuUtilization := cloudwatch.NewSearchExpression(&SearchExpressionProps{
-//   	Expression: jsii.String("SEARCH('{AWS/EC2,InstanceId} MetricName=\"CPUUtilization\"', 'Average', 900)"),
+//   searchExpression := cloudwatch.NewSearchExpression(&SearchExpressionProps{
+//   	Expression: jsii.String("SEARCH('{AWS/EC2,InstanceId} CPUUtilization', 'Average', 300)"),
 //   	Label: jsii.String("EC2 CPU Utilization"),
-//   	Color: jsii.String("#ff7f0e"),
+//   	Period: awscdk.Duration_Minutes(jsii.Number(5)),
 //   })
 //
 type SearchExpressionProps struct {
@@ -59,6 +59,13 @@ type SearchExpressionProps struct {
 	// Default: - Deployment region.
 	//
 	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
+	// Whether the time series produced by this search expression should be visible in dashboard graphs.
+	//
+	// Setting this to false keeps the time series on the widget without rendering
+	// them, so they can still be toggled on in the CloudWatch console.
+	// Default: true.
+	//
+	Visible *bool `field:"optional" json:"visible" yaml:"visible"`
 	// The search expression defining the metrics to be retrieved.
 	//
 	// A search expression cannot be used within an Alarm.

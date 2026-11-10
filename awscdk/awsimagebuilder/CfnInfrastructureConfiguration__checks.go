@@ -292,6 +292,30 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetNameParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetParentInstanceParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnInfrastructureConfiguration_ParentInstanceProperty:
+		val := val.(*CfnInfrastructureConfiguration_ParentInstanceProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnInfrastructureConfiguration_ParentInstanceProperty:
+		val_ := val.(CfnInfrastructureConfiguration_ParentInstanceProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnInfrastructureConfiguration_ParentInstanceProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetPlacementParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:
@@ -327,6 +351,23 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetResourceTagsParame
 	default:
 		if !_jsii_.IsAnonymousProxy(val) {
 			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *map[string]*string; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnInfrastructureConfiguration) validateSetTerminateInstanceOnCompletionParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
 		}
 	}
 

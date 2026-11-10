@@ -5,6 +5,7 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__interfacesawsbcmpricingcalculatorIBillScenarioRef = interfacesawsbcmpricingcalculator.IBillScenarioRef
+type Type__interfacesawsbcmpricingcalculatorIBillEstimateRef = interfacesawsbcmpricingcalculator.IBillEstimateRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsbcmpricingcalculatorIBillScenarioRef = interfacesawsbcmpricingcalculator.IBillScenarioRef
 type Type__interfacesawsbcmpricingcalculatorIWorkloadEstimateRef = interfacesawsbcmpricingcalculator.IWorkloadEstimateRef

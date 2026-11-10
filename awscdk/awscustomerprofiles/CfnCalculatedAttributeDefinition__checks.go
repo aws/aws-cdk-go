@@ -286,6 +286,30 @@ func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetDomainNameParame
 	return nil
 }
 
+func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetFilterParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCalculatedAttributeDefinition_FilterProperty:
+		val := val.(*CfnCalculatedAttributeDefinition_FilterProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCalculatedAttributeDefinition_FilterProperty:
+		val_ := val.(CfnCalculatedAttributeDefinition_FilterProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCalculatedAttributeDefinition_FilterProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCalculatedAttributeDefinition) validateSetStatisticParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

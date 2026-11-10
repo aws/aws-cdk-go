@@ -13,6 +13,7 @@ package awscleanrooms
 //
 //   	// the properties below are optional
 //   	KeyPrefix: jsii.String("keyPrefix"),
+//   	ResultFormat: jsii.String("resultFormat"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedjobs3outputconfigurationinput.html
@@ -26,5 +27,8 @@ type CfnMembership_ProtectedJobS3OutputConfigurationInputProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedjobs3outputconfigurationinput.html#cfn-cleanrooms-membership-protectedjobs3outputconfigurationinput-keyprefix
 	//
 	KeyPrefix *string `field:"optional" json:"keyPrefix" yaml:"keyPrefix"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedjobs3outputconfigurationinput.html#cfn-cleanrooms-membership-protectedjobs3outputconfigurationinput-resultformat
+	//
+	ResultFormat *string `field:"optional" json:"resultFormat" yaml:"resultFormat"`
 }
 

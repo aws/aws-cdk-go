@@ -42,7 +42,7 @@ type CfnSlackChannelConfigurationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
 	//
 	ConfigurationName *string `field:"optional" json:"configurationName" yaml:"configurationName"`
-	// Links a list of resource ARNs (for example, custom action ARNs) to a Slack channel configuration for  .
+	// Links a list of resource ARNs (for example, custom action ARNs) to a Slack channel configuration for Amazon Q Developer .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-customizationresourcearns
 	//
 	CustomizationResourceArns *[]*string `field:"optional" json:"customizationResourceArns" yaml:"customizationResourceArns"`
@@ -52,9 +52,9 @@ type CfnSlackChannelConfigurationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-guardrailpolicies
 	//
 	GuardrailPolicies *[]*string `field:"optional" json:"guardrailPolicies" yaml:"guardrailPolicies"`
-	// The ARN of the IAM role that defines the permissions for  .
+	// The ARN of the IAM role that defines the permissions for Amazon Q Developer .
 	//
-	// This is a user-defined role that  will assume. This is not the service-linked role. For more information, see [IAM Policies for  in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
+	// This is a user-defined role that Amazon Q Developer will assume. This is not the service-linked role. For more information, see [IAM Policies for Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
 	//
 	IamRoleArn interface{} `field:"optional" json:"iamRoleArn" yaml:"iamRoleArn"`
@@ -72,13 +72,13 @@ type CfnSlackChannelConfigurationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
 	//
 	SlackChannelId *string `field:"optional" json:"slackChannelId" yaml:"slackChannelId"`
-	// The ID of the Slack workspace authorized with  .
+	// The ID of the Slack workspace authorized with Amazon Q Developer .
 	//
-	// To get the workspace ID, you must perform the initial authorization flow with Slack in the  in chat applications console. Then you can copy and paste the workspace ID from the console. For more details, see steps 1-3 in [Tutorial: Get started with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/slack-setup.html#slack-client-setup) in the *in chat applications User Guide* .
+	// To get the workspace ID, you must perform the initial authorization flow with Slack in the Amazon Q Developer in chat applications console. Then you can copy and paste the workspace ID from the console. For more details, see steps 1-3 in [Tutorial: Get started with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/slack-setup.html#slack-client-setup) in the *Amazon Q Developer in chat applications User Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
 	//
 	SlackWorkspaceId *string `field:"optional" json:"slackWorkspaceId" yaml:"slackWorkspaceId"`
-	// The ARNs of the SNS topics that deliver notifications to  .
+	// The ARNs of the SNS topics that deliver notifications to Amazon Q Developer .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
 	//
 	SnsTopicArns *[]interface{} `field:"optional" json:"snsTopicArns" yaml:"snsTopicArns"`

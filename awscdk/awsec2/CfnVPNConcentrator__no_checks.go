@@ -112,10 +112,6 @@ func (j *jsiiProxy_CfnVPNConcentrator) validateSetTagsParameters(val *[]*awscdk.
 	return nil
 }
 
-func (j *jsiiProxy_CfnVPNConcentrator) validateSetTransitGatewayIdParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnVPNConcentrator) validateSetTypeParameters(val *string) error {
 	return nil
 }

@@ -12,6 +12,11 @@ package awsmediatailor
 //
 //   awsServiceRequestConfigurationProperty := &AwsServiceRequestConfigurationProperty{
 //   	Body: jsii.String("body"),
+//   	Cache: &HttpRequestCacheConfigurationProperty{
+//   		Key: jsii.String("key"),
+//   		TtlMaximumSeconds: jsii.Number(123),
+//   		TtlMinimumSeconds: jsii.Number(123),
+//   	},
 //   	Headers: map[string]*string{
 //   		"headersKey": jsii.String("headers"),
 //   	},
@@ -35,6 +40,12 @@ type CfnFunctionPropsMixin_AwsServiceRequestConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-awsservicerequestconfiguration.html#cfn-mediatailor-function-awsservicerequestconfiguration-body
 	//
 	Body *string `field:"optional" json:"body" yaml:"body"`
+	// The optional response-caching configuration shared by the HTTP-based function types (HTTP_REQUEST, AWS_SERVICE_REQUEST, and VAST_REQUEST).
+	//
+	// When you provide this configuration, MediaTailor caches function responses with HTTP status codes 200, 203, 204, 404, 405, 410, 414, or 501. For a cacheable response, MediaTailor uses the Cache-Control max-age directive limited to the range between TtlMinimumSeconds and TtlMaximumSeconds. If no max-age directive is present, MediaTailor uses TtlMinimumSeconds. Cached HTTP responses are scoped per playback configuration, not per function.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-function-awsservicerequestconfiguration.html#cfn-mediatailor-function-awsservicerequestconfiguration-cache
+	//
+	Cache interface{} `field:"optional" json:"cache" yaml:"cache"`
 	// A map of HTTP header names to expression values.
 	//
 	// MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.

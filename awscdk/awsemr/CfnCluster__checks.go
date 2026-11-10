@@ -539,6 +539,30 @@ func (j *jsiiProxy_CfnCluster) validateSetManagedScalingPolicyParameters(val int
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetMonitoringConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnCluster_MonitoringConfigurationProperty:
+		val := val.(*CfnCluster_MonitoringConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnCluster_MonitoringConfigurationProperty:
+		val_ := val.(CfnCluster_MonitoringConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnCluster_MonitoringConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetNameParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
@@ -610,6 +634,23 @@ func (j *jsiiProxy_CfnCluster) validateSetPlacementGroupConfigsParameters(val in
 func (j *jsiiProxy_CfnCluster) validateSetServiceRoleParameters(val *string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func (j *jsiiProxy_CfnCluster) validateSetSessionEnabledParameters(val interface{}) error {
+	switch val.(type) {
+	case *bool:
+		// ok
+	case bool:
+		// ok
+	case awscdk.IResolvable:
+		// ok
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: *bool, awscdk.IResolvable; received %#v (a %T)", val, val)
+		}
 	}
 
 	return nil

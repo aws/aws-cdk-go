@@ -11,11 +11,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// > AWS Chatbot is now  . [Learn more](https://docs.aws.amazon.com//chatbot/latest/adminguide/service-rename.html) >  > `Type` attribute values remain unchanged.
+// > AWS Chatbot is now Amazon Q Developer . [Learn more](https://docs.aws.amazon.com//chatbot/latest/adminguide/service-rename.html) >  > `Type` attribute values remain unchanged.
 //
-// The `AWS::Chatbot::SlackChannelConfiguration` resource configures a Slack channel to allow users to use  with CloudFormation templates.
+// The `AWS::Chatbot::SlackChannelConfiguration` resource configures a Slack channel to allow users to use Amazon Q Developer with CloudFormation templates.
 //
-// This resource requires some setup to be done in the  in chat applications console. To provide the required Slack workspace ID, you must perform the initial authorization flow with Slack in the  in chat applications console, then copy and paste the workspace ID from the console. For more details, see steps 1-3 in [Tutorial: Get started with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/slack-setup.html#slack-client-setup) in the *in chat applications User Guide* .
+// This resource requires some setup to be done in the Amazon Q Developer in chat applications console. To provide the required Slack workspace ID, you must perform the initial authorization flow with Slack in the Amazon Q Developer in chat applications console, then copy and paste the workspace ID from the console. For more details, see steps 1-3 in [Tutorial: Get started with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/slack-setup.html#slack-client-setup) in the *Amazon Q Developer in chat applications User Guide* .
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -72,14 +72,14 @@ type CfnSlackChannelConfiguration interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// Links a list of resource ARNs (for example, custom action ARNs) to a Slack channel configuration for  .
+	// Links a list of resource ARNs (for example, custom action ARNs) to a Slack channel configuration for Amazon Q Developer .
 	CustomizationResourceArns() *[]*string
 	SetCustomizationResourceArns(val *[]*string)
 	Env() *interfaces.ResourceEnvironment
 	// The list of IAM policy ARNs that are applied as channel guardrails.
 	GuardrailPolicies() *[]*string
 	SetGuardrailPolicies(val *[]*string)
-	// The ARN of the IAM role that defines the permissions for  .
+	// The ARN of the IAM role that defines the permissions for Amazon Q Developer .
 	IamRoleArn() *string
 	SetIamRoleArn(val *string)
 	// Specifies the logging level for this configuration.
@@ -109,10 +109,10 @@ type CfnSlackChannelConfiguration interface {
 	// The ID of the Slack channel.
 	SlackChannelId() *string
 	SetSlackChannelId(val *string)
-	// The ID of the Slack workspace authorized with  .
+	// The ID of the Slack workspace authorized with Amazon Q Developer .
 	SlackWorkspaceId() *string
 	SetSlackWorkspaceId(val *string)
-	// The ARNs of the SNS topics that deliver notifications to  .
+	// The ARNs of the SNS topics that deliver notifications to Amazon Q Developer .
 	SnsTopicArns() *[]*string
 	SetSnsTopicArns(val *[]*string)
 	// The stack in which this element is defined.

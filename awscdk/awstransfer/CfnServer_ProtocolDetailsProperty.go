@@ -24,6 +24,14 @@ package awstransfer
 //   		SftpMode: jsii.String("sftpMode"),
 //   	},
 //   	SetStatOption: jsii.String("setStatOption"),
+//   	SftpPorts: []interface{}{
+//   		&SftpPortWithOptionsProperty{
+//   			SftpPort: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			CommunicationMode: jsii.String("communicationMode"),
+//   		},
+//   	},
 //   	TlsSessionResumptionMode: jsii.String("tlsSessionResumptionMode"),
 //   }
 //
@@ -65,6 +73,9 @@ type CfnServer_ProtocolDetailsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html#cfn-transfer-server-protocoldetails-setstatoption
 	//
 	SetStatOption *string `field:"optional" json:"setStatOption" yaml:"setStatOption"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocoldetails.html#cfn-transfer-server-protocoldetails-sftpports
+	//
+	SftpPorts interface{} `field:"optional" json:"sftpPorts" yaml:"sftpPorts"`
 	// A property used with Transfer Family servers that use the FTPS protocol.
 	//
 	// TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.

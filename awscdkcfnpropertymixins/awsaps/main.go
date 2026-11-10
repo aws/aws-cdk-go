@@ -132,6 +132,14 @@ func init() {
 		reflect.TypeOf((*CfnScraperPropsMixin_EksConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_aps.CfnScraperPropsMixin.ExporterConfigurationProperty",
+		reflect.TypeOf((*CfnScraperPropsMixin_ExporterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_aps.CfnScraperPropsMixin.OpenSearchConfigurationProperty",
+		reflect.TypeOf((*CfnScraperPropsMixin_OpenSearchConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_aps.CfnScraperPropsMixin.RoleConfigurationProperty",
 		reflect.TypeOf((*CfnScraperPropsMixin_RoleConfigurationProperty)(nil)).Elem(),
 	)

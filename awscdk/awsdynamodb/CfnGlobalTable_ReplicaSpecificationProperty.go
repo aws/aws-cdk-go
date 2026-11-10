@@ -24,6 +24,7 @@ import (
 //   		Mode: jsii.String("mode"),
 //   	},
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
+//   	DisassociationProtectionEnabled: jsii.Boolean(false),
 //   	GlobalSecondaryIndexes: []interface{}{
 //   		&ReplicaGlobalSecondaryIndexSpecificationProperty{
 //   			IndexName: jsii.String("indexName"),
@@ -135,6 +136,9 @@ type CfnGlobalTable_ReplicaSpecificationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-deletionprotectionenabled
 	//
 	DeletionProtectionEnabled interface{} `field:"optional" json:"deletionProtectionEnabled" yaml:"deletionProtectionEnabled"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-disassociationprotectionenabled
+	//
+	DisassociationProtectionEnabled interface{} `field:"optional" json:"disassociationProtectionEnabled" yaml:"disassociationProtectionEnabled"`
 	// Defines additional settings for the global secondary indexes of this replica.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
 	//

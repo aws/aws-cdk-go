@@ -40,6 +40,12 @@ import (
 //   		},
 //   	},
 //   	Name: jsii.String("name"),
+//   	ParentInstance: &ParentInstanceProperty{
+//   		AutoScalingGroup: &AutoScalingGroupProperty{
+//   			CapacityWaitTimeoutSeconds: jsii.Number(123),
+//   			Name: jsii.String("name"),
+//   		},
+//   	},
 //   	Placement: &PlacementProperty{
 //   		AvailabilityZone: jsii.String("availabilityZone"),
 //   		HostId: jsii.String("hostId"),
@@ -57,6 +63,7 @@ import (
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
+//   	TerminateInstanceOnCompletion: jsii.Boolean(false),
 //   	TerminateInstanceOnFailure: jsii.Boolean(false),
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,

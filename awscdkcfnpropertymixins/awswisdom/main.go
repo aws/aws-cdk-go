@@ -32,6 +32,10 @@ func init() {
 		reflect.TypeOf((*CfnAIAgentPropsMixin_AIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.AgentTargetProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_AgentTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.AnswerRecommendationAIAgentConfigurationProperty",
 		reflect.TypeOf((*CfnAIAgentPropsMixin_AnswerRecommendationAIAgentConfigurationProperty)(nil)).Elem(),
 	)
@@ -48,6 +52,10 @@ func init() {
 		reflect.TypeOf((*CfnAIAgentPropsMixin_CaseSummarizationAIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.DelegateAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_DelegateAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.EmailGenerativeAnswerAIAgentConfigurationProperty",
 		reflect.TypeOf((*CfnAIAgentPropsMixin_EmailGenerativeAnswerAIAgentConfigurationProperty)(nil)).Elem(),
 	)
@@ -60,12 +68,24 @@ func init() {
 		reflect.TypeOf((*CfnAIAgentPropsMixin_EmailResponseAIAgentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.HandoffAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_HandoffAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.KnowledgeBaseAssociationConfigurationDataProperty",
 		reflect.TypeOf((*CfnAIAgentPropsMixin_KnowledgeBaseAssociationConfigurationDataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.ManualSearchAIAgentConfigurationProperty",
 		reflect.TypeOf((*CfnAIAgentPropsMixin_ManualSearchAIAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.MultiAgentConfigurationProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_MultiAgentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.MultiAgentInstructionProperty",
+		reflect.TypeOf((*CfnAIAgentPropsMixin_MultiAgentInstructionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIAgentPropsMixin.NoteTakingAIAgentConfigurationProperty",

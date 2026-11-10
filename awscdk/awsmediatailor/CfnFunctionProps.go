@@ -26,6 +26,13 @@ import (
 //
 //   		// the properties below are optional
 //   		Body: jsii.String("body"),
+//   		Cache: &HttpRequestCacheConfigurationProperty{
+//   			TtlMaximumSeconds: jsii.Number(123),
+//   			TtlMinimumSeconds: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			Key: jsii.String("key"),
+//   		},
 //   		Headers: map[string]*string{
 //   			"headersKey": jsii.String("headers"),
 //   		},
@@ -65,6 +72,13 @@ import (
 //
 //   		// the properties below are optional
 //   		Body: jsii.String("body"),
+//   		Cache: &HttpRequestCacheConfigurationProperty{
+//   			TtlMaximumSeconds: jsii.Number(123),
+//   			TtlMinimumSeconds: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			Key: jsii.String("key"),
+//   		},
 //   		Headers: map[string]*string{
 //   			"headersKey": jsii.String("headers"),
 //   		},
@@ -102,6 +116,13 @@ import (
 //
 //   		// the properties below are optional
 //   		Body: jsii.String("body"),
+//   		Cache: &HttpRequestCacheConfigurationProperty{
+//   			TtlMaximumSeconds: jsii.Number(123),
+//   			TtlMinimumSeconds: jsii.Number(123),
+//
+//   			// the properties below are optional
+//   			Key: jsii.String("key"),
+//   		},
 //   		Headers: map[string]*string{
 //   			"headersKey": jsii.String("headers"),
 //   		},

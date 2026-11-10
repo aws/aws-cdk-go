@@ -347,6 +347,30 @@ func (j *jsiiProxy_CfnDeploymentGroup) validateSetDeploymentStyleParameters(val 
 	return nil
 }
 
+func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2DeploymentOptionsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnDeploymentGroup_Ec2DeploymentOptionsProperty:
+		val := val.(*CfnDeploymentGroup_Ec2DeploymentOptionsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnDeploymentGroup_Ec2DeploymentOptionsProperty:
+		val_ := val.(CfnDeploymentGroup_Ec2DeploymentOptionsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnDeploymentGroup_Ec2DeploymentOptionsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnDeploymentGroup) validateSetEc2TagFiltersParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

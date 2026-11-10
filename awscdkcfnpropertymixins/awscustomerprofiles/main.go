@@ -40,6 +40,22 @@ func init() {
 		reflect.TypeOf((*CfnCalculatedAttributeDefinitionPropsMixin_ConditionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnCalculatedAttributeDefinitionPropsMixin.FilterAttributeDimensionProperty",
+		reflect.TypeOf((*CfnCalculatedAttributeDefinitionPropsMixin_FilterAttributeDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnCalculatedAttributeDefinitionPropsMixin.FilterDimensionProperty",
+		reflect.TypeOf((*CfnCalculatedAttributeDefinitionPropsMixin_FilterDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnCalculatedAttributeDefinitionPropsMixin.FilterGroupProperty",
+		reflect.TypeOf((*CfnCalculatedAttributeDefinitionPropsMixin_FilterGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnCalculatedAttributeDefinitionPropsMixin.FilterProperty",
+		reflect.TypeOf((*CfnCalculatedAttributeDefinitionPropsMixin_FilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnCalculatedAttributeDefinitionPropsMixin.RangeProperty",
 		reflect.TypeOf((*CfnCalculatedAttributeDefinitionPropsMixin_RangeProperty)(nil)).Elem(),
 	)
@@ -206,6 +222,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnEventTriggerPropsMixin.EventTriggerLimitsProperty",
 		reflect.TypeOf((*CfnEventTriggerPropsMixin_EventTriggerLimitsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnEventTriggerPropsMixin.IntentFilterConditionProperty",
+		reflect.TypeOf((*CfnEventTriggerPropsMixin_IntentFilterConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnEventTriggerPropsMixin.IntentFilterDefinitionProperty",
+		reflect.TypeOf((*CfnEventTriggerPropsMixin_IntentFilterDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnEventTriggerPropsMixin.IntentFilterGroupProperty",
+		reflect.TypeOf((*CfnEventTriggerPropsMixin_IntentFilterGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnEventTriggerPropsMixin.IntentProperty",
+		reflect.TypeOf((*CfnEventTriggerPropsMixin_IntentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_customerprofiles.CfnEventTriggerPropsMixin.ObjectAttributeProperty",

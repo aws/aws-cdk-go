@@ -179,69 +179,6 @@ package awslex
 //   						// the properties below are optional
 //   						"allowInterrupt": jsii.Boolean(false),
 //   					},
-//   					"waitingResponse": &ResponseSpecificationProperty{
-//   						"messageGroupsList": []interface{}{
-//   							&MessageGroupProperty{
-//   								"message": &MessageProperty{
-//   									"customPayload": &CustomPayloadProperty{
-//   										"value": jsii.String("value"),
-//   									},
-//   									"imageResponseCard": &ImageResponseCardProperty{
-//   										"title": jsii.String("title"),
-//
-//   										// the properties below are optional
-//   										"buttons": []interface{}{
-//   											&ButtonProperty{
-//   												"text": jsii.String("text"),
-//   												"value": jsii.String("value"),
-//   											},
-//   										},
-//   										"imageUrl": jsii.String("imageUrl"),
-//   										"subtitle": jsii.String("subtitle"),
-//   									},
-//   									"plainTextMessage": &PlainTextMessageProperty{
-//   										"value": jsii.String("value"),
-//   									},
-//   									"ssmlMessage": &SSMLMessageProperty{
-//   										"value": jsii.String("value"),
-//   									},
-//   								},
-//
-//   								// the properties below are optional
-//   								"variations": []interface{}{
-//   									&MessageProperty{
-//   										"customPayload": &CustomPayloadProperty{
-//   											"value": jsii.String("value"),
-//   										},
-//   										"imageResponseCard": &ImageResponseCardProperty{
-//   											"title": jsii.String("title"),
-//
-//   											// the properties below are optional
-//   											"buttons": []interface{}{
-//   												&ButtonProperty{
-//   													"text": jsii.String("text"),
-//   													"value": jsii.String("value"),
-//   												},
-//   											},
-//   											"imageUrl": jsii.String("imageUrl"),
-//   											"subtitle": jsii.String("subtitle"),
-//   										},
-//   										"plainTextMessage": &PlainTextMessageProperty{
-//   											"value": jsii.String("value"),
-//   										},
-//   										"ssmlMessage": &SSMLMessageProperty{
-//   											"value": jsii.String("value"),
-//   										},
-//   									},
-//   								},
-//   							},
-//   						},
-//
-//   						// the properties below are optional
-//   						"allowInterrupt": jsii.Boolean(false),
-//   					},
-//
-//   					// the properties below are optional
 //   					"isActive": jsii.Boolean(false),
 //   					"stillWaitingResponse": &StillWaitingResponseSpecificationProperty{
 //   						"frequencyInSeconds": jsii.Number(123),
@@ -302,6 +239,67 @@ package awslex
 //   							},
 //   						},
 //   						"timeoutInSeconds": jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						"allowInterrupt": jsii.Boolean(false),
+//   					},
+//   					"waitingResponse": &ResponseSpecificationProperty{
+//   						"messageGroupsList": []interface{}{
+//   							&MessageGroupProperty{
+//   								"message": &MessageProperty{
+//   									"customPayload": &CustomPayloadProperty{
+//   										"value": jsii.String("value"),
+//   									},
+//   									"imageResponseCard": &ImageResponseCardProperty{
+//   										"title": jsii.String("title"),
+//
+//   										// the properties below are optional
+//   										"buttons": []interface{}{
+//   											&ButtonProperty{
+//   												"text": jsii.String("text"),
+//   												"value": jsii.String("value"),
+//   											},
+//   										},
+//   										"imageUrl": jsii.String("imageUrl"),
+//   										"subtitle": jsii.String("subtitle"),
+//   									},
+//   									"plainTextMessage": &PlainTextMessageProperty{
+//   										"value": jsii.String("value"),
+//   									},
+//   									"ssmlMessage": &SSMLMessageProperty{
+//   										"value": jsii.String("value"),
+//   									},
+//   								},
+//
+//   								// the properties below are optional
+//   								"variations": []interface{}{
+//   									&MessageProperty{
+//   										"customPayload": &CustomPayloadProperty{
+//   											"value": jsii.String("value"),
+//   										},
+//   										"imageResponseCard": &ImageResponseCardProperty{
+//   											"title": jsii.String("title"),
+//
+//   											// the properties below are optional
+//   											"buttons": []interface{}{
+//   												&ButtonProperty{
+//   													"text": jsii.String("text"),
+//   													"value": jsii.String("value"),
+//   												},
+//   											},
+//   											"imageUrl": jsii.String("imageUrl"),
+//   											"subtitle": jsii.String("subtitle"),
+//   										},
+//   										"plainTextMessage": &PlainTextMessageProperty{
+//   											"value": jsii.String("value"),
+//   										},
+//   										"ssmlMessage": &SSMLMessageProperty{
+//   											"value": jsii.String("value"),
+//   										},
+//   									},
+//   								},
+//   							},
+//   						},
 //
 //   						// the properties below are optional
 //   						"allowInterrupt": jsii.Boolean(false),

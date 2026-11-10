@@ -18,6 +18,7 @@ import (
 //   	Period: cdk.Duration_Minutes(jsii.Number(30)),
 //   	SearchAccount: jsii.String("searchAccount"),
 //   	SearchRegion: jsii.String("searchRegion"),
+//   	Visible: jsii.Boolean(false),
 //   }
 //
 type MathExpressionOptions struct {
@@ -71,5 +72,12 @@ type MathExpressionOptions struct {
 	// Default: - Deployment region.
 	//
 	SearchRegion *string `field:"optional" json:"searchRegion" yaml:"searchRegion"`
+	// Whether this metric should be visible in dashboard graphs.
+	//
+	// Setting this to false is useful when you want to hide raw metrics
+	// that are used in math expressions, and show only the expression results.
+	// Default: true.
+	//
+	Visible *bool `field:"optional" json:"visible" yaml:"visible"`
 }
 

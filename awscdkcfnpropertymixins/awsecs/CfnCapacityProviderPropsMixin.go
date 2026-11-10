@@ -134,6 +134,7 @@ import (
 //   					jsii.String("subnets"),
 //   				},
 //   			},
+//   			NitroEnclavesEnabled: jsii.Boolean(false),
 //   			StorageConfiguration: &ManagedInstancesStorageConfigurationProperty{
 //   				StorageSizeGiB: jsii.Number(123),
 //   			},

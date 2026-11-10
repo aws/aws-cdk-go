@@ -139,6 +139,7 @@ import (
 //   	VpcSecurityGroupIds: []interface{}{
 //   		jsii.String("vpcSecurityGroupIds"),
 //   	},
+//   	WithExpressConfiguration: jsii.Boolean(false),
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
@@ -425,6 +426,8 @@ type CfnDBCluster interface {
 	// A list of EC2 VPC security groups to associate with this DB cluster.
 	VpcSecurityGroupIds() *[]*string
 	SetVpcSecurityGroupIds(val *[]*string)
+	WithExpressConfiguration() interface{}
+	SetWithExpressConfiguration(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -1446,6 +1449,16 @@ func (j *jsiiProxy_CfnDBCluster) VpcSecurityGroupIds() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDBCluster) WithExpressConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"withExpressConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::RDS::DBCluster`.
 func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
@@ -2014,6 +2027,17 @@ func (j *jsiiProxy_CfnDBCluster)SetVpcSecurityGroupIds(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"vpcSecurityGroupIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDBCluster)SetWithExpressConfiguration(val interface{}) {
+	if err := j.validateSetWithExpressConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"withExpressConfiguration",
 		val,
 	)
 }

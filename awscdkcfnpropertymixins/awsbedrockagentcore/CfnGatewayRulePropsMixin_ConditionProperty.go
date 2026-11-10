@@ -7,6 +7,14 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   conditionProperty := &ConditionProperty{
+//   	MatchModels: &MatchModelsProperty{
+//   		AnyOf: []interface{}{
+//   			&MatchModelEntryProperty{
+//   				Operator: jsii.String("operator"),
+//   				Value: jsii.String("value"),
+//   			},
+//   		},
+//   	},
 //   	MatchPaths: &MatchPathsProperty{
 //   		AnyOf: []*string{
 //   			jsii.String("anyOf"),
@@ -27,6 +35,9 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewayrule-condition.html
 //
 type CfnGatewayRulePropsMixin_ConditionProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewayrule-condition.html#cfn-bedrockagentcore-gatewayrule-condition-matchmodels
+	//
+	MatchModels interface{} `field:"optional" json:"matchModels" yaml:"matchModels"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewayrule-condition.html#cfn-bedrockagentcore-gatewayrule-condition-matchpaths
 	//
 	MatchPaths interface{} `field:"optional" json:"matchPaths" yaml:"matchPaths"`

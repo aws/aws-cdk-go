@@ -13,7 +13,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewCluster(this, jsii.String("HighPerformanceCluster"), &ClusterProps{
-//   	Version: eks.KubernetesVersion_V1_36(),
+//   	Version: eks.KubernetesVersion_V1_37(),
 //   	ControlPlaneScalingTier: eks.ControlPlaneScalingTier_TIER_XL(),
 //   })
 //

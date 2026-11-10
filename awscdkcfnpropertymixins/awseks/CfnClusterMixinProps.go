@@ -65,6 +65,11 @@ import (
 //   	KubernetesNetworkConfig: &KubernetesNetworkConfigProperty{
 //   		ElasticLoadBalancing: &ElasticLoadBalancingProperty{
 //   			Enabled: jsii.Boolean(false),
+//   			GatewayApi: &GatewayApiProperty{
+//   				Crds: &GatewayApiCrdsProperty{
+//   					Managed: jsii.Boolean(false),
+//   				},
+//   			},
 //   		},
 //   		IpFamily: jsii.String("ipFamily"),
 //   		ServiceIpv4Cidr: jsii.String("serviceIpv4Cidr"),

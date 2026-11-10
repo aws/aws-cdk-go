@@ -18,6 +18,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var elasticIpConfiguration interface{}
+//
 //   cfnNetworkConnector := awscdk.Aws_lambda.NewCfnNetworkConnector(this, jsii.String("MyCfnNetworkConnector"), &CfnNetworkConnectorProps{
 //   	Configuration: &ConfigProperty{
 //   		VpcEgressConfiguration: &VpcEgressConfigurationProperty{
@@ -31,6 +33,9 @@ import (
 //   			SubnetIds: []*string{
 //   				jsii.String("subnetIds"),
 //   			},
+//
+//   			// the properties below are optional
+//   			ElasticIpConfiguration: elasticIpConfiguration,
 //   		},
 //   	},
 //

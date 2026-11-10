@@ -97,6 +97,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "priority", GoGetter: "Priority"},
 			_jsii_.MemberProperty{JsiiProperty: "profileAssociationRef", GoGetter: "ProfileAssociationRef"},
 			_jsii_.MemberProperty{JsiiProperty: "profileId", GoGetter: "ProfileId"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},

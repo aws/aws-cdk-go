@@ -397,6 +397,10 @@ func init() {
 		reflect.TypeOf((*CfnImage_LatestVersionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImage.ScanResultConditionProperty",
+		reflect.TypeOf((*CfnImage_ScanResultConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImage.WorkflowConfigurationProperty",
 		reflect.TypeOf((*CfnImage_WorkflowConfigurationProperty)(nil)).Elem(),
 	)
@@ -494,6 +498,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.PipelineLoggingConfigurationProperty",
 		reflect.TypeOf((*CfnImagePipeline_PipelineLoggingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.ScanResultConditionProperty",
+		reflect.TypeOf((*CfnImagePipeline_ScanResultConditionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnImagePipeline.ScheduleProperty",
@@ -655,6 +663,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "parentInstance", GoGetter: "ParentInstance"},
 			_jsii_.MemberProperty{JsiiProperty: "placement", GoGetter: "Placement"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "removeDependency", GoMethod: "RemoveDependency"},
@@ -669,6 +678,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "tagsRaw", GoGetter: "TagsRaw"},
+			_jsii_.MemberProperty{JsiiProperty: "terminateInstanceOnCompletion", GoGetter: "TerminateInstanceOnCompletion"},
 			_jsii_.MemberProperty{JsiiProperty: "terminateInstanceOnFailure", GoGetter: "TerminateInstanceOnFailure"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
@@ -686,12 +696,20 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration.AutoScalingGroupProperty",
+		reflect.TypeOf((*CfnInfrastructureConfiguration_AutoScalingGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration.InstanceMetadataOptionsProperty",
 		reflect.TypeOf((*CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration.LoggingProperty",
 		reflect.TypeOf((*CfnInfrastructureConfiguration_LoggingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration.ParentInstanceProperty",
+		reflect.TypeOf((*CfnInfrastructureConfiguration_ParentInstanceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_imagebuilder.CfnInfrastructureConfiguration.PlacementProperty",

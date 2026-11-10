@@ -15,7 +15,7 @@ import (
 //   	Metrics: []IMetric{
 //   	},
 //
-//   	Period: awscdk.Duration_Minutes(jsii.Number(15)),
+//   	FullPrecision: jsii.Boolean(true),
 //   }))
 //
 type SingleValueWidget interface {

@@ -92,6 +92,10 @@ func init() {
 		reflect.TypeOf((*CfnInfluxDBClusterPropsMixin_MaintenanceScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBClusterPropsMixin.MemberModeCountProperty",
+		reflect.TypeOf((*CfnInfluxDBClusterPropsMixin_MemberModeCountProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_timestream.CfnInfluxDBClusterPropsMixin.S3ConfigurationProperty",
 		reflect.TypeOf((*CfnInfluxDBClusterPropsMixin_S3ConfigurationProperty)(nil)).Elem(),
 	)

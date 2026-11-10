@@ -14,7 +14,7 @@ import (
 //   			Command: []*string{
 //   				jsii.String("bash"),
 //   				jsii.String("-c"),
-//   				jsii.String("pip install -r requirements.txt -t /asset-output && cp -au . /asset-output"),
+//   				jsii.String("pip install -r requirements.txt -t /asset-output && cp -au * /asset-output"),
 //   			},
 //   		},
 //   	}),

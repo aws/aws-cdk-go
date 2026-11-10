@@ -23,6 +23,23 @@ import (
 //
 //   cfnRouterInput := awscdk.Aws_mediaconnect.NewCfnRouterInput(this, jsii.String("MyCfnRouterInput"), &CfnRouterInputProps{
 //   	Configuration: &RouterInputConfigurationProperty{
+//   		DestinationEndpoint: &DestinationEndpointRouterInputConfigurationProperty{
+//   			EndpointLifecycleManagement: jsii.String("endpointLifecycleManagement"),
+//   			SourceTransitDecryption: &EndpointEncryptionConfigurationProperty{
+//   				Automatic: automatic,
+//   				SecretsManager: &SecretsManagerEndpointEncryptionConfigurationProperty{
+//   					EncryptionSecret: &EndpointEncryptionSecretConfigurationProperty{
+//   						SecretArn: jsii.String("secretArn"),
+//   					},
+//
+//   					// the properties below are optional
+//   					EncryptionSecretType: jsii.String("encryptionSecretType"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			SourceTransitDecryptionType: jsii.String("sourceTransitDecryptionType"),
+//   		},
 //   		Failover: &FailoverRouterInputConfigurationProperty{
 //   			NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
 //   			ProtocolConfigurations: []interface{}{
@@ -230,6 +247,8 @@ type CfnRouterInput interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the router input.
 	AttrArn() *string
+	// The Amazon Resource Names (ARNs) of one or more destination endpoints that are associated with this router input.
+	AttrAssociatedDestinationEndpointArns() *[]*string
 	AttrContentQualityAnalysisType() *string
 	// The timestamp when the router input was created.
 	AttrCreatedAt() *string
@@ -505,6 +524,16 @@ func (j *jsiiProxy_CfnRouterInput) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouterInput) AttrAssociatedDestinationEndpointArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrAssociatedDestinationEndpointArns",
 		&returns,
 	)
 	return returns

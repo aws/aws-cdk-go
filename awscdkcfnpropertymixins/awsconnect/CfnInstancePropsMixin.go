@@ -26,6 +26,7 @@ import (
 //
 //   cfnInstancePropsMixin := awscdkcfnpropertymixins.Aws_connect.NewCfnInstancePropsMixin(&CfnInstanceMixinProps{
 //   	Attributes: &AttributesProperty{
+//   		AutoMuteAgentOnHold: jsii.Boolean(false),
 //   		AutoResolveBestVoices: jsii.Boolean(false),
 //   		ContactflowLogs: jsii.Boolean(false),
 //   		ContactLens: jsii.Boolean(false),

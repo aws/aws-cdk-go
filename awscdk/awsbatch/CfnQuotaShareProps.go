@@ -19,7 +19,6 @@ package awsbatch
 //   	PreemptionConfiguration: &QuotaSharePreemptionConfigurationProperty{
 //   		InSharePreemption: jsii.String("inSharePreemption"),
 //   	},
-//   	QuotaShareName: jsii.String("quotaShareName"),
 //   	ResourceSharingConfiguration: &QuotaShareResourceSharingConfigurationProperty{
 //   		Strategy: jsii.String("strategy"),
 //
@@ -28,6 +27,7 @@ package awsbatch
 //   	},
 //
 //   	// the properties below are optional
+//   	QuotaShareName: jsii.String("quotaShareName"),
 //   	State: jsii.String("state"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -50,15 +50,15 @@ type CfnQuotaShareProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html#cfn-batch-quotashare-preemptionconfiguration
 	//
 	PreemptionConfiguration interface{} `field:"required" json:"preemptionConfiguration" yaml:"preemptionConfiguration"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html#cfn-batch-quotashare-resourcesharingconfiguration
+	//
+	ResourceSharingConfiguration interface{} `field:"required" json:"resourceSharingConfiguration" yaml:"resourceSharingConfiguration"`
 	// The name of the quota share.
 	//
 	// It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html#cfn-batch-quotashare-quotasharename
 	//
-	QuotaShareName *string `field:"required" json:"quotaShareName" yaml:"quotaShareName"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-quotashare.html#cfn-batch-quotashare-resourcesharingconfiguration
-	//
-	ResourceSharingConfiguration interface{} `field:"required" json:"resourceSharingConfiguration" yaml:"resourceSharingConfiguration"`
+	QuotaShareName *string `field:"optional" json:"quotaShareName" yaml:"quotaShareName"`
 	// The state of the quota share.
 	//
 	// If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.

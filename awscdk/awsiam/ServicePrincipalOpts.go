@@ -4,18 +4,17 @@ package awsiam
 // Options for a service principal.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var fn WebFunction
+//   var distributionArn string
 //
-//   var conditions interface{}
 //
-//   servicePrincipalOpts := &ServicePrincipalOpts{
+//   fn.Endpoint.Grants.Invoke(iam.NewServicePrincipal(jsii.String("cloudfront.amazonaws.com"), &ServicePrincipalOpts{
 //   	Conditions: map[string]interface{}{
-//   		"conditionsKey": conditions,
+//   		"ArnLike": map[string]*string{
+//   			"aws:SourceArn": distributionArn,
+//   		},
 //   	},
-//   	Region: jsii.String("region"),
-//   }
+//   }))
 //
 type ServicePrincipalOpts struct {
 	// Additional conditions to add to the Service Principal.

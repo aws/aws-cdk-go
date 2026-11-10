@@ -24,7 +24,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrClusterDiscoveryEndpoint", GoGetter: "AttrClusterDiscoveryEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrClusterDiscoveryEndpointUrl", GoGetter: "AttrClusterDiscoveryEndpointUrl"},
-			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},

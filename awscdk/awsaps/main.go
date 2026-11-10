@@ -235,6 +235,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "destination", GoGetter: "Destination"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "exporters", GoGetter: "Exporters"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -293,6 +294,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnScraper.EksConfigurationProperty",
 		reflect.TypeOf((*CfnScraper_EksConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnScraper.ExporterConfigurationProperty",
+		reflect.TypeOf((*CfnScraper_ExporterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_aps.CfnScraper.OpenSearchConfigurationProperty",
+		reflect.TypeOf((*CfnScraper_OpenSearchConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_aps.CfnScraper.RoleConfigurationProperty",

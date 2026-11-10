@@ -420,3 +420,14 @@ func EngineVersion_V1_4_6_1() EngineVersion {
 	return returns
 }
 
+func EngineVersion_V1_5_0_0() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.EngineVersion",
+		"V1_5_0_0",
+		&returns,
+	)
+	return returns
+}
+

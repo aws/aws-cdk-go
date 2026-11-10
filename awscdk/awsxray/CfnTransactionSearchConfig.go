@@ -19,6 +19,9 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnTransactionSearchConfig := awscdk.Aws_xray.NewCfnTransactionSearchConfig(this, jsii.String("MyCfnTransactionSearchConfig"), &CfnTransactionSearchConfigProps{
+//   	CloudWatchLogsConfiguration: &CloudWatchLogsConfigurationProperty{
+//   		SpansLogGroupKmsKeyId: jsii.String("spansLogGroupKmsKeyId"),
+//   	},
 //   	IndexingPercentage: jsii.Number(123),
 //   })
 //
@@ -36,6 +39,9 @@ type CfnTransactionSearchConfig interface {
 	CfnPropertyNames() *map[string]*string
 	// AWS resource type.
 	CfnResourceType() *string
+	// Configuration for the CloudWatch Logs log group that X-Ray creates when this resource enables Transaction Search.
+	CloudWatchLogsConfiguration() interface{}
+	SetCloudWatchLogsConfiguration(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -300,6 +306,16 @@ func (j *jsiiProxy_CfnTransactionSearchConfig) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransactionSearchConfig) CloudWatchLogsConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"cloudWatchLogsConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransactionSearchConfig) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -427,6 +443,17 @@ func NewCfnTransactionSearchConfig_Override(c CfnTransactionSearchConfig, scope 
 		"aws-cdk-lib.aws_xray.CfnTransactionSearchConfig",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTransactionSearchConfig)SetCloudWatchLogsConfiguration(val interface{}) {
+	if err := j.validateSetCloudWatchLogsConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"cloudWatchLogsConfiguration",
+		val,
 	)
 }
 

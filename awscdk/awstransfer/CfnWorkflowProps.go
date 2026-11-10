@@ -74,6 +74,9 @@ import (
 //   			Type: jsii.String("type"),
 //   		},
 //   	},
+//   	StructuredLogDestinations: []*string{
+//   		jsii.String("structuredLogDestinations"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -97,6 +100,10 @@ type CfnWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-onexceptionsteps
 	//
 	OnExceptionSteps interface{} `field:"optional" json:"onExceptionSteps" yaml:"onExceptionSteps"`
+	// Specifies the log destinations for the workflow.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html#cfn-transfer-workflow-structuredlogdestinations
+	//
+	StructuredLogDestinations *[]*string `field:"optional" json:"structuredLogDestinations" yaml:"structuredLogDestinations"`
 	// Key-value pairs that can be used to group and search for workflows.
 	//
 	// Tags are metadata attached to workflows for any purpose.

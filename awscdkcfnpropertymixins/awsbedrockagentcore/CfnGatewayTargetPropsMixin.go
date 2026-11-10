@@ -27,6 +27,17 @@ import (
 //   var schemaDefinitionProperty_ SchemaDefinitionProperty
 //
 //   cfnGatewayTargetPropsMixin := awscdkcfnpropertymixins.Aws_bedrockagentcore.NewCfnGatewayTargetPropsMixin(&CfnGatewayTargetMixinProps{
+//   	CertificateConfigurations: []interface{}{
+//   		&CertificateConfigurationProperty{
+//   			S3: &S3CertificateConfigurationProperty{
+//   				BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   				Uri: jsii.String("uri"),
+//   			},
+//   			SecretsManager: &SecretsManagerCertificateConfigurationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	CredentialProviderConfigurations: []interface{}{
 //   		&CredentialProviderConfigurationProperty{
 //   			CredentialProvider: &CredentialProviderProperty{

@@ -18,6 +18,7 @@ import (
 //   	DbParameterGroupIdentifier: jsii.String("dbParameterGroupIdentifier"),
 //   	DbStorageType: jsii.String("dbStorageType"),
 //   	DeploymentType: jsii.String("deploymentType"),
+//   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LogDeliveryConfiguration: &LogDeliveryConfigurationProperty{
 //   		S3Configuration: &S3ConfigurationProperty{
 //   			BucketName: jsii.String("bucketName"),
@@ -86,6 +87,10 @@ type CfnInfluxDBInstanceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-deploymenttype
 	//
 	DeploymentType *string `field:"optional" json:"deploymentType" yaml:"deploymentType"`
+	// The customer managed key used to encrypt data in the InfluxDB instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-kmskeyid
+	//
+	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-logdeliveryconfiguration
 	//

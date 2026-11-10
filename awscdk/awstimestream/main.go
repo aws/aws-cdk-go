@@ -182,10 +182,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrEffectiveDbParameterGroupIdentifier", GoGetter: "AttrEffectiveDbParameterGroupIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpoint", GoGetter: "AttrEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEngineType", GoGetter: "AttrEngineType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrInfluxAuthParametersSecretArn", GoGetter: "AttrInfluxAuthParametersSecretArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMemberCount", GoGetter: "AttrMemberCount"},
+			_jsii_.MemberProperty{JsiiProperty: "attrMemberModeCounts", GoGetter: "AttrMemberModeCounts"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNextMaintenanceTime", GoGetter: "AttrNextMaintenanceTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReaderEndpoint", GoGetter: "AttrReaderEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStatus", GoGetter: "AttrStatus"},
@@ -207,6 +210,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "influxDbClusterRef", GoGetter: "InfluxDbClusterRef"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "logDeliveryConfiguration", GoGetter: "LogDeliveryConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maintenanceSchedule", GoGetter: "MaintenanceSchedule"},
@@ -254,6 +258,10 @@ func init() {
 		reflect.TypeOf((*CfnInfluxDBCluster_MaintenanceScheduleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_timestream.CfnInfluxDBCluster.MemberModeCountProperty",
+		reflect.TypeOf((*CfnInfluxDBCluster_MemberModeCountProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_timestream.CfnInfluxDBCluster.S3ConfigurationProperty",
 		reflect.TypeOf((*CfnInfluxDBCluster_S3ConfigurationProperty)(nil)).Elem(),
 	)
@@ -278,6 +286,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrAvailabilityZone", GoGetter: "AttrAvailabilityZone"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDbClusterId", GoGetter: "AttrDbClusterId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpoint", GoGetter: "AttrEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrInfluxAuthParametersSecretArn", GoGetter: "AttrInfluxAuthParametersSecretArn"},
@@ -301,6 +310,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "influxDbInstanceRef", GoGetter: "InfluxDbInstanceRef"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "logDeliveryConfiguration", GoGetter: "LogDeliveryConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "maintenanceSchedule", GoGetter: "MaintenanceSchedule"},

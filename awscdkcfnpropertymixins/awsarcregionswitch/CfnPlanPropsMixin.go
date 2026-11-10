@@ -116,6 +116,7 @@ import (
 //   									Arn: jsii.String("arn"),
 //   									CrossAccountRole: jsii.String("crossAccountRole"),
 //   									ExternalId: jsii.String("externalId"),
+//   									Payload: jsii.String("payload"),
 //   								},
 //   							},
 //   							RegionToRun: jsii.String("regionToRun"),

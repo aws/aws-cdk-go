@@ -83,6 +83,29 @@ import (
 //   		EnableForceNewDeployment: jsii.Boolean(false),
 //   		ForceNewDeploymentNonce: jsii.String("forceNewDeploymentNonce"),
 //   	},
+//   	GatewayConnectors: []interface{}{
+//   		&GatewayConnectorProperty{
+//   			Filters: &GatewayConnectorFiltersProperty{
+//   				AccessTypes: []*string{
+//   					jsii.String("accessTypes"),
+//   				},
+//   			},
+//   			HealthCheck: &GatewayConnectorHealthCheckProperty{
+//   				HealthCheckIntervalSeconds: jsii.Number(123),
+//   				HealthCheckPath: jsii.String("healthCheckPath"),
+//   				HealthCheckPort: jsii.Number(123),
+//   				HealthCheckProtocol: jsii.String("healthCheckProtocol"),
+//   				HealthCheckTimeoutSeconds: jsii.Number(123),
+//   				HealthyThresholdCount: jsii.Number(123),
+//   				Matcher: &GatewayConnectorHealthCheckMatcherProperty{
+//   					GrpcCode: jsii.String("grpcCode"),
+//   					HttpCode: jsii.String("httpCode"),
+//   				},
+//   				UnhealthyThresholdCount: jsii.Number(123),
+//   			},
+//   			PortName: jsii.String("portName"),
+//   		},
+//   	},
 //   	HealthCheckGracePeriodSeconds: jsii.Number(123),
 //   	LaunchType: jsii.String("launchType"),
 //   	LoadBalancers: []interface{}{
@@ -140,6 +163,11 @@ import (
 //   		AccessLogConfiguration: &ServiceConnectAccessLogConfigurationProperty{
 //   			Format: jsii.String("format"),
 //   			IncludeQueryParameters: jsii.String("includeQueryParameters"),
+//   		},
+//   		ContainerConfigurations: []interface{}{
+//   			&ServiceConnectContainerConfigurationProperty{
+//   				LogLevel: jsii.String("logLevel"),
+//   			},
 //   		},
 //   		Enabled: jsii.Boolean(false),
 //   		LogConfiguration: &LogConfigurationProperty{
@@ -315,6 +343,9 @@ type CfnServiceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-forcenewdeployment
 	//
 	ForceNewDeployment interface{} `field:"optional" json:"forceNewDeployment" yaml:"forceNewDeployment"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-gatewayconnectors
+	//
+	GatewayConnectors interface{} `field:"optional" json:"gatewayConnectors" yaml:"gatewayConnectors"`
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started.
 	//
 	// If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then `healthCheckGracePeriodSeconds` is unused.

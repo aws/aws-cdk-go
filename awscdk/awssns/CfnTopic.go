@@ -115,6 +115,7 @@ type CfnTopic interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The maximum payload size, in bytes, for messages published to the topic.
 	MaximumMessageSize() *float64
 	SetMaximumMessageSize(val *float64)
 	// The tree node.

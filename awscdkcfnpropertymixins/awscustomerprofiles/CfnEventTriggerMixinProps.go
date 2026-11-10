@@ -45,6 +45,26 @@ import (
 //   		},
 //   	},
 //   	EventTriggerName: jsii.String("eventTriggerName"),
+//   	IntentFilterDefinition: &IntentFilterDefinitionProperty{
+//   		Groups: []interface{}{
+//   			&IntentFilterGroupProperty{
+//   				Conditions: []interface{}{
+//   					&IntentFilterConditionProperty{
+//   						ComparisonOperator: jsii.String("comparisonOperator"),
+//   						Intent: &IntentProperty{
+//   							IntentDomain: jsii.String("intentDomain"),
+//   							Type: jsii.String("type"),
+//   						},
+//   						Values: []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   				LogicalOperator: jsii.String("logicalOperator"),
+//   			},
+//   		},
+//   		LogicalOperator: jsii.String("logicalOperator"),
+//   	},
 //   	ObjectTypeName: jsii.String("objectTypeName"),
 //   	SegmentFilter: jsii.String("segmentFilter"),
 //   	Tags: []CfnTag{
@@ -78,6 +98,10 @@ type CfnEventTriggerMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventtrigger.html#cfn-customerprofiles-eventtrigger-eventtriggername
 	//
 	EventTriggerName *string `field:"optional" json:"eventTriggerName" yaml:"eventTriggerName"`
+	// Filters the destination to profiles whose predicted intents meet the specified conditions.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventtrigger.html#cfn-customerprofiles-eventtrigger-intentfilterdefinition
+	//
+	IntentFilterDefinition interface{} `field:"optional" json:"intentFilterDefinition" yaml:"intentFilterDefinition"`
 	// The unique name of the object type.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventtrigger.html#cfn-customerprofiles-eventtrigger-objecttypename
 	//

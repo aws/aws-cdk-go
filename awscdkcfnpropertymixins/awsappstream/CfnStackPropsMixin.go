@@ -67,6 +67,7 @@ import (
 //   	FeedbackUrl: jsii.String("feedbackUrl"),
 //   	Name: jsii.String("name"),
 //   	RedirectUrl: jsii.String("redirectUrl"),
+//   	StorageConnectorAuthentication: jsii.String("storageConnectorAuthentication"),
 //   	StorageConnectors: []interface{}{
 //   		&StorageConnectorProperty{
 //   			ConnectorType: jsii.String("connectorType"),

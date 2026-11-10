@@ -21,7 +21,7 @@ import (
 //
 // Example:
 //   cluster := eks.NewFargateCluster(this, jsii.String("FargateCluster"), &FargateClusterProps{
-//   	Version: eks.KubernetesVersion_V1_36(),
+//   	Version: eks.KubernetesVersion_V1_37(),
 //   })
 //
 type FargateCluster interface {

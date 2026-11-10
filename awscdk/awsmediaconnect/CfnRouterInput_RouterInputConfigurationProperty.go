@@ -9,6 +9,23 @@ package awsmediaconnect
 //   var automatic interface{}
 //
 //   routerInputConfigurationProperty := &RouterInputConfigurationProperty{
+//   	DestinationEndpoint: &DestinationEndpointRouterInputConfigurationProperty{
+//   		EndpointLifecycleManagement: jsii.String("endpointLifecycleManagement"),
+//   		SourceTransitDecryption: &EndpointEncryptionConfigurationProperty{
+//   			Automatic: automatic,
+//   			SecretsManager: &SecretsManagerEndpointEncryptionConfigurationProperty{
+//   				EncryptionSecret: &EndpointEncryptionSecretConfigurationProperty{
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//
+//   				// the properties below are optional
+//   				EncryptionSecretType: jsii.String("encryptionSecretType"),
+//   			},
+//   		},
+//
+//   		// the properties below are optional
+//   		SourceTransitDecryptionType: jsii.String("sourceTransitDecryptionType"),
+//   	},
 //   	Failover: &FailoverRouterInputConfigurationProperty{
 //   		NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
 //   		ProtocolConfigurations: []interface{}{
@@ -160,15 +177,23 @@ package awsmediaconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html
 //
 type CfnRouterInput_RouterInputConfigurationProperty struct {
+	// Configuration settings for a router input that is represented by a destination endpoint.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-destinationendpoint
+	//
+	DestinationEndpoint interface{} `field:"optional" json:"destinationEndpoint" yaml:"destinationEndpoint"`
 	// Configuration settings for a failover router input that allows switching between two input sources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-failover
 	//
 	Failover interface{} `field:"optional" json:"failover" yaml:"failover"`
 	// Configuration settings for connecting a router input to a flow output.
+	//
+	// To connect the router input to the flow output, provide both flowArn and flowOutputArn. To disconnect it, call the update operation and omit both fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a flow output. To change it, first disconnect the router input, then update the decryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-mediaconnectflow
 	//
 	MediaConnectFlow interface{} `field:"optional" json:"mediaConnectFlow" yaml:"mediaConnectFlow"`
 	// Configuration settings for connecting a router input to a MediaLive channel output.
+	//
+	// To connect the router input to the MediaLive channel output, provide all three of mediaLiveChannelArn, mediaLivePipelineId, and mediaLiveChannelOutputName. To disconnect it, call the update operation and omit all three fields while keeping this configuration object. You can't change sourceTransitDecryption while the router input is connected to a MediaLive channel output. To change it, first disconnect the router input, then update the decryption.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputconfiguration.html#cfn-mediaconnect-routerinput-routerinputconfiguration-medialivechannel
 	//
 	MediaLiveChannel interface{} `field:"optional" json:"mediaLiveChannel" yaml:"mediaLiveChannel"`

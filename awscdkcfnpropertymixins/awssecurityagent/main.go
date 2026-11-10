@@ -164,6 +164,14 @@ func init() {
 		reflect.TypeOf((*CfnPentestPropsMixin_CaCertificateSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.CiCdConfigurationProperty",
+		reflect.TypeOf((*CfnPentestPropsMixin_CiCdConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.ClientCertificateProperty",
+		reflect.TypeOf((*CfnPentestPropsMixin_ClientCertificateProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.CloudWatchLogProperty",
 		reflect.TypeOf((*CfnPentestPropsMixin_CloudWatchLogProperty)(nil)).Elem(),
 	)
@@ -192,8 +200,20 @@ func init() {
 		reflect.TypeOf((*CfnPentestPropsMixin_NetworkTrafficRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.ReportDestinationProperty",
+		reflect.TypeOf((*CfnPentestPropsMixin_ReportDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.ReportFiltersProperty",
+		reflect.TypeOf((*CfnPentestPropsMixin_ReportFiltersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.SourceCodeRepositoryProperty",
 		reflect.TypeOf((*CfnPentestPropsMixin_SourceCodeRepositoryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.TestScopeProperty",
+		reflect.TypeOf((*CfnPentestPropsMixin_TestScopeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.TrustedCaCertificateProperty",
@@ -202,6 +222,38 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPentestPropsMixin.VpcConfigProperty",
 		reflect.TypeOf((*CfnPentestPropsMixin_VpcConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPrivateConnectionMixinProps",
+		reflect.TypeOf((*CfnPrivateConnectionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPrivateConnectionPropsMixin",
+		reflect.TypeOf((*CfnPrivateConnectionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnPrivateConnectionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPrivateConnectionPropsMixin.ModeProperty",
+		reflect.TypeOf((*CfnPrivateConnectionPropsMixin_ModeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPrivateConnectionPropsMixin.SelfManagedProperty",
+		reflect.TypeOf((*CfnPrivateConnectionPropsMixin_SelfManagedProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnPrivateConnectionPropsMixin.ServiceManagedProperty",
+		reflect.TypeOf((*CfnPrivateConnectionPropsMixin_ServiceManagedProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_securityagent.CfnSecurityRequirementPackMixinProps",

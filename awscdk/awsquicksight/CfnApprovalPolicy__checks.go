@@ -228,21 +228,9 @@ func validateCfnApprovalPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnApprovalPolicy) validateSetActionsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnApprovalPolicy) validateSetActionsParameters(val *[]*string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-	switch val.(type) {
-	case *[]interface{}:
-		// ok
-	case []interface{}:
-		// ok
-	case awscdk.IResolvable:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *[]interface{}, awscdk.IResolvable; received %#v (a %T)", val, val)
-		}
 	}
 
 	return nil
@@ -283,21 +271,9 @@ func (j *jsiiProxy_CfnApprovalPolicy) validateSetApprovalGroupsParameters(val *[
 	return nil
 }
 
-func (j *jsiiProxy_CfnApprovalPolicy) validateSetAssetTypesParameters(val interface{}) error {
+func (j *jsiiProxy_CfnApprovalPolicy) validateSetAssetTypesParameters(val *[]*string) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")
-	}
-	switch val.(type) {
-	case *[]interface{}:
-		// ok
-	case []interface{}:
-		// ok
-	case awscdk.IResolvable:
-		// ok
-	default:
-		if !_jsii_.IsAnonymousProxy(val) {
-			return fmt.Errorf("parameter val must be one of the allowed types: *[]interface{}, awscdk.IResolvable; received %#v (a %T)", val, val)
-		}
 	}
 
 	return nil

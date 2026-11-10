@@ -12,6 +12,11 @@ package awseks
 //
 //   elasticLoadBalancingProperty := &ElasticLoadBalancingProperty{
 //   	Enabled: jsii.Boolean(false),
+//   	GatewayApi: &GatewayApiProperty{
+//   		Crds: &GatewayApiCrdsProperty{
+//   			Managed: jsii.Boolean(false),
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-elasticloadbalancing.html
@@ -23,5 +28,9 @@ type CfnClusterPropsMixin_ElasticLoadBalancingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-elasticloadbalancing.html#cfn-eks-cluster-elasticloadbalancing-enabled
 	//
 	Enabled interface{} `field:"optional" json:"enabled" yaml:"enabled"`
+	// The Gateway API configuration for the load balancing capability of EKS Auto Mode.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-elasticloadbalancing.html#cfn-eks-cluster-elasticloadbalancing-gatewayapi
+	//
+	GatewayApi interface{} `field:"optional" json:"gatewayApi" yaml:"gatewayApi"`
 }
 

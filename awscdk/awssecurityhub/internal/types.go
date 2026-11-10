@@ -5,6 +5,7 @@ import (
 )
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
+type Type__interfacesawssecurityhubIActionTargetRef = interfacesawssecurityhub.IActionTargetRef
 type Type__interfacesawssecurityhubIAggregatorV2Ref = interfacesawssecurityhub.IAggregatorV2Ref
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawssecurityhubIAutomationRuleRef = interfacesawssecurityhub.IAutomationRuleRef

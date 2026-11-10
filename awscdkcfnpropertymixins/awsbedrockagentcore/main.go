@@ -556,6 +556,10 @@ func init() {
 		reflect.TypeOf((*CfnGatewayRulePropsMixin_ActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.CircuitBreakerConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayRulePropsMixin_CircuitBreakerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.ConditionProperty",
 		reflect.TypeOf((*CfnGatewayRulePropsMixin_ConditionProperty)(nil)).Elem(),
 	)
@@ -568,8 +572,28 @@ func init() {
 		reflect.TypeOf((*CfnGatewayRulePropsMixin_ConfigurationBundleReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.FallbackProperty",
+		reflect.TypeOf((*CfnGatewayRulePropsMixin_FallbackProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.FallbackTargetProperty",
+		reflect.TypeOf((*CfnGatewayRulePropsMixin_FallbackTargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.FallbackTriggersProperty",
+		reflect.TypeOf((*CfnGatewayRulePropsMixin_FallbackTriggersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.IamPrincipalProperty",
 		reflect.TypeOf((*CfnGatewayRulePropsMixin_IamPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.MatchModelEntryProperty",
+		reflect.TypeOf((*CfnGatewayRulePropsMixin_MatchModelEntryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.MatchModelsProperty",
+		reflect.TypeOf((*CfnGatewayRulePropsMixin_MatchModelsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayRulePropsMixin.MatchPathsProperty",
@@ -662,6 +686,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.AuthorizationDataProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_AuthorizationDataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.CertificateConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_CertificateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.ConnectorConfigurationProperty",
@@ -788,12 +816,20 @@ func init() {
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_RuntimeTargetConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.S3CertificateConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_S3CertificateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.S3ConfigurationProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_S3ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.SchemaDefinitionProperty",
 		reflect.TypeOf((*CfnGatewayTargetPropsMixin_SchemaDefinitionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.SecretsManagerCertificateConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayTargetPropsMixin_SecretsManagerCertificateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnGatewayTargetPropsMixin.SelfManagedLatticeResourceProperty",
@@ -1188,6 +1224,10 @@ func init() {
 		reflect.TypeOf((*CfnMemoryPropsMixin_NumberValidationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.RecordExpirySpecificationProperty",
+		reflect.TypeOf((*CfnMemoryPropsMixin_RecordExpirySpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnMemoryPropsMixin.SelfManagedConfigurationProperty",
 		reflect.TypeOf((*CfnMemoryPropsMixin_SelfManagedConfigurationProperty)(nil)).Elem(),
 	)
@@ -1556,20 +1596,20 @@ func init() {
 		reflect.TypeOf((*CfnPaymentManagerPropsMixin_AuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentManagerPropsMixin.AuthorizingClaimMatchValueTypeProperty",
-		reflect.TypeOf((*CfnPaymentManagerPropsMixin_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentManagerPropsMixin.AuthorizingClaimMatchValueProperty",
+		reflect.TypeOf((*CfnPaymentManagerPropsMixin_AuthorizingClaimMatchValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentManagerPropsMixin.ClaimMatchValueTypeProperty",
-		reflect.TypeOf((*CfnPaymentManagerPropsMixin_ClaimMatchValueTypeProperty)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentManagerPropsMixin.ClaimMatchValueProperty",
+		reflect.TypeOf((*CfnPaymentManagerPropsMixin_ClaimMatchValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentManagerPropsMixin.CustomClaimValidationTypeProperty",
 		reflect.TypeOf((*CfnPaymentManagerPropsMixin_CustomClaimValidationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentManagerPropsMixin.CustomJWTAuthorizerConfigurationProperty",
-		reflect.TypeOf((*CfnPaymentManagerPropsMixin_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentManagerPropsMixin.CustomJWTAuthorizerProperty",
+		reflect.TypeOf((*CfnPaymentManagerPropsMixin_CustomJWTAuthorizerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnPaymentManagerPropsMixin.WorkloadIdentityDetailsProperty",

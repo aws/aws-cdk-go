@@ -55,6 +55,7 @@ import (
 //   		},
 //   		Port: jsii.Number(123),
 //   	},
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Logging: &LoggingProperty{
 //   		CloudWatch: &CloudWatchLoggingProperty{
 //   			LogGroup: jsii.String("logGroup"),
@@ -114,6 +115,12 @@ type CfnMicrovmImageMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-microvmimage.html#cfn-lambda-microvmimage-hooks
 	//
 	Hooks interface{} `field:"optional" json:"hooks" yaml:"hooks"`
+	// The customer managed KMS key used to encrypt the MicroVM image configuration at rest.
+	//
+	// When omitted, a service owned key is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-microvmimage.html#cfn-lambda-microvmimage-kmskeyidentifier
+	//
+	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-microvmimage.html#cfn-lambda-microvmimage-logging
 	//
 	Logging interface{} `field:"optional" json:"logging" yaml:"logging"`

@@ -68,6 +68,11 @@ import (
 //   		DeploymentOption: jsii.String("deploymentOption"),
 //   		DeploymentType: jsii.String("deploymentType"),
 //   	},
+//   	Ec2DeploymentOptions: &Ec2DeploymentOptionsProperty{
+//   		AutoScalingGroupProcessesToSuspend: []*string{
+//   			jsii.String("autoScalingGroupProcessesToSuspend"),
+//   		},
+//   	},
 //   	Ec2TagFilters: []interface{}{
 //   		&EC2TagFilterProperty{
 //   			Key: jsii.String("key"),
@@ -220,6 +225,10 @@ type CfnDeploymentGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentstyle
 	//
 	DeploymentStyle interface{} `field:"optional" json:"deploymentStyle" yaml:"deploymentStyle"`
+	// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2deploymentoptions
+	//
+	Ec2DeploymentOptions interface{} `field:"optional" json:"ec2DeploymentOptions" yaml:"ec2DeploymentOptions"`
 	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group.
 	//
 	// CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed.

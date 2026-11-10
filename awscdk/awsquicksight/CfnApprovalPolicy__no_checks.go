@@ -104,7 +104,7 @@ func validateCfnApprovalPolicy_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnApprovalPolicy) validateSetActionsParameters(val interface{}) error {
+func (j *jsiiProxy_CfnApprovalPolicy) validateSetActionsParameters(val *[]*string) error {
 	return nil
 }
 
@@ -116,7 +116,7 @@ func (j *jsiiProxy_CfnApprovalPolicy) validateSetApprovalGroupsParameters(val *[
 	return nil
 }
 
-func (j *jsiiProxy_CfnApprovalPolicy) validateSetAssetTypesParameters(val interface{}) error {
+func (j *jsiiProxy_CfnApprovalPolicy) validateSetAssetTypesParameters(val *[]*string) error {
 	return nil
 }
 

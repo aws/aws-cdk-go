@@ -15,6 +15,9 @@ package awscodebuild
 //   		ComputeTypesAllowed: []*string{
 //   			jsii.String("computeTypesAllowed"),
 //   		},
+//   		FleetsAllowed: []*string{
+//   			jsii.String("fleetsAllowed"),
+//   		},
 //   		MaximumBuildsAllowed: jsii.Number(123),
 //   	},
 //   	ServiceRole: jsii.String("serviceRole"),

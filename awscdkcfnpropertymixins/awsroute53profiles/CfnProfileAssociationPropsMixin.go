@@ -23,6 +23,7 @@ import (
 //   cfnProfileAssociationPropsMixin := awscdkcfnpropertymixins.Aws_route53profiles.NewCfnProfileAssociationPropsMixin(&CfnProfileAssociationMixinProps{
 //   	Arn: jsii.String("arn"),
 //   	Name: jsii.String("name"),
+//   	Priority: jsii.Number(123),
 //   	ProfileId: jsii.String("profileId"),
 //   	ResourceId: jsii.String("resourceId"),
 //   	Tags: []CfnTag{

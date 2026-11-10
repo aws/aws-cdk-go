@@ -20,6 +20,10 @@ func init() {
 		reflect.TypeOf((*BridgeSourceReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.DestinationEndpointReference",
+		reflect.TypeOf((*DestinationEndpointReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_mediaconnect.FlowEntitlementReference",
 		reflect.TypeOf((*FlowEntitlementReference)(nil)).Elem(),
 	)
@@ -90,6 +94,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IBridgeSourceRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.IDestinationEndpointRef",
+		reflect.TypeOf((*IDestinationEndpointRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "destinationEndpointRef", GoGetter: "DestinationEndpointRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDestinationEndpointRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -255,6 +275,22 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.ISourceEndpointRef",
+		reflect.TypeOf((*ISourceEndpointRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "sourceEndpointRef", GoGetter: "SourceEndpointRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ISourceEndpointRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_mediaconnect.RouterInputReference",
 		reflect.TypeOf((*RouterInputReference)(nil)).Elem(),
@@ -266,5 +302,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_mediaconnect.RouterOutputReference",
 		reflect.TypeOf((*RouterOutputReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_mediaconnect.SourceEndpointReference",
+		reflect.TypeOf((*SourceEndpointReference)(nil)).Elem(),
 	)
 }

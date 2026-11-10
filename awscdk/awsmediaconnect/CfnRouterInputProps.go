@@ -16,6 +16,23 @@ import (
 //
 //   cfnRouterInputProps := &CfnRouterInputProps{
 //   	Configuration: &RouterInputConfigurationProperty{
+//   		DestinationEndpoint: &DestinationEndpointRouterInputConfigurationProperty{
+//   			EndpointLifecycleManagement: jsii.String("endpointLifecycleManagement"),
+//   			SourceTransitDecryption: &EndpointEncryptionConfigurationProperty{
+//   				Automatic: automatic,
+//   				SecretsManager: &SecretsManagerEndpointEncryptionConfigurationProperty{
+//   					EncryptionSecret: &EndpointEncryptionSecretConfigurationProperty{
+//   						SecretArn: jsii.String("secretArn"),
+//   					},
+//
+//   					// the properties below are optional
+//   					EncryptionSecretType: jsii.String("encryptionSecretType"),
+//   				},
+//   			},
+//
+//   			// the properties below are optional
+//   			SourceTransitDecryptionType: jsii.String("sourceTransitDecryptionType"),
+//   		},
 //   		Failover: &FailoverRouterInputConfigurationProperty{
 //   			NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
 //   			ProtocolConfigurations: []interface{}{

@@ -11,6 +11,7 @@ package awsconnect
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   attributesProperty := &AttributesProperty{
+//   	AutoMuteAgentOnHold: jsii.Boolean(false),
 //   	AutoResolveBestVoices: jsii.Boolean(false),
 //   	ContactflowLogs: jsii.Boolean(false),
 //   	ContactLens: jsii.Boolean(false),
@@ -29,6 +30,10 @@ package awsconnect
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html
 //
 type CfnInstancePropsMixin_AttributesProperty struct {
+	// Boolean flag which enables AUTO_MUTE_AGENT_ON_HOLD on an instance.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-automuteagentonhold
+	//
+	AutoMuteAgentOnHold interface{} `field:"optional" json:"autoMuteAgentOnHold" yaml:"autoMuteAgentOnHold"`
 	// Boolean flag which enables AUTO_RESOLVE_BEST_VOICES on an instance.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html#cfn-connect-instance-attributes-autoresolvebestvoices
 	//

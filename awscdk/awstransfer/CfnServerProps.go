@@ -50,6 +50,14 @@ import (
 //   			SftpMode: jsii.String("sftpMode"),
 //   		},
 //   		SetStatOption: jsii.String("setStatOption"),
+//   		SftpPorts: []interface{}{
+//   			&SftpPortWithOptionsProperty{
+//   				SftpPort: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				CommunicationMode: jsii.String("communicationMode"),
+//   			},
+//   		},
 //   		TlsSessionResumptionMode: jsii.String("tlsSessionResumptionMode"),
 //   	},
 //   	Protocols: []*string{

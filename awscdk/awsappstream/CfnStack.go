@@ -71,6 +71,7 @@ import (
 //   	FeedbackUrl: jsii.String("feedbackUrl"),
 //   	Name: jsii.String("name"),
 //   	RedirectUrl: jsii.String("redirectUrl"),
+//   	StorageConnectorAuthentication: jsii.String("storageConnectorAuthentication"),
 //   	StorageConnectors: []interface{}{
 //   		&StorageConnectorProperty{
 //   			ConnectorType: jsii.String("connectorType"),
@@ -179,6 +180,9 @@ type CfnStack interface {
 	Stack() awscdk.Stack
 	// A reference to a Stack resource.
 	StackRef() *interfacesawsappstream.StackReference
+	// Controls whether stored OneDrive and Google Drive authentication is retained between streaming sessions.
+	StorageConnectorAuthentication() *string
+	SetStorageConnectorAuthentication(val *string)
 	// The storage connectors to enable.
 	StorageConnectors() interface{}
 	SetStorageConnectors(val interface{})
@@ -607,6 +611,16 @@ func (j *jsiiProxy_CfnStack) StackRef() *interfacesawsappstream.StackReference {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStack) StorageConnectorAuthentication() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"storageConnectorAuthentication",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStack) StorageConnectors() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -814,6 +828,14 @@ func (j *jsiiProxy_CfnStack)SetRedirectUrl(val *string) {
 	_jsii_.Set(
 		j,
 		"redirectUrl",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStack)SetStorageConnectorAuthentication(val *string) {
+	_jsii_.Set(
+		j,
+		"storageConnectorAuthentication",
 		val,
 	)
 }

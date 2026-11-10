@@ -31,6 +31,23 @@ import (
 //   				},
 //   			},
 //   		},
+//   		Route53ResolvedIpValidation: &Route53ResolvedIPValidationProperty{
+//   			Action: jsii.String("action"),
+//   			DnsExpiryExceptionPolicy: jsii.String("dnsExpiryExceptionPolicy"),
+//   			DnsFirewallRuleGroupId: jsii.String("dnsFirewallRuleGroupId"),
+//
+//   			// the properties below are optional
+//   			BypassDestinationValidationIpRanges: []interface{}{
+//   				&AddressProperty{
+//   					AddressDefinition: jsii.String("addressDefinition"),
+//   				},
+//   			},
+//   			SourceIpRanges: []interface{}{
+//   				&AddressProperty{
+//   					AddressDefinition: jsii.String("addressDefinition"),
+//   				},
+//   			},
+//   		},
 //   		StatefulDefaultActions: []*string{
 //   			jsii.String("statefulDefaultActions"),
 //   		},

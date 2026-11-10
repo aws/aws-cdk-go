@@ -50,6 +50,26 @@ import (
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
 //   	DomainName: jsii.String("domainName"),
+//   	Filter: &FilterProperty{
+//   		Groups: []interface{}{
+//   			&FilterGroupProperty{
+//   				Dimensions: []interface{}{
+//   					&FilterDimensionProperty{
+//   						Attributes: map[string]interface{}{
+//   							"attributesKey": &FilterAttributeDimensionProperty{
+//   								"dimensionType": jsii.String("dimensionType"),
+//   								"values": []*string{
+//   									jsii.String("values"),
+//   								},
+//   							},
+//   						},
+//   					},
+//   				},
+//   				Type: jsii.String("type"),
+//   			},
+//   		},
+//   		Include: jsii.String("include"),
+//   	},
 //   	Statistic: jsii.String("statistic"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

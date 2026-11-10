@@ -31,7 +31,6 @@ import (
 //   	PreemptionConfiguration: &QuotaSharePreemptionConfigurationProperty{
 //   		InSharePreemption: jsii.String("inSharePreemption"),
 //   	},
-//   	QuotaShareName: jsii.String("quotaShareName"),
 //   	ResourceSharingConfiguration: &QuotaShareResourceSharingConfigurationProperty{
 //   		Strategy: jsii.String("strategy"),
 //
@@ -40,6 +39,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	QuotaShareName: jsii.String("quotaShareName"),
 //   	State: jsii.String("state"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -577,9 +577,6 @@ func (j *jsiiProxy_CfnQuotaShare)SetPreemptionConfiguration(val interface{}) {
 }
 
 func (j *jsiiProxy_CfnQuotaShare)SetQuotaShareName(val *string) {
-	if err := j.validateSetQuotaShareNameParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"quotaShareName",

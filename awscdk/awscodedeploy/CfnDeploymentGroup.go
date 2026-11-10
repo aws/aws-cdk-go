@@ -86,6 +86,11 @@ import (
 //   		DeploymentOption: jsii.String("deploymentOption"),
 //   		DeploymentType: jsii.String("deploymentType"),
 //   	},
+//   	Ec2DeploymentOptions: &Ec2DeploymentOptionsProperty{
+//   		AutoScalingGroupProcessesToSuspend: []*string{
+//   			jsii.String("autoScalingGroupProcessesToSuspend"),
+//   		},
+//   	},
 //   	Ec2TagFilters: []interface{}{
 //   		&EC2TagFilterProperty{
 //   			Key: jsii.String("key"),
@@ -228,6 +233,9 @@ type CfnDeploymentGroup interface {
 	// Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer.
 	DeploymentStyle() interface{}
 	SetDeploymentStyle(val interface{})
+	// Options that control how CodeDeploy manages Amazon EC2 Auto Scaling groups during deployments to the deployment group.
+	Ec2DeploymentOptions() interface{}
+	SetEc2DeploymentOptions(val interface{})
 	// The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group.
 	Ec2TagFilters() interface{}
 	SetEc2TagFilters(val interface{})
@@ -619,6 +627,16 @@ func (j *jsiiProxy_CfnDeploymentGroup) DeploymentStyle() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeploymentGroup) Ec2DeploymentOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ec2DeploymentOptions",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeploymentGroup) Ec2TagFilters() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -925,6 +943,17 @@ func (j *jsiiProxy_CfnDeploymentGroup)SetDeploymentStyle(val interface{}) {
 	_jsii_.Set(
 		j,
 		"deploymentStyle",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeploymentGroup)SetEc2DeploymentOptions(val interface{}) {
+	if err := j.validateSetEc2DeploymentOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"ec2DeploymentOptions",
 		val,
 	)
 }

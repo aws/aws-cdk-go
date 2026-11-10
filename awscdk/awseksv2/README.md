@@ -18,7 +18,7 @@ Here is the minimal example of defining an AWS EKS cluster
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 })
 ```
 
@@ -53,7 +53,7 @@ In a nutshell:
 
   ```go
   cluster := eks.NewCluster(this, jsii.String("AutoModeCluster"), &ClusterProps{
-  	Version: eks.KubernetesVersion_V1_36(),
+  	Version: eks.KubernetesVersion_V1_37(),
   })
   ```
 * **[Managed Node Groups](#managed-node-groups)** – The semi-managed capacity mode.
@@ -64,7 +64,7 @@ In a nutshell:
 
   ```go
   cluster := eks.NewCluster(this, jsii.String("ManagedNodeCluster"), &ClusterProps{
-  	Version: eks.KubernetesVersion_V1_36(),
+  	Version: eks.KubernetesVersion_V1_37(),
   	DefaultCapacityType: eks.DefaultCapacityType_NODEGROUP,
   })
 
@@ -82,7 +82,7 @@ In a nutshell:
 
   ```go
   cluster := eks.NewFargateCluster(this, jsii.String("FargateCluster"), &FargateClusterProps{
-  	Version: eks.KubernetesVersion_V1_36(),
+  	Version: eks.KubernetesVersion_V1_37(),
   })
   ```
 * **[Self-Managed Nodes](#self-managed-capacity)** – The fully manual capacity mode.
@@ -91,7 +91,7 @@ In a nutshell:
 
   ```go
   cluster := eks.NewCluster(this, jsii.String("SelfManagedCluster"), &ClusterProps{
-  	Version: eks.KubernetesVersion_V1_36(),
+  	Version: eks.KubernetesVersion_V1_37(),
   })
 
   // Add self-managed Auto Scaling Group
@@ -110,7 +110,7 @@ Creating a new cluster is done using the `Cluster` constructs. The only required
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 })
 ```
 
@@ -118,7 +118,7 @@ You can also use `FargateCluster` to provision a cluster that uses only fargate 
 
 ```go
 eks.NewFargateCluster(this, jsii.String("HelloEKS"), &FargateClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 })
 ```
 
@@ -127,13 +127,13 @@ be created by default. It will only be deployed when `kubectlProviderOptions`
 property is used.**
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 
 
 eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 	},
 })
 ```
@@ -151,7 +151,7 @@ Auto Mode is enabled by default when creating a new cluster without specifying a
 ```go
 // Create EKS cluster with Auto Mode implicitly enabled
 cluster := eks.NewCluster(this, jsii.String("EksAutoCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 })
 ```
 
@@ -160,7 +160,7 @@ You can also explicitly enable Auto Mode using `defaultCapacityType`:
 ```go
 // Create EKS cluster with Auto Mode explicitly enabled
 cluster := eks.NewCluster(this, jsii.String("EksAutoCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	DefaultCapacityType: eks.DefaultCapacityType_AUTOMODE,
 })
 ```
@@ -176,7 +176,7 @@ These node pools are managed automatically by EKS. You can configure which node 
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("EksAutoCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	DefaultCapacityType: eks.DefaultCapacityType_AUTOMODE,
 	Compute: &ComputeConfig{
 		NodePools: []*string{
@@ -195,7 +195,7 @@ You can disable the default node pools entirely by setting an empty array for `n
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("EksAutoCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	DefaultCapacityType: eks.DefaultCapacityType_AUTOMODE,
 	Compute: &ComputeConfig{
 		NodePools: []*string{
@@ -213,7 +213,7 @@ If you prefer to manage your own node groups instead of using Auto Mode, you can
 ```go
 // Create EKS cluster with traditional managed node group
 cluster := eks.NewCluster(this, jsii.String("EksCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	DefaultCapacityType: eks.DefaultCapacityType_NODEGROUP,
 	DefaultCapacity: jsii.Number(3),
 	 // Number of instances
@@ -225,7 +225,7 @@ You can also create a cluster with no initial capacity and add node groups later
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("EksCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	DefaultCapacityType: eks.DefaultCapacityType_NODEGROUP,
 	DefaultCapacity: jsii.Number(0),
 })
@@ -248,7 +248,7 @@ You can combine Auto Mode with traditional node groups for specific workload req
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	DefaultCapacityType: eks.DefaultCapacityType_AUTOMODE,
 	Compute: &ComputeConfig{
 		NodePools: []*string{
@@ -289,7 +289,7 @@ The scaling tier is configured through the `controlPlaneScalingTier` property us
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("HighPerformanceCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	ControlPlaneScalingTier: eks.ControlPlaneScalingTier_TIER_XL(),
 })
 ```
@@ -319,7 +319,7 @@ By default, when using `DefaultCapacityType.NODEGROUP`, this library will alloca
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	DefaultCapacityType: eks.DefaultCapacityType_NODEGROUP,
 })
 ```
@@ -328,7 +328,7 @@ At cluster instantiation time, you can customize the number of instances and the
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	DefaultCapacityType: eks.DefaultCapacityType_NODEGROUP,
 	DefaultCapacity: jsii.Number(5),
 	DefaultCapacityInstance: ec2.InstanceType_Of(ec2.InstanceClass_M5, ec2.InstanceSize_SMALL),
@@ -341,7 +341,7 @@ Additional customizations are available post instantiation. To apply them, set t
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	DefaultCapacityType: eks.DefaultCapacityType_NODEGROUP,
 	DefaultCapacity: jsii.Number(0),
 })
@@ -446,7 +446,7 @@ The following code defines an Amazon EKS cluster with a default Fargate Profile 
 
 ```go
 cluster := eks.NewFargateCluster(this, jsii.String("MyCluster"), &FargateClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 })
 ```
 
@@ -465,7 +465,7 @@ You can add self-managed capacity to any cluster using the `addAutoScalingGroupC
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 })
 
 cluster.AddAutoScalingGroupCapacity(jsii.String("self-managed-nodes"), &AutoScalingGroupCapacityOptions{
@@ -500,7 +500,7 @@ You can configure the [cluster endpoint access](https://docs.aws.amazon.com/eks/
 
 ```go
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	EndpointAccess: eks.EndpointAccess_PRIVATE(),
 })
 ```
@@ -522,7 +522,7 @@ To deploy the controller on your EKS cluster, configure the `albController` prop
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	AlbController: &AlbControllerOptions{
 		Version: eks.AlbControllerVersion_V3_2_2(),
 	},
@@ -532,11 +532,11 @@ eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
 To provide additional Helm chart values supported by `albController` in CDK, use the `additionalHelmChartValues` property. For example, the following code snippet shows how to set the `enableWafV2` flag:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	AlbController: &AlbControllerOptions{
 		Version: eks.AlbControllerVersion_V3_2_2(),
 		AdditionalHelmChartValues: map[string]interface{}{
@@ -550,7 +550,7 @@ To overwrite an existing ALB controller service account, use the `overwriteServi
 
 ```go
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	AlbController: &AlbControllerOptions{
 		Version: eks.AlbControllerVersion_V3_2_2(),
 		OverwriteServiceAccount: jsii.Boolean(true),
@@ -588,6 +588,90 @@ if cluster.AlbController {
 }
 ```
 
+#### OIDC authentication on Ingresses
+
+Ingresses can authenticate users against an OIDC identity provider with the
+`alb.ingress.kubernetes.io/auth-type: oidc` and `alb.ingress.kubernetes.io/auth-idp-oidc` annotations.
+The OIDC client ID and client secret live in a Kubernetes Secret in the Ingress's namespace (the
+`secretName` in `auth-idp-oidc`), and the controller reads it with its own service account,
+`aws-load-balancer-controller` in `kube-system`. The controller's Helm chart does not grant access to
+secrets by default, so without additional RBAC the Ingress fails to reconcile with an error like
+`secrets "my-oidc-secret" is forbidden: User "system:serviceaccount:kube-system:aws-load-balancer-controller" cannot get resource "secrets"`.
+
+The Secret must be in the Ingress's namespace and contain `clientID` and `clientSecret` keys
+(see [`auth-idp-oidc`](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/annotations/#auth-idp-oidc)).
+Create it outside CDK, for example with `kubectl`, not with `cluster.addManifest`, which would store the
+client secret in plain text in the CloudFormation template. Anything that can create an Ingress in that
+namespace can use the secret for OIDC authentication, so limit who can create Ingresses there.
+
+Grant the controller read access to that one secret with a Role and RoleBinding in the Ingress's namespace:
+
+```go
+var cluster Cluster
+
+
+namespace := "my-app" // namespace of the Ingress and its OIDC secret
+oidcSecretName := "my-oidc-secret" // the `secretName` in `auth-idp-oidc`
+
+cluster.addManifest(jsii.String("AlbControllerOidcSecretAccess"), map[string]interface{}{
+	"apiVersion": jsii.String("rbac.authorization.k8s.io/v1"),
+	"kind": jsii.String("Role"),
+	"metadata": map[string]interface{}{
+		"name": jsii.String("aws-load-balancer-controller-oidc"),
+		"namespace": jsii.String(namespace),
+	},
+	"rules": []interface{}{
+		map[string][]*string{
+			"apiGroups": []*string{
+				jsii.String(""),
+			},
+			"resources": []*string{
+				jsii.String("secrets"),
+			},
+			"resourceNames": []*string{
+				oidcSecretName,
+			},
+			"verbs": []*string{
+				jsii.String("get"),
+				jsii.String("list"),
+				jsii.String("watch"),
+			},
+		},
+	},
+}, map[string]interface{}{
+	"apiVersion": jsii.String("rbac.authorization.k8s.io/v1"),
+	"kind": jsii.String("RoleBinding"),
+	"metadata": map[string]interface{}{
+		"name": jsii.String("aws-load-balancer-controller-oidc"),
+		"namespace": jsii.String(namespace),
+	},
+	"roleRef": map[string]*string{
+		"apiGroup": jsii.String("rbac.authorization.k8s.io"),
+		"kind": jsii.String("Role"),
+		"name": jsii.String("aws-load-balancer-controller-oidc"),
+	},
+	"subjects": []interface{}{
+		map[string]*string{
+			"kind": jsii.String("ServiceAccount"),
+			"name": jsii.String("aws-load-balancer-controller"),
+			"namespace": jsii.String("kube-system"),
+		},
+	},
+})
+```
+
+For several OIDC Ingresses, list every `secretName` in `resourceNames`, with one Role and RoleBinding
+per namespace.
+
+Restricting `list` and `watch` with `resourceNames` works because the controller first does a `get` of the
+secret, then watches it with a `metadata.name` field selector (see
+[Referring to resources](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources)
+in the Kubernetes RBAC documentation). The chart's `clusterSecretsPermissions.allowAllSecrets` value
+grants access to every secret in the cluster instead; the chart recommends a namespaced Role and
+RoleBinding like the one above.
+
+### VPC Support
+
 You can specify the VPC of the cluster using the `vpc` and `vpcSubnets` properties:
 
 ```go
@@ -595,7 +679,7 @@ var vpc Vpc
 
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	Vpc: Vpc,
 	VpcSubnets: []SubnetSelection{
 		&SubnetSelection{
@@ -645,13 +729,13 @@ To create a `Kubectl Handler`, use `kubectlProviderOptions` when creating the cl
 `kubectlLayer` is the only required property in `kubectlProviderOptions`.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 
 
 eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 	},
 })
 ```
@@ -680,13 +764,13 @@ cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("Cluster"), &Clus
 You can configure the environment of this function by specifying it at cluster instantiation. For example, this can be useful in order to configure an http proxy:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 		Environment: map[string]*string{
 			"http_proxy": jsii.String("http://proxy.myproxy.com"),
 		},
@@ -707,13 +791,13 @@ Depending on which version of kubernetes you're targeting, you will need to use 
 the `@aws-cdk/lambda-layer-kubectl-vXY` packages.
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 
 
 cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 	},
 })
 ```
@@ -723,15 +807,15 @@ cluster := eks.NewCluster(this, jsii.String("hello-eks"), &ClusterProps{
 By default, the kubectl provider is configured with 1024MiB of memory. You can use the `memory` option to specify the memory size for the AWS Lambda function:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 
 
 eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 		Memory: awscdk.Size_Gibibytes(jsii.Number(4)),
 	},
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 })
 ```
 
@@ -766,7 +850,7 @@ When you create a cluster, you can specify a `mastersRole`. The `Cluster` constr
 var role Role
 
 eks.NewCluster(this, jsii.String("HelloEKS"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	MastersRole: role,
 })
 ```
@@ -787,7 +871,7 @@ You can use the `secretsEncryptionKey` to configure which key the cluster will u
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
 cluster := eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
 	SecretsEncryptionKey: secretsKey,
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 })
 ```
 
@@ -797,7 +881,7 @@ You can also use a similar configuration for running a cluster built using the F
 secretsKey := kms.NewKey(this, jsii.String("SecretsKey"))
 cluster := eks.NewFargateCluster(this, jsii.String("MyFargateCluster"), &FargateClusterProps{
 	SecretsEncryptionKey: secretsKey,
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 })
 ```
 
@@ -816,11 +900,11 @@ When you create an Amazon EKS cluster, you can configure it to leverage the [EKS
 Once you have identified the on-premises node and pod (optional) CIDRs you will use for your hybrid nodes and the workloads running on them, you can specify them during cluster creation using the `remoteNodeNetworks` and `remotePodNetworks` (optional) properties:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 
 
 eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	RemoteNodeNetworks: []RemoteNodeNetwork{
 		&RemoteNodeNetwork{
 			Cidrs: []*string{
@@ -878,7 +962,7 @@ eks.AccessPolicy_FromAccessPolicyName(jsii.String("AmazonEKSAdminPolicy"), &Acce
 Use `grantAccess()` to grant the AccessPolicy to an IAM principal:
 
 ```go
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 var vpc Vpc
 
 
@@ -893,9 +977,9 @@ eksAdminRole := iam.NewRole(this, jsii.String("EKSAdminRole"), &RoleProps{
 cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	Vpc: Vpc,
 	MastersRole: clusterAdminRole,
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 		Memory: awscdk.Size_Gibibytes(jsii.Number(4)),
 	},
 })
@@ -1029,7 +1113,7 @@ import s3 "github.com/aws/aws-cdk-go/awscdk"
 // or create a new one using an existing issuer url
 var issuerUrl string
 
-import "github.com/cdklabs/awscdk-kubectl-go/kubectlv36"
+import "github.com/cdklabs/awscdk-kubectl-go/kubectlv37"
 
 // you can import an existing provider
 provider := eks.OidcProviderNative_FromOidcProviderArn(this, jsii.String("Provider"), jsii.String("arn:aws:iam::123456:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/AB123456ABC"))
@@ -1041,7 +1125,7 @@ cluster := eks.Cluster_FromClusterAttributes(this, jsii.String("MyCluster"), &Cl
 	ClusterName: jsii.String("Cluster"),
 	OpenIdConnectProvider: provider,
 	KubectlProviderOptions: &KubectlProviderOptions{
-		KubectlLayer: kubectlv36.NewKubectlV36Layer(this, jsii.String("kubectl")),
+		KubectlLayer: kubectlv37.NewKubectlV37Layer(this, jsii.String("kubectl")),
 	},
 })
 
@@ -1310,7 +1394,7 @@ when a cluster is defined:
 
 ```go
 eks.NewCluster(this, jsii.String("MyCluster"), &ClusterProps{
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	Prune: jsii.Boolean(false),
 })
 ```
@@ -1686,7 +1770,7 @@ property. For example:
 ```go
 cluster := eks.NewCluster(this, jsii.String("Cluster"), &ClusterProps{
 	// ...
-	Version: eks.KubernetesVersion_V1_36(),
+	Version: eks.KubernetesVersion_V1_37(),
 	ClusterLogging: []ClusterLoggingTypes{
 		eks.ClusterLoggingTypes_API,
 		eks.ClusterLoggingTypes_AUTHENTICATOR,

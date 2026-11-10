@@ -81,6 +81,11 @@ import (
 //   		DeploymentOption: jsii.String("deploymentOption"),
 //   		DeploymentType: jsii.String("deploymentType"),
 //   	},
+//   	Ec2DeploymentOptions: &Ec2DeploymentOptionsProperty{
+//   		AutoScalingGroupProcessesToSuspend: []*string{
+//   			jsii.String("autoScalingGroupProcessesToSuspend"),
+//   		},
+//   	},
 //   	Ec2TagFilters: []interface{}{
 //   		&EC2TagFilterProperty{
 //   			Key: jsii.String("key"),

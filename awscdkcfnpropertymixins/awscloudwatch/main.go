@@ -8,6 +8,66 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAccessGrantMixinProps",
+		reflect.TypeOf((*CfnAccessGrantMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAccessGrantPropsMixin",
+		reflect.TypeOf((*CfnAccessGrantPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnAccessGrantPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAccessGrantPropsMixin.AccessGrantPrincipalAttributeProperty",
+		reflect.TypeOf((*CfnAccessGrantPropsMixin_AccessGrantPrincipalAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAccessGrantPropsMixin.AccessGrantPrincipalProperty",
+		reflect.TypeOf((*CfnAccessGrantPropsMixin_AccessGrantPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAccessGrantPropsMixin.ResourceScopeProperty",
+		reflect.TypeOf((*CfnAccessGrantPropsMixin_ResourceScopeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAccessGrantPropsMixin.RowScopeProperty",
+		reflect.TypeOf((*CfnAccessGrantPropsMixin_RowScopeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAccessGrantPropsMixin.ScopedActionsProperty",
+		reflect.TypeOf((*CfnAccessGrantPropsMixin_ScopedActionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAccessProfileMixinProps",
+		reflect.TypeOf((*CfnAccessProfileMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAccessProfilePropsMixin",
+		reflect.TypeOf((*CfnAccessProfilePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnAccessProfilePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlarmMixinProps",
 		reflect.TypeOf((*CfnAlarmMixinProps)(nil)).Elem(),
 	)
@@ -136,10 +196,6 @@ func init() {
 		reflect.TypeOf((*CfnAnomalyDetectorPropsMixin_MetricCharacteristicsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAnomalyDetectorPropsMixin.MetricConfigurationProperty",
-		reflect.TypeOf((*CfnAnomalyDetectorPropsMixin_MetricConfigurationProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAnomalyDetectorPropsMixin.MetricDataQueryProperty",
 		reflect.TypeOf((*CfnAnomalyDetectorPropsMixin_MetricDataQueryProperty)(nil)).Elem(),
 	)
@@ -210,6 +266,90 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainAccessGrantForOrganizationMixinProps",
+		reflect.TypeOf((*CfnDomainAccessGrantForOrganizationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainAccessGrantForOrganizationPropsMixin",
+		reflect.TypeOf((*CfnDomainAccessGrantForOrganizationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDomainAccessGrantForOrganizationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainAccessGrantForOrganizationPropsMixin.OrganizationAccessGrantPrincipalProperty",
+		reflect.TypeOf((*CfnDomainAccessGrantForOrganizationPropsMixin_OrganizationAccessGrantPrincipalProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainAccessGrantForOrganizationPropsMixin.PrincipalAttributeProperty",
+		reflect.TypeOf((*CfnDomainAccessGrantForOrganizationPropsMixin_PrincipalAttributeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainForOrganizationMixinProps",
+		reflect.TypeOf((*CfnDomainForOrganizationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainForOrganizationPropsMixin",
+		reflect.TypeOf((*CfnDomainForOrganizationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDomainForOrganizationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainForOrganizationPropsMixin.IdentityCenterConfigurationProperty",
+		reflect.TypeOf((*CfnDomainForOrganizationPropsMixin_IdentityCenterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainForOrganizationPropsMixin.IdentityProviderConfigurationProperty",
+		reflect.TypeOf((*CfnDomainForOrganizationPropsMixin_IdentityProviderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainMixinProps",
+		reflect.TypeOf((*CfnDomainMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainPropsMixin",
+		reflect.TypeOf((*CfnDomainPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDomainPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainPropsMixin.IdentityCenterConfigurationProperty",
+		reflect.TypeOf((*CfnDomainPropsMixin_IdentityCenterConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnDomainPropsMixin.IdentityProviderConfigurationProperty",
+		reflect.TypeOf((*CfnDomainPropsMixin_IdentityProviderConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnInsightRuleMixinProps",
@@ -360,6 +500,26 @@ func init() {
 		reflect.TypeOf((*CfnOTelEnrichmentPropsMixin_OTelEnrichmentMetricSelectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnOmniDashboardMixinProps",
+		reflect.TypeOf((*CfnOmniDashboardMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnOmniDashboardPropsMixin",
+		reflect.TypeOf((*CfnOmniDashboardPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnOmniDashboardPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnResourceMetricsConfigurationMixinProps",
 		reflect.TypeOf((*CfnResourceMetricsConfigurationMixinProps)(nil)).Elem(),
 	)
@@ -382,6 +542,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnResourceMetricsConfigurationPropsMixin.ResourceMetricSelectionProperty",
 		reflect.TypeOf((*CfnResourceMetricsConfigurationPropsMixin_ResourceMetricSelectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnSpaceMixinProps",
+		reflect.TypeOf((*CfnSpaceMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnSpacePropsMixin",
+		reflect.TypeOf((*CfnSpacePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSpacePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnSpacePropsMixin.EncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnSpacePropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnViewMixinProps",

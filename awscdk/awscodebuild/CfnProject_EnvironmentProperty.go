@@ -116,6 +116,9 @@ type CfnProject_EnvironmentProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-fleet
 	//
 	Fleet interface{} `field:"optional" json:"fleet" yaml:"fleet"`
+	// The kernel version of the host operating system for the build environment.
+	//
+	// Allowed values: LINUX_KERNEL_4 | LINUX_KERNEL_6 | LINUX_KERNEL_LATEST.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-hostkernel
 	//
 	HostKernel *string `field:"optional" json:"hostKernel" yaml:"hostKernel"`

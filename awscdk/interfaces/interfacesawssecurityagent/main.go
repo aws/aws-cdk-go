@@ -100,6 +100,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_securityagent.IPrivateConnectionRef",
+		reflect.TypeOf((*IPrivateConnectionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "privateConnectionRef", GoGetter: "PrivateConnectionRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPrivateConnectionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_securityagent.ISecurityRequirementPackRef",
 		reflect.TypeOf((*ISecurityRequirementPackRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -138,6 +154,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_securityagent.PentestReference",
 		reflect.TypeOf((*PentestReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_securityagent.PrivateConnectionReference",
+		reflect.TypeOf((*PrivateConnectionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_securityagent.SecurityRequirementPackReference",

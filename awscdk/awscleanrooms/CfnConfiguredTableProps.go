@@ -28,6 +28,17 @@ import (
 //   			OutputLocation: jsii.String("outputLocation"),
 //   			Region: jsii.String("region"),
 //   		},
+//   		Databricks: &DatabricksTableReferenceProperty{
+//   			ConnectionType: &DatabricksConnectionTypeProperty{
+//   				DeltaSharing: &DatabricksDeltaSharingConnectionProperty{
+//   					DeltaShareEndpoint: jsii.String("deltaShareEndpoint"),
+//   					ShareName: jsii.String("shareName"),
+//   				},
+//   			},
+//   			SchemaName: jsii.String("schemaName"),
+//   			TableName: jsii.String("tableName"),
+//   			WorkspaceUrl: jsii.String("workspaceUrl"),
+//   		},
 //   		Glue: &GlueTableReferenceProperty{
 //   			DatabaseName: jsii.String("databaseName"),
 //   			TableName: jsii.String("tableName"),

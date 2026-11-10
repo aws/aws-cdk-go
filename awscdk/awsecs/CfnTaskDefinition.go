@@ -175,6 +175,16 @@ import (
 //   			ResourceRequirements: []interface{}{
 //   				&ResourceRequirementProperty{
 //   					Type: jsii.String("type"),
+//
+//   					// the properties below are optional
+//   					SharingStrategy: &SharingStrategyProperty{
+//   						NvidiaMps: &NvidiaMpsAllocationProperty{
+//   							Memory: jsii.Number(123),
+//
+//   							// the properties below are optional
+//   							MaxComputePercent: jsii.Number(123),
+//   						},
+//   					},
 //   					Value: jsii.String("value"),
 //   				},
 //   			},

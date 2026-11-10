@@ -691,6 +691,14 @@ func init() {
 		reflect.TypeOf((*CfnCluster_EtcdPlacementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.GatewayApiCrdsProperty",
+		reflect.TypeOf((*CfnCluster_GatewayApiCrdsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_eks.CfnCluster.GatewayApiProperty",
+		reflect.TypeOf((*CfnCluster_GatewayApiProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_eks.CfnCluster.HorizontalPodAutoscalerControllerConfigProperty",
 		reflect.TypeOf((*CfnCluster_HorizontalPodAutoscalerControllerConfigProperty)(nil)).Elem(),
 	)

@@ -26,6 +26,7 @@ import (
 //   	DbStorageType: jsii.String("dbStorageType"),
 //   	DeploymentType: jsii.String("deploymentType"),
 //   	FailoverMode: jsii.String("failoverMode"),
+//   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LogDeliveryConfiguration: &LogDeliveryConfigurationProperty{
 //   		S3Configuration: &S3ConfigurationProperty{
 //   			BucketName: jsii.String("bucketName"),
@@ -69,6 +70,10 @@ type CfnInfluxDBCluster interface {
 	SetAllocatedStorage(val *float64)
 	// The Amazon Resource Name (ARN) that is associated with the InfluxDB cluster.
 	AttrArn() *string
+	// The parameter group actually applied to the InfluxDB cluster.
+	//
+	// When the service applies optimized defaults it creates a system-managed parameter group and this field reflects that effective parameter group, while DbParameterGroupIdentifier continues to reflect the customer-provided parameter group. When no service-managed parameter group is applied, this equals DbParameterGroupIdentifier.
+	AttrEffectiveDbParameterGroupIdentifier() *string
 	// The connection endpoint for the InfluxDB cluster.
 	AttrEndpoint() *string
 	// The engine type for the InfluxDB cluster.
@@ -77,6 +82,10 @@ type CfnInfluxDBCluster interface {
 	AttrId() *string
 	// The Auth parameters secret Amazon Resource name (ARN) that is associated with the InfluxDB cluster.
 	AttrInfluxAuthParametersSecretArn() *string
+	// The number of DB instances that belong to the InfluxDB cluster.
+	AttrMemberCount() *float64
+	// DB cluster member counts grouped by instance mode.
+	AttrMemberModeCounts() awscdk.IResolvable
 	// The timestamp of the next scheduled maintenance event.
 	AttrNextMaintenanceTime() *string
 	// The reader endpoint for the InfluxDB cluster.
@@ -116,6 +125,9 @@ type CfnInfluxDBCluster interface {
 	SetFailoverMode(val *string)
 	// A reference to a InfluxDBCluster resource.
 	InfluxDbClusterRef() *interfacesawstimestream.InfluxDBClusterReference
+	// The customer managed key used to encrypt data in the InfluxDB cluster.
+	KmsKeyId() *string
+	SetKmsKeyId(val *string)
 	// Configuration for sending logs to customer account from the InfluxDB cluster.
 	LogDeliveryConfiguration() interface{}
 	SetLogDeliveryConfiguration(val interface{})
@@ -377,6 +389,16 @@ func (j *jsiiProxy_CfnInfluxDBCluster) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnInfluxDBCluster) AttrEffectiveDbParameterGroupIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEffectiveDbParameterGroupIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnInfluxDBCluster) AttrEndpoint() *string {
 	var returns *string
 	_jsii_.Get(
@@ -412,6 +434,26 @@ func (j *jsiiProxy_CfnInfluxDBCluster) AttrInfluxAuthParametersSecretArn() *stri
 	_jsii_.Get(
 		j,
 		"attrInfluxAuthParametersSecretArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfluxDBCluster) AttrMemberCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrMemberCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfluxDBCluster) AttrMemberModeCounts() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrMemberModeCounts",
 		&returns,
 	)
 	return returns
@@ -582,6 +624,16 @@ func (j *jsiiProxy_CfnInfluxDBCluster) InfluxDbClusterRef() *interfacesawstimest
 	_jsii_.Get(
 		j,
 		"influxDbClusterRef",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfluxDBCluster) KmsKeyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyId",
 		&returns,
 	)
 	return returns
@@ -849,6 +901,14 @@ func (j *jsiiProxy_CfnInfluxDBCluster)SetFailoverMode(val *string) {
 	_jsii_.Set(
 		j,
 		"failoverMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInfluxDBCluster)SetKmsKeyId(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyId",
 		val,
 	)
 }

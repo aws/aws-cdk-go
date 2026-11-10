@@ -60,6 +60,23 @@ import (
 //   			MediaLiveInputArn: jsii.String("mediaLiveInputArn"),
 //   			MediaLivePipelineId: jsii.String("mediaLivePipelineId"),
 //   		},
+//   		SourceEndpoint: &SourceEndpointRouterOutputConfigurationProperty{
+//   			DestinationTransitEncryption: &EndpointEncryptionConfigurationProperty{
+//   				Automatic: automatic,
+//   				SecretsManager: &SecretsManagerEndpointEncryptionConfigurationProperty{
+//   					EncryptionSecret: &EndpointEncryptionSecretConfigurationProperty{
+//   						SecretArn: jsii.String("secretArn"),
+//   					},
+//
+//   					// the properties below are optional
+//   					EncryptionSecretType: jsii.String("encryptionSecretType"),
+//   				},
+//   			},
+//   			EndpointLifecycleManagement: jsii.String("endpointLifecycleManagement"),
+//
+//   			// the properties below are optional
+//   			DestinationTransitEncryptionType: jsii.String("destinationTransitEncryptionType"),
+//   		},
 //   		Standard: &StandardRouterOutputConfigurationProperty{
 //   			NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
 //   			ProtocolConfiguration: &RouterOutputProtocolConfigurationProperty{
@@ -157,6 +174,8 @@ type CfnRouterOutput interface {
 	awscdk.ITaggableV2
 	// The Amazon Resource Name (ARN) of the router output.
 	AttrArn() *string
+	// The Amazon Resource Names (ARNs) of one or more source endpoints that are associated with this router output.
+	AttrAssociatedSourceEndpointArns() *[]*string
 	// The timestamp when the router output was created.
 	AttrCreatedAt() *string
 	// The unique identifier of the router output.
@@ -428,6 +447,16 @@ func (j *jsiiProxy_CfnRouterOutput) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouterOutput) AttrAssociatedSourceEndpointArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrAssociatedSourceEndpointArns",
 		&returns,
 	)
 	return returns

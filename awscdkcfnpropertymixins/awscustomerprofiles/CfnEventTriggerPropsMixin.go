@@ -54,6 +54,26 @@ import (
 //   		},
 //   	},
 //   	EventTriggerName: jsii.String("eventTriggerName"),
+//   	IntentFilterDefinition: &IntentFilterDefinitionProperty{
+//   		Groups: []interface{}{
+//   			&IntentFilterGroupProperty{
+//   				Conditions: []interface{}{
+//   					&IntentFilterConditionProperty{
+//   						ComparisonOperator: jsii.String("comparisonOperator"),
+//   						Intent: &IntentProperty{
+//   							IntentDomain: jsii.String("intentDomain"),
+//   							Type: jsii.String("type"),
+//   						},
+//   						Values: []*string{
+//   							jsii.String("values"),
+//   						},
+//   					},
+//   				},
+//   				LogicalOperator: jsii.String("logicalOperator"),
+//   			},
+//   		},
+//   		LogicalOperator: jsii.String("logicalOperator"),
+//   	},
 //   	ObjectTypeName: jsii.String("objectTypeName"),
 //   	SegmentFilter: jsii.String("segmentFilter"),
 //   	Tags: []CfnTag{

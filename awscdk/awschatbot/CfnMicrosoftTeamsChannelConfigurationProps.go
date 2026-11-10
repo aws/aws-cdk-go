@@ -46,15 +46,15 @@ type CfnMicrosoftTeamsChannelConfigurationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-configurationname
 	//
 	ConfigurationName *string `field:"required" json:"configurationName" yaml:"configurationName"`
-	// The ARN of the IAM role that defines the permissions for  .
+	// The ARN of the IAM role that defines the permissions for Amazon Q Developer .
 	//
-	// This is a user-defined role that  will assume. This is not the service-linked role. For more information, see [IAM Policies for  in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
+	// This is a user-defined role that Amazon Q Developer will assume. This is not the service-linked role. For more information, see [IAM Policies for Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html) .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-iamrolearn
 	//
 	IamRoleArn *string `field:"required" json:"iamRoleArn" yaml:"iamRoleArn"`
-	// The ID of the Microsoft Team authorized with  .
+	// The ID of the Microsoft Team authorized with Amazon Q Developer .
 	//
-	// To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the  in chat applications console. Then you can copy and paste the team ID from the console. For more details, see steps 1-3 in [Tutorial: Get started with Microsoft Teams](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html) in the *in chat applications Administrator Guide* .
+	// To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the Amazon Q Developer in chat applications console. Then you can copy and paste the team ID from the console. For more details, see steps 1-3 in [Tutorial: Get started with Microsoft Teams](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html) in the *Amazon Q Developer in chat applications Administrator Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-teamid
 	//
 	TeamId *string `field:"required" json:"teamId" yaml:"teamId"`
@@ -66,11 +66,11 @@ type CfnMicrosoftTeamsChannelConfigurationProps struct {
 	TeamsChannelId *string `field:"required" json:"teamsChannelId" yaml:"teamsChannelId"`
 	// The ID of the Microsoft Teams tenant.
 	//
-	// To get the tenant ID, you must perform the initial authorization flow with Microsoft Teams in the  in chat applications console. Then you can copy and paste the tenant ID from the console. For more details, see steps 1-3 in [Tutorial: Get started with Microsoft Teams](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html) in the *in chat applications Administrator Guide* .
+	// To get the tenant ID, you must perform the initial authorization flow with Microsoft Teams in the Amazon Q Developer in chat applications console. Then you can copy and paste the tenant ID from the console. For more details, see steps 1-3 in [Tutorial: Get started with Microsoft Teams](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html) in the *Amazon Q Developer in chat applications Administrator Guide* .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-teamstenantid
 	//
 	TeamsTenantId *string `field:"required" json:"teamsTenantId" yaml:"teamsTenantId"`
-	// Links a list of resource ARNs (for example, custom action ARNs) to a Microsoft Teams channel configuration for  .
+	// Links a list of resource ARNs (for example, custom action ARNs) to a Microsoft Teams channel configuration for Amazon Q Developer .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-customizationresourcearns
 	//
 	CustomizationResourceArns *[]*string `field:"optional" json:"customizationResourceArns" yaml:"customizationResourceArns"`
@@ -88,7 +88,7 @@ type CfnMicrosoftTeamsChannelConfigurationProps struct {
 	// Default: - "NONE".
 	//
 	LoggingLevel *string `field:"optional" json:"loggingLevel" yaml:"loggingLevel"`
-	// The ARNs of the SNS topics that deliver notifications to  .
+	// The ARNs of the SNS topics that deliver notifications to Amazon Q Developer .
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-snstopicarns
 	//
 	SnsTopicArns *[]*string `field:"optional" json:"snsTopicArns" yaml:"snsTopicArns"`

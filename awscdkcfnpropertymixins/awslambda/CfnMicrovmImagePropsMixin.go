@@ -64,6 +64,7 @@ import (
 //   		},
 //   		Port: jsii.Number(123),
 //   	},
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Logging: &LoggingProperty{
 //   		CloudWatch: &CloudWatchLoggingProperty{
 //   			LogGroup: jsii.String("logGroup"),

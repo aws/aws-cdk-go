@@ -12,7 +12,7 @@ func (v *jsiiProxy_Validations) validateAddErrorParameters(id *string, message *
 	return nil
 }
 
-func (v *jsiiProxy_Validations) validateAddWarningParameters(id *string, message *string) error {
+func (v *jsiiProxy_Validations) validateAddWarningParameters(id *string, message *string, options *WarningOptions) error {
 	return nil
 }
 

@@ -12,6 +12,9 @@ package awscodebuild
 //   	ComputeTypesAllowed: []*string{
 //   		jsii.String("computeTypesAllowed"),
 //   	},
+//   	FleetsAllowed: []*string{
+//   		jsii.String("fleetsAllowed"),
+//   	},
 //   	MaximumBuildsAllowed: jsii.Number(123),
 //   }
 //
@@ -24,6 +27,9 @@ type CfnProjectPropsMixin_BatchRestrictionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-computetypesallowed
 	//
 	ComputeTypesAllowed *[]*string `field:"optional" json:"computeTypesAllowed" yaml:"computeTypesAllowed"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-fleetsallowed
+	//
+	FleetsAllowed *[]*string `field:"optional" json:"fleetsAllowed" yaml:"fleetsAllowed"`
 	// Specifies the maximum number of builds allowed.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-batchrestrictions.html#cfn-codebuild-project-batchrestrictions-maximumbuildsallowed
 	//

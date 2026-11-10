@@ -48,7 +48,7 @@ type Validations interface {
 	//
 	// The ID will be stored with the `annotation` prefix (e.g. `annotation::MyWarning`).
 	// Use this prefixed ID when calling `acknowledge()` to suppress the warning.
-	AddWarning(id *string, message *string)
+	AddWarning(id *string, message *string, options *WarningOptions)
 }
 
 // The jsii proxy struct for Validations
@@ -126,14 +126,14 @@ func (v *jsiiProxy_Validations) AddPlugins(plugins ...IPolicyValidationPlugin) {
 	)
 }
 
-func (v *jsiiProxy_Validations) AddWarning(id *string, message *string) {
-	if err := v.validateAddWarningParameters(id, message); err != nil {
+func (v *jsiiProxy_Validations) AddWarning(id *string, message *string, options *WarningOptions) {
+	if err := v.validateAddWarningParameters(id, message, options); err != nil {
 		panic(err)
 	}
 	_jsii_.InvokeVoid(
 		v,
 		"addWarning",
-		[]interface{}{id, message},
+		[]interface{}{id, message, options},
 	)
 }
 

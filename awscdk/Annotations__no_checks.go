@@ -32,7 +32,7 @@ func (a *jsiiProxy_Annotations) validateAddWarningParameters(message *string) er
 	return nil
 }
 
-func (a *jsiiProxy_Annotations) validateAddWarningV2Parameters(id *string, message *string) error {
+func (a *jsiiProxy_Annotations) validateAddWarningV2Parameters(id *string, message *string, options *WarningOptions) error {
 	return nil
 }
 

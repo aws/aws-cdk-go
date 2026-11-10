@@ -29,6 +29,7 @@ import (
 //   	DbParameterGroupIdentifier: jsii.String("dbParameterGroupIdentifier"),
 //   	DbStorageType: jsii.String("dbStorageType"),
 //   	DeploymentType: jsii.String("deploymentType"),
+//   	KmsKeyId: jsii.String("kmsKeyId"),
 //   	LogDeliveryConfiguration: &LogDeliveryConfigurationProperty{
 //   		S3Configuration: &S3ConfigurationProperty{
 //   			BucketName: jsii.String("bucketName"),

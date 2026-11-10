@@ -272,6 +272,10 @@ func init() {
 		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_LogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.LogDriverVolumeConfigurationProperty",
+		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_LogDriverVolumeConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnDaemonTaskDefinitionPropsMixin.MountPointProperty",
 		reflect.TypeOf((*CfnDaemonTaskDefinitionPropsMixin_MountPointProperty)(nil)).Elem(),
 	)
@@ -376,6 +380,78 @@ func init() {
 		reflect.TypeOf((*CfnExpressGatewayServicePropsMixin_SecretProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayClusterAssociationsMixinProps",
+		reflect.TypeOf((*CfnGatewayClusterAssociationsMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayClusterAssociationsPropsMixin",
+		reflect.TypeOf((*CfnGatewayClusterAssociationsPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnGatewayClusterAssociationsPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayMixinProps",
+		reflect.TypeOf((*CfnGatewayMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayPropsMixin",
+		reflect.TypeOf((*CfnGatewayPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnGatewayPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayPropsMixin.GatewayAlbTestTrafficRulesProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayAlbTestTrafficRulesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayPropsMixin.GatewayConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayPropsMixin.GatewayElbAccessLogConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayElbAccessLogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayPropsMixin.GatewayElbAccessLogDestinationProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayElbAccessLogDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayPropsMixin.GatewayElbAccessLogS3DestinationProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayElbAccessLogS3DestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayPropsMixin.GatewayElbNetworkConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayElbNetworkConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayPropsMixin.GatewayTestTrafficHeaderProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_GatewayTestTrafficHeaderProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnGatewayPropsMixin.HostSharedAlbConfigurationProperty",
+		reflect.TypeOf((*CfnGatewayPropsMixin_HostSharedAlbConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnPrimaryTaskSetMixinProps",
 		reflect.TypeOf((*CfnPrimaryTaskSetMixinProps)(nil)).Elem(),
 	)
@@ -464,6 +540,22 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_ForceNewDeploymentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.GatewayConnectorFiltersProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_GatewayConnectorFiltersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.GatewayConnectorHealthCheckMatcherProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_GatewayConnectorHealthCheckMatcherProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.GatewayConnectorHealthCheckProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_GatewayConnectorHealthCheckProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.GatewayConnectorProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_GatewayConnectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.HookTimeoutConfigProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_HookTimeoutConfigProperty)(nil)).Elem(),
 	)
@@ -514,6 +606,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.ServiceConnectConfigurationProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_ServiceConnectConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.ServiceConnectContainerConfigurationProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_ServiceConnectContainerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.ServiceConnectServiceProperty",
@@ -668,6 +764,10 @@ func init() {
 		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_MountPointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.NvidiaMpsAllocationProperty",
+		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_NvidiaMpsAllocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.PortMappingProperty",
 		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_PortMappingProperty)(nil)).Elem(),
 	)
@@ -698,6 +798,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.SecretProperty",
 		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_SecretProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.SharingStrategyProperty",
+		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_SharingStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.SystemControlProperty",

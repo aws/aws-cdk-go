@@ -70,6 +70,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	KmsKeyIdentifier: jsii.String("kmsKeyIdentifier"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -126,6 +127,12 @@ type CfnMicrovmImageProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-microvmimage.html#cfn-lambda-microvmimage-resources
 	//
 	Resources interface{} `field:"required" json:"resources" yaml:"resources"`
+	// The customer managed KMS key used to encrypt the MicroVM image configuration at rest.
+	//
+	// When omitted, a service owned key is used.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-microvmimage.html#cfn-lambda-microvmimage-kmskeyidentifier
+	//
+	KmsKeyIdentifier *string `field:"optional" json:"kmsKeyIdentifier" yaml:"kmsKeyIdentifier"`
 	// Key-value pairs to associate with the MicroVM image for organization and management.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-microvmimage.html#cfn-lambda-microvmimage-tags
 	//

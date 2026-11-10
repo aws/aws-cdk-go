@@ -357,6 +357,18 @@ func init() {
 		reflect.TypeOf((*CfnConfiguredTable_ConfiguredTableAnalysisRulePolicyV1Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.DatabricksConnectionTypeProperty",
+		reflect.TypeOf((*CfnConfiguredTable_DatabricksConnectionTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.DatabricksDeltaSharingConnectionProperty",
+		reflect.TypeOf((*CfnConfiguredTable_DatabricksDeltaSharingConnectionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.DatabricksTableReferenceProperty",
+		reflect.TypeOf((*CfnConfiguredTable_DatabricksTableReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cleanrooms.CfnConfiguredTable.DifferentialPrivacyColumnProperty",
 		reflect.TypeOf((*CfnConfiguredTable_DifferentialPrivacyColumnProperty)(nil)).Elem(),
 	)

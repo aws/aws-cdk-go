@@ -100,6 +100,10 @@ func validateCfnGatewayTarget_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnGatewayTarget) validateSetCertificateConfigurationsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGatewayTarget) validateSetCredentialProviderConfigurationsParameters(val interface{}) error {
 	return nil
 }

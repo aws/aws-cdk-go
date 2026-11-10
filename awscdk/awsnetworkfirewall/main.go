@@ -240,6 +240,10 @@ func init() {
 		reflect.TypeOf((*CfnFirewallPolicy_ActionDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy.AddressProperty",
+		reflect.TypeOf((*CfnFirewallPolicy_AddressProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy.CustomActionProperty",
 		reflect.TypeOf((*CfnFirewallPolicy_CustomActionProperty)(nil)).Elem(),
 	)
@@ -266,6 +270,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy.PublishMetricActionProperty",
 		reflect.TypeOf((*CfnFirewallPolicy_PublishMetricActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy.Route53ResolvedIPValidationProperty",
+		reflect.TypeOf((*CfnFirewallPolicy_Route53ResolvedIPValidationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkfirewall.CfnFirewallPolicy.StatefulEngineOptionsProperty",
