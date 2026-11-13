@@ -15,17 +15,17 @@ import (
 // Define an ECR repository.
 //
 // Example:
-//   repository := ecr.NewRepository(this, jsii.String("TestRepository"))
-//
-//   runtime := agentcore.NewRuntime(this, jsii.String("Runtime"), &RuntimeProps{
-//   	AgentRuntimeArtifact: agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0")),
+//   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
+//   	RepositoryName: jsii.String("test-agent-runtime"),
 //   })
 //
-//   logs.NewMetricFilter(this, jsii.String("ToolErrors"), &MetricFilterProps{
-//   	LogGroup: runtime.applicationLogGroup,
-//   	FilterPattern: logs.FilterPattern_StringValue(jsii.String("$.tool_status"), jsii.String("="), jsii.String("error")),
-//   	MetricNamespace: jsii.String("MyApp"),
-//   	MetricName: jsii.String("ToolExecutionErrors"),
+//   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
+//
+//   agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+//   	RuntimeName: jsii.String("test_runtime"),
+//   	AgentRuntimeArtifact: agentRuntimeArtifact,
+//   	PlatformVersion: agentcore.PlatformVersion_V2(),
+//   	MinimumMemory: cdk.Size_Gibibytes(jsii.Number(4)),
 //   })
 //
 type Repository interface {

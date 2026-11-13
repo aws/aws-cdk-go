@@ -7,9 +7,16 @@ import (
 // Bundling options.
 //
 // Example:
-//   nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+//   esbuildArgs := map[string]*string{
+//   	"--resolve-extensions": jsii.String(".js"),
+//   }
+//
+//   nodejs.NewNodejsFunction(this, jsii.String("metadata-handler"), &NodejsFunctionProps{
+//   	Entry: jsii.String("lib/handler.ts"),
 //   	Bundling: &BundlingOptions{
-//   		DockerImage: awscdk.DockerImage_FromBuild(jsii.String("/path/to/Dockerfile")),
+//   		PreCompilation: jsii.Boolean(true),
+//   		Tsconfig: jsii.String("tsconfig.lambda.json"),
+//   		EsbuildArgs: *EsbuildArgs,
 //   	},
 //   })
 //
@@ -265,6 +272,11 @@ type BundlingOptions struct {
 	// This usually is not required unless you are using new experimental features that
 	// are only supported by typescript's `tsc` compiler.
 	// One example of such feature is `emitDecoratorMetadata`.
+	// If imported TypeScript modules are compiled again by esbuild and lose metadata,
+	// use `esbuildArgs` to set `--resolve-extensions` to `.js`, provided the imported
+	// modules have JavaScript output available.
+	// See: https://esbuild.github.io/api/#resolve-extensions
+	//
 	// Default: false.
 	//
 	PreCompilation *bool `field:"optional" json:"preCompilation" yaml:"preCompilation"`

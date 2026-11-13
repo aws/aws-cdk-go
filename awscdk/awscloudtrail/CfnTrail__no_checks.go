@@ -148,6 +148,10 @@ func (j *jsiiProxy_CfnTrail) validateSetIsOrganizationTrailParameters(val interf
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrail) validateSetRecursiveLoggingParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrail) validateSetS3BucketNameParameters(val *string) error {
 	return nil
 }

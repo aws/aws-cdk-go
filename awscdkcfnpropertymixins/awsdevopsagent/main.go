@@ -100,8 +100,20 @@ func init() {
 		reflect.TypeOf((*CfnAssociationPropsMixin_AWSResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.AutomatedTestingCapabilityConfigurationProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_AutomatedTestingCapabilityConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.AzureConfigurationProperty",
 		reflect.TypeOf((*CfnAssociationPropsMixin_AzureConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.CapabilitiesProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_CapabilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.CapabilityConfigurationProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_CapabilityConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.DynatraceConfigurationProperty",
@@ -148,8 +160,24 @@ func init() {
 		reflect.TypeOf((*CfnAssociationPropsMixin_MCPServerSplunkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.NetworkAccessConfigurationProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_NetworkAccessConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.PagerDutyConfigurationProperty",
 		reflect.TypeOf((*CfnAssociationPropsMixin_PagerDutyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.PatternFilterProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_PatternFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.PrivateNetworkAccessProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_PrivateNetworkAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.ReleaseManagementConfigurationProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_ReleaseManagementConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.ServiceConfigurationProperty",
@@ -178,6 +206,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.SourceAwsConfigurationProperty",
 		reflect.TypeOf((*CfnAssociationPropsMixin_SourceAwsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnAssociationPropsMixin.TriggerFilterGroupProperty",
+		reflect.TypeOf((*CfnAssociationPropsMixin_TriggerFilterGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_devopsagent.CfnPrivateConnectionMixinProps",

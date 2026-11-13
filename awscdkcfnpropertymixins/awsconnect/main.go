@@ -1036,6 +1036,10 @@ func init() {
 		reflect.TypeOf((*CfnTaskTemplatePropsMixin_ConstraintsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_connect.CfnTaskTemplatePropsMixin.ContactHooksProperty",
+		reflect.TypeOf((*CfnTaskTemplatePropsMixin_ContactHooksProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_connect.CfnTaskTemplatePropsMixin.DefaultFieldValueProperty",
 		reflect.TypeOf((*CfnTaskTemplatePropsMixin_DefaultFieldValueProperty)(nil)).Elem(),
 	)

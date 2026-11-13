@@ -6,6 +6,14 @@ type CfnLoadBalancerNlbAccessLogsRecordFields string
 
 const (
 	// Experimental.
+	CfnLoadBalancerNlbAccessLogsRecordFields_TLS_VERIFY_STATUS CfnLoadBalancerNlbAccessLogsRecordFields = "TLS_VERIFY_STATUS"
+	// Experimental.
+	CfnLoadBalancerNlbAccessLogsRecordFields_LEAF_CLIENT_CERT_SUBJECT CfnLoadBalancerNlbAccessLogsRecordFields = "LEAF_CLIENT_CERT_SUBJECT"
+	// Experimental.
+	CfnLoadBalancerNlbAccessLogsRecordFields_LEAF_CLIENT_CERT_VALIDITY CfnLoadBalancerNlbAccessLogsRecordFields = "LEAF_CLIENT_CERT_VALIDITY"
+	// Experimental.
+	CfnLoadBalancerNlbAccessLogsRecordFields_LEAF_CLIENT_CERT_SERIAL_NUMBER CfnLoadBalancerNlbAccessLogsRecordFields = "LEAF_CLIENT_CERT_SERIAL_NUMBER"
+	// Experimental.
 	CfnLoadBalancerNlbAccessLogsRecordFields_TYPE CfnLoadBalancerNlbAccessLogsRecordFields = "TYPE"
 	// Experimental.
 	CfnLoadBalancerNlbAccessLogsRecordFields_VERSION CfnLoadBalancerNlbAccessLogsRecordFields = "VERSION"

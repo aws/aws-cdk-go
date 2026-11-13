@@ -25,6 +25,14 @@ import (
 //   cfnConnectAttachmentPropsMixin := awscdkcfnpropertymixins.Aws_networkmanager.NewCfnConnectAttachmentPropsMixin(&CfnConnectAttachmentMixinProps{
 //   	CoreNetworkId: jsii.String("coreNetworkId"),
 //   	EdgeLocation: jsii.String("edgeLocation"),
+//   	NatGatewayRules: []interface{}{
+//   		&NatRuleProperty{
+//   			MatchSourceCidr: jsii.String("matchSourceCidr"),
+//   			NatCidr: jsii.String("natCidr"),
+//   			RuleNumber: jsii.Number(123),
+//   		},
+//   	},
+//   	NatGatewaySupport: jsii.String("natGatewaySupport"),
 //   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
 //   	Options: &ConnectAttachmentOptionsProperty{
 //   		Protocol: jsii.String("protocol"),

@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnTableBucket) validateSetEncryptionConfigurationParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnTableBucket) validateSetLoggingConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTableBucket) validateSetMetricsConfigurationParameters(val interface{}) error {
 	return nil
 }

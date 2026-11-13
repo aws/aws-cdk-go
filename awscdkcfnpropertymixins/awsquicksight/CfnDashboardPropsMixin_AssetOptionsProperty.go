@@ -9,17 +9,37 @@ package awsquicksight
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   assetOptionsProperty := &AssetOptionsProperty{
+//   	CustomActionDefaults: &VisualCustomActionDefaultsProperty{
+//   		HighlightOperation: &VisualHighlightOperationProperty{
+//   			Trigger: jsii.String("trigger"),
+//   		},
+//   	},
 //   	ExcludedDataSetArns: []*string{
 //   		jsii.String("excludedDataSetArns"),
 //   	},
 //   	QBusinessInsightsStatus: jsii.String("qBusinessInsightsStatus"),
 //   	Timezone: jsii.String("timezone"),
+//   	VisualMessages: &VisualMessagesProperty{
+//   		NoDataMessage: &VisualMessageConfigurationProperty{
+//   			Description: jsii.String("description"),
+//   			DescriptionVisibility: jsii.String("descriptionVisibility"),
+//   			Enabled: jsii.Boolean(false),
+//   			LinkText: jsii.String("linkText"),
+//   			LinkUrl: jsii.String("linkUrl"),
+//   			LinkVisibility: jsii.String("linkVisibility"),
+//   			Title: jsii.String("title"),
+//   			TitleVisibility: jsii.String("titleVisibility"),
+//   		},
+//   	},
 //   	WeekStart: jsii.String("weekStart"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html
 //
 type CfnDashboardPropsMixin_AssetOptionsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html#cfn-quicksight-dashboard-assetoptions-customactiondefaults
+	//
+	CustomActionDefaults interface{} `field:"optional" json:"customActionDefaults" yaml:"customActionDefaults"`
 	// A list of dataset ARNS to exclude from Dashboard Q&A.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html#cfn-quicksight-dashboard-assetoptions-excludeddatasetarns
 	//
@@ -32,6 +52,9 @@ type CfnDashboardPropsMixin_AssetOptionsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html#cfn-quicksight-dashboard-assetoptions-timezone
 	//
 	Timezone *string `field:"optional" json:"timezone" yaml:"timezone"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html#cfn-quicksight-dashboard-assetoptions-visualmessages
+	//
+	VisualMessages interface{} `field:"optional" json:"visualMessages" yaml:"visualMessages"`
 	// Determines the week start day for an analysis.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html#cfn-quicksight-dashboard-assetoptions-weekstart
 	//

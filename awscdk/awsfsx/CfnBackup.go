@@ -20,8 +20,6 @@ import (
 //
 //   cfnBackup := awscdk.Aws_fsx.NewCfnBackup(this, jsii.String("MyCfnBackup"), &CfnBackupProps{
 //   	FileSystemId: jsii.String("fileSystemId"),
-//
-//   	// the properties below are optional
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -514,9 +512,6 @@ func NewCfnBackup_Override(c CfnBackup, scope constructs.Construct, id *string, 
 }
 
 func (j *jsiiProxy_CfnBackup)SetFileSystemId(val *string) {
-	if err := j.validateSetFileSystemIdParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"fileSystemId",

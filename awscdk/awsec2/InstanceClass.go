@@ -297,6 +297,10 @@ const (
 	//
 	// This instance class is currently only available in US East (Ohio), US East (N. Virginia), US West (Oregon), and Europe (Frankfurt).
 	InstanceClass_C8G InstanceClass = "C8G"
+	// Compute optimized instances for high performance computing, 9th generation with Graviton5 processors.
+	InstanceClass_COMPUTE9_GRAVITON InstanceClass = "COMPUTE9_GRAVITON"
+	// Compute optimized instances for high performance computing, 9th generation with Graviton5 processors.
+	InstanceClass_C9G InstanceClass = "C9G"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and local NVME drive.
 	InstanceClass_COMPUTE6_GRAVITON2_NVME_DRIVE InstanceClass = "COMPUTE6_GRAVITON2_NVME_DRIVE"
 	// Compute optimized instances for high performance computing, 6th generation with Graviton2 processors and local NVME drive.

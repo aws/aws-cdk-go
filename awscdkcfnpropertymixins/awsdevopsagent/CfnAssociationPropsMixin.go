@@ -23,6 +23,26 @@ import (
 //
 //   cfnAssociationPropsMixin := awscdkcfnpropertymixins.Aws_devopsagent.NewCfnAssociationPropsMixin(&CfnAssociationMixinProps{
 //   	AgentSpaceId: jsii.String("agentSpaceId"),
+//   	Capabilities: &CapabilitiesProperty{
+//   		CodeChangeRiskAnalysis: &CapabilityConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			TriggerFilterGroups: []interface{}{
+//   				&TriggerFilterGroupProperty{
+//   					Events: []*string{
+//   						jsii.String("events"),
+//   					},
+//   					TargetBranches: &PatternFilterProperty{
+//   						Patterns: []*string{
+//   							jsii.String("patterns"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		CodeChangeRiskAnalysisAutomatedTesting: &AutomatedTestingCapabilityConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
+//   	},
 //   	Configuration: &ServiceConfigurationProperty{
 //   		Aws: &AWSConfigurationProperty{
 //   			AccountId: jsii.String("accountId"),
@@ -116,6 +136,15 @@ import (
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   			Services: []*string{
 //   				jsii.String("services"),
+//   			},
+//   		},
+//   		ReleaseManagement: &ReleaseManagementConfigurationProperty{
+//   			Name: jsii.String("name"),
+//   			NetworkAccess: &NetworkAccessConfigurationProperty{
+//   				PrivateAccess: &PrivateNetworkAccessProperty{
+//   					PrivateConnectionName: jsii.String("privateConnectionName"),
+//   					RuntimeRoleArn: jsii.String("runtimeRoleArn"),
+//   				},
 //   			},
 //   		},
 //   		ServiceNow: &ServiceNowConfigurationProperty{

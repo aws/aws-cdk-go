@@ -34,11 +34,23 @@ package awsbatch
 //   			},
 //   			SecurityContext: &SecurityContextProperty{
 //   				AllowPrivilegeEscalation: jsii.Boolean(false),
+//   				Capabilities: &EksContainerLinuxCapabilitiesProperty{
+//   					Add: []*string{
+//   						jsii.String("add"),
+//   					},
+//   					Drop: []*string{
+//   						jsii.String("drop"),
+//   					},
+//   				},
 //   				Privileged: jsii.Boolean(false),
 //   				ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   				RunAsGroup: jsii.Number(123),
 //   				RunAsNonRoot: jsii.Boolean(false),
 //   				RunAsUser: jsii.Number(123),
+//   				SeccompProfile: &EksSeccompProfileProperty{
+//   					LocalhostProfile: jsii.String("localhostProfile"),
+//   					Type: jsii.String("type"),
+//   				},
 //   			},
 //   			VolumeMounts: []interface{}{
 //   				&EksContainerVolumeMountProperty{
@@ -80,11 +92,23 @@ package awsbatch
 //   			},
 //   			SecurityContext: &SecurityContextProperty{
 //   				AllowPrivilegeEscalation: jsii.Boolean(false),
+//   				Capabilities: &EksContainerLinuxCapabilitiesProperty{
+//   					Add: []*string{
+//   						jsii.String("add"),
+//   					},
+//   					Drop: []*string{
+//   						jsii.String("drop"),
+//   					},
+//   				},
 //   				Privileged: jsii.Boolean(false),
 //   				ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   				RunAsGroup: jsii.Number(123),
 //   				RunAsNonRoot: jsii.Boolean(false),
 //   				RunAsUser: jsii.Number(123),
+//   				SeccompProfile: &EksSeccompProfileProperty{
+//   					LocalhostProfile: jsii.String("localhostProfile"),
+//   					Type: jsii.String("type"),
+//   				},
 //   			},
 //   			VolumeMounts: []interface{}{
 //   				&EksContainerVolumeMountProperty{
@@ -98,6 +122,16 @@ package awsbatch
 //   	},
 //   	Metadata: &MetadataProperty{
 //   		Labels: labels,
+//   	},
+//   	SecurityContext: &EksPodSecurityContextProperty{
+//   		FsGroup: jsii.Number(123),
+//   		RunAsGroup: jsii.Number(123),
+//   		RunAsNonRoot: jsii.Boolean(false),
+//   		RunAsUser: jsii.Number(123),
+//   		SeccompProfile: &EksSeccompProfileProperty{
+//   			LocalhostProfile: jsii.String("localhostProfile"),
+//   			Type: jsii.String("type"),
+//   		},
 //   	},
 //   	ServiceAccountName: jsii.String("serviceAccountName"),
 //   	ShareProcessNamespace: jsii.Boolean(false),
@@ -144,6 +178,9 @@ type CfnJobDefinitionPropsMixin_PodPropertiesProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-metadata
 	//
 	Metadata interface{} `field:"optional" json:"metadata" yaml:"metadata"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-securitycontext
+	//
+	SecurityContext interface{} `field:"optional" json:"securityContext" yaml:"securityContext"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html#cfn-batch-jobdefinition-podproperties-serviceaccountname
 	//
 	ServiceAccountName *string `field:"optional" json:"serviceAccountName" yaml:"serviceAccountName"`

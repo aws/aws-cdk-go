@@ -10,9 +10,13 @@ package awsmedialive
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var autoFilterSettings interface{}
+//   var noneFilterSettings interface{}
+//
 //   h264SettingsProperty := &H264SettingsProperty{
 //   	AdaptiveQuantization: jsii.String("adaptiveQuantization"),
 //   	AfdSignaling: jsii.String("afdSignaling"),
+//   	AllowExplicitWeightedPrediction: jsii.String("allowExplicitWeightedPrediction"),
 //   	Bitrate: jsii.Number(123),
 //   	BufFillPct: jsii.Number(123),
 //   	BufSize: jsii.Number(123),
@@ -27,8 +31,13 @@ package awsmedialive
 //   	},
 //   	EntropyEncoding: jsii.String("entropyEncoding"),
 //   	FilterSettings: &H264FilterSettingsProperty{
+//   		AutoFilterSettings: autoFilterSettings,
 //   		BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
 //   			PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   			Strength: jsii.String("strength"),
+//   		},
+//   		NoneFilterSettings: noneFilterSettings,
+//   		PerceptualFilterSettings: &PerceptualFilterSettingsProperty{
 //   			Strength: jsii.String("strength"),
 //   		},
 //   		TemporalFilterSettings: &TemporalFilterSettingsProperty{
@@ -92,6 +101,9 @@ type CfnChannelPropsMixin_H264SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-afdsignaling
 	//
 	AfdSignaling *string `field:"optional" json:"afdSignaling" yaml:"afdSignaling"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-allowexplicitweightedprediction
+	//
+	AllowExplicitWeightedPrediction *string `field:"optional" json:"allowExplicitWeightedPrediction" yaml:"allowExplicitWeightedPrediction"`
 	// The average bitrate in bits/second.
 	//
 	// This is required when the rate control mode is VBR or CBR. It isn't used for QVBR. In a Microsoft Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.

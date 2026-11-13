@@ -41,7 +41,7 @@ type CfnCustomVerificationEmailTemplateMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-customverificationemailtemplate.html#cfn-ses-customverificationemailtemplate-successredirectionurl
 	//
 	SuccessRedirectionUrl *string `field:"optional" json:"successRedirectionUrl" yaml:"successRedirectionUrl"`
-	// The tags (keys and values) associated with the tenant.
+	// The tags (keys and values) associated with the custom verification email template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-customverificationemailtemplate.html#cfn-ses-customverificationemailtemplate-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

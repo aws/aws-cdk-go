@@ -104,6 +104,14 @@ func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetCoreNetworkIdParameter
 	return nil
 }
 
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetNatGatewayRulesParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetNatSystemRouteSupportParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnSiteToSiteVpnAttachment) validateSetProposedSegmentChangeParameters(val interface{}) error {
 	return nil
 }

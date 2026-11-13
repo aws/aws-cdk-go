@@ -180,6 +180,10 @@ func init() {
 		reflect.TypeOf((*CfnChannelPropsMixin_Av1ColorSpaceSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.Av1FilterSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_Av1FilterSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.Av1SettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_Av1SettingsProperty)(nil)).Elem(),
 	)
@@ -666,6 +670,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.PassThroughSettingsProperty",
 		reflect.TypeOf((*CfnChannelPropsMixin_PassThroughSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.PerceptualFilterSettingsProperty",
+		reflect.TypeOf((*CfnChannelPropsMixin_PerceptualFilterSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_medialive.CfnChannelPropsMixin.PipelineLockingSettingsProperty",

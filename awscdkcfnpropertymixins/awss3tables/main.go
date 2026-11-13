@@ -72,8 +72,16 @@ func init() {
 		reflect.TypeOf((*CfnTableBucketPropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.LoggingConfigurationProperty",
+		reflect.TypeOf((*CfnTableBucketPropsMixin_LoggingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.MetricsConfigurationProperty",
 		reflect.TypeOf((*CfnTableBucketPropsMixin_MetricsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.PartitionedPrefixProperty",
+		reflect.TypeOf((*CfnTableBucketPropsMixin_PartitionedPrefixProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.ReplicationConfigurationProperty",
@@ -90,6 +98,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.StorageClassConfigurationProperty",
 		reflect.TypeOf((*CfnTableBucketPropsMixin_StorageClassConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.TargetObjectKeyFormatProperty",
+		reflect.TypeOf((*CfnTableBucketPropsMixin_TargetObjectKeyFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_s3tables.CfnTableBucketPropsMixin.UnreferencedFileRemovalProperty",

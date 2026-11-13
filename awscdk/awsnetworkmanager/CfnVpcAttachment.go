@@ -26,6 +26,14 @@ import (
 //   	VpcArn: jsii.String("vpcArn"),
 //
 //   	// the properties below are optional
+//   	NatGatewayRules: []interface{}{
+//   		&NatRuleProperty{
+//   			MatchSourceCidr: jsii.String("matchSourceCidr"),
+//   			NatCidr: jsii.String("natCidr"),
+//   			RuleNumber: jsii.Number(123),
+//   		},
+//   	},
+//   	NatGatewaySupport: jsii.String("natGatewaySupport"),
 //   	Options: &VpcOptionsProperty{
 //   		ApplianceModeSupport: jsii.Boolean(false),
 //   		DnsSupport: jsii.Boolean(false),
@@ -74,6 +82,10 @@ type CfnVpcAttachment interface {
 	AttrEdgeLocation() *string
 	// Errors from the last modification of the attachment.
 	AttrLastModificationErrors() *[]*string
+	// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules.
+	//
+	// On VPC attachments this is always true and is not configurable. Not available in AWS GovCloud (US).
+	AttrNatSystemRouteSupport() awscdk.IResolvable
 	// The name of the network function group.
 	AttrNetworkFunctionGroupName() *string
 	// The ID of the VPC attachment owner.
@@ -116,6 +128,12 @@ type CfnVpcAttachment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The complete set of NAT gateway rules on the attachment.
+	NatGatewayRules() interface{}
+	SetNatGatewayRules(val interface{})
+	// Whether NAT gateway support is enabled on the attachment.
+	NatGatewaySupport() *string
+	SetNatGatewaySupport(val *string)
 	// The tree node.
 	Node() constructs.Node
 	// Options for creating the VPC attachment.
@@ -403,6 +421,16 @@ func (j *jsiiProxy_CfnVpcAttachment) AttrLastModificationErrors() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVpcAttachment) AttrNatSystemRouteSupport() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrNatSystemRouteSupport",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVpcAttachment) AttrNetworkFunctionGroupName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -558,6 +586,26 @@ func (j *jsiiProxy_CfnVpcAttachment) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcAttachment) NatGatewayRules() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"natGatewayRules",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcAttachment) NatGatewaySupport() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"natGatewaySupport",
 		&returns,
 	)
 	return returns
@@ -730,6 +778,25 @@ func (j *jsiiProxy_CfnVpcAttachment)SetCoreNetworkId(val *string) {
 	_jsii_.Set(
 		j,
 		"coreNetworkId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcAttachment)SetNatGatewayRules(val interface{}) {
+	if err := j.validateSetNatGatewayRulesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"natGatewayRules",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVpcAttachment)SetNatGatewaySupport(val *string) {
+	_jsii_.Set(
+		j,
+		"natGatewaySupport",
 		val,
 	)
 }

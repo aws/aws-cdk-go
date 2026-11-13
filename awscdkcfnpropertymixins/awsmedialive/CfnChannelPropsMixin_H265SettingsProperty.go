@@ -10,7 +10,9 @@ package awsmedialive
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var autoFilterSettings interface{}
 //   var hlg2020Settings interface{}
+//   var noneFilterSettings interface{}
 //
 //   h265SettingsProperty := &H265SettingsProperty{
 //   	AdaptiveQuantization: jsii.String("adaptiveQuantization"),
@@ -36,8 +38,13 @@ package awsmedialive
 //   	},
 //   	Deblocking: jsii.String("deblocking"),
 //   	FilterSettings: &H265FilterSettingsProperty{
+//   		AutoFilterSettings: autoFilterSettings,
 //   		BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
 //   			PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   			Strength: jsii.String("strength"),
+//   		},
+//   		NoneFilterSettings: noneFilterSettings,
+//   		PerceptualFilterSettings: &PerceptualFilterSettingsProperty{
 //   			Strength: jsii.String("strength"),
 //   		},
 //   		TemporalFilterSettings: &TemporalFilterSettingsProperty{

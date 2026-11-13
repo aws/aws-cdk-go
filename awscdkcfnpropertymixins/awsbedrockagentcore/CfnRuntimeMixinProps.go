@@ -136,6 +136,18 @@ package awsbedrockagentcore
 //   			},
 //   		},
 //   	},
+//   	HooksConfiguration: &RuntimeHooksConfigurationProperty{
+//   		BuildProperty: &BuildLifecycleHooksProperty{
+//   			Warmup: &LifecycleHookProperty{
+//   				Action: &LifecycleHookActionProperty{
+//   					HttpPost: &HttpPostLifecycleHookActionProperty{
+//   						Path: jsii.String("path"),
+//   						Port: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		IdleRuntimeSessionTimeout: jsii.Number(123),
 //   		MaxLifetime: jsii.Number(123),
@@ -156,6 +168,11 @@ package awsbedrockagentcore
 //   	RequestHeaderConfiguration: &RequestHeaderConfigurationProperty{
 //   		RequestHeaderAllowlist: []*string{
 //   			jsii.String("requestHeaderAllowlist"),
+//   		},
+//   	},
+//   	ResourceConfigurations: []interface{}{
+//   		&ResourceConfigurationProperty{
+//   			MinimumMemoryInMiB: jsii.Number(123),
 //   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),
@@ -195,6 +212,10 @@ type CfnRuntimeMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-filesystemconfigurations
 	//
 	FilesystemConfigurations interface{} `field:"optional" json:"filesystemConfigurations" yaml:"filesystemConfigurations"`
+	// Lifecycle hooks that the platform runs at fixed points in the runtime's lifecycle.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-hooksconfiguration
+	//
+	HooksConfiguration interface{} `field:"optional" json:"hooksConfiguration" yaml:"hooksConfiguration"`
 	// Configuration for managing the lifecycle of runtime sessions and resources.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-lifecycleconfiguration
 	//
@@ -216,6 +237,10 @@ type CfnRuntimeMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-requestheaderconfiguration
 	//
 	RequestHeaderConfiguration interface{} `field:"optional" json:"requestHeaderConfiguration" yaml:"requestHeaderConfiguration"`
+	// List of resource configurations for an agent runtime.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-resourceconfigurations
+	//
+	ResourceConfigurations interface{} `field:"optional" json:"resourceConfigurations" yaml:"resourceConfigurations"`
 	// The Amazon Resource Name (ARN) for for the role.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-rolearn
 	//

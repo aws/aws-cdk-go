@@ -74,7 +74,7 @@ type InstanceProps struct {
 	//
 	CreditSpecification CpuCredits `field:"optional" json:"creditSpecification" yaml:"creditSpecification"`
 	// Whether "Detailed Monitoring" is enabled for this instance Keep in mind that Detailed Monitoring results in extra charges.
-	// See: http://aws.amazon.com/cloudwatch/pricing/
+	// See: https://aws.amazon.com/cloudwatch/pricing/
 	//
 	// Default: - false.
 	//

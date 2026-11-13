@@ -10,8 +10,10 @@ package awsmedialive
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var autoFilterSettings interface{}
 //   var colorSpacePassthroughSettings interface{}
 //   var hlg2020Settings interface{}
+//   var noneFilterSettings interface{}
 //   var rec601Settings interface{}
 //   var rec709Settings interface{}
 //
@@ -32,6 +34,13 @@ package awsmedialive
 //   				Hlg2020Settings: hlg2020Settings,
 //   				Rec601Settings: rec601Settings,
 //   				Rec709Settings: rec709Settings,
+//   			},
+//   			FilterSettings: &Av1FilterSettingsProperty{
+//   				AutoFilterSettings: autoFilterSettings,
+//   				NoneFilterSettings: noneFilterSettings,
+//   				PerceptualFilterSettings: &PerceptualFilterSettingsProperty{
+//   					Strength: jsii.String("strength"),
+//   				},
 //   			},
 //   			FixedAfd: jsii.String("fixedAfd"),
 //   			FramerateDenominator: jsii.Number(123),
@@ -69,6 +78,7 @@ package awsmedialive
 //   		H264Settings: &H264SettingsProperty{
 //   			AdaptiveQuantization: jsii.String("adaptiveQuantization"),
 //   			AfdSignaling: jsii.String("afdSignaling"),
+//   			AllowExplicitWeightedPrediction: jsii.String("allowExplicitWeightedPrediction"),
 //   			Bitrate: jsii.Number(123),
 //   			BufFillPct: jsii.Number(123),
 //   			BufSize: jsii.Number(123),
@@ -83,8 +93,13 @@ package awsmedialive
 //   			},
 //   			EntropyEncoding: jsii.String("entropyEncoding"),
 //   			FilterSettings: &H264FilterSettingsProperty{
+//   				AutoFilterSettings: autoFilterSettings,
 //   				BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
 //   					PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   					Strength: jsii.String("strength"),
+//   				},
+//   				NoneFilterSettings: noneFilterSettings,
+//   				PerceptualFilterSettings: &PerceptualFilterSettingsProperty{
 //   					Strength: jsii.String("strength"),
 //   				},
 //   				TemporalFilterSettings: &TemporalFilterSettingsProperty{
@@ -156,8 +171,13 @@ package awsmedialive
 //   			},
 //   			Deblocking: jsii.String("deblocking"),
 //   			FilterSettings: &H265FilterSettingsProperty{
+//   				AutoFilterSettings: autoFilterSettings,
 //   				BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
 //   					PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   					Strength: jsii.String("strength"),
+//   				},
+//   				NoneFilterSettings: noneFilterSettings,
+//   				PerceptualFilterSettings: &PerceptualFilterSettingsProperty{
 //   					Strength: jsii.String("strength"),
 //   				},
 //   				TemporalFilterSettings: &TemporalFilterSettingsProperty{

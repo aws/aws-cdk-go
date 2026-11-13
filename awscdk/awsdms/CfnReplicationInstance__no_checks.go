@@ -84,6 +84,10 @@ func (c *jsiiProxy_CfnReplicationInstance) validateValidatePropertiesParameters(
 	return nil
 }
 
+func validateCfnReplicationInstance_ArnForReplicationInstanceParameters(resource interfacesawsdms.IReplicationInstanceRef) error {
+	return nil
+}
+
 func validateCfnReplicationInstance_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

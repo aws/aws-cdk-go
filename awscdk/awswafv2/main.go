@@ -336,6 +336,18 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_ChallengeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.ConnectedAccountChainConfigProperty",
+		reflect.TypeOf((*CfnRuleGroup_ConnectedAccountChainConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.ConnectedAccountConfigProperty",
+		reflect.TypeOf((*CfnRuleGroup_ConnectedAccountConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.ConnectedAccountPriceProperty",
+		reflect.TypeOf((*CfnRuleGroup_ConnectedAccountPriceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnRuleGroup.CookieMatchPatternProperty",
 		reflect.TypeOf((*CfnRuleGroup_CookieMatchPatternProperty)(nil)).Elem(),
 	)
@@ -702,6 +714,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.ClientSideActionProperty",
 		reflect.TypeOf((*CfnWebACL_ClientSideActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ConnectedAccountChainConfigProperty",
+		reflect.TypeOf((*CfnWebACL_ConnectedAccountChainConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ConnectedAccountConfigProperty",
+		reflect.TypeOf((*CfnWebACL_ConnectedAccountConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_wafv2.CfnWebACL.ConnectedAccountPriceProperty",
+		reflect.TypeOf((*CfnWebACL_ConnectedAccountPriceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_wafv2.CfnWebACL.CookieMatchPatternProperty",

@@ -22,6 +22,15 @@ import (
 //
 //   cfnSiteToSiteVpnAttachmentPropsMixin := awscdkcfnpropertymixins.Aws_networkmanager.NewCfnSiteToSiteVpnAttachmentPropsMixin(&CfnSiteToSiteVpnAttachmentMixinProps{
 //   	CoreNetworkId: jsii.String("coreNetworkId"),
+//   	NatGatewayRules: []interface{}{
+//   		&NatRuleProperty{
+//   			MatchSourceCidr: jsii.String("matchSourceCidr"),
+//   			NatCidr: jsii.String("natCidr"),
+//   			RuleNumber: jsii.Number(123),
+//   		},
+//   	},
+//   	NatGatewaySupport: jsii.String("natGatewaySupport"),
+//   	NatSystemRouteSupport: jsii.Boolean(false),
 //   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),

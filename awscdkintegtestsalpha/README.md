@@ -252,7 +252,7 @@ awscdkintegtestsalpha.NewAwsApiCall(myAppStack, jsii.String("GetObject"), &AwsAp
 
 ### DeployAssert
 
-Assertions are created by using the `DeployAssert` construct. This construct creates it's own `Stack` separate from
+Assertions are created by using the `DeployAssert` construct. This construct creates its own `Stack` separate from
 any stacks that you create as part of your integration tests. This `Stack` is treated differently from other stacks
 by the `integ-runner` tool. For example, this stack will not be diffed by the `integ-runner`.
 

@@ -19,6 +19,15 @@ import (
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		SseAlgorithm: jsii.String("sseAlgorithm"),
 //   	},
+//   	LoggingConfiguration: &LoggingConfigurationProperty{
+//   		TargetBucket: jsii.String("targetBucket"),
+//   		TargetObjectKeyFormat: &TargetObjectKeyFormatProperty{
+//   			PartitionedPrefix: &PartitionedPrefixProperty{
+//   				PartitionDateSource: jsii.String("partitionDateSource"),
+//   			},
+//   		},
+//   		TargetPrefix: jsii.String("targetPrefix"),
+//   	},
 //   	MetricsConfiguration: &MetricsConfigurationProperty{
 //   		Status: jsii.String("status"),
 //   	},
@@ -63,6 +72,10 @@ type CfnTableBucketProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-encryptionconfiguration
 	//
 	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	// Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a table bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-loggingconfiguration
+	//
+	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`
 	// Settings governing the Metric configuration for the table bucket.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3tables-tablebucket.html#cfn-s3tables-tablebucket-metricsconfiguration
 	//

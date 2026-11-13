@@ -29,6 +29,14 @@ import (
 //   	TransportAttachmentId: jsii.String("transportAttachmentId"),
 //
 //   	// the properties below are optional
+//   	NatGatewayRules: []interface{}{
+//   		&NatRuleProperty{
+//   			MatchSourceCidr: jsii.String("matchSourceCidr"),
+//   			NatCidr: jsii.String("natCidr"),
+//   			RuleNumber: jsii.Number(123),
+//   		},
+//   	},
+//   	NatGatewaySupport: jsii.String("natGatewaySupport"),
 //   	NetworkFunctionGroupName: jsii.String("networkFunctionGroupName"),
 //   	ProposedSegmentChange: &ProposedSegmentChangeProperty{
 //   		AttachmentPolicyRuleNumber: jsii.Number(123),
@@ -70,6 +78,10 @@ type CfnConnectAttachment interface {
 	AttrCreatedAt() *string
 	// Errors from the last modification of the attachment.
 	AttrLastModificationErrors() *[]*string
+	// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules.
+	//
+	// On Connect attachments this is always false and is not configurable. Not available in AWS GovCloud (US).
+	AttrNatSystemRouteSupport() awscdk.IResolvable
 	// The ID of the Connect attachment owner.
 	AttrOwnerAccountId() *string
 	// The attachment to move from one network function group to another.
@@ -115,6 +127,12 @@ type CfnConnectAttachment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The complete set of NAT gateway rules on the attachment.
+	NatGatewayRules() interface{}
+	SetNatGatewayRules(val interface{})
+	// Whether NAT gateway support is enabled on the attachment.
+	NatGatewaySupport() *string
+	SetNatGatewaySupport(val *string)
 	// The name of the network function group.
 	NetworkFunctionGroupName() *string
 	SetNetworkFunctionGroupName(val *string)
@@ -390,6 +408,16 @@ func (j *jsiiProxy_CfnConnectAttachment) AttrLastModificationErrors() *[]*string
 	return returns
 }
 
+func (j *jsiiProxy_CfnConnectAttachment) AttrNatSystemRouteSupport() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrNatSystemRouteSupport",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConnectAttachment) AttrOwnerAccountId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -555,6 +583,26 @@ func (j *jsiiProxy_CfnConnectAttachment) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectAttachment) NatGatewayRules() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"natGatewayRules",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConnectAttachment) NatGatewaySupport() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"natGatewaySupport",
 		&returns,
 	)
 	return returns
@@ -728,6 +776,25 @@ func (j *jsiiProxy_CfnConnectAttachment)SetEdgeLocation(val *string) {
 	_jsii_.Set(
 		j,
 		"edgeLocation",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnectAttachment)SetNatGatewayRules(val interface{}) {
+	if err := j.validateSetNatGatewayRulesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"natGatewayRules",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConnectAttachment)SetNatGatewaySupport(val *string) {
+	_jsii_.Set(
+		j,
+		"natGatewaySupport",
 		val,
 	)
 }

@@ -154,6 +154,18 @@ import (
 //   			},
 //   		},
 //   	},
+//   	HooksConfiguration: &RuntimeHooksConfigurationProperty{
+//   		BuildProperty: &BuildLifecycleHooksProperty{
+//   			Warmup: &LifecycleHookProperty{
+//   				Action: &LifecycleHookActionProperty{
+//   					HttpPost: &HttpPostLifecycleHookActionProperty{
+//   						Path: jsii.String("path"),
+//   						Port: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		IdleRuntimeSessionTimeout: jsii.Number(123),
 //   		MaxLifetime: jsii.Number(123),
@@ -174,6 +186,11 @@ import (
 //   	RequestHeaderConfiguration: &RequestHeaderConfigurationProperty{
 //   		RequestHeaderAllowlist: []*string{
 //   			jsii.String("requestHeaderAllowlist"),
+//   		},
+//   	},
+//   	ResourceConfigurations: []interface{}{
+//   		&ResourceConfigurationProperty{
+//   			MinimumMemoryInMiB: jsii.Number(123),
 //   		},
 //   	},
 //   	RoleArn: jsii.String("roleArn"),

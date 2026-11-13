@@ -164,6 +164,62 @@ func init() {
 		reflect.TypeOf((*CfnAlarmPropsMixin_WarmUpConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertMixinProps",
+		reflect.TypeOf((*CfnAlertMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin",
+		reflect.TypeOf((*CfnAlertPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnAlertPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin.ConditionProperty",
+		reflect.TypeOf((*CfnAlertPropsMixin_ConditionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin.EvaluationProperty",
+		reflect.TypeOf((*CfnAlertPropsMixin_EvaluationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin.NoDataProperty",
+		reflect.TypeOf((*CfnAlertPropsMixin_NoDataProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin.NotificationRuleProperty",
+		reflect.TypeOf((*CfnAlertPropsMixin_NotificationRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin.QueryProperty",
+		reflect.TypeOf((*CfnAlertPropsMixin_QueryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin.RuleProperty",
+		reflect.TypeOf((*CfnAlertPropsMixin_RuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin.TargetProperty",
+		reflect.TypeOf((*CfnAlertPropsMixin_TargetProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin.TelemetryRuleProperty",
+		reflect.TypeOf((*CfnAlertPropsMixin_TelemetryRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAlertPropsMixin.TriggerProperty",
+		reflect.TypeOf((*CfnAlertPropsMixin_TriggerProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cloudwatch.CfnAnomalyDetectorMixinProps",
 		reflect.TypeOf((*CfnAnomalyDetectorMixinProps)(nil)).Elem(),
 	)

@@ -2157,6 +2157,28 @@ func InterfaceVpcEndpointAwsService_IAM_IDENTITY_CENTER() InterfaceVpcEndpointAw
 	return returns
 }
 
+func InterfaceVpcEndpointAwsService_IAM_IDENTITY_CENTER_SSO() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"IAM_IDENTITY_CENTER_SSO",
+		&returns,
+	)
+	return returns
+}
+
+func InterfaceVpcEndpointAwsService_IAM_IDENTITY_CENTER_SSO_OAUTH() InterfaceVpcEndpointAwsService {
+	_init_.Initialize()
+	var returns InterfaceVpcEndpointAwsService
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_ec2.InterfaceVpcEndpointAwsService",
+		"IAM_IDENTITY_CENTER_SSO_OAUTH",
+		&returns,
+	)
+	return returns
+}
+
 func InterfaceVpcEndpointAwsService_IAM_ROLES_ANYWHERE() InterfaceVpcEndpointAwsService {
 	_init_.Initialize()
 	var returns InterfaceVpcEndpointAwsService

@@ -18,6 +18,7 @@ import (
 //   	RuntimeName: jsii.String("test_runtime"),
 //   	AgentRuntimeArtifact: agentRuntimeArtifact,
 //   	PlatformVersion: agentcore.PlatformVersion_V2(),
+//   	MinimumMemory: cdk.Size_Gibibytes(jsii.Number(4)),
 //   })
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-bedrockagentcore-runtime.html#cfn-bedrockagentcore-runtime-platformversion

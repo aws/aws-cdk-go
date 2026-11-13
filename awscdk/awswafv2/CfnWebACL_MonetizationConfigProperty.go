@@ -9,6 +9,22 @@ package awswafv2
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   monetizationConfigProperty := &MonetizationConfigProperty{
+//   	ConnectedAccountConfigs: []interface{}{
+//   		&ConnectedAccountConfigProperty{
+//   			ConnectedAccountArn: jsii.String("connectedAccountArn"),
+//   			PaymentNetworks: []interface{}{
+//   				&ConnectedAccountChainConfigProperty{
+//   					Chain: jsii.String("chain"),
+//   					Prices: []interface{}{
+//   						&ConnectedAccountPriceProperty{
+//   							Amount: jsii.String("amount"),
+//   							Currency: jsii.String("currency"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	CryptoConfig: &CryptoConfigProperty{
 //   		PaymentNetworks: []interface{}{
 //   			&PaymentNetworkProperty{
@@ -29,6 +45,12 @@ package awswafv2
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-monetizationconfig.html
 //
 type CfnWebACL_MonetizationConfigProperty struct {
+	// List of connected account configurations.
+	//
+	// A connected account delegates deposit-address provisioning to the payments provider instead of specifying a wallet directly.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-monetizationconfig.html#cfn-wafv2-webacl-monetizationconfig-connectedaccountconfigs
+	//
+	ConnectedAccountConfigs interface{} `field:"optional" json:"connectedAccountConfigs" yaml:"connectedAccountConfigs"`
 	// Configures cryptocurrency payment settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-monetizationconfig.html#cfn-wafv2-webacl-monetizationconfig-cryptoconfig
 	//

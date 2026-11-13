@@ -10,14 +10,11 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var elasticIpConfiguration interface{}
-//
 //   configProperty := &ConfigProperty{
 //   	VpcEgressConfiguration: &VpcEgressConfigurationProperty{
 //   		AssociatedComputeResourceTypes: []*string{
 //   			jsii.String("associatedComputeResourceTypes"),
 //   		},
-//   		ElasticIpConfiguration: elasticIpConfiguration,
 //   		NetworkProtocol: jsii.String("networkProtocol"),
 //   		SecurityGroupIds: []*string{
 //   			jsii.String("securityGroupIds"),

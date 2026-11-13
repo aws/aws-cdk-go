@@ -356,6 +356,10 @@ func init() {
 		"@aws-cdk/mixins-preview.aws_elasticloadbalancingv2.mixins.CfnLoadBalancerNlbAccessLogsRecordFields",
 		reflect.TypeOf((*CfnLoadBalancerNlbAccessLogsRecordFields)(nil)).Elem(),
 		map[string]interface{}{
+			"TLS_VERIFY_STATUS": CfnLoadBalancerNlbAccessLogsRecordFields_TLS_VERIFY_STATUS,
+			"LEAF_CLIENT_CERT_SUBJECT": CfnLoadBalancerNlbAccessLogsRecordFields_LEAF_CLIENT_CERT_SUBJECT,
+			"LEAF_CLIENT_CERT_VALIDITY": CfnLoadBalancerNlbAccessLogsRecordFields_LEAF_CLIENT_CERT_VALIDITY,
+			"LEAF_CLIENT_CERT_SERIAL_NUMBER": CfnLoadBalancerNlbAccessLogsRecordFields_LEAF_CLIENT_CERT_SERIAL_NUMBER,
 			"TYPE": CfnLoadBalancerNlbAccessLogsRecordFields_TYPE,
 			"VERSION": CfnLoadBalancerNlbAccessLogsRecordFields_VERSION,
 			"TIME": CfnLoadBalancerNlbAccessLogsRecordFields_TIME,

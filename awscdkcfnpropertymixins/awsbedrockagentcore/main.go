@@ -1744,6 +1744,10 @@ func init() {
 		reflect.TypeOf((*CfnRuntimePropsMixin_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.BuildLifecycleHooksProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_BuildLifecycleHooksProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.CapacityProviderConfigurationProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_CapacityProviderConfigurationProperty)(nil)).Elem(),
 	)
@@ -1788,8 +1792,20 @@ func init() {
 		reflect.TypeOf((*CfnRuntimePropsMixin_HostingEnvironmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.HttpPostLifecycleHookActionProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_HttpPostLifecycleHookActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.LifecycleConfigurationProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_LifecycleConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.LifecycleHookActionProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_LifecycleHookActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.LifecycleHookProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_LifecycleHookProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.ManagedVpcResourceProperty",
@@ -1810,6 +1826,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.RequestHeaderConfigurationProperty",
 		reflect.TypeOf((*CfnRuntimePropsMixin_RequestHeaderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.ResourceConfigurationProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_ResourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.RuntimeHooksConfigurationProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_RuntimeHooksConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_bedrockagentcore.CfnRuntimePropsMixin.S3FilesAccessPointConfigurationProperty",

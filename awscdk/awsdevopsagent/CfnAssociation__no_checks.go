@@ -104,6 +104,10 @@ func (j *jsiiProxy_CfnAssociation) validateSetAgentSpaceIdParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnAssociation) validateSetCapabilitiesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAssociation) validateSetConfigurationParameters(val interface{}) error {
 	return nil
 }

@@ -8,7 +8,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces/interfacesawsec2"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -183,30 +182,6 @@ func (c *jsiiProxy_CfnFlowLog) validateReplaceDependencyParameters(target awscdk
 func (c *jsiiProxy_CfnFlowLog) validateValidatePropertiesParameters(_properties interface{}) error {
 	if _properties == nil {
 		return fmt.Errorf("parameter _properties is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnFlowLog_ArnForFlowLogParameters(resource interfacesawsec2.IFlowLogRef) error {
-	if resource == nil {
-		return fmt.Errorf("parameter resource is required, but nil was provided")
-	}
-
-	return nil
-}
-
-func validateCfnFlowLog_FromFlowLogIdParameters(scope constructs.Construct, id *string, flowLogId *string) error {
-	if scope == nil {
-		return fmt.Errorf("parameter scope is required, but nil was provided")
-	}
-
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
-	}
-
-	if flowLogId == nil {
-		return fmt.Errorf("parameter flowLogId is required, but nil was provided")
 	}
 
 	return nil

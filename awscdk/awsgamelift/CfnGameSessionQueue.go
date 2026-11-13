@@ -35,6 +35,16 @@ import (
 //   			jsii.String("allowedLocations"),
 //   		},
 //   	},
+//   	LogConfiguration: &LogConfigurationProperty{
+//   		DeliveryDestinations: []interface{}{
+//   			&DeliveryDestinationProperty{
+//   				LogDestination: jsii.String("logDestination"),
+//
+//   				// the properties below are optional
+//   				DestinationArn: jsii.String("destinationArn"),
+//   			},
+//   		},
+//   	},
 //   	NotificationTarget: jsii.String("notificationTarget"),
 //   	PlayerLatencyPolicies: []interface{}{
 //   		&PlayerLatencyPolicyProperty{
@@ -94,6 +104,9 @@ type CfnGameSessionQueue interface {
 	SetFilterConfiguration(val interface{})
 	// A reference to a GameSessionQueue resource.
 	GameSessionQueueRef() *interfacesawsgamelift.GameSessionQueueReference
+	// A policy that determines where a game session queue's placement logs are delivered.
+	LogConfiguration() interface{}
+	SetLogConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -439,6 +452,16 @@ func (j *jsiiProxy_CfnGameSessionQueue) GameSessionQueueRef() *interfacesawsgame
 	return returns
 }
 
+func (j *jsiiProxy_CfnGameSessionQueue) LogConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"logConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGameSessionQueue) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -625,6 +648,17 @@ func (j *jsiiProxy_CfnGameSessionQueue)SetFilterConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"filterConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGameSessionQueue)SetLogConfiguration(val interface{}) {
+	if err := j.validateSetLogConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"logConfiguration",
 		val,
 	)
 }

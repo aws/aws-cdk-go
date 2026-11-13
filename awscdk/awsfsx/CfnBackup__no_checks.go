@@ -108,10 +108,6 @@ func validateCfnBackup_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnBackup) validateSetFileSystemIdParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnBackup) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

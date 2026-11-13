@@ -265,7 +265,7 @@ nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
 			jsii.String("./my-shim.js"),
 			jsii.String("./other-shim.js"),
 		},
-		 // allows to automatically replace a global variable with an import from another file
+		 // allows you to automatically replace a global variable with an import from another file
 		EsbuildArgs: map[string]interface{}{
 			 // Pass additional arguments to esbuild
 			"--log-limit": jsii.String("0"),
@@ -361,7 +361,37 @@ nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
 })
 ```
 
-Note: A [`tsconfig.json` file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) is required
+A [`tsconfig.json` file](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) is required.
+Enable the required compiler options (for example, `experimentalDecorators` and
+`emitDecoratorMetadata`) in that file. You can select a configuration explicitly with
+`bundling.tsconfig`.
+
+Pre-compilation passes the JavaScript entry point emitted by `tsc` to `esbuild`.
+However, when an extensionless import can resolve to both a TypeScript source file
+and its emitted JavaScript file, [esbuild prefers TypeScript by default](https://esbuild.github.io/api/#resolve-extensions).
+It may therefore compile an imported module again without emitting decorator metadata.
+If your bundle loses metadata from imported modules, configure resolution to use the
+JavaScript emitted by `tsc`:
+
+```go
+esbuildArgs := map[string]*string{
+	"--resolve-extensions": jsii.String(".js"),
+}
+
+nodejs.NewNodejsFunction(this, jsii.String("metadata-handler"), &NodejsFunctionProps{
+	Entry: jsii.String("lib/handler.ts"),
+	Bundling: &BundlingOptions{
+		PreCompilation: jsii.Boolean(true),
+		Tsconfig: jsii.String("tsconfig.lambda.json"),
+		EsbuildArgs: *EsbuildArgs,
+	},
+})
+```
+
+This setting changes extensionless import resolution throughout the bundle. Ensure
+all required modules have JavaScript output available; extend the list if your
+application also needs other file extensions. Pre-compilation does not invoke your
+package's build script, so its commands and configuration can produce different output.
 
 ## Customizing Docker bundling
 

@@ -97,6 +97,7 @@ import (
 //   	IsMultiRegionTrail: jsii.Boolean(false),
 //   	IsOrganizationTrail: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	RecursiveLogging: jsii.Boolean(false),
 //   	S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   	SnsTopicName: jsii.String("snsTopicName"),
 //   	Tags: []CfnTag{
@@ -180,6 +181,9 @@ type CfnTrail interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	// Specifies whether recursive logging is enabled for the trail.
+	RecursiveLogging() interface{}
+	SetRecursiveLogging(val interface{})
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -614,6 +618,16 @@ func (j *jsiiProxy_CfnTrail) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrail) RecursiveLogging() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"recursiveLogging",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrail) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -873,6 +887,17 @@ func (j *jsiiProxy_CfnTrail)SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrail)SetRecursiveLogging(val interface{}) {
+	if err := j.validateSetRecursiveLoggingParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"recursiveLogging",
 		val,
 	)
 }

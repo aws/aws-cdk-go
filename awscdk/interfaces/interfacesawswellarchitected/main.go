@@ -16,6 +16,14 @@ func init() {
 		reflect.TypeOf((*AgentGoalReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_wellarchitected.AgentOrganizationalProfileReference",
+		reflect.TypeOf((*AgentOrganizationalProfileReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_wellarchitected.AgentProfilePolicyReference",
+		reflect.TypeOf((*AgentProfilePolicyReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_wellarchitected.AgentProfileReference",
 		reflect.TypeOf((*AgentProfileReference)(nil)).Elem(),
 	)
@@ -46,6 +54,38 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAgentGoalRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_wellarchitected.IAgentOrganizationalProfileRef",
+		reflect.TypeOf((*IAgentOrganizationalProfileRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "agentOrganizationalProfileRef", GoGetter: "AgentOrganizationalProfileRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAgentOrganizationalProfileRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_wellarchitected.IAgentProfilePolicyRef",
+		reflect.TypeOf((*IAgentProfilePolicyRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "agentProfilePolicyRef", GoGetter: "AgentProfilePolicyRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAgentProfilePolicyRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

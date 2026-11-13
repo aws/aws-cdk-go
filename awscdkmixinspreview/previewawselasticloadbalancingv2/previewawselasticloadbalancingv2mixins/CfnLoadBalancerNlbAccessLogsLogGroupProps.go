@@ -9,7 +9,7 @@ package previewawselasticloadbalancingv2mixins
 //   cfnLoadBalancerNlbAccessLogsLogGroupProps := &CfnLoadBalancerNlbAccessLogsLogGroupProps{
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnLoadBalancerNlbAccessLogsOutputFormat.LogGroup_PLAIN,
 //   	RecordFields: []CfnLoadBalancerNlbAccessLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnLoadBalancerNlbAccessLogsRecordFields_TYPE,
+//   		awscdkmixinspreview.*Mixins.CfnLoadBalancerNlbAccessLogsRecordFields_TLS_VERIFY_STATUS,
 //   	},
 //   }
 //

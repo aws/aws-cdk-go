@@ -26,6 +26,15 @@ import (
 //   	EdgeLocations: []*string{
 //   		jsii.String("edgeLocations"),
 //   	},
+//   	NatGatewayRules: []interface{}{
+//   		&NatRuleProperty{
+//   			MatchSourceCidr: jsii.String("matchSourceCidr"),
+//   			NatCidr: jsii.String("natCidr"),
+//   			RuleNumber: jsii.Number(123),
+//   		},
+//   	},
+//   	NatGatewaySupport: jsii.String("natGatewaySupport"),
+//   	NatSystemRouteSupport: jsii.Boolean(false),
 //   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{

@@ -42,6 +42,7 @@ import (
 //   		TemplateId: jsii.String("templateId"),
 //   		Version: jsii.String("version"),
 //   	},
+//   	LaunchTemplateMode: jsii.String("launchTemplateMode"),
 //   	Name: jsii.String("name"),
 //   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
 //   		Stages: &NodeLifecycleStagesProperty{
@@ -89,6 +90,9 @@ import (
 //   		ScriptCachingPolicy: jsii.String("scriptCachingPolicy"),
 //   	},
 //   	PurchaseOption: jsii.String("purchaseOption"),
+//   	SecurityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
 //   	SlurmConfiguration: &SlurmConfigurationProperty{
 //   		GresCustomSettings: []interface{}{
 //   			map[string]*string{
@@ -106,6 +110,7 @@ import (
 //   	SpotOptions: &SpotOptionsProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   	},
+//   	SshKeyName: jsii.String("sshKeyName"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -158,6 +163,9 @@ type CfnComputeNodeGroup interface {
 	// A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
 	InstanceConfigs() interface{}
 	SetInstanceConfigs(val interface{})
+	// How AWS PCS gets the launch template for the compute node group.
+	LaunchTemplateMode() *string
+	SetLaunchTemplateMode(val *string)
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -187,12 +195,18 @@ type CfnComputeNodeGroup interface {
 	// Specifies the boundaries of the compute node group auto scaling.
 	ScalingConfiguration() interface{}
 	SetScalingConfiguration(val interface{})
+	// The IDs of the EC2 security groups configured directly on the compute node group.
+	SecurityGroupIds() *[]*string
+	SetSecurityGroupIds(val *[]*string)
 	// Additional options related to the Slurm scheduler.
 	SlurmConfiguration() interface{}
 	SetSlurmConfiguration(val interface{})
 	// Additional configuration when you specify `SPOT` as the `purchaseOption` for the `CreateComputeNodeGroup` API action.
 	SpotOptions() interface{}
 	SetSpotOptions(val interface{})
+	// The name of the EC2 key pair configured directly on the compute node group.
+	SshKeyName() *string
+	SetSshKeyName(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -557,6 +571,16 @@ func (j *jsiiProxy_CfnComputeNodeGroup) InstanceConfigs() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComputeNodeGroup) LaunchTemplateMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"launchTemplateMode",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComputeNodeGroup) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -627,6 +651,16 @@ func (j *jsiiProxy_CfnComputeNodeGroup) ScalingConfiguration() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComputeNodeGroup) SecurityGroupIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"securityGroupIds",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComputeNodeGroup) SlurmConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -642,6 +676,16 @@ func (j *jsiiProxy_CfnComputeNodeGroup) SpotOptions() interface{} {
 	_jsii_.Get(
 		j,
 		"spotOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnComputeNodeGroup) SshKeyName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sshKeyName",
 		&returns,
 	)
 	return returns
@@ -779,6 +823,14 @@ func (j *jsiiProxy_CfnComputeNodeGroup)SetInstanceConfigs(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnComputeNodeGroup)SetLaunchTemplateMode(val *string) {
+	_jsii_.Set(
+		j,
+		"launchTemplateMode",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnComputeNodeGroup)SetName(val *string) {
 	_jsii_.Set(
 		j,
@@ -817,6 +869,14 @@ func (j *jsiiProxy_CfnComputeNodeGroup)SetScalingConfiguration(val interface{}) 
 	)
 }
 
+func (j *jsiiProxy_CfnComputeNodeGroup)SetSecurityGroupIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"securityGroupIds",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnComputeNodeGroup)SetSlurmConfiguration(val interface{}) {
 	if err := j.validateSetSlurmConfigurationParameters(val); err != nil {
 		panic(err)
@@ -835,6 +895,14 @@ func (j *jsiiProxy_CfnComputeNodeGroup)SetSpotOptions(val interface{}) {
 	_jsii_.Set(
 		j,
 		"spotOptions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComputeNodeGroup)SetSshKeyName(val *string) {
+	_jsii_.Set(
+		j,
+		"sshKeyName",
 		val,
 	)
 }

@@ -55,7 +55,7 @@ type CfnRegistryPropsMixin_CustomJWTAuthorizerConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-agentregistry-registry-customjwtauthorizerconfiguration.html#cfn-agentregistry-registry-customjwtauthorizerconfiguration-customclaims
 	//
 	CustomClaims interface{} `field:"optional" json:"customClaims" yaml:"customClaims"`
-	// The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+	// The OpenID Connect discovery or OAuth 2.0 authorization server metadata URL used to retrieve the identity provider's metadata and signing keys. The URL contains /.well-known/openid-configuration or /.well-known/oauth-authorization-server, respectively.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-agentregistry-registry-customjwtauthorizerconfiguration.html#cfn-agentregistry-registry-customjwtauthorizerconfiguration-discoveryurl
 	//
 	DiscoveryUrl *string `field:"optional" json:"discoveryUrl" yaml:"discoveryUrl"`

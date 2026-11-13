@@ -136,6 +136,18 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_ChallengeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.ConnectedAccountChainConfigProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_ConnectedAccountChainConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.ConnectedAccountConfigProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_ConnectedAccountConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.ConnectedAccountPriceProperty",
+		reflect.TypeOf((*CfnRuleGroupPropsMixin_ConnectedAccountPriceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnRuleGroupPropsMixin.CookieMatchPatternProperty",
 		reflect.TypeOf((*CfnRuleGroupPropsMixin_CookieMatchPatternProperty)(nil)).Elem(),
 	)
@@ -442,6 +454,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.ClientSideActionProperty",
 		reflect.TypeOf((*CfnWebACLPropsMixin_ClientSideActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.ConnectedAccountChainConfigProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_ConnectedAccountChainConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.ConnectedAccountConfigProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_ConnectedAccountConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.ConnectedAccountPriceProperty",
+		reflect.TypeOf((*CfnWebACLPropsMixin_ConnectedAccountPriceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wafv2.CfnWebACLPropsMixin.CookieMatchPatternProperty",

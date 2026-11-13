@@ -172,6 +172,10 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinitionPropsMixin_EksContainerEnvironmentVariableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnJobDefinitionPropsMixin.EksContainerLinuxCapabilitiesProperty",
+		reflect.TypeOf((*CfnJobDefinitionPropsMixin_EksContainerLinuxCapabilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnJobDefinitionPropsMixin.EksContainerProperty",
 		reflect.TypeOf((*CfnJobDefinitionPropsMixin_EksContainerProperty)(nil)).Elem(),
 	)
@@ -184,8 +188,16 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinitionPropsMixin_EksPersistentVolumeClaimProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnJobDefinitionPropsMixin.EksPodSecurityContextProperty",
+		reflect.TypeOf((*CfnJobDefinitionPropsMixin_EksPodSecurityContextProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnJobDefinitionPropsMixin.EksPropertiesProperty",
 		reflect.TypeOf((*CfnJobDefinitionPropsMixin_EksPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_batch.CfnJobDefinitionPropsMixin.EksSeccompProfileProperty",
+		reflect.TypeOf((*CfnJobDefinitionPropsMixin_EksSeccompProfileProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_batch.CfnJobDefinitionPropsMixin.EksSecretProperty",

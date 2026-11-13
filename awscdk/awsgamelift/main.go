@@ -626,6 +626,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "logConfiguration", GoGetter: "LogConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -660,6 +661,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue.DeliveryDestinationProperty",
+		reflect.TypeOf((*CfnGameSessionQueue_DeliveryDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue.DestinationProperty",
 		reflect.TypeOf((*CfnGameSessionQueue_DestinationProperty)(nil)).Elem(),
 	)
@@ -670,6 +675,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue.GameSessionQueueDestinationProperty",
 		reflect.TypeOf((*CfnGameSessionQueue_GameSessionQueueDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue.LogConfigurationProperty",
+		reflect.TypeOf((*CfnGameSessionQueue_LogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_gamelift.CfnGameSessionQueue.PlayerLatencyPolicyProperty",

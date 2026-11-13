@@ -81,6 +81,7 @@ import (
 //   	IsMultiRegionTrail: jsii.Boolean(false),
 //   	IsOrganizationTrail: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	RecursiveLogging: jsii.Boolean(false),
 //   	S3BucketName: jsii.String("s3BucketName"),
 //   	S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   	SnsTopicName: jsii.String("snsTopicName"),
@@ -193,6 +194,12 @@ type CfnTrailMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid
 	//
 	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// Specifies whether recursive logging is enabled for the trail.
+	//
+	// When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-recursivelogging
+	//
+	RecursiveLogging interface{} `field:"optional" json:"recursiveLogging" yaml:"recursiveLogging"`
 	// Specifies the name of the Amazon S3 bucket designated for publishing log files.
 	//
 	// See [Amazon S3 Bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) .

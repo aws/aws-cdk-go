@@ -27,6 +27,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCoreNetworkArn", GoGetter: "AttrCoreNetworkArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastModificationErrors", GoGetter: "AttrLastModificationErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "attrNatSystemRouteSupport", GoGetter: "AttrNatSystemRouteSupport"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccountId", GoGetter: "AttrOwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrProposedNetworkFunctionGroupChange", GoGetter: "AttrProposedNetworkFunctionGroupChange"},
 			_jsii_.MemberProperty{JsiiProperty: "attrProposedSegmentChange", GoGetter: "AttrProposedSegmentChange"},
@@ -48,6 +49,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "natGatewayRules", GoGetter: "NatGatewayRules"},
+			_jsii_.MemberProperty{JsiiProperty: "natGatewaySupport", GoGetter: "NatGatewaySupport"},
 			_jsii_.MemberProperty{JsiiProperty: "networkFunctionGroupName", GoGetter: "NetworkFunctionGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -83,6 +86,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment.ConnectAttachmentOptionsProperty",
 		reflect.TypeOf((*CfnConnectAttachment_ConnectAttachmentOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment.NatRuleProperty",
+		reflect.TypeOf((*CfnConnectAttachment_NatRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnConnectAttachment.ProposedNetworkFunctionGroupChangeProperty",
@@ -571,6 +578,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "natGatewayRules", GoGetter: "NatGatewayRules"},
+			_jsii_.MemberProperty{JsiiProperty: "natGatewaySupport", GoGetter: "NatGatewaySupport"},
+			_jsii_.MemberProperty{JsiiProperty: "natSystemRouteSupport", GoGetter: "NatSystemRouteSupport"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
@@ -597,6 +607,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggableV2)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnDirectConnectGatewayAttachment.NatRuleProperty",
+		reflect.TypeOf((*CfnDirectConnectGatewayAttachment_NatRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnDirectConnectGatewayAttachment.ProposedNetworkFunctionGroupChangeProperty",
@@ -908,6 +922,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "natGatewayRules", GoGetter: "NatGatewayRules"},
+			_jsii_.MemberProperty{JsiiProperty: "natGatewaySupport", GoGetter: "NatGatewaySupport"},
+			_jsii_.MemberProperty{JsiiProperty: "natSystemRouteSupport", GoGetter: "NatSystemRouteSupport"},
 			_jsii_.MemberProperty{JsiiProperty: "networkFunctionGroupName", GoGetter: "NetworkFunctionGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -939,6 +956,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnSiteToSiteVpnAttachment.NatRuleProperty",
+		reflect.TypeOf((*CfnSiteToSiteVpnAttachment_NatRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnSiteToSiteVpnAttachment.ProposedNetworkFunctionGroupChangeProperty",
@@ -1183,6 +1204,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEdgeLocation", GoGetter: "AttrEdgeLocation"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLastModificationErrors", GoGetter: "AttrLastModificationErrors"},
+			_jsii_.MemberProperty{JsiiProperty: "attrNatSystemRouteSupport", GoGetter: "AttrNatSystemRouteSupport"},
 			_jsii_.MemberProperty{JsiiProperty: "attrNetworkFunctionGroupName", GoGetter: "AttrNetworkFunctionGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrOwnerAccountId", GoGetter: "AttrOwnerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrProposedNetworkFunctionGroupChange", GoGetter: "AttrProposedNetworkFunctionGroupChange"},
@@ -1203,6 +1225,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "natGatewayRules", GoGetter: "NatGatewayRules"},
+			_jsii_.MemberProperty{JsiiProperty: "natGatewaySupport", GoGetter: "NatGatewaySupport"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "options", GoGetter: "Options"},
@@ -1235,6 +1259,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkITaggable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_networkmanager.CfnVpcAttachment.NatRuleProperty",
+		reflect.TypeOf((*CfnVpcAttachment_NatRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_networkmanager.CfnVpcAttachment.ProposedNetworkFunctionGroupChangeProperty",

@@ -10,8 +10,6 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var elasticIpConfiguration interface{}
-//
 //   configProperty := &ConfigProperty{
 //   	VpcEgressConfiguration: &VpcEgressConfigurationProperty{
 //   		AssociatedComputeResourceTypes: []*string{
@@ -24,9 +22,6 @@ package awslambda
 //   		SubnetIds: []*string{
 //   			jsii.String("subnetIds"),
 //   		},
-//
-//   		// the properties below are optional
-//   		ElasticIpConfiguration: elasticIpConfiguration,
 //   	},
 //   }
 //

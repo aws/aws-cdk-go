@@ -1,6 +1,7 @@
 package awsbedrockagentcore
 
 import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 )
 
@@ -35,6 +36,10 @@ type RuntimeProps struct {
 	// Default: - RuntimeAuthorizerConfiguration.iam() (IAM authentication)
 	//
 	AuthorizerConfiguration RuntimeAuthorizerConfiguration `field:"optional" json:"authorizerConfiguration" yaml:"authorizerConfiguration"`
+	// Hooks the AgentCore service calls on the agent's container while it builds the runtime.
+	// Default: - no build hooks.
+	//
+	BuildHooks *BuildLifecycleHooks `field:"optional" json:"buildHooks" yaml:"buildHooks"`
 	// Optional description for the agent runtime.
 	// Default: - No description
 	// Length Minimum: 1 , Maximum: 1200.
@@ -81,6 +86,12 @@ type RuntimeProps struct {
 	// Default: true.
 	//
 	ManageDeliveryResourcePolicy *bool `field:"optional" json:"manageDeliveryResourcePolicy" yaml:"manageDeliveryResourcePolicy"`
+	// The minimum memory for each runtime session.
+	//
+	// Must be a whole number of MiB. The service validates which values are allowed.
+	// Default: - the service default.
+	//
+	MinimumMemory awscdk.Size `field:"optional" json:"minimumMemory" yaml:"minimumMemory"`
 	// Network configuration for the agent runtime.
 	// Default: - RuntimeNetworkConfiguration.usingPublicNetwork()
 	//

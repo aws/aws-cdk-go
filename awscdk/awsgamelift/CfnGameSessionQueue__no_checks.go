@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnGameSessionQueue) validateSetFilterConfigurationParameters
 	return nil
 }
 
+func (j *jsiiProxy_CfnGameSessionQueue) validateSetLogConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGameSessionQueue) validateSetNameParameters(val *string) error {
 	return nil
 }

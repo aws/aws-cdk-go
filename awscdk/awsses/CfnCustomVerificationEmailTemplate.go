@@ -87,7 +87,7 @@ type CfnCustomVerificationEmailTemplate interface {
 	// The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 	SuccessRedirectionUrl() *string
 	SetSuccessRedirectionUrl(val *string)
-	// The tags (keys and values) associated with the tenant.
+	// The tags (keys and values) associated with the custom verification email template.
 	Tags() *[]*awscdk.CfnTag
 	SetTags(val *[]*awscdk.CfnTag)
 	// The content of the custom verification email.

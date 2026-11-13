@@ -706,6 +706,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
+			_jsii_.MemberProperty{JsiiProperty: "attrReplicationInstanceArn", GoGetter: "AttrReplicationInstanceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReplicationInstancePrivateIpAddresses", GoGetter: "AttrReplicationInstancePrivateIpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "attrReplicationInstancePublicIpAddresses", GoGetter: "AttrReplicationInstancePublicIpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "autoMinorVersionUpgrade", GoGetter: "AutoMinorVersionUpgrade"},

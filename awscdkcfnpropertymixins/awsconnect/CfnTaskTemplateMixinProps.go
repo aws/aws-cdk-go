@@ -17,6 +17,9 @@ import (
 //   	ClientToken: jsii.String("clientToken"),
 //   	Constraints: constraints,
 //   	ContactFlowArn: jsii.String("contactFlowArn"),
+//   	ContactHooks: &ContactHooksProperty{
+//   		WrapUpFlowArn: jsii.String("wrapUpFlowArn"),
+//   	},
 //   	Defaults: []interface{}{
 //   		&DefaultFieldValueProperty{
 //   			DefaultValue: jsii.String("defaultValue"),
@@ -69,6 +72,10 @@ type CfnTaskTemplateMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-contactflowarn
 	//
 	ContactFlowArn *string `field:"optional" json:"contactFlowArn" yaml:"contactFlowArn"`
+	// The contact hooks for the task template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-contacthooks
+	//
+	ContactHooks interface{} `field:"optional" json:"contactHooks" yaml:"contactHooks"`
 	// The default values for fields when a task is created by referencing this template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html#cfn-connect-tasktemplate-defaults
 	//

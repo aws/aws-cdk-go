@@ -9,13 +9,14 @@ import (
 //   repository := ecr.NewRepository(this, jsii.String("TestRepository"), &RepositoryProps{
 //   	RepositoryName: jsii.String("test-agent-runtime"),
 //   })
+//
 //   agentRuntimeArtifact := agentcore.AgentRuntimeArtifact_FromEcrRepository(repository, jsii.String("v1.0.0"))
 //
-//   // Explicitly using public network (this is the default)
-//   runtime := agentcore.NewRuntime(this, jsii.String("MyAgentRuntime"), &RuntimeProps{
-//   	RuntimeName: jsii.String("myAgent"),
+//   agentcore.NewRuntime(this, jsii.String("test-runtime"), &RuntimeProps{
+//   	RuntimeName: jsii.String("test_runtime"),
 //   	AgentRuntimeArtifact: agentRuntimeArtifact,
-//   	NetworkConfiguration: agentcore.RuntimeNetworkConfiguration_UsingPublicNetwork(),
+//   	PlatformVersion: agentcore.PlatformVersion_V2(),
+//   	MinimumMemory: cdk.Size_Gibibytes(jsii.Number(4)),
 //   })
 //
 type RepositoryProps struct {

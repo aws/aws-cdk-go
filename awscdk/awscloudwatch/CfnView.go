@@ -589,44 +589,6 @@ func CfnView_ArnForView(resource interfacesawscloudwatch.IViewRef) *string {
 	return returns
 }
 
-// Creates a new IViewRef from an ARN.
-func CfnView_FromViewArn(scope constructs.Construct, id *string, arn *string) interfacesawscloudwatch.IViewRef {
-	_init_.Initialize()
-
-	if err := validateCfnView_FromViewArnParameters(scope, id, arn); err != nil {
-		panic(err)
-	}
-	var returns interfacesawscloudwatch.IViewRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.CfnView",
-		"fromViewArn",
-		[]interface{}{scope, id, arn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates a new IViewRef from a viewName.
-func CfnView_FromViewName(scope constructs.Construct, id *string, viewName *string) interfacesawscloudwatch.IViewRef {
-	_init_.Initialize()
-
-	if err := validateCfnView_FromViewNameParameters(scope, id, viewName); err != nil {
-		panic(err)
-	}
-	var returns interfacesawscloudwatch.IViewRef
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudwatch.CfnView",
-		"fromViewName",
-		[]interface{}{scope, id, viewName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
 //
 // Uses duck-typing instead of `instanceof` to allow stack elements from different

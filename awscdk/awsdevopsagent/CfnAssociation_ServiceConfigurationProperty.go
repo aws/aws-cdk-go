@@ -121,6 +121,15 @@ package awsdevopsagent
 //   		// the properties below are optional
 //   		EnableWebhookUpdates: jsii.Boolean(false),
 //   	},
+//   	ReleaseManagement: &ReleaseManagementConfigurationProperty{
+//   		Name: jsii.String("name"),
+//   		NetworkAccess: &NetworkAccessConfigurationProperty{
+//   			PrivateAccess: &PrivateNetworkAccessProperty{
+//   				PrivateConnectionName: jsii.String("privateConnectionName"),
+//   				RuntimeRoleArn: jsii.String("runtimeRoleArn"),
+//   			},
+//   		},
+//   	},
 //   	ServiceNow: &ServiceNowConfigurationProperty{
 //   		EnableWebhookUpdates: jsii.Boolean(false),
 //   		InstanceId: jsii.String("instanceId"),
@@ -243,6 +252,12 @@ type CfnAssociation_ServiceConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-pagerduty
 	//
 	PagerDuty interface{} `field:"optional" json:"pagerDuty" yaml:"pagerDuty"`
+	// Configuration for a release management environment.
+	//
+	// A release management environment defines how AWS DevOps Agent reaches your application, and other associations reference it to run automatic verification testing against that application.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-serviceconfiguration.html#cfn-devopsagent-association-serviceconfiguration-releasemanagement
+	//
+	ReleaseManagement interface{} `field:"optional" json:"releaseManagement" yaml:"releaseManagement"`
 	// Configuration for ServiceNow instance integration.
 	//
 	// Specifies the instance URL, instance ID, and webhook settings to enable the Agent Space to create, update, and manage ServiceNow incidents and change requests.

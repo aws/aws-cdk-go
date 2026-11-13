@@ -88,14 +88,6 @@ func validateCfnView_ArnForViewParameters(resource interfacesawscloudwatch.IView
 	return nil
 }
 
-func validateCfnView_FromViewArnParameters(scope constructs.Construct, id *string, arn *string) error {
-	return nil
-}
-
-func validateCfnView_FromViewNameParameters(scope constructs.Construct, id *string, viewName *string) error {
-	return nil
-}
-
 func validateCfnView_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

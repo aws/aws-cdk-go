@@ -26,6 +26,16 @@ import (
 //   			jsii.String("allowedLocations"),
 //   		},
 //   	},
+//   	LogConfiguration: &LogConfigurationProperty{
+//   		DeliveryDestinations: []interface{}{
+//   			&DeliveryDestinationProperty{
+//   				LogDestination: jsii.String("logDestination"),
+//
+//   				// the properties below are optional
+//   				DestinationArn: jsii.String("destinationArn"),
+//   			},
+//   		},
+//   	},
 //   	NotificationTarget: jsii.String("notificationTarget"),
 //   	PlayerLatencyPolicies: []interface{}{
 //   		&PlayerLatencyPolicyProperty{
@@ -75,6 +85,10 @@ type CfnGameSessionQueueProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-filterconfiguration
 	//
 	FilterConfiguration interface{} `field:"optional" json:"filterConfiguration" yaml:"filterConfiguration"`
+	// A policy that determines where a game session queue's placement logs are delivered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-logconfiguration
+	//
+	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 	// An SNS topic ARN that is set up to receive game session placement notifications.
 	//
 	// See [Setting up notifications for game session placement](https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html) .

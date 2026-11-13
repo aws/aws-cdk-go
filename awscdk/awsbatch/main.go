@@ -332,6 +332,10 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_EksContainerEnvironmentVariableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.EksContainerLinuxCapabilitiesProperty",
+		reflect.TypeOf((*CfnJobDefinition_EksContainerLinuxCapabilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.EksContainerProperty",
 		reflect.TypeOf((*CfnJobDefinition_EksContainerProperty)(nil)).Elem(),
 	)
@@ -344,8 +348,16 @@ func init() {
 		reflect.TypeOf((*CfnJobDefinition_EksPersistentVolumeClaimProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.EksPodSecurityContextProperty",
+		reflect.TypeOf((*CfnJobDefinition_EksPodSecurityContextProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.EksPropertiesProperty",
 		reflect.TypeOf((*CfnJobDefinition_EksPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_batch.CfnJobDefinition.EksSeccompProfileProperty",
+		reflect.TypeOf((*CfnJobDefinition_EksSeccompProfileProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_batch.CfnJobDefinition.EksSecretProperty",

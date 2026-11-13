@@ -8,7 +8,7 @@ package previewawselasticloadbalancingv2mixins
 //
 //   cfnLoadBalancerNlbAccessLogsDestProps := &CfnLoadBalancerNlbAccessLogsDestProps{
 //   	RecordFields: []CfnLoadBalancerNlbAccessLogsRecordFields{
-//   		awscdkmixinspreview.Mixins.CfnLoadBalancerNlbAccessLogsRecordFields_TYPE,
+//   		awscdkmixinspreview.Mixins.CfnLoadBalancerNlbAccessLogsRecordFields_TLS_VERIFY_STATUS,
 //   	},
 //   }
 //

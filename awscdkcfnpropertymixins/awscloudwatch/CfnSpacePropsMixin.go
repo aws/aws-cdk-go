@@ -10,7 +10,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource type definition for AWS::CloudWatch::Space.
+// Resource Type definition for AWS::CloudWatch::Space.
+//
+// A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.

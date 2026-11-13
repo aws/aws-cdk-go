@@ -123,7 +123,7 @@ In case of failure, the record contains the reason and error object:
 
 ### Auto-extract response payload with lambda destination
 
-The `responseOnly` option of `LambdaDestination` allows to auto-extract the response payload from the
+The `responseOnly` option of `LambdaDestination` allows you to auto-extract the response payload from the
 invocation record:
 
 ```go
@@ -148,5 +148,5 @@ In the above example, `destinationFn` will be invoked with the payload returned 
 When used with `onFailure`, the destination function is invoked with the error object returned
 by the source function.
 
-Using the `responseOnly` option allows to easily chain asynchronous Lambda functions without
+Using the `responseOnly` option allows you to easily chain asynchronous Lambda functions without
 having to deal with data extraction in the runtime code.

@@ -128,6 +128,10 @@ func (j *jsiiProxy_CfnRuntime) validateSetFilesystemConfigurationsParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnRuntime) validateSetHooksConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnRuntime) validateSetLifecycleConfigurationParameters(val interface{}) error {
 	return nil
 }
@@ -137,6 +141,10 @@ func (j *jsiiProxy_CfnRuntime) validateSetNetworkConfigurationParameters(val int
 }
 
 func (j *jsiiProxy_CfnRuntime) validateSetRequestHeaderConfigurationParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnRuntime) validateSetResourceConfigurationsParameters(val interface{}) error {
 	return nil
 }
 

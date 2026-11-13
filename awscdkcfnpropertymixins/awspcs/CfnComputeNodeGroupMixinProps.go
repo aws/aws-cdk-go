@@ -21,6 +21,7 @@ package awspcs
 //   			InstanceType: jsii.String("instanceType"),
 //   		},
 //   	},
+//   	LaunchTemplateMode: jsii.String("launchTemplateMode"),
 //   	Name: jsii.String("name"),
 //   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
 //   		ScriptCachingPolicy: jsii.String("scriptCachingPolicy"),
@@ -62,6 +63,9 @@ package awspcs
 //   		MaxInstanceCount: jsii.Number(123),
 //   		MinInstanceCount: jsii.Number(123),
 //   	},
+//   	SecurityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
 //   	SlurmConfiguration: &SlurmConfigurationProperty{
 //   		GresCustomSettings: []interface{}{
 //   			map[string]*string{
@@ -79,6 +83,7 @@ package awspcs
 //   	SpotOptions: &SpotOptionsProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   	},
+//   	SshKeyName: jsii.String("sshKeyName"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
@@ -114,6 +119,12 @@ type CfnComputeNodeGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-instanceconfigs
 	//
 	InstanceConfigs interface{} `field:"optional" json:"instanceConfigs" yaml:"instanceConfigs"`
+	// How AWS PCS gets the launch template for the compute node group.
+	//
+	// CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-launchtemplatemode
+	//
+	LaunchTemplateMode *string `field:"optional" json:"launchTemplateMode" yaml:"launchTemplateMode"`
 	// The name that identifies the compute node group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-name
 	//
@@ -132,6 +143,12 @@ type CfnComputeNodeGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-scalingconfiguration
 	//
 	ScalingConfiguration interface{} `field:"optional" json:"scalingConfiguration" yaml:"scalingConfiguration"`
+	// The IDs of the EC2 security groups configured directly on the compute node group.
+	//
+	// These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-securitygroupids
+	//
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Additional options related to the Slurm scheduler.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-slurmconfiguration
 	//
@@ -140,6 +157,12 @@ type CfnComputeNodeGroupMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-spotoptions
 	//
 	SpotOptions interface{} `field:"optional" json:"spotOptions" yaml:"spotOptions"`
+	// The name of the EC2 key pair configured directly on the compute node group.
+	//
+	// The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-sshkeyname
+	//
+	SshKeyName *string `field:"optional" json:"sshKeyName" yaml:"sshKeyName"`
 	// The list of subnet IDs where instances are provisioned by the compute node group.
 	//
 	// The subnets must be in the same VPC as the cluster.

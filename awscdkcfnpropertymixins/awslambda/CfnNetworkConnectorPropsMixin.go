@@ -18,7 +18,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   var elasticIpConfiguration interface{}
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnNetworkConnectorPropsMixin := awscdkcfnpropertymixins.Aws_lambda.NewCfnNetworkConnectorPropsMixin(&CfnNetworkConnectorMixinProps{
@@ -27,7 +26,6 @@ import (
 //   			AssociatedComputeResourceTypes: []*string{
 //   				jsii.String("associatedComputeResourceTypes"),
 //   			},
-//   			ElasticIpConfiguration: elasticIpConfiguration,
 //   			NetworkProtocol: jsii.String("networkProtocol"),
 //   			SecurityGroupIds: []*string{
 //   				jsii.String("securityGroupIds"),

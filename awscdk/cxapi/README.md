@@ -345,7 +345,7 @@ without any prefix.
 
 When enabled, the default volume type of the EBS volume will be GP3.
 
-When this featuer flag is enabled, the default volume type of the EBS volume will be `EbsDeviceVolumeType.GENERAL_PURPOSE_SSD_GP3`
+When this feature flag is enabled, the default volume type of the EBS volume will be `EbsDeviceVolumeType.GENERAL_PURPOSE_SSD_GP3`
 
 *cdk.json*
 
@@ -361,7 +361,7 @@ When this featuer flag is enabled, the default volume type of the EBS volume wil
 
 When enabled, remove default deployment alarm settings.
 
-When this featuer flag is enabled, remove the default deployment alarm settings when creating a AWS ECS service.
+When this feature flag is enabled, remove the default deployment alarm settings when creating a AWS ECS service.
 
 *cdk.json*
 

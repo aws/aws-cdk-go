@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnTaskTemplate) validateSetConstraintsParameters(val interfa
 	return nil
 }
 
+func (j *jsiiProxy_CfnTaskTemplate) validateSetContactHooksParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTaskTemplate) validateSetDefaultsParameters(val interface{}) error {
 	return nil
 }

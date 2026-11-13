@@ -31,15 +31,17 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html
 //
 type CfnSpaceMixinProps struct {
-	// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+	// The ARN of the IAM role used by AgentCore online evaluation.
+	//
+	// Absent when the space was created without one.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html#cfn-cloudwatch-space-agentcoreevaluationrolearn
 	//
 	AgentCoreEvaluationRoleArn *string `field:"optional" json:"agentCoreEvaluationRoleArn" yaml:"agentCoreEvaluationRoleArn"`
-	// The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+	// The ARN of the IAM role used for data access.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html#cfn-cloudwatch-space-dataaccessrolearn
 	//
 	DataAccessRoleArn *string `field:"optional" json:"dataAccessRoleArn" yaml:"dataAccessRoleArn"`
-	// The identifier of the domain the space belongs to.
+	// The ID of the domain to create the space in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html#cfn-cloudwatch-space-domainid
 	//
 	DomainId *string `field:"optional" json:"domainId" yaml:"domainId"`
@@ -47,7 +49,7 @@ type CfnSpaceMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html#cfn-cloudwatch-space-encryptionconfiguration
 	//
 	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
-	// The name of the space.
+	// A name that identifies the space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html#cfn-cloudwatch-space-name
 	//
 	Name *string `field:"optional" json:"name" yaml:"name"`

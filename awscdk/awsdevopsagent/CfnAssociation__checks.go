@@ -227,6 +227,30 @@ func (j *jsiiProxy_CfnAssociation) validateSetAgentSpaceIdParameters(val *string
 	return nil
 }
 
+func (j *jsiiProxy_CfnAssociation) validateSetCapabilitiesParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnAssociation_CapabilitiesProperty:
+		val := val.(*CfnAssociation_CapabilitiesProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnAssociation_CapabilitiesProperty:
+		val_ := val.(CfnAssociation_CapabilitiesProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnAssociation_CapabilitiesProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnAssociation) validateSetConfigurationParameters(val interface{}) error {
 	if val == nil {
 		return fmt.Errorf("parameter val is required, but nil was provided")

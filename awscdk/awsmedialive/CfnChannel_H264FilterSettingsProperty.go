@@ -10,9 +10,17 @@ package awsmedialive
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var autoFilterSettings interface{}
+//   var noneFilterSettings interface{}
+//
 //   h264FilterSettingsProperty := &H264FilterSettingsProperty{
+//   	AutoFilterSettings: autoFilterSettings,
 //   	BandwidthReductionFilterSettings: &BandwidthReductionFilterSettingsProperty{
 //   		PostFilterSharpening: jsii.String("postFilterSharpening"),
+//   		Strength: jsii.String("strength"),
+//   	},
+//   	NoneFilterSettings: noneFilterSettings,
+//   	PerceptualFilterSettings: &PerceptualFilterSettingsProperty{
 //   		Strength: jsii.String("strength"),
 //   	},
 //   	TemporalFilterSettings: &TemporalFilterSettingsProperty{
@@ -24,9 +32,18 @@ package awsmedialive
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html
 //
 type CfnChannel_H264FilterSettingsProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html#cfn-medialive-channel-h264filtersettings-autofiltersettings
+	//
+	AutoFilterSettings interface{} `field:"optional" json:"autoFilterSettings" yaml:"autoFilterSettings"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html#cfn-medialive-channel-h264filtersettings-bandwidthreductionfiltersettings
 	//
 	BandwidthReductionFilterSettings interface{} `field:"optional" json:"bandwidthReductionFilterSettings" yaml:"bandwidthReductionFilterSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html#cfn-medialive-channel-h264filtersettings-nonefiltersettings
+	//
+	NoneFilterSettings interface{} `field:"optional" json:"noneFilterSettings" yaml:"noneFilterSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html#cfn-medialive-channel-h264filtersettings-perceptualfiltersettings
+	//
+	PerceptualFilterSettings interface{} `field:"optional" json:"perceptualFilterSettings" yaml:"perceptualFilterSettings"`
 	// Settings for applying the temporal filter to the video.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html#cfn-medialive-channel-h264filtersettings-temporalfiltersettings
 	//

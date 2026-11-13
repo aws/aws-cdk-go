@@ -90,6 +90,7 @@ import (
 //   	IsMultiRegionTrail: jsii.Boolean(false),
 //   	IsOrganizationTrail: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	RecursiveLogging: jsii.Boolean(false),
 //   	S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   	SnsTopicName: jsii.String("snsTopicName"),
 //   	Tags: []CfnTag{
@@ -207,6 +208,12 @@ type CfnTrailProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid
 	//
 	KmsKeyId interface{} `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	// Specifies whether recursive logging is enabled for the trail.
+	//
+	// When set to false, CloudTrail will suppress recursive delivery events (such as PutObject events generated when CloudTrail delivers log files to the trail S3 bucket). The default is true.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-recursivelogging
+	//
+	RecursiveLogging interface{} `field:"optional" json:"recursiveLogging" yaml:"recursiveLogging"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery.
 	//
 	// For more information, see [Finding Your CloudTrail Log Files](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files) . The maximum length is 200 characters.

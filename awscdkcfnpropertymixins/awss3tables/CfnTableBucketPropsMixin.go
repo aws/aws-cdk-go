@@ -33,6 +33,15 @@ import (
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		SseAlgorithm: jsii.String("sseAlgorithm"),
 //   	},
+//   	LoggingConfiguration: &LoggingConfigurationProperty{
+//   		TargetBucket: jsii.String("targetBucket"),
+//   		TargetObjectKeyFormat: &TargetObjectKeyFormatProperty{
+//   			PartitionedPrefix: &PartitionedPrefixProperty{
+//   				PartitionDateSource: jsii.String("partitionDateSource"),
+//   			},
+//   		},
+//   		TargetPrefix: jsii.String("targetPrefix"),
+//   	},
 //   	MetricsConfiguration: &MetricsConfigurationProperty{
 //   		Status: jsii.String("status"),
 //   	},

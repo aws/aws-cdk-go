@@ -131,6 +131,15 @@ import (
 //   			// the properties below are optional
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   		},
+//   		ReleaseManagement: &ReleaseManagementConfigurationProperty{
+//   			Name: jsii.String("name"),
+//   			NetworkAccess: &NetworkAccessConfigurationProperty{
+//   				PrivateAccess: &PrivateNetworkAccessProperty{
+//   					PrivateConnectionName: jsii.String("privateConnectionName"),
+//   					RuntimeRoleArn: jsii.String("runtimeRoleArn"),
+//   				},
+//   			},
+//   		},
 //   		ServiceNow: &ServiceNowConfigurationProperty{
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   			InstanceId: jsii.String("instanceId"),
@@ -182,6 +191,26 @@ import (
 //   	ServiceId: jsii.String("serviceId"),
 //
 //   	// the properties below are optional
+//   	Capabilities: &CapabilitiesProperty{
+//   		CodeChangeRiskAnalysis: &CapabilityConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			TriggerFilterGroups: []interface{}{
+//   				&TriggerFilterGroupProperty{
+//   					Events: []*string{
+//   						jsii.String("events"),
+//   					},
+//   					TargetBranches: &PatternFilterProperty{
+//   						Patterns: []*string{
+//   							jsii.String("patterns"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		CodeChangeRiskAnalysisAutomatedTesting: &AutomatedTestingCapabilityConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
+//   	},
 //   	LinkedAssociationIds: []*string{
 //   		jsii.String("linkedAssociationIds"),
 //   	},
@@ -204,6 +233,9 @@ type CfnAssociation interface {
 	AttrCreatedAt() *string
 	// The timestamp when the association was last updated.
 	AttrUpdatedAt() *string
+	// Automated AWS DevOps Agent capabilities for the repository in this association.
+	Capabilities() interface{}
+	SetCapabilities(val interface{})
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -478,6 +510,16 @@ func (j *jsiiProxy_CfnAssociation) AttrUpdatedAt() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAssociation) Capabilities() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"capabilities",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAssociation) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -665,6 +707,17 @@ func (j *jsiiProxy_CfnAssociation)SetAgentSpaceId(val *string) {
 	_jsii_.Set(
 		j,
 		"agentSpaceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAssociation)SetCapabilities(val interface{}) {
+	if err := j.validateSetCapabilitiesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"capabilities",
 		val,
 	)
 }

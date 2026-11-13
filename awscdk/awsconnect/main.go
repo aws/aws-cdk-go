@@ -2272,6 +2272,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "clientToken", GoGetter: "ClientToken"},
 			_jsii_.MemberProperty{JsiiProperty: "constraints", GoGetter: "Constraints"},
 			_jsii_.MemberProperty{JsiiProperty: "contactFlowArn", GoGetter: "ContactFlowArn"},
+			_jsii_.MemberProperty{JsiiProperty: "contactHooks", GoGetter: "ContactHooks"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "defaults", GoGetter: "Defaults"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
@@ -2316,6 +2317,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnTaskTemplate.ConstraintsProperty",
 		reflect.TypeOf((*CfnTaskTemplate_ConstraintsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_connect.CfnTaskTemplate.ContactHooksProperty",
+		reflect.TypeOf((*CfnTaskTemplate_ContactHooksProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_connect.CfnTaskTemplate.DefaultFieldValueProperty",

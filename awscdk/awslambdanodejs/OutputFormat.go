@@ -51,7 +51,7 @@ package awslambdanodejs
 //   			jsii.String("./my-shim.js"),
 //   			jsii.String("./other-shim.js"),
 //   		},
-//   		 // allows to automatically replace a global variable with an import from another file
+//   		 // allows you to automatically replace a global variable with an import from another file
 //   		EsbuildArgs: map[string]interface{}{
 //   			 // Pass additional arguments to esbuild
 //   			"--log-limit": jsii.String("0"),

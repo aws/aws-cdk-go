@@ -12,7 +12,7 @@ package cloudassemblyschema
 //
 //   missingContext := &MissingContext{
 //   	Key: jsii.String("key"),
-//   	Props: &LoadBalancerListenerContextQuery{
+//   	Props: &AmiContextQuery{
 //   		Account: jsii.String("account"),
 //   		Filters: map[string][]*string{
 //   			"filtersKey": []*string{

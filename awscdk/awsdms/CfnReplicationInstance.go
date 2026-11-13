@@ -63,6 +63,8 @@ type CfnReplicationInstance interface {
 	AllowMajorVersionUpgrade() interface{}
 	SetAllowMajorVersionUpgrade(val interface{})
 	AttrId() *string
+	// The Amazon Resource Name (ARN) of the replication instance.
+	AttrReplicationInstanceArn() *string
 	// One or more private IP addresses for the replication instance.
 	AttrReplicationInstancePrivateIpAddresses() *string
 	// One or more public IP addresses for the replication instance.
@@ -359,6 +361,16 @@ func (j *jsiiProxy_CfnReplicationInstance) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnReplicationInstance) AttrReplicationInstanceArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrReplicationInstanceArn",
 		&returns,
 	)
 	return returns
@@ -856,6 +868,24 @@ func (j *jsiiProxy_CfnReplicationInstance)SetVpcSecurityGroupIds(val *[]*string)
 		"vpcSecurityGroupIds",
 		val,
 	)
+}
+
+func CfnReplicationInstance_ArnForReplicationInstance(resource interfacesawsdms.IReplicationInstanceRef) *string {
+	_init_.Initialize()
+
+	if err := validateCfnReplicationInstance_ArnForReplicationInstanceParameters(resource); err != nil {
+		panic(err)
+	}
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_dms.CfnReplicationInstance",
+		"arnForReplicationInstance",
+		[]interface{}{resource},
+		&returns,
+	)
+
+	return returns
 }
 
 // Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).

@@ -16,13 +16,15 @@ package awscloudwatch
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-space-encryptionconfiguration.html
 //
 type CfnSpacePropsMixin_EncryptionConfigurationProperty struct {
-	// Whether the space is encrypted with an AWS owned key or a customer managed key.
+	// Which kind of key to use.
+	//
+	// Required.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-space-encryptionconfiguration.html#cfn-cloudwatch-space-encryptionconfiguration-encryptionstrategy
 	//
 	EncryptionStrategy *string `field:"optional" json:"encryptionStrategy" yaml:"encryptionStrategy"`
-	// The Amazon Resource Name (ARN) of the customer managed KMS key.
+	// Customer managed KMS key ARN.
 	//
-	// Required when encryptionStrategy is CUSTOMER_MANAGED.
+	// Required when encryptionStrategy is CUSTOMER_MANAGED, and must be omitted when it is AWS_OWNED. Must be a symmetric ENCRYPT_DECRYPT key in the caller's account and region.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-space-encryptionconfiguration.html#cfn-cloudwatch-space-encryptionconfiguration-kmskeyarn
 	//
 	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`

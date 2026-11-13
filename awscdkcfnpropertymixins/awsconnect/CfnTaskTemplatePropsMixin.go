@@ -25,6 +25,9 @@ import (
 //   	ClientToken: jsii.String("clientToken"),
 //   	Constraints: constraints,
 //   	ContactFlowArn: jsii.String("contactFlowArn"),
+//   	ContactHooks: &ContactHooksProperty{
+//   		WrapUpFlowArn: jsii.String("wrapUpFlowArn"),
+//   	},
 //   	Defaults: []interface{}{
 //   		&DefaultFieldValueProperty{
 //   			DefaultValue: jsii.String("defaultValue"),

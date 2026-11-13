@@ -10,13 +10,10 @@ package awslambda
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var elasticIpConfiguration interface{}
-//
 //   vpcEgressConfigurationProperty := &VpcEgressConfigurationProperty{
 //   	AssociatedComputeResourceTypes: []*string{
 //   		jsii.String("associatedComputeResourceTypes"),
 //   	},
-//   	ElasticIpConfiguration: elasticIpConfiguration,
 //   	NetworkProtocol: jsii.String("networkProtocol"),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -35,9 +32,6 @@ type CfnNetworkConnectorPropsMixin_VpcEgressConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-associatedcomputeresourcetypes
 	//
 	AssociatedComputeResourceTypes *[]*string `field:"optional" json:"associatedComputeResourceTypes" yaml:"associatedComputeResourceTypes"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-elasticipconfiguration
-	//
-	ElasticIpConfiguration interface{} `field:"optional" json:"elasticIpConfiguration" yaml:"elasticIpConfiguration"`
 	// The network protocol for the connector.
 	//
 	// Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.

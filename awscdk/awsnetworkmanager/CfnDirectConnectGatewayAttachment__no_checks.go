@@ -112,6 +112,14 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) validateSetEdgeLocationsPa
 	return nil
 }
 
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) validateSetNatGatewayRulesParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) validateSetNatSystemRouteSupportParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

@@ -26,7 +26,7 @@ package awsautoscaling
 //   	MinCapacity: jsii.Number(1),
 //   })
 //
-// See: http://crontab.org/
+// See: https://crontab.org/
 //
 type CronOptions struct {
 	// The day of the month to run this rule at.

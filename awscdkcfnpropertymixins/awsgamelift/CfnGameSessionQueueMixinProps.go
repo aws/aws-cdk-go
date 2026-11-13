@@ -23,6 +23,14 @@ import (
 //   			jsii.String("allowedLocations"),
 //   		},
 //   	},
+//   	LogConfiguration: &LogConfigurationProperty{
+//   		DeliveryDestinations: []interface{}{
+//   			&DeliveryDestinationProperty{
+//   				DestinationArn: jsii.String("destinationArn"),
+//   				LogDestination: jsii.String("logDestination"),
+//   			},
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	NotificationTarget: jsii.String("notificationTarget"),
 //   	PlayerLatencyPolicies: []interface{}{
@@ -67,6 +75,10 @@ type CfnGameSessionQueueMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-filterconfiguration
 	//
 	FilterConfiguration interface{} `field:"optional" json:"filterConfiguration" yaml:"filterConfiguration"`
+	// A policy that determines where a game session queue's placement logs are delivered.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html#cfn-gamelift-gamesessionqueue-logconfiguration
+	//
+	LogConfiguration interface{} `field:"optional" json:"logConfiguration" yaml:"logConfiguration"`
 	// A descriptive label that is associated with game session queue.
 	//
 	// Queue names must be unique within each Region.

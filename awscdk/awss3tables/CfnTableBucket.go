@@ -34,6 +34,15 @@ import (
 //   		KmsKeyArn: jsii.String("kmsKeyArn"),
 //   		SseAlgorithm: jsii.String("sseAlgorithm"),
 //   	},
+//   	LoggingConfiguration: &LoggingConfigurationProperty{
+//   		TargetBucket: jsii.String("targetBucket"),
+//   		TargetObjectKeyFormat: &TargetObjectKeyFormatProperty{
+//   			PartitionedPrefix: &PartitionedPrefixProperty{
+//   				PartitionDateSource: jsii.String("partitionDateSource"),
+//   			},
+//   		},
+//   		TargetPrefix: jsii.String("targetPrefix"),
+//   	},
 //   	MetricsConfiguration: &MetricsConfigurationProperty{
 //   		Status: jsii.String("status"),
 //   	},
@@ -90,6 +99,9 @@ type CfnTableBucket interface {
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	// Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a table bucket.
+	LoggingConfiguration() interface{}
+	SetLoggingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -405,6 +417,16 @@ func (j *jsiiProxy_CfnTableBucket) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTableBucket) LoggingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"loggingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTableBucket) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -572,6 +594,17 @@ func (j *jsiiProxy_CfnTableBucket)SetEncryptionConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"encryptionConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTableBucket)SetLoggingConfiguration(val interface{}) {
+	if err := j.validateSetLoggingConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"loggingConfiguration",
 		val,
 	)
 }

@@ -6,8 +6,10 @@ package awsmedialive
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var autoFilterSettings interface{}
 //   var colorSpacePassthroughSettings interface{}
 //   var hlg2020Settings interface{}
+//   var noneFilterSettings interface{}
 //   var rec601Settings interface{}
 //   var rec709Settings interface{}
 //
@@ -25,6 +27,13 @@ package awsmedialive
 //   		Hlg2020Settings: hlg2020Settings,
 //   		Rec601Settings: rec601Settings,
 //   		Rec709Settings: rec709Settings,
+//   	},
+//   	FilterSettings: &Av1FilterSettingsProperty{
+//   		AutoFilterSettings: autoFilterSettings,
+//   		NoneFilterSettings: noneFilterSettings,
+//   		PerceptualFilterSettings: &PerceptualFilterSettingsProperty{
+//   			Strength: jsii.String("strength"),
+//   		},
 //   	},
 //   	FixedAfd: jsii.String("fixedAfd"),
 //   	FramerateDenominator: jsii.Number(123),
@@ -69,6 +78,9 @@ type CfnChannelPropsMixin_Av1SettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-colorspacesettings
 	//
 	ColorSpaceSettings interface{} `field:"optional" json:"colorSpaceSettings" yaml:"colorSpaceSettings"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-filtersettings
+	//
+	FilterSettings interface{} `field:"optional" json:"filterSettings" yaml:"filterSettings"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html#cfn-medialive-channel-av1settings-fixedafd
 	//
 	FixedAfd *string `field:"optional" json:"fixedAfd" yaml:"fixedAfd"`

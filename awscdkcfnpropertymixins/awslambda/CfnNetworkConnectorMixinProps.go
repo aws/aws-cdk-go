@@ -11,15 +11,12 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
-//   var elasticIpConfiguration interface{}
-//
 //   cfnNetworkConnectorMixinProps := &CfnNetworkConnectorMixinProps{
 //   	Configuration: &ConfigProperty{
 //   		VpcEgressConfiguration: &VpcEgressConfigurationProperty{
 //   			AssociatedComputeResourceTypes: []*string{
 //   				jsii.String("associatedComputeResourceTypes"),
 //   			},
-//   			ElasticIpConfiguration: elasticIpConfiguration,
 //   			NetworkProtocol: jsii.String("networkProtocol"),
 //   			SecurityGroupIds: []*string{
 //   				jsii.String("securityGroupIds"),

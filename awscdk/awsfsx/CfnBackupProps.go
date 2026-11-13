@@ -13,8 +13,6 @@ import (
 //
 //   cfnBackupProps := &CfnBackupProps{
 //   	FileSystemId: jsii.String("fileSystemId"),
-//
-//   	// the properties below are optional
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -29,7 +27,7 @@ type CfnBackupProps struct {
 	// The ID of the file system to back up.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-backup.html#cfn-fsx-backup-filesystemid
 	//
-	FileSystemId *string `field:"required" json:"fileSystemId" yaml:"fileSystemId"`
+	FileSystemId *string `field:"optional" json:"fileSystemId" yaml:"fileSystemId"`
 	// The tags to apply to the backup at backup creation.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-backup.html#cfn-fsx-backup-tags
 	//

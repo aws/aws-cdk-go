@@ -21,20 +21,16 @@ import (
 // A Node.js Lambda function bundled using esbuild.
 //
 // Example:
-//   nodejs.NewNodejsFunction(this, jsii.String("my-handler"), &NodejsFunctionProps{
+//   esbuildArgs := map[string]*string{
+//   	"--resolve-extensions": jsii.String(".js"),
+//   }
+//
+//   nodejs.NewNodejsFunction(this, jsii.String("metadata-handler"), &NodejsFunctionProps{
+//   	Entry: jsii.String("lib/handler.ts"),
 //   	Bundling: &BundlingOptions{
-//   		Network: jsii.String("host"),
-//   		SecurityOpt: jsii.String("no-new-privileges"),
-//   		User: jsii.String("user:group"),
-//   		VolumesFrom: []*string{
-//   			jsii.String("777f7dc92da7"),
-//   		},
-//   		Volumes: []DockerVolume{
-//   			&DockerVolume{
-//   				HostPath: jsii.String("/host-path"),
-//   				ContainerPath: jsii.String("/container-path"),
-//   			},
-//   		},
+//   		PreCompilation: jsii.Boolean(true),
+//   		Tsconfig: jsii.String("tsconfig.lambda.json"),
+//   		EsbuildArgs: *EsbuildArgs,
 //   	},
 //   })
 //

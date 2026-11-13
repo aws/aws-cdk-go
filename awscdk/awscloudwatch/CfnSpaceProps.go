@@ -35,19 +35,21 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html
 //
 type CfnSpaceProps struct {
-	// The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+	// The ARN of the IAM role used for data access.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html#cfn-cloudwatch-space-dataaccessrolearn
 	//
 	DataAccessRoleArn *string `field:"required" json:"dataAccessRoleArn" yaml:"dataAccessRoleArn"`
-	// The identifier of the domain the space belongs to.
+	// The ID of the domain to create the space in.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html#cfn-cloudwatch-space-domainid
 	//
 	DomainId *string `field:"required" json:"domainId" yaml:"domainId"`
-	// The name of the space.
+	// A name that identifies the space.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html#cfn-cloudwatch-space-name
 	//
 	Name *string `field:"required" json:"name" yaml:"name"`
-	// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+	// The ARN of the IAM role used by AgentCore online evaluation.
+	//
+	// Absent when the space was created without one.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-space.html#cfn-cloudwatch-space-agentcoreevaluationrolearn
 	//
 	AgentCoreEvaluationRoleArn *string `field:"optional" json:"agentCoreEvaluationRoleArn" yaml:"agentCoreEvaluationRoleArn"`

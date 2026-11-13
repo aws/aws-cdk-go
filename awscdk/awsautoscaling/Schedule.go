@@ -78,7 +78,7 @@ func Schedule_Cron(options *CronOptions) Schedule {
 }
 
 // Construct a schedule from a literal schedule expression.
-// See: http://crontab.org/
+// See: https://crontab.org/
 //
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()

@@ -26,6 +26,15 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	NatGatewayRules: []interface{}{
+//   		&NatRuleProperty{
+//   			MatchSourceCidr: jsii.String("matchSourceCidr"),
+//   			NatCidr: jsii.String("natCidr"),
+//   			RuleNumber: jsii.Number(123),
+//   		},
+//   	},
+//   	NatGatewaySupport: jsii.String("natGatewaySupport"),
+//   	NatSystemRouteSupport: jsii.Boolean(false),
 //   	RoutingPolicyLabel: jsii.String("routingPolicyLabel"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
@@ -104,6 +113,15 @@ type CfnDirectConnectGatewayAttachment interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The complete set of NAT gateway rules on the attachment.
+	NatGatewayRules() interface{}
+	SetNatGatewayRules(val interface{})
+	// Whether NAT gateway support is enabled on the attachment.
+	NatGatewaySupport() *string
+	SetNatGatewaySupport(val *string)
+	// Whether system routes are installed for the NAT CIDRs of the attachment's NAT gateway rules.
+	NatSystemRouteSupport() interface{}
+	SetNatSystemRouteSupport(val interface{})
 	// The tree node.
 	Node() constructs.Node
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
@@ -565,6 +583,36 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) NatGatewayRules() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"natGatewayRules",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) NatGatewaySupport() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"natGatewaySupport",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) NatSystemRouteSupport() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"natSystemRouteSupport",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDirectConnectGatewayAttachment) Node() constructs.Node {
 	var returns constructs.Node
 	_jsii_.Get(
@@ -694,6 +742,36 @@ func (j *jsiiProxy_CfnDirectConnectGatewayAttachment)SetEdgeLocations(val *[]*st
 	_jsii_.Set(
 		j,
 		"edgeLocations",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment)SetNatGatewayRules(val interface{}) {
+	if err := j.validateSetNatGatewayRulesParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"natGatewayRules",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment)SetNatGatewaySupport(val *string) {
+	_jsii_.Set(
+		j,
+		"natGatewaySupport",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDirectConnectGatewayAttachment)SetNatSystemRouteSupport(val interface{}) {
+	if err := j.validateSetNatSystemRouteSupportParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"natSystemRouteSupport",
 		val,
 	)
 }

@@ -189,6 +189,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrAssociationId", GoGetter: "AttrAssociationId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreatedAt", GoGetter: "AttrCreatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
+			_jsii_.MemberProperty{JsiiProperty: "capabilities", GoGetter: "Capabilities"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "cfnPropertyName", GoMethod: "CfnPropertyName"},
@@ -236,8 +237,20 @@ func init() {
 		reflect.TypeOf((*CfnAssociation_AWSResourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.AutomatedTestingCapabilityConfigurationProperty",
+		reflect.TypeOf((*CfnAssociation_AutomatedTestingCapabilityConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAssociation.AzureConfigurationProperty",
 		reflect.TypeOf((*CfnAssociation_AzureConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.CapabilitiesProperty",
+		reflect.TypeOf((*CfnAssociation_CapabilitiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.CapabilityConfigurationProperty",
+		reflect.TypeOf((*CfnAssociation_CapabilityConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAssociation.DynatraceConfigurationProperty",
@@ -284,8 +297,24 @@ func init() {
 		reflect.TypeOf((*CfnAssociation_MCPServerSplunkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.NetworkAccessConfigurationProperty",
+		reflect.TypeOf((*CfnAssociation_NetworkAccessConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAssociation.PagerDutyConfigurationProperty",
 		reflect.TypeOf((*CfnAssociation_PagerDutyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.PatternFilterProperty",
+		reflect.TypeOf((*CfnAssociation_PatternFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.PrivateNetworkAccessProperty",
+		reflect.TypeOf((*CfnAssociation_PrivateNetworkAccessProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.ReleaseManagementConfigurationProperty",
+		reflect.TypeOf((*CfnAssociation_ReleaseManagementConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAssociation.ServiceConfigurationProperty",
@@ -314,6 +343,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAssociation.SourceAwsConfigurationProperty",
 		reflect.TypeOf((*CfnAssociation_SourceAwsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_devopsagent.CfnAssociation.TriggerFilterGroupProperty",
+		reflect.TypeOf((*CfnAssociation_TriggerFilterGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_devopsagent.CfnAssociationProps",

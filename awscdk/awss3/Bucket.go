@@ -54,6 +54,10 @@ type Bucket interface {
 	// Whether to disallow public access.
 	DisallowPublicAccess() *bool
 	SetDisallowPublicAccess(val *bool)
+	// The default server-side encryption mode that S3 applies to new objects in this bucket.
+	//
+	// `UNENCRYPTED` is never returned; see `IBucket.encryption`.
+	Encryption() BucketEncryption
 	// Optional KMS encryption key associated with this bucket.
 	EncryptionKey() awskms.IKey
 	// The environment this resource belongs to.
@@ -453,6 +457,16 @@ func (j *jsiiProxy_Bucket) DisallowPublicAccess() *bool {
 	_jsii_.Get(
 		j,
 		"disallowPublicAccess",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Bucket) Encryption() BucketEncryption {
+	var returns BucketEncryption
+	_jsii_.Get(
+		j,
+		"encryption",
 		&returns,
 	)
 	return returns

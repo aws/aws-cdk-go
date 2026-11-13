@@ -24,6 +24,10 @@ func init() {
 		reflect.TypeOf((*AlarmReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cloudwatch.AlertReference",
+		reflect.TypeOf((*AlertReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cloudwatch.AnomalyDetectorReference",
 		reflect.TypeOf((*AnomalyDetectorReference)(nil)).Elem(),
 	)
@@ -106,6 +110,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IAlarmRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cloudwatch.IAlertRef",
+		reflect.TypeOf((*IAlertRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "alertRef", GoGetter: "AlertRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAlertRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

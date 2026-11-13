@@ -203,6 +203,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "loggingConfiguration", GoGetter: "LoggingConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "metricsConfiguration", GoGetter: "MetricsConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -241,8 +242,16 @@ func init() {
 		reflect.TypeOf((*CfnTableBucket_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket.LoggingConfigurationProperty",
+		reflect.TypeOf((*CfnTableBucket_LoggingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.MetricsConfigurationProperty",
 		reflect.TypeOf((*CfnTableBucket_MetricsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket.PartitionedPrefixProperty",
+		reflect.TypeOf((*CfnTableBucket_PartitionedPrefixProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.ReplicationConfigurationProperty",
@@ -259,6 +268,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.StorageClassConfigurationProperty",
 		reflect.TypeOf((*CfnTableBucket_StorageClassConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_s3tables.CfnTableBucket.TargetObjectKeyFormatProperty",
+		reflect.TypeOf((*CfnTableBucket_TargetObjectKeyFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_s3tables.CfnTableBucket.UnreferencedFileRemovalProperty",

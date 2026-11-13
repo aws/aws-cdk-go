@@ -59,6 +59,13 @@ type BucketAttributes struct {
 	// Default: - Inferred from bucket name and region.
 	//
 	BucketWebsiteUrl *string `field:"optional" json:"bucketWebsiteUrl" yaml:"bucketWebsiteUrl"`
+	// The default server-side encryption mode of the imported bucket.
+	//
+	// `UNENCRYPTED` is reported as `S3_MANAGED`, because S3 applies SSE-S3 to every bucket
+	// that has no default encryption rule.
+	// Default: - the encryption mode of the imported bucket is unknown.
+	//
+	Encryption BucketEncryption `field:"optional" json:"encryption" yaml:"encryption"`
 	// KMS encryption key associated with this bucket.
 	// Default: - no encryption key.
 	//

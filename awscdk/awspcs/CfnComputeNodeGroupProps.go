@@ -30,6 +30,7 @@ package awspcs
 //   		TemplateId: jsii.String("templateId"),
 //   		Version: jsii.String("version"),
 //   	},
+//   	LaunchTemplateMode: jsii.String("launchTemplateMode"),
 //   	Name: jsii.String("name"),
 //   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
 //   		Stages: &NodeLifecycleStagesProperty{
@@ -77,6 +78,9 @@ package awspcs
 //   		ScriptCachingPolicy: jsii.String("scriptCachingPolicy"),
 //   	},
 //   	PurchaseOption: jsii.String("purchaseOption"),
+//   	SecurityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
 //   	SlurmConfiguration: &SlurmConfigurationProperty{
 //   		GresCustomSettings: []interface{}{
 //   			map[string]*string{
@@ -94,6 +98,7 @@ package awspcs
 //   	SpotOptions: &SpotOptionsProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   	},
+//   	SshKeyName: jsii.String("sshKeyName"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
 //   	},
@@ -136,6 +141,12 @@ type CfnComputeNodeGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-customlaunchtemplate
 	//
 	CustomLaunchTemplate interface{} `field:"optional" json:"customLaunchTemplate" yaml:"customLaunchTemplate"`
+	// How AWS PCS gets the launch template for the compute node group.
+	//
+	// CUSTOM uses CustomLaunchTemplate. MANAGED has AWS PCS generate and manage the launch template from the instance settings; omit CustomLaunchTemplate. Defaults to CUSTOM on create.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-launchtemplatemode
+	//
+	LaunchTemplateMode *string `field:"optional" json:"launchTemplateMode" yaml:"launchTemplateMode"`
 	// The name that identifies the compute node group.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-name
 	//
@@ -150,6 +161,12 @@ type CfnComputeNodeGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-purchaseoption
 	//
 	PurchaseOption *string `field:"optional" json:"purchaseOption" yaml:"purchaseOption"`
+	// The IDs of the EC2 security groups configured directly on the compute node group.
+	//
+	// These replace the security groups from the custom launch template. A request cannot specify this property with a launch template that defines NetworkInterfaces. When not provided and a custom launch template is present, AWS PCS uses the security groups from the launch template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-securitygroupids
+	//
+	SecurityGroupIds *[]*string `field:"optional" json:"securityGroupIds" yaml:"securityGroupIds"`
 	// Additional options related to the Slurm scheduler.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-slurmconfiguration
 	//
@@ -158,6 +175,12 @@ type CfnComputeNodeGroupProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-spotoptions
 	//
 	SpotOptions interface{} `field:"optional" json:"spotOptions" yaml:"spotOptions"`
+	// The name of the EC2 key pair configured directly on the compute node group.
+	//
+	// The key pair must exist in the caller's account and Region and overrides the key pair from the custom launch template. When not provided and a custom launch template is present, AWS PCS uses the key pair from the launch template.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcs-computenodegroup.html#cfn-pcs-computenodegroup-sshkeyname
+	//
+	SshKeyName *string `field:"optional" json:"sshKeyName" yaml:"sshKeyName"`
 	// 1 or more tags added to the resource.
 	//
 	// Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.

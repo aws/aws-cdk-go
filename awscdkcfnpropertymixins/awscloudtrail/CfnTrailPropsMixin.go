@@ -90,6 +90,7 @@ import (
 //   	IsMultiRegionTrail: jsii.Boolean(false),
 //   	IsOrganizationTrail: jsii.Boolean(false),
 //   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	RecursiveLogging: jsii.Boolean(false),
 //   	S3BucketName: jsii.String("s3BucketName"),
 //   	S3KeyPrefix: jsii.String("s3KeyPrefix"),
 //   	SnsTopicName: jsii.String("snsTopicName"),

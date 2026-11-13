@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnVpcAttachment) validateSetCoreNetworkIdParameters(val *str
 	return nil
 }
 
+func (j *jsiiProxy_CfnVpcAttachment) validateSetNatGatewayRulesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnVpcAttachment) validateSetOptionsParameters(val interface{}) error {
 	return nil
 }

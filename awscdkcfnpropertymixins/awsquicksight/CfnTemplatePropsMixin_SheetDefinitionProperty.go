@@ -18,6 +18,9 @@ type CfnTemplatePropsMixin_SheetDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetdefinition.html#cfn-quicksight-template-sheetdefinition-contenttype
 	//
 	ContentType *string `field:"optional" json:"contentType" yaml:"contentType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetdefinition.html#cfn-quicksight-template-sheetdefinition-customactiondefaults
+	//
+	CustomActionDefaults interface{} `field:"optional" json:"customActionDefaults" yaml:"customActionDefaults"`
 	// A description of the sheet.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetdefinition.html#cfn-quicksight-template-sheetdefinition-description
 	//

@@ -358,6 +358,10 @@ func init() {
 			"DISABLED": BrowserSigning_DISABLED,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.BuildLifecycleHooks",
+		reflect.TypeOf((*BuildLifecycleHooks)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_bedrockagentcore.BuiltinEvaluator",
 		reflect.TypeOf((*BuiltinEvaluator)(nil)).Elem(),
@@ -3251,6 +3255,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "filesystemConfigurations", GoGetter: "FilesystemConfigurations"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberProperty{JsiiProperty: "hooksConfiguration", GoGetter: "HooksConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "lifecycleConfiguration", GoGetter: "LifecycleConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
@@ -3266,6 +3271,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "requestHeaderConfiguration", GoGetter: "RequestHeaderConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceConfigurations", GoGetter: "ResourceConfigurations"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "runtimeRef", GoGetter: "RuntimeRef"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
@@ -3301,6 +3307,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.AuthorizingClaimMatchValueTypeProperty",
 		reflect.TypeOf((*CfnRuntime_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.BuildLifecycleHooksProperty",
+		reflect.TypeOf((*CfnRuntime_BuildLifecycleHooksProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.CapacityProviderConfigurationProperty",
@@ -3347,8 +3357,20 @@ func init() {
 		reflect.TypeOf((*CfnRuntime_HostingEnvironmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.HttpPostLifecycleHookActionProperty",
+		reflect.TypeOf((*CfnRuntime_HttpPostLifecycleHookActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.LifecycleConfigurationProperty",
 		reflect.TypeOf((*CfnRuntime_LifecycleConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.LifecycleHookActionProperty",
+		reflect.TypeOf((*CfnRuntime_LifecycleHookActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.LifecycleHookProperty",
+		reflect.TypeOf((*CfnRuntime_LifecycleHookProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.ManagedVpcResourceProperty",
@@ -3369,6 +3391,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.RequestHeaderConfigurationProperty",
 		reflect.TypeOf((*CfnRuntime_RequestHeaderConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.ResourceConfigurationProperty",
+		reflect.TypeOf((*CfnRuntime_ResourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.RuntimeHooksConfigurationProperty",
+		reflect.TypeOf((*CfnRuntime_RuntimeHooksConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnRuntime.S3FilesAccessPointConfigurationProperty",
@@ -4201,6 +4231,10 @@ func init() {
 		reflect.TypeOf((*GoogleOAuth2CredentialProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.HttpPostLifecycleHookOptions",
+		reflect.TypeOf((*HttpPostLifecycleHookOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.HubspotOAuth2CredentialProviderProps",
 		reflect.TypeOf((*HubspotOAuth2CredentialProviderProps)(nil)).Elem(),
 	)
@@ -4895,6 +4929,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.LifecycleConfiguration",
 		reflect.TypeOf((*LifecycleConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_bedrockagentcore.LifecycleHook",
+		reflect.TypeOf((*LifecycleHook)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_LifecycleHook{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.LinkedinOAuth2CredentialProviderProps",

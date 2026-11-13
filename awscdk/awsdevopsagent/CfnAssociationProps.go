@@ -121,6 +121,15 @@ package awsdevopsagent
 //   			// the properties below are optional
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   		},
+//   		ReleaseManagement: &ReleaseManagementConfigurationProperty{
+//   			Name: jsii.String("name"),
+//   			NetworkAccess: &NetworkAccessConfigurationProperty{
+//   				PrivateAccess: &PrivateNetworkAccessProperty{
+//   					PrivateConnectionName: jsii.String("privateConnectionName"),
+//   					RuntimeRoleArn: jsii.String("runtimeRoleArn"),
+//   				},
+//   			},
+//   		},
 //   		ServiceNow: &ServiceNowConfigurationProperty{
 //   			EnableWebhookUpdates: jsii.Boolean(false),
 //   			InstanceId: jsii.String("instanceId"),
@@ -172,6 +181,26 @@ package awsdevopsagent
 //   	ServiceId: jsii.String("serviceId"),
 //
 //   	// the properties below are optional
+//   	Capabilities: &CapabilitiesProperty{
+//   		CodeChangeRiskAnalysis: &CapabilityConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   			TriggerFilterGroups: []interface{}{
+//   				&TriggerFilterGroupProperty{
+//   					Events: []*string{
+//   						jsii.String("events"),
+//   					},
+//   					TargetBranches: &PatternFilterProperty{
+//   						Patterns: []*string{
+//   							jsii.String("patterns"),
+//   						},
+//   					},
+//   				},
+//   			},
+//   		},
+//   		CodeChangeRiskAnalysisAutomatedTesting: &AutomatedTestingCapabilityConfigurationProperty{
+//   			Enabled: jsii.Boolean(false),
+//   		},
+//   	},
 //   	LinkedAssociationIds: []*string{
 //   		jsii.String("linkedAssociationIds"),
 //   	},
@@ -198,6 +227,12 @@ type CfnAssociationProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-association.html#cfn-devopsagent-association-serviceid
 	//
 	ServiceId *string `field:"required" json:"serviceId" yaml:"serviceId"`
+	// Automated AWS DevOps Agent capabilities for the repository in this association.
+	//
+	// Code change risk analysis analyzes pull requests and merge requests for deployment risk, and automated testing extends that analysis by running tests against the change. Capabilities are supported for GitHub and GitLab associations. When this property is set, it fully defines both capabilities below: a capability omitted here is removed from the association. Removing this property from a template that previously set it disables both capabilities. Capabilities configured outside CloudFormation are left unchanged only while this property has never been set. On rollback, both capabilities are restored to the previous template's values, not to settings made outside CloudFormation. Other capabilities on the association are not affected. Updates read and rewrite the association's full capability set, so a capability change made outside CloudFormation while a stack update is in progress may be overwritten.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-association.html#cfn-devopsagent-association-capabilities
+	//
+	Capabilities interface{} `field:"optional" json:"capabilities" yaml:"capabilities"`
 	// Set of linked association IDs for parent-child relationships.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-association.html#cfn-devopsagent-association-linkedassociationids
 	//

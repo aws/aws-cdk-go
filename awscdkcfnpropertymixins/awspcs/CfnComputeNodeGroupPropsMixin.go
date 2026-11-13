@@ -35,6 +35,7 @@ import (
 //   			InstanceType: jsii.String("instanceType"),
 //   		},
 //   	},
+//   	LaunchTemplateMode: jsii.String("launchTemplateMode"),
 //   	Name: jsii.String("name"),
 //   	NodeLifecycleActions: &NodeLifecycleActionsProperty{
 //   		ScriptCachingPolicy: jsii.String("scriptCachingPolicy"),
@@ -76,6 +77,9 @@ import (
 //   		MaxInstanceCount: jsii.Number(123),
 //   		MinInstanceCount: jsii.Number(123),
 //   	},
+//   	SecurityGroupIds: []*string{
+//   		jsii.String("securityGroupIds"),
+//   	},
 //   	SlurmConfiguration: &SlurmConfigurationProperty{
 //   		GresCustomSettings: []interface{}{
 //   			map[string]*string{
@@ -93,6 +97,7 @@ import (
 //   	SpotOptions: &SpotOptionsProperty{
 //   		AllocationStrategy: jsii.String("allocationStrategy"),
 //   	},
+//   	SshKeyName: jsii.String("sshKeyName"),
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},

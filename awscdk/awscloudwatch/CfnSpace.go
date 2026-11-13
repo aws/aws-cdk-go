@@ -11,7 +11,9 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-// Resource type definition for AWS::CloudWatch::Space.
+// Resource Type definition for AWS::CloudWatch::Space.
+//
+// A space is where you work in CloudWatch Omni. It gives you access to telemetry from the account and Region in which the space is hosted, and controls who can see it.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -46,22 +48,22 @@ type CfnSpace interface {
 	awscdk.IInspectable
 	interfacesawscloudwatch.ISpaceRef
 	awscdk.ITaggableV2
-	// The Amazon Resource Name (ARN) of the IAM role used for AgentCore evaluation.
+	// The ARN of the IAM role used by AgentCore online evaluation.
 	AgentCoreEvaluationRoleArn() *string
 	SetAgentCoreEvaluationRoleArn(val *string)
 	// The Amazon Resource Name (ARN) of the space.
 	AttrArn() *string
-	// The time the space was created.
+	// The timestamp when the space was created.
 	AttrCreatedAt() *string
-	// The AWS account that owns the space.
+	// AWS account ID that owns this space.
 	AttrOwnerAccountId() *string
-	// The AWS Region the space resides in.
+	// The region where this space was created.
 	AttrRegion() *string
-	// The unique identifier of the space.
+	// The unique ID of the space.
 	AttrSpaceId() *string
 	// The status of the space.
 	AttrStatus() *string
-	// The time the space was last updated.
+	// The timestamp when the space was last updated.
 	AttrUpdatedAt() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
@@ -75,10 +77,10 @@ type CfnSpace interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
-	// The Amazon Resource Name (ARN) of the IAM role the space uses to access observability data.
+	// The ARN of the IAM role used for data access.
 	DataAccessRoleArn() *string
 	SetDataAccessRoleArn(val *string)
-	// The identifier of the domain the space belongs to.
+	// The ID of the domain to create the space in.
 	DomainId() *string
 	SetDomainId(val *string)
 	// The encryption configuration for the space.
@@ -95,7 +97,7 @@ type CfnSpace interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
-	// The name of the space.
+	// A name that identifies the space.
 	Name() *string
 	SetName(val *string)
 	// The tree node.

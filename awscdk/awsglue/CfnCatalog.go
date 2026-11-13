@@ -99,11 +99,11 @@ type CfnCatalog interface {
 	// The name of the Redshift database.
 	AttrCatalogPropertiesDataLakeAccessPropertiesRedshiftDatabaseName() *string
 	// The time at which the catalog was created.
-	AttrCreateTime() *float64
+	AttrCreateTime() *string
 	// The Amazon Resource Name (ARN) of the catalog.
 	AttrResourceArn() *string
 	// The time at which the catalog was last updated.
-	AttrUpdateTime() *float64
+	AttrUpdateTime() *string
 	// A structure that specifies data lake access properties and other custom properties.
 	CatalogProperties() interface{}
 	SetCatalogProperties(val interface{})
@@ -414,8 +414,8 @@ func (j *jsiiProxy_CfnCatalog) AttrCatalogPropertiesDataLakeAccessPropertiesReds
 	return returns
 }
 
-func (j *jsiiProxy_CfnCatalog) AttrCreateTime() *float64 {
-	var returns *float64
+func (j *jsiiProxy_CfnCatalog) AttrCreateTime() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
 		"attrCreateTime",
@@ -434,8 +434,8 @@ func (j *jsiiProxy_CfnCatalog) AttrResourceArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCatalog) AttrUpdateTime() *float64 {
-	var returns *float64
+func (j *jsiiProxy_CfnCatalog) AttrUpdateTime() *string {
+	var returns *string
 	_jsii_.Get(
 		j,
 		"attrUpdateTime",

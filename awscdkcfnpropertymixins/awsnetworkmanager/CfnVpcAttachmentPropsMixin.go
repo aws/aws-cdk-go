@@ -22,6 +22,14 @@ import (
 //
 //   cfnVpcAttachmentPropsMixin := awscdkcfnpropertymixins.Aws_networkmanager.NewCfnVpcAttachmentPropsMixin(&CfnVpcAttachmentMixinProps{
 //   	CoreNetworkId: jsii.String("coreNetworkId"),
+//   	NatGatewayRules: []interface{}{
+//   		&NatRuleProperty{
+//   			MatchSourceCidr: jsii.String("matchSourceCidr"),
+//   			NatCidr: jsii.String("natCidr"),
+//   			RuleNumber: jsii.Number(123),
+//   		},
+//   	},
+//   	NatGatewaySupport: jsii.String("natGatewaySupport"),
 //   	Options: &VpcOptionsProperty{
 //   		ApplianceModeSupport: jsii.Boolean(false),
 //   		DnsSupport: jsii.Boolean(false),

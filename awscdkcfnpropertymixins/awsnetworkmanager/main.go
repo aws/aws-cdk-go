@@ -32,6 +32,10 @@ func init() {
 		reflect.TypeOf((*CfnConnectAttachmentPropsMixin_ConnectAttachmentOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnConnectAttachmentPropsMixin.NatRuleProperty",
+		reflect.TypeOf((*CfnConnectAttachmentPropsMixin_NatRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnConnectAttachmentPropsMixin.ProposedNetworkFunctionGroupChangeProperty",
 		reflect.TypeOf((*CfnConnectAttachmentPropsMixin_ProposedNetworkFunctionGroupChangeProperty)(nil)).Elem(),
 	)
@@ -216,6 +220,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnDirectConnectGatewayAttachmentPropsMixin.NatRuleProperty",
+		reflect.TypeOf((*CfnDirectConnectGatewayAttachmentPropsMixin_NatRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnDirectConnectGatewayAttachmentPropsMixin.ProposedNetworkFunctionGroupChangeProperty",
 		reflect.TypeOf((*CfnDirectConnectGatewayAttachmentPropsMixin_ProposedNetworkFunctionGroupChangeProperty)(nil)).Elem(),
 	)
@@ -332,6 +340,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnSiteToSiteVpnAttachmentPropsMixin.NatRuleProperty",
+		reflect.TypeOf((*CfnSiteToSiteVpnAttachmentPropsMixin_NatRuleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnSiteToSiteVpnAttachmentPropsMixin.ProposedNetworkFunctionGroupChangeProperty",
 		reflect.TypeOf((*CfnSiteToSiteVpnAttachmentPropsMixin_ProposedNetworkFunctionGroupChangeProperty)(nil)).Elem(),
 	)
@@ -426,6 +438,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnVpcAttachmentPropsMixin.NatRuleProperty",
+		reflect.TypeOf((*CfnVpcAttachmentPropsMixin_NatRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_networkmanager.CfnVpcAttachmentPropsMixin.ProposedNetworkFunctionGroupChangeProperty",

@@ -14,8 +14,8 @@ package awspaymentcryptography
 //   	Status: jsii.String("status"),
 //
 //   	// the properties below are optional
-//   	KmsKeyArn: jsii.String("kmsKeyArn"),
-//   	KmsKeyId: jsii.String("kmsKeyId"),
+//   	KmsEncryptionKeyArn: jsii.String("kmsEncryptionKeyArn"),
+//   	KmsEncryptionKeyId: jsii.String("kmsEncryptionKeyId"),
 //   	StatusMessage: jsii.String("statusMessage"),
 //   }
 //
@@ -29,13 +29,13 @@ type CfnKey_ReplicationStatusTypeProperty struct {
 	//
 	Status *string `field:"required" json:"status" yaml:"status"`
 	// The ARN of the AWS KMS key that protects the replica in this region.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatustype.html#cfn-paymentcryptography-key-replicationstatustype-kmskeyarn
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatustype.html#cfn-paymentcryptography-key-replicationstatustype-kmsencryptionkeyarn
 	//
-	KmsKeyArn *string `field:"optional" json:"kmsKeyArn" yaml:"kmsKeyArn"`
+	KmsEncryptionKeyArn *string `field:"optional" json:"kmsEncryptionKeyArn" yaml:"kmsEncryptionKeyArn"`
 	// The AWS KMS key requested for this region, when replication failed before its ARN was known.
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatustype.html#cfn-paymentcryptography-key-replicationstatustype-kmskeyid
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatustype.html#cfn-paymentcryptography-key-replicationstatustype-kmsencryptionkeyid
 	//
-	KmsKeyId *string `field:"optional" json:"kmsKeyId" yaml:"kmsKeyId"`
+	KmsEncryptionKeyId *string `field:"optional" json:"kmsEncryptionKeyId" yaml:"kmsEncryptionKeyId"`
 	// A message that provides additional information about the current replication status of the key.
 	//
 	// This field contains details about any issues or progress updates related to key replication operations. It may include information about replication failures, synchronization status, or other operational details.

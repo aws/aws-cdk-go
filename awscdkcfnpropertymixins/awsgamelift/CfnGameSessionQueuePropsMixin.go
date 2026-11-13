@@ -34,6 +34,14 @@ import (
 //   			jsii.String("allowedLocations"),
 //   		},
 //   	},
+//   	LogConfiguration: &LogConfigurationProperty{
+//   		DeliveryDestinations: []interface{}{
+//   			&DeliveryDestinationProperty{
+//   				DestinationArn: jsii.String("destinationArn"),
+//   				LogDestination: jsii.String("logDestination"),
+//   			},
+//   		},
+//   	},
 //   	Name: jsii.String("name"),
 //   	NotificationTarget: jsii.String("notificationTarget"),
 //   	PlayerLatencyPolicies: []interface{}{

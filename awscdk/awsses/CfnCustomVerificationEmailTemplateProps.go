@@ -57,7 +57,7 @@ type CfnCustomVerificationEmailTemplateProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-customverificationemailtemplate.html#cfn-ses-customverificationemailtemplate-templatesubject
 	//
 	TemplateSubject *string `field:"required" json:"templateSubject" yaml:"templateSubject"`
-	// The tags (keys and values) associated with the tenant.
+	// The tags (keys and values) associated with the custom verification email template.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-customverificationemailtemplate.html#cfn-ses-customverificationemailtemplate-tags
 	//
 	Tags *[]*awscdk.CfnTag `field:"optional" json:"tags" yaml:"tags"`

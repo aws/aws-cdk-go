@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnConnectAttachment) validateSetEdgeLocationParameters(val *
 	return nil
 }
 
+func (j *jsiiProxy_CfnConnectAttachment) validateSetNatGatewayRulesParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConnectAttachment) validateSetOptionsParameters(val interface{}) error {
 	return nil
 }

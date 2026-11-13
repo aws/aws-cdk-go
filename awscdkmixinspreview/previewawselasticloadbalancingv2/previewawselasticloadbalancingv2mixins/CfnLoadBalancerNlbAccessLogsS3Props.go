@@ -16,7 +16,7 @@ import (
 //   	EncryptionKey: keyRef,
 //   	OutputFormat: awscdkmixinspreview.Mixins.CfnLoadBalancerNlbAccessLogsOutputFormat.S3_PLAIN,
 //   	RecordFields: []CfnLoadBalancerNlbAccessLogsRecordFields{
-//   		awscdkmixinspreview.*Mixins.CfnLoadBalancerNlbAccessLogsRecordFields_TYPE,
+//   		awscdkmixinspreview.*Mixins.CfnLoadBalancerNlbAccessLogsRecordFields_TLS_VERIFY_STATUS,
 //   	},
 //   }
 //

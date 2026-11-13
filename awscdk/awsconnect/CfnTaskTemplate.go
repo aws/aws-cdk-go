@@ -27,6 +27,9 @@ import (
 //   	ClientToken: jsii.String("clientToken"),
 //   	Constraints: constraints,
 //   	ContactFlowArn: jsii.String("contactFlowArn"),
+//   	ContactHooks: &ContactHooksProperty{
+//   		WrapUpFlowArn: jsii.String("wrapUpFlowArn"),
+//   	},
 //   	Defaults: []interface{}{
 //   		&DefaultFieldValueProperty{
 //   			DefaultValue: jsii.String("defaultValue"),
@@ -85,6 +88,9 @@ type CfnTaskTemplate interface {
 	// The Amazon Resource Name (ARN) of the flow that runs by default when a task is created by referencing this template.
 	ContactFlowArn() *string
 	SetContactFlowArn(val *string)
+	// The contact hooks for the task template.
+	ContactHooks() interface{}
+	SetContactHooks(val interface{})
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -403,6 +409,16 @@ func (j *jsiiProxy_CfnTaskTemplate) ContactFlowArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTaskTemplate) ContactHooks() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"contactHooks",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTaskTemplate) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -636,6 +652,17 @@ func (j *jsiiProxy_CfnTaskTemplate)SetContactFlowArn(val *string) {
 	_jsii_.Set(
 		j,
 		"contactFlowArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTaskTemplate)SetContactHooks(val interface{}) {
+	if err := j.validateSetContactHooksParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"contactHooks",
 		val,
 	)
 }

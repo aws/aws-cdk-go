@@ -163,6 +163,20 @@ import (
 //   			},
 //   		},
 //   	},
+//   	HooksConfiguration: &RuntimeHooksConfigurationProperty{
+//   		BuildProperty: &BuildLifecycleHooksProperty{
+//   			Warmup: &LifecycleHookProperty{
+//   				Action: &LifecycleHookActionProperty{
+//   					HttpPost: &HttpPostLifecycleHookActionProperty{
+//   						Path: jsii.String("path"),
+//
+//   						// the properties below are optional
+//   						Port: jsii.Number(123),
+//   					},
+//   				},
+//   			},
+//   		},
+//   	},
 //   	LifecycleConfiguration: &LifecycleConfigurationProperty{
 //   		IdleRuntimeSessionTimeout: jsii.Number(123),
 //   		MaxLifetime: jsii.Number(123),
@@ -185,6 +199,11 @@ import (
 //   	RequestHeaderConfiguration: &RequestHeaderConfigurationProperty{
 //   		RequestHeaderAllowlist: []*string{
 //   			jsii.String("requestHeaderAllowlist"),
+//   		},
+//   	},
+//   	ResourceConfigurations: []interface{}{
+//   		&ResourceConfigurationProperty{
+//   			MinimumMemoryInMiB: jsii.Number(123),
 //   		},
 //   	},
 //   	Tags: map[string]*string{
@@ -249,6 +268,9 @@ type CfnRuntime interface {
 	// List of filesystem configurations.
 	FilesystemConfigurations() interface{}
 	SetFilesystemConfigurations(val interface{})
+	// Lifecycle hooks that the platform runs at fixed points in the runtime's lifecycle.
+	HooksConfiguration() interface{}
+	SetHooksConfiguration(val interface{})
 	// Configuration for managing the lifecycle of runtime sessions and resources.
 	LifecycleConfiguration() interface{}
 	SetLifecycleConfiguration(val interface{})
@@ -280,6 +302,9 @@ type CfnRuntime interface {
 	// Configuration for HTTP request headers.
 	RequestHeaderConfiguration() interface{}
 	SetRequestHeaderConfiguration(val interface{})
+	// List of resource configurations for an agent runtime.
+	ResourceConfigurations() interface{}
+	SetResourceConfigurations(val interface{})
 	// The Amazon Resource Name (ARN) for for the role.
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -696,6 +721,16 @@ func (j *jsiiProxy_CfnRuntime) FilesystemConfigurations() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuntime) HooksConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"hooksConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuntime) LifecycleConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -771,6 +806,16 @@ func (j *jsiiProxy_CfnRuntime) RequestHeaderConfiguration() interface{} {
 	_jsii_.Get(
 		j,
 		"requestHeaderConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRuntime) ResourceConfigurations() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourceConfigurations",
 		&returns,
 	)
 	return returns
@@ -940,6 +985,17 @@ func (j *jsiiProxy_CfnRuntime)SetFilesystemConfigurations(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnRuntime)SetHooksConfiguration(val interface{}) {
+	if err := j.validateSetHooksConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"hooksConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnRuntime)SetLifecycleConfiguration(val interface{}) {
 	if err := j.validateSetLifecycleConfigurationParameters(val); err != nil {
 		panic(err)
@@ -985,6 +1041,17 @@ func (j *jsiiProxy_CfnRuntime)SetRequestHeaderConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"requestHeaderConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuntime)SetResourceConfigurations(val interface{}) {
+	if err := j.validateSetResourceConfigurationsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"resourceConfigurations",
 		val,
 	)
 }

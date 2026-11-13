@@ -333,11 +333,25 @@ package awsbatch
 //   							},
 //   							SecurityContext: &SecurityContextProperty{
 //   								AllowPrivilegeEscalation: jsii.Boolean(false),
+//   								Capabilities: &EksContainerLinuxCapabilitiesProperty{
+//   									Add: []*string{
+//   										jsii.String("add"),
+//   									},
+//   									Drop: []*string{
+//   										jsii.String("drop"),
+//   									},
+//   								},
 //   								Privileged: jsii.Boolean(false),
 //   								ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   								RunAsGroup: jsii.Number(123),
 //   								RunAsNonRoot: jsii.Boolean(false),
 //   								RunAsUser: jsii.Number(123),
+//   								SeccompProfile: &EksSeccompProfileProperty{
+//   									Type: jsii.String("type"),
+//
+//   									// the properties below are optional
+//   									LocalhostProfile: jsii.String("localhostProfile"),
+//   								},
 //   							},
 //   							VolumeMounts: []interface{}{
 //   								&EksContainerVolumeMountProperty{
@@ -383,11 +397,25 @@ package awsbatch
 //   							},
 //   							SecurityContext: &SecurityContextProperty{
 //   								AllowPrivilegeEscalation: jsii.Boolean(false),
+//   								Capabilities: &EksContainerLinuxCapabilitiesProperty{
+//   									Add: []*string{
+//   										jsii.String("add"),
+//   									},
+//   									Drop: []*string{
+//   										jsii.String("drop"),
+//   									},
+//   								},
 //   								Privileged: jsii.Boolean(false),
 //   								ReadOnlyRootFilesystem: jsii.Boolean(false),
 //   								RunAsGroup: jsii.Number(123),
 //   								RunAsNonRoot: jsii.Boolean(false),
 //   								RunAsUser: jsii.Number(123),
+//   								SeccompProfile: &EksSeccompProfileProperty{
+//   									Type: jsii.String("type"),
+//
+//   									// the properties below are optional
+//   									LocalhostProfile: jsii.String("localhostProfile"),
+//   								},
 //   							},
 //   							VolumeMounts: []interface{}{
 //   								&EksContainerVolumeMountProperty{
@@ -401,6 +429,18 @@ package awsbatch
 //   					},
 //   					Metadata: &MetadataProperty{
 //   						Labels: labels,
+//   					},
+//   					SecurityContext: &EksPodSecurityContextProperty{
+//   						FsGroup: jsii.Number(123),
+//   						RunAsGroup: jsii.Number(123),
+//   						RunAsNonRoot: jsii.Boolean(false),
+//   						RunAsUser: jsii.Number(123),
+//   						SeccompProfile: &EksSeccompProfileProperty{
+//   							Type: jsii.String("type"),
+//
+//   							// the properties below are optional
+//   							LocalhostProfile: jsii.String("localhostProfile"),
+//   						},
 //   					},
 //   					ServiceAccountName: jsii.String("serviceAccountName"),
 //   					ShareProcessNamespace: jsii.Boolean(false),

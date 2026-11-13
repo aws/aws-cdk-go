@@ -300,6 +300,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_gamelift.CfnGameSessionQueuePropsMixin.DeliveryDestinationProperty",
+		reflect.TypeOf((*CfnGameSessionQueuePropsMixin_DeliveryDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_gamelift.CfnGameSessionQueuePropsMixin.DestinationProperty",
 		reflect.TypeOf((*CfnGameSessionQueuePropsMixin_DestinationProperty)(nil)).Elem(),
 	)
@@ -310,6 +314,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_gamelift.CfnGameSessionQueuePropsMixin.GameSessionQueueDestinationProperty",
 		reflect.TypeOf((*CfnGameSessionQueuePropsMixin_GameSessionQueueDestinationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_gamelift.CfnGameSessionQueuePropsMixin.LogConfigurationProperty",
+		reflect.TypeOf((*CfnGameSessionQueuePropsMixin_LogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_gamelift.CfnGameSessionQueuePropsMixin.PlayerLatencyPolicyProperty",

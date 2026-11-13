@@ -2473,6 +2473,10 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_VisibleRangeOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.VisualCustomActionDefaultsProperty",
+		reflect.TypeOf((*CfnAnalysis_VisualCustomActionDefaultsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.VisualCustomActionOperationProperty",
 		reflect.TypeOf((*CfnAnalysis_VisualCustomActionOperationProperty)(nil)).Elem(),
 	)
@@ -2481,12 +2485,24 @@ func init() {
 		reflect.TypeOf((*CfnAnalysis_VisualCustomActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.VisualHighlightOperationProperty",
+		reflect.TypeOf((*CfnAnalysis_VisualHighlightOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.VisualInteractionOptionsProperty",
 		reflect.TypeOf((*CfnAnalysis_VisualInteractionOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.VisualMenuOptionProperty",
 		reflect.TypeOf((*CfnAnalysis_VisualMenuOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.VisualMessageConfigurationProperty",
+		reflect.TypeOf((*CfnAnalysis_VisualMessageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnAnalysis.VisualMessagesProperty",
+		reflect.TypeOf((*CfnAnalysis_VisualMessagesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnAnalysis.VisualPaletteProperty",
@@ -5332,6 +5348,10 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_VisualAxisSortOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.VisualCustomActionDefaultsProperty",
+		reflect.TypeOf((*CfnDashboard_VisualCustomActionDefaultsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.VisualCustomActionOperationProperty",
 		reflect.TypeOf((*CfnDashboard_VisualCustomActionOperationProperty)(nil)).Elem(),
 	)
@@ -5340,12 +5360,24 @@ func init() {
 		reflect.TypeOf((*CfnDashboard_VisualCustomActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.VisualHighlightOperationProperty",
+		reflect.TypeOf((*CfnDashboard_VisualHighlightOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.VisualInteractionOptionsProperty",
 		reflect.TypeOf((*CfnDashboard_VisualInteractionOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.VisualMenuOptionProperty",
 		reflect.TypeOf((*CfnDashboard_VisualMenuOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.VisualMessageConfigurationProperty",
+		reflect.TypeOf((*CfnDashboard_VisualMessageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnDashboard.VisualMessagesProperty",
+		reflect.TypeOf((*CfnDashboard_VisualMessagesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnDashboard.VisualPaletteProperty",
@@ -9014,6 +9046,10 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_VisibleRangeOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.VisualCustomActionDefaultsProperty",
+		reflect.TypeOf((*CfnTemplate_VisualCustomActionDefaultsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.VisualCustomActionOperationProperty",
 		reflect.TypeOf((*CfnTemplate_VisualCustomActionOperationProperty)(nil)).Elem(),
 	)
@@ -9022,12 +9058,24 @@ func init() {
 		reflect.TypeOf((*CfnTemplate_VisualCustomActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.VisualHighlightOperationProperty",
+		reflect.TypeOf((*CfnTemplate_VisualHighlightOperationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.VisualInteractionOptionsProperty",
 		reflect.TypeOf((*CfnTemplate_VisualInteractionOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.VisualMenuOptionProperty",
 		reflect.TypeOf((*CfnTemplate_VisualMenuOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.VisualMessageConfigurationProperty",
+		reflect.TypeOf((*CfnTemplate_VisualMessageConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_quicksight.CfnTemplate.VisualMessagesProperty",
+		reflect.TypeOf((*CfnTemplate_VisualMessagesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_quicksight.CfnTemplate.VisualPaletteProperty",
