@@ -342,6 +342,13 @@ import (
 //   					Headers: map[string]*string{
 //   						"headersKey": jsii.String("headers"),
 //   					},
+//   					OutboundAuth: &HarnessRemoteMcpOutboundAuthProperty{
+//   						AwsIam: &IamCredentialProviderProperty{
+//   							Region: jsii.String("region"),
+//   							Service: jsii.String("service"),
+//   						},
+//   						None: none,
+//   					},
 //   					Url: jsii.String("url"),
 //   				},
 //   			},

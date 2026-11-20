@@ -400,6 +400,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrFlowAvailabilityZone", GoGetter: "AttrFlowAvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFlowNdiMachineName", GoGetter: "AttrFlowNdiMachineName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceIngestIp", GoGetter: "AttrSourceIngestIp"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSourceRtmpPushDetails", GoGetter: "AttrSourceRtmpPushDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSourceRtmpPushDetailsApplicationName", GoGetter: "AttrSourceRtmpPushDetailsApplicationName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrSourceRtmpPushDetailsStreamName", GoGetter: "AttrSourceRtmpPushDetailsStreamName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceSourceArn", GoGetter: "AttrSourceSourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceSourceIngestPort", GoGetter: "AttrSourceSourceIngestPort"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
@@ -505,6 +508,10 @@ func init() {
 		reflect.TypeOf((*CfnFlow_MaintenanceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.ManualRtmpPushNamingConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_ManualRtmpPushNamingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.MediaStreamAttributesProperty",
 		reflect.TypeOf((*CfnFlow_MediaStreamAttributesProperty)(nil)).Elem(),
 	)
@@ -527,6 +534,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.NdiSourceSettingsProperty",
 		reflect.TypeOf((*CfnFlow_NdiSourceSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.RtmpPushDetailsProperty",
+		reflect.TypeOf((*CfnFlow_RtmpPushDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.RtmpPushNamingConfigurationProperty",
+		reflect.TypeOf((*CfnFlow_RtmpPushNamingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlow.RtmpPushSettingsProperty",
+		reflect.TypeOf((*CfnFlow_RtmpPushSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlow.SecretsManagerEncryptionKeyConfigurationProperty",
@@ -759,6 +778,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "routerIntegrationState", GoGetter: "RouterIntegrationState"},
 			_jsii_.MemberProperty{JsiiProperty: "routerIntegrationTransitEncryption", GoGetter: "RouterIntegrationTransitEncryption"},
+			_jsii_.MemberProperty{JsiiProperty: "rtmpPushSettings", GoGetter: "RtmpPushSettings"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "smoothingLatency", GoGetter: "SmoothingLatency"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -809,8 +829,20 @@ func init() {
 		reflect.TypeOf((*CfnFlowOutput_MediaStreamOutputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.RtmpPushSettingsProperty",
+		reflect.TypeOf((*CfnFlowOutput_RtmpPushSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.SecretsManagerEncryptionKeyConfigurationProperty",
 		reflect.TypeOf((*CfnFlowOutput_SecretsManagerEncryptionKeyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.TlsEncryptionConfigurationProperty",
+		reflect.TypeOf((*CfnFlowOutput_TlsEncryptionConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.TlsEncryptionProperty",
+		reflect.TypeOf((*CfnFlowOutput_TlsEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowOutput.VpcInterfaceAttachmentProperty",
@@ -839,6 +871,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrIngestIp", GoGetter: "AttrIngestIp"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRtmpPushDetails", GoGetter: "AttrRtmpPushDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRtmpPushDetailsApplicationName", GoGetter: "AttrRtmpPushDetailsApplicationName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRtmpPushDetailsStreamName", GoGetter: "AttrRtmpPushDetailsStreamName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceArn", GoGetter: "AttrSourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSourceIngestPort", GoGetter: "AttrSourceIngestPort"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
@@ -873,6 +908,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "rtmpPushSettings", GoGetter: "RtmpPushSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "senderControlPort", GoGetter: "SenderControlPort"},
 			_jsii_.MemberProperty{JsiiProperty: "senderIpAddress", GoGetter: "SenderIpAddress"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
@@ -905,6 +941,22 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource.GatewayBridgeSourceProperty",
 		reflect.TypeOf((*CfnFlowSource_GatewayBridgeSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource.ManualRtmpPushNamingConfigurationProperty",
+		reflect.TypeOf((*CfnFlowSource_ManualRtmpPushNamingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource.RtmpPushDetailsProperty",
+		reflect.TypeOf((*CfnFlowSource_RtmpPushDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource.RtmpPushNamingConfigurationProperty",
+		reflect.TypeOf((*CfnFlowSource_RtmpPushNamingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource.RtmpPushSettingsProperty",
+		reflect.TypeOf((*CfnFlowSource_RtmpPushSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnFlowSource.VpcInterfaceAttachmentProperty",
@@ -1064,6 +1116,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrMaintenanceType", GoGetter: "AttrMaintenanceType"},
 			_jsii_.MemberProperty{JsiiProperty: "attrRoutedOutputs", GoGetter: "AttrRoutedOutputs"},
 			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStreamDetails", GoGetter: "AttrStreamDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushApplicationName", GoGetter: "AttrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushApplicationName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushStreamName", GoGetter: "AttrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushStreamName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushApplicationName", GoGetter: "AttrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushApplicationName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushStreamName", GoGetter: "AttrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushStreamName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStreamDetailsStandardRtmpPushApplicationName", GoGetter: "AttrStreamDetailsStandardRtmpPushApplicationName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrStreamDetailsStandardRtmpPushStreamName", GoGetter: "AttrStreamDetailsStandardRtmpPushStreamName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdatedAt", GoGetter: "AttrUpdatedAt"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
@@ -1139,8 +1198,16 @@ func init() {
 		reflect.TypeOf((*CfnRouterInput_FailoverRouterInputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.FailoverRouterInputIndexedStreamDetailsProperty",
+		reflect.TypeOf((*CfnRouterInput_FailoverRouterInputIndexedStreamDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.FailoverRouterInputProtocolConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInput_FailoverRouterInputProtocolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.FailoverRouterInputStreamDetailsProperty",
+		reflect.TypeOf((*CfnRouterInput_FailoverRouterInputStreamDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.FlowTransitEncryptionKeyConfigurationProperty",
@@ -1157,6 +1224,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.MaintenanceConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInput_MaintenanceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.ManualRtmpPushNamingConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInput_ManualRtmpPushNamingConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.MediaConnectFlowRouterInputConfigurationProperty",
@@ -1179,8 +1250,16 @@ func init() {
 		reflect.TypeOf((*CfnRouterInput_MergeRouterInputConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.MergeRouterInputIndexedStreamDetailsProperty",
+		reflect.TypeOf((*CfnRouterInput_MergeRouterInputIndexedStreamDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.MergeRouterInputProtocolConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInput_MergeRouterInputProtocolConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.MergeRouterInputStreamDetailsProperty",
+		reflect.TypeOf((*CfnRouterInput_MergeRouterInputStreamDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.PreferredDayTimeMaintenanceConfigurationProperty",
@@ -1203,12 +1282,28 @@ func init() {
 		reflect.TypeOf((*CfnRouterInput_RouterInputProtocolConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.RouterInputStreamDetailsProperty",
+		reflect.TypeOf((*CfnRouterInput_RouterInputStreamDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.RouterInputTransitEncryptionKeyConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInput_RouterInputTransitEncryptionKeyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.RouterInputTransitEncryptionProperty",
 		reflect.TypeOf((*CfnRouterInput_RouterInputTransitEncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.RtmpPushNamingConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInput_RtmpPushNamingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.RtmpPushRouterInputConfigurationProperty",
+		reflect.TypeOf((*CfnRouterInput_RtmpPushRouterInputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.RtmpPushStreamDetailsProperty",
+		reflect.TypeOf((*CfnRouterInput_RtmpPushStreamDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.RtpRouterInputConfigurationProperty",
@@ -1241,6 +1336,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.StandardRouterInputConfigurationProperty",
 		reflect.TypeOf((*CfnRouterInput_StandardRouterInputConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_mediaconnect.CfnRouterInput.StandardRouterInputStreamDetailsProperty",
+		reflect.TypeOf((*CfnRouterInput_StandardRouterInputStreamDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_mediaconnect.CfnRouterInputProps",

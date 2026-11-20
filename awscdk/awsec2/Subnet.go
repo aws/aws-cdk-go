@@ -30,6 +30,7 @@ import (
 //   			ec2.Subnet_FromSubnetId(this, jsii.String("subnet"), jsii.String("VpcISOLATEDSubnet1Subnet80F07FA0")),
 //   		},
 //   	},
+//   	LoadBalancerName: jsii.String("application-lb-name"),
 //   })
 //
 type Subnet interface {
@@ -52,6 +53,9 @@ type Subnet interface {
 	// Dependable that can be depended upon to force internet connectivity established on the VPC.
 	InternetConnectivityEstablished() constructs.IDependable
 	// The IPv4 CIDR block for this subnet.
+	//
+	// If the subnet is allocated from an IPAM pool (`ipv4IpamAllocation`), this is a
+	// deploy-time attribute of the subnet rather than a concrete string.
 	Ipv4CidrBlock() *string
 	// Network ACL associated with this Subnet.
 	//

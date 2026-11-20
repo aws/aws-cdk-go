@@ -20,13 +20,13 @@ package awsbedrockagentcorealpha
 //
 //   importedPolicy.GrantRead(role)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type PolicyAttributes struct {
 	// The ARN of the policy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyArn *string `field:"required" json:"policyArn" yaml:"policyArn"`
 	// The policy engine this policy belongs to [disable-awslint:prefer-ref-interface].
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyEngine IPolicyEngine `field:"required" json:"policyEngine" yaml:"policyEngine"`
 }
 

@@ -94,6 +94,9 @@ import (
 //   			PortName: jsii.String("portName"),
 //
 //   			// the properties below are optional
+//   			DeregistrationDelay: &GatewayConnectorDeregistrationDelayProperty{
+//   				TimeoutSeconds: jsii.Number(123),
+//   			},
 //   			Filters: &GatewayConnectorFiltersProperty{
 //   				AccessTypes: []*string{
 //   					jsii.String("accessTypes"),

@@ -260,6 +260,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnFunctionPropsMixin.AcceleratorConfigProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_AcceleratorConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnFunctionPropsMixin.CapacityProviderConfigProperty",
 		reflect.TypeOf((*CfnFunctionPropsMixin_CapacityProviderConfigProperty)(nil)).Elem(),
 	)
@@ -302,6 +306,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnFunctionPropsMixin.LoggingConfigProperty",
 		reflect.TypeOf((*CfnFunctionPropsMixin_LoggingConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnFunctionPropsMixin.RuntimeConfigProperty",
+		reflect.TypeOf((*CfnFunctionPropsMixin_RuntimeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnFunctionPropsMixin.RuntimeManagementConfigProperty",
@@ -456,6 +464,10 @@ func init() {
 		reflect.TypeOf((*CfnNetworkConnectorPropsMixin_ConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnNetworkConnectorPropsMixin.ElasticIpConfigurationProperty",
+		reflect.TypeOf((*CfnNetworkConnectorPropsMixin_ElasticIpConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnNetworkConnectorPropsMixin.VpcEgressConfigurationProperty",
 		reflect.TypeOf((*CfnNetworkConnectorPropsMixin_VpcEgressConfigurationProperty)(nil)).Elem(),
 	)
@@ -498,6 +510,86 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimeAliasMixinProps",
+		reflect.TypeOf((*CfnRuntimeAliasMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimeAliasPropsMixin",
+		reflect.TypeOf((*CfnRuntimeAliasPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnRuntimeAliasPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimeAliasPropsMixin.CompatibilityProperty",
+		reflect.TypeOf((*CfnRuntimeAliasPropsMixin_CompatibilityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimeAliasPropsMixin.ReleaseLifecycleProperty",
+		reflect.TypeOf((*CfnRuntimeAliasPropsMixin_ReleaseLifecycleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimeMixinProps",
+		reflect.TypeOf((*CfnRuntimeMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimePropsMixin",
+		reflect.TypeOf((*CfnRuntimePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnRuntimePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimePropsMixin.ReleaseLifecycleProperty",
+		reflect.TypeOf((*CfnRuntimePropsMixin_ReleaseLifecycleProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimeVersionMixinProps",
+		reflect.TypeOf((*CfnRuntimeVersionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimeVersionPropsMixin",
+		reflect.TypeOf((*CfnRuntimeVersionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnRuntimeVersionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimeVersionPropsMixin.CompatibilityProperty",
+		reflect.TypeOf((*CfnRuntimeVersionPropsMixin_CompatibilityProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnRuntimeVersionPropsMixin.PlatformProperty",
+		reflect.TypeOf((*CfnRuntimeVersionPropsMixin_PlatformProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_lambda.CfnUrlMixinProps",

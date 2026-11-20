@@ -16,47 +16,33 @@ import (
 // Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var vpc Vpc
+//   var ipam CfnIPAM
 //
-//   cfnIPAMPool := awscdk.Aws_ec2.NewCfnIPAMPool(this, jsii.String("MyCfnIPAMPool"), &CfnIPAMPoolProps{
-//   	AddressFamily: jsii.String("addressFamily"),
-//   	IpamScopeId: jsii.String("ipamScopeId"),
 //
-//   	// the properties below are optional
-//   	AllocationDefaultNetmaskLength: jsii.Number(123),
-//   	AllocationMaxNetmaskLength: jsii.Number(123),
-//   	AllocationMinNetmaskLength: jsii.Number(123),
-//   	AllocationResourceTags: []interface{}{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
+//   pool := ec2.NewCfnIPAMPool(this, jsii.String("SubnetPool"), &CfnIPAMPoolProps{
+//   	AddressFamily: jsii.String("ipv4"),
+//   	IpamScopeId: ipam.attrPrivateDefaultScopeId,
+//   	Locale: this.Region,
+//   	SourceResource: &SourceResourceProperty{
+//   		ResourceId: vpc.VpcId,
+//   		ResourceOwner: this.Account,
+//   		ResourceRegion: this.*Region,
+//   		ResourceType: jsii.String("vpc"),
 //   	},
-//   	AutoImport: jsii.Boolean(false),
-//   	AwsService: jsii.String("awsService"),
-//   	Description: jsii.String("description"),
-//   	Locale: jsii.String("locale"),
 //   	ProvisionedCidrs: []interface{}{
 //   		&ProvisionedCidrProperty{
-//   			Cidr: jsii.String("cidr"),
+//   			Cidr: vpc.VpcCidrBlock,
 //   		},
 //   	},
-//   	PublicIpSource: jsii.String("publicIpSource"),
-//   	PubliclyAdvertisable: jsii.Boolean(false),
-//   	SourceIpamPoolId: jsii.String("sourceIpamPoolId"),
-//   	SourceResource: &SourceResourceProperty{
-//   		ResourceId: jsii.String("resourceId"),
-//   		ResourceOwner: jsii.String("resourceOwner"),
-//   		ResourceRegion: jsii.String("resourceRegion"),
-//   		ResourceType: jsii.String("resourceType"),
-//   	},
-//   	Tags: []CfnTag{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
+//   })
+//
+//   subnet := ec2.NewSubnet(this, jsii.String("IpamSubnet"), &SubnetProps{
+//   	VpcId: vpc.*VpcId,
+//   	AvailabilityZone: vpc.AvailabilityZones[jsii.Number(0)],
+//   	Ipv4IpamAllocation: &SubnetIpv4IpamAllocation{
+//   		IpamPool: pool,
+//   		NetmaskLength: jsii.Number(24),
 //   	},
 //   })
 //

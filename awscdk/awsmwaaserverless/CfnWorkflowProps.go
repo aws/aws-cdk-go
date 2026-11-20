@@ -35,6 +35,11 @@ package awsmwaaserverless
 //   		// the properties below are optional
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	Environment: &EnvironmentProperty{
+//   		Variables: map[string]*string{
+//   			"variablesKey": jsii.String("variables"),
+//   		},
+//   	},
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		LogGroupName: jsii.String("logGroupName"),
 //   	},
@@ -74,6 +79,10 @@ type CfnWorkflowProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaaserverless-workflow.html#cfn-mwaaserverless-workflow-encryptionconfiguration
 	//
 	EncryptionConfiguration interface{} `field:"optional" json:"encryptionConfiguration" yaml:"encryptionConfiguration"`
+	// Contains the environment variables that tasks in a workflow use during execution.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaaserverless-workflow.html#cfn-mwaaserverless-workflow-environment
+	//
+	Environment interface{} `field:"optional" json:"environment" yaml:"environment"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaaserverless-workflow.html#cfn-mwaaserverless-workflow-loggingconfiguration
 	//
 	LoggingConfiguration interface{} `field:"optional" json:"loggingConfiguration" yaml:"loggingConfiguration"`

@@ -4,18 +4,20 @@ package awscdk
 // Bundling options.
 //
 // Example:
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//
-//   asset := awscdk.NewAsset(this, jsii.String("BundledAsset"), &AssetProps{
-//   	Path: jsii.String("/path/to/asset"),
-//   	Bundling: &BundlingOptions{
-//   		Image: cdk.DockerImage_FromRegistry(jsii.String("alpine")),
-//   		Command: []*string{
-//   			jsii.String("command-that-produces-an-archive.sh"),
+//   lambda.NewFunction(this, jsii.String("JavaFunction"), &FunctionProps{
+//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("my-java-handler")), &AssetOptions{
+//   		Bundling: &BundlingOptions{
+//   			Image: awscdk.DockerImage_FromRegistry(jsii.String("public.ecr.aws/sam/build-java21:1.153")),
+//   			 // example: the last image with Gradle 8.x
+//   			Command: []*string{
+//   				jsii.String("bash"),
+//   				jsii.String("-c"),
+//   				jsii.String("gradle build && cp build/distributions/*.zip /asset-output/"),
+//   			},
 //   		},
-//   		OutputType: cdk.BundlingOutput_NOT_ARCHIVED,
-//   	},
+//   	}),
+//   	Runtime: lambda.Runtime_JAVA_21(),
+//   	Handler: jsii.String("com.example.Handler::handleRequest"),
 //   })
 //
 type BundlingOptions struct {

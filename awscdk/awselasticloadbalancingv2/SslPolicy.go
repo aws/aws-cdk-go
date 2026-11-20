@@ -208,6 +208,59 @@ const (
 	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html#fips-security-policies
 	//
 	SslPolicy_FIPS_TLS13_10_PQ SslPolicy = "FIPS_TLS13_10_PQ"
+	// TLS 1.3 only, RFC 9151 (CNSA 1.0) strict policy. FIPS-compliant.
+	//
+	// Supports the single cipher TLS_AES_256_GCM_SHA384. Use a strict policy only when all
+	// clients can negotiate RFC 9151 algorithms.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html#rfc9151-security-policies
+	//
+	SslPolicy_RFC9151_TLS13_13 SslPolicy = "RFC9151_TLS13_13"
+	// TLS 1.2 and 1.3, RFC 9151 (CNSA 1.0) strict policy. FIPS-compliant.
+	//
+	// Adds the ECDHE-ECDSA and ECDHE-RSA AES256-GCM-SHA384 ciphers on top of
+	// {@link RFC9151_TLS13_13} for TLS 1.2 clients. Use a strict policy only when all clients
+	// can negotiate RFC 9151 algorithms.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html#rfc9151-security-policies
+	//
+	SslPolicy_RFC9151_TLS13_12 SslPolicy = "RFC9151_TLS13_12"
+	// TLS 1.2 and 1.3, RFC 9151 (CNSA 1.0) strict policy. FIPS-compliant.
+	//
+	// Same as {@link RFC9151_TLS13_12} plus the non-ECDHE AES256-GCM-SHA384 cipher (extended
+	// cipher suite 0). Use a strict policy only when all clients can negotiate RFC 9151 algorithms.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html#rfc9151-security-policies
+	//
+	SslPolicy_RFC9151_TLS13_12_EXT0 SslPolicy = "RFC9151_TLS13_12_EXT0"
+	// TLS 1.2 and 1.3, RFC 9151 (CNSA 1.0) interoperability policy. FIPS-compliant.
+	//
+	// Interop policies mix RFC 9151 and non-RFC 9151 ciphers so clients can transition gradually.
+	// This variant adds the AES128-GCM-SHA256 ciphers (TLS_AES_128_GCM_SHA256,
+	// ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-RSA-AES128-GCM-SHA256) to the RFC 9151 GCM ciphers.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html#rfc9151-security-policies
+	//
+	SslPolicy_RFC9151_TLS13_12_INTEROP1 SslPolicy = "RFC9151_TLS13_12_INTEROP1"
+	// TLS 1.2 and 1.3, RFC 9151 (CNSA 1.0) interoperability policy. FIPS-compliant.
+	//
+	// Extends {@link RFC9151_TLS13_12_INTEROP1} with the AES-SHA256 CBC ciphers
+	// (ECDHE-ECDSA/RSA-AES256-SHA384 and ECDHE-ECDSA/RSA-AES128-SHA256).
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html#rfc9151-security-policies
+	//
+	SslPolicy_RFC9151_TLS13_12_INTEROP2 SslPolicy = "RFC9151_TLS13_12_INTEROP2"
+	// TLS 1.2 and 1.3, RFC 9151 (CNSA 1.0) interoperability policy. FIPS-compliant.
+	//
+	// Adds the AES-SHA1 CBC ciphers (ECDHE-ECDSA/RSA-AES256-SHA and ECDHE-ECDSA/RSA-AES128-SHA)
+	// on top of the GCM and SHA256 ciphers, for the widest client compatibility of the interop
+	// policies.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html#rfc9151-security-policies
+	//
+	SslPolicy_RFC9151_TLS13_12_INTEROP3 SslPolicy = "RFC9151_TLS13_12_INTEROP3"
+	// TLS 1.2 and 1.3, RFC 9151 (CNSA 1.0) interoperability policy. FIPS-compliant.
+	//
+	// AWS recommends starting with this policy: it supports clients that negotiate classical
+	// TLS 1.3, TLS 1.2, or strict RFC 9151 algorithms, then move to a stricter policy as clients
+	// gain RFC 9151 support. Also used for backend connections when any listener uses an RFC 9151 policy.
+	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html#rfc9151-security-policies
+	//
+	SslPolicy_RFC9151_TLS13_12_INTEROP4 SslPolicy = "RFC9151_TLS13_12_INTEROP4"
 	// Strong foward secrecy ciphers and TLV1.2 only (2020 edition). Same as FORWARD_SECRECY_TLS12_RES, but only supports GCM versions of the TLS ciphers.
 	SslPolicy_FORWARD_SECRECY_TLS12_RES_GCM SslPolicy = "FORWARD_SECRECY_TLS12_RES_GCM"
 	// Strong forward secrecy ciphers and TLS1.2 only.

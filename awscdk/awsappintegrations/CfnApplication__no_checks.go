@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnApplication) validateSetApplicationSourceConfigParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetAuthConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetIframeConfigParameters(val interface{}) error {
 	return nil
 }

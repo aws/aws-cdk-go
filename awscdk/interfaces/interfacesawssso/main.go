@@ -115,6 +115,22 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_sso.ITrustedTokenIssuerRef",
+		reflect.TypeOf((*ITrustedTokenIssuerRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "trustedTokenIssuerRef", GoGetter: "TrustedTokenIssuerRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITrustedTokenIssuerRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sso.InstanceAccessControlAttributeConfigurationReference",
 		reflect.TypeOf((*InstanceAccessControlAttributeConfigurationReference)(nil)).Elem(),
@@ -126,5 +142,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_sso.PermissionSetReference",
 		reflect.TypeOf((*PermissionSetReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_sso.TrustedTokenIssuerReference",
+		reflect.TypeOf((*TrustedTokenIssuerReference)(nil)).Elem(),
 	)
 }

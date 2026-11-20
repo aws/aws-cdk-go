@@ -50,6 +50,11 @@ import (
 //   cfnClusterPropsMixin := awscdkcfnpropertymixins.Aws_dsql.NewCfnClusterPropsMixin(&CfnClusterMixinProps{
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
 //   	KmsEncryptionKey: jsii.String("kmsEncryptionKey"),
+//   	MetricGroups: []interface{}{
+//   		&MetricGroupProperty{
+//   			MetricGroup: jsii.String("metricGroup"),
+//   		},
+//   	},
 //   	MultiRegionProperties: &MultiRegionPropertiesProperty{
 //   		Clusters: []*string{
 //   			jsii.String("clusters"),

@@ -279,6 +279,30 @@ func (j *jsiiProxy_CfnApplication) validateSetApplicationSourceConfigParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnApplication) validateSetAuthConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnApplication_AuthConfigProperty:
+		val := val.(*CfnApplication_AuthConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnApplication_AuthConfigProperty:
+		val_ := val.(CfnApplication_AuthConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnApplication_AuthConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnApplication) validateSetIframeConfigParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

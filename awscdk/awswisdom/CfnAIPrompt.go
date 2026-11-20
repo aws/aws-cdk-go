@@ -32,6 +32,12 @@ import (
 //   	// the properties below are optional
 //   	AssistantId: jsii.String("assistantId"),
 //   	Description: jsii.String("description"),
+//   	InferenceConfiguration: &AIPromptInferenceConfigurationProperty{
+//   		MaxTokensToSample: jsii.Number(123),
+//   		Temperature: jsii.Number(123),
+//   		TopK: jsii.Number(123),
+//   		TopP: jsii.Number(123),
+//   	},
 //   	Name: jsii.String("name"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -76,6 +82,8 @@ type CfnAIPrompt interface {
 	Description() *string
 	SetDescription(val *string)
 	Env() *interfaces.ResourceEnvironment
+	InferenceConfiguration() interface{}
+	SetInferenceConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
 	//
 	// The logical ID of the element
@@ -451,6 +459,16 @@ func (j *jsiiProxy_CfnAIPrompt) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAIPrompt) InferenceConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"inferenceConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAIPrompt) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -624,6 +642,17 @@ func (j *jsiiProxy_CfnAIPrompt)SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAIPrompt)SetInferenceConfiguration(val interface{}) {
+	if err := j.validateSetInferenceConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"inferenceConfiguration",
 		val,
 	)
 }

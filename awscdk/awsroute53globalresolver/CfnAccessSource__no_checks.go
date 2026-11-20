@@ -104,10 +104,6 @@ func validateCfnAccessSource_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
-func (j *jsiiProxy_CfnAccessSource) validateSetCidrParameters(val *string) error {
-	return nil
-}
-
 func (j *jsiiProxy_CfnAccessSource) validateSetDnsViewIdParameters(val *string) error {
 	return nil
 }

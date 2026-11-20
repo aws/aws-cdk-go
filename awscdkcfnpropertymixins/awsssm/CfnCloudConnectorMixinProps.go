@@ -28,6 +28,19 @@ import (
 //   			TenantDisplayName: jsii.String("tenantDisplayName"),
 //   			TenantId: jsii.String("tenantId"),
 //   		},
+//   		GcpConfiguration: &GcpConfigurationProperty{
+//   			OrganizationId: jsii.String("organizationId"),
+//   			ServiceAccountEmail: jsii.String("serviceAccountEmail"),
+//   			Targets: &GcpConfigurationTargetsProperty{
+//   				Projects: []interface{}{
+//   					&GcpProjectProperty{
+//   						ProjectDisplayName: jsii.String("projectDisplayName"),
+//   						ProjectId: jsii.String("projectId"),
+//   					},
+//   				},
+//   			},
+//   			WorkloadIdentityPoolProvider: jsii.String("workloadIdentityPoolProvider"),
+//   		},
 //   	},
 //   	Description: jsii.String("description"),
 //   	DisplayName: jsii.String("displayName"),
@@ -49,7 +62,7 @@ type CfnCloudConnectorMixinProps struct {
 	ConfigConnectorArn *string `field:"optional" json:"configConnectorArn" yaml:"configConnectorArn"`
 	// The configuration for the cloud connector.
 	//
-	// Currently supports Azure.
+	// Exactly one of AzureConfiguration or GcpConfiguration.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-cloudconnector.html#cfn-ssm-cloudconnector-configuration
 	//
 	Configuration interface{} `field:"optional" json:"configuration" yaml:"configuration"`

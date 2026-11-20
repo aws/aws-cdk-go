@@ -26,6 +26,9 @@ import (
 //   			AssociatedComputeResourceTypes: []*string{
 //   				jsii.String("associatedComputeResourceTypes"),
 //   			},
+//   			ElasticIpConfiguration: &ElasticIpConfigurationProperty{
+//   				Type: jsii.String("type"),
+//   			},
 //   			NetworkProtocol: jsii.String("networkProtocol"),
 //   			SecurityGroupIds: []*string{
 //   				jsii.String("securityGroupIds"),

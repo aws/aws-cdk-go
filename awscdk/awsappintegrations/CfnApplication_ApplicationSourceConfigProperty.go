@@ -25,6 +25,6 @@ type CfnApplication_ApplicationSourceConfigProperty struct {
 	// The external URL source for the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-applicationsourceconfig.html#cfn-appintegrations-application-applicationsourceconfig-externalurlconfig
 	//
-	ExternalUrlConfig interface{} `field:"required" json:"externalUrlConfig" yaml:"externalUrlConfig"`
+	ExternalUrlConfig interface{} `field:"optional" json:"externalUrlConfig" yaml:"externalUrlConfig"`
 }
 

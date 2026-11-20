@@ -14,6 +14,11 @@ import (
 //   cfnClusterMixinProps := &CfnClusterMixinProps{
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
 //   	KmsEncryptionKey: jsii.String("kmsEncryptionKey"),
+//   	MetricGroups: []interface{}{
+//   		&MetricGroupProperty{
+//   			MetricGroup: jsii.String("metricGroup"),
+//   		},
+//   	},
 //   	MultiRegionProperties: &MultiRegionPropertiesProperty{
 //   		Clusters: []*string{
 //   			jsii.String("clusters"),
@@ -40,6 +45,12 @@ type CfnClusterMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-kmsencryptionkey
 	//
 	KmsEncryptionKey *string `field:"optional" json:"kmsEncryptionKey" yaml:"kmsEncryptionKey"`
+	// The Advanced monitoring metric groups to enable on the cluster.
+	//
+	// Omit to enable none.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-metricgroups
+	//
+	MetricGroups interface{} `field:"optional" json:"metricGroups" yaml:"metricGroups"`
 	// Defines the structure for multi-Region cluster configurations, containing the witness Region and peered cluster settings.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#cfn-dsql-cluster-multiregionproperties
 	//

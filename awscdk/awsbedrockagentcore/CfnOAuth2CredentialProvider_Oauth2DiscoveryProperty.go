@@ -29,7 +29,7 @@ type CfnOAuth2CredentialProvider_Oauth2DiscoveryProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2discovery.html#cfn-bedrockagentcore-oauth2credentialprovider-oauth2discovery-authorizationservermetadata
 	//
 	AuthorizationServerMetadata interface{} `field:"optional" json:"authorizationServerMetadata" yaml:"authorizationServerMetadata"`
-	// The discovery URL for the OAuth2 provider.
+	// OpenID Connect discovery URL or OAuth 2.0 authorization server metadata URL.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2discovery.html#cfn-bedrockagentcore-oauth2credentialprovider-oauth2discovery-discoveryurl
 	//
 	DiscoveryUrl *string `field:"optional" json:"discoveryUrl" yaml:"discoveryUrl"`

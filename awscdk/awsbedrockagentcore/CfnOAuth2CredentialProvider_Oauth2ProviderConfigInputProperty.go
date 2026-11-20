@@ -36,6 +36,19 @@ package awsbedrockagentcore
 //   		},
 //
 //   		// the properties below are optional
+//   		CertificateConfigurations: []interface{}{
+//   			&CertificateConfigurationProperty{
+//   				S3: &S3CertificateConfigurationProperty{
+//   					Uri: jsii.String("uri"),
+//
+//   					// the properties below are optional
+//   					BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   				},
+//   				SecretsManager: &SecretsManagerCertificateConfigurationProperty{
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//   			},
+//   		},
 //   		ClientAuthenticationMethod: jsii.String("clientAuthenticationMethod"),
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),

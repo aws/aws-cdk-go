@@ -11,6 +11,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var automatic interface{}
+//
 //   cfnFlowSourceProps := &CfnFlowSourceProps{
 //   	Description: jsii.String("description"),
 //   	FlowArn: jsii.String("flowArn"),
@@ -44,6 +46,15 @@ import (
 //   	MaxLatency: jsii.Number(123),
 //   	MinLatency: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
+//   	RtmpPushSettings: &RtmpPushSettingsProperty{
+//   		NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   			Automatic: automatic,
+//   			Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   				ApplicationName: jsii.String("applicationName"),
+//   				StreamName: jsii.String("streamName"),
+//   			},
+//   		},
+//   	},
 //   	SenderControlPort: jsii.Number(123),
 //   	SenderIpAddress: jsii.String("senderIpAddress"),
 //   	SourceListenerAddress: jsii.String("sourceListenerAddress"),
@@ -125,6 +136,10 @@ type CfnFlowSourceProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-protocol
 	//
 	Protocol *string `field:"optional" json:"protocol" yaml:"protocol"`
+	// The settings for the RTMP (Real-Time Messaging Protocol) source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-rtmppushsettings
+	//
+	RtmpPushSettings interface{} `field:"optional" json:"rtmpPushSettings" yaml:"rtmpPushSettings"`
 	// The port that the flow uses to send outbound requests to initiate connection with the sender.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-sendercontrolport
 	//

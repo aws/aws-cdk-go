@@ -278,6 +278,30 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) validateSetTagsParameters(val *[]*
 	return nil
 }
 
+func (j *jsiiProxy_CfnPodIdentityAssociation) validateSetWorkloadIdentityConfigParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnPodIdentityAssociation_WorkloadIdentityConfigProperty:
+		val := val.(*CfnPodIdentityAssociation_WorkloadIdentityConfigProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnPodIdentityAssociation_WorkloadIdentityConfigProperty:
+		val_ := val.(CfnPodIdentityAssociation_WorkloadIdentityConfigProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnPodIdentityAssociation_WorkloadIdentityConfigProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func validateNewCfnPodIdentityAssociationParameters(scope constructs.Construct, id *string, props *CfnPodIdentityAssociationProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")

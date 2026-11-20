@@ -119,10 +119,12 @@ type RuntimeProps struct {
 	// Default: {} - no tags.
 	//
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
-	// Whether to enable X-Ray tracing for this runtime.
+	// Whether to enable X-Ray tracing for this runtime. When enabled, traces will be delivered to AWS X-Ray.
 	//
-	// When enabled, traces will be delivered to AWS X-Ray.
-	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html
+	// Tracing requires CloudWatch Transaction Search to be enabled in the account and
+	// Region, so that the X-Ray trace segment destination is CloudWatch Logs.
+	// Without it the deploy fails. This is a one-time, account-wide setting.
+	// See: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html
 	//
 	// Default: false.
 	//

@@ -132,6 +132,22 @@ func IgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) GlobIgno
 	return returns
 }
 
+// Return an IgnoreStrategy that does not ignore any files.
+func IgnoreStrategy_None() IgnoreStrategy {
+	_init_.Initialize()
+
+	var returns IgnoreStrategy
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.IgnoreStrategy",
+		"none",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 func (i *jsiiProxy_IgnoreStrategy) Add(pattern *string) {
 	if err := i.validateAddParameters(pattern); err != nil {
 		panic(err)

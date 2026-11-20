@@ -8,6 +8,8 @@ package awsmediaconnect
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
+//   var automatic interface{}
+//
 //   failoverRouterInputConfigurationProperty := &FailoverRouterInputConfigurationProperty{
 //   	NetworkInterfaceArn: jsii.String("networkInterfaceArn"),
 //   	PrimarySourceIndex: jsii.Number(123),
@@ -16,6 +18,17 @@ package awsmediaconnect
 //   			Rist: &RistRouterInputConfigurationProperty{
 //   				Port: jsii.Number(123),
 //   				RecoveryLatencyMilliseconds: jsii.Number(123),
+//   			},
+//   			RtmpPush: &RtmpPushRouterInputConfigurationProperty{
+//   				NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   					Automatic: automatic,
+//   					Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   						ApplicationName: jsii.String("applicationName"),
+//   						StreamName: jsii.String("streamName"),
+//   					},
+//   				},
+//   				NamingType: jsii.String("namingType"),
+//   				Port: jsii.Number(123),
 //   			},
 //   			Rtp: &RtpRouterInputConfigurationProperty{
 //   				ForwardErrorCorrection: jsii.String("forwardErrorCorrection"),

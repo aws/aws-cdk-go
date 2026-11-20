@@ -24,6 +24,10 @@ func init() {
 		reflect.TypeOf((*HealthCheckReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_route53.HealthCheckSourceReference",
+		reflect.TypeOf((*HealthCheckSourceReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_route53.HostedZoneReference",
 		reflect.TypeOf((*HostedZoneReference)(nil)).Elem(),
 	)
@@ -86,6 +90,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IHealthCheckRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_route53.IHealthCheckSourceRef",
+		reflect.TypeOf((*IHealthCheckSourceRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "healthCheckSourceRef", GoGetter: "HealthCheckSourceRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IHealthCheckSourceRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -156,6 +176,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_route53.IRecordSetProtectionRef",
+		reflect.TypeOf((*IRecordSetProtectionRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "recordSetProtectionRef", GoGetter: "RecordSetProtectionRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IRecordSetProtectionRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_route53.IRecordSetRef",
 		reflect.TypeOf((*IRecordSetRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -214,6 +250,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_route53.RecordSetGroupReference",
 		reflect.TypeOf((*RecordSetGroupReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_route53.RecordSetProtectionReference",
+		reflect.TypeOf((*RecordSetProtectionReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_route53.RecordSetReference",

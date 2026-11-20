@@ -272,6 +272,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIPromptPropsMixin.AIPromptInferenceConfigurationProperty",
+		reflect.TypeOf((*CfnAIPromptPropsMixin_AIPromptInferenceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_wisdom.CfnAIPromptPropsMixin.AIPromptTemplateConfigurationProperty",
 		reflect.TypeOf((*CfnAIPromptPropsMixin_AIPromptTemplateConfigurationProperty)(nil)).Elem(),
 	)

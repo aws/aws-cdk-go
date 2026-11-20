@@ -10,11 +10,15 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   globIgnoreStrategy := cdk.NewGlobIgnoreStrategy(jsii.String("absoluteRootPath"), []*string{
-//   	jsii.String("patterns"),
-//   })
+//   globIgnoreStrategy := cdk.GlobIgnoreStrategy_FromCopyOptions(&CopyOptions{
+//   	Exclude: []*string{
+//   		jsii.String("exclude"),
+//   	},
+//   	Follow: cdk.SymlinkFollowMode_NEVER,
+//   	IgnoreMode: cdk.IgnoreMode_GLOB,
+//   }, jsii.String("absoluteRootPath"))
 //
 type GlobIgnoreStrategy interface {
 	IgnoreStrategy
@@ -140,6 +144,22 @@ func GlobIgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) Glob
 		"aws-cdk-lib.GlobIgnoreStrategy",
 		"glob",
 		[]interface{}{absoluteRootPath, patterns},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return an IgnoreStrategy that does not ignore any files.
+func GlobIgnoreStrategy_None() IgnoreStrategy {
+	_init_.Initialize()
+
+	var returns IgnoreStrategy
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.GlobIgnoreStrategy",
+		"none",
+		nil, // no parameters
 		&returns,
 	)
 

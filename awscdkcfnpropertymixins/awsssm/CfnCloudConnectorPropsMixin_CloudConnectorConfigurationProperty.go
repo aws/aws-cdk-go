@@ -3,7 +3,7 @@ package awsssm
 
 // The configuration for the cloud connector.
 //
-// Currently supports Azure.
+// Exactly one of AzureConfiguration or GcpConfiguration.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -25,6 +25,19 @@ package awsssm
 //   		TenantDisplayName: jsii.String("tenantDisplayName"),
 //   		TenantId: jsii.String("tenantId"),
 //   	},
+//   	GcpConfiguration: &GcpConfigurationProperty{
+//   		OrganizationId: jsii.String("organizationId"),
+//   		ServiceAccountEmail: jsii.String("serviceAccountEmail"),
+//   		Targets: &GcpConfigurationTargetsProperty{
+//   			Projects: []interface{}{
+//   				&GcpProjectProperty{
+//   					ProjectDisplayName: jsii.String("projectDisplayName"),
+//   					ProjectId: jsii.String("projectId"),
+//   				},
+//   			},
+//   		},
+//   		WorkloadIdentityPoolProvider: jsii.String("workloadIdentityPoolProvider"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-cloudconnector-cloudconnectorconfiguration.html
@@ -34,5 +47,9 @@ type CfnCloudConnectorPropsMixin_CloudConnectorConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-cloudconnector-cloudconnectorconfiguration.html#cfn-ssm-cloudconnector-cloudconnectorconfiguration-azureconfiguration
 	//
 	AzureConfiguration interface{} `field:"optional" json:"azureConfiguration" yaml:"azureConfiguration"`
+	// Configuration for connecting to Google Cloud.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-cloudconnector-cloudconnectorconfiguration.html#cfn-ssm-cloudconnector-cloudconnectorconfiguration-gcpconfiguration
+	//
+	GcpConfiguration interface{} `field:"optional" json:"gcpConfiguration" yaml:"gcpConfiguration"`
 }
 

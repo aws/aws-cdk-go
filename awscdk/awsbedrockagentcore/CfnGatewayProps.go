@@ -70,6 +70,14 @@ package awsbedrockagentcore
 //   		},
 //   	},
 //   	Description: jsii.String("description"),
+//   	DomainOverride: &DomainOverrideProperty{
+//   		DefaultDomain: jsii.String("defaultDomain"),
+//
+//   		// the properties below are optional
+//   		AlternateDomains: []*string{
+//   			jsii.String("alternateDomains"),
+//   		},
+//   	},
 //   	ExceptionLevel: jsii.String("exceptionLevel"),
 //   	InterceptorConfigurations: []interface{}{
 //   		&GatewayInterceptorConfigurationProperty{
@@ -148,6 +156,9 @@ type CfnGatewayProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-domainoverride
+	//
+	DomainOverride interface{} `field:"optional" json:"domainOverride" yaml:"domainOverride"`
 	// The exception level for the gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gateway.html#cfn-bedrockagentcore-gateway-exceptionlevel
 	//

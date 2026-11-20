@@ -76,6 +76,8 @@ func AgentRuntimeArtifact_FromAsset(directory *string, options *awsecrassets.Doc
 }
 
 // Reference an agent runtime artifact that's constructed from local code assets uploaded to a CDK-managed S3 bucket.
+//
+// The folder is zipped as is. Include all dependencies, built for Linux arm64, in the folder.
 func AgentRuntimeArtifact_FromCodeAsset(options *CodeAssetOptions) AgentRuntimeArtifact {
 	_init_.Initialize()
 

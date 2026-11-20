@@ -18,34 +18,34 @@ import (
 //
 //   attributeAccessor := bedrock_agentcore_alpha.NewAttributeAccessor(jsii.String("path"), conditionBuilder)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type AttributeAccessor interface {
 	// String contains check.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Contains(value *string) ConditionBuilder
 	// Equality comparison (==).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	EqualTo(value interface{}) ConditionBuilder
 	// Greater than comparison (>).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GreaterThan(value *float64) ConditionBuilder
 	// Greater than or equals comparison (>=).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GreaterThanOrEqualTo(value *float64) ConditionBuilder
 	// Check if attribute is in a set/list.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	IsIn(values *[]interface{}) ConditionBuilder
 	// IP range check - tests if IP address is in CIDR range.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	IsInRange(ipRange *string) ConditionBuilder
 	// Less than comparison (<).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LessThan(value *float64) ConditionBuilder
 	// Less than or equals comparison (<=).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	LessThanOrEqualTo(value *float64) ConditionBuilder
 	// Inequality comparison (!=).
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	NotEqualTo(value interface{}) ConditionBuilder
 }
 
@@ -54,7 +54,7 @@ type jsiiProxy_AttributeAccessor struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewAttributeAccessor(path *string, parent ConditionBuilder) AttributeAccessor {
 	_init_.Initialize()
 
@@ -72,7 +72,7 @@ func NewAttributeAccessor(path *string, parent ConditionBuilder) AttributeAccess
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewAttributeAccessor_Override(a AttributeAccessor, path *string, parent ConditionBuilder) {
 	_init_.Initialize()
 

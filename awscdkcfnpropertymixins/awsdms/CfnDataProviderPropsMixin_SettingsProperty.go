@@ -68,6 +68,8 @@ package awsdms
 //   		CertificateArn: jsii.String("certificateArn"),
 //   		DatabaseName: jsii.String("databaseName"),
 //   		Port: jsii.Number(123),
+//   		S3AccessRoleArn: jsii.String("s3AccessRoleArn"),
+//   		S3Path: jsii.String("s3Path"),
 //   		SecretsManagerOracleAsmAccessRoleArn: jsii.String("secretsManagerOracleAsmAccessRoleArn"),
 //   		SecretsManagerOracleAsmSecretId: jsii.String("secretsManagerOracleAsmSecretId"),
 //   		SecretsManagerSecurityDbEncryptionAccessRoleArn: jsii.String("secretsManagerSecurityDbEncryptionAccessRoleArn"),

@@ -68,6 +68,25 @@ func ListenerCondition_HostHeaders(values *[]*string) ListenerCondition {
 	return returns
 }
 
+// Create a host-header listener rule condition using regular expressions.
+func ListenerCondition_HostHeadersRegex(values *[]*string) ListenerCondition {
+	_init_.Initialize()
+
+	if err := validateListenerCondition_HostHeadersRegexParameters(values); err != nil {
+		panic(err)
+	}
+	var returns ListenerCondition
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"hostHeadersRegex",
+		[]interface{}{values},
+		&returns,
+	)
+
+	return returns
+}
+
 // Create a http-header listener rule condition.
 func ListenerCondition_HttpHeader(name *string, values *[]*string) ListenerCondition {
 	_init_.Initialize()
@@ -80,6 +99,25 @@ func ListenerCondition_HttpHeader(name *string, values *[]*string) ListenerCondi
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
 		"httpHeader",
+		[]interface{}{name, values},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a http-header listener rule condition using regular expressions.
+func ListenerCondition_HttpHeaderRegex(name *string, values *[]*string) ListenerCondition {
+	_init_.Initialize()
+
+	if err := validateListenerCondition_HttpHeaderRegexParameters(name, values); err != nil {
+		panic(err)
+	}
+	var returns ListenerCondition
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"httpHeaderRegex",
 		[]interface{}{name, values},
 		&returns,
 	)
@@ -118,6 +156,25 @@ func ListenerCondition_PathPatterns(values *[]*string) ListenerCondition {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
 		"pathPatterns",
+		[]interface{}{values},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a path-pattern listener rule condition using regular expressions.
+func ListenerCondition_PathPatternsRegex(values *[]*string) ListenerCondition {
+	_init_.Initialize()
+
+	if err := validateListenerCondition_PathPatternsRegexParameters(values); err != nil {
+		panic(err)
+	}
+	var returns ListenerCondition
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_elasticloadbalancingv2.ListenerCondition",
+		"pathPatternsRegex",
 		[]interface{}{values},
 		&returns,
 	)

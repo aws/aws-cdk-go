@@ -427,4 +427,8 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_eks.CfnPodIdentityAssociationPropsMixin.WorkloadIdentityConfigProperty",
+		reflect.TypeOf((*CfnPodIdentityAssociationPropsMixin_WorkloadIdentityConfigProperty)(nil)).Elem(),
+	)
 }

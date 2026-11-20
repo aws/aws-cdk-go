@@ -15,6 +15,9 @@ package awsdevopsagent
 //   	OwnerType: jsii.String("ownerType"),
 //   	RepoId: jsii.String("repoId"),
 //   	RepoName: jsii.String("repoName"),
+//
+//   	// the properties below are optional
+//   	ReleaseManagementAssociationId: jsii.String("releaseManagementAssociationId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-githubconfiguration.html
@@ -36,5 +39,9 @@ type CfnAssociation_GitHubConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-githubconfiguration.html#cfn-devopsagent-association-githubconfiguration-reponame
 	//
 	RepoName *string `field:"required" json:"repoName" yaml:"repoName"`
+	// The ID of the release management association that this repository uses for automated testing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-githubconfiguration.html#cfn-devopsagent-association-githubconfiguration-releasemanagementassociationid
+	//
+	ReleaseManagementAssociationId *string `field:"optional" json:"releaseManagementAssociationId" yaml:"releaseManagementAssociationId"`
 }
 

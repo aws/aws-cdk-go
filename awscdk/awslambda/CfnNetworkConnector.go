@@ -31,6 +31,11 @@ import (
 //   			SubnetIds: []*string{
 //   				jsii.String("subnetIds"),
 //   			},
+//
+//   			// the properties below are optional
+//   			ElasticIpConfiguration: &ElasticIpConfigurationProperty{
+//   				Type: jsii.String("type"),
+//   			},
 //   		},
 //   	},
 //

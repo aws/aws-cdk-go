@@ -16,7 +16,27 @@ func validateListenerCondition_HostHeadersParameters(values *[]*string) error {
 	return nil
 }
 
+func validateListenerCondition_HostHeadersRegexParameters(values *[]*string) error {
+	if values == nil {
+		return fmt.Errorf("parameter values is required, but nil was provided")
+	}
+
+	return nil
+}
+
 func validateListenerCondition_HttpHeaderParameters(name *string, values *[]*string) error {
+	if name == nil {
+		return fmt.Errorf("parameter name is required, but nil was provided")
+	}
+
+	if values == nil {
+		return fmt.Errorf("parameter values is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateListenerCondition_HttpHeaderRegexParameters(name *string, values *[]*string) error {
 	if name == nil {
 		return fmt.Errorf("parameter name is required, but nil was provided")
 	}
@@ -37,6 +57,14 @@ func validateListenerCondition_HttpRequestMethodsParameters(values *[]*string) e
 }
 
 func validateListenerCondition_PathPatternsParameters(values *[]*string) error {
+	if values == nil {
+		return fmt.Errorf("parameter values is required, but nil was provided")
+	}
+
+	return nil
+}
+
+func validateListenerCondition_PathPatternsRegexParameters(values *[]*string) error {
 	if values == nil {
 		return fmt.Errorf("parameter values is required, but nil was provided")
 	}

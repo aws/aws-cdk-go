@@ -20,6 +20,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var automatic interface{}
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnFlowSourcePropsMixin := awscdkcfnpropertymixins.Aws_mediaconnect.NewCfnFlowSourcePropsMixin(&CfnFlowSourceMixinProps{
@@ -49,6 +50,15 @@ import (
 //   	MinLatency: jsii.Number(123),
 //   	Name: jsii.String("name"),
 //   	Protocol: jsii.String("protocol"),
+//   	RtmpPushSettings: &RtmpPushSettingsProperty{
+//   		NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   			Automatic: automatic,
+//   			Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   				ApplicationName: jsii.String("applicationName"),
+//   				StreamName: jsii.String("streamName"),
+//   			},
+//   		},
+//   	},
 //   	SenderControlPort: jsii.Number(123),
 //   	SenderIpAddress: jsii.String("senderIpAddress"),
 //   	SourceListenerAddress: jsii.String("sourceListenerAddress"),

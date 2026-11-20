@@ -265,6 +265,12 @@ import (
 //   		},
 //   	},
 //   	TaskRoleArn: jsii.String("taskRoleArn"),
+//   	TrustedExecutionConfiguration: &TrustedExecutionConfigurationProperty{
+//   		IsolationMode: jsii.String("isolationMode"),
+//
+//   		// the properties below are optional
+//   		AttestationPolicy: jsii.String("attestationPolicy"),
+//   	},
 //   	Volumes: []interface{}{
 //   		&VolumeProperty{
 //   			ConfiguredAtLaunch: jsii.Boolean(false),
@@ -479,6 +485,9 @@ type CfnTaskDefinitionProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
 	//
 	TaskRoleArn interface{} `field:"optional" json:"taskRoleArn" yaml:"taskRoleArn"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-trustedexecutionconfiguration
+	//
+	TrustedExecutionConfiguration interface{} `field:"optional" json:"trustedExecutionConfiguration" yaml:"trustedExecutionConfiguration"`
 	// The list of data volume definitions for the task.
 	//
 	// For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide* .

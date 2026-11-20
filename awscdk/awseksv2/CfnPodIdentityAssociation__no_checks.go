@@ -124,6 +124,10 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) validateSetTagsParameters(val *[]*
 	return nil
 }
 
+func (j *jsiiProxy_CfnPodIdentityAssociation) validateSetWorkloadIdentityConfigParameters(val interface{}) error {
+	return nil
+}
+
 func validateNewCfnPodIdentityAssociationParameters(scope constructs.Construct, id *string, props *CfnPodIdentityAssociationProps) error {
 	return nil
 }

@@ -14,15 +14,14 @@ import (
 //   // Your MSK cluster arn
 //   var clusterArn string
 //
+//   // The secret with the credentials for your schema registry
+//   var secret Secret
+//
 //   var myFunction Function
 //
 //
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
-//
-//   secret := awscdk.NewSecret(this, jsii.String("Secret"), &SecretProps{
-//   	SecretName: jsii.String("AmazonMSK_KafkaSecret"),
-//   })
 //   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
 //   	ClusterArn: jsii.String(ClusterArn),
 //   	Topic: jsii.String(Topic),

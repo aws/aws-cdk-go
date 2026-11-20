@@ -1358,6 +1358,10 @@ func init() {
 		reflect.TypeOf((*CfnService_ForceNewDeploymentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnService.GatewayConnectorDeregistrationDelayProperty",
+		reflect.TypeOf((*CfnService_GatewayConnectorDeregistrationDelayProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnService.GatewayConnectorFiltersProperty",
 		reflect.TypeOf((*CfnService_GatewayConnectorFiltersProperty)(nil)).Elem(),
 	)
@@ -1541,6 +1545,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionRef", GoGetter: "TaskDefinitionRef"},
 			_jsii_.MemberProperty{JsiiProperty: "taskRoleArn", GoGetter: "TaskRoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "trustedExecutionConfiguration", GoGetter: "TrustedExecutionConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperties", GoGetter: "UpdatedProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
@@ -1687,6 +1692,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.TmpfsProperty",
 		reflect.TypeOf((*CfnTaskDefinition_TmpfsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.TrustedExecutionConfigurationProperty",
+		reflect.TypeOf((*CfnTaskDefinition_TrustedExecutionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecs.CfnTaskDefinition.UlimitProperty",

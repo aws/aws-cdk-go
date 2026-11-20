@@ -25,7 +25,6 @@ import (
 //   var secret Secret
 //
 //   kafkaEventSourceProps := &KafkaEventSourceProps{
-//   	StartingPosition: awscdk.Aws_lambda.StartingPosition_TRIM_HORIZON,
 //   	Topic: jsii.String("topic"),
 //
 //   	// the properties below are optional
@@ -39,7 +38,7 @@ import (
 //   			"filtersKey": filters,
 //   		},
 //   	},
-//   	LogLevel: awscdk.*Aws_lambda.EventSourceMappingLogLevel_INFO,
+//   	LogLevel: awscdk.Aws_lambda.EventSourceMappingLogLevel_INFO,
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
 //   	MaxRecordAge: cdk.Duration_*Minutes(jsii.Number(30)),
 //   	MetricsConfig: &MetricsConfig{
@@ -57,12 +56,11 @@ import (
 //   	RetryAttempts: jsii.Number(123),
 //   	SchemaRegistryConfig: schemaRegistry,
 //   	Secret: secret,
+//   	StartingPosition: awscdk.*Aws_lambda.StartingPosition_TRIM_HORIZON,
 //   	StartingPositionTimestamp: jsii.Number(123),
 //   }
 //
 type KafkaEventSourceProps struct {
-	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -97,6 +95,14 @@ type KafkaEventSourceProps struct {
 	// Default: - no provisioned pollers.
 	//
 	ProvisionedPollerConfig *ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`
+	// Where to begin consuming the stream.
+	//
+	// Required for DynamoDB, Kinesis and Amazon MSK event sources, and for self-managed Kafka
+	// event sources unless `consumptionMode` is `KafkaConsumptionMode.QUEUE`. Not supported in
+	// queue mode.
+	// Default: - no starting position; synthesis fails if the event source requires one.
+	//
+	StartingPosition awslambda.StartingPosition `field:"optional" json:"startingPosition" yaml:"startingPosition"`
 	// The Kafka topic to subscribe to.
 	Topic *string `field:"required" json:"topic" yaml:"topic"`
 	// * If the function returns an error, split the batch in two and retry.
@@ -106,6 +112,7 @@ type KafkaEventSourceProps struct {
 	// The identifier for the Kafka consumer group to join.
 	//
 	// The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value.  The value must have a length between 1 and 200 and full the pattern '[a-zA-Z0-9-\/*:_+=.@-]*'.
+	// When `consumptionMode` is `KafkaConsumptionMode.QUEUE`, this is the name of the share group.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id
 	//
 	// Default: - none.
@@ -156,7 +163,8 @@ type KafkaEventSourceProps struct {
 	// * Maximum number of retry attempts.
 	//
 	// Set to -1 for infinite retries (until the record expires in the event source).
-	// Default: -1 (infinite retries).
+	// `-1` isn't supported when `consumptionMode` is `KafkaConsumptionMode.QUEUE`.
+	// Default: -1 (infinite retries) in stream mode, 0 in queue mode.
 	//
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific configuration settings for a Kafka schema registry.

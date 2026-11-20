@@ -540,6 +540,10 @@ func init() {
 		reflect.TypeOf((*CfnServicePropsMixin_ForceNewDeploymentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.GatewayConnectorDeregistrationDelayProperty",
+		reflect.TypeOf((*CfnServicePropsMixin_GatewayConnectorDeregistrationDelayProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnServicePropsMixin.GatewayConnectorFiltersProperty",
 		reflect.TypeOf((*CfnServicePropsMixin_GatewayConnectorFiltersProperty)(nil)).Elem(),
 	)
@@ -814,6 +818,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.TmpfsProperty",
 		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_TmpfsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.TrustedExecutionConfigurationProperty",
+		reflect.TypeOf((*CfnTaskDefinitionPropsMixin_TrustedExecutionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecs.CfnTaskDefinitionPropsMixin.UlimitProperty",

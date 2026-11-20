@@ -112,6 +112,14 @@ func (j *jsiiProxy_CfnConformancePack) validateSetConformancePackNameParameters(
 	return nil
 }
 
+func (j *jsiiProxy_CfnConformancePack) validateSetScopeParameters(val interface{}) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnConformancePack) validateSetSourceParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnConformancePack) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

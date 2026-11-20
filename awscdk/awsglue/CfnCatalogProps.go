@@ -54,7 +54,41 @@ import (
 //   	Description: jsii.String("description"),
 //   	FederatedCatalog: &FederatedCatalogProperty{
 //   		ConnectionName: jsii.String("connectionName"),
+//   		ConnectionType: jsii.String("connectionType"),
 //   		Identifier: jsii.String("identifier"),
+//   		SyncConfiguration: &SyncConfigurationProperty{
+//   			RoleArn: jsii.String("roleArn"),
+//
+//   			// the properties below are optional
+//   			AssetsSyncConfiguration: &AssetsSyncConfigurationProperty{
+//   				Status: jsii.String("status"),
+//
+//   				// the properties below are optional
+//   				ManagedCrawlerDetails: &ManagedCrawlerDetailsProperty{
+//   					CrawlerArn: jsii.String("crawlerArn"),
+//   					Error: &ErrorDetailProperty{
+//   						ErrorCode: jsii.String("errorCode"),
+//   						ErrorMessage: jsii.String("errorMessage"),
+//   					},
+//   					Status: jsii.String("status"),
+//   				},
+//   				RefreshIntervalMinutes: jsii.Number(123),
+//   			},
+//   			LineageSyncConfiguration: &LineageSyncConfigurationProperty{
+//   				Status: jsii.String("status"),
+//
+//   				// the properties below are optional
+//   				ManagedCrawlerDetails: &ManagedCrawlerDetailsProperty{
+//   					CrawlerArn: jsii.String("crawlerArn"),
+//   					Error: &ErrorDetailProperty{
+//   						ErrorCode: jsii.String("errorCode"),
+//   						ErrorMessage: jsii.String("errorMessage"),
+//   					},
+//   					Status: jsii.String("status"),
+//   				},
+//   				RefreshIntervalMinutes: jsii.Number(123),
+//   			},
+//   		},
 //   	},
 //   	OverwriteChildResourcePermissionsWithDefault: jsii.String("overwriteChildResourcePermissionsWithDefault"),
 //   	Parameters: map[string]*string{

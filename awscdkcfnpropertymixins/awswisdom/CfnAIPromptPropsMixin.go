@@ -24,6 +24,12 @@ import (
 //   	ApiFormat: jsii.String("apiFormat"),
 //   	AssistantId: jsii.String("assistantId"),
 //   	Description: jsii.String("description"),
+//   	InferenceConfiguration: &AIPromptInferenceConfigurationProperty{
+//   		MaxTokensToSample: jsii.Number(123),
+//   		Temperature: jsii.Number(123),
+//   		TopK: jsii.Number(123),
+//   		TopP: jsii.Number(123),
+//   	},
 //   	ModelId: jsii.String("modelId"),
 //   	Name: jsii.String("name"),
 //   	Tags: map[string]*string{

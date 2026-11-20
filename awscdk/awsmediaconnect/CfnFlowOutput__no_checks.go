@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetRouterIntegrationTransitEncryptionP
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowOutput) validateSetRtmpPushSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowOutput) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

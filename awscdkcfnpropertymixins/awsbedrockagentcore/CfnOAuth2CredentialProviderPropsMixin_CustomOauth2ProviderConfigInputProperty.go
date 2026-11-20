@@ -9,6 +9,17 @@ package awsbedrockagentcore
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   customOauth2ProviderConfigInputProperty := &CustomOauth2ProviderConfigInputProperty{
+//   	CertificateConfigurations: []interface{}{
+//   		&CertificateConfigurationProperty{
+//   			S3: &S3CertificateConfigurationProperty{
+//   				BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   				Uri: jsii.String("uri"),
+//   			},
+//   			SecretsManager: &SecretsManagerCertificateConfigurationProperty{
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   	ClientAuthenticationMethod: jsii.String("clientAuthenticationMethod"),
 //   	ClientId: jsii.String("clientId"),
 //   	ClientSecret: jsii.String("clientSecret"),
@@ -99,6 +110,10 @@ package awsbedrockagentcore
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html
 //
 type CfnOAuth2CredentialProviderPropsMixin_CustomOauth2ProviderConfigInputProperty struct {
+	// Private certificate authority (CA) configurations for the identity provider, referenced by Amazon S3 object or AWS Secrets Manager secret.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-certificateconfigurations
+	//
+	CertificateConfigurations interface{} `field:"optional" json:"certificateConfigurations" yaml:"certificateConfigurations"`
 	// The client authentication method to use when authenticating with the token endpoint.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html#cfn-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput-clientauthenticationmethod
 	//

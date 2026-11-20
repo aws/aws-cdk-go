@@ -120,6 +120,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cognito.IUserPoolClientSessionConfigurationAttachmentRef",
+		reflect.TypeOf((*IUserPoolClientSessionConfigurationAttachmentRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolClientSessionConfigurationAttachmentRef", GoGetter: "UserPoolClientSessionConfigurationAttachmentRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IUserPoolClientSessionConfigurationAttachmentRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_cognito.IUserPoolDomainRef",
 		reflect.TypeOf((*IUserPoolDomainRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -248,6 +264,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_cognito.IUserPoolSessionConfigurationAttachmentRef",
+		reflect.TypeOf((*IUserPoolSessionConfigurationAttachmentRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "userPoolSessionConfigurationAttachmentRef", GoGetter: "UserPoolSessionConfigurationAttachmentRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IUserPoolSessionConfigurationAttachmentRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_cognito.IUserPoolUICustomizationAttachmentRef",
 		reflect.TypeOf((*IUserPoolUICustomizationAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -324,6 +356,10 @@ func init() {
 		reflect.TypeOf((*UserPoolClientReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cognito.UserPoolClientSessionConfigurationAttachmentReference",
+		reflect.TypeOf((*UserPoolClientSessionConfigurationAttachmentReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cognito.UserPoolDomainReference",
 		reflect.TypeOf((*UserPoolDomainReference)(nil)).Elem(),
 	)
@@ -354,6 +390,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cognito.UserPoolRiskConfigurationAttachmentReference",
 		reflect.TypeOf((*UserPoolRiskConfigurationAttachmentReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_cognito.UserPoolSessionConfigurationAttachmentReference",
+		reflect.TypeOf((*UserPoolSessionConfigurationAttachmentReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_cognito.UserPoolUICustomizationAttachmentReference",

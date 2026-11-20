@@ -23,22 +23,22 @@ import (
 // alarms and graphs.
 //
 // Example:
-//   var serverlessCache ServerlessCache
+//   var instance IDatabaseInstance
 //
 //
-//   // The 5 minutes average of the total number of successful read-only key lookups in the cache.
-//   cacheHits := serverlessCache.MetricCacheHitCount()
+//   metrics := rds.DatabaseInstanceMetrics_FromDatabaseInstance(instance)
 //
-//   // The 5 minutes average of the total number of bytes used by the data stored in the cache.
-//   bytesUsedForCache := serverlessCache.MetricDataStored()
+//   // How far a read replica lags behind its source (average over 5 minutes)
+//   replicaLag := metrics.ReplicaLag()
 //
-//   // The 5 minutes average of the total number of ElastiCacheProcessingUnits (ECPUs) consumed by the requests executed on the cache.
-//   elastiCacheProcessingUnits := serverlessCache.MetricProcessingUnitsConsumed()
+//   // The average amount of time taken per disk I/O read operation (average over 1 minute)
+//   readLatency := metrics.ReadLatency(&MetricOptions{
+//   	Period: awscdk.Duration_Seconds(jsii.Number(60)),
+//   })
 //
-//   // Create an alarm for ECPUs.
-//   elastiCacheProcessingUnits.CreateAlarm(this, jsii.String("ElastiCacheProcessingUnitsAlarm"), &CreateAlarmOptions{
-//   	Threshold: jsii.Number(50),
-//   	EvaluationPeriods: jsii.Number(1),
+//   // Any other metric, such as an engine-specific one
+//   binLogDiskUsage := metrics.Metric(jsii.String("BinLogDiskUsage"), &MetricOptions{
+//   	Statistic: jsii.String("Maximum"),
 //   })
 //
 type Metric interface {

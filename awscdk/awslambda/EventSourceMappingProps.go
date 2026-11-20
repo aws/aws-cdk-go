@@ -17,6 +17,7 @@ import (
 //   var eventSourceDlq IEventSourceDlq
 //   var filters interface{}
 //   var function_ Function
+//   var kafkaConsumptionMode KafkaConsumptionMode
 //   var key Key
 //   var schemaRegistry ISchemaRegistry
 //   var sourceAccessConfigurationType SourceAccessConfigurationType
@@ -39,6 +40,7 @@ import (
 //   		jsii.String("kafkaBootstrapServers"),
 //   	},
 //   	KafkaConsumerGroupId: jsii.String("kafkaConsumerGroupId"),
+//   	KafkaConsumptionMode: kafkaConsumptionMode,
 //   	KafkaTopic: jsii.String("kafkaTopic"),
 //   	LogLevel: awscdk.Aws_lambda.EventSourceMappingLogLevel_INFO,
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
@@ -123,6 +125,18 @@ type EventSourceMappingProps struct {
 	// Default: - none.
 	//
 	KafkaConsumerGroupId *string `field:"optional" json:"kafkaConsumerGroupId" yaml:"kafkaConsumerGroupId"`
+	// How Lambda reads records from the Kafka topic.
+	//
+	// Only supported for self-managed Kafka event sources (`kafkaBootstrapServers`).
+	// **Queue mode requires Kafka 4.2.0 or later.** In queue mode, `startingPosition`,
+	// `startingPositionTimestamp` and `maxBatchingWindow` are not supported, and `retryAttempts` must be between 0 and 10000
+	// and defaults to 0 (and, as in stream mode, requires `provisionedPollerConfig`).
+	// The consumption mode can't be changed after the event source mapping is created.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html
+	//
+	// Default: - Lambda reads the topic in stream mode (`KafkaConsumptionMode.STREAM`)
+	//
+	KafkaConsumptionMode KafkaConsumptionMode `field:"optional" json:"kafkaConsumptionMode" yaml:"kafkaConsumptionMode"`
 	// The name of the Kafka topic.
 	// Default: - no topic.
 	//
@@ -194,7 +208,7 @@ type EventSourceMappingProps struct {
 	// Valid Range:
 	// * Minimum value of 0
 	// * Maximum value of 10000.
-	// Default: - infinite or until the record expires.
+	// Default: - infinite or until the record expires; 0 when `kafkaConsumptionMode` is `KafkaConsumptionMode.QUEUE`
 	//
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
 	// Specific configuration settings for a Kafka schema registry.

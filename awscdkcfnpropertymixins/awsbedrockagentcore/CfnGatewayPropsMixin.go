@@ -78,6 +78,12 @@ import (
 //   	},
 //   	AuthorizerType: jsii.String("authorizerType"),
 //   	Description: jsii.String("description"),
+//   	DomainOverride: &DomainOverrideProperty{
+//   		AlternateDomains: []*string{
+//   			jsii.String("alternateDomains"),
+//   		},
+//   		DefaultDomain: jsii.String("defaultDomain"),
+//   	},
 //   	ExceptionLevel: jsii.String("exceptionLevel"),
 //   	InterceptorConfigurations: []interface{}{
 //   		&GatewayInterceptorConfigurationProperty{

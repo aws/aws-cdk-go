@@ -1234,6 +1234,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "domainOverride", GoGetter: "DomainOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "exceptionLevel", GoGetter: "ExceptionLevel"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayRef", GoGetter: "GatewayRef"},
@@ -1294,6 +1295,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.CustomJWTAuthorizerConfigurationProperty",
 		reflect.TypeOf((*CfnGateway_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.DomainOverrideProperty",
+		reflect.TypeOf((*CfnGateway_DomainOverrideProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnGateway.GatewayInterceptorConfigurationProperty",
@@ -2071,6 +2076,10 @@ func init() {
 		reflect.TypeOf((*CfnHarness_HarnessRemoteMcpConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessRemoteMcpOutboundAuthProperty",
+		reflect.TypeOf((*CfnHarness_HarnessRemoteMcpOutboundAuthProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessSkillAwsSkillsSourceProperty",
 		reflect.TypeOf((*CfnHarness_HarnessSkillAwsSkillsSourceProperty)(nil)).Elem(),
 	)
@@ -2117,6 +2126,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.HarnessTruncationStrategyConfigurationProperty",
 		reflect.TypeOf((*CfnHarness_HarnessTruncationStrategyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.IamCredentialProviderProperty",
+		reflect.TypeOf((*CfnHarness_IamCredentialProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnHarness.LifecycleConfigurationProperty",
@@ -2539,6 +2552,10 @@ func init() {
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_AtlassianOauth2ProviderConfigInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.CertificateConfigurationProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_CertificateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.ClientSecretArnProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_ClientSecretArnProperty)(nil)).Elem(),
 	)
@@ -2611,12 +2628,20 @@ func init() {
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_PrivateKeySourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.S3CertificateConfigurationProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_S3CertificateConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SalesforceOauth2ProviderConfigInputProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_SalesforceOauth2ProviderConfigInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SecretReferenceProperty",
 		reflect.TypeOf((*CfnOAuth2CredentialProvider_SecretReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SecretsManagerCertificateConfigurationProperty",
+		reflect.TypeOf((*CfnOAuth2CredentialProvider_SecretsManagerCertificateConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnOAuth2CredentialProvider.SelfManagedLatticeResourceProperty",
@@ -2993,20 +3018,20 @@ func init() {
 		reflect.TypeOf((*CfnPaymentManager_AuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.AuthorizingClaimMatchValueProperty",
-		reflect.TypeOf((*CfnPaymentManager_AuthorizingClaimMatchValueProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.AuthorizingClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnPaymentManager_AuthorizingClaimMatchValueTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.ClaimMatchValueProperty",
-		reflect.TypeOf((*CfnPaymentManager_ClaimMatchValueProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.ClaimMatchValueTypeProperty",
+		reflect.TypeOf((*CfnPaymentManager_ClaimMatchValueTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.CustomClaimValidationTypeProperty",
 		reflect.TypeOf((*CfnPaymentManager_CustomClaimValidationTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.CustomJWTAuthorizerProperty",
-		reflect.TypeOf((*CfnPaymentManager_CustomJWTAuthorizerProperty)(nil)).Elem(),
+		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.CustomJWTAuthorizerConfigurationProperty",
+		reflect.TypeOf((*CfnPaymentManager_CustomJWTAuthorizerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_bedrockagentcore.CfnPaymentManager.WorkloadIdentityDetailsProperty",

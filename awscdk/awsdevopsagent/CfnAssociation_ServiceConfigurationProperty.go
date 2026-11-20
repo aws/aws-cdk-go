@@ -56,6 +56,9 @@ package awsdevopsagent
 //   		OwnerType: jsii.String("ownerType"),
 //   		RepoId: jsii.String("repoId"),
 //   		RepoName: jsii.String("repoName"),
+//
+//   		// the properties below are optional
+//   		ReleaseManagementAssociationId: jsii.String("releaseManagementAssociationId"),
 //   	},
 //   	GitLab: &GitLabConfigurationProperty{
 //   		ProjectId: jsii.String("projectId"),
@@ -64,6 +67,7 @@ package awsdevopsagent
 //   		// the properties below are optional
 //   		EnableWebhookUpdates: jsii.Boolean(false),
 //   		InstanceIdentifier: jsii.String("instanceIdentifier"),
+//   		ReleaseManagementAssociationId: jsii.String("releaseManagementAssociationId"),
 //   	},
 //   	McpServer: &MCPServerConfigurationProperty{
 //   		Tools: []*string{

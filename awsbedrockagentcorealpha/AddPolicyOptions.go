@@ -19,19 +19,19 @@ package awsbedrockagentcorealpha
 //   	ValidationMode: agentcore.PolicyValidationMode_FAIL_ON_ANY_FINDINGS(),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type AddPolicyOptions struct {
 	// Cedar policy statement (35-153,600 characters).
 	//
 	// You must specify either `definition` or `statement`, but not both.
 	// Default: - Must provide either definition or statement.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Definition *string `field:"optional" json:"definition" yaml:"definition"`
 	// Optional description for the policy (max 4,096 characters).
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the policy.
 	//
@@ -39,7 +39,7 @@ type AddPolicyOptions struct {
 	// Must start with a letter, 1-48 characters.
 	// Default: - Auto-generated unique name.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyName *string `field:"optional" json:"policyName" yaml:"policyName"`
 	// Type-safe Cedar policy statement built using PolicyStatement builder.
 	//
@@ -49,12 +49,12 @@ type AddPolicyOptions struct {
 	// You must specify either `definition` or `statement`, but not both.
 	// Default: - Must provide either definition or statement.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Statement PolicyStatement `field:"optional" json:"statement" yaml:"statement"`
 	// Validation mode for the policy.
 	// Default: PolicyValidationMode.FAIL_ON_ANY_FINDINGS
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ValidationMode PolicyValidationMode `field:"optional" json:"validationMode" yaml:"validationMode"`
 }
 

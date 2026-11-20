@@ -507,6 +507,30 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetTagsRawParameters(val *[]*awscd
 	return nil
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) validateSetTrustedExecutionConfigurationParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnTaskDefinition_TrustedExecutionConfigurationProperty:
+		val := val.(*CfnTaskDefinition_TrustedExecutionConfigurationProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnTaskDefinition_TrustedExecutionConfigurationProperty:
+		val_ := val.(CfnTaskDefinition_TrustedExecutionConfigurationProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnTaskDefinition_TrustedExecutionConfigurationProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) validateSetVolumesParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

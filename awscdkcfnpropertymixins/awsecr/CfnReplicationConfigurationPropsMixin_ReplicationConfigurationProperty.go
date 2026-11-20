@@ -11,6 +11,9 @@ package awsecr
 //   replicationConfigurationProperty := &ReplicationConfigurationProperty{
 //   	Rules: []interface{}{
 //   		&ReplicationRuleProperty{
+//   			DeleteReplication: &DeleteReplicationProperty{
+//   				Enabled: jsii.Boolean(false),
+//   			},
 //   			Destinations: []interface{}{
 //   				&ReplicationDestinationProperty{
 //   					Region: jsii.String("region"),

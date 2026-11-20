@@ -26,6 +26,7 @@ import (
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Name: jsii.String("name"),
 //   	ObservabilityRegion: jsii.String("observabilityRegion"),
+//   	PublicIpStatus: jsii.String("publicIpStatus"),
 //   	Regions: []*string{
 //   		jsii.String("regions"),
 //   	},

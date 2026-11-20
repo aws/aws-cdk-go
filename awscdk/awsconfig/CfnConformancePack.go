@@ -34,6 +34,15 @@ import (
 //   	},
 //   	DeliveryS3Bucket: jsii.String("deliveryS3Bucket"),
 //   	DeliveryS3KeyPrefix: jsii.String("deliveryS3KeyPrefix"),
+//   	Scope: &ScopeProperty{
+//   		TagKey: jsii.String("tagKey"),
+//
+//   		// the properties below are optional
+//   		TagValue: jsii.String("tagValue"),
+//   	},
+//   	Source: &SourceProperty{
+//   		SourceIdentifier: jsii.String("sourceIdentifier"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -54,6 +63,10 @@ type CfnConformancePack interface {
 	awscdk.ITaggableV2
 	// Amazon Resource Name (ARN) of the conformance pack.
 	AttrConformancePackArn() *string
+	// The type of the conformance pack.
+	//
+	// CUSTOM for a conformance pack whose Config rules are managed by the customer; MANAGED for a managed conformance pack whose Config rules are managed by AWS.
+	AttrType() *string
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -98,6 +111,12 @@ type CfnConformancePack interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The global tag scope of the managed conformance pack.
+	Scope() interface{}
+	SetScope(val interface{})
+	// The source of a managed conformance pack.
+	Source() interface{}
+	SetSource(val interface{})
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -308,6 +327,16 @@ func (j *jsiiProxy_CfnConformancePack) AttrConformancePackArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConformancePack) AttrType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrType",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConformancePack) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -458,6 +487,26 @@ func (j *jsiiProxy_CfnConformancePack) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnConformancePack) Scope() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"scope",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnConformancePack) Source() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"source",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnConformancePack) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -592,6 +641,28 @@ func (j *jsiiProxy_CfnConformancePack)SetDeliveryS3KeyPrefix(val *string) {
 	_jsii_.Set(
 		j,
 		"deliveryS3KeyPrefix",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConformancePack)SetScope(val interface{}) {
+	if err := j.validateSetScopeParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"scope",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnConformancePack)SetSource(val interface{}) {
+	if err := j.validateSetSourceParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"source",
 		val,
 	)
 }

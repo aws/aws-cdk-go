@@ -51,7 +51,35 @@ import (
 //   	Description: jsii.String("description"),
 //   	FederatedCatalog: &FederatedCatalogProperty{
 //   		ConnectionName: jsii.String("connectionName"),
+//   		ConnectionType: jsii.String("connectionType"),
 //   		Identifier: jsii.String("identifier"),
+//   		SyncConfiguration: &SyncConfigurationProperty{
+//   			AssetsSyncConfiguration: &AssetsSyncConfigurationProperty{
+//   				ManagedCrawlerDetails: &ManagedCrawlerDetailsProperty{
+//   					CrawlerArn: jsii.String("crawlerArn"),
+//   					Error: &ErrorDetailProperty{
+//   						ErrorCode: jsii.String("errorCode"),
+//   						ErrorMessage: jsii.String("errorMessage"),
+//   					},
+//   					Status: jsii.String("status"),
+//   				},
+//   				RefreshIntervalMinutes: jsii.Number(123),
+//   				Status: jsii.String("status"),
+//   			},
+//   			LineageSyncConfiguration: &LineageSyncConfigurationProperty{
+//   				ManagedCrawlerDetails: &ManagedCrawlerDetailsProperty{
+//   					CrawlerArn: jsii.String("crawlerArn"),
+//   					Error: &ErrorDetailProperty{
+//   						ErrorCode: jsii.String("errorCode"),
+//   						ErrorMessage: jsii.String("errorMessage"),
+//   					},
+//   					Status: jsii.String("status"),
+//   				},
+//   				RefreshIntervalMinutes: jsii.Number(123),
+//   				Status: jsii.String("status"),
+//   			},
+//   			RoleArn: jsii.String("roleArn"),
+//   		},
 //   	},
 //   	Name: jsii.String("name"),
 //   	OverwriteChildResourcePermissionsWithDefault: jsii.String("overwriteChildResourcePermissionsWithDefault"),

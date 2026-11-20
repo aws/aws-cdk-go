@@ -9,6 +9,7 @@ type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsssmIAssociationRef = interfacesawsssm.IAssociationRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
 type Type__interfacesawsssmICloudConnectorRef = interfacesawsssm.ICloudConnectorRef
+type Type__interfacesawsssmIDefaultHostManagementConfigurationRef = interfacesawsssm.IDefaultHostManagementConfigurationRef
 type Type__interfacesawsssmIDocumentRef = interfacesawsssm.IDocumentRef
 type Type__awscdkITaggable = awscdk.ITaggable
 type Type__interfacesawsssmIMaintenanceWindowRef = interfacesawsssm.IMaintenanceWindowRef

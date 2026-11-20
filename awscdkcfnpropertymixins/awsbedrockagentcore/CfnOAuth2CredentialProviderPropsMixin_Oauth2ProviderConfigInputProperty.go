@@ -19,6 +19,17 @@ package awsbedrockagentcore
 //   		ClientSecretSource: jsii.String("clientSecretSource"),
 //   	},
 //   	CustomOauth2ProviderConfig: &CustomOauth2ProviderConfigInputProperty{
+//   		CertificateConfigurations: []interface{}{
+//   			&CertificateConfigurationProperty{
+//   				S3: &S3CertificateConfigurationProperty{
+//   					BucketOwnerAccountId: jsii.String("bucketOwnerAccountId"),
+//   					Uri: jsii.String("uri"),
+//   				},
+//   				SecretsManager: &SecretsManagerCertificateConfigurationProperty{
+//   					SecretArn: jsii.String("secretArn"),
+//   				},
+//   			},
+//   		},
 //   		ClientAuthenticationMethod: jsii.String("clientAuthenticationMethod"),
 //   		ClientId: jsii.String("clientId"),
 //   		ClientSecret: jsii.String("clientSecret"),

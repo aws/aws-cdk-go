@@ -17,6 +17,13 @@ import (
 //   			ClientIdentifier: jsii.String("clientIdentifier"),
 //   			TenantIdentifier: jsii.String("tenantIdentifier"),
 //   		},
+//   		Gcp: &GcpConnectorConfigurationProperty{
+//   			ServiceAccountEmail: jsii.String("serviceAccountEmail"),
+//   			WorkloadIdentityPoolProvider: jsii.String("workloadIdentityPoolProvider"),
+//
+//   			// the properties below are optional
+//   			GcpOrganizationId: jsii.String("gcpOrganizationId"),
+//   		},
 //   	},
 //
 //   	// the properties below are optional
@@ -33,7 +40,7 @@ import (
 type CfnConnectorProps struct {
 	// The configuration for the connector.
 	//
-	// Specify the third-party cloud provider configuration.
+	// Specify exactly one third-party cloud provider configuration: Azure or Gcp.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-connector.html#cfn-config-connector-connectorconfiguration
 	//
 	ConnectorConfiguration interface{} `field:"required" json:"connectorConfiguration" yaml:"connectorConfiguration"`

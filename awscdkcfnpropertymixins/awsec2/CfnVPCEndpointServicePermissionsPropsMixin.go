@@ -27,6 +27,9 @@ import (
 //   		jsii.String("allowedPrincipals"),
 //   	},
 //   	ServiceId: jsii.String("serviceId"),
+//   	TransitGatewayAttachmentAllowedPrincipals: []*string{
+//   		jsii.String("transitGatewayAttachmentAllowedPrincipals"),
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

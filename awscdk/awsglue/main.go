@@ -187,6 +187,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCatalogPropertiesDataLakeAccessPropertiesManagedWorkgroupStatus", GoGetter: "AttrCatalogPropertiesDataLakeAccessPropertiesManagedWorkgroupStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCatalogPropertiesDataLakeAccessPropertiesRedshiftDatabaseName", GoGetter: "AttrCatalogPropertiesDataLakeAccessPropertiesRedshiftDatabaseName"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreateTime", GoGetter: "AttrCreateTime"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetails", GoGetter: "AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsCrawlerArn", GoGetter: "AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsCrawlerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsError", GoGetter: "AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsError"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorCode", GoGetter: "AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorCode"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorMessage", GoGetter: "AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsStatus", GoGetter: "AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetails", GoGetter: "AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetails"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsCrawlerArn", GoGetter: "AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsCrawlerArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsError", GoGetter: "AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsError"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorCode", GoGetter: "AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorCode"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorMessage", GoGetter: "AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorMessage"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsStatus", GoGetter: "AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsStatus"},
 			_jsii_.MemberProperty{JsiiProperty: "attrResourceArn", GoGetter: "AttrResourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrUpdateTime", GoGetter: "AttrUpdateTime"},
 			_jsii_.MemberProperty{JsiiProperty: "catalogProperties", GoGetter: "CatalogProperties"},
@@ -238,6 +250,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnCatalog.AssetsSyncConfigurationProperty",
+		reflect.TypeOf((*CfnCatalog_AssetsSyncConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnCatalog.CatalogPropertiesProperty",
 		reflect.TypeOf((*CfnCatalog_CatalogPropertiesProperty)(nil)).Elem(),
 	)
@@ -250,12 +266,28 @@ func init() {
 		reflect.TypeOf((*CfnCatalog_DataLakePrincipalProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnCatalog.ErrorDetailProperty",
+		reflect.TypeOf((*CfnCatalog_ErrorDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnCatalog.FederatedCatalogProperty",
 		reflect.TypeOf((*CfnCatalog_FederatedCatalogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnCatalog.LineageSyncConfigurationProperty",
+		reflect.TypeOf((*CfnCatalog_LineageSyncConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnCatalog.ManagedCrawlerDetailsProperty",
+		reflect.TypeOf((*CfnCatalog_ManagedCrawlerDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnCatalog.PrincipalPermissionsProperty",
 		reflect.TypeOf((*CfnCatalog_PrincipalPermissionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_glue.CfnCatalog.SyncConfigurationProperty",
+		reflect.TypeOf((*CfnCatalog_SyncConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_glue.CfnCatalog.TargetRedshiftCatalogProperty",

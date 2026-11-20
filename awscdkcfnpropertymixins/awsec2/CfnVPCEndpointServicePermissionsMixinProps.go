@@ -13,6 +13,9 @@ package awsec2
 //   		jsii.String("allowedPrincipals"),
 //   	},
 //   	ServiceId: jsii.String("serviceId"),
+//   	TransitGatewayAttachmentAllowedPrincipals: []*string{
+//   		jsii.String("transitGatewayAttachmentAllowedPrincipals"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html
@@ -28,5 +31,9 @@ type CfnVPCEndpointServicePermissionsMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-serviceid
 	//
 	ServiceId interface{} `field:"optional" json:"serviceId" yaml:"serviceId"`
+	// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-transitgatewayattachmentallowedprincipals
+	//
+	TransitGatewayAttachmentAllowedPrincipals *[]*string `field:"optional" json:"transitGatewayAttachmentAllowedPrincipals" yaml:"transitGatewayAttachmentAllowedPrincipals"`
 }
 

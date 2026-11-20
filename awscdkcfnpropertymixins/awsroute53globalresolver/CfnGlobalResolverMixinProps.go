@@ -17,6 +17,7 @@ import (
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Name: jsii.String("name"),
 //   	ObservabilityRegion: jsii.String("observabilityRegion"),
+//   	PublicIpStatus: jsii.String("publicIpStatus"),
 //   	Regions: []*string{
 //   		jsii.String("regions"),
 //   	},
@@ -46,6 +47,9 @@ type CfnGlobalResolverMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53globalresolver-globalresolver.html#cfn-route53globalresolver-globalresolver-observabilityregion
 	//
 	ObservabilityRegion *string `field:"optional" json:"observabilityRegion" yaml:"observabilityRegion"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53globalresolver-globalresolver.html#cfn-route53globalresolver-globalresolver-publicipstatus
+	//
+	PublicIpStatus *string `field:"optional" json:"publicIpStatus" yaml:"publicIpStatus"`
 	// The list of regions the Global Resolver exists in.
 	//
 	// Regions can be added or removed on update; the order of this list is not significant.

@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnCluster) validateSetDeletionProtectionEnabledParameters(va
 	return nil
 }
 
+func (j *jsiiProxy_CfnCluster) validateSetMetricGroupsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnCluster) validateSetMultiRegionPropertiesParameters(val interface{}) error {
 	return nil
 }

@@ -278,6 +278,12 @@ import (
 //   		},
 //   	},
 //   	TaskRoleArn: jsii.String("taskRoleArn"),
+//   	TrustedExecutionConfiguration: &TrustedExecutionConfigurationProperty{
+//   		IsolationMode: jsii.String("isolationMode"),
+//
+//   		// the properties below are optional
+//   		AttestationPolicy: jsii.String("attestationPolicy"),
+//   	},
 //   	Volumes: []interface{}{
 //   		&VolumeProperty{
 //   			ConfiguredAtLaunch: jsii.Boolean(false),
@@ -427,6 +433,8 @@ type CfnTaskDefinition interface {
 	// The short name or full Amazon Resource Name (ARN) of the AWS Identity and Access Management role that grants containers in the task permission to call AWS APIs on your behalf.
 	TaskRoleArn() *string
 	SetTaskRoleArn(val *string)
+	TrustedExecutionConfiguration() interface{}
+	SetTrustedExecutionConfiguration(val interface{})
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -914,6 +922,16 @@ func (j *jsiiProxy_CfnTaskDefinition) TaskRoleArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) TrustedExecutionConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"trustedExecutionConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1130,6 +1148,17 @@ func (j *jsiiProxy_CfnTaskDefinition)SetTaskRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"taskRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTaskDefinition)SetTrustedExecutionConfiguration(val interface{}) {
+	if err := j.validateSetTrustedExecutionConfigurationParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"trustedExecutionConfiguration",
 		val,
 	)
 }

@@ -27,6 +27,9 @@ import (
 //   	AllowedPrincipals: []*string{
 //   		jsii.String("allowedPrincipals"),
 //   	},
+//   	TransitGatewayAttachmentAllowedPrincipals: []*string{
+//   		jsii.String("transitGatewayAttachmentAllowedPrincipals"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html
@@ -73,6 +76,9 @@ type CfnVPCEndpointServicePermissions interface {
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
 	Stack() awscdk.Stack
+	// The AWS account root ARNs (arn:aws:iam::account-id:root) allowed to create transit gateway attachments that connect to this Gateway Load Balancer endpoint service.
+	TransitGatewayAttachmentAllowedPrincipals() *[]*string
+	SetTransitGatewayAttachmentAllowedPrincipals(val *[]*string)
 	// Deprecated.
 	// Deprecated: use `updatedProperties`
 	//
@@ -378,6 +384,16 @@ func (j *jsiiProxy_CfnVPCEndpointServicePermissions) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCEndpointServicePermissions) TransitGatewayAttachmentAllowedPrincipals() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"transitGatewayAttachmentAllowedPrincipals",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEndpointServicePermissions) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -453,6 +469,14 @@ func (j *jsiiProxy_CfnVPCEndpointServicePermissions)SetServiceId(val *string) {
 	_jsii_.Set(
 		j,
 		"serviceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpointServicePermissions)SetTransitGatewayAttachmentAllowedPrincipals(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"transitGatewayAttachmentAllowedPrincipals",
 		val,
 	)
 }

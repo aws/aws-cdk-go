@@ -1,4 +1,4 @@
-// The CDK Construct Library for Amazon Bedrock
+// This module is deprecated. All constructs are now available under aws-cdk-lib/aws-bedrockagentcore
 package awsbedrockagentcorealpha
 
 import (

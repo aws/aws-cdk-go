@@ -17,6 +17,32 @@ package awsmediaconnect
 //   		// the properties below are optional
 //   		ForwardErrorCorrection: jsii.String("forwardErrorCorrection"),
 //   	},
+//   	SrtCaller: &SrtCallerRouterInputConfigurationProperty{
+//   		MinimumLatencyMilliseconds: jsii.Number(123),
+//   		SourceAddress: jsii.String("sourceAddress"),
+//   		SourcePort: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		DecryptionConfiguration: &SrtDecryptionConfigurationProperty{
+//   			EncryptionKey: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   		StreamId: jsii.String("streamId"),
+//   	},
+//   	SrtListener: &SrtListenerRouterInputConfigurationProperty{
+//   		MinimumLatencyMilliseconds: jsii.Number(123),
+//   		Port: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		DecryptionConfiguration: &SrtDecryptionConfigurationProperty{
+//   			EncryptionKey: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   				RoleArn: jsii.String("roleArn"),
+//   				SecretArn: jsii.String("secretArn"),
+//   			},
+//   		},
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-mergerouterinputprotocolconfiguration.html
@@ -30,5 +56,13 @@ type CfnRouterInput_MergeRouterInputProtocolConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-mergerouterinputprotocolconfiguration.html#cfn-mediaconnect-routerinput-mergerouterinputprotocolconfiguration-rtp
 	//
 	Rtp interface{} `field:"optional" json:"rtp" yaml:"rtp"`
+	// The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-mergerouterinputprotocolconfiguration.html#cfn-mediaconnect-routerinput-mergerouterinputprotocolconfiguration-srtcaller
+	//
+	SrtCaller interface{} `field:"optional" json:"srtCaller" yaml:"srtCaller"`
+	// The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-mergerouterinputprotocolconfiguration.html#cfn-mediaconnect-routerinput-mergerouterinputprotocolconfiguration-srtlistener
+	//
+	SrtListener interface{} `field:"optional" json:"srtListener" yaml:"srtListener"`
 }
 

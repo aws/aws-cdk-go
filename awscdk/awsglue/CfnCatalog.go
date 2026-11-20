@@ -61,7 +61,41 @@ import (
 //   	Description: jsii.String("description"),
 //   	FederatedCatalog: &FederatedCatalogProperty{
 //   		ConnectionName: jsii.String("connectionName"),
+//   		ConnectionType: jsii.String("connectionType"),
 //   		Identifier: jsii.String("identifier"),
+//   		SyncConfiguration: &SyncConfigurationProperty{
+//   			RoleArn: jsii.String("roleArn"),
+//
+//   			// the properties below are optional
+//   			AssetsSyncConfiguration: &AssetsSyncConfigurationProperty{
+//   				Status: jsii.String("status"),
+//
+//   				// the properties below are optional
+//   				ManagedCrawlerDetails: &ManagedCrawlerDetailsProperty{
+//   					CrawlerArn: jsii.String("crawlerArn"),
+//   					Error: &ErrorDetailProperty{
+//   						ErrorCode: jsii.String("errorCode"),
+//   						ErrorMessage: jsii.String("errorMessage"),
+//   					},
+//   					Status: jsii.String("status"),
+//   				},
+//   				RefreshIntervalMinutes: jsii.Number(123),
+//   			},
+//   			LineageSyncConfiguration: &LineageSyncConfigurationProperty{
+//   				Status: jsii.String("status"),
+//
+//   				// the properties below are optional
+//   				ManagedCrawlerDetails: &ManagedCrawlerDetailsProperty{
+//   					CrawlerArn: jsii.String("crawlerArn"),
+//   					Error: &ErrorDetailProperty{
+//   						ErrorCode: jsii.String("errorCode"),
+//   						ErrorMessage: jsii.String("errorMessage"),
+//   					},
+//   					Status: jsii.String("status"),
+//   				},
+//   				RefreshIntervalMinutes: jsii.Number(123),
+//   			},
+//   		},
 //   	},
 //   	OverwriteChildResourcePermissionsWithDefault: jsii.String("overwriteChildResourcePermissionsWithDefault"),
 //   	Parameters: map[string]*string{
@@ -100,6 +134,34 @@ type CfnCatalog interface {
 	AttrCatalogPropertiesDataLakeAccessPropertiesRedshiftDatabaseName() *string
 	// The time at which the catalog was created.
 	AttrCreateTime() *string
+	// The state of the crawler Glue manages on your behalf for a synchronization mode.
+	//
+	// Returned by the service; Glue rejects it as input.
+	AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetails() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the crawler.
+	AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsCrawlerArn() *string
+	// Details about an error.
+	AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsError() awscdk.IResolvable
+	// The code associated with this error.
+	AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorCode() *string
+	// A message describing the error.
+	AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorMessage() *string
+	// The provisioning state of the crawler.
+	AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsStatus() *string
+	// The state of the crawler Glue manages on your behalf for a synchronization mode.
+	//
+	// Returned by the service; Glue rejects it as input.
+	AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetails() awscdk.IResolvable
+	// The Amazon Resource Name (ARN) of the crawler.
+	AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsCrawlerArn() *string
+	// Details about an error.
+	AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsError() awscdk.IResolvable
+	// The code associated with this error.
+	AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorCode() *string
+	// A message describing the error.
+	AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorMessage() *string
+	// The provisioning state of the crawler.
+	AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsStatus() *string
 	// The Amazon Resource Name (ARN) of the catalog.
 	AttrResourceArn() *string
 	// The time at which the catalog was last updated.
@@ -419,6 +481,126 @@ func (j *jsiiProxy_CfnCatalog) AttrCreateTime() *string {
 	_jsii_.Get(
 		j,
 		"attrCreateTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetails() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetails",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsCrawlerArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsCrawlerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsError() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsError",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorCode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorCode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsErrorErrorMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationAssetsSyncConfigurationManagedCrawlerDetailsStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetails() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetails",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsCrawlerArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsCrawlerArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsError() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsError",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorCode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorCode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorMessage() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsErrorErrorMessage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCatalog) AttrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFederatedCatalogSyncConfigurationLineageSyncConfigurationManagedCrawlerDetailsStatus",
 		&returns,
 	)
 	return returns

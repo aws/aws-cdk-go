@@ -32,6 +32,10 @@ func init() {
 		reflect.TypeOf((*CfnClusterPropsMixin_EncryptionDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_dsql.CfnClusterPropsMixin.MetricGroupProperty",
+		reflect.TypeOf((*CfnClusterPropsMixin_MetricGroupProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_dsql.CfnClusterPropsMixin.MultiRegionPropertiesProperty",
 		reflect.TypeOf((*CfnClusterPropsMixin_MultiRegionPropertiesProperty)(nil)).Elem(),
 	)

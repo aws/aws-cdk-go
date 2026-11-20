@@ -40,6 +40,10 @@ func init() {
 		reflect.TypeOf((*CfnWorkflowPropsMixin_EncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_mwaaserverless.CfnWorkflowPropsMixin.EnvironmentProperty",
+		reflect.TypeOf((*CfnWorkflowPropsMixin_EnvironmentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_mwaaserverless.CfnWorkflowPropsMixin.LoggingConfigurationProperty",
 		reflect.TypeOf((*CfnWorkflowPropsMixin_LoggingConfigurationProperty)(nil)).Elem(),
 	)

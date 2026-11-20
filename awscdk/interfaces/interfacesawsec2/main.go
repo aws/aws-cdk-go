@@ -72,6 +72,14 @@ func init() {
 		reflect.TypeOf((*EnclaveCertificateIamRoleAssociationReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.FcaPolicyAssociationReference",
+		reflect.TypeOf((*FcaPolicyAssociationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.FcaPolicyReference",
+		reflect.TypeOf((*FcaPolicyReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.FlowLogReference",
 		reflect.TypeOf((*FlowLogReference)(nil)).Elem(),
 	)
@@ -338,6 +346,38 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IEnclaveCertificateIamRoleAssociationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.IFcaPolicyAssociationRef",
+		reflect.TypeOf((*IFcaPolicyAssociationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "fcaPolicyAssociationRef", GoGetter: "FcaPolicyAssociationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IFcaPolicyAssociationRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.IFcaPolicyRef",
+		reflect.TypeOf((*IFcaPolicyRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "fcaPolicyRef", GoGetter: "FcaPolicyRef"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IFcaPolicyRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j
@@ -1616,6 +1656,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayNetworkFunctionAttachmentRef",
+		reflect.TypeOf((*ITransitGatewayNetworkFunctionAttachmentRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "transitGatewayNetworkFunctionAttachmentRef", GoGetter: "TransitGatewayNetworkFunctionAttachmentRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITransitGatewayNetworkFunctionAttachmentRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_ec2.ITransitGatewayPeeringAttachmentRef",
 		reflect.TypeOf((*ITransitGatewayPeeringAttachmentRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -2394,6 +2450,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayMulticastGroupSourceReference",
 		reflect.TypeOf((*TransitGatewayMulticastGroupSourceReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayNetworkFunctionAttachmentReference",
+		reflect.TypeOf((*TransitGatewayNetworkFunctionAttachmentReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ec2.TransitGatewayPeeringAttachmentReference",

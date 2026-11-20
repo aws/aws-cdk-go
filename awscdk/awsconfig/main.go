@@ -357,6 +357,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrConformancePackArn", GoGetter: "AttrConformancePackArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrType", GoGetter: "AttrType"},
 			_jsii_.MemberProperty{JsiiProperty: "cdkTagManager", GoGetter: "CdkTagManager"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -382,7 +383,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "removeResourceDependency", GoMethod: "RemoveResourceDependency"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "replaceDependency", GoMethod: "ReplaceDependency"},
+			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "templateBody", GoGetter: "TemplateBody"},
@@ -406,6 +409,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConformancePack.ConformancePackInputParameterProperty",
 		reflect.TypeOf((*CfnConformancePack_ConformancePackInputParameterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_config.CfnConformancePack.ScopeProperty",
+		reflect.TypeOf((*CfnConformancePack_ScopeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_config.CfnConformancePack.SourceProperty",
+		reflect.TypeOf((*CfnConformancePack_SourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConformancePack.TemplateSSMDocumentDetailsProperty",
@@ -479,6 +490,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConnector.ConnectorConfigurationProperty",
 		reflect.TypeOf((*CfnConnector_ConnectorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_config.CfnConnector.GcpConnectorConfigurationProperty",
+		reflect.TypeOf((*CfnConnector_GcpConnectorConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_config.CfnConnectorProps",

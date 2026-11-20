@@ -88,6 +88,14 @@ func validateCfnOrganization_ArnForOrganizationParameters(resource interfacesaws
 	return nil
 }
 
+func validateCfnOrganization_FromOrganizationArnParameters(scope constructs.Construct, id *string, arn *string) error {
+	return nil
+}
+
+func validateCfnOrganization_FromOrganizationIdParameters(scope constructs.Construct, id *string, organizationId *string) error {
+	return nil
+}
+
 func validateCfnOrganization_IsCfnElementParameters(x interface{}) error {
 	return nil
 }

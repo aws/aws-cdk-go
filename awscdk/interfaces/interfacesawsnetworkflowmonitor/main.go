@@ -24,6 +24,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_networkflowmonitor.IPerformanceMonitorRef",
+		reflect.TypeOf((*IPerformanceMonitorRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "performanceMonitorRef", GoGetter: "PerformanceMonitorRef"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPerformanceMonitorRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"aws-cdk-lib.interfaces.aws_networkflowmonitor.IScopeRef",
 		reflect.TypeOf((*IScopeRef)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -42,6 +58,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_networkflowmonitor.MonitorReference",
 		reflect.TypeOf((*MonitorReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_networkflowmonitor.PerformanceMonitorReference",
+		reflect.TypeOf((*PerformanceMonitorReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_networkflowmonitor.ScopeReference",

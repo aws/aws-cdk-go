@@ -189,12 +189,34 @@ func FoundationModelIdentifier_AI21_LABS_JURASSIC_2_ULTRA_V1_0_8K() FoundationMo
 	return returns
 }
 
+func FoundationModelIdentifier_AMAZON_NOVA_2_LITE_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_2_LITE_V1_0",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"AMAZON_NOVA_2_MULTIMODAL_EMBEDDINGS_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_AMAZON_NOVA_2_SONIC_V1_0() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"AMAZON_NOVA_2_SONIC_V1_0",
 		&returns,
 	)
 	return returns
@@ -1179,6 +1201,17 @@ func FoundationModelIdentifier_DEEP_SEEK_R1_V1_0() FoundationModelIdentifier {
 	return returns
 }
 
+func FoundationModelIdentifier_DEEP_SEEK_V3_2() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"DEEP_SEEK_V3_2",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_DEEP_SEEK_V3_V1_0() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -1542,6 +1575,28 @@ func FoundationModelIdentifier_MISTRAL_SMALL_V0_1() FoundationModelIdentifier {
 	return returns
 }
 
+func FoundationModelIdentifier_MOONSHOT_KIMI_K2_5() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"MOONSHOT_KIMI_K2_5",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_MOONSHOT_KIMI_K2_THINKING() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"MOONSHOT_KIMI_K2_THINKING",
+		&returns,
+	)
+	return returns
+}
+
 func FoundationModelIdentifier_OPENAI_GPT_5_4() FoundationModelIdentifier {
 	_init_.Initialize()
 	var returns FoundationModelIdentifier
@@ -1746,6 +1801,39 @@ func FoundationModelIdentifier_QWEN_QWEN3_CODER_480B_A35B_V1_0() FoundationModel
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
 		"QWEN_QWEN3_CODER_480B_A35B_V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_QWEN_QWEN3_CODER_NEXT() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"QWEN_QWEN3_CODER_NEXT",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_QWEN_QWEN3_NEXT_80B_A3B() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"QWEN_QWEN3_NEXT_80B_A3B",
+		&returns,
+	)
+	return returns
+}
+
+func FoundationModelIdentifier_QWEN_QWEN3_VL_235B_A22B() FoundationModelIdentifier {
+	_init_.Initialize()
+	var returns FoundationModelIdentifier
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_bedrock.FoundationModelIdentifier",
+		"QWEN_QWEN3_VL_235B_A22B",
 		&returns,
 	)
 	return returns

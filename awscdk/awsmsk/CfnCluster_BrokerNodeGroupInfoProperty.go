@@ -49,6 +49,7 @@ package awsmsk
 //   			VolumeSize: jsii.Number(123),
 //   		},
 //   	},
+//   	TopicReassignment: jsii.String("topicReassignment"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html
@@ -102,5 +103,8 @@ type CfnCluster_BrokerNodeGroupInfoProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-storageinfo
 	//
 	StorageInfo interface{} `field:"optional" json:"storageInfo" yaml:"storageInfo"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#cfn-msk-cluster-brokernodegroupinfo-topicreassignment
+	//
+	TopicReassignment *string `field:"optional" json:"topicReassignment" yaml:"topicReassignment"`
 }
 

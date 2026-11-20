@@ -34,6 +34,19 @@ package awsmediaconnect
 //   					Port: jsii.Number(123),
 //   					RecoveryLatencyMilliseconds: jsii.Number(123),
 //   				},
+//   				RtmpPush: &RtmpPushRouterInputConfigurationProperty{
+//   					NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   						Automatic: automatic,
+//   						Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   							ApplicationName: jsii.String("applicationName"),
+//   							StreamName: jsii.String("streamName"),
+//   						},
+//   					},
+//   					Port: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					NamingType: jsii.String("namingType"),
+//   				},
 //   				Rtp: &RtpRouterInputConfigurationProperty{
 //   					Port: jsii.Number(123),
 //
@@ -125,6 +138,32 @@ package awsmediaconnect
 //   					// the properties below are optional
 //   					ForwardErrorCorrection: jsii.String("forwardErrorCorrection"),
 //   				},
+//   				SrtCaller: &SrtCallerRouterInputConfigurationProperty{
+//   					MinimumLatencyMilliseconds: jsii.Number(123),
+//   					SourceAddress: jsii.String("sourceAddress"),
+//   					SourcePort: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					DecryptionConfiguration: &SrtDecryptionConfigurationProperty{
+//   						EncryptionKey: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   							RoleArn: jsii.String("roleArn"),
+//   							SecretArn: jsii.String("secretArn"),
+//   						},
+//   					},
+//   					StreamId: jsii.String("streamId"),
+//   				},
+//   				SrtListener: &SrtListenerRouterInputConfigurationProperty{
+//   					MinimumLatencyMilliseconds: jsii.Number(123),
+//   					Port: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					DecryptionConfiguration: &SrtDecryptionConfigurationProperty{
+//   						EncryptionKey: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   							RoleArn: jsii.String("roleArn"),
+//   							SecretArn: jsii.String("secretArn"),
+//   						},
+//   					},
+//   				},
 //   			},
 //   		},
 //   	},
@@ -134,6 +173,19 @@ package awsmediaconnect
 //   			Rist: &RistRouterInputConfigurationProperty{
 //   				Port: jsii.Number(123),
 //   				RecoveryLatencyMilliseconds: jsii.Number(123),
+//   			},
+//   			RtmpPush: &RtmpPushRouterInputConfigurationProperty{
+//   				NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   					Automatic: automatic,
+//   					Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   						ApplicationName: jsii.String("applicationName"),
+//   						StreamName: jsii.String("streamName"),
+//   					},
+//   				},
+//   				Port: jsii.Number(123),
+//
+//   				// the properties below are optional
+//   				NamingType: jsii.String("namingType"),
 //   			},
 //   			Rtp: &RtpRouterInputConfigurationProperty{
 //   				Port: jsii.Number(123),

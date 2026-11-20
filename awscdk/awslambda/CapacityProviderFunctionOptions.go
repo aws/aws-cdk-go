@@ -30,7 +30,7 @@ type CapacityProviderFunctionOptions struct {
 	//
 	LatestPublishedScalingConfig *LatestPublishedScalingConfig `field:"optional" json:"latestPublishedScalingConfig" yaml:"latestPublishedScalingConfig"`
 	// Specifies the maximum number of concurrent invokes a single execution environment can handle.
-	// Default: Maximum is set to 10.
+	// Default: - not set; the Lambda service applies its default.
 	//
 	PerExecutionEnvironmentMaxConcurrency *float64 `field:"optional" json:"perExecutionEnvironmentMaxConcurrency" yaml:"perExecutionEnvironmentMaxConcurrency"`
 	// A boolean determining whether or not to automatically publish to the $LATEST.PUBLISHED version.

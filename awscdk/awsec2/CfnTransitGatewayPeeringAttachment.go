@@ -29,6 +29,10 @@ import (
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
 //
 //   	// the properties below are optional
+//   	Options: &TransitGatewayPeeringAttachmentOptionsProperty{
+//   		AllowMultipathResilience: jsii.Boolean(false),
+//   		MultipathResilienceMode: jsii.String("multipathResilienceMode"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -44,8 +48,18 @@ type CfnTransitGatewayPeeringAttachment interface {
 	awscdk.IInspectable
 	interfacesawsec2.ITransitGatewayPeeringAttachmentRef
 	awscdk.ITaggable
+	// Whether the accepter side of the peering attachment has opted in to MultipathResilience.
+	AttrAccepterAllowMultipathResilience() awscdk.IResolvable
 	// The time the transit gateway peering attachment was created.
 	AttrCreationTime() *string
+	// The connection-level MultipathResilience status, computed from both sides of the peering attachment.
+	//
+	// (enabled/pending/disabled).
+	AttrMultipathResilienceStatus() *string
+	// Whether the requester side of the peering attachment has opted in to MultipathResilience.
+	AttrRequesterAllowMultipathResilience() awscdk.IResolvable
+	// The MultipathResilience mode chosen by the requester side of the peering attachment.
+	AttrRequesterMultipathResilienceMode() *string
 	// The state of the transit gateway peering attachment.
 	//
 	// Note that the `initiating` state has been deprecated.
@@ -78,6 +92,8 @@ type CfnTransitGatewayPeeringAttachment interface {
 	LogicalId() *string
 	// The tree node.
 	Node() constructs.Node
+	Options() interface{}
+	SetOptions(val interface{})
 	// The ID of the AWS account that owns the transit gateway.
 	PeerAccountId() *string
 	SetPeerAccountId(val *string)
@@ -290,11 +306,51 @@ type jsiiProxy_CfnTransitGatewayPeeringAttachment struct {
 	internal.Type__awscdkITaggable
 }
 
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) AttrAccepterAllowMultipathResilience() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrAccepterAllowMultipathResilience",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) AttrCreationTime() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) AttrMultipathResilienceStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrMultipathResilienceStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) AttrRequesterAllowMultipathResilience() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrRequesterAllowMultipathResilience",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) AttrRequesterMultipathResilienceMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRequesterMultipathResilienceMode",
 		&returns,
 	)
 	return returns
@@ -425,6 +481,16 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Node() constructs.Node {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Options() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"options",
 		&returns,
 	)
 	return returns
@@ -567,6 +633,17 @@ func NewCfnTransitGatewayPeeringAttachment_Override(c CfnTransitGatewayPeeringAt
 		"aws-cdk-lib.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment)SetOptions(val interface{}) {
+	if err := j.validateSetOptionsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"options",
+		val,
 	)
 }
 

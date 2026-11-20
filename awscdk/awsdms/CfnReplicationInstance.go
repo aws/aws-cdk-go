@@ -62,7 +62,6 @@ type CfnReplicationInstance interface {
 	// Indicates that major version upgrades are allowed.
 	AllowMajorVersionUpgrade() interface{}
 	SetAllowMajorVersionUpgrade(val interface{})
-	AttrId() *string
 	// The Amazon Resource Name (ARN) of the replication instance.
 	AttrReplicationInstanceArn() *string
 	// One or more private IP addresses for the replication instance.
@@ -351,16 +350,6 @@ func (j *jsiiProxy_CfnReplicationInstance) AllowMajorVersionUpgrade() interface{
 	_jsii_.Get(
 		j,
 		"allowMajorVersionUpgrade",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnReplicationInstance) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

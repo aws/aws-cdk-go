@@ -29,6 +29,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	CrlDpRevocationEnabled: jsii.Boolean(false),
 //   	Enabled: jsii.Boolean(false),
 //   	NotificationSettings: []interface{}{
 //   		&NotificationSettingProperty{
@@ -69,6 +70,8 @@ type CfnTrustAnchor interface {
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
 	CreationStack() *[]*string
+	CrlDpRevocationEnabled() interface{}
+	SetCrlDpRevocationEnabled(val interface{})
 	// Indicates whether the trust anchor is enabled.
 	Enabled() interface{}
 	SetEnabled(val interface{})
@@ -364,6 +367,16 @@ func (j *jsiiProxy_CfnTrustAnchor) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrustAnchor) CrlDpRevocationEnabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"crlDpRevocationEnabled",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrustAnchor) Enabled() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -531,6 +544,17 @@ func NewCfnTrustAnchor_Override(c CfnTrustAnchor, scope constructs.Construct, id
 		"aws-cdk-lib.aws_rolesanywhere.CfnTrustAnchor",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTrustAnchor)SetCrlDpRevocationEnabled(val interface{}) {
+	if err := j.validateSetCrlDpRevocationEnabledParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"crlDpRevocationEnabled",
+		val,
 	)
 }
 

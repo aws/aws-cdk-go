@@ -17,6 +17,7 @@ package awsdevopsagent
 //   	// the properties below are optional
 //   	EnableWebhookUpdates: jsii.Boolean(false),
 //   	InstanceIdentifier: jsii.String("instanceIdentifier"),
+//   	ReleaseManagementAssociationId: jsii.String("releaseManagementAssociationId"),
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-gitlabconfiguration.html
@@ -38,5 +39,9 @@ type CfnAssociation_GitLabConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-gitlabconfiguration.html#cfn-devopsagent-association-gitlabconfiguration-instanceidentifier
 	//
 	InstanceIdentifier *string `field:"optional" json:"instanceIdentifier" yaml:"instanceIdentifier"`
+	// The ID of the release management association that this project uses for automated testing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-gitlabconfiguration.html#cfn-devopsagent-association-gitlabconfiguration-releasemanagementassociationid
+	//
+	ReleaseManagementAssociationId *string `field:"optional" json:"releaseManagementAssociationId" yaml:"releaseManagementAssociationId"`
 }
 

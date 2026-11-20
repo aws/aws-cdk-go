@@ -10,6 +10,9 @@ package awsecs
 //   	PortName: jsii.String("portName"),
 //
 //   	// the properties below are optional
+//   	DeregistrationDelay: &GatewayConnectorDeregistrationDelayProperty{
+//   		TimeoutSeconds: jsii.Number(123),
+//   	},
 //   	Filters: &GatewayConnectorFiltersProperty{
 //   		AccessTypes: []*string{
 //   			jsii.String("accessTypes"),
@@ -36,6 +39,9 @@ type CfnService_GatewayConnectorProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html#cfn-ecs-service-gatewayconnector-portname
 	//
 	PortName *string `field:"required" json:"portName" yaml:"portName"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html#cfn-ecs-service-gatewayconnector-deregistrationdelay
+	//
+	DeregistrationDelay interface{} `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html#cfn-ecs-service-gatewayconnector-filters
 	//
 	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`

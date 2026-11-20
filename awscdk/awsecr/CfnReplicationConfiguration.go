@@ -34,6 +34,9 @@ import (
 //   				},
 //
 //   				// the properties below are optional
+//   				DeleteReplication: &DeleteReplicationProperty{
+//   					Enabled: jsii.Boolean(false),
+//   				},
 //   				RepositoryFilters: []interface{}{
 //   					&RepositoryFilterProperty{
 //   						Filter: jsii.String("filter"),

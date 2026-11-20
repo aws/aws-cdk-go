@@ -266,6 +266,10 @@ import (
 //   		},
 //   	},
 //   	TaskRoleArn: jsii.String("taskRoleArn"),
+//   	TrustedExecutionConfiguration: &TrustedExecutionConfigurationProperty{
+//   		AttestationPolicy: jsii.String("attestationPolicy"),
+//   		IsolationMode: jsii.String("isolationMode"),
+//   	},
 //   	Volumes: []interface{}{
 //   		&VolumeProperty{
 //   			ConfiguredAtLaunch: jsii.Boolean(false),

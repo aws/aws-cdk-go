@@ -25,7 +25,7 @@ import (
 //
 //   	// the properties below are optional
 //   	AuthorizerConfiguration: &AuthorizerConfigurationProperty{
-//   		CustomJwtAuthorizer: &CustomJWTAuthorizerProperty{
+//   		CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
 //   			DiscoveryUrl: jsii.String("discoveryUrl"),
 //
 //   			// the properties below are optional
@@ -40,9 +40,9 @@ import (
 //   			},
 //   			CustomClaims: []interface{}{
 //   				&CustomClaimValidationTypeProperty{
-//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueProperty{
+//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
 //   						ClaimMatchOperator: jsii.String("claimMatchOperator"),
-//   						ClaimMatchValue: &ClaimMatchValueProperty{
+//   						ClaimMatchValue: &ClaimMatchValueTypeProperty{
 //   							MatchValueString: jsii.String("matchValueString"),
 //   							MatchValueStringList: []*string{
 //   								jsii.String("matchValueStringList"),
@@ -81,9 +81,7 @@ type CfnPaymentManager interface {
 	AttrPaymentManagerId() *string
 	// The current status of the payment manager.
 	AttrStatus() *string
-	// The workload identity details for the payment manager.
 	AttrWorkloadIdentityDetails() awscdk.IResolvable
-	// The authorizer configuration for the payment manager.
 	AuthorizerConfiguration() interface{}
 	SetAuthorizerConfiguration(val interface{})
 	// The type of authorizer for the payment manager.

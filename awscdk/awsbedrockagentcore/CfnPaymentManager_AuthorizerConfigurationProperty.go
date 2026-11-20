@@ -1,15 +1,13 @@
 package awsbedrockagentcore
 
 
-// The authorizer configuration for the payment manager.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   authorizerConfigurationProperty := &AuthorizerConfigurationProperty{
-//   	CustomJwtAuthorizer: &CustomJWTAuthorizerProperty{
+//   	CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
 //   		DiscoveryUrl: jsii.String("discoveryUrl"),
 //
 //   		// the properties below are optional
@@ -24,9 +22,9 @@ package awsbedrockagentcore
 //   		},
 //   		CustomClaims: []interface{}{
 //   			&CustomClaimValidationTypeProperty{
-//   				AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueProperty{
+//   				AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
 //   					ClaimMatchOperator: jsii.String("claimMatchOperator"),
-//   					ClaimMatchValue: &ClaimMatchValueProperty{
+//   					ClaimMatchValue: &ClaimMatchValueTypeProperty{
 //   						MatchValueString: jsii.String("matchValueString"),
 //   						MatchValueStringList: []*string{
 //   							jsii.String("matchValueStringList"),

@@ -34,5 +34,26 @@ type ProxyResourceOptions struct {
 	// Default: true.
 	//
 	AnyMethod *bool `field:"optional" json:"anyMethod" yaml:"anyMethod"`
+	// Automatically configure path parameter mapping for the proxy resource.
+	//
+	// When enabled, this property automatically configures both the method request
+	// and integration request to properly handle the proxy path parameter:
+	// - Adds `method.request.path.proxy: true` to method request parameters
+	// - Adds `integration.request.path.proxy: 'method.request.path.proxy'` to integration request parameters
+	//
+	// This matches the behavior of the AWS Console when creating proxy resources
+	// and eliminates the need to manually configure path parameters.
+	//
+	// This is meant for integrations whose URI uses `{proxy}`, such as HTTP
+	// integrations. Lambda proxy (`AWS_PROXY`) integrations do not need it, as
+	// Lambda already receives the full request path. The mapping is added even
+	// when the integration URI has no `{proxy}`.
+	//
+	// Mock integrations are left unchanged. When the proxy is added to the root
+	// resource, the method that is also added to the root has no `{proxy}` path
+	// parameter, so it is not configured.
+	// Default: false.
+	//
+	AutoConfigurePathParameter *bool `field:"optional" json:"autoConfigurePathParameter" yaml:"autoConfigurePathParameter"`
 }
 

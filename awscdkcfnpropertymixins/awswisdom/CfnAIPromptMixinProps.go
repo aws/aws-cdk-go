@@ -12,6 +12,12 @@ package awswisdom
 //   	ApiFormat: jsii.String("apiFormat"),
 //   	AssistantId: jsii.String("assistantId"),
 //   	Description: jsii.String("description"),
+//   	InferenceConfiguration: &AIPromptInferenceConfigurationProperty{
+//   		MaxTokensToSample: jsii.Number(123),
+//   		Temperature: jsii.Number(123),
+//   		TopK: jsii.Number(123),
+//   		TopP: jsii.Number(123),
+//   	},
 //   	ModelId: jsii.String("modelId"),
 //   	Name: jsii.String("name"),
 //   	Tags: map[string]*string{
@@ -43,6 +49,9 @@ type CfnAIPromptMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiprompt.html#cfn-wisdom-aiprompt-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiprompt.html#cfn-wisdom-aiprompt-inferenceconfiguration
+	//
+	InferenceConfiguration interface{} `field:"optional" json:"inferenceConfiguration" yaml:"inferenceConfiguration"`
 	// The identifier of the model used for this AI Prompt. The following model Ids are supported:.
 	//
 	// - `anthropic.claude-3-haiku--v1:0`

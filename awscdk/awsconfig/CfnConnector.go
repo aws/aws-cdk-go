@@ -24,6 +24,13 @@ import (
 //   			ClientIdentifier: jsii.String("clientIdentifier"),
 //   			TenantIdentifier: jsii.String("tenantIdentifier"),
 //   		},
+//   		Gcp: &GcpConnectorConfigurationProperty{
+//   			ServiceAccountEmail: jsii.String("serviceAccountEmail"),
+//   			WorkloadIdentityPoolProvider: jsii.String("workloadIdentityPoolProvider"),
+//
+//   			// the properties below are optional
+//   			GcpOrganizationId: jsii.String("gcpOrganizationId"),
+//   		},
 //   	},
 //
 //   	// the properties below are optional

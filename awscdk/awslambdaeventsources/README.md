@@ -454,6 +454,48 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 }))
 ```
 
+### Consumption mode (Kafka queues)
+
+By default, Lambda reads a Kafka topic as a consumer group: each partition is read by one poller, in order
+(`lambda.KafkaConsumptionMode.STREAM`). If your self-managed cluster runs Kafka 4.2.0 or later, you can instead read
+the topic as a share group (`lambda.KafkaConsumptionMode.QUEUE`). In queue mode, several pollers can read the same
+partition in parallel, which removes head-of-line blocking at the cost of ordering.
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+var myFunction Function
+var secret Secret
+
+
+myFunction.AddEventSource(awscdk.NewSelfManagedKafkaEventSource(&SelfManagedKafkaEventSourceProps{
+	BootstrapServers: []*string{
+		jsii.String("kafka-broker-1:9092"),
+		jsii.String("kafka-broker-2:9092"),
+	},
+	Topic: jsii.String("orders"),
+	Secret: Secret,
+	ConsumerGroupId: jsii.String("orders-queue"),
+	ConsumptionMode: lambda.KafkaConsumptionMode_QUEUE(),
+}))
+```
+
+Queue mode changes how some options behave:
+
+* `startingPosition` and `startingPositionTimestamp` aren't supported. Leave them unset.
+* `maxBatchingWindow` isn't supported. Leave it unset.
+* `retryAttempts` accepts 0 to 10000, and defaults to 0. `-1` (infinite retries) isn't supported. As in stream mode,
+  `retryAttempts` is only available in provisioned mode (`provisionedPollerConfig`).
+* The consumption mode can't be changed after the event source mapping is created. To switch modes, create a new
+  event source (for example, with a different `consumerGroupId`) and remove the old one.
+* `consumerGroupId` is the name of the share group. Kafka doesn't allow a consumer group and a share group with the
+  same name, so if the ID already exists on the broker as a consumer group, Lambda disables the mapping. Use a new ID,
+  or omit it to let Lambda generate one.
+
+Other options work the same as in stream mode. Queue mode isn't available for `ManagedKafkaEventSource` (Amazon
+MSK).
+
 ### Failure Destinations
 
 You can specify failure destinations for records that fail processing. Kafka event sources support Kafka Topic Destinations, S3 Bucket Destinations, SQS Queue and SNS topic:
@@ -659,9 +701,28 @@ ordersFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEve
 }))
 ```
 
-Set a confluent or self-managed schema registry to de-serialize events from the event source.
+### Schema Registry
 
-Note: This will also work for `SelfManagedKafkaEventSource`.
+Lambda can validate the key, the value, or both of each Kafka record against a schema registry before it
+invokes your function. Set `schemaRegistryConfig` on `ManagedKafkaEventSource` or `SelfManagedKafkaEventSource`
+to an AWS Glue schema registry with `GlueSchemaRegistry`, or to a Confluent schema registry, cloud or
+self-managed, with `ConfluentSchemaRegistry`. The registry can validate Avro, Protobuf and JSON Schema records.
+
+Schema registries need provisioned pollers, so also set `provisionedPollerConfig`. Then choose:
+
+* `eventRecordFormat`: `JSON` passes the validated parts to your function as JSON, which suits languages such as
+  Python and Node.js; `SOURCE` passes them in their original format, which suits Avro or Protobuf generated classes.
+* `schemaValidationConfigs`: whether to validate the key, the value, or both.
+
+For Confluent, give the registry URL, an authentication type and the Secrets Manager secret that goes with it;
+the function gets read access to the secret. For Glue, pass the registry; the function gets the Glue
+permissions it needs to read it.
+
+For details, see
+[Using schema registries with Kafka event sources in Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-consume-kafka-events.html)
+in the AWS Lambda Developer Guide.
+
+This example uses a Confluent schema registry with Amazon MSK:
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
@@ -670,15 +731,14 @@ import "github.com/aws/aws-cdk-go/awscdk"
 // Your MSK cluster arn
 var clusterArn string
 
+// The secret with the credentials for your schema registry
+var secret Secret
+
 var myFunction Function
 
 
 // The Kafka topic you want to subscribe to
 topic := "some-cool-topic"
-
-secret := awscdk.NewSecret(this, jsii.String("Secret"), &SecretProps{
-	SecretName: jsii.String("AmazonMSK_KafkaSecret"),
-})
 myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
 	ClusterArn: jsii.String(ClusterArn),
 	Topic: jsii.String(Topic),
@@ -701,9 +761,7 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 }))
 ```
 
-Set Glue schema registry to de-serialize events from the event source.
-
-Note: This will also work for `SelfManagedKafkaEventSource`.
+This example uses an AWS Glue schema registry with Amazon MSK:
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
@@ -737,6 +795,51 @@ myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSo
 		SchemaValidationConfigs: []KafkaSchemaValidationConfig{
 			&KafkaSchemaValidationConfig{
 				Attribute: lambda.KafkaSchemaValidationAttribute_KEY(),
+			},
+		},
+	}),
+}))
+```
+
+This example uses a self-managed Confluent schema registry with a self-managed Kafka cluster:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+import "github.com/aws/aws-cdk-go/awscdk"
+
+// The secret that allows access to your self hosted Kafka cluster
+var kafkaSecret ISecret
+
+// The secret with the client certificate and private key for your schema registry
+var registrySecret ISecret
+
+var myFunction Function
+
+
+// The list of Kafka brokers
+bootstrapServers := []*string{
+	"kafka-broker:9092",
+}
+
+// The Kafka topic you want to subscribe to
+topic := "some-cool-topic"
+myFunction.AddEventSource(awscdk.NewSelfManagedKafkaEventSource(&SelfManagedKafkaEventSourceProps{
+	BootstrapServers: BootstrapServers,
+	Topic: jsii.String(Topic),
+	Secret: kafkaSecret,
+	StartingPosition: lambda.StartingPosition_TRIM_HORIZON,
+	ProvisionedPollerConfig: &ProvisionedPollerConfig{
+		MinimumPollers: jsii.Number(1),
+		MaximumPollers: jsii.Number(3),
+	},
+	SchemaRegistryConfig: awscdk.NewConfluentSchemaRegistry(&ConfluentSchemaRegistryProps{
+		SchemaRegistryUri: jsii.String("https://schema-registry.example.com"),
+		EventRecordFormat: lambda.EventRecordFormat_SOURCE(),
+		AuthenticationType: lambda.KafkaSchemaRegistryAccessConfigType_CLIENT_CERTIFICATE_TLS_AUTH(),
+		Secret: registrySecret,
+		SchemaValidationConfigs: []KafkaSchemaValidationConfig{
+			&KafkaSchemaValidationConfig{
+				Attribute: lambda.KafkaSchemaValidationAttribute_VALUE(),
 			},
 		},
 	}),

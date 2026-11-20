@@ -39,6 +39,17 @@ import (
 //   						Port: jsii.Number(123),
 //   						RecoveryLatencyMilliseconds: jsii.Number(123),
 //   					},
+//   					RtmpPush: &RtmpPushRouterInputConfigurationProperty{
+//   						NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   							Automatic: automatic,
+//   							Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   								ApplicationName: jsii.String("applicationName"),
+//   								StreamName: jsii.String("streamName"),
+//   							},
+//   						},
+//   						NamingType: jsii.String("namingType"),
+//   						Port: jsii.Number(123),
+//   					},
 //   					Rtp: &RtpRouterInputConfigurationProperty{
 //   						ForwardErrorCorrection: jsii.String("forwardErrorCorrection"),
 //   						Port: jsii.Number(123),
@@ -111,6 +122,28 @@ import (
 //   						ForwardErrorCorrection: jsii.String("forwardErrorCorrection"),
 //   						Port: jsii.Number(123),
 //   					},
+//   					SrtCaller: &SrtCallerRouterInputConfigurationProperty{
+//   						DecryptionConfiguration: &SrtDecryptionConfigurationProperty{
+//   							EncryptionKey: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   								RoleArn: jsii.String("roleArn"),
+//   								SecretArn: jsii.String("secretArn"),
+//   							},
+//   						},
+//   						MinimumLatencyMilliseconds: jsii.Number(123),
+//   						SourceAddress: jsii.String("sourceAddress"),
+//   						SourcePort: jsii.Number(123),
+//   						StreamId: jsii.String("streamId"),
+//   					},
+//   					SrtListener: &SrtListenerRouterInputConfigurationProperty{
+//   						DecryptionConfiguration: &SrtDecryptionConfigurationProperty{
+//   							EncryptionKey: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   								RoleArn: jsii.String("roleArn"),
+//   								SecretArn: jsii.String("secretArn"),
+//   							},
+//   						},
+//   						MinimumLatencyMilliseconds: jsii.Number(123),
+//   						Port: jsii.Number(123),
+//   					},
 //   				},
 //   			},
 //   		},
@@ -121,6 +154,17 @@ import (
 //   				Rist: &RistRouterInputConfigurationProperty{
 //   					Port: jsii.Number(123),
 //   					RecoveryLatencyMilliseconds: jsii.Number(123),
+//   				},
+//   				RtmpPush: &RtmpPushRouterInputConfigurationProperty{
+//   					NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   						Automatic: automatic,
+//   						Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   							ApplicationName: jsii.String("applicationName"),
+//   							StreamName: jsii.String("streamName"),
+//   						},
+//   					},
+//   					NamingType: jsii.String("namingType"),
+//   					Port: jsii.Number(123),
 //   				},
 //   				Rtp: &RtpRouterInputConfigurationProperty{
 //   					ForwardErrorCorrection: jsii.String("forwardErrorCorrection"),

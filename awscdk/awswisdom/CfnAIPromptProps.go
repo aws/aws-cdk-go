@@ -22,6 +22,12 @@ package awswisdom
 //   	// the properties below are optional
 //   	AssistantId: jsii.String("assistantId"),
 //   	Description: jsii.String("description"),
+//   	InferenceConfiguration: &AIPromptInferenceConfigurationProperty{
+//   		MaxTokensToSample: jsii.Number(123),
+//   		Temperature: jsii.Number(123),
+//   		TopK: jsii.Number(123),
+//   		TopP: jsii.Number(123),
+//   	},
 //   	Name: jsii.String("name"),
 //   	Tags: map[string]*string{
 //   		"tagsKey": jsii.String("tags"),
@@ -79,6 +85,9 @@ type CfnAIPromptProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiprompt.html#cfn-wisdom-aiprompt-description
 	//
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiprompt.html#cfn-wisdom-aiprompt-inferenceconfiguration
+	//
+	InferenceConfiguration interface{} `field:"optional" json:"inferenceConfiguration" yaml:"inferenceConfiguration"`
 	// The name of the AI Prompt.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiprompt.html#cfn-wisdom-aiprompt-name
 	//

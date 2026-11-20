@@ -24,6 +24,22 @@ func validateFileSystem_CopyDirectoryParameters(srcDir *string, destDir *string,
 	return nil
 }
 
+func validateFileSystem_CopyDirectoryAtomicParameters(srcDir *string, destDir *string, options *CopyOptions) error {
+	if srcDir == nil {
+		return fmt.Errorf("parameter srcDir is required, but nil was provided")
+	}
+
+	if destDir == nil {
+		return fmt.Errorf("parameter destDir is required, but nil was provided")
+	}
+
+	if err := _jsii_.ValidateStruct(options, func() string { return "parameter options" }); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func validateFileSystem_FingerprintParameters(fileOrDirectory *string, options *FingerprintOptions) error {
 	if fileOrDirectory == nil {
 		return fmt.Errorf("parameter fileOrDirectory is required, but nil was provided")

@@ -136,6 +136,10 @@ func (j *jsiiProxy_CfnTaskDefinition) validateSetTagsRawParameters(val *[]*awscd
 	return nil
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) validateSetTrustedExecutionConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) validateSetVolumesParameters(val interface{}) error {
 	return nil
 }

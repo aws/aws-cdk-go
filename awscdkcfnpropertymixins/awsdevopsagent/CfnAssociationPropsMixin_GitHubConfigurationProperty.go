@@ -13,6 +13,7 @@ package awsdevopsagent
 //   gitHubConfigurationProperty := &GitHubConfigurationProperty{
 //   	Owner: jsii.String("owner"),
 //   	OwnerType: jsii.String("ownerType"),
+//   	ReleaseManagementAssociationId: jsii.String("releaseManagementAssociationId"),
 //   	RepoId: jsii.String("repoId"),
 //   	RepoName: jsii.String("repoName"),
 //   }
@@ -28,6 +29,10 @@ type CfnAssociationPropsMixin_GitHubConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-githubconfiguration.html#cfn-devopsagent-association-githubconfiguration-ownertype
 	//
 	OwnerType *string `field:"optional" json:"ownerType" yaml:"ownerType"`
+	// The ID of the release management association that this repository uses for automated testing.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-githubconfiguration.html#cfn-devopsagent-association-githubconfiguration-releasemanagementassociationid
+	//
+	ReleaseManagementAssociationId *string `field:"optional" json:"releaseManagementAssociationId" yaml:"releaseManagementAssociationId"`
 	// Associated Github repo ID.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-githubconfiguration.html#cfn-devopsagent-association-githubconfiguration-repoid
 	//

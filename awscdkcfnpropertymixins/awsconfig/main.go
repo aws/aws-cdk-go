@@ -164,6 +164,14 @@ func init() {
 		reflect.TypeOf((*CfnConformancePackPropsMixin_ConformancePackInputParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_config.CfnConformancePackPropsMixin.ScopeProperty",
+		reflect.TypeOf((*CfnConformancePackPropsMixin_ScopeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_config.CfnConformancePackPropsMixin.SourceProperty",
+		reflect.TypeOf((*CfnConformancePackPropsMixin_SourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_config.CfnConformancePackPropsMixin.TemplateSSMDocumentDetailsProperty",
 		reflect.TypeOf((*CfnConformancePackPropsMixin_TemplateSSMDocumentDetailsProperty)(nil)).Elem(),
 	)
@@ -194,6 +202,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_config.CfnConnectorPropsMixin.ConnectorConfigurationProperty",
 		reflect.TypeOf((*CfnConnectorPropsMixin_ConnectorConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_config.CfnConnectorPropsMixin.GcpConnectorConfigurationProperty",
+		reflect.TypeOf((*CfnConnectorPropsMixin_GcpConnectorConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_config.CfnDeliveryChannelMixinProps",

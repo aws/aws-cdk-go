@@ -34,6 +34,11 @@ import (
 //   		},
 //   	},
 //   	TargetRoleArn: jsii.String("targetRoleArn"),
+//   	WorkloadIdentityConfig: &WorkloadIdentityConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		ProviderArn: jsii.String("providerArn"),
+//   		TemplateArn: jsii.String("templateArn"),
+//   	},
 //   }, &CfnPropertyMixinOptions{
 //   	Strategy: mergeStrategy,
 //   })

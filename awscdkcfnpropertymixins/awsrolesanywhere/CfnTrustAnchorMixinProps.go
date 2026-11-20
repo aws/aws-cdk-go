@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnTrustAnchorMixinProps := &CfnTrustAnchorMixinProps{
+//   	CrlDpRevocationEnabled: jsii.Boolean(false),
 //   	Enabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	NotificationSettings: []interface{}{
@@ -40,6 +41,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html
 //
 type CfnTrustAnchorMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-crldprevocationenabled
+	//
+	CrlDpRevocationEnabled interface{} `field:"optional" json:"crlDpRevocationEnabled" yaml:"crlDpRevocationEnabled"`
 	// Indicates whether the trust anchor is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-enabled
 	//

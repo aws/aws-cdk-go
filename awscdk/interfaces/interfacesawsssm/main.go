@@ -16,6 +16,10 @@ func init() {
 		reflect.TypeOf((*CloudConnectorReference)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.interfaces.aws_ssm.DefaultHostManagementConfigurationReference",
+		reflect.TypeOf((*DefaultHostManagementConfigurationReference)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.interfaces.aws_ssm.DocumentReference",
 		reflect.TypeOf((*DocumentReference)(nil)).Elem(),
 	)
@@ -46,6 +50,22 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ICloudConnectorRef{}
+			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
+			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.interfaces.aws_ssm.IDefaultHostManagementConfigurationRef",
+		reflect.TypeOf((*IDefaultHostManagementConfigurationRef)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "defaultHostManagementConfigurationRef", GoGetter: "DefaultHostManagementConfigurationRef"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IDefaultHostManagementConfigurationRef{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsIConstruct)
 			_jsii_.InitJsiiProxy(&j.Type__interfacesIEnvironmentAware)
 			return &j

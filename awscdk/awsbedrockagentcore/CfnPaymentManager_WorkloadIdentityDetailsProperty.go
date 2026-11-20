@@ -1,8 +1,6 @@
 package awsbedrockagentcore
 
 
-// The workload identity details for the payment manager.
-//
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.

@@ -25,6 +25,11 @@ import (
 //   		},
 //   	},
 //   	TargetRoleArn: jsii.String("targetRoleArn"),
+//   	WorkloadIdentityConfig: &WorkloadIdentityConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//   		ProviderArn: jsii.String("providerArn"),
+//   		TemplateArn: jsii.String("templateArn"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html
@@ -80,5 +85,11 @@ type CfnPodIdentityAssociationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html#cfn-eks-podidentityassociation-targetrolearn
 	//
 	TargetRoleArn *string `field:"optional" json:"targetRoleArn" yaml:"targetRoleArn"`
+	// The workload identity configuration of the pod identity association.
+	//
+	// When enabled, the association also provisions a SPIFFE identity for the workload. Setting Enabled to false disables workload identity and keeps the ARNs. Removing the property from the template leaves the association unchanged; set Enabled to false to disable workload identity.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html#cfn-eks-podidentityassociation-workloadidentityconfig
+	//
+	WorkloadIdentityConfig interface{} `field:"optional" json:"workloadIdentityConfig" yaml:"workloadIdentityConfig"`
 }
 

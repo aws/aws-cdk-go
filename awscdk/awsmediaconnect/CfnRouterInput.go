@@ -48,6 +48,19 @@ import (
 //   						Port: jsii.Number(123),
 //   						RecoveryLatencyMilliseconds: jsii.Number(123),
 //   					},
+//   					RtmpPush: &RtmpPushRouterInputConfigurationProperty{
+//   						NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   							Automatic: automatic,
+//   							Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   								ApplicationName: jsii.String("applicationName"),
+//   								StreamName: jsii.String("streamName"),
+//   							},
+//   						},
+//   						Port: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						NamingType: jsii.String("namingType"),
+//   					},
 //   					Rtp: &RtpRouterInputConfigurationProperty{
 //   						Port: jsii.Number(123),
 //
@@ -139,6 +152,32 @@ import (
 //   						// the properties below are optional
 //   						ForwardErrorCorrection: jsii.String("forwardErrorCorrection"),
 //   					},
+//   					SrtCaller: &SrtCallerRouterInputConfigurationProperty{
+//   						MinimumLatencyMilliseconds: jsii.Number(123),
+//   						SourceAddress: jsii.String("sourceAddress"),
+//   						SourcePort: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						DecryptionConfiguration: &SrtDecryptionConfigurationProperty{
+//   							EncryptionKey: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   								RoleArn: jsii.String("roleArn"),
+//   								SecretArn: jsii.String("secretArn"),
+//   							},
+//   						},
+//   						StreamId: jsii.String("streamId"),
+//   					},
+//   					SrtListener: &SrtListenerRouterInputConfigurationProperty{
+//   						MinimumLatencyMilliseconds: jsii.Number(123),
+//   						Port: jsii.Number(123),
+//
+//   						// the properties below are optional
+//   						DecryptionConfiguration: &SrtDecryptionConfigurationProperty{
+//   							EncryptionKey: &SecretsManagerEncryptionKeyConfigurationProperty{
+//   								RoleArn: jsii.String("roleArn"),
+//   								SecretArn: jsii.String("secretArn"),
+//   							},
+//   						},
+//   					},
 //   				},
 //   			},
 //   		},
@@ -148,6 +187,19 @@ import (
 //   				Rist: &RistRouterInputConfigurationProperty{
 //   					Port: jsii.Number(123),
 //   					RecoveryLatencyMilliseconds: jsii.Number(123),
+//   				},
+//   				RtmpPush: &RtmpPushRouterInputConfigurationProperty{
+//   					NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   						Automatic: automatic,
+//   						Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   							ApplicationName: jsii.String("applicationName"),
+//   							StreamName: jsii.String("streamName"),
+//   						},
+//   					},
+//   					Port: jsii.Number(123),
+//
+//   					// the properties below are optional
+//   					NamingType: jsii.String("namingType"),
 //   				},
 //   				Rtp: &RtpRouterInputConfigurationProperty{
 //   					Port: jsii.Number(123),
@@ -264,6 +316,20 @@ type CfnRouterInput interface {
 	AttrRoutedOutputs() *float64
 	// The current state of the router input.
 	AttrState() *string
+	// Configuration details for the router input stream.
+	AttrStreamDetails() awscdk.IResolvable
+	// The name of the RTMP application.
+	AttrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushApplicationName() *string
+	// The name of the RTMP stream.
+	AttrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushStreamName() *string
+	// The name of the RTMP application.
+	AttrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushApplicationName() *string
+	// The name of the RTMP stream.
+	AttrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushStreamName() *string
+	// The name of the RTMP application.
+	AttrStreamDetailsStandardRtmpPushApplicationName() *string
+	// The name of the RTMP stream.
+	AttrStreamDetailsStandardRtmpPushStreamName() *string
 	// The timestamp when the router input was last updated.
 	AttrUpdatedAt() *string
 	// The Availability Zone of the router input.
@@ -614,6 +680,76 @@ func (j *jsiiProxy_CfnRouterInput) AttrState() *string {
 	_jsii_.Get(
 		j,
 		"attrState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouterInput) AttrStreamDetails() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrStreamDetails",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouterInput) AttrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushApplicationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouterInput) AttrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushStreamName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStreamDetailsFailoverSourceIndexOneStreamDetailsRtmpPushStreamName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouterInput) AttrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushApplicationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouterInput) AttrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushStreamName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStreamDetailsFailoverSourceIndexZeroStreamDetailsRtmpPushStreamName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouterInput) AttrStreamDetailsStandardRtmpPushApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStreamDetailsStandardRtmpPushApplicationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRouterInput) AttrStreamDetailsStandardRtmpPushStreamName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStreamDetailsStandardRtmpPushStreamName",
 		&returns,
 	)
 	return returns

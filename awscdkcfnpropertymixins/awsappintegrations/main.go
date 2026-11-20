@@ -36,6 +36,10 @@ func init() {
 		reflect.TypeOf((*CfnApplicationPropsMixin_ApplicationSourceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_appintegrations.CfnApplicationPropsMixin.AuthConfigProperty",
+		reflect.TypeOf((*CfnApplicationPropsMixin_AuthConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_appintegrations.CfnApplicationPropsMixin.ContactHandlingProperty",
 		reflect.TypeOf((*CfnApplicationPropsMixin_ContactHandlingProperty)(nil)).Elem(),
 	)

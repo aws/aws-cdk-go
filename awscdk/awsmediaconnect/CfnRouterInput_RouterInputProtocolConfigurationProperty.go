@@ -6,10 +6,25 @@ package awsmediaconnect
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var automatic interface{}
+//
 //   routerInputProtocolConfigurationProperty := &RouterInputProtocolConfigurationProperty{
 //   	Rist: &RistRouterInputConfigurationProperty{
 //   		Port: jsii.Number(123),
 //   		RecoveryLatencyMilliseconds: jsii.Number(123),
+//   	},
+//   	RtmpPush: &RtmpPushRouterInputConfigurationProperty{
+//   		NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   			Automatic: automatic,
+//   			Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   				ApplicationName: jsii.String("applicationName"),
+//   				StreamName: jsii.String("streamName"),
+//   			},
+//   		},
+//   		Port: jsii.Number(123),
+//
+//   		// the properties below are optional
+//   		NamingType: jsii.String("namingType"),
 //   	},
 //   	Rtp: &RtpRouterInputConfigurationProperty{
 //   		Port: jsii.Number(123),
@@ -52,6 +67,10 @@ type CfnRouterInput_RouterInputProtocolConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputprotocolconfiguration.html#cfn-mediaconnect-routerinput-routerinputprotocolconfiguration-rist
 	//
 	Rist interface{} `field:"optional" json:"rist" yaml:"rist"`
+	// The configuration settings for a router input using the RTMP (Real-Time Messaging Protocol) protocol.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputprotocolconfiguration.html#cfn-mediaconnect-routerinput-routerinputprotocolconfiguration-rtmppush
+	//
+	RtmpPush interface{} `field:"optional" json:"rtmpPush" yaml:"rtmpPush"`
 	// The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routerinput-routerinputprotocolconfiguration.html#cfn-mediaconnect-routerinput-routerinputprotocolconfiguration-rtp
 	//

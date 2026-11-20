@@ -132,6 +132,19 @@ import (
 //   			},
 //   			EncryptionKeyType: jsii.String("encryptionKeyType"),
 //   		},
+//   		RtmpPushDetails: &RtmpPushDetailsProperty{
+//   			ApplicationName: jsii.String("applicationName"),
+//   			StreamName: jsii.String("streamName"),
+//   		},
+//   		RtmpPushSettings: &RtmpPushSettingsProperty{
+//   			NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   				Automatic: automatic,
+//   				Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   					ApplicationName: jsii.String("applicationName"),
+//   					StreamName: jsii.String("streamName"),
+//   				},
+//   			},
+//   		},
 //   		SenderControlPort: jsii.Number(123),
 //   		SenderIpAddress: jsii.String("senderIpAddress"),
 //   		SourceArn: jsii.String("sourceArn"),

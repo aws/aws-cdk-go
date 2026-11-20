@@ -8,3 +8,7 @@ func validateTargetTrackingScalingPolicy_CpuUtilizationParameters(targetCpuUtili
 	return nil
 }
 
+func validateTargetTrackingScalingPolicy_GpuUtilizationParameters(targetGpuUtilization *float64) error {
+	return nil
+}
+

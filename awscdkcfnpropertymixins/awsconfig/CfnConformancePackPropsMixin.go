@@ -33,6 +33,13 @@ import (
 //   	ConformancePackName: jsii.String("conformancePackName"),
 //   	DeliveryS3Bucket: jsii.String("deliveryS3Bucket"),
 //   	DeliveryS3KeyPrefix: jsii.String("deliveryS3KeyPrefix"),
+//   	Scope: &ScopeProperty{
+//   		TagKey: jsii.String("tagKey"),
+//   		TagValue: jsii.String("tagValue"),
+//   	},
+//   	Source: &SourceProperty{
+//   		SourceIdentifier: jsii.String("sourceIdentifier"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

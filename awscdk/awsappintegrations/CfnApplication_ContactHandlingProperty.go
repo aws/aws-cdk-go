@@ -15,6 +15,6 @@ package awsappintegrations
 type CfnApplication_ContactHandlingProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-contacthandling.html#cfn-appintegrations-application-contacthandling-scope
 	//
-	Scope *string `field:"required" json:"scope" yaml:"scope"`
+	Scope *string `field:"optional" json:"scope" yaml:"scope"`
 }
 

@@ -79,6 +79,7 @@ import (
 //   		GitHub: &GitHubConfigurationProperty{
 //   			Owner: jsii.String("owner"),
 //   			OwnerType: jsii.String("ownerType"),
+//   			ReleaseManagementAssociationId: jsii.String("releaseManagementAssociationId"),
 //   			RepoId: jsii.String("repoId"),
 //   			RepoName: jsii.String("repoName"),
 //   		},
@@ -87,6 +88,7 @@ import (
 //   			InstanceIdentifier: jsii.String("instanceIdentifier"),
 //   			ProjectId: jsii.String("projectId"),
 //   			ProjectPath: jsii.String("projectPath"),
+//   			ReleaseManagementAssociationId: jsii.String("releaseManagementAssociationId"),
 //   		},
 //   		McpServer: &MCPServerConfigurationProperty{
 //   			Description: jsii.String("description"),

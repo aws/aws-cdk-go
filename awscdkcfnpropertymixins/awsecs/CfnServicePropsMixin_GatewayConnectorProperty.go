@@ -7,6 +7,9 @@ package awsecs
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   gatewayConnectorProperty := &GatewayConnectorProperty{
+//   	DeregistrationDelay: &GatewayConnectorDeregistrationDelayProperty{
+//   		TimeoutSeconds: jsii.Number(123),
+//   	},
 //   	Filters: &GatewayConnectorFiltersProperty{
 //   		AccessTypes: []*string{
 //   			jsii.String("accessTypes"),
@@ -31,6 +34,9 @@ package awsecs
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html
 //
 type CfnServicePropsMixin_GatewayConnectorProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html#cfn-ecs-service-gatewayconnector-deregistrationdelay
+	//
+	DeregistrationDelay interface{} `field:"optional" json:"deregistrationDelay" yaml:"deregistrationDelay"`
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-gatewayconnector.html#cfn-ecs-service-gatewayconnector-filters
 	//
 	Filters interface{} `field:"optional" json:"filters" yaml:"filters"`

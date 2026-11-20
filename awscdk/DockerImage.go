@@ -25,13 +25,23 @@ import (
 type DockerImage interface {
 	// The Docker image.
 	Image() *string
+	// Build the image, if it is built from a Docker file and hasn't been built yet.
+	//
+	// Does nothing for other images, such as images from a registry. Running the
+	// image or copying files out of it calls this automatically. Call it yourself
+	// before you pass `image` to your own `docker` commands.
+	BuildImage()
 	// Copies a file or directory out of the Docker image to the local filesystem.
 	//
 	// If `outputPath` is omitted the destination path is a temporary directory.
 	//
+	// Builds the image first if it is built on demand and hasn't been built yet.
+	//
 	// Returns: the destination path.
 	Cp(imagePath *string, outputPath *string) *string
 	// Runs a Docker image.
+	//
+	// Builds the image first if it is built on demand and hasn't been built yet.
 	Run(options *DockerRunOptions)
 	// Provides a stable representation of this image for JSON serialization.
 	//
@@ -83,6 +93,13 @@ func NewDockerImage_Override(d DockerImage, image *string, _imageHash *string) {
 }
 
 // Builds a Docker image.
+//
+// The image is built right away, even if it is never used.
+//
+// Use `DockerImage.fromBuildV2()` instead. It builds the same image under the
+// same tag, but only when the image is first needed, so assets whose bundled
+// output already exists, or that skip bundling, never pay for the build. If
+// you need the image right away, call `buildImage()` on it.
 func DockerImage_FromBuild(path *string, options *DockerBuildOptions) DockerImage {
 	_init_.Initialize()
 
@@ -94,6 +111,48 @@ func DockerImage_FromBuild(path *string, options *DockerBuildOptions) DockerImag
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.DockerImage",
 		"fromBuild",
+		[]interface{}{path, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Reference a Docker image that is built from a Docker file when it is first needed.
+//
+// The image is built when `buildImage()` is called, when it first runs, or when
+// files are first copied out of it. Asset bundling builds the image right
+// before it runs the bundling container, so assets whose bundled output
+// already exists, or that skip bundling, never build it.
+//
+// Until the image is built, `image` names a tag that may not exist in the
+// local Docker daemon yet. Call `buildImage()` before you pass the tag to
+// your own `docker` commands. Errors in the Docker file are reported when the
+// image is built, for example while an asset is bundled, not when this
+// method is called.
+//
+// The tag and the `docker build` command are computed from the Docker file
+// directory and the build options when this method is called, so later
+// changes to the options have no effect. Don't change the Docker file
+// directory afterwards, because the image would no longer match its tag.
+//
+// Images with the same tag are only built or checked once until the next
+// `App` is created, unless they use `buildContexts`. After that, the local
+// Docker daemon is checked again.
+//
+// The image has the same tag and hash as one built with `DockerImage.fromBuild()`
+// from the same arguments, so switching between the two doesn't change asset hashes.
+func DockerImage_FromBuildV2(path *string, options *DockerBuildOptions) DockerImage {
+	_init_.Initialize()
+
+	if err := validateDockerImage_FromBuildV2Parameters(path, options); err != nil {
+		panic(err)
+	}
+	var returns DockerImage
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.DockerImage",
+		"fromBuildV2",
 		[]interface{}{path, options},
 		&returns,
 	)
@@ -118,6 +177,14 @@ func DockerImage_FromRegistry(image *string) DockerImage {
 	)
 
 	return returns
+}
+
+func (d *jsiiProxy_DockerImage) BuildImage() {
+	_jsii_.InvokeVoid(
+		d,
+		"buildImage",
+		nil, // no parameters
+	)
 }
 
 func (d *jsiiProxy_DockerImage) Cp(imagePath *string, outputPath *string) *string {

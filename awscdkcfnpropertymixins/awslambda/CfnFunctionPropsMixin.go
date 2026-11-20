@@ -35,6 +35,9 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnFunctionPropsMixin := awscdkcfnpropertymixins.Aws_lambda.NewCfnFunctionPropsMixin(&CfnFunctionMixinProps{
+//   	AcceleratorConfig: &AcceleratorConfigProperty{
+//   		AcceleratorMemorySize: jsii.Number(123),
+//   	},
 //   	Architectures: []*string{
 //   		jsii.String("architectures"),
 //   	},
@@ -113,6 +116,10 @@ import (
 //   	ReservedConcurrentExecutions: jsii.Number(123),
 //   	Role: jsii.String("role"),
 //   	Runtime: jsii.String("runtime"),
+//   	RuntimeConfig: &RuntimeConfigProperty{
+//   		RuntimeAlias: jsii.String("runtimeAlias"),
+//   		RuntimeArn: jsii.String("runtimeArn"),
+//   	},
 //   	RuntimeManagementConfig: &RuntimeManagementConfigProperty{
 //   		RuntimeVersionArn: jsii.String("runtimeVersionArn"),
 //   		UpdateRuntimeOn: jsii.String("updateRuntimeOn"),

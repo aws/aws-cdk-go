@@ -1385,6 +1385,46 @@ readLatency := instance.metric(jsii.String("ReadLatency"), &MetricOptions{
 })
 ```
 
+Use `DatabaseInstanceMetrics` to access the instance-level metrics published in the `AWS/RDS`
+namespace. It accepts a `DatabaseInstance`, an imported instance or a `CfnDBInstance`, so the
+same helpers are available for all of them:
+
+```go
+var instance IDatabaseInstance
+
+
+metrics := rds.DatabaseInstanceMetrics_FromDatabaseInstance(instance)
+
+// How far a read replica lags behind its source (average over 5 minutes)
+replicaLag := metrics.ReplicaLag()
+
+// The average amount of time taken per disk I/O read operation (average over 1 minute)
+readLatency := metrics.ReadLatency(&MetricOptions{
+	Period: awscdk.Duration_Seconds(jsii.Number(60)),
+})
+
+// Any other metric, such as an engine-specific one
+binLogDiskUsage := metrics.Metric(jsii.String("BinLogDiskUsage"), &MetricOptions{
+	Statistic: jsii.String("Maximum"),
+})
+```
+
+The following helpers are available. See
+[Amazon CloudWatch metrics for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-metrics.html)
+for the full list of metrics.
+
+* CPU & memory: `cpuUtilization`, `freeableMemory`, `swapUsage`
+* Connections & latency: `databaseConnections`, `readLatency`, `writeLatency`
+* Storage: `freeStorageSpace`, `burstBalance`
+* I/O: `readIOPS`, `writeIOPS`, `readThroughput`, `writeThroughput`, `diskQueueDepth`
+* Network: `networkReceiveThroughput`, `networkTransmitThroughput`
+* Replication: `replicaLag`
+
+`replicaLag`, `burstBalance` and `swapUsage` only publish data for some instances (read replicas,
+General Purpose SSD (gp2) storage and certain engines). An alarm on one of these metrics for an
+instance that never publishes it stays in the `INSUFFICIENT_DATA` state and never fires, so set
+`treatMissingData` on the alarm to choose how missing data is evaluated.
+
 ## Enabling S3 integration
 
 Data in S3 buckets can be imported to and exported from certain database engines using SQL queries. To enable this

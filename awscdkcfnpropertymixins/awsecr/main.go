@@ -140,6 +140,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ecr.CfnReplicationConfigurationPropsMixin.DeleteReplicationProperty",
+		reflect.TypeOf((*CfnReplicationConfigurationPropsMixin_DeleteReplicationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ecr.CfnReplicationConfigurationPropsMixin.ReplicationConfigurationProperty",
 		reflect.TypeOf((*CfnReplicationConfigurationPropsMixin_ReplicationConfigurationProperty)(nil)).Elem(),
 	)

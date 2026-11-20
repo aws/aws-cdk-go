@@ -19,14 +19,16 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   cfnAccessSource := awscdk.Aws_route53globalresolver.NewCfnAccessSource(this, jsii.String("MyCfnAccessSource"), &CfnAccessSourceProps{
-//   	Cidr: jsii.String("cidr"),
 //   	DnsViewId: jsii.String("dnsViewId"),
 //   	Protocol: jsii.String("protocol"),
 //
 //   	// the properties below are optional
+//   	Cidr: jsii.String("cidr"),
 //   	ClientToken: jsii.String("clientToken"),
+//   	CoreNetworkEndpointId: jsii.String("coreNetworkEndpointId"),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Name: jsii.String("name"),
+//   	Segment: jsii.String("segment"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -61,6 +63,8 @@ type CfnAccessSource interface {
 	SetCidr(val *string)
 	ClientToken() *string
 	SetClientToken(val *string)
+	CoreNetworkEndpointId() *string
+	SetCoreNetworkEndpointId(val *string)
 	// Returns: the stack trace of the point where this Resource was created from, sourced
 	// from the +metadata+ entry typed +aws:cdk:logicalId+, and with the bottom-most
 	// node +internal+ entries filtered.
@@ -91,6 +95,8 @@ type CfnAccessSource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	Segment() *string
+	SetSegment(val *string)
 	// The stack in which this element is defined.
 	//
 	// CfnElements must be defined within a stack scope (directly or indirectly).
@@ -411,6 +417,16 @@ func (j *jsiiProxy_CfnAccessSource) ClientToken() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessSource) CoreNetworkEndpointId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"coreNetworkEndpointId",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessSource) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -501,6 +517,16 @@ func (j *jsiiProxy_CfnAccessSource) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnAccessSource) Segment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"segment",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnAccessSource) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -572,9 +598,6 @@ func NewCfnAccessSource_Override(c CfnAccessSource, scope constructs.Construct, 
 }
 
 func (j *jsiiProxy_CfnAccessSource)SetCidr(val *string) {
-	if err := j.validateSetCidrParameters(val); err != nil {
-		panic(err)
-	}
 	_jsii_.Set(
 		j,
 		"cidr",
@@ -586,6 +609,14 @@ func (j *jsiiProxy_CfnAccessSource)SetClientToken(val *string) {
 	_jsii_.Set(
 		j,
 		"clientToken",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccessSource)SetCoreNetworkEndpointId(val *string) {
+	_jsii_.Set(
+		j,
+		"coreNetworkEndpointId",
 		val,
 	)
 }
@@ -624,6 +655,14 @@ func (j *jsiiProxy_CfnAccessSource)SetProtocol(val *string) {
 	_jsii_.Set(
 		j,
 		"protocol",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAccessSource)SetSegment(val *string) {
+	_jsii_.Set(
+		j,
+		"segment",
 		val,
 	)
 }

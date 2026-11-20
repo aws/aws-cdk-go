@@ -369,6 +369,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ecr.CfnReplicationConfiguration.DeleteReplicationProperty",
+		reflect.TypeOf((*CfnReplicationConfiguration_DeleteReplicationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ecr.CfnReplicationConfiguration.ReplicationConfigurationProperty",
 		reflect.TypeOf((*CfnReplicationConfiguration_ReplicationConfigurationProperty)(nil)).Elem(),
 	)

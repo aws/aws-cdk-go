@@ -120,6 +120,10 @@ func (j *jsiiProxy_CfnFlowSource) validateSetNameParameters(val *string) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowSource) validateSetRtmpPushSettingsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowSource) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	return nil
 }

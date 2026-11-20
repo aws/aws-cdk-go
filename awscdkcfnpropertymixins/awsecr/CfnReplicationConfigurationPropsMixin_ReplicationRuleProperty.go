@@ -9,6 +9,9 @@ package awsecr
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   replicationRuleProperty := &ReplicationRuleProperty{
+//   	DeleteReplication: &DeleteReplicationProperty{
+//   		Enabled: jsii.Boolean(false),
+//   	},
 //   	Destinations: []interface{}{
 //   		&ReplicationDestinationProperty{
 //   			Region: jsii.String("region"),
@@ -26,6 +29,9 @@ package awsecr
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
 //
 type CfnReplicationConfigurationPropsMixin_ReplicationRuleProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-deletereplication
+	//
+	DeleteReplication interface{} `field:"optional" json:"deleteReplication" yaml:"deleteReplication"`
 	// An array of objects representing the destination for a replication rule.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
 	//

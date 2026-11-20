@@ -89,6 +89,19 @@ import (
 //   			// the properties below are optional
 //   			EncryptionKeyType: jsii.String("encryptionKeyType"),
 //   		},
+//   		RtmpPushDetails: &RtmpPushDetailsProperty{
+//   			ApplicationName: jsii.String("applicationName"),
+//   			StreamName: jsii.String("streamName"),
+//   		},
+//   		RtmpPushSettings: &RtmpPushSettingsProperty{
+//   			NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   				Automatic: automatic,
+//   				Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   					ApplicationName: jsii.String("applicationName"),
+//   					StreamName: jsii.String("streamName"),
+//   				},
+//   			},
+//   		},
 //   		SenderControlPort: jsii.Number(123),
 //   		SenderIpAddress: jsii.String("senderIpAddress"),
 //   		SourceArn: jsii.String("sourceArn"),
@@ -244,6 +257,16 @@ type CfnFlow interface {
 	AttrFlowNdiMachineName() *string
 	// The IP address that the flow listens on for incoming content.
 	AttrSourceIngestIp() *string
+	// The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+	AttrSourceRtmpPushDetails() awscdk.IResolvable
+	// The name of the RTMP application.
+	//
+	// Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	AttrSourceRtmpPushDetailsApplicationName() *string
+	// The name of the RTMP stream.
+	//
+	// The stream name forms the final segment of the RTMP URL path.
+	AttrSourceRtmpPushDetailsStreamName() *string
 	// The ARN of the source.
 	AttrSourceSourceArn() *string
 	// The port that the flow listens on for incoming content.
@@ -550,6 +573,36 @@ func (j *jsiiProxy_CfnFlow) AttrSourceIngestIp() *string {
 	_jsii_.Get(
 		j,
 		"attrSourceIngestIp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) AttrSourceRtmpPushDetails() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrSourceRtmpPushDetails",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) AttrSourceRtmpPushDetailsApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSourceRtmpPushDetailsApplicationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) AttrSourceRtmpPushDetailsStreamName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSourceRtmpPushDetailsStreamName",
 		&returns,
 	)
 	return returns

@@ -39,6 +39,13 @@ import (
 //   		},
 //   	},
 //   	ApplicationType: jsii.String("applicationType"),
+//   	AuthConfig: &AuthConfigProperty{
+//   		AuthType: jsii.String("authType"),
+//
+//   		// the properties below are optional
+//   		AudienceOverride: jsii.String("audienceOverride"),
+//   		CredentialProviderIdentifier: jsii.String("credentialProviderIdentifier"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	IframeConfig: &IframeConfigProperty{
 //   		Allow: []*string{
@@ -82,6 +89,12 @@ type CfnApplication interface {
 	AttrApplicationArn() *string
 	// A unique identifier for the Application.
 	AttrId() *string
+	// The region in which the application was last modified.
+	AttrLastModifiedRegion() *string
+	// The time when the application was last modified.
+	AttrLastModifiedTime() *string
+	AuthConfig() interface{}
+	SetAuthConfig(val interface{})
 	// Tag Manager which manages the tags for this resource.
 	CdkTagManager() awscdk.TagManager
 	// Options for this resource, such as condition, update policy etc.
@@ -383,6 +396,36 @@ func (j *jsiiProxy_CfnApplication) AttrId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnApplication) AttrLastModifiedRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastModifiedRegion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) AttrLastModifiedTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastModifiedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) AuthConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"authConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnApplication) CdkTagManager() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -649,6 +692,17 @@ func (j *jsiiProxy_CfnApplication)SetApplicationType(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplication)SetAuthConfig(val interface{}) {
+	if err := j.validateSetAuthConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"authConfig",
 		val,
 	)
 }

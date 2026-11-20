@@ -36,7 +36,6 @@ type CfnAcceptedPortfolioShare interface {
 	// The language code.
 	AcceptLanguage() *string
 	SetAcceptLanguage(val *string)
-	AttrId() *string
 	// Options for this resource, such as condition, update policy etc.
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -270,16 +269,6 @@ func (j *jsiiProxy_CfnAcceptedPortfolioShare) AcceptLanguage() *string {
 	_jsii_.Get(
 		j,
 		"acceptLanguage",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnAcceptedPortfolioShare) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns

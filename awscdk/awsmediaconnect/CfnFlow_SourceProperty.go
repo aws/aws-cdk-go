@@ -84,6 +84,19 @@ import (
 //   		// the properties below are optional
 //   		EncryptionKeyType: jsii.String("encryptionKeyType"),
 //   	},
+//   	RtmpPushDetails: &RtmpPushDetailsProperty{
+//   		ApplicationName: jsii.String("applicationName"),
+//   		StreamName: jsii.String("streamName"),
+//   	},
+//   	RtmpPushSettings: &RtmpPushSettingsProperty{
+//   		NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   			Automatic: automatic,
+//   			Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   				ApplicationName: jsii.String("applicationName"),
+//   				StreamName: jsii.String("streamName"),
+//   			},
+//   		},
+//   	},
 //   	SenderControlPort: jsii.Number(123),
 //   	SenderIpAddress: jsii.String("senderIpAddress"),
 //   	SourceArn: jsii.String("sourceArn"),
@@ -177,6 +190,14 @@ type CfnFlow_SourceProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-routerintegrationtransitdecryption
 	//
 	RouterIntegrationTransitDecryption interface{} `field:"optional" json:"routerIntegrationTransitDecryption" yaml:"routerIntegrationTransitDecryption"`
+	// The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-rtmppushdetails
+	//
+	RtmpPushDetails interface{} `field:"optional" json:"rtmpPushDetails" yaml:"rtmpPushDetails"`
+	// The settings for the RTMP (Real-Time Messaging Protocol) source.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-rtmppushsettings
+	//
+	RtmpPushSettings interface{} `field:"optional" json:"rtmpPushSettings" yaml:"rtmpPushSettings"`
 	// The port that the flow uses to send outbound requests to initiate connection with the sender.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-sendercontrolport
 	//

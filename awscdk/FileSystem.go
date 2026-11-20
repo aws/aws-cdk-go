@@ -60,6 +60,25 @@ func FileSystem_CopyDirectory(srcDir *string, destDir *string, options *CopyOpti
 	)
 }
 
+// Copies an entire directory structure.
+//
+// Protects against interruption by copying to a temporary directory first and then renaming the directory into place.
+// Both the target directory and the temporary directory will be overwritten if they already exist.
+//
+// The temporary directory is deleted if an error occurs.
+func FileSystem_CopyDirectoryAtomic(srcDir *string, destDir *string, options *CopyOptions) {
+	_init_.Initialize()
+
+	if err := validateFileSystem_CopyDirectoryAtomicParameters(srcDir, destDir, options); err != nil {
+		panic(err)
+	}
+	_jsii_.StaticInvokeVoid(
+		"aws-cdk-lib.FileSystem",
+		"copyDirectoryAtomic",
+		[]interface{}{srcDir, destDir, options},
+	)
+}
+
 // Produces fingerprint based on the contents of a single file or an entire directory tree.
 //
 // Line endings are converted from CRLF to LF.

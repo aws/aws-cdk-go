@@ -41,6 +41,23 @@ import (
 //   			},
 //   			TenantDisplayName: jsii.String("tenantDisplayName"),
 //   		},
+//   		GcpConfiguration: &GcpConfigurationProperty{
+//   			ServiceAccountEmail: jsii.String("serviceAccountEmail"),
+//   			WorkloadIdentityPoolProvider: jsii.String("workloadIdentityPoolProvider"),
+//
+//   			// the properties below are optional
+//   			OrganizationId: jsii.String("organizationId"),
+//   			Targets: &GcpConfigurationTargetsProperty{
+//   				Projects: []interface{}{
+//   					&GcpProjectProperty{
+//   						ProjectId: jsii.String("projectId"),
+//
+//   						// the properties below are optional
+//   						ProjectDisplayName: jsii.String("projectDisplayName"),
+//   					},
+//   				},
+//   			},
+//   		},
 //   	},
 //   	DisplayName: jsii.String("displayName"),
 //   	RoleArn: jsii.String("roleArn"),

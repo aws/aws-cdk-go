@@ -29,6 +29,7 @@ import (
 //   	Description: jsii.String("description"),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	ObservabilityRegion: jsii.String("observabilityRegion"),
+//   	PublicIpStatus: jsii.String("publicIpStatus"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -89,6 +90,8 @@ type CfnGlobalResolver interface {
 	Node() constructs.Node
 	ObservabilityRegion() *string
 	SetObservabilityRegion(val *string)
+	PublicIpStatus() *string
+	SetPublicIpStatus(val *string)
 	// Return a string that will be resolved to a CloudFormation `{ Ref }` for this element.
 	//
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
@@ -517,6 +520,16 @@ func (j *jsiiProxy_CfnGlobalResolver) ObservabilityRegion() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnGlobalResolver) PublicIpStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"publicIpStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnGlobalResolver) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -646,6 +659,14 @@ func (j *jsiiProxy_CfnGlobalResolver)SetObservabilityRegion(val *string) {
 	_jsii_.Set(
 		j,
 		"observabilityRegion",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnGlobalResolver)SetPublicIpStatus(val *string) {
+	_jsii_.Set(
+		j,
+		"publicIpStatus",
 		val,
 	)
 }

@@ -23,10 +23,12 @@ import (
 //   cfnAccessSourcePropsMixin := awscdkcfnpropertymixins.Aws_route53globalresolver.NewCfnAccessSourcePropsMixin(&CfnAccessSourceMixinProps{
 //   	Cidr: jsii.String("cidr"),
 //   	ClientToken: jsii.String("clientToken"),
+//   	CoreNetworkEndpointId: jsii.String("coreNetworkEndpointId"),
 //   	DnsViewId: jsii.String("dnsViewId"),
 //   	IpAddressType: jsii.String("ipAddressType"),
 //   	Name: jsii.String("name"),
 //   	Protocol: jsii.String("protocol"),
+//   	Segment: jsii.String("segment"),
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),

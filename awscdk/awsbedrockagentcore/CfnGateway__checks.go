@@ -260,6 +260,30 @@ func (j *jsiiProxy_CfnGateway) validateSetAuthorizerTypeParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnGateway) validateSetDomainOverrideParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnGateway_DomainOverrideProperty:
+		val := val.(*CfnGateway_DomainOverrideProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnGateway_DomainOverrideProperty:
+		val_ := val.(CfnGateway_DomainOverrideProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnGateway_DomainOverrideProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnGateway) validateSetInterceptorConfigurationsParameters(val interface{}) error {
 	switch val.(type) {
 	case awscdk.IResolvable:

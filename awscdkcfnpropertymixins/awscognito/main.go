@@ -204,6 +204,30 @@ func init() {
 		reflect.TypeOf((*CfnUserPoolClientPropsMixin_TokenValidityUnitsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolClientSessionConfigurationAttachmentMixinProps",
+		reflect.TypeOf((*CfnUserPoolClientSessionConfigurationAttachmentMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolClientSessionConfigurationAttachmentPropsMixin",
+		reflect.TypeOf((*CfnUserPoolClientSessionConfigurationAttachmentPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnUserPoolClientSessionConfigurationAttachmentPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolClientSessionConfigurationAttachmentPropsMixin.SSOSessionProperty",
+		reflect.TypeOf((*CfnUserPoolClientSessionConfigurationAttachmentPropsMixin_SSOSessionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolDomainMixinProps",
 		reflect.TypeOf((*CfnUserPoolDomainMixinProps)(nil)).Elem(),
 	)
@@ -546,6 +570,30 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolRiskConfigurationAttachmentPropsMixin.RiskExceptionConfigurationTypeProperty",
 		reflect.TypeOf((*CfnUserPoolRiskConfigurationAttachmentPropsMixin_RiskExceptionConfigurationTypeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolSessionConfigurationAttachmentMixinProps",
+		reflect.TypeOf((*CfnUserPoolSessionConfigurationAttachmentMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolSessionConfigurationAttachmentPropsMixin",
+		reflect.TypeOf((*CfnUserPoolSessionConfigurationAttachmentPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnUserPoolSessionConfigurationAttachmentPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolSessionConfigurationAttachmentPropsMixin.TokenSessionProperty",
+		reflect.TypeOf((*CfnUserPoolSessionConfigurationAttachmentPropsMixin_TokenSessionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_cognito.CfnUserPoolUICustomizationAttachmentMixinProps",

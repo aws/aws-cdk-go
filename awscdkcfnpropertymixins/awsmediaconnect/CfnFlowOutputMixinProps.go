@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   var automatic interface{}
+//   var public_ interface{}
 //
 //   cfnFlowOutputMixinProps := &CfnFlowOutputMixinProps{
 //   	CidrAllowList: []*string{
@@ -66,6 +67,16 @@ import (
 //   			},
 //   		},
 //   		EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   	},
+//   	RtmpPushSettings: &RtmpPushSettingsProperty{
+//   		ApplicationName: jsii.String("applicationName"),
+//   		StreamName: jsii.String("streamName"),
+//   		TlsEncryption: &TlsEncryptionProperty{
+//   			EncryptionConfiguration: &TlsEncryptionConfigurationProperty{
+//   				Public: public_,
+//   			},
+//   			EncryptionType: jsii.String("encryptionType"),
+//   		},
 //   	},
 //   	SmoothingLatency: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
@@ -172,6 +183,12 @@ type CfnFlowOutputMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-routerintegrationtransitencryption
 	//
 	RouterIntegrationTransitEncryption interface{} `field:"optional" json:"routerIntegrationTransitEncryption" yaml:"routerIntegrationTransitEncryption"`
+	// The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified.
+	//
+	// These settings include the application and stream names, and optional TLS encryption configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-rtmppushsettings
+	//
+	RtmpPushSettings interface{} `field:"optional" json:"rtmpPushSettings" yaml:"rtmpPushSettings"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
 	//

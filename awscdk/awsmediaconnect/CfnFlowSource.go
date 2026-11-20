@@ -20,6 +20,8 @@ import (
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var automatic interface{}
+//
 //   cfnFlowSource := awscdk.Aws_mediaconnect.NewCfnFlowSource(this, jsii.String("MyCfnFlowSource"), &CfnFlowSourceProps{
 //   	Description: jsii.String("description"),
 //   	FlowArn: jsii.String("flowArn"),
@@ -53,6 +55,15 @@ import (
 //   	MaxLatency: jsii.Number(123),
 //   	MinLatency: jsii.Number(123),
 //   	Protocol: jsii.String("protocol"),
+//   	RtmpPushSettings: &RtmpPushSettingsProperty{
+//   		NamingConfiguration: &RtmpPushNamingConfigurationProperty{
+//   			Automatic: automatic,
+//   			Manual: &ManualRtmpPushNamingConfigurationProperty{
+//   				ApplicationName: jsii.String("applicationName"),
+//   				StreamName: jsii.String("streamName"),
+//   			},
+//   		},
+//   	},
 //   	SenderControlPort: jsii.Number(123),
 //   	SenderIpAddress: jsii.String("senderIpAddress"),
 //   	SourceListenerAddress: jsii.String("sourceListenerAddress"),
@@ -77,6 +88,16 @@ type CfnFlowSource interface {
 	awscdk.ITaggableV2
 	// The IP address that the flow listens on for incoming content.
 	AttrIngestIp() *string
+	// The read-only details for the RTMP (Real-Time Messaging Protocol) source.
+	AttrRtmpPushDetails() awscdk.IResolvable
+	// The name of the RTMP application.
+	//
+	// Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://ingestAddress/applicationName/streamName.
+	AttrRtmpPushDetailsApplicationName() *string
+	// The name of the RTMP stream.
+	//
+	// The stream name forms the final segment of the RTMP URL path.
+	AttrRtmpPushDetailsStreamName() *string
 	// The ARN of the source.
 	AttrSourceArn() *string
 	// The port that the flow listens on for incoming content.
@@ -150,6 +171,9 @@ type CfnFlowSource interface {
 	// If, by any chance, the intrinsic reference of a resource is not a string, you could
 	// coerce it to an IResolvable through `Lazy.any({ produce: resource.ref })`.
 	Ref() *string
+	// The settings for the RTMP (Real-Time Messaging Protocol) source.
+	RtmpPushSettings() interface{}
+	SetRtmpPushSettings(val interface{})
 	// The port that the flow uses to send outbound requests to initiate connection with the sender.
 	// Deprecated: this property has been deprecated.
 	SenderControlPort() *float64
@@ -371,6 +395,36 @@ func (j *jsiiProxy_CfnFlowSource) AttrIngestIp() *string {
 	_jsii_.Get(
 		j,
 		"attrIngestIp",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) AttrRtmpPushDetails() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrRtmpPushDetails",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) AttrRtmpPushDetailsApplicationName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRtmpPushDetailsApplicationName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) AttrRtmpPushDetailsStreamName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRtmpPushDetailsStreamName",
 		&returns,
 	)
 	return returns
@@ -616,6 +670,16 @@ func (j *jsiiProxy_CfnFlowSource) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowSource) RtmpPushSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rtmpPushSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowSource) SenderControlPort() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -855,6 +919,17 @@ func (j *jsiiProxy_CfnFlowSource)SetProtocol(val *string) {
 	_jsii_.Set(
 		j,
 		"protocol",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowSource)SetRtmpPushSettings(val interface{}) {
+	if err := j.validateSetRtmpPushSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"rtmpPushSettings",
 		val,
 	)
 }

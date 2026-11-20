@@ -335,6 +335,30 @@ func (j *jsiiProxy_CfnFlowOutput) validateSetRouterIntegrationTransitEncryptionP
 	return nil
 }
 
+func (j *jsiiProxy_CfnFlowOutput) validateSetRtmpPushSettingsParameters(val interface{}) error {
+	switch val.(type) {
+	case awscdk.IResolvable:
+		// ok
+	case *CfnFlowOutput_RtmpPushSettingsProperty:
+		val := val.(*CfnFlowOutput_RtmpPushSettingsProperty)
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	case CfnFlowOutput_RtmpPushSettingsProperty:
+		val_ := val.(CfnFlowOutput_RtmpPushSettingsProperty)
+		val := &val_
+		if err := _jsii_.ValidateStruct(val, func() string { return "parameter val" }); err != nil {
+			return err
+		}
+	default:
+		if !_jsii_.IsAnonymousProxy(val) {
+			return fmt.Errorf("parameter val must be one of the allowed types: awscdk.IResolvable, *CfnFlowOutput_RtmpPushSettingsProperty; received %#v (a %T)", val, val)
+		}
+	}
+
+	return nil
+}
+
 func (j *jsiiProxy_CfnFlowOutput) validateSetTagsParameters(val *[]*awscdk.CfnTag) error {
 	for idx_97dfc6, v := range *val {
 		if err := _jsii_.ValidateStruct(v, func() string { return fmt.Sprintf("parameter val[%#v]", idx_97dfc6) }); err != nil {

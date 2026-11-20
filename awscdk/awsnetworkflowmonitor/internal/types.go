@@ -7,4 +7,5 @@ type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
 type Type__interfacesawsnetworkflowmonitorIMonitorRef = interfacesawsnetworkflowmonitor.IMonitorRef
 type Type__awscdkITaggableV2 = awscdk.ITaggableV2
+type Type__interfacesawsnetworkflowmonitorIPerformanceMonitorRef = interfacesawsnetworkflowmonitor.IPerformanceMonitorRef
 type Type__interfacesawsnetworkflowmonitorIScopeRef = interfacesawsnetworkflowmonitor.IScopeRef

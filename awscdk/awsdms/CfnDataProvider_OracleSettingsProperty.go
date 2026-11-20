@@ -17,6 +17,8 @@ package awsdms
 //   	// the properties below are optional
 //   	AsmServer: jsii.String("asmServer"),
 //   	CertificateArn: jsii.String("certificateArn"),
+//   	S3AccessRoleArn: jsii.String("s3AccessRoleArn"),
+//   	S3Path: jsii.String("s3Path"),
 //   	SecretsManagerOracleAsmAccessRoleArn: jsii.String("secretsManagerOracleAsmAccessRoleArn"),
 //   	SecretsManagerOracleAsmSecretId: jsii.String("secretsManagerOracleAsmSecretId"),
 //   	SecretsManagerSecurityDbEncryptionAccessRoleArn: jsii.String("secretsManagerSecurityDbEncryptionAccessRoleArn"),
@@ -52,6 +54,14 @@ type CfnDataProvider_OracleSettingsProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-oraclesettings.html#cfn-dms-dataprovider-oraclesettings-certificatearn
 	//
 	CertificateArn *string `field:"optional" json:"certificateArn" yaml:"certificateArn"`
+	// The ARN for the role the application uses to access its Amazon S3 bucket.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-oraclesettings.html#cfn-dms-dataprovider-oraclesettings-s3accessrolearn
+	//
+	S3AccessRoleArn *string `field:"optional" json:"s3AccessRoleArn" yaml:"s3AccessRoleArn"`
+	// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-oraclesettings.html#cfn-dms-dataprovider-oraclesettings-s3path
+	//
+	S3Path *string `field:"optional" json:"s3Path" yaml:"s3Path"`
 	// Required only if your Oracle endpoint uses Automatic Storage Management (ASM).
 	//
 	// The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `SecretsManagerOracleAsmSecret` . This `SecretsManagerOracleAsmSecret` has the secret value that allows access to the Oracle ASM of the endpoint.

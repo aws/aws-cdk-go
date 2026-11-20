@@ -35,6 +35,11 @@ import (
 //   		},
 //   	},
 //   	ApplicationType: jsii.String("applicationType"),
+//   	AuthConfig: &AuthConfigProperty{
+//   		AudienceOverride: jsii.String("audienceOverride"),
+//   		AuthType: jsii.String("authType"),
+//   		CredentialProviderIdentifier: jsii.String("credentialProviderIdentifier"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	IframeConfig: &IframeConfigProperty{
 //   		Allow: []*string{

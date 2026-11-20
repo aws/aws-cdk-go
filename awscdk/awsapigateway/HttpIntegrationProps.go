@@ -2,54 +2,30 @@ package awsapigateway
 
 
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   var resource Resource
 //
-//   var role Role
-//   var vpcLink VpcLink
 //
-//   httpIntegrationProps := &HttpIntegrationProps{
-//   	HttpMethod: jsii.String("httpMethod"),
-//   	Options: &IntegrationOptions{
-//   		CacheKeyParameters: []*string{
-//   			jsii.String("cacheKeyParameters"),
-//   		},
-//   		CacheNamespace: jsii.String("cacheNamespace"),
-//   		ConnectionType: awscdk.Aws_apigateway.ConnectionType_INTERNET,
-//   		ContentHandling: awscdk.*Aws_apigateway.ContentHandling_CONVERT_TO_BINARY,
-//   		CredentialsPassthrough: jsii.Boolean(false),
-//   		CredentialsRole: role,
-//   		IntegrationResponses: []IntegrationResponse{
-//   			&IntegrationResponse{
-//   				StatusCode: jsii.String("statusCode"),
-//
-//   				// the properties below are optional
-//   				ContentHandling: awscdk.*Aws_apigateway.ContentHandling_CONVERT_TO_BINARY,
-//   				ResponseParameters: map[string]*string{
-//   					"responseParametersKey": jsii.String("responseParameters"),
-//   				},
-//   				ResponseTemplates: map[string]*string{
-//   					"responseTemplatesKey": jsii.String("responseTemplates"),
-//   				},
-//   				SelectionPattern: jsii.String("selectionPattern"),
+//   // Without auto-configuration (manual setup required)
+//   resource.AddProxy(&ProxyResourceOptions{
+//   	DefaultIntegration: apigateway.NewHttpIntegration(jsii.String("http://example.com/api/{proxy}"), &HttpIntegrationProps{
+//   		Options: &IntegrationOptions{
+//   			RequestParameters: map[string]*string{
+//   				"integration.request.path.proxy": jsii.String("method.request.path.proxy"),
 //   			},
 //   		},
-//   		PassthroughBehavior: awscdk.*Aws_apigateway.PassthroughBehavior_WHEN_NO_MATCH,
-//   		RequestParameters: map[string]*string{
-//   			"requestParametersKey": jsii.String("requestParameters"),
+//   	}),
+//   	DefaultMethodOptions: &MethodOptions{
+//   		RequestParameters: map[string]*bool{
+//   			"method.request.path.proxy": jsii.Boolean(true),
 //   		},
-//   		RequestTemplates: map[string]*string{
-//   			"requestTemplatesKey": jsii.String("requestTemplates"),
-//   		},
-//   		ResponseTransferMode: awscdk.*Aws_apigateway.ResponseTransferMode_BUFFERED,
-//   		Timeout: cdk.Duration_Minutes(jsii.Number(30)),
-//   		VpcLink: vpcLink,
 //   	},
-//   	Proxy: jsii.Boolean(false),
-//   }
+//   })
+//
+//   // With auto-configuration (simpler)
+//   resource.AddProxy(&ProxyResourceOptions{
+//   	AutoConfigurePathParameter: jsii.Boolean(true),
+//   	DefaultIntegration: apigateway.NewHttpIntegration(jsii.String("http://example.com/api/{proxy}")),
+//   })
 //
 type HttpIntegrationProps struct {
 	// HTTP method to use when invoking the backend URL.

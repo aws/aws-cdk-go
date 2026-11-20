@@ -11,7 +11,7 @@ package awsmsk
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   loggingInfoProperty := &LoggingInfoProperty{
-//   	BrokerLogs: &BrokerLogsProperty{
+//   	AuthorizerLogs: &AuthorizerLogsProperty{
 //   		CloudWatchLogs: &CloudWatchLogsProperty{
 //   			Enabled: jsii.Boolean(false),
 //
@@ -32,9 +32,7 @@ package awsmsk
 //   			Prefix: jsii.String("prefix"),
 //   		},
 //   	},
-//
-//   	// the properties below are optional
-//   	AuthorizerLogs: &AuthorizerLogsProperty{
+//   	BrokerLogs: &BrokerLogsProperty{
 //   		CloudWatchLogs: &CloudWatchLogsProperty{
 //   			Enabled: jsii.Boolean(false),
 //
@@ -60,14 +58,14 @@ package awsmsk
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html
 //
 type CfnCluster_LoggingInfoProperty struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-authorizerlogs
+	//
+	AuthorizerLogs interface{} `field:"optional" json:"authorizerLogs" yaml:"authorizerLogs"`
 	// You can configure your MSK cluster to send broker logs to different destination types.
 	//
 	// This configuration specifies the details of these destinations.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-brokerlogs
 	//
-	BrokerLogs interface{} `field:"required" json:"brokerLogs" yaml:"brokerLogs"`
-	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-logginginfo.html#cfn-msk-cluster-logginginfo-authorizerlogs
-	//
-	AuthorizerLogs interface{} `field:"optional" json:"authorizerLogs" yaml:"authorizerLogs"`
+	BrokerLogs interface{} `field:"optional" json:"brokerLogs" yaml:"brokerLogs"`
 }
 

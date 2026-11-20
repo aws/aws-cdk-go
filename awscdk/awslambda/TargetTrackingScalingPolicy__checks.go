@@ -14,3 +14,11 @@ func validateTargetTrackingScalingPolicy_CpuUtilizationParameters(targetCpuUtili
 	return nil
 }
 
+func validateTargetTrackingScalingPolicy_GpuUtilizationParameters(targetGpuUtilization *float64) error {
+	if targetGpuUtilization == nil {
+		return fmt.Errorf("parameter targetGpuUtilization is required, but nil was provided")
+	}
+
+	return nil
+}
+

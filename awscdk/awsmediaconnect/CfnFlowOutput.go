@@ -21,6 +21,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var automatic interface{}
+//   var public_ interface{}
 //
 //   cfnFlowOutput := awscdk.Aws_mediaconnect.NewCfnFlowOutput(this, jsii.String("MyCfnFlowOutput"), &CfnFlowOutputProps{
 //   	FlowArn: jsii.String("flowArn"),
@@ -85,6 +86,20 @@ import (
 //
 //   		// the properties below are optional
 //   		EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   	},
+//   	RtmpPushSettings: &RtmpPushSettingsProperty{
+//   		ApplicationName: jsii.String("applicationName"),
+//   		StreamName: jsii.String("streamName"),
+//
+//   		// the properties below are optional
+//   		TlsEncryption: &TlsEncryptionProperty{
+//   			EncryptionConfiguration: &TlsEncryptionConfigurationProperty{
+//   				Public: public_,
+//   			},
+//
+//   			// the properties below are optional
+//   			EncryptionType: jsii.String("encryptionType"),
+//   		},
 //   	},
 //   	SmoothingLatency: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
@@ -196,6 +211,9 @@ type CfnFlowOutput interface {
 	// Encryption information.
 	RouterIntegrationTransitEncryption() interface{}
 	SetRouterIntegrationTransitEncryption(val interface{})
+	// The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified.
+	RtmpPushSettings() interface{}
+	SetRtmpPushSettings(val interface{})
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency() *float64
 	SetSmoothingLatency(val *float64)
@@ -706,6 +724,16 @@ func (j *jsiiProxy_CfnFlowOutput) RouterIntegrationTransitEncryption() interface
 	return returns
 }
 
+func (j *jsiiProxy_CfnFlowOutput) RtmpPushSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rtmpPushSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFlowOutput) SmoothingLatency() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -966,6 +994,17 @@ func (j *jsiiProxy_CfnFlowOutput)SetRouterIntegrationTransitEncryption(val inter
 	_jsii_.Set(
 		j,
 		"routerIntegrationTransitEncryption",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput)SetRtmpPushSettings(val interface{}) {
+	if err := j.validateSetRtmpPushSettingsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"rtmpPushSettings",
 		val,
 	)
 }

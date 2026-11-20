@@ -13,3 +13,4 @@ type Type__interfacesawsssoIInstanceRef = interfacesawssso.IInstanceRef
 type Type__interfacesawsssoIInstanceAccessControlAttributeConfigurationRef = interfacesawssso.IInstanceAccessControlAttributeConfigurationRef
 type Type__interfacesawsssoIPermissionSetRef = interfacesawssso.IPermissionSetRef
 type Type__awscdkITaggable = awscdk.ITaggable
+type Type__interfacesawsssoITrustedTokenIssuerRef = interfacesawssso.ITrustedTokenIssuerRef

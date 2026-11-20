@@ -12,7 +12,7 @@ import (
 //   // The values are placeholders you should change.
 //   import cdk "github.com/aws/aws-cdk-go/awscdk"
 //
-//   dockerIgnoreStrategy := cdk.NewDockerIgnoreStrategy(jsii.String("absoluteRootPath"), []*string{
+//   dockerIgnoreStrategy := cdk.DockerIgnoreStrategy_Docker(jsii.String("absoluteRootPath"), []*string{
 //   	jsii.String("patterns"),
 //   })
 //
@@ -140,6 +140,22 @@ func DockerIgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) Gl
 		"aws-cdk-lib.DockerIgnoreStrategy",
 		"glob",
 		[]interface{}{absoluteRootPath, patterns},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return an IgnoreStrategy that does not ignore any files.
+func DockerIgnoreStrategy_None() IgnoreStrategy {
+	_init_.Initialize()
+
+	var returns IgnoreStrategy
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.DockerIgnoreStrategy",
+		"none",
+		nil, // no parameters
 		&returns,
 	)
 

@@ -34,6 +34,13 @@ import (
 //   		},
 //   	},
 //   	TargetRoleArn: jsii.String("targetRoleArn"),
+//   	WorkloadIdentityConfig: &WorkloadIdentityConfigProperty{
+//   		Enabled: jsii.Boolean(false),
+//
+//   		// the properties below are optional
+//   		ProviderArn: jsii.String("providerArn"),
+//   		TemplateArn: jsii.String("templateArn"),
+//   	},
 //   })
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html
@@ -128,6 +135,9 @@ type CfnPodIdentityAssociation interface {
 	// Resources that expose mutable properties should override this function to
 	// collect and return the properties object for this resource.
 	UpdatedProperties() *map[string]interface{}
+	// The workload identity configuration of the pod identity association.
+	WorkloadIdentityConfig() interface{}
+	SetWorkloadIdentityConfig(val interface{})
 	// Syntactic sugar for `addOverride(path, undefined)`.
 	AddDeletionOverride(path *string)
 	// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
@@ -549,6 +559,16 @@ func (j *jsiiProxy_CfnPodIdentityAssociation) UpdatedProperties() *map[string]in
 	return returns
 }
 
+func (j *jsiiProxy_CfnPodIdentityAssociation) WorkloadIdentityConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"workloadIdentityConfig",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::EKS::PodIdentityAssociation`.
 func NewCfnPodIdentityAssociation(scope constructs.Construct, id *string, props *CfnPodIdentityAssociationProps) CfnPodIdentityAssociation {
@@ -657,6 +677,17 @@ func (j *jsiiProxy_CfnPodIdentityAssociation)SetTargetRoleArn(val *string) {
 	_jsii_.Set(
 		j,
 		"targetRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPodIdentityAssociation)SetWorkloadIdentityConfig(val interface{}) {
+	if err := j.validateSetWorkloadIdentityConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"workloadIdentityConfig",
 		val,
 	)
 }

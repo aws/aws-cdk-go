@@ -7,6 +7,9 @@ import (
 
 // The type of authentication protocol for your schema registry.
 //
+// Used with Confluent schema registries. For an AWS Glue schema registry, Lambda uses the
+// function's execution role instead.
+//
 // Example:
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
@@ -14,15 +17,14 @@ import (
 //   // Your MSK cluster arn
 //   var clusterArn string
 //
+//   // The secret with the credentials for your schema registry
+//   var secret Secret
+//
 //   var myFunction Function
 //
 //
 //   // The Kafka topic you want to subscribe to
 //   topic := "some-cool-topic"
-//
-//   secret := awscdk.NewSecret(this, jsii.String("Secret"), &SecretProps{
-//   	SecretName: jsii.String("AmazonMSK_KafkaSecret"),
-//   })
 //   myFunction.AddEventSource(awscdk.NewManagedKafkaEventSource(&ManagedKafkaEventSourceProps{
 //   	ClusterArn: jsii.String(ClusterArn),
 //   	Topic: jsii.String(Topic),

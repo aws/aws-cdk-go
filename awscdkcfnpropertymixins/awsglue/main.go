@@ -48,6 +48,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.AssetsSyncConfigurationProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_AssetsSyncConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.CatalogPropertiesProperty",
 		reflect.TypeOf((*CfnCatalogPropsMixin_CatalogPropertiesProperty)(nil)).Elem(),
 	)
@@ -60,12 +64,28 @@ func init() {
 		reflect.TypeOf((*CfnCatalogPropsMixin_DataLakePrincipalProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.ErrorDetailProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_ErrorDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.FederatedCatalogProperty",
 		reflect.TypeOf((*CfnCatalogPropsMixin_FederatedCatalogProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.LineageSyncConfigurationProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_LineageSyncConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.ManagedCrawlerDetailsProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_ManagedCrawlerDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.PrincipalPermissionsProperty",
 		reflect.TypeOf((*CfnCatalogPropsMixin_PrincipalPermissionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.SyncConfigurationProperty",
+		reflect.TypeOf((*CfnCatalogPropsMixin_SyncConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_glue.CfnCatalogPropsMixin.TargetRedshiftCatalogProperty",

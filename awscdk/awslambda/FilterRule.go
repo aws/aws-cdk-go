@@ -8,22 +8,22 @@ import (
 // Filter rules for Lambda event filtering.
 //
 // Example:
+//   import eventsources "github.com/aws/aws-cdk-go/awscdk"
 //   import dynamodb "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   var table Table
 //
 //   var fn Function
+//   var table Table
 //
-//   fn.AddEventSource(awscdk.NewDynamoEventSource(table, &DynamoEventSourceProps{
+//
+//   fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
 //   	StartingPosition: lambda.StartingPosition_LATEST,
 //   	Filters: []map[string]interface{}{
 //   		lambda.FilterCriteria_Filter(map[string]interface{}{
-//   			"eventName": lambda.FilterRule_isEqual(jsii.String("INSERT")),
-//   			"dynamodb": map[string]map[string]map[string]interface{}{
-//   				"NewImage": map[string]map[string]interface{}{
-//   					"id": map[string]interface{}{
-//   						"BOOL": lambda.FilterRule_isEqual(jsii.Boolean(true)),
+//   			"eventName": lambda.FilterRule_or(jsii.String("INSERT"), jsii.String("MODIFY")),
+//   			"dynamodb": map[string]map[string]map[string][]map[string]*string{
+//   				"NewImage": map[string]map[string][]map[string]*string{
+//   					"status": map[string][]map[string]*string{
+//   						"S": lambda.FilterRule_beginsWith(jsii.String("approved")),
 //   					},
 //   				},
 //   			},

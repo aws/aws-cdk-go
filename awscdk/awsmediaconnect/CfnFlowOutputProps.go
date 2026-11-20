@@ -12,6 +12,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   var automatic interface{}
+//   var public_ interface{}
 //
 //   cfnFlowOutputProps := &CfnFlowOutputProps{
 //   	FlowArn: jsii.String("flowArn"),
@@ -76,6 +77,20 @@ import (
 //
 //   		// the properties below are optional
 //   		EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   	},
+//   	RtmpPushSettings: &RtmpPushSettingsProperty{
+//   		ApplicationName: jsii.String("applicationName"),
+//   		StreamName: jsii.String("streamName"),
+//
+//   		// the properties below are optional
+//   		TlsEncryption: &TlsEncryptionProperty{
+//   			EncryptionConfiguration: &TlsEncryptionConfigurationProperty{
+//   				Public: public_,
+//   			},
+//
+//   			// the properties below are optional
+//   			EncryptionType: jsii.String("encryptionType"),
+//   		},
 //   	},
 //   	SmoothingLatency: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),
@@ -182,6 +197,12 @@ type CfnFlowOutputProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-routerintegrationtransitencryption
 	//
 	RouterIntegrationTransitEncryption interface{} `field:"optional" json:"routerIntegrationTransitEncryption" yaml:"routerIntegrationTransitEncryption"`
+	// The settings for an output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified.
+	//
+	// These settings include the application and stream names, and optional TLS encryption configuration.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-rtmppushsettings
+	//
+	RtmpPushSettings interface{} `field:"optional" json:"rtmpPushSettings" yaml:"rtmpPushSettings"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
 	//

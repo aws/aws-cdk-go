@@ -13,7 +13,7 @@ import (
 //
 //   cfnPaymentManagerMixinProps := &CfnPaymentManagerMixinProps{
 //   	AuthorizerConfiguration: &AuthorizerConfigurationProperty{
-//   		CustomJwtAuthorizer: &CustomJWTAuthorizerProperty{
+//   		CustomJwtAuthorizer: &CustomJWTAuthorizerConfigurationProperty{
 //   			AllowedAudience: []*string{
 //   				jsii.String("allowedAudience"),
 //   			},
@@ -25,9 +25,9 @@ import (
 //   			},
 //   			CustomClaims: []interface{}{
 //   				&CustomClaimValidationTypeProperty{
-//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueProperty{
+//   					AuthorizingClaimMatchValue: &AuthorizingClaimMatchValueTypeProperty{
 //   						ClaimMatchOperator: jsii.String("claimMatchOperator"),
-//   						ClaimMatchValue: &ClaimMatchValueProperty{
+//   						ClaimMatchValue: &ClaimMatchValueTypeProperty{
 //   							MatchValueString: jsii.String("matchValueString"),
 //   							MatchValueStringList: []*string{
 //   								jsii.String("matchValueStringList"),
@@ -56,7 +56,6 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentmanager.html
 //
 type CfnPaymentManagerMixinProps struct {
-	// The authorizer configuration for the payment manager.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-paymentmanager.html#cfn-bedrockagentcore-paymentmanager-authorizerconfiguration
 	//
 	AuthorizerConfiguration interface{} `field:"optional" json:"authorizerConfiguration" yaml:"authorizerConfiguration"`

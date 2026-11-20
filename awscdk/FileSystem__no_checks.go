@@ -8,6 +8,10 @@ func validateFileSystem_CopyDirectoryParameters(srcDir *string, destDir *string,
 	return nil
 }
 
+func validateFileSystem_CopyDirectoryAtomicParameters(srcDir *string, destDir *string, options *CopyOptions) error {
+	return nil
+}
+
 func validateFileSystem_FingerprintParameters(fileOrDirectory *string, options *FingerprintOptions) error {
 	return nil
 }

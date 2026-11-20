@@ -21,31 +21,31 @@ import (
 //
 //   conditionalPolicyStatement := bedrock_agentcore_alpha.NewConditionalPolicyStatement(policyStatement, conditionBuilder)
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ConditionalPolicyStatement interface {
 	// Logical AND operator - all conditions must be true.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	And() ConditionalPolicyStatement
 	// Access a context attribute for comparison.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ContextAttribute(attribute *string) ConditionalAttributeAccessor
 	// Complete condition building and return to the PolicyStatement.
 	//
 	// Use this to finish building when/unless conditions and continue
 	// configuring the policy statement.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Done() PolicyStatement
 	// Logical OR operator - at least one condition must be true.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Or() ConditionalPolicyStatement
 	// Access a principal attribute for comparison.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PrincipalAttribute(attribute *string) ConditionalAttributeAccessor
 	// Access a resource attribute for comparison.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ResourceAttribute(attribute *string) ConditionalAttributeAccessor
 	// Alias for done() to support fluent unless() chaining.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Unless() ConditionalPolicyStatement
 }
 
@@ -54,7 +54,7 @@ type jsiiProxy_ConditionalPolicyStatement struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewConditionalPolicyStatement(policyStatement PolicyStatement, conditionBuilder ConditionBuilder) ConditionalPolicyStatement {
 	_init_.Initialize()
 
@@ -72,7 +72,7 @@ func NewConditionalPolicyStatement(policyStatement PolicyStatement, conditionBui
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewConditionalPolicyStatement_Override(c ConditionalPolicyStatement, policyStatement PolicyStatement, conditionBuilder ConditionBuilder) {
 	_init_.Initialize()
 

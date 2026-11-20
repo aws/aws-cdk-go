@@ -35,6 +35,9 @@ type CfnResourceConfiguration_ResourceConfigurationDefinitionProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-resourceconfigurationdefinition.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationdefinition-arnresource
 	//
 	ArnResource *string `field:"optional" json:"arnResource" yaml:"arnResource"`
+	// The CIDR ranges that make up a CIDR resource configuration.
+	//
+	// Only valid when ResourceConfigurationType is CIDR, and the resource gateway must have ResourceConfigDnsResolution set to IN_VPC.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-resourceconfigurationdefinition.html#cfn-vpclattice-resourceconfiguration-resourceconfigurationdefinition-cidrresource
 	//
 	CidrResource interface{} `field:"optional" json:"cidrResource" yaml:"cidrResource"`

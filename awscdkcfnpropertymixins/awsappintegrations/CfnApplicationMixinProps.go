@@ -26,6 +26,11 @@ import (
 //   		},
 //   	},
 //   	ApplicationType: jsii.String("applicationType"),
+//   	AuthConfig: &AuthConfigProperty{
+//   		AudienceOverride: jsii.String("audienceOverride"),
+//   		AuthType: jsii.String("authType"),
+//   		CredentialProviderIdentifier: jsii.String("credentialProviderIdentifier"),
+//   	},
 //   	Description: jsii.String("description"),
 //   	IframeConfig: &IframeConfigProperty{
 //   		Allow: []*string{
@@ -64,6 +69,9 @@ type CfnApplicationMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-applicationtype
 	//
 	ApplicationType *string `field:"optional" json:"applicationType" yaml:"applicationType"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-authconfig
+	//
+	AuthConfig interface{} `field:"optional" json:"authConfig" yaml:"authConfig"`
 	// The description of the application.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html#cfn-appintegrations-application-description
 	//

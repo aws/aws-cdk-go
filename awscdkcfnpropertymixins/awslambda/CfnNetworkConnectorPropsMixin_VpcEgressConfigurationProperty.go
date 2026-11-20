@@ -14,6 +14,9 @@ package awslambda
 //   	AssociatedComputeResourceTypes: []*string{
 //   		jsii.String("associatedComputeResourceTypes"),
 //   	},
+//   	ElasticIpConfiguration: &ElasticIpConfigurationProperty{
+//   		Type: jsii.String("type"),
+//   	},
 //   	NetworkProtocol: jsii.String("networkProtocol"),
 //   	SecurityGroupIds: []*string{
 //   		jsii.String("securityGroupIds"),
@@ -32,6 +35,12 @@ type CfnNetworkConnectorPropsMixin_VpcEgressConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-associatedcomputeresourcetypes
 	//
 	AssociatedComputeResourceTypes *[]*string `field:"optional" json:"associatedComputeResourceTypes" yaml:"associatedComputeResourceTypes"`
+	// Specifies whether Lambda assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs).
+	//
+	// If you don't specify an Elastic IP configuration, no Elastic IP address is assigned. When you update this configuration, the change applies to the ENIs of the new connector version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-elasticipconfiguration
+	//
+	ElasticIpConfiguration interface{} `field:"optional" json:"elasticIpConfiguration" yaml:"elasticIpConfiguration"`
 	// The network protocol for the connector.
 	//
 	// Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.

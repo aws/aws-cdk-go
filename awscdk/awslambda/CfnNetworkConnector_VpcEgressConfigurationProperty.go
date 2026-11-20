@@ -21,6 +21,11 @@ package awslambda
 //   	SubnetIds: []*string{
 //   		jsii.String("subnetIds"),
 //   	},
+//
+//   	// the properties below are optional
+//   	ElasticIpConfiguration: &ElasticIpConfigurationProperty{
+//   		Type: jsii.String("type"),
+//   	},
 //   }
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html
@@ -50,5 +55,11 @@ type CfnNetworkConnector_VpcEgressConfigurationProperty struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-subnetids
 	//
 	SubnetIds *[]*string `field:"required" json:"subnetIds" yaml:"subnetIds"`
+	// Specifies whether Lambda assigns an Elastic IP address to each of the network connector's elastic network interfaces (ENIs).
+	//
+	// If you don't specify an Elastic IP configuration, no Elastic IP address is assigned. When you update this configuration, the change applies to the ENIs of the new connector version.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-elasticipconfiguration
+	//
+	ElasticIpConfiguration interface{} `field:"optional" json:"elasticIpConfiguration" yaml:"elasticIpConfiguration"`
 }
 

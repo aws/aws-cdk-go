@@ -38,37 +38,37 @@ import (
 //   	Statement: awsbedrockagentcorealpha.PolicyStatement_FromCedar(jsii.String("forbid(principal, action, resource) when { resource.confidential == true };")),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type PolicyStatement interface {
 	// Apply to all principals (any user, service, or entity).
 	//
 	// Generates: `principal` in Cedar.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ForAllPrincipals() PolicyStatement
 	// Apply to a specific principal entity.
 	//
 	// Generates: `principal == EntityType::"entityId"` in Cedar.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ForPrincipal(entityType *string, entityId *string) PolicyStatement
 	// Apply to principals that are members of a specific group.
 	//
 	// Generates: `principal in Group::"groupId"` in Cedar.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ForPrincipalInGroup(groupType *string, groupId *string) PolicyStatement
 	// Apply to a single specific action.
 	//
 	// Generates: `action == Action::"name"` in Cedar.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnAction(action *string) PolicyStatement
 	// Apply to specific action(s).
 	//
 	// Generates: `action == Action::"name"` or `action in [Action::"name1", Action::"name2"]` in Cedar.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnActions(actions *[]*string) PolicyStatement
 	// Apply to all actions (any operation).
 	//
 	// Generates: `action` in Cedar.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnAllActions() PolicyStatement
 	// Apply to all resources of a specific type.
 	//
@@ -88,7 +88,7 @@ type PolicyStatement interface {
 	//   // Constrain to Runtime resources
 	//   awsbedrockagentcorealpha.PolicyStatement_Permit().ForAllPrincipals().OnAllActions().OnAllResources(jsii.String("AgentCore::Runtime"))
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnAllResources(entityType *string) PolicyStatement
 	// Apply to a specific resource instance.
 	//
@@ -104,7 +104,7 @@ type PolicyStatement interface {
 	//
 	//   awsbedrockagentcorealpha.PolicyStatement_Forbid().ForAllPrincipals().OnAction(jsii.String("AgentCore::Action::Delete")).OnResource(jsii.String("AgentCore::Gateway"), gatewayArn)
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnResource(entityType *string, entityArn *string) PolicyStatement
 	// Apply to all resources of a specific type (explicit method).
 	//
@@ -119,7 +119,7 @@ type PolicyStatement interface {
 	//
 	//   awsbedrockagentcorealpha.PolicyStatement_Permit().ForAllPrincipals().OnAllActions().OnResourceType(jsii.String("AgentCore::Gateway"))
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	OnResourceType(entityType *string) PolicyStatement
 	// Generate the Cedar policy statement string.
 	//
@@ -127,7 +127,7 @@ type PolicyStatement interface {
 	// This is called internally by the Policy construct.
 	//
 	// Returns: Valid Cedar policy statement.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ToCedar() *string
 	// Add unless conditions - policy applies only if these conditions are false.
 	//
@@ -136,7 +136,7 @@ type PolicyStatement interface {
 	//
 	// Returns a ConditionBuilder that you can chain condition methods on.
 	// Call done() when finished to return to the PolicyStatement.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Unless() ConditionalPolicyStatement
 	// Add when conditions - policy applies only if these conditions are true.
 	//
@@ -145,7 +145,7 @@ type PolicyStatement interface {
 	//
 	// Returns a ConditionBuilder that you can chain condition methods on.
 	// Call done() when finished to return to the PolicyStatement.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	When() ConditionalPolicyStatement
 }
 
@@ -158,7 +158,7 @@ type jsiiProxy_PolicyStatement struct {
 //
 // Forbid statements deny access when their conditions evaluate to true.
 // Forbid always takes precedence over permit (explicit deny).
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func PolicyStatement_Forbid() PolicyStatement {
 	_init_.Initialize()
 
@@ -180,7 +180,7 @@ func PolicyStatement_Forbid() PolicyStatement {
 // or when migrating existing Cedar policies.
 //
 // Validation is deferred to the Policy construct's validationMode setting.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func PolicyStatement_FromCedar(cedarStatement *string) PolicyStatement {
 	_init_.Initialize()
 
@@ -203,7 +203,7 @@ func PolicyStatement_FromCedar(cedarStatement *string) PolicyStatement {
 //
 // Permit statements grant access when their conditions evaluate to true.
 // Multiple permit statements can apply; any matching permit allows access.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func PolicyStatement_Permit() PolicyStatement {
 	_init_.Initialize()
 

@@ -50,6 +50,7 @@ package awsmsk
 //   				VolumeSize: jsii.Number(123),
 //   			},
 //   		},
+//   		TopicReassignment: jsii.String("topicReassignment"),
 //   	},
 //   	ClusterName: jsii.String("clusterName"),
 //   	KafkaVersion: jsii.String("kafkaVersion"),
@@ -91,7 +92,7 @@ package awsmsk
 //   	},
 //   	EnhancedMonitoring: jsii.String("enhancedMonitoring"),
 //   	LoggingInfo: &LoggingInfoProperty{
-//   		BrokerLogs: &BrokerLogsProperty{
+//   		AuthorizerLogs: &AuthorizerLogsProperty{
 //   			CloudWatchLogs: &CloudWatchLogsProperty{
 //   				Enabled: jsii.Boolean(false),
 //
@@ -112,9 +113,7 @@ package awsmsk
 //   				Prefix: jsii.String("prefix"),
 //   			},
 //   		},
-//
-//   		// the properties below are optional
-//   		AuthorizerLogs: &AuthorizerLogsProperty{
+//   		BrokerLogs: &BrokerLogsProperty{
 //   			CloudWatchLogs: &CloudWatchLogsProperty{
 //   				Enabled: jsii.Boolean(false),
 //

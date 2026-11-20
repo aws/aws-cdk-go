@@ -76,6 +76,38 @@ func init() {
 		reflect.TypeOf((*CfnCloudConnectorPropsMixin_ConfigurationTargetsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnCloudConnectorPropsMixin.GcpConfigurationProperty",
+		reflect.TypeOf((*CfnCloudConnectorPropsMixin_GcpConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnCloudConnectorPropsMixin.GcpConfigurationTargetsProperty",
+		reflect.TypeOf((*CfnCloudConnectorPropsMixin_GcpConfigurationTargetsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnCloudConnectorPropsMixin.GcpProjectProperty",
+		reflect.TypeOf((*CfnCloudConnectorPropsMixin_GcpProjectProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnDefaultHostManagementConfigurationMixinProps",
+		reflect.TypeOf((*CfnDefaultHostManagementConfigurationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnDefaultHostManagementConfigurationPropsMixin",
+		reflect.TypeOf((*CfnDefaultHostManagementConfigurationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnDefaultHostManagementConfigurationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ssm.CfnDocumentMixinProps",
 		reflect.TypeOf((*CfnDocumentMixinProps)(nil)).Elem(),
 	)

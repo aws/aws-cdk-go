@@ -45,6 +45,11 @@ import (
 //   		// the properties below are optional
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   	},
+//   	Environment: &EnvironmentProperty{
+//   		Variables: map[string]*string{
+//   			"variablesKey": jsii.String("variables"),
+//   		},
+//   	},
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		LogGroupName: jsii.String("logGroupName"),
 //   	},
@@ -99,6 +104,9 @@ type CfnWorkflow interface {
 	EncryptionConfiguration() interface{}
 	SetEncryptionConfiguration(val interface{})
 	Env() *interfaces.ResourceEnvironment
+	// Contains the environment variables that tasks in a workflow use during execution.
+	Environment() interface{}
+	SetEnvironment(val interface{})
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
 	// The logical ID for this CloudFormation stack element.
@@ -499,6 +507,16 @@ func (j *jsiiProxy_CfnWorkflow) Env() *interfaces.ResourceEnvironment {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWorkflow) Environment() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"environment",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWorkflow) LoggingConfiguration() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -696,6 +714,17 @@ func (j *jsiiProxy_CfnWorkflow)SetEncryptionConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"encryptionConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnWorkflow)SetEnvironment(val interface{}) {
+	if err := j.validateSetEnvironmentParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"environment",
 		val,
 	)
 }

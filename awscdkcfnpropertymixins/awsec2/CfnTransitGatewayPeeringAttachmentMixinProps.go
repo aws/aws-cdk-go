@@ -12,6 +12,10 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdkcfnpropertymixins"
 //
 //   cfnTransitGatewayPeeringAttachmentMixinProps := &CfnTransitGatewayPeeringAttachmentMixinProps{
+//   	Options: &TransitGatewayPeeringAttachmentOptionsProperty{
+//   		AllowMultipathResilience: jsii.Boolean(false),
+//   		MultipathResilienceMode: jsii.String("multipathResilienceMode"),
+//   	},
 //   	PeerAccountId: jsii.String("peerAccountId"),
 //   	PeerRegion: jsii.String("peerRegion"),
 //   	PeerTransitGatewayId: jsii.String("peerTransitGatewayId"),
@@ -27,6 +31,9 @@ import (
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html
 //
 type CfnTransitGatewayPeeringAttachmentMixinProps struct {
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-options
+	//
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The ID of the AWS account that owns the transit gateway.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
 	//

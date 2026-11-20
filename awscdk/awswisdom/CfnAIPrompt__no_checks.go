@@ -108,6 +108,10 @@ func (j *jsiiProxy_CfnAIPrompt) validateSetApiFormatParameters(val *string) erro
 	return nil
 }
 
+func (j *jsiiProxy_CfnAIPrompt) validateSetInferenceConfigurationParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnAIPrompt) validateSetModelIdParameters(val *string) error {
 	return nil
 }

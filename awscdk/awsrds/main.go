@@ -2196,6 +2196,32 @@ func init() {
 		"aws-cdk-lib.aws_rds.DatabaseInstanceLookupOptions",
 		reflect.TypeOf((*DatabaseInstanceLookupOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceMetrics",
+		reflect.TypeOf((*DatabaseInstanceMetrics)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "burstBalance", GoMethod: "BurstBalance"},
+			_jsii_.MemberMethod{JsiiMethod: "cpuUtilization", GoMethod: "CpuUtilization"},
+			_jsii_.MemberMethod{JsiiMethod: "databaseConnections", GoMethod: "DatabaseConnections"},
+			_jsii_.MemberMethod{JsiiMethod: "diskQueueDepth", GoMethod: "DiskQueueDepth"},
+			_jsii_.MemberMethod{JsiiMethod: "freeableMemory", GoMethod: "FreeableMemory"},
+			_jsii_.MemberMethod{JsiiMethod: "freeStorageSpace", GoMethod: "FreeStorageSpace"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "networkReceiveThroughput", GoMethod: "NetworkReceiveThroughput"},
+			_jsii_.MemberMethod{JsiiMethod: "networkTransmitThroughput", GoMethod: "NetworkTransmitThroughput"},
+			_jsii_.MemberMethod{JsiiMethod: "readIOPS", GoMethod: "ReadIOPS"},
+			_jsii_.MemberMethod{JsiiMethod: "readLatency", GoMethod: "ReadLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "readThroughput", GoMethod: "ReadThroughput"},
+			_jsii_.MemberMethod{JsiiMethod: "replicaLag", GoMethod: "ReplicaLag"},
+			_jsii_.MemberMethod{JsiiMethod: "swapUsage", GoMethod: "SwapUsage"},
+			_jsii_.MemberMethod{JsiiMethod: "writeIOPS", GoMethod: "WriteIOPS"},
+			_jsii_.MemberMethod{JsiiMethod: "writeLatency", GoMethod: "WriteLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "writeThroughput", GoMethod: "WriteThroughput"},
+		},
+		func() interface{} {
+			return &jsiiProxy_DatabaseInstanceMetrics{}
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.DatabaseInstanceNewProps",
 		reflect.TypeOf((*DatabaseInstanceNewProps)(nil)).Elem(),

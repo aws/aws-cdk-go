@@ -23,6 +23,13 @@ import (
 //   	ConformancePackName: jsii.String("conformancePackName"),
 //   	DeliveryS3Bucket: jsii.String("deliveryS3Bucket"),
 //   	DeliveryS3KeyPrefix: jsii.String("deliveryS3KeyPrefix"),
+//   	Scope: &ScopeProperty{
+//   		TagKey: jsii.String("tagKey"),
+//   		TagValue: jsii.String("tagValue"),
+//   	},
+//   	Source: &SourceProperty{
+//   		SourceIdentifier: jsii.String("sourceIdentifier"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -53,6 +60,18 @@ type CfnConformancePackMixinProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
 	//
 	DeliveryS3KeyPrefix *string `field:"optional" json:"deliveryS3KeyPrefix" yaml:"deliveryS3KeyPrefix"`
+	// The global tag scope of the managed conformance pack.
+	//
+	// If specified, only resources with this tag key and value pair are in scope of the conformance pack.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-scope
+	//
+	Scope interface{} `field:"optional" json:"scope" yaml:"scope"`
+	// The source of a managed conformance pack.
+	//
+	// Specifying Source creates a managed conformance pack, whose Config rules are managed by AWS. You can only specify one of Source or the template body or template S3Uri fields.
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-source
+	//
+	Source interface{} `field:"optional" json:"source" yaml:"source"`
 	// The tags for the conformance pack.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-tags
 	//

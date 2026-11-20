@@ -48,6 +48,11 @@ import (
 //   cfnCluster := awscdk.Aws_dsql.NewCfnCluster(this, jsii.String("MyCfnCluster"), &CfnClusterProps{
 //   	DeletionProtectionEnabled: jsii.Boolean(false),
 //   	KmsEncryptionKey: jsii.String("kmsEncryptionKey"),
+//   	MetricGroups: []interface{}{
+//   		&MetricGroupProperty{
+//   			MetricGroup: jsii.String("metricGroup"),
+//   		},
+//   	},
 //   	MultiRegionProperties: &MultiRegionPropertiesProperty{
 //   		Clusters: []*string{
 //   			jsii.String("clusters"),
@@ -131,6 +136,9 @@ type CfnCluster interface {
 	// Returns: the logical ID as a stringified token. This value will only get
 	// resolved during synthesis.
 	LogicalId() *string
+	// The Advanced monitoring metric groups to enable on the cluster.
+	MetricGroups() interface{}
+	SetMetricGroups(val interface{})
 	// Defines the structure for multi-Region cluster configurations, containing the witness Region and peered cluster settings.
 	MultiRegionProperties() interface{}
 	SetMultiRegionProperties(val interface{})
@@ -535,6 +543,16 @@ func (j *jsiiProxy_CfnCluster) LogicalId() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) MetricGroups() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"metricGroups",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) MultiRegionProperties() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -660,6 +678,17 @@ func (j *jsiiProxy_CfnCluster)SetKmsEncryptionKey(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsEncryptionKey",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster)SetMetricGroups(val interface{}) {
+	if err := j.validateSetMetricGroupsParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"metricGroups",
 		val,
 	)
 }

@@ -26,6 +26,11 @@ import (
 //   			ClientIdentifier: jsii.String("clientIdentifier"),
 //   			TenantIdentifier: jsii.String("tenantIdentifier"),
 //   		},
+//   		Gcp: &GcpConnectorConfigurationProperty{
+//   			GcpOrganizationId: jsii.String("gcpOrganizationId"),
+//   			ServiceAccountEmail: jsii.String("serviceAccountEmail"),
+//   			WorkloadIdentityPoolProvider: jsii.String("workloadIdentityPoolProvider"),
+//   		},
 //   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{

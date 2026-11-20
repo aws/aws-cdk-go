@@ -37,6 +37,7 @@ import (
 //   	},
 //   	IdentityCenterConfiguration: &IdentityCenterConfigurationProperty{
 //   		IdentityCenterInstanceArn: jsii.String("identityCenterInstanceArn"),
+//   		UserBackgroundSessionsEnabled: jsii.Boolean(false),
 //   	},
 //   	ImageConfiguration: &ImageConfigurationInputProperty{
 //   		ImageUri: jsii.String("imageUri"),

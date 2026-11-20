@@ -85,6 +85,9 @@ import (
 //   	},
 //   	GatewayConnectors: []interface{}{
 //   		&GatewayConnectorProperty{
+//   			DeregistrationDelay: &GatewayConnectorDeregistrationDelayProperty{
+//   				TimeoutSeconds: jsii.Number(123),
+//   			},
 //   			Filters: &GatewayConnectorFiltersProperty{
 //   				AccessTypes: []*string{
 //   					jsii.String("accessTypes"),

@@ -45,6 +45,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsEncryptionKey", GoGetter: "KmsEncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "metricGroups", GoGetter: "MetricGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "multiRegionProperties", GoGetter: "MultiRegionProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "obtainDependencies", GoMethod: "ObtainDependencies"},
@@ -76,6 +77,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dsql.CfnCluster.EncryptionDetailsProperty",
 		reflect.TypeOf((*CfnCluster_EncryptionDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_dsql.CfnCluster.MetricGroupProperty",
+		reflect.TypeOf((*CfnCluster_MetricGroupProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_dsql.CfnCluster.MultiRegionPropertiesProperty",

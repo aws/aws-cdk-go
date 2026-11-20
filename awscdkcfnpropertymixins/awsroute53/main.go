@@ -104,6 +104,34 @@ func init() {
 		reflect.TypeOf((*CfnHealthCheckPropsMixin_HealthCheckTagProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_route53.CfnHealthCheckSourceMixinProps",
+		reflect.TypeOf((*CfnHealthCheckSourceMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_route53.CfnHealthCheckSourcePropsMixin",
+		reflect.TypeOf((*CfnHealthCheckSourcePropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnHealthCheckSourcePropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_route53.CfnHealthCheckSourcePropsMixin.HealthCheckSourceConfigProperty",
+		reflect.TypeOf((*CfnHealthCheckSourcePropsMixin_HealthCheckSourceConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_route53.CfnHealthCheckSourcePropsMixin.SubnetConfigurationProperty",
+		reflect.TypeOf((*CfnHealthCheckSourcePropsMixin_SubnetConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_route53.CfnHostedZoneMixinProps",
 		reflect.TypeOf((*CfnHostedZoneMixinProps)(nil)).Elem(),
 	)
@@ -258,6 +286,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_route53.CfnRecordSetPropsMixin.GeoLocationProperty",
 		reflect.TypeOf((*CfnRecordSetPropsMixin_GeoLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_route53.CfnRecordSetProtectionMixinProps",
+		reflect.TypeOf((*CfnRecordSetProtectionMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_route53.CfnRecordSetProtectionPropsMixin",
+		reflect.TypeOf((*CfnRecordSetProtectionPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnRecordSetProtectionPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_route53.CfnTrafficPolicyInstanceMixinProps",

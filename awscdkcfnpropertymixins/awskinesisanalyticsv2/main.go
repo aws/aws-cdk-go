@@ -299,4 +299,44 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_kinesisanalyticsv2.CfnApplicationReferenceDataSourcePropsMixin.S3ReferenceDataSourceProperty",
 		reflect.TypeOf((*CfnApplicationReferenceDataSourcePropsMixin_S3ReferenceDataSourceProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_kinesisanalyticsv2.CfnSnapshotMixinProps",
+		reflect.TypeOf((*CfnSnapshotMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_kinesisanalyticsv2.CfnSnapshotPropsMixin",
+		reflect.TypeOf((*CfnSnapshotPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnSnapshotPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_kinesisanalyticsv2.CfnSnapshotPropsMixin.ImportSourceConfigurationProperty",
+		reflect.TypeOf((*CfnSnapshotPropsMixin_ImportSourceConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_kinesisanalyticsv2.CfnSnapshotPropsMixin.S3PrefixLocationProperty",
+		reflect.TypeOf((*CfnSnapshotPropsMixin_S3PrefixLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_kinesisanalyticsv2.CfnSnapshotPropsMixin.SnapshotEncryptionConfigurationDescriptionProperty",
+		reflect.TypeOf((*CfnSnapshotPropsMixin_SnapshotEncryptionConfigurationDescriptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_kinesisanalyticsv2.CfnSnapshotPropsMixin.SnapshotSourceDescriptionProperty",
+		reflect.TypeOf((*CfnSnapshotPropsMixin_SnapshotSourceDescriptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_kinesisanalyticsv2.CfnSnapshotPropsMixin.SourceApplicationDescriptionProperty",
+		reflect.TypeOf((*CfnSnapshotPropsMixin_SourceApplicationDescriptionProperty)(nil)).Elem(),
+	)
 }

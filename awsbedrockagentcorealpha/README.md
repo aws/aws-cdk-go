@@ -3,18 +3,14 @@
 <!--BEGIN STABILITY BANNER-->---
 
 
-![cdk-constructs: Experimental](https://img.shields.io/badge/cdk--constructs-experimental-important.svg?style=for-the-badge)
+![Deprecated](https://img.shields.io/badge/deprecated-critical.svg?style=for-the-badge)
 
-> The APIs of higher level constructs in this module are experimental and under active development.
-> They are subject to non-backward compatible changes or removal in any future version. These are
-> not subject to the [Semantic Versioning](https://semver.org/) model and breaking changes will be
-> announced in the release notes. This means that while you may use them, you may need to update
-> your source code when upgrading to a newer version of this package.
+> This API may emit warnings. Backward compatibility is not guaranteed.
 
 ---
 <!--END STABILITY BANNER-->
 
-> The **Policy** submodule is the only submodule that remains in alpha. All other constructs have graduated to stable in `aws-cdk-lib/aws-bedrockagentcore` and we recommend migrating to the stable versions.
+All constructs moved to aws-cdk-lib/aws-bedrockagentcore.
 
 | **Language**                                                                                   | **Package**                             |
 | :--------------------------------------------------------------------------------------------- | --------------------------------------- |
@@ -22,7 +18,7 @@
 
 ## Migration to Stable
 
-All constructs except Policy have moved to `aws-cdk-lib/aws-bedrockagentcore`:
+All constructs in this module, including the Policy submodule, have moved to `aws-cdk-lib/aws-bedrockagentcore`:
 
 ```go
 // Before
@@ -30,7 +26,7 @@ import agentcore "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
 ```
 
 ```go
-// After (for all non-Policy constructs)
+// After
 import agentcore "github.com/aws/aws-cdk-go/awscdk"
 ```
 
@@ -42,16 +38,15 @@ The following constructs are now in stable:
 * **Memory**: `Memory`, `MemoryStrategy`
 * **Evaluation**: `OnlineEvaluationConfig`, `Evaluator`, `EvaluatorSelector`
 * **Identity**: `OAuth2CredentialProvider`, `ApiKeyCredentialProvider`, `WorkloadIdentity`
+* **Policy**: `PolicyEngine`, `Policy`, `PolicyStatement`, `PolicyValidationMode`, `PolicyEngineMode`
 
-## What Remains in Alpha
+The stable Policy submodule has API changes from this module:
 
-The Policy submodule remains experimental:
+* `PolicyStatement` is a props object instead of a fluent builder. Conditions are passed as the `when` array.
+* A stable `Gateway` associates a policy engine through the `policyEngineConfiguration` prop, and grants the gateway role evaluate permissions automatically.
+* The default gateway enforcement mode is `PolicyEngineMode.ENFORCE` instead of `LOG_ONLY`.
 
-* `PolicyEngine`
-* `Policy`
-* `PolicyStatement`
-* `PolicyValidationMode`
-* `PolicyEngineMode`
+See the `aws-cdk-lib/aws-bedrockagentcore` README for the stable Policy documentation.
 
 ## Policy Engine
 
@@ -356,53 +351,4 @@ policyEngine.GrantRead(lambdaRole)
 
 // Grant evaluation permissions
 policyEngine.GrantEvaluate(lambdaRole)
-```
-
-## Using Policy with Stable Gateway
-
-Since Gateway is now in `aws-cdk-lib/aws-bedrockagentcore` but Policy remains in alpha, use the L1 escape hatch to associate a policy engine with a stable gateway:
-
-> Proper L2 integration will be added in a future update.
-
-```go
-import agentcore "github.com/aws/aws-cdk-go/awscdk"
-import "github.com/aws/aws-cdk-go/awsbedrockagentcorealpha"
-
-
-// Create policy engine (alpha)
-policyEngine := agentcoreAlpha.NewPolicyEngine(this, jsii.String("Engine"), &PolicyEngineProps{
-	PolicyEngineName: jsii.String("my_engine"),
-})
-
-// Create gateway (stable)
-gateway := agentcore.NewGateway(this, jsii.String("Gateway"), &GatewayProps{
-	GatewayName: jsii.String("my-gateway"),
-})
-
-// Wire policy engine to gateway via the L1 construct
-cfnGateway := gateway.Node.defaultChild.(CfnGateway)
-cfnGateway.policyEngineConfiguration = &GatewayPolicyEngineConfigurationProperty{
-	Arn: policyEngine.PolicyEngineArn,
-	Mode: agentcoreAlpha.PolicyEngineMode_ENFORCE().Value,
-}
-
-// Grant evaluate permissions to the gateway role
-gateway.Role.AddToPrincipalPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-	Actions: []*string{
-		jsii.String("bedrock-agentcore:GetPolicyEngine"),
-	},
-	Resources: []*string{
-		policyEngine.*PolicyEngineArn,
-	},
-}))
-gateway.Role.AddToPrincipalPolicy(iam.NewPolicyStatement(&PolicyStatementProps{
-	Actions: []*string{
-		jsii.String("bedrock-agentcore:AuthorizeAction"),
-		jsii.String("bedrock-agentcore:PartiallyAuthorizeActions"),
-	},
-	Resources: []*string{
-		policyEngine.*PolicyEngineArn,
-		gateway.GatewayArn,
-	},
-}))
 ```

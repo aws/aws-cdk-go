@@ -108,6 +108,10 @@ func validateCfnTransitGatewayPeeringAttachment_IsConstructParameters(x interfac
 	return nil
 }
 
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateSetOptionsParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) validateSetPeerAccountIdParameters(val *string) error {
 	return nil
 }

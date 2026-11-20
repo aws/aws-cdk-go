@@ -30,6 +30,7 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
+//   var acceleratorMemorySize AcceleratorMemorySize
 //   var adotLayerVersion AdotLayerVersion
 //   var architecture Architecture
 //   var codeSigningConfigRef ICodeSigningConfigRef
@@ -56,6 +57,9 @@ import (
 //   var vpc Vpc
 //
 //   functionOptions := &FunctionOptions{
+//   	AcceleratorConfig: &AcceleratorConfig{
+//   		AcceleratorMemorySize: acceleratorMemorySize,
+//   	},
 //   	AdotInstrumentation: &AdotInstrumentationConfig{
 //   		ExecWrapper: awscdk.Aws_lambda.AdotLambdaExecWrapper_REGULAR_HANDLER,
 //   		LayerVersion: adotLayerVersion,
@@ -178,6 +182,18 @@ type FunctionOptions struct {
 	// Default: 2.
 	//
 	RetryAttempts *float64 `field:"optional" json:"retryAttempts" yaml:"retryAttempts"`
+	// Accelerator configuration for the function.
+	//
+	// Configures the accelerator resource settings for the execution environment, including
+	// the amount of accelerator memory to allocate. The function must be attached to a
+	// capacity provider (`capacityProvider.addFunction(fn)`), use a container image
+	// (`Runtime.FROM_IMAGE`) on x86_64, and set `memorySize` to at least 2048 MiB.
+	// When set, `ephemeralStorageSize` may be up to 32 GiB.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-function-acceleratorconfig.html
+	//
+	// Default: - No accelerator configuration.
+	//
+	AcceleratorConfig *AcceleratorConfig `field:"optional" json:"acceleratorConfig" yaml:"acceleratorConfig"`
 	// Specify the configuration of AWS Distro for OpenTelemetry (ADOT) instrumentation.
 	// See: https://aws-otel.github.io/docs/getting-started/lambda
 	//

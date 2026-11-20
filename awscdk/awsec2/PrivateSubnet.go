@@ -16,14 +16,21 @@ import (
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
 //   import "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
+//
+//   var iPAMPoolRef IIPAMPoolRef
 //
 //   privateSubnet := awscdk.Aws_ec2.NewPrivateSubnet(this, jsii.String("MyPrivateSubnet"), &PrivateSubnetProps{
 //   	AvailabilityZone: jsii.String("availabilityZone"),
-//   	CidrBlock: jsii.String("cidrBlock"),
 //   	VpcId: jsii.String("vpcId"),
 //
 //   	// the properties below are optional
 //   	AssignIpv6AddressOnCreation: jsii.Boolean(false),
+//   	CidrBlock: jsii.String("cidrBlock"),
+//   	Ipv4IpamAllocation: &SubnetIpv4IpamAllocation{
+//   		IpamPool: iPAMPoolRef,
+//   		NetmaskLength: jsii.Number(123),
+//   	},
 //   	Ipv6CidrBlock: jsii.String("ipv6CidrBlock"),
 //   	MapPublicIpOnLaunch: jsii.Boolean(false),
 //   })
@@ -48,6 +55,9 @@ type PrivateSubnet interface {
 	// Dependable that can be depended upon to force internet connectivity established on the VPC.
 	InternetConnectivityEstablished() constructs.IDependable
 	// The IPv4 CIDR block for this subnet.
+	//
+	// If the subnet is allocated from an IPAM pool (`ipv4IpamAllocation`), this is a
+	// deploy-time attribute of the subnet rather than a concrete string.
 	Ipv4CidrBlock() *string
 	// Network ACL associated with this Subnet.
 	//

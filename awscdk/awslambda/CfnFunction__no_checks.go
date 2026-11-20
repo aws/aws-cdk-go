@@ -112,6 +112,10 @@ func validateCfnFunction_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnFunction) validateSetAcceleratorConfigParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnFunction) validateSetCapacityProviderConfigParameters(val interface{}) error {
 	return nil
 }
@@ -157,6 +161,10 @@ func (j *jsiiProxy_CfnFunction) validateSetPublishToLatestPublishedParameters(va
 }
 
 func (j *jsiiProxy_CfnFunction) validateSetRoleParameters(val *string) error {
+	return nil
+}
+
+func (j *jsiiProxy_CfnFunction) validateSetRuntimeConfigParameters(val interface{}) error {
 	return nil
 }
 

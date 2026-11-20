@@ -38,6 +38,11 @@ import (
 //   		KmsKeyId: jsii.String("kmsKeyId"),
 //   		Type: jsii.String("type"),
 //   	},
+//   	Environment: &EnvironmentProperty{
+//   		Variables: map[string]*string{
+//   			"variablesKey": jsii.String("variables"),
+//   		},
+//   	},
 //   	LoggingConfiguration: &LoggingConfigurationProperty{
 //   		LogGroupName: jsii.String("logGroupName"),
 //   	},

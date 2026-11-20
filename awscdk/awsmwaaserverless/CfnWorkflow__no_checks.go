@@ -116,6 +116,10 @@ func (j *jsiiProxy_CfnWorkflow) validateSetEncryptionConfigurationParameters(val
 	return nil
 }
 
+func (j *jsiiProxy_CfnWorkflow) validateSetEnvironmentParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnWorkflow) validateSetLoggingConfigurationParameters(val interface{}) error {
 	return nil
 }

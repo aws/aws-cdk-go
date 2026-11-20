@@ -10,11 +10,15 @@ import (
 // Example:
 //   // The code below shows an example of how to instantiate this type.
 //   // The values are placeholders you should change.
-//   import cdk "github.com/aws/aws-cdk-go/awscdk"
+//   import "github.com/aws/aws-cdk-go/awscdk"
 //
-//   gitIgnoreStrategy := cdk.NewGitIgnoreStrategy(jsii.String("absoluteRootPath"), []*string{
-//   	jsii.String("patterns"),
-//   })
+//   gitIgnoreStrategy := cdk.GitIgnoreStrategy_FromCopyOptions(&CopyOptions{
+//   	Exclude: []*string{
+//   		jsii.String("exclude"),
+//   	},
+//   	Follow: cdk.SymlinkFollowMode_NEVER,
+//   	IgnoreMode: cdk.IgnoreMode_GLOB,
+//   }, jsii.String("absoluteRootPath"))
 //
 type GitIgnoreStrategy interface {
 	IgnoreStrategy
@@ -140,6 +144,22 @@ func GitIgnoreStrategy_Glob(absoluteRootPath *string, patterns *[]*string) GlobI
 		"aws-cdk-lib.GitIgnoreStrategy",
 		"glob",
 		[]interface{}{absoluteRootPath, patterns},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return an IgnoreStrategy that does not ignore any files.
+func GitIgnoreStrategy_None() IgnoreStrategy {
+	_init_.Initialize()
+
+	var returns IgnoreStrategy
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.GitIgnoreStrategy",
+		"none",
+		nil, // no parameters
 		&returns,
 	)
 

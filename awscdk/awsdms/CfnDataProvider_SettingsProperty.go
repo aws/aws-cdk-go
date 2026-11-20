@@ -86,6 +86,8 @@ package awsdms
 //   		// the properties below are optional
 //   		AsmServer: jsii.String("asmServer"),
 //   		CertificateArn: jsii.String("certificateArn"),
+//   		S3AccessRoleArn: jsii.String("s3AccessRoleArn"),
+//   		S3Path: jsii.String("s3Path"),
 //   		SecretsManagerOracleAsmAccessRoleArn: jsii.String("secretsManagerOracleAsmAccessRoleArn"),
 //   		SecretsManagerOracleAsmSecretId: jsii.String("secretsManagerOracleAsmSecretId"),
 //   		SecretsManagerSecurityDbEncryptionAccessRoleArn: jsii.String("secretsManagerSecurityDbEncryptionAccessRoleArn"),

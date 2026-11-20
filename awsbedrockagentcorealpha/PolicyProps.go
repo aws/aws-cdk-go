@@ -20,12 +20,12 @@ package awsbedrockagentcorealpha
 //   	Description: jsii.String("Custom policy from Cedar string"),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type PolicyProps struct {
 	// The policy engine this policy belongs to.
 	//
 	// [disable-awslint:prefer-ref-interface].
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyEngine IPolicyEngine `field:"required" json:"policyEngine" yaml:"policyEngine"`
 	// Cedar policy statement. The authorization policy written in Cedar policy language.
 	//
@@ -39,14 +39,14 @@ type PolicyProps struct {
 	// You must specify either `definition` or `statement`, but not both.
 	// Default: - Must provide either definition or statement.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Definition *string `field:"optional" json:"definition" yaml:"definition"`
 	// Optional description for the policy.
 	//
 	// Maximum length of 4096.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// The name of the policy.
 	//
@@ -55,7 +55,7 @@ type PolicyProps struct {
 	// Pattern: ^[A-Za-z][A-Za-z0-9_]*$.
 	// Default: - Auto-generated unique name.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyName *string `field:"optional" json:"policyName" yaml:"policyName"`
 	// Type-safe Cedar policy statement built using PolicyStatement builder.
 	//
@@ -65,14 +65,14 @@ type PolicyProps struct {
 	// You must specify either `definition` or `statement`, but not both.
 	// Default: - Must provide either definition or statement.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Statement PolicyStatement `field:"optional" json:"statement" yaml:"statement"`
 	// Validation mode for the policy.
 	//
 	// Controls how Cedar analyzer validation findings are handled.
 	// Default: PolicyValidationMode.FAIL_ON_ANY_FINDINGS
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ValidationMode PolicyValidationMode `field:"optional" json:"validationMode" yaml:"validationMode"`
 }
 

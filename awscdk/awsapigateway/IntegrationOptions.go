@@ -6,82 +6,53 @@ import (
 )
 
 // Example:
-//   import path "github.com/aws-samples/dummy/path"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//   import "github.com/aws/aws-cdk-go/awscdk"
+//   type myStack struct {
+//   	Stack
+//   }
 //
-//   // Against the RestApi endpoint from the stack output, run
-//   // `curl -s -o /dev/null -w "%{http_code}" <url>` should return 401
-//   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: deny' <url>?allow=yes` should return 403
-//   // `curl -s -o /dev/null -w "%{http_code}" -H 'Authorization: allow' <url>?allow=yes` should return 200
+//   func newMyStack(scope Construct, id *string) *myStack {
+//   	this := &myStack{}
+//   	newStack_Override(this, scope, id)
 //
-//   app := awscdk.NewApp()
-//   stack := awscdk.NewStack(app, jsii.String("RequestAuthorizerInteg"))
+//   	authorizerFn := lambda.NewFunction(this, jsii.String("MyAuthorizerFunction"), &FunctionProps{
+//   		Runtime: lambda.Runtime_NODEJS_LATEST(),
+//   		Handler: jsii.String("index.handler"),
+//   		Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.token-authorizer.handler"))),
+//   	})
 //
-//   authorizerFn := lambda.NewFunction(stack, jsii.String("MyAuthorizerFunction"), &FunctionProps{
-//   	Runtime: lambda.Runtime_NODEJS_LATEST(),
-//   	Handler: jsii.String("index.handler"),
-//   	Code: lambda.AssetCode_FromAsset(path.join(__dirname, jsii.String("integ.request-authorizer.handler"))),
-//   })
+//   	authorizer := awscdk.NewTokenAuthorizer(this, jsii.String("MyAuthorizer"), &TokenAuthorizerProps{
+//   		Handler: authorizerFn,
+//   	})
 //
-//   restapi := awscdk.NewRestApi(stack, jsii.String("MyRestApi"), &RestApiProps{
-//   	CloudWatchRole: jsii.Boolean(true),
-//   })
-//
-//   authorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MyAuthorizer"), &RequestAuthorizerProps{
-//   	Handler: authorizerFn,
-//   	IdentitySources: []*string{
-//   		awscdk.IdentitySource_Header(jsii.String("Authorization")),
-//   		awscdk.IdentitySource_QueryString(jsii.String("allow")),
-//   	},
-//   })
-//
-//   secondAuthorizer := awscdk.NewRequestAuthorizer(stack, jsii.String("MySecondAuthorizer"), &RequestAuthorizerProps{
-//   	Handler: authorizerFn,
-//   	IdentitySources: []*string{
-//   		awscdk.IdentitySource_*Header(jsii.String("Authorization")),
-//   		awscdk.IdentitySource_*QueryString(jsii.String("allow")),
-//   	},
-//   })
-//
-//   restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
-//   	IntegrationResponses: []IntegrationResponse{
-//   		&IntegrationResponse{
-//   			StatusCode: jsii.String("200"),
+//   	restapi := awscdk.NewRestApi(this, jsii.String("MyRestApi"), &RestApiProps{
+//   		CloudWatchRole: jsii.Boolean(true),
+//   		DefaultMethodOptions: &MethodOptions{
+//   			Authorizer: *Authorizer,
 //   		},
-//   	},
-//   	PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
-//   	RequestTemplates: map[string]*string{
-//   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
-//   	},
-//   }), &MethodOptions{
-//   	MethodResponses: []MethodResponse{
-//   		&MethodResponse{
-//   			StatusCode: jsii.String("200"),
+//   		DefaultCorsPreflightOptions: &CorsOptions{
+//   			AllowOrigins: awscdk.Cors_ALL_ORIGINS(),
 //   		},
-//   	},
-//   	Authorizer: Authorizer,
-//   })
+//   	})
 //
-//   restapi.Root.ResourceForPath(jsii.String("auth")).AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
-//   	IntegrationResponses: []IntegrationResponse{
-//   		&IntegrationResponse{
-//   			StatusCode: jsii.String("200"),
+//   	restapi.Root.AddMethod(jsii.String("ANY"), awscdk.NewMockIntegration(&IntegrationOptions{
+//   		IntegrationResponses: []IntegrationResponse{
+//   			&IntegrationResponse{
+//   				StatusCode: jsii.String("200"),
+//   			},
 //   		},
-//   	},
-//   	PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
-//   	RequestTemplates: map[string]*string{
-//   		"application/json": jsii.String("{ \"statusCode\": 200 }"),
-//   	},
-//   }), &MethodOptions{
-//   	MethodResponses: []MethodResponse{
-//   		&MethodResponse{
-//   			StatusCode: jsii.String("200"),
+//   		PassthroughBehavior: awscdk.PassthroughBehavior_NEVER,
+//   		RequestTemplates: map[string]*string{
+//   			"application/json": jsii.String("{ \"statusCode\": 200 }"),
 //   		},
-//   	},
-//   	Authorizer: secondAuthorizer,
-//   })
+//   	}), &MethodOptions{
+//   		MethodResponses: []MethodResponse{
+//   			&MethodResponse{
+//   				StatusCode: jsii.String("200"),
+//   			},
+//   		},
+//   	})
+//   	return this
+//   }
 //
 type IntegrationOptions struct {
 	// A list of request parameters whose values are to be cached.

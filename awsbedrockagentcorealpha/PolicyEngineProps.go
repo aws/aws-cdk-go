@@ -23,21 +23,21 @@ import (
 //   	ValidationMode: agentcore.PolicyValidationMode_IGNORE_ALL_FINDINGS(),
 //   })
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type PolicyEngineProps struct {
 	// Optional description for the policy engine.
 	//
 	// Maximum 4,096 characters.
 	// Default: - No description.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description *string `field:"optional" json:"description" yaml:"description"`
 	// Custom KMS key for encryption.
 	//
 	// [disable-awslint:prefer-ref-interface].
 	// Default: - AWS owned key.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	KmsKey awskms.IKey `field:"optional" json:"kmsKey" yaml:"kmsKey"`
 	// The name of the policy engine.
 	//
@@ -46,14 +46,14 @@ type PolicyEngineProps struct {
 	// Pattern: ^[A-Za-z][A-Za-z0-9_]*$.
 	// Default: - Auto-generated unique name.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyEngineName *string `field:"optional" json:"policyEngineName" yaml:"policyEngineName"`
 	// Tags for the policy engine.
 	//
 	// Maximum 50 tags.
 	// Default: - No tags.
 	//
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Tags *map[string]*string `field:"optional" json:"tags" yaml:"tags"`
 }
 

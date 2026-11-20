@@ -39,6 +39,7 @@ import (
 //   var eventSourceDlq IEventSourceDlq
 //   var filters interface{}
 //   var function_ Function
+//   var kafkaConsumptionMode KafkaConsumptionMode
 //   var key Key
 //   var schemaRegistry ISchemaRegistry
 //   var sourceAccessConfigurationType SourceAccessConfigurationType
@@ -61,6 +62,7 @@ import (
 //   		jsii.String("kafkaBootstrapServers"),
 //   	},
 //   	KafkaConsumerGroupId: jsii.String("kafkaConsumerGroupId"),
+//   	KafkaConsumptionMode: kafkaConsumptionMode,
 //   	KafkaTopic: jsii.String("kafkaTopic"),
 //   	LogLevel: awscdk.*Aws_lambda.EventSourceMappingLogLevel_INFO,
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),

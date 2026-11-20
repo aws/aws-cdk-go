@@ -7,7 +7,7 @@ package awscdk
 //   lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 //   	Code: lambda.Code_FromAsset(jsii.String("/path/to/handler"), &AssetOptions{
 //   		Bundling: &BundlingOptions{
-//   			Image: awscdk.DockerImage_FromBuild(jsii.String("/path/to/dir/with/DockerFile"), &DockerBuildOptions{
+//   			Image: awscdk.DockerImage_FromBuildV2(jsii.String("/path/to/dir/with/DockerFile"), &DockerBuildOptions{
 //   				BuildArgs: map[string]*string{
 //   					"ARG1": jsii.String("value1"),
 //   				},

@@ -10,11 +10,59 @@ import (
 
 // Stages a file or directory from a location on the file system into a staging directory.
 //
-// This is controlled by the context key 'aws:cdk:asset-staging' and enabled
-// by the CLI by default in order to ensure that when the CDK app exists, all
-// assets are available for deployment. Otherwise, if an app references assets
-// in temporary locations, those will not be available when it exists (see
-// https://github.com/aws/aws-cdk/issues/1716).
+// This construct can operate in two modes: without and with "bundling". Bundling
+// means that an additional command is run to transform the source files into
+// a final asset that will be used for deployment.
+//
+// ## Without bundling
+//
+// Without the `bundling` property, the asset is just a regular file copy
+// operation.
+//
+// - `exclude` and `ignoreMode` control which files are excluded from the copy operation.
+// - `follow` controls how symlinks are handled during the copy operation:
+//   the symlink can be copied, the file the symlink points to can be copied,
+//   or symlinks pointing outside the source tree can be blocked.
+// - The asset hash is calculated based on the files that are copied into the asset,
+//   unless the hash is overridden entirely by the `assetHash` property.
+//
+// The copy-staging operation can be disabled by setting the context
+// key `'aws:cdk:asset-staging': false`. This can be useful for local
+// development tools like SAM CLI, so that you can update the source files
+// directly and immediately see the result in a local emulator without needing
+// to run `cdk synth` every time to stage the assets. Note that in this mode,
+// since there is no copying, `exclude` and `follow` settings have no effect,
+// including `BLOCK_EXTERNAL` which will not be applied.
+//
+// ## With bundling
+//
+// With the `bundling` property, the transformation of source files to a final asset
+// is done through bundling operation specified in the `bundling` property.
+//
+// The behavior of the construct depends on the `assetHashType` selected:
+//
+// - `AssetHashType.SOURCE`: the asset hash will be based on the source files
+//   after applying the `exclude`, `ignoreMode` and `follow` settings. That hash
+//   will be used to skip the bundling command entirely if an asset with the given
+//   hash already exists in the assembly directory. This requires that those
+//   settings accurately model the dependencies used by the bundling operation to
+//   produce the final asset.
+// - `AssetHashType.OUTPUT`: the asset hash will be based on the output of the
+//   bundling operation. `exclude`/`ignoreMode` are not used, and no attempt
+//   is made to materialize any symlinks that bundling may have written.
+// - `AssetHashType.CUSTOM`: the asset hash will be taken from the `assetHash`
+//   property. `exclude`/`ignoreMode` are not used, and no attempt is made to
+//   materialize any symlinks that bundling may have written.
+//
+// For all three modes, if `follow` is set to `SymlinkFollowMode.BLOCK_EXTERNAL`,
+// any symlinks written by bundling that point outside the output directory
+// will be blocked.
+//
+// For bundled assets, staging can not be disabled for the benefit of local
+// development. If you are iterating against a local emulator, you will need to
+// run `cdk synth` for every asset change.
+//
+// ## Other behavior
 //
 // The `stagedPath` property is a stringified token that represents the location
 // of the file or directory after staging. It will be resolved only during the
@@ -23,6 +71,15 @@ import (
 //
 // The file/directory are staged based on their content hash (fingerprint). This
 // means that only if content was changed, copy will happen.
+//
+// ## Security notes on BLOCK_EXTERNAL symlinks
+//
+// If a bundled asset is being reused from the `cdk.out` cache, the BLOCK_EXTERNAL
+// symlink check is not re-run, and on an asset hash collission (made more likely
+// in the case of a chosen `CUSTOM` hash) external symlinks left over from a
+// previous unchecked synth can persist. This is unlikely to be a problem in
+// practice, but to prevent this from happening to you, delete the `cdk.out`
+// directory whenever you switch from non-`BLOCK_EXTERNAL` to `BLOCK_EXTERNAL` follow mode.
 //
 // Example:
 //   // The code below shows an example of how to instantiate this type.
@@ -94,7 +151,10 @@ type AssetStaging interface {
 	AbsoluteStagedPath() *string
 	// A cryptographic hash of the asset.
 	AssetHash() *string
-	// Whether this asset is an archive (zip or jar).
+	// Whether this asset will ultimately end up in S3 as an archive.
+	//
+	// It will end up as an archive either if it's a directory (which
+	// the CDK will ZIP) or if it's a file that's an archive.
 	IsArchive() *bool
 	// The tree node.
 	Node() constructs.Node

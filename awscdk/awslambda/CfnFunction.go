@@ -28,129 +28,27 @@ import (
 // For a complete introduction to Lambda functions, see [What is Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/lambda-welcome.html) in the *Lambda developer guide.*
 //
 // Example:
-//   // The code below shows an example of how to instantiate this type.
-//   // The values are placeholders you should change.
-//   import "github.com/aws/aws-cdk-go/awscdk"
-//
-//   cfnFunction := awscdk.Aws_lambda.NewCfnFunction(this, jsii.String("MyCfnFunction"), &CfnFunctionProps{
+//   var role IRole
+//   lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+//   	Runtime: lambda.NewRuntime(jsii.String("custom"), lambda.RuntimeFamily_OTHER),
+//   	Handler: jsii.String("index.handler"),
+//   	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+//   }).With(mixins.NewFunctionRuntimeConfig(&FunctionRuntimeConfigProps{
+//   	RuntimeArn: jsii.String("arn:aws:lambda:us-east-1:123456789012:runtime/my-python-runtime"),
+//   	RuntimeAlias: jsii.String("stable"),
+//   }))
+//   lambda.NewCfnFunction(this, jsii.String("MyCfnFunction"), &CfnFunctionProps{
+//   	Runtime: jsii.String("custom"),
+//   	Handler: jsii.String("index.handler"),
 //   	Code: &CodeProperty{
-//   		ImageUri: jsii.String("imageUri"),
-//   		S3Bucket: jsii.String("s3Bucket"),
-//   		S3Key: jsii.String("s3Key"),
-//   		S3ObjectStorageMode: jsii.String("s3ObjectStorageMode"),
-//   		S3ObjectVersion: jsii.String("s3ObjectVersion"),
-//   		SourceKmsKeyArn: jsii.String("sourceKmsKeyArn"),
-//   		ZipFile: jsii.String("zipFile"),
+//   		S3Bucket: jsii.String("my-bucket"),
+//   		S3Key: jsii.String("function.zip"),
 //   	},
-//   	Role: jsii.String("role"),
-//
-//   	// the properties below are optional
-//   	Architectures: []*string{
-//   		jsii.String("architectures"),
-//   	},
-//   	CapacityProviderConfig: &CapacityProviderConfigProperty{
-//   		LambdaManagedInstancesCapacityProviderConfig: &LambdaManagedInstancesCapacityProviderConfigProperty{
-//   			CapacityProviderArn: jsii.String("capacityProviderArn"),
-//
-//   			// the properties below are optional
-//   			ExecutionEnvironmentMemoryGiBPerVCpu: jsii.Number(123),
-//   			PerExecutionEnvironmentMaxConcurrency: jsii.Number(123),
-//   		},
-//   	},
-//   	CodeSigningConfigArn: jsii.String("codeSigningConfigArn"),
-//   	DeadLetterConfig: &DeadLetterConfigProperty{
-//   		TargetArn: jsii.String("targetArn"),
-//   	},
-//   	Description: jsii.String("description"),
-//   	DurableConfig: &DurableConfigProperty{
-//   		ExecutionTimeout: jsii.Number(123),
-//
-//   		// the properties below are optional
-//   		KmsKeyArn: jsii.String("kmsKeyArn"),
-//   		RetentionPeriodInDays: jsii.Number(123),
-//   	},
-//   	Environment: &EnvironmentProperty{
-//   		Variables: map[string]*string{
-//   			"variablesKey": jsii.String("variables"),
-//   		},
-//   	},
-//   	EphemeralStorage: &EphemeralStorageProperty{
-//   		Size: jsii.Number(123),
-//   	},
-//   	FileSystemConfigs: []interface{}{
-//   		&FileSystemConfigProperty{
-//   			Arn: jsii.String("arn"),
-//   			LocalMountPath: jsii.String("localMountPath"),
-//
-//   			// the properties below are optional
-//   			S3FilesConfig: &S3FilesConfigProperty{
-//   				DirectS3Read: jsii.String("directS3Read"),
-//   			},
-//   		},
-//   	},
-//   	FunctionName: jsii.String("functionName"),
-//   	FunctionScalingConfig: &FunctionScalingConfigProperty{
-//   		MaxExecutionEnvironments: jsii.Number(123),
-//   		MinExecutionEnvironments: jsii.Number(123),
-//   	},
-//   	Handler: jsii.String("handler"),
-//   	ImageConfig: &ImageConfigProperty{
-//   		Command: []*string{
-//   			jsii.String("command"),
-//   		},
-//   		EntryPoint: []*string{
-//   			jsii.String("entryPoint"),
-//   		},
-//   		WorkingDirectory: jsii.String("workingDirectory"),
-//   	},
-//   	KmsKeyArn: jsii.String("kmsKeyArn"),
-//   	Layers: []interface{}{
-//   		jsii.String("layers"),
-//   	},
-//   	LoggingConfig: &LoggingConfigProperty{
-//   		ApplicationLogLevel: jsii.String("applicationLogLevel"),
-//   		LogFormat: jsii.String("logFormat"),
-//   		LogGroup: jsii.String("logGroup"),
-//   		SystemLogLevel: jsii.String("systemLogLevel"),
-//   	},
-//   	MemorySize: jsii.Number(123),
-//   	PackageType: jsii.String("packageType"),
-//   	PublishToLatestPublished: jsii.Boolean(false),
-//   	RecursiveLoop: jsii.String("recursiveLoop"),
-//   	ReservedConcurrentExecutions: jsii.Number(123),
-//   	Runtime: jsii.String("runtime"),
-//   	RuntimeManagementConfig: &RuntimeManagementConfigProperty{
-//   		UpdateRuntimeOn: jsii.String("updateRuntimeOn"),
-//
-//   		// the properties below are optional
-//   		RuntimeVersionArn: jsii.String("runtimeVersionArn"),
-//   	},
-//   	SnapStart: &SnapStartProperty{
-//   		ApplyOn: jsii.String("applyOn"),
-//   	},
-//   	Tags: []CfnTag{
-//   		&CfnTag{
-//   			Key: jsii.String("key"),
-//   			Value: jsii.String("value"),
-//   		},
-//   	},
-//   	TenancyConfig: &TenancyConfigProperty{
-//   		TenantIsolationMode: jsii.String("tenantIsolationMode"),
-//   	},
-//   	Timeout: jsii.Number(123),
-//   	TracingConfig: &TracingConfigProperty{
-//   		Mode: jsii.String("mode"),
-//   	},
-//   	VpcConfig: &VpcConfigProperty{
-//   		Ipv6AllowedForDualStack: jsii.Boolean(false),
-//   		SecurityGroupIds: []*string{
-//   			jsii.String("securityGroupIds"),
-//   		},
-//   		SubnetIds: []*string{
-//   			jsii.String("subnetIds"),
-//   		},
-//   	},
-//   })
+//   	Role: role.RoleArn,
+//   }).With(mixins.NewFunctionRuntimeConfig(&FunctionRuntimeConfigProps{
+//   	RuntimeArn: jsii.String("arn:aws:lambda:us-east-1:123456789012:runtime/my-python-runtime"),
+//   	RuntimeAlias: jsii.String("stable"),
+//   }))
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
 //
@@ -159,6 +57,8 @@ type CfnFunction interface {
 	awscdk.IInspectable
 	interfacesawslambda.IFunctionRef
 	awscdk.ITaggable
+	AcceleratorConfig() interface{}
+	SetAcceleratorConfig(val interface{})
 	// The instruction set architecture that the function supports.
 	Architectures() *[]*string
 	SetArchitectures(val *[]*string)
@@ -270,6 +170,8 @@ type CfnFunction interface {
 	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) . Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
 	Runtime() *string
 	SetRuntime(val *string)
+	RuntimeConfig() interface{}
+	SetRuntimeConfig(val interface{})
 	// Sets the runtime management configuration for a function's version.
 	RuntimeManagementConfig() interface{}
 	SetRuntimeManagementConfig(val interface{})
@@ -479,6 +381,16 @@ type jsiiProxy_CfnFunction struct {
 	internal.Type__awscdkIInspectable
 	internal.Type__interfacesawslambdaIFunctionRef
 	internal.Type__awscdkITaggable
+}
+
+func (j *jsiiProxy_CfnFunction) AcceleratorConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"acceleratorConfig",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnFunction) Architectures() *[]*string {
@@ -861,6 +773,16 @@ func (j *jsiiProxy_CfnFunction) Runtime() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFunction) RuntimeConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"runtimeConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFunction) RuntimeManagementConfig() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -998,6 +920,17 @@ func NewCfnFunction_Override(c CfnFunction, scope constructs.Construct, id *stri
 		"aws-cdk-lib.aws_lambda.CfnFunction",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetAcceleratorConfig(val interface{}) {
+	if err := j.validateSetAcceleratorConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"acceleratorConfig",
+		val,
 	)
 }
 
@@ -1225,6 +1158,17 @@ func (j *jsiiProxy_CfnFunction)SetRuntime(val *string) {
 	_jsii_.Set(
 		j,
 		"runtime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFunction)SetRuntimeConfig(val interface{}) {
+	if err := j.validateSetRuntimeConfigParameters(val); err != nil {
+		panic(err)
+	}
+	_jsii_.Set(
+		j,
+		"runtimeConfig",
 		val,
 	)
 }

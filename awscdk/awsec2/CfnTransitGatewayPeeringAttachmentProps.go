@@ -18,6 +18,10 @@ import (
 //   	TransitGatewayId: jsii.String("transitGatewayId"),
 //
 //   	// the properties below are optional
+//   	Options: &TransitGatewayPeeringAttachmentOptionsProperty{
+//   		AllowMultipathResilience: jsii.Boolean(false),
+//   		MultipathResilienceMode: jsii.String("multipathResilienceMode"),
+//   	},
 //   	Tags: []CfnTag{
 //   		&CfnTag{
 //   			Key: jsii.String("key"),
@@ -45,6 +49,9 @@ type CfnTransitGatewayPeeringAttachmentProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
 	//
 	TransitGatewayId interface{} `field:"required" json:"transitGatewayId" yaml:"transitGatewayId"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-options
+	//
+	Options interface{} `field:"optional" json:"options" yaml:"options"`
 	// The tags for the transit gateway peering attachment.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
 	//

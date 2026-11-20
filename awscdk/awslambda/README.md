@@ -282,12 +282,12 @@ To use `applicationLogLevelV2` and/or `systemLogLevelV2` you must set `loggingFo
 
 ### Log Group Creation Methods
 
-| Method | Description | Tag Propagation | Prop Injection | Aspects | Notes |
-|--------|-------------|-----------------|----------------|---------|-------|
-| **logRetention prop** | Legacy approach using Custom Resource | False | False | False | Does not support TPA |
-| **logGroup prop** | Explicitly supplied by user in CDK app | True | True | True | Full support for TPA |
-| **Lazy creation** | Lambda service creates logGroup on first invocation | False | False | False | Occurs when both logRetention and logGroup are undefined and USE_CDK_MANAGED_LAMBDA_LOGGROUP is false |
-| **USE_CDK_MANAGED_LAMBDA_LOGGROUP** | CDK Lambda function construct creates log group with default props | True | True | True | Feature flag must be enabled |
+| Method                              | Description                                                        | Tag Propagation | Prop Injection | Aspects | Notes                                                                                                 |
+| ----------------------------------- | ------------------------------------------------------------------ | --------------- | -------------- | ------- | ----------------------------------------------------------------------------------------------------- |
+| **logRetention prop**               | Legacy approach using Custom Resource                              | False           | False          | False   | Does not support TPA                                                                                  |
+| **logGroup prop**                   | Explicitly supplied by user in CDK app                             | True            | True           | True    | Full support for TPA                                                                                  |
+| **Lazy creation**                   | Lambda service creates logGroup on first invocation                | False           | False          | False   | Occurs when both logRetention and logGroup are undefined and USE_CDK_MANAGED_LAMBDA_LOGGROUP is false |
+| **USE_CDK_MANAGED_LAMBDA_LOGGROUP** | CDK Lambda function construct creates log group with default props | True            | True           | True    | Feature flag must be enabled                                                                          |
 
 *TPA: Tag propagation, Prop Injection, Aspects*
 
@@ -871,7 +871,7 @@ By default, permissions are granted to the capacity provider to manage instances
 
 ### Configuring Scaling Policies
 
-You can configure target tracking scaling policies to automatically scale your capacity provider based on CPU utilization:
+You can configure target tracking scaling policies to automatically scale your capacity provider based on CPU utilization, or on GPU utilization for GPU instance types (`TargetTrackingScalingPolicy.gpuUtilization()`, see [Lambda with Accelerator Configuration](#lambda-with-accelerator-configuration)):
 
 ```go
 import "github.com/aws/aws-cdk-go/awscdk"
@@ -1009,19 +1009,75 @@ Note that once you use a capacity provider in a function, it cannot be removed, 
 
 #### CapacityProviderFunctionOptions (addFunction method)
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| perExecutionEnvironmentMaxConcurrency | number | No | Maximum concurrent invokes per execution environment. |
-| executionEnvironmentMemoryGiBPerVCpu | number | No | Memory per VCPU in GiB. |
-| publishToLatestPublished | boolean | No | Whether to automatically publish to $LATEST.PUBLISHED version. |
-| latestPublishedScalingConfig | LatestPublishedScalingConfig | No | Scaling configuration for $LATEST.PUBLISHED version. |
+| Name                                  | Type                         | Required | Description                                                    |
+| ------------------------------------- | ---------------------------- | -------- | -------------------------------------------------------------- |
+| perExecutionEnvironmentMaxConcurrency | number                       | No       | Maximum concurrent invokes per execution environment.          |
+| executionEnvironmentMemoryGiBPerVCpu  | number                       | No       | Memory per VCPU in GiB.                                        |
+| publishToLatestPublished              | boolean                      | No       | Whether to automatically publish to $LATEST.PUBLISHED version. |
+| latestPublishedScalingConfig          | LatestPublishedScalingConfig | No       | Scaling configuration for $LATEST.PUBLISHED version.           |
 
 #### LatestPublishedScalingConfig
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| minExecutionEnvironments | number | No | Minimum execution environments for $LATEST.PUBLISHED version. |
-| maxExecutionEnvironments | number | No | Maximum execution environments for $LATEST.PUBLISHED version. |
+| Name                     | Type   | Required | Description                                                   |
+| ------------------------ | ------ | -------- | ------------------------------------------------------------- |
+| minExecutionEnvironments | number | No       | Minimum execution environments for $LATEST.PUBLISHED version. |
+| maxExecutionEnvironments | number | No       | Maximum execution environments for $LATEST.PUBLISHED version. |
+
+### Lambda with Accelerator Configuration
+
+Lambda functions using [Capacity Providers](#capacity-providers) can be configured with accelerator resources,
+such as GPUs. The `acceleratorConfig` property specifies the minimum amount of memory of each accelerator device
+exposed to the execution environment. Lambda might allocate more, depending on the accelerator instance types available.
+
+The capacity provider must allow GPU instance types on x86_64. It can scale on GPU utilization:
+
+```go
+import "github.com/aws/aws-cdk-go/awscdk"
+
+
+vpc := ec2.NewVpc(this, jsii.String("MyVpc"))
+securityGroup := ec2.NewSecurityGroup(this, jsii.String("SecurityGroup"), &SecurityGroupProps{
+	Vpc: Vpc,
+})
+
+gpuCapacityProvider := lambda.NewCapacityProvider(this, jsii.String("GpuCapacityProvider"), &CapacityProviderProps{
+	Subnets: vpc.PrivateSubnets,
+	SecurityGroups: []ISecurityGroup{
+		securityGroup,
+	},
+	Architectures: []Architecture{
+		lambda.Architecture_X86_64(),
+	},
+	InstanceTypeFilter: lambda.InstanceTypeFilter_Allow([]InstanceType{
+		ec2.InstanceType_Of(ec2.InstanceClass_G6, ec2.InstanceSize_XLARGE),
+	}),
+	ScalingOptions: lambda.ScalingOptions_Manual([]TargetTrackingScalingPolicy{
+		lambda.TargetTrackingScalingPolicy_GpuUtilization(jsii.Number(60)),
+	}),
+})
+
+fn := lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.Runtime_FROM_IMAGE(),
+	Handler: lambda.Handler_FROM_IMAGE(),
+	Code: lambda.Code_FromAssetImage(path.join(__dirname, jsii.String("lambda-handler"))),
+	MemorySize: jsii.Number(2048),
+	AcceleratorConfig: &AcceleratorConfig{
+		AcceleratorMemorySize: lambda.AcceleratorMemorySize_GIB_24(),
+	},
+})
+
+gpuCapacityProvider.AddFunction(fn)
+```
+
+**Important considerations:**
+
+* **Requires Capacity Provider**: Accelerator configuration is only supported for functions using a capacity provider. Use `capacityProvider.addFunction(fn)` to attach the function.
+* **Valid accelerator memory sizes**: 3, 6, 12, 16, 24, 48 GiB.
+* **Minimum memory size**: `memorySize` must be at least 2048 MiB when `acceleratorConfig` is set.
+* **Image package type only**: Only container image functions (`Runtime.FROM_IMAGE`) are supported.
+* **x86_64 only**: ARM64 architecture is not supported for GPU functions.
+* **Ephemeral storage**: LMI functions with accelerator configuration can support up to 32 GiB ephemeral storage (vs 10 GiB for LMI function without the configuration).
+* **Updates cause interruption**: Changing `acceleratorConfig` on an existing function updates it in place with some interruption.
 
 ### Capacity Provider Versions
 
@@ -1061,10 +1117,10 @@ capacityProvider.AddFunction(fn, &CapacityProviderFunctionOptions{
 
 #### VersionOptions (Capacity Provider Related Fields)
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| minExecutionEnvironments | number | No | Minimum execution environments to maintain for this version. |
-| maxExecutionEnvironments | number | No | Maximum execution environments allowed for this version. |
+| Name                     | Type   | Required | Description                                                  |
+| ------------------------ | ------ | -------- | ------------------------------------------------------------ |
+| minExecutionEnvironments | number | No       | Minimum execution environments to maintain for this version. |
+| maxExecutionEnvironments | number | No       | Maximum execution environments allowed for this version.     |
 
 ### Security and Encryption
 
@@ -1094,19 +1150,19 @@ capacityProvider := lambda.NewCapacityProvider(this, jsii.String("MyCapacityProv
 
 #### CapacityProviderProps
 
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
-| capacityProviderName | string | No | Name of the capacity provider. Must be unique within the AWS account and region. |
-| securityGroups | ISecurityGroup[] | Yes | Security groups to associate with EC2 instances. Up to 5 allowed. |
-| subnets | ISubnet[] | Yes | Subnets where the capacity provider can launch EC2 instances. 1-16 subnets supported. |
-| operatorRole | IRole | No | IAM role for Lambda to manage the capacity provider. Uses AWS Managed Policy AWSLambdaManagedEC2ResourceOperator by default. |
-| architectures | Architecture[] | No | Instruction set architecture for compute instances. |
-| instanceTypeFilter | InstanceTypeFilter | No | Filter for allowed or excluded instance types. |
-| maxVCpuCount | number | No | Maximum number of EC2 instances for scaling. |
-| scalingOptions | ScalingOptions | No | Scaling configuration including policies. |
-| kmsKey | IKey | No | KMS key for encrypting capacity provider data. |
-| logGroup | ILogGroup | No | CloudWatch log group for capacity provider system logs. |
-| systemLogLevel | SystemLogLevel | No | Level of detail for capacity provider system logs (DEBUG, INFO, WARN). |
+| Name                 | Type               | Required | Description                                                                                                                  |
+| -------------------- | ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| capacityProviderName | string             | No       | Name of the capacity provider. Must be unique within the AWS account and region.                                             |
+| securityGroups       | ISecurityGroup[]   | Yes      | Security groups to associate with EC2 instances. Up to 5 allowed.                                                            |
+| subnets              | ISubnet[]          | Yes      | Subnets where the capacity provider can launch EC2 instances. 1-16 subnets supported.                                        |
+| operatorRole         | IRole              | No       | IAM role for Lambda to manage the capacity provider. Uses AWS Managed Policy AWSLambdaManagedEC2ResourceOperator by default. |
+| architectures        | Architecture[]     | No       | Instruction set architecture for compute instances.                                                                          |
+| instanceTypeFilter   | InstanceTypeFilter | No       | Filter for allowed or excluded instance types.                                                                               |
+| maxVCpuCount         | number             | No       | Maximum number of EC2 instances for scaling.                                                                                 |
+| scalingOptions       | ScalingOptions     | No       | Scaling configuration including policies.                                                                                    |
+| kmsKey               | IKey               | No       | KMS key for encrypting capacity provider data.                                                                               |
+| logGroup             | ILogGroup          | No       | CloudWatch log group for capacity provider system logs.                                                                      |
+| systemLogLevel       | SystemLogLevel     | No       | Level of detail for capacity provider system logs (DEBUG, INFO, WARN).                                                       |
 
 ## Lambda Insights
 
@@ -1300,6 +1356,61 @@ fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourcePro
 	},
 }))
 ```
+
+#### Defining event filter criteria
+
+Wrap each event pattern with `FilterCriteria.filter()`. It serializes the pattern
+into the `Pattern` string required by the event source mapping. Use `FilterRule`
+helpers to construct comparisons for the fields in that pattern:
+
+* Fields within one pattern are combined with AND.
+* `FilterRule.or()` matches any of the supplied string values for one field.
+* Separate entries in `filters` are combined with OR.
+
+For example, the following DynamoDB stream filter accepts an `INSERT` or `MODIFY`
+event only when the new item's `status` string begins with `approved`:
+
+```go
+import eventsources "github.com/aws/aws-cdk-go/awscdk"
+import dynamodb "github.com/aws/aws-cdk-go/awscdk"
+
+var fn Function
+var table Table
+
+
+fn.AddEventSource(eventsources.NewDynamoEventSource(table, &DynamoEventSourceProps{
+	StartingPosition: lambda.StartingPosition_LATEST,
+	Filters: []map[string]interface{}{
+		lambda.FilterCriteria_Filter(map[string]interface{}{
+			"eventName": lambda.FilterRule_or(jsii.String("INSERT"), jsii.String("MODIFY")),
+			"dynamodb": map[string]map[string]map[string][]map[string]*string{
+				"NewImage": map[string]map[string][]map[string]*string{
+					"status": map[string][]map[string]*string{
+						"S": lambda.FilterRule_beginsWith(jsii.String("approved")),
+					},
+				},
+			},
+		}),
+	},
+}))
+```
+
+This produces the following `FilterCriteria` property:
+
+```json
+{
+  "Filters": [{
+    "Pattern": "{\"eventName\":[\"INSERT\",\"MODIFY\"],\"dynamodb\":{\"NewImage\":{\"status\":{\"S\":[{\"prefix\":\"approved\"}]}}}}"
+  }]
+}
+```
+
+Use field names and data types that match the event source's record format.
+For DynamoDB, the example requires a stream view that includes the new image,
+such as `StreamViewType.NEW_IMAGE`. Other sources use different data fields,
+for example `body` for SQS and `data` for Kinesis. See
+[Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html)
+for comparison operators and event source behavior.
 
 By default, Lambda will encrypt Filter Criteria using AWS managed keys. But if you want to use a self managed KMS key to encrypt the filters, You can specify the self managed key using the `filterEncryption` property.
 
@@ -2170,16 +2281,46 @@ lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 })
 ```
 
-Runtimes expose a `bundlingImage` property that points to the [AWS SAM](https://github.com/awslabs/aws-sam-cli) build image.
+Runtimes expose a `bundlingImage` property that points to an
+[AWS SAM build image](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-image-repositories.html).
+Unless a runtime is created with a custom bundling image, it references the image without a tag (`:latest`), so the
+image version used depends on what is
+published and what is cached locally, and can change independently of the AWS CDK version. If your build depends on
+specific tool versions, select an explicit image tag:
+
+```go
+lambda.NewFunction(this, jsii.String("JavaFunction"), &FunctionProps{
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("my-java-handler")), &AssetOptions{
+		Bundling: &BundlingOptions{
+			Image: awscdk.DockerImage_FromRegistry(jsii.String("public.ecr.aws/sam/build-java21:1.153")),
+			 // example: the last image with Gradle 8.x
+			Command: []*string{
+				jsii.String("bash"),
+				jsii.String("-c"),
+				jsii.String("gradle build && cp build/distributions/*.zip /asset-output/"),
+			},
+		},
+	}),
+	Runtime: lambda.Runtime_JAVA_21(),
+	Handler: jsii.String("com.example.Handler::handleRequest"),
+})
+```
+
+SAM build image tags follow AWS SAM CLI releases. Choose a tag that contains the tools your build requires, and update
+the pinned image regularly to receive tool and security updates. Tags can be re-pushed, so if you need a fully
+reproducible build, pin the image by digest instead (`public.ecr.aws/sam/build-java21@sha256:<digest>`). The bundling
+image is part of the asset hash, so changing the pinned tag or digest updates the function code on the next deployment,
+even if your source code is unchanged.
 
 Use `cdk.DockerImage.fromRegistry(image)` to use an existing image or
-`cdk.DockerImage.fromBuild(path)` to build a specific image:
+`cdk.DockerImage.fromBuildV2(path)` to build a specific image. The image is only
+built when the asset is bundled:
 
 ```go
 lambda.NewFunction(this, jsii.String("Function"), &FunctionProps{
 	Code: lambda.Code_FromAsset(jsii.String("/path/to/handler"), &AssetOptions{
 		Bundling: &BundlingOptions{
-			Image: awscdk.DockerImage_FromBuild(jsii.String("/path/to/dir/with/DockerFile"), &DockerBuildOptions{
+			Image: awscdk.DockerImage_FromBuildV2(jsii.String("/path/to/dir/with/DockerFile"), &DockerBuildOptions{
 				BuildArgs: map[string]*string{
 					"ARG1": jsii.String("value1"),
 				},
@@ -2258,6 +2399,44 @@ lambda.NewFunction(this, jsii.String("Lambda"), &FunctionProps{
 	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
 })
 ```
+
+## Customer-managed runtimes
+
+A customer-managed runtime is a Lambda runtime
+that you publish and version yourself from a container image, instead of using a Lambda-managed runtime such as `nodejs22.x`.
+The runtime is identified by its ARN, and a runtime *alias* (for example `stable`) selects which published version the
+function runs on. Moving the alias to a new version rolls every function on that alias that uses the default `AUTO` runtime
+management mode forward on its next cold start, with no function redeploy.
+
+To run a function on a customer-managed runtime, use the `custom` runtime and apply the
+[`FunctionRuntimeConfig` mixin](#functionruntimeconfig), which names the runtime and alias:
+
+```go
+lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.NewRuntime(jsii.String("custom"), lambda.RuntimeFamily_OTHER),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+}).With(mixins.NewFunctionRuntimeConfig(&FunctionRuntimeConfigProps{
+	RuntimeArn: jsii.String("arn:aws:lambda:us-east-1:123456789012:runtime/my-python-runtime"),
+	RuntimeAlias: jsii.String("stable"),
+}))
+```
+
+**Considerations:**
+
+* `runtimeArn` and `runtimeAlias` are both required.
+* The function's runtime must be `custom`; the mixin reports any other runtime as an error at synthesis time. A runtime
+  that is only known at deployment, such as a `CfnParameter` value, isn't checked. A function that uses the `custom`
+  runtime without the mixin is rejected by the service at deployment.
+* The mixin cannot be used with a container image function (`Runtime.FROM_IMAGE`); the image supplies its own runtime.
+* Inline code (`Code.fromInline`) and SnapStart are not supported with the `custom` runtime. Use an asset, bucket, or
+  Docker-built asset for the code.
+* Layers are checked against `compatibleRuntimes` at synthesis time, as for any other runtime. A layer that lists
+  compatible runtimes must include a `custom` runtime built the same way as the function's, for example
+  `new lambda.Runtime('custom', lambda.RuntimeFamily.OTHER)`; runtimes are matched on name, family, and inline-code
+  support. Layers without `compatibleRuntimes`, and layers imported with `LayerVersion.fromLayerVersionArn`, are accepted.
+* Which runtime versions and architectures a runtime supports, and whether the calling account may use it, are validated
+  by the service at deployment time.
 
 ## Exclude Patterns for Assets
 
@@ -2902,3 +3081,45 @@ revisions, use the L1 constructs (`CfnWebFunction`, `CfnWebFunctionRevision` and
 
 Metrics are not modeled yet. The endpoint publishes them in the `AWS/Lambda/Web` namespace with
 the `FunctionName` and `EndpointName` dimensions; use `cloudwatch.Metric` to reference them.
+
+## Mixins
+
+Lambda provides [mixins](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib-readme.html#mixins) that can be applied to L1 and L2 constructs.
+
+### FunctionRuntimeConfig
+
+Runs a function on a [customer-managed runtime](#customer-managed-runtimes) by setting its `RuntimeConfig`. The function's
+runtime must be `custom`:
+
+```go
+var role IRole
+lambda.NewFunction(this, jsii.String("MyFunction"), &FunctionProps{
+	Runtime: lambda.NewRuntime(jsii.String("custom"), lambda.RuntimeFamily_OTHER),
+	Handler: jsii.String("index.handler"),
+	Code: lambda.Code_FromAsset(path.join(__dirname, jsii.String("lambda-handler"))),
+}).With(mixins.NewFunctionRuntimeConfig(&FunctionRuntimeConfigProps{
+	RuntimeArn: jsii.String("arn:aws:lambda:us-east-1:123456789012:runtime/my-python-runtime"),
+	RuntimeAlias: jsii.String("stable"),
+}))
+lambda.NewCfnFunction(this, jsii.String("MyCfnFunction"), &CfnFunctionProps{
+	Runtime: jsii.String("custom"),
+	Handler: jsii.String("index.handler"),
+	Code: &CodeProperty{
+		S3Bucket: jsii.String("my-bucket"),
+		S3Key: jsii.String("function.zip"),
+	},
+	Role: role.RoleArn,
+}).With(mixins.NewFunctionRuntimeConfig(&FunctionRuntimeConfigProps{
+	RuntimeArn: jsii.String("arn:aws:lambda:us-east-1:123456789012:runtime/my-python-runtime"),
+	RuntimeAlias: jsii.String("stable"),
+}))
+```
+
+Applying the mixin:
+
+* Sets `RuntimeConfig` on the function, replacing any existing `RuntimeConfig`.
+* Fails synthesis if the function's runtime is not `custom`, or if the function is a container image function. The check
+  runs at synthesis, so a runtime set after the mixin is applied is also checked. A runtime that is only known at
+  deployment isn't checked.
+* Applies to every function in the scope it is applied to, so apply it to the function rather than to a stack.
+* Leaves the runtime's versions, architectures, and account access to be validated by the service at deployment.

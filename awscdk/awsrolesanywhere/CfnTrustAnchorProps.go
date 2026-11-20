@@ -22,6 +22,7 @@ import (
 //   	},
 //
 //   	// the properties below are optional
+//   	CrlDpRevocationEnabled: jsii.Boolean(false),
 //   	Enabled: jsii.Boolean(false),
 //   	NotificationSettings: []interface{}{
 //   		&NotificationSettingProperty{
@@ -52,6 +53,9 @@ type CfnTrustAnchorProps struct {
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-source
 	//
 	Source interface{} `field:"required" json:"source" yaml:"source"`
+	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-crldprevocationenabled
+	//
+	CrlDpRevocationEnabled interface{} `field:"optional" json:"crlDpRevocationEnabled" yaml:"crlDpRevocationEnabled"`
 	// Indicates whether the trust anchor is enabled.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html#cfn-rolesanywhere-trustanchor-enabled
 	//

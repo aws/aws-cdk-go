@@ -50,6 +50,15 @@ package awsbedrockagentcore
 //   		Headers: map[string]*string{
 //   			"headersKey": jsii.String("headers"),
 //   		},
+//   		OutboundAuth: &HarnessRemoteMcpOutboundAuthProperty{
+//   			AwsIam: &IamCredentialProviderProperty{
+//   				Service: jsii.String("service"),
+//
+//   				// the properties below are optional
+//   				Region: jsii.String("region"),
+//   			},
+//   			None: none,
+//   		},
 //   	},
 //   }
 //

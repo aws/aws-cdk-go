@@ -17,31 +17,31 @@ import (
 //
 //   conditionBuilder := bedrock_agentcore_alpha.NewConditionBuilder()
 //
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type ConditionBuilder interface {
 	// Logical AND operator - all conditions must be true.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	And() ConditionBuilder
 	// Access a context attribute for comparison.
 	//
 	// Context attributes come from the request environment.
 	// Common attributes: sourceIp, timestamp, environment, region, etc.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ContextAttribute(attribute *string) AttributeAccessor
 	// Logical OR operator - at least one condition must be true.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Or() ConditionBuilder
 	// Access a principal attribute for comparison.
 	//
 	// Principal attributes come from the authenticated user/service making the request.
 	// Common attributes: username, role, department, groups, etc.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PrincipalAttribute(attribute *string) AttributeAccessor
 	// Access a resource attribute for comparison.
 	//
 	// Resource attributes come from the target resource being accessed.
 	// Common attributes: arn, type, tags, owner, etc.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ResourceAttribute(attribute *string) AttributeAccessor
 }
 
@@ -50,7 +50,7 @@ type jsiiProxy_ConditionBuilder struct {
 	_ byte // padding
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewConditionBuilder() ConditionBuilder {
 	_init_.Initialize()
 
@@ -65,7 +65,7 @@ func NewConditionBuilder() ConditionBuilder {
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 func NewConditionBuilder_Override(c ConditionBuilder) {
 	_init_.Initialize()
 

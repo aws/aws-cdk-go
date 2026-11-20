@@ -15,50 +15,50 @@ import (
 // Minimal reference interface for Policy resources.
 //
 // Used for resource identification and ARN construction.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IPolicy interface {
 	awsiam.IGrantable
 	interfacesawsbedrockagentcore.IPolicyRef
 	awscdk.IResource
 	// Grants IAM actions to the IAM Principal.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants read permissions on the Policy (data plane).
 	//
 	// This grants runtime read access to policy configuration. Use this for monitoring,
 	// audit, or read-only administrative roles that need to inspect policy definitions.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this policy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the evaluation latency for this policy.
 	//
 	// This metric represents the time taken to evaluate this specific policy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricEvaluationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the total number of evaluations for this policy.
 	//
 	// This metric tracks how many times this policy has been evaluated.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricEvaluations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The description of the policy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description() *string
 	// The ARN of the policy resource.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyArn() *string
 	// The policy engine this policy belongs to.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyEngine() IPolicyEngine
 	// The ID of the policy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyId() *string
 	// The name of the policy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyName() *string
 	// The validation mode for the policy.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	ValidationMode() PolicyValidationMode
 }
 

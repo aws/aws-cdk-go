@@ -25,6 +25,10 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnTransitGatewayPeeringAttachmentPropsMixin := awscdkcfnpropertymixins.Aws_ec2.NewCfnTransitGatewayPeeringAttachmentPropsMixin(&CfnTransitGatewayPeeringAttachmentMixinProps{
+//   	Options: &TransitGatewayPeeringAttachmentOptionsProperty{
+//   		AllowMultipathResilience: jsii.Boolean(false),
+//   		MultipathResilienceMode: jsii.String("multipathResilienceMode"),
+//   	},
 //   	PeerAccountId: jsii.String("peerAccountId"),
 //   	PeerRegion: jsii.String("peerRegion"),
 //   	PeerTransitGatewayId: jsii.String("peerTransitGatewayId"),

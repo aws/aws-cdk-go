@@ -104,3 +104,22 @@ func TargetTrackingScalingPolicy_CpuUtilization(targetCpuUtilization *float64) T
 	return returns
 }
 
+// Creates a target tracking scaling policy for GPU utilization.
+func TargetTrackingScalingPolicy_GpuUtilization(targetGpuUtilization *float64) TargetTrackingScalingPolicy {
+	_init_.Initialize()
+
+	if err := validateTargetTrackingScalingPolicy_GpuUtilizationParameters(targetGpuUtilization); err != nil {
+		panic(err)
+	}
+	var returns TargetTrackingScalingPolicy
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_lambda.TargetTrackingScalingPolicy",
+		"gpuUtilization",
+		[]interface{}{targetGpuUtilization},
+		&returns,
+	)
+
+	return returns
+}
+

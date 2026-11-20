@@ -21,6 +21,7 @@ import (
 //   var mergeStrategy IMergeStrategy
 //
 //   cfnTrustAnchorPropsMixin := awscdkcfnpropertymixins.Aws_rolesanywhere.NewCfnTrustAnchorPropsMixin(&CfnTrustAnchorMixinProps{
+//   	CrlDpRevocationEnabled: jsii.Boolean(false),
 //   	Enabled: jsii.Boolean(false),
 //   	Name: jsii.String("name"),
 //   	NotificationSettings: []interface{}{

@@ -22,6 +22,7 @@ import (
 //
 //   var automatic interface{}
 //   var mergeStrategy IMergeStrategy
+//   var public_ interface{}
 //
 //   cfnFlowOutputPropsMixin := awscdkcfnpropertymixins.Aws_mediaconnect.NewCfnFlowOutputPropsMixin(&CfnFlowOutputMixinProps{
 //   	CidrAllowList: []*string{
@@ -76,6 +77,16 @@ import (
 //   			},
 //   		},
 //   		EncryptionKeyType: jsii.String("encryptionKeyType"),
+//   	},
+//   	RtmpPushSettings: &RtmpPushSettingsProperty{
+//   		ApplicationName: jsii.String("applicationName"),
+//   		StreamName: jsii.String("streamName"),
+//   		TlsEncryption: &TlsEncryptionProperty{
+//   			EncryptionConfiguration: &TlsEncryptionConfigurationProperty{
+//   				Public: public_,
+//   			},
+//   			EncryptionType: jsii.String("encryptionType"),
+//   		},
 //   	},
 //   	SmoothingLatency: jsii.Number(123),
 //   	StreamId: jsii.String("streamId"),

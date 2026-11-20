@@ -30,8 +30,6 @@ import (
 //   }))
 //
 type DynamoEventSourceProps struct {
-	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -66,6 +64,14 @@ type DynamoEventSourceProps struct {
 	// Default: - no provisioned pollers.
 	//
 	ProvisionedPollerConfig *ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`
+	// Where to begin consuming the stream.
+	//
+	// Required for DynamoDB, Kinesis and Amazon MSK event sources, and for self-managed Kafka
+	// event sources unless `consumptionMode` is `KafkaConsumptionMode.QUEUE`. Not supported in
+	// queue mode.
+	// Default: - no starting position; synthesis fails if the event source requires one.
+	//
+	StartingPosition awslambda.StartingPosition `field:"optional" json:"startingPosition" yaml:"startingPosition"`
 	// If the function returns an error, split the batch in two and retry.
 	// Default: false.
 	//

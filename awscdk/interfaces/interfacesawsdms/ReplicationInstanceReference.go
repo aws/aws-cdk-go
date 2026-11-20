@@ -10,13 +10,10 @@ package interfacesawsdms
 //
 //   replicationInstanceReference := &ReplicationInstanceReference{
 //   	ReplicationInstanceArn: jsii.String("replicationInstanceArn"),
-//   	ReplicationInstanceId: jsii.String("replicationInstanceId"),
 //   }
 //
 type ReplicationInstanceReference struct {
-	// The ARN of the ReplicationInstance resource.
+	// The ReplicationInstanceArn of the ReplicationInstance resource.
 	ReplicationInstanceArn *string `field:"required" json:"replicationInstanceArn" yaml:"replicationInstanceArn"`
-	// The Id of the ReplicationInstance resource.
-	ReplicationInstanceId *string `field:"required" json:"replicationInstanceId" yaml:"replicationInstanceId"`
 }
 

@@ -15,9 +15,6 @@ import (
 //   import "github.com/aws/aws-cdk-go/awscdk"
 //
 //   baseStreamEventSourceProps := &BaseStreamEventSourceProps{
-//   	StartingPosition: awscdk.Aws_lambda.StartingPosition_TRIM_HORIZON,
-//
-//   	// the properties below are optional
 //   	BatchSize: jsii.Number(123),
 //   	Enabled: jsii.Boolean(false),
 //   	MaxBatchingWindow: cdk.Duration_Minutes(jsii.Number(30)),
@@ -26,11 +23,10 @@ import (
 //   		MinimumPollers: jsii.Number(123),
 //   		PollerGroupName: jsii.String("pollerGroupName"),
 //   	},
+//   	StartingPosition: awscdk.Aws_lambda.StartingPosition_TRIM_HORIZON,
 //   }
 //
 type BaseStreamEventSourceProps struct {
-	// Where to begin consuming the stream.
-	StartingPosition awslambda.StartingPosition `field:"required" json:"startingPosition" yaml:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -65,5 +61,13 @@ type BaseStreamEventSourceProps struct {
 	// Default: - no provisioned pollers.
 	//
 	ProvisionedPollerConfig *ProvisionedPollerConfig `field:"optional" json:"provisionedPollerConfig" yaml:"provisionedPollerConfig"`
+	// Where to begin consuming the stream.
+	//
+	// Required for DynamoDB, Kinesis and Amazon MSK event sources, and for self-managed Kafka
+	// event sources unless `consumptionMode` is `KafkaConsumptionMode.QUEUE`. Not supported in
+	// queue mode.
+	// Default: - no starting position; synthesis fails if the event source requires one.
+	//
+	StartingPosition awslambda.StartingPosition `field:"optional" json:"startingPosition" yaml:"startingPosition"`
 }
 

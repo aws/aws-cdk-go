@@ -112,6 +112,10 @@ func (j *jsiiProxy_CfnGateway) validateSetAuthorizerTypeParameters(val *string) 
 	return nil
 }
 
+func (j *jsiiProxy_CfnGateway) validateSetDomainOverrideParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnGateway) validateSetInterceptorConfigurationsParameters(val interface{}) error {
 	return nil
 }

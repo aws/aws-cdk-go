@@ -14,20 +14,20 @@ import (
 )
 
 // Contains all properties and methods for both created and imported policy engines.
-// Experimental.
+// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 type IPolicyEngine interface {
 	awsiam.IGrantable
 	interfacesawsbedrockagentcore.IPolicyEngineRef
 	awscdk.IResource
 	// Grants IAM actions to the IAM Principal.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grants permissions to evaluate policies at runtime .
 	//
 	// This is the primary permission needed by Gateway execution roles to evaluate
 	// authorization decisions during agent requests. Grant this to roles that need
 	// to call AuthorizeAction or PartiallyAuthorizeActions.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantEvaluate(grantee awsiam.IGrantable) awsiam.Grant
 	// Grants the full set of permissions required for a gateway execution role to use this policy engine, correctly scoped to both the policy engine and gateway ARNs.
 	//
@@ -36,46 +36,46 @@ type IPolicyEngine interface {
 	// `GetPolicyEngine` only needs the policy engine ARN.
 	//
 	// This follows the same pattern as Lambda's `grantInvokeVersion(grantee, version)`.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantEvaluateForGateway(grantee awsiam.IGrantable, gateway IGateway) awsiam.Grant
 	// Grants read permissions on the PolicyEngine.
 	//
 	// This grants runtime read access to policy engine configuration. Use this for
 	// monitoring, observability, or read-only administrative roles.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this policy engine.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Metric(metricName *string, dimensions *map[string]*string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric measuring the authorization latency for this policy engine.
 	//
 	// This metric represents the time taken to evaluate authorization policies.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricAuthorizationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of denied authorization requests for this policy engine.
 	//
 	// This metric tracks authorization requests that were explicitly denied by policies.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricDeniedRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Return a metric containing the number of errors during authorization for this policy engine.
 	//
 	// This metric tracks errors encountered during policy evaluation.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The description of the policy engine.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	Description() *string
 	// The KMS key used for encryption.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	KmsKey() awskms.IKey
 	// The ARN of the policy engine resource.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyEngineArn() *string
 	// The ID of the policy engine.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyEngineId() *string
 	// The name of the policy engine.
-	// Experimental.
+	// Deprecated: Use the equivalent construct from `aws-cdk-lib/aws-bedrockagentcore` instead.
 	PolicyEngineName() *string
 }
 

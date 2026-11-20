@@ -60,6 +60,7 @@ import (
 //   				VolumeSize: jsii.Number(123),
 //   			},
 //   		},
+//   		TopicReassignment: jsii.String("topicReassignment"),
 //   	},
 //   	ClientAuthentication: &ClientAuthenticationProperty{
 //   		Sasl: &SaslProperty{

@@ -463,6 +463,43 @@ func init() {
 		"aws-cdk-lib.CfnConditionProps",
 		reflect.TypeOf((*CfnConditionProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.CfnContextMutability",
+		reflect.TypeOf((*CfnContextMutability)(nil)).Elem(),
+		map[string]interface{}{
+			"MUST_NEVER_CHANGE": CfnContextMutability_MUST_NEVER_CHANGE,
+			"CHANGE_WITH_CONSTRAINTS": CfnContextMutability_CHANGE_WITH_CONSTRAINTS,
+			"REVIEW_REQUIRED": CfnContextMutability_REVIEW_REQUIRED,
+			"FREE_TO_TUNE": CfnContextMutability_FREE_TO_TUNE,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CfnContextRef",
+		reflect.TypeOf((*CfnContextRef)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CfnContextTrust",
+		reflect.TypeOf((*CfnContextTrust)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.CfnContextTrustConfidence",
+		reflect.TypeOf((*CfnContextTrustConfidence)(nil)).Elem(),
+		map[string]interface{}{
+			"HIGH": CfnContextTrustConfidence_HIGH,
+			"MEDIUM": CfnContextTrustConfidence_MEDIUM,
+			"LOW": CfnContextTrustConfidence_LOW,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.CfnContextTrustSource",
+		reflect.TypeOf((*CfnContextTrustSource)(nil)).Elem(),
+		map[string]interface{}{
+			"AUTHORED": CfnContextTrustSource_AUTHORED,
+			"COMMENT": CfnContextTrustSource_COMMENT,
+			"COMMIT": CfnContextTrustSource_COMMIT,
+			"INFER": CfnContextTrustSource_INFER,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.CfnCreationPolicy",
 		reflect.TypeOf((*CfnCreationPolicy)(nil)).Elem(),
@@ -1586,6 +1623,25 @@ func init() {
 		"aws-cdk-lib.CfnResourceDefaultVersionProps",
 		reflect.TypeOf((*CfnResourceDefaultVersionProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.CfnResourceMetadataContext",
+		reflect.TypeOf((*CfnResourceMetadataContext)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "clear", GoMethod: "Clear"},
+			_jsii_.MemberMethod{JsiiMethod: "set", GoMethod: "Set"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnResourceMetadataContext{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CfnResourceMetadataContextOptions",
+		reflect.TypeOf((*CfnResourceMetadataContextOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CfnResourceMetadataContextProps",
+		reflect.TypeOf((*CfnResourceMetadataContextProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.CfnResourceProps",
 		reflect.TypeOf((*CfnResourceProps)(nil)).Elem(),
@@ -1862,6 +1918,21 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.CfnTag",
 		reflect.TypeOf((*CfnTag)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.CfnTemplateMetadataContext",
+		reflect.TypeOf((*CfnTemplateMetadataContext)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "clear", GoMethod: "Clear"},
+			_jsii_.MemberMethod{JsiiMethod: "set", GoMethod: "Set"},
+		},
+		func() interface{} {
+			return &jsiiProxy_CfnTemplateMetadataContext{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.CfnTemplateMetadataContextProps",
+		reflect.TypeOf((*CfnTemplateMetadataContextProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.CfnTrafficRoute",
@@ -2340,6 +2411,7 @@ func init() {
 		"aws-cdk-lib.DockerImage",
 		reflect.TypeOf((*DockerImage)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "buildImage", GoMethod: "BuildImage"},
 			_jsii_.MemberMethod{JsiiMethod: "cp", GoMethod: "Cp"},
 			_jsii_.MemberProperty{JsiiProperty: "image", GoGetter: "Image"},
 			_jsii_.MemberMethod{JsiiMethod: "run", GoMethod: "Run"},

@@ -155,4 +155,32 @@ func init() {
 		"@aws-cdk/cfn-property-mixins.aws_sso.CfnPermissionSetPropsMixin.PermissionsBoundaryProperty",
 		reflect.TypeOf((*CfnPermissionSetPropsMixin_PermissionsBoundaryProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sso.CfnTrustedTokenIssuerMixinProps",
+		reflect.TypeOf((*CfnTrustedTokenIssuerMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_sso.CfnTrustedTokenIssuerPropsMixin",
+		reflect.TypeOf((*CfnTrustedTokenIssuerPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTrustedTokenIssuerPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sso.CfnTrustedTokenIssuerPropsMixin.OidcJwtConfigurationProperty",
+		reflect.TypeOf((*CfnTrustedTokenIssuerPropsMixin_OidcJwtConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_sso.CfnTrustedTokenIssuerPropsMixin.TrustedTokenIssuerConfigurationProperty",
+		reflect.TypeOf((*CfnTrustedTokenIssuerPropsMixin_TrustedTokenIssuerConfigurationProperty)(nil)).Elem(),
+	)
 }

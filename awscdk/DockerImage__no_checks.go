@@ -16,6 +16,10 @@ func validateDockerImage_FromBuildParameters(path *string, options *DockerBuildO
 	return nil
 }
 
+func validateDockerImage_FromBuildV2Parameters(path *string, options *DockerBuildOptions) error {
+	return nil
+}
+
 func validateDockerImage_FromRegistryParameters(image *string) error {
 	return nil
 }

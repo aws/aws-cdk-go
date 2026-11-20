@@ -556,6 +556,66 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFcaPolicyAssociationMixinProps",
+		reflect.TypeOf((*CfnFcaPolicyAssociationMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFcaPolicyAssociationPropsMixin",
+		reflect.TypeOf((*CfnFcaPolicyAssociationPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFcaPolicyAssociationPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFcaPolicyMixinProps",
+		reflect.TypeOf((*CfnFcaPolicyMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFcaPolicyPropsMixin",
+		reflect.TypeOf((*CfnFcaPolicyPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnFcaPolicyPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFcaPolicyPropsMixin.CidrMappingProperty",
+		reflect.TypeOf((*CfnFcaPolicyPropsMixin_CidrMappingProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFcaPolicyPropsMixin.CidrRangeSpecificationsProperty",
+		reflect.TypeOf((*CfnFcaPolicyPropsMixin_CidrRangeSpecificationsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFcaPolicyPropsMixin.InstanceFcaPolicyDocumentProperty",
+		reflect.TypeOf((*CfnFcaPolicyPropsMixin_InstanceFcaPolicyDocumentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFcaPolicyPropsMixin.NatFcaPolicyDocumentProperty",
+		reflect.TypeOf((*CfnFcaPolicyPropsMixin_NatFcaPolicyDocumentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFcaPolicyPropsMixin.PcxFcaPolicyDocumentProperty",
+		reflect.TypeOf((*CfnFcaPolicyPropsMixin_PcxFcaPolicyDocumentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnFlowLogMixinProps",
 		reflect.TypeOf((*CfnFlowLogMixinProps)(nil)).Elem(),
 	)
@@ -2752,6 +2812,26 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayNetworkFunctionAttachmentMixinProps",
+		reflect.TypeOf((*CfnTransitGatewayNetworkFunctionAttachmentMixinProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayNetworkFunctionAttachmentPropsMixin",
+		reflect.TypeOf((*CfnTransitGatewayNetworkFunctionAttachmentPropsMixin)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyTo", GoMethod: "ApplyTo"},
+			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
+			_jsii_.MemberProperty{JsiiProperty: "strategy", GoGetter: "Strategy"},
+			_jsii_.MemberMethod{JsiiMethod: "supports", GoMethod: "Supports"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnTransitGatewayNetworkFunctionAttachmentPropsMixin{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkMixin)
+			_jsii_.InitJsiiProxy(&j.Type__constructsIMixin)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayPeeringAttachmentMixinProps",
 		reflect.TypeOf((*CfnTransitGatewayPeeringAttachmentMixinProps)(nil)).Elem(),
 	)
@@ -2774,6 +2854,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayPeeringAttachmentPropsMixin.PeeringAttachmentStatusProperty",
 		reflect.TypeOf((*CfnTransitGatewayPeeringAttachmentPropsMixin_PeeringAttachmentStatusProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayPeeringAttachmentPropsMixin.TransitGatewayPeeringAttachmentOptionsProperty",
+		reflect.TypeOf((*CfnTransitGatewayPeeringAttachmentPropsMixin_TransitGatewayPeeringAttachmentOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/cfn-property-mixins.aws_ec2.CfnTransitGatewayPolicyTableAssociationMixinProps",

@@ -112,6 +112,10 @@ func validateCfnTrustAnchor_IsConstructParameters(x interface{}) error {
 	return nil
 }
 
+func (j *jsiiProxy_CfnTrustAnchor) validateSetCrlDpRevocationEnabledParameters(val interface{}) error {
+	return nil
+}
+
 func (j *jsiiProxy_CfnTrustAnchor) validateSetEnabledParameters(val interface{}) error {
 	return nil
 }
